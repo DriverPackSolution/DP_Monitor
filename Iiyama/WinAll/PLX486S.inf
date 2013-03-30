@@ -1,0 +1,72 @@
+;PLX486S.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH PLX486S
+;Copyright 2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLX486S.cat      
+DriverVer=7/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM4827
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLX486S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLX486S.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLX486S%=PLX486S.Install, Monitor\IVM4827
+
+[PLX486S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLX486S.AddReg, 1280, DPMS
+CopyFiles=PLX486S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLX486S.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLX486S.ICM"
+
+[PLX486S.CopyFiles]
+PLX486S.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLX486S="iiyama ProLite X486S"

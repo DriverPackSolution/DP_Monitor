@@ -1,0 +1,83 @@
+; NECFE7P.INF
+; Setup information file for NEC MultiSync FE700+ Monitor
+;
+; Copyright 2001, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NECFE7P.cat
+DriverVer=08/10/2001,1.08.0010.1831
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61BA
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-FE700P.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+necfe7p1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-FE700P%=NEC-FE700P.Install, Monitor\NEC61BA
+
+; Install Sections
+;-------------------------------------------------
+[NEC-FE700P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE700P.AddReg, 1280, DPMS
+CopyFiles=NEC-FE700P.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-FE700P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"necfe7p1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-FE700P.CopyFiles]
+NECFE7P1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-FE700P="NEC MultiSync FE700+"

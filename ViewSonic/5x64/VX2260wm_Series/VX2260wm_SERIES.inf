@@ -1,0 +1,74 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VX2260wm.cat
+DriverVer=06/07/2008, 1.5.1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2260wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2260wm_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCFC21
+
+[ViewSonic]   
+%VX2260wm%=VX2260wm.Install,Monitor\VSCFC21  
+
+[ViewSonic.NTx86]   
+%VX2260wm%=VX2260wm.Install,Monitor\VSCFC21
+
+[ViewSonic.NTAMD64]   
+%VX2260wm%=VX2260wm.Install,Monitor\VSCFC21 
+
+[VX2260wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2260wm.AddReg,1920,DPMS
+Copyfiles=VX2260wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2260wm.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-92,50-85,-,+" 
+HKR,,ICMProfile,0,"VX2260wm_SERIES.ICM"
+
+[VX2260wm.CopyFiles]                                       
+VX2260wm_SERIES.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+ViewSonic="ViewSonic"
+DiskLabel="VX2260wm SERIES ViewSonic Wizard"
+VX2260wm="ViewSonic VX2260wm SERIES"

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA1928WM_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/12/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1928WM.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1928WM_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCC721
+
+[ViewSonic]   
+%VA1928WM%=VA1928WM.Install,Monitor\VSCC721  
+
+[ViewSonic.NTia64]   
+%VA1928WM%=VA1928WM.Install,Monitor\VSCC721
+
+[ViewSonic.NTamd64]   
+%VA1928WM%=VA1928WM.Install,Monitor\VSCC721 
+
+[VA1928WM.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1928WM.AddReg,1440,DPMS
+Copyfiles=VA1928WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1928WM.AddReg]  
+HKR,"MODES\1440,900",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VA1928WM_SERIES.ICM"
+
+[VA1928WM.CopyFiles]                                       
+VA1928WM_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA1928wm Series ViewSonic Wizard"
+VA1928WM="ViewSonic VA1928wm Series"

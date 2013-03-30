@@ -1,0 +1,92 @@
+
+;==========================================================
+;IBM_T710.INF 06/29/2002 Ver. 1.1 
+;Copyright 1996-2002 IBM Computer Corporation
+;
+;This is a setupfile for the IBM Computer Monitors
+;
+;==========================================================
+;
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_T710.cat
+DriverVer=06/29/2002, 1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM19ED
+
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_T710.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM_T710.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%IBM%=IBM
+
+; Manufacturer sections
+;-------------------------------------------------
+[IBM] 
+%IBM_T710%=IBM_T710.Install, Monitor\IBM19ED
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[IBM_T710.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_T710.AddReg, 1280, DPMS
+CopyFiles=IBM_T710.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[IBM_T710.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"IBM_T710.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[IBM_T710.CopyFiles]
+IBM_T710.icm
+
+;------------------------------------------------------------------------------------------
+
+[Strings]
+DISK="IBM Flat Panel Monitor Installation disk"
+IBM="IBM"	
+IBM_T710="IBM T710 TFT Monitor"

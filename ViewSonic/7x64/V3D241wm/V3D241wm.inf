@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version] 
+CatalogFile=V3D241wm.cat   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/25/2010, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+V3D241wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+V3D241wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC9925
+
+[ViewSonic]   
+%V3D241wm%=V3D241wm.Install,Monitor\VSC9925  
+
+[ViewSonic.NTia64]   
+%V3D241wm%=V3D241wm.Install,Monitor\VSC9925  
+
+[ViewSonic.NTamd64]   
+%V3D241wm%=V3D241wm.Install,Monitor\VSC9925  
+
+[V3D241wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=V3D241wm.AddReg,1920,DPMS
+Copyfiles=V3D241wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V3D241wm.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-186,50-122,+,+" 
+HKR,,ICMProfile,0,"V3D241wm.ICM"
+
+[V3D241wm.CopyFiles]                                       
+V3D241wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="V3D241wm ViewSonic Wizard"
+V3D241wm="ViewSonic V3D241wm"

@@ -1,0 +1,99 @@
+; Copyright (c) 2006 AOC International (Europe) GmbH
+
+;This is a setupfile for AOC
+;F1995+ Monitor 
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+CatalogFile=F1995+.cat
+DriverVer=04/17/2006, 1.0  
+
+;------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOCA990
+
+
+[DestinationDirs]
+DefaultDestDir=11
+F1995+.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+F1995+.icm=1
+
+
+; Manufacturers
+;------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,NTx86,NTAMD64,NTIA64
+
+
+; Manufacturer sections
+;-----------------------------------------------
+ [AOC] 
+%F1995+%=F1995+.Install, Monitor\AOCA990
+
+;-----------------------------------------------
+ [AOC.NTx86] 
+%F1995+%=F1995+.Install, Monitor\AOCA990
+;-----------------------------------------------
+ [AOC.NTAMD64] 
+%F1995+%=F1995+.Install, Monitor\AOCA990
+;-----------------------------------------------
+ [AOC.NTIA64] 
+%F1995+%=F1995+.Install, Monitor\AOCA990
+; Install Sections
+;-----------------------------------------------
+
+[F1995+.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=F1995+.AddReg, 1600, DPMS
+CopyFiles=F1995+.CopyFiles
+
+
+
+					     
+; common AddReg & DelReg sections
+;-----------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------------------------------------------
+
+[F1995+.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F1995+.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[F1995+.CopyFiles]
+F1995+.icm
+
+;---------------------------------------------------------------------------------------
+[Strings]
+DISK="AOC Monitor Installation Disk"
+AOC="AOC International (Europe) GmbH"	
+F1995+="AOC F1995+"
+

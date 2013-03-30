@@ -1,0 +1,115 @@
+;========================================== 
+; BenQT241W.INF 09/27/07 Ver. 2.1 
+; INF File for Windows 9x/2000/Me/XP/Vista
+; Copyright (c) 2007, BENQ Corporation
+;==========================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=T241W.cat
+DriverVer=09/27/2007,2.1
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ771B
+ExcludeFromSelect.NT=Monitor\BNQ771C
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+T241W_Analog.copyfiles = 23
+T241W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+BENQT241W_DSUB.ICM=1
+BENQT241W_HDMI.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%T241W_Analog%=T241W_Analog.Install, Monitor\BNQ771B
+%T241W_Digital%=T241W_Digital.Install, Monitor\BNQ771C
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%T241W_Analog%=T241W_Analog.Install, Monitor\BNQ771B
+%T241W_Digital%=T241W_Digital.Install, Monitor\BNQ771C
+
+; Install Sections
+;-------------------------------------------------
+
+[T241W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T241W_Analog.AddReg, 1920, DPMS
+CopyFiles=T241W_Analog.CopyFiles
+
+[T241W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T241W_Digital.AddReg, 1920, DPMS
+CopyFiles=T241W_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[T241W_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"BenQT241W_DSUB.icm"
+
+[T241W_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"BenQT241W_HDMI.icm"
+
+[T241W_Analog.CopyFiles]
+BenQT241W_DSUB.ICM
+
+[T241W_Digital.CopyFiles]
+BenQT241W_HDMI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+T241W_Analog="BenQ T241W (Analog)"
+T241W_Digital="BenQ T241W (Digital)"
+
+

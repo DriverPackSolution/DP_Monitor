@@ -1,0 +1,87 @@
+; [L550.INF]
+; Revision 1.11
+; Copyright(c) 2003 EIZO NANAO CORPORATION All rights reserved.
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L550.cat
+DriverVer=10/23/2003,1.11
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENC1714
+ExcludeFromSelect.nt=Monitor\ENC1715
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L550D.CopyFiles = 23
+L550A.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L550.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L550D%=L550D.Install, Monitor\ENC1714
+%L550A%=L550A.Install, Monitor\ENC1715
+
+[L550D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L550D.AddReg, 1280, DPMS
+CopyFiles=L550D.CopyFiles
+
+[L550A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L550A.AddReg, 1280, DPMS
+CopyFiles=L550A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L550D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-64.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L550.icm"
+
+[L550A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-75.1,+,+"
+HKR,,ICMProfile,0,"L550.icm"
+
+[L550D.CopyFiles]
+L550.icm
+
+[L550A.CopyFiles]
+L550.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L550D="L550"
+L550A="L550"

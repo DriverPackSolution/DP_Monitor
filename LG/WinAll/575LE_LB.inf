@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [575LE_LB.INF]
+;
+;      Revision 1.3   April-14-2005
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=575LE_LB.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+575LE_LB.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+575LE_LB.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%575LE_LB%=575LE_LB, Monitor\GSM3B34
+
+[LG.NTamd64]
+%575LE_LB%=575LE_LB, Monitor\GSM3B34
+
+;------------------------------------; .Install
+
+[575LE_LB] 
+AddReg=575LE_LB.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=575LE_LB.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[575LE_LB.AddReg] 
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"575LE_LB.ICM"
+
+;------------------------------------; .CopyFiles
+
+[575LE_LB.CopyFiles]  
+575LE_LB.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM3B34
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+575LE_LB="LG 575LE / 575LB"

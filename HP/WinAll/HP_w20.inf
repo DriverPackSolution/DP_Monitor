@@ -1,0 +1,120 @@
+; ########################################################
+;
+;   HP_w20.inf          Ver. 3.00          12/1/2006
+;
+;   Copyright (c)2006, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP w20 Wide LCD Monitor.
+; 
+; ########################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_w20.cat
+DriverVer=12/01/2006,3.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\HWP26AA
+ExcludeFromSelect.nt = Monitor\HWP26AB
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+w20.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_w20.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%w20_A%=w20_A.Install, Monitor\HWP26AA
+%w20_D%=w20_D.Install, Monitor\HWP26AB
+
+[HP.NTamd64]
+%w20_A%=w20_A.Install.NTamd64, Monitor\HWP26AA
+%w20_D%=w20_D.Install.NTamd64, Monitor\HWP26AB
+
+[w20_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w20_A.AddReg, 1680, DPMS
+CopyFiles=w20.CopyFiles
+
+[w20_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w20_D.AddReg, 1680, DPMS
+CopyFiles=w20.CopyFiles
+
+[w20_A.Install.NTamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=w20_A.AddReg, 1680, DPMS
+CopyFiles=w20.CopyFiles
+
+[w20_D.Install.NTamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=w20_D.AddReg, 1680, DPMS
+CopyFiles=w20.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[w20_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-80.0,48-75,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-80.0,48-75,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-80.0,48-75,+,+"
+HKR,"MODES\1152,720",Mode1,,"24.0-80.0,48-75,-,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,48-75,+,+"
+HKR,"MODES\1440,900",Mode1,,"24.0-80.0,48-75,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24.0-80.0,48-75,-,+"
+HKR,"MODES\1680,1050",Mode1,,"24.0-80.0,48-75,-,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w20.icm"
+HKR,,PreferredMode,,"1680,1050,60"
+
+[w20_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-80.0,48-75,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-80.0,48-75,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-80.0,48-75,+,+"
+HKR,"MODES\1152,720",Mode1,,"24.0-80.0,48-75,-,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,48-75,+,+"
+HKR,"MODES\1440,900",Mode1,,"24.0-80.0,48-75,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24.0-80.0,48-75,-,+"
+HKR,"MODES\1680,1050",Mode1,,"24.0-80.0,48-75,-,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w20.icm"
+HKR,,PreferredMode,,"1680,1050,60"
+
+[w20.CopyFiles]
+HP_w20.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+w20_A="HP w20 Wide LCD Monitor"
+w20_D="HP w20 Wide LCD Monitor"
+Disk1="HP w20 Driver Software"

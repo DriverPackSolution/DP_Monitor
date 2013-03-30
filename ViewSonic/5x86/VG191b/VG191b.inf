@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2001, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG191b.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/15/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VLCDS23433-1W1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG191b.ICm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS23433-1W1%=VLCDS23433-1W1.Install,Monitor\VSC2107         ;VG191b
+
+[VLCDS23433-1W1.Install]                                        ;VG191b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23433-1W1.AddReg,1280,DPMS
+Copyfiles=VLCDS23433-1W1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS23433-1W1.AddReg]                                         ;VG191b
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG191b.ICM"
+
+[VLCDS23433-1W1.CopyFiles]                                       
+VG191b.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS23433-1W1="ViewSonic VG191b"

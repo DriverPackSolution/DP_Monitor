@@ -1,0 +1,102 @@
+
+;================================ 
+;M782p.INF 09/28/01 Ver. 1.0 JUV
+;Copyright 1996-2001 Dell Computer Corporation
+;
+;This is a setupfile for DELL 
+;Monitors
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=M782p.cat
+DriverVer=09/28/2001,1.0 
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL7004
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+M782p.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+M782p.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%M782p%=M782p.Install, Monitor\DEL7004
+
+; Install Sections
+;-------------------------------------------------
+
+[M782p.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M782p.AddReg, 1280, DPMS
+CopyFiles=M782p.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[M782p.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M782p.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[M782p.CopyFiles]
+M782p.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+MonitorClassName="Monitor"
+Dell="Dell Computer Corp."	
+M782p="Dell M782p"
+

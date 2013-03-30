@@ -1,0 +1,73 @@
+; P17-3P.INF Ver. 1.0 
+;Monitor INF file for Fujitsu Siemens Monitor P17-3P
+;Copyright 2007 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP17-3P.cat
+DriverVer=12/06/2007, 1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS077B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-P17-3P.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP17-3P.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+[FUJSIE]
+%FUS-P17-3P%=FUS-P17-3P.Install, Monitor\FUS077B
+
+[FUJSIE.NTAMD64]
+%FUS-P17-3P%=FUS-P17-3P.Install, Monitor\FUS077B
+
+[FUS-P17-3P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P17-3P.AddReg, 1280, DPMS
+CopyFiles=FUS-P17-3P.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-P17-3P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,56-76,+,+"
+HKR,,ICMProfile,0,"FSCP17-3P.ICM"
+
+[FUS-P17-3P.CopyFiles]
+FSCP17-3P.ICM
+
+[Strings]
+DISK="Driver & Utility for P17-3P"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-P17-3P="Fujitsu Siemens SCENICVIEW P17-3P"

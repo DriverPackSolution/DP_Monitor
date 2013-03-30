@@ -1,0 +1,105 @@
+
+;================================ 
+;2707WFP.INF 08/31/06 Ver. 2.0 PCC
+;Copyright 1996-2006 Dell Inc.
+;
+;This is a setupfile for 2707WFP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2707WFP.cat
+DriverVer=08/31/2006,1.0.0.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELD012
+ExcludeFromSelect.nt=Monitor\DELD013
+
+
+[DestinationDirs]
+DefaultDestDir=11
+2707WFP.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+2707WFP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%2707WFP%=2707WFP.Install, Monitor\DELD012
+%2707WFP%=2707WFP.Install, Monitor\DELD013
+
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%2707WFP%=2707WFP.Install, Monitor\DELD012
+%2707WFP%=2707WFP.Install, Monitor\DELD013
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[2707WFP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2707WFP.AddReg, 1920, DPMS
+CopyFiles=2707WFP.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+
+[2707WFP.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-81.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"2707WFP.icm"
+
+
+;---------------------------------------------------------- 
+
+
+
+[2707WFP.CopyFiles]
+2707WFP.icm
+
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+2707WFP="Dell 2707WFP"

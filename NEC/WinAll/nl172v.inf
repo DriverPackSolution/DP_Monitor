@@ -1,0 +1,68 @@
+; nl172v.inf
+; Setup information file for NEC LCD172V Monitor
+;
+; Copyright 2009, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl172v.cat
+DriverVer=07/08/2009,1.09.0625.2238
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67C4
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD172V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl172v.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD172V%=LCD172V.Install, Monitor\NEC67C4
+
+[NECDS.ntamd64]
+%LCD172V%=LCD172V.Install.ntamd64, Monitor\NEC67C4
+
+[LCD172V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD172V.AddReg, 1280, DPMS
+CopyFiles=LCD172V.CopyFiles
+
+[LCD172V.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD172V.AddReg, 1280, DPMS
+CopyFiles=LCD172V.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD172V.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl172v.icm"
+
+[LCD172V.CopyFiles]
+nl172v.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD172V="NEC LCD172V"

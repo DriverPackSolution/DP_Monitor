@@ -1,0 +1,86 @@
+;-------------------------------------------
+; Copyright (c) 2008 Dell Corporation
+; Issue date -- 06/05/2008
+; revision 1
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E1709W.cat
+DriverVer=06/05/2008,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+E1709W.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%MonitorClassName%,,,
+
+[SourceDisksFiles]
+E1709W.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%E1709W%=E1709W.Install, Monitor\DELD022
+
+
+[DELL.NTx86]
+%E1709W%=E1709W.Install, Monitor\DELD022
+
+
+[DELL.NTAMD64]
+%E1709W%=E1709W.Install, Monitor\DELD022
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DELD022
+
+
+[E1709W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E1709W.AddReg, 1440, DPMS
+CopyFiles=E1709W.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E1709W.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"E1709W.icm"
+
+
+
+[E1709W.CopyFiles]
+E1709W.ICM
+
+[Strings]
+MonitorClassName="Dell Inc.Monitor Installation Disk"
+Dell="Dell Inc."
+
+E1709W="Dell E1709W"
+
+

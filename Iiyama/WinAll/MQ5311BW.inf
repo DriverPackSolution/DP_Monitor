@@ -1,0 +1,83 @@
+;MQ5311BW.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor MQ5311BW 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=MQ5311BW.cat      
+DriverVer=11/01/2002,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM5301
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MQ5311BW.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+MQ5311BW.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%MQ5311BW%=MQ5311BW.Install, Monitor\IVM5301
+
+[MQ5311BW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MQ5311BW.AddReg, 2048, DPMS
+CopyFiles=MQ5311BW.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1856]
+HKR,,MaxResolution,,"1856,1392"
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MQ5311BW.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24-96,60-76,+,+"
+HKR,,ICMProfile,0,"MQ5311BW.ICM"
+
+[MQ5311BW.CopyFiles]
+MQ5311BW.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+MQ5311BW="IIYAMA MQ5311BW"

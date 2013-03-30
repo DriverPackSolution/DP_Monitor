@@ -1,0 +1,703 @@
+Gateway monitor.inf file, part# 7509971
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGUID={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+DriverVer=11/06/2000 
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+CrystalScan500.CopyFiles=23
+CrystalScan500-069.CopyFiles=23
+EV500.CopyFiles=23
+EV575.CopyFiles=23
+LE500l.CopyFiles=23
+LE500d.CopyFiles=23
+CS700.CopyFiles=23
+CrystalScan700-069.CopyFiles=23
+EV700.CopyFiles=23
+EV700h.Copyfiles=23
+EVF720.CopyFiles=23
+EVF720b.Copyfiles=23
+VX700.CopyFiles=23
+VX700a.CopyFiles=23
+VX720.CopyFiles=23
+Samsung17.CopyFiles=23
+EV900.CopyFiles=23
+EV910.CopyFiles=23
+EV910b.CopyFiles=23
+EV910c.CopyFiles=23
+VX900.CopyFiles=23
+VX900t.CopyFiles=23
+VX920.CopyFiles=23
+CM751.CopyFiles=23
+V1100.CopyFiles=23
+VX1100.CopyFiles=23
+VX1110.Copyfiles=23
+VX1120.CopyFiles=23
+CM803.CopyFiles=23
+DL27-1.CopyFiles=23
+DL31-1.CopyFiles=23
+DL31-2.CopyFiles=23
+DL36-1.CopyFiles=23
+PFL2-15A.CopyFiles=23
+AN1_15.CopyFiles=23
+FPD1500.CopyFiles=23
+FPD1570.CopyFiles=23
+FPD1800.CopyFiles=23
+
+[SourceDisksNames]
+1="Gateway Monitor Information Disk",,1
+
+[SourceDisksFiles]
+CS500.icm=1
+CS50069.icm=1
+CS700.icm=1
+CS70069.icm=1
+EV500.icm=1
+EV575.icm=1
+LE500l.icm=1
+LE500d.icm=1
+EV700.icm=1
+EV700h.icm=1
+EVF720.icm=1
+EVF720b.icm=1
+VX700.icm=1
+VX700a.icm=1
+VX720.icm=1
+Sam17.icm=1
+EV900.icm=1
+EV910.icm=1
+EV910b.icm=1
+VX900.icm=1
+VX900t.icm=1
+VX920.icm=1
+V1100.icm=1
+VX1100.icm=1
+VX1110.icm=1
+VX1120.icm=1
+CM751.icm=1
+CM803.icm=1
+DL27-1.icm=1
+DL31-1.icm=1
+DL31-2.icm=1
+DL36-1.icm=1
+PFL2-15A.icm=1
+AN1_15.icm=1
+FPD1500.icm=1
+FPD1570.icm=1
+FPD1800.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%CrystalScan500%=CrystalScan500.Install, Monitor\GWY0F04
+%CrystalScan500-069%=CrystalScan500-069.Install, Monitor\GWY138A
+%EV500%=EV500.Install, Monitor\GWY138A
+%EV500%=EV500.Install, Monitor\GWY138B
+%EV500%=EV500.Install, Monitor\GWY138C
+%EV500%=EV500.Install, Monitor\GWY138E
+%EV500%=EV500.Install, Monitor\GWY1390
+%EV500%=EV500.Install, Monitor\GWY1391
+%EV500%=EV500.Install, Monitor\GWY5005
+%EV575%=EV575.Install, Monitor\GWY15C7
+%LE500l%=LE500l.Install, Monitor\GWY138F
+%LE500d%=LE500d.Install, Monitor\GWY1392
+%CrystalScan700%=CrystalScan700.Install, Monitor\GWY1DEA
+%CrystalScan700-069%=CrystalScan700-069.Install, Monitor\GWY1B5A
+%CrystalScan700-069%=CrystalScan700-069.Install, Monitor\GWY1B5B
+%EV700%=EV700.Install, Monitor\GWY1B5A
+%EV700%=EV700.Install, Monitor\GWY1B5B
+%EV700%=EV700.Install, Monitor\GWY1B5C
+%EV700%=EV700.Install, Monitor\GWY1B5D
+%EV700%=EV700.Install, Monitor\GWY1B5E
+%EV700%=EV700.Install, Monitor\GWY1B5F
+%EV700%=EV700.Install, Monitor\GWY1B60
+%EV700%=EV700.Install, Monitor\GWY1B61
+%EV700%=EV700.Install, Monitor\GWY1B62
+%EV700%=EV700.Install, Monitor\GWY1B63
+%EV700%=EV700.Install, Monitor\GWY1B64
+%EV700h%=EV700h.Install, Monitor\GWY1B65
+%EVF720%=EVF720.Install, Monitor\GWY031B
+%EVF720b%=EVF720b.Install, Monitor\GWY031C
+%VX700%=VX700.Install, Monitor\GWY044D
+%VX700%=VX700.Install, Monitor\MEL1673
+%VX700a%=VX700a.Install, Monitor\GWY044E
+%VX720%=VX720.Install, Monitor\GWY02D0
+%Samsung17%=Samsung17.Install, Monitor\SAM1058
+%EV900%=EV900.Install, Monitor\GWY8883
+%EV910%=EV910.Install, Monitor\GWY232A
+%EV910%=EV910.Install, Monitor\GWY232B
+%EV910%=EV910.Install, Monitor\GWY232C
+%VX900%=VX900.Install, Monitor\GWY0013
+%VX900t%=VX900t.Install, Monitor\GWY00C0
+%VX920%=VX920.Install, Monitor\GWY0398
+%V1100%=V1100.Install, Monitor\GWY044C
+%VX1100%=VX1100.Install, Monitor\GWY0454
+%VX1110%=VX1110.Install, Monitor\GWY045B
+%VX1120%=VX1120.Install, Monitor\GWY0460
+%CM751%=CM751.Install, Monitor\GWY0013
+%CM803%=CM803.Install, Monitor\GWY0015
+%DL27-1%=DL27-1.Install, Monitor\GWY0A8D
+%DL31-1%=DL31-1.Install, Monitor\GWY0089
+%DL31-1%=DL31-1.Install, Monitor\GWY0C1E
+%DL36-1%=DL36-1.Install, Monitor\GWY0E11
+%PFL2-15A%=PFL2-15A.Install, Monitor\GWY060E
+%AN1_15%=AN1_15.Install, Monitor\GWY07D0
+%FPD1500%=FPD1500.Install, Monitor\GWY05DC
+%fpd1570%=FPD1570.Install, Monitor\GWY0622
+%FPD1800%=FPD1800.Install, Monitor\GWY0708
+
+[CrystalScan500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CrystalScan500.AddReg, 1280, DPMS, ICM
+CopyFiles=CrystalScan500.CopyFiles
+
+[CrystalScan500.CopyFiles]
+CS500.icm
+
+[CrystalScan500-069.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CrystalScan500-069.AddReg, 1280, DPMS, ICM
+CopyFiles=CrystalScan500-069.CopyFiles
+
+[CrystalScan500-069.CopyFiles]
+CS50069.icm
+
+[EV500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV500.AddReg, 1280, DPMS, ICM
+CopyFiles=EV500.CopyFiles
+
+[EV500.CopyFiles]
+EV500.icm
+
+[EV575.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV575.AddReg, 1280, DPMS, ICM
+CopyFiles=EV575.CopyFiles
+
+[EV575.CopyFiles]
+EV575.icm
+
+[LE500l.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LE500l.AddReg, 1024, DPMS, ICM
+CopyFiles=LE500l.CopyFiles
+
+[LE500l.CopyFiles]
+LE500l.icm
+
+[LE500d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LE500d.AddReg, 1024, DPMS, ICM
+CopyFiles=LE500d.CopyFiles
+
+[LE500d.CopyFiles]
+LE500d.icm
+
+[CrystalScan700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CS700.AddReg, 1280, DPMS, ICM
+CopyFiles=CS700.CopyFiles
+
+[CS700.CopyFiles]
+CS700.icm
+
+[CrystalScan700-069.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CrystalScan700-069.AddReg, 1280, DPMS, ICM
+CopyFiles=CrystalScan700-069.CopyFiles
+
+[CrystalScan700-069.CopyFiles]
+CS70069.icm
+
+[EV700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV700.AddReg, 1280, DPMS, ICM
+CopyFiles=EV700.CopyFiles
+
+[EV700.CopyFiles]
+EV700.icm
+
+[EV700h.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV700h.AddReg, 1280, DPMS, ICM
+CopyFiles=EV700h.CopyFiles
+
+[EV700h.CopyFiles]
+EV700h.icm
+
+[EVF720.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EVF720.AddReg, 1600, DPMS, ICM
+CopyFiles=EVF720.CopyFiles
+
+[EVF720.CopyFiles]
+EVF720.icm
+
+[EVF720b.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EVF720b.AddReg, 1600, DPMS, ICM
+CopyFiles=EVF720b.copyFiles
+
+[EVF720b.CopyFiles]
+EVF720b.icm
+
+[VX700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX700.AddReg, 1600, DPMS, ICM
+CopyFiles=VX700.CopyFiles
+
+[VX700.CopyFiles]
+VX700.icm
+
+[VX700a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX700A.AddReg, 1600, DPMS, ICM
+CopyFiles=VX700a.CopyFiles
+
+[VX700a.CopyFiles]
+VX700a.icm
+
+[VX720.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX720.AddReg, 1600, DPMS, ICM
+CopyFiles=VX720.CopyFiles
+
+[VX720.CopyFiles]
+VX720.icm
+
+[Samsung17.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Samsung17.AddReg, 1280, DPMS, ICM
+CopyFiles=Samsung17.CopyFiles
+
+[Samsung17.CopyFiles]
+Sam17.icm
+
+[EV900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV900.AddReg, 1600, DPMS, ICM
+CopyFiles=EV900.CopyFiles
+
+[EV900.CopyFiles]
+EV900.icm
+
+[EV910.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV910.AddReg, 1600, DPMS, ICM
+CopyFiles=EV910.CopyFiles
+
+[EV910.CopyFiles]
+EV910.icm
+
+[EV910b.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV910B.AddReg, 1600, DPMS, ICM
+CopyFiles=EV910B.CopyFiles
+
+[EV910b.CopyFiles]
+EV910B.icm
+
+[VX900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX900.AddReg, 1600, DPMS, ICM
+CopyFiles=VX900.CopyFiles
+
+[VX900.CopyFiles]
+VX900.icm
+
+[VX900t.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX900T.AddReg, 1600, DPMS, ICM
+CopyFiles=VX900T.CopyFiles
+
+[VX900t.CopyFiles]
+VX900T.icm
+
+[VX920.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX920.AddReg, 1600, DPMS, ICM
+CopyFiles=VX920.CopyFiles
+
+[VX920.CopyFiles]
+VX920.icm
+
+[V1100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V1100.AddReg, 1600, DPMS, ICM
+CopyFiles=V1100.CopyFiles
+
+[V1100.CopyFiles]
+V1100.icm
+
+[VX1100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX1100.AddReg, 1600, DPMS, ICM
+CopyFiles=VX1100.CopyFiles
+
+[VX1100.CopyFiles]
+VX1100.icm
+
+[VX1110.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX1110.AddReg, 1856, DPMS, ICM
+CopyFiles=VX1110.CopyFiles
+
+[VX1110.CopyFiles]
+VX1110.icm
+
+[VX1120.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX1120.AddReg, 1600, DPMS, ICM
+CopyFiles=VX1120.CopyFiles
+
+[VX1120.CopyFiles]
+VX1120.icm
+
+[CM751.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM751.AddReg, 1600, DPMS, ICM
+CopyFiles=CM751.CopyFiles
+
+[CM751.CopyFiles]
+CM751.icm
+
+[CM803.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM803.AddReg, 1600, DPMS, ICM
+CopyFiles=CM803.CopyFiles
+
+[CM803.CopyFiles]
+CM803.icm
+
+[DL27-1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DL27-1.AddReg, 800, DPMS, ICM
+CopyFiles=DL27-1.CopyFiles
+
+[DL27-1.CopyFiles]
+DL27-1.icm
+
+[DL31-1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DL31-1.AddReg, 800, DPMS, ICM
+CopyFiles=DL31-1.CopyFiles
+
+[DL31-1.CopyFiles]
+DL31-1.icm
+
+[DL31-2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DL31-2.AddReg, 800, DPMS, ICM
+CopyFiles=DL31-2.CopyFiles
+
+[DL31-2.CopyFiles]
+DL31-2.icm
+
+[DL36-1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DL36-1.AddReg, 800, DPMS, ICM
+CopyFiles=DL36-1.CopyFiles
+
+[DL36-1.CopyFiles]
+DL36-1.icm
+
+[PFL2-15A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PFL2-15A.AddReg, 1024, DPMS, ICM
+CopyFiles=PFL2-15A.CopyFiles
+
+[PFL2-15A.CopyFiles]
+PFL2-15A.icm
+
+[AN1_15.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AN1_15.AddReg, 1024, DPMS, ICM
+CopyFiles=AN1_15.CopyFiles
+
+[AN1_15.CopyFiles]
+AN1_15.icm
+
+[FPD1500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FPD1500.AddReg, 1024, DPMS, ICM
+CopyFiles=FPD1500.CopyFiles
+
+[FPD1500.CopyFiles]
+FPD1500.icm
+
+[FPD1570.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FPD1570.AddReg, 1280, DPMS, ICM
+CopyFiles=FPD1570.CopyFiles
+
+[FPD1570.CopyFiles]
+FPD1570.icm
+
+[FPD1800.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FPD1800.AddReg, 1280, DPMS, ICM
+CopyFiles=FPD1800.CopyFiles
+
+[FPD1800.CopyFiles]
+FPD1800.icm
+
+[CrystalScan500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-64,50-100,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"CS500.icm"
+
+[CrystalScan500-069.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-69,50-110,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"CS50069.icm"
+
+[EV500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-69,50-110,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"EV500.icm"
+
+[EV575.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-60.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"EV575.icm"
+
+[LE500l.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-69.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,0,"LE500l.icm"
+
+[LE500d.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-69.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,0,"LE500d.icm"
+
+[CS700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-64.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"CS700.icm"
+
+[CrystalScan700-069.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-69,50-110,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"CS70069.icm"
+
+[EV700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"EV700.icm"
+
+[EV700h.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"EV700h.icm"
+
+[EVF720.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"EVF720.icm"
+
+[EVF720B.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"EVF720B.icm"
+
+[VX700.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"VX700.icm"
+
+[VX700A.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"VX700A.icm"
+
+[VX720.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"VX720.icm"
+
+[Samsung17.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"Sam17.icm"
+
+[EV900.AddReg]
+HKR,"MODES\1600,1200"Mode1,,"31.0-86.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"EV900.icm"
+
+[EV910.AddReg]
+HKR,"MODES\1600,1200"Mode1,,"31.0-95.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"EV910.icm"
+
+[EV910B.AddReg]
+HKR,"MODES\1600,1200"Mode1,,"31.0-95.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"EV910B.icm"
+
+[VX900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"VX900.icm"
+
+[VX900T.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-120.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"VX900T.icm"
+
+[VX920.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-140.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"VX920.icm"
+
+[CM751.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31-95,50-160,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"CM751.icm"
+
+[V1100.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"V1100.icm"
+
+[VX1100.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-108.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"VX1100.icm"
+
+[VX1110.AddReg]
+HKR,"MODES\1856,1392",Mode1,,"31.0-115.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1856,1392"
+HKR,,ICMProfile,0,"VX1110.icm"
+
+[VX1120.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-121,50-160,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"VX1120.icm"
+
+[CM803.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-115.0,50.0-160.0,+.+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,ICMProfile,0,"CM803.icm"
+
+[DL27-1.AddReg]
+HKR,"MODES\800,600",Mode1,,"31.0-38.0,50-75,+,+"
+HKR,,MaxResolution,,"800,600"
+HKR,,ICMProfile,0,"DL27-1.icm"
+
+[DL31-1.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-38.0,50-75,+,+"
+HKR,,MaxResolution,,"640,480"
+HKR,,ICMProfile,0,"DL31-1.icm"
+
+[DL31-2.AddReg]
+HKR,"MODES\800,600",Mode1,,"31.0-38.0,50-75,+,+"
+HKR,,MaxResolution,,"800,600"
+HKR,,ICMProfile,0,"DL31-2.icm"
+
+[DL36-1.AddReg]
+HKR,"MODES\800,600",Mode1,,"31.0-38.0,50-75,+,+"
+HKR,,MaxResolution,,"800,600"
+HKR,,ICMProfile,0,"DL36-1.icm"
+
+[PFL2-15A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"48.0,60,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,0,"PFL2-15A.icm"
+
+[AN1_15.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-60,50-100,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,0,"AN1_15.icm"
+
+[FPD1500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,ICMProfile,0,"FPD1500"
+
+[FPD1570.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-80,56-75,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"FPD1570"
+
+[FPD1800.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"63.9,60.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"FPD1800"
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Strings]
+MonitorClassName="Monitor"
+Gateway=Gateway
+CrystalScan500="Gateway CrystalScan 500"
+CrystalScan500-069="Gateway CrystalScan 500-069"
+EV500="Gateway EV500"
+EV575="Gateway EV575"
+LE500l="Gateway LE500"
+LE500d="Gateway LE500"
+CrystalScan700="Gateway CrystalScan700"
+CrystalScan700-069="Gateway CrystalScan 700-069"
+EV700="Gateway EV700"
+EV700h="Gateway EV700"
+EVF720="Gateway EVF720"
+EVF720B="Gateway EVF720b"
+VX700="Gateway VX700"
+VX700A="Gateway VX700"
+VX720="Gateway VX720"
+Samsung17="Samsung17"
+EV900="Gateway EV900"
+EV910="Gateway EV910"
+EV910B="Gateway EV910"
+EV910C="Gateway EV910"
+VX900="Gateway VX900"
+VX900T="Gateway VX900T"
+VX920="Gateway VX920"
+CM751="Gateway CM751"
+V1100="Gateway Vivitron 1100"
+VX1100="Gateway VX1100"
+VX1110="Gateway VX1110"
+VX1120="Gateway VX1120"
+CM803="Gateway CM803"
+DL27-1="Gateway DL27-1"
+DL31-1="Gateway DL31-1"
+DL31-2="Gateway DL31-2"
+DL36-1="Gateway DL36-1"
+PFL2-15A="Gateway PFL2-15A"
+AN1_15="Gateway AN1_15"
+FPD1500="Gateway FPD1500"
+FPD1570="Gateway FPD1570"
+FPD1800="Gateway FPD1800"
+

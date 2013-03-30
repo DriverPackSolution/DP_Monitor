@@ -1,0 +1,964 @@
+;CTX2002.INF VER 4.0 DATE:2002 08/08
+;Monitor INF file created by R&D Department at CTX Electronics(Taiwan) Co., Ltd.
+;Copyright 1998-Y2K, CTX Electronics(Taiwan) Co., Ltd.
+;This is a INF file for CTX monitors supported in the Windows 98 or later versions.
+;98T111-P50
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+Classguid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+3050.CopyFiles=23
+3051.CopyFiles=23
+3052.CopyFiles=23
+3053.CopyFiles=23
+3054.CopyFiles=23
+3055.CopyFiles=23
+3056.CopyFiles=23
+3165.CopyFiles=23
+3166.CopyFiles=23
+3167.CopyFiles=23
+3168.CopyFiles=23
+3059.CopyFiles=23
+2000.CopyFiles=23
+2010.CopyFiles=23
+2020.CopyFiles=23
+2030.CopyFiles=23
+2040.CopyFiles=23
+2050.CopyFiles=23
+2060.CopyFiles=23
+2070.CopyFiles=23
+2080.CopyFiles=23
+[SourceDisksNames]
+1="CTX Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+CTX14.ICM=1
+CTX15.ICM=1
+CTX17.ICM=1
+CTX19.ICM=1
+CTX20.ICM=1
+CTX21.ICM=1
+CTX15T.ICM=1
+CTX98T.ICM=1
+CTX98D.ICM=1
+CTX_PF.ICM=1
+CTXpfs.ICM=1
+CTXLCD01.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%CTX%=CTX
+
+; Manufacturer sections
+;-------------------------------------------------
+[CTX]
+%3400%=3400.Install, Monitor\CTX3400
+%4516%=4516.Install, Monitor\CTX4516                 ;1451EL
+%3410%=3410.Install, Monitor\CTX3410
+
+
+%5655%=5655.Install, Monitor\CTX5655                 ;1555ELX
+%3580%=3580.Install, Monitor\CTX3580
+%3590%=3590.Install, Monitor\CTX3590
+
+%5690%=5690.Install, Monitor\CTX5690
+%5002%=5002.Install, Monitor\CTX5002
+%3550%=3550.Install, Monitor\CTX3550
+%3560%=3560.Install, Monitor\CTX3560
+
+%3575%=3575.Install, Monitor\CTX3575
+%5695%=5695.Install, Monitor\CTX5695
+%5699%=5699.Install, Monitor\CTX5699                 ;1569PF
+%5696%=5696.Install, Monitor\CTX5696                 ;1569VLX,1569ME
+%0150%=0150.Install, Monitor\CTX0150
+%3576%=3576.Install, Monitor\CTX3576
+
+%3571%=3571.Install, Monitor\CTX3571
+%3572%=3572.Install, Monitor\CTX3572
+
+%3520%=3520.Install, Monitor\CTX3520
+%5698%=5698.Install, Monitor\CTX5698
+%3521%=3521.Install, Monitor\CTX3521
+
+%3524%=3524.Install, Monitor\CTX3524
+%5694%=5694.Install, Monitor\CTX5694
+%3525%=3525.Install, Monitor\CTX3525
+
+
+%3615%=3615.Install, Monitor\CTX3615
+
+%3620%=3620.Install, Monitor\CTX3620
+
+%3650%=3650.Install, Monitor\CTX3650
+%3651%=3651.Install, Monitor\CTX3651
+
+%3655%=3655.Install, Monitor\CTX3655
+%7694%=7694.Install, Monitor\CTX7694
+%7695%=7695.Install, Monitor\CTX7695                 ;1769EL,1769VL2X,1769SLX,1769MEBX
+%3656%=3656.Install, Monitor\CTX3656                 
+
+%3670%=3670.Install, Monitor\CTX3670
+
+%3675%=3675.Install, Monitor\CTX3675
+
+%3660%=3660.Install, Monitor\CTX3660
+%3661%=3661.Install, Monitor\CTX3661
+
+%3680%=3680.Install, Monitor\CTX3680                 ;1795SLX,1795VL2X,
+%3685%=3685.Install, Monitor\CTX3685
+%7854%=7854.Install, Monitor\CTX7854
+%7855%=7855.Install, Monitor\CTX7855
+%7927%=7927.Install, Monitor\CTX7927
+%3683%=3683.Install, Monitor\CTX3683
+
+%3700%=3700.Install, Monitor\CTX3700                 ;1995BLX,1995SL,1995VL2X,1995UEBX
+%3710%=3710.Install, Monitor\CTX3710
+
+%3780%=3780.Install, Monitor\CTX3780
+%3781%=3781.Install, Monitor\CTX3781
+
+
+%3800%=3800.Install, Monitor\CTX3800                 ;2195UEX
+%3810%=3810.Install, Monitor\CTX3810
+
+
+
+%3911%=3911.Install, Monitor\CTX3911                 ;2115UEX
+%3912%=3912.Install, Monitor\CTX3912
+
+
+
+%3920%=3920.Install, Monitor\CTX3920                 ;2125PF1
+
+%7691%=7691.Install, Monitor\CTX7691
+%5010%=5010.Install, Monitor\CTX5010
+
+%5020%=5020.Install, Monitor\CTX5020
+%5021%=5021.Install, Monitor\CTX5021
+
+
+
+%5050%=5050.Install, Monitor\CTX5050
+%7920%=7920.Install, Monitor\CTX7920
+%5053%=5053.Install, Monitor\CTX5053
+
+%5310%=5310.Install, Monitor\CTX5310                 ;1785PF1
+
+%5320%=5320.Install, Monitor\CTX5320                 ;1795PF1J
+
+
+;as following 2000 years models
+
+%5420%=5420.Install, Monitor\CTX5420                 ;1910PF1
+%5381%=5381.Install, Monitor\CTX5381                 ;1910PF1(W/O USB)
+%5370%=5370.Install, Monitor\CTX5370                 ;CGP1772A/CEP
+%5371%=5371.Install, Monitor\CTX5371                 ;CFA1786
+%5372%=5372.Install, Monitor\CTX5372                 ;CGP1797C
+%5373%=5373.Install, Monitor\CTX5373                 ;CGP1786C
+%5374%=5374.Install, Monitor\CTX5374                 ;CFA1797C
+%5375%=5375.Install, Monitor\CTX5375                 ;CHP1797
+%5376%=5376.Install, Monitor\CTX5376                 ;CHP1786 
+%5377%=5377.Install, Monitor\CTX5377                 ;CRV1997D
+%5700%=5700.Install, Monitor\CTX5700                 ;CFA1570A
+%5378%=5378.Install, Monitor\CTX5378                 ;CHP1772A
+%5379%=5379.Install, Monitor\CTX5379                 ;CGP1997C
+%5380%=5380.Install, Monitor\CTX5380                 ;CHP1910C
+%E801%=E801.Install, Monitor\CTXE801                 ;EX1300F,VL1300
+
+
+;as following 2001 years models
+
+
+%B401%=B401.Install, Monitor\CTXB401		     ;CBA1786
+%B501%=B501.Install, Monitor\CTXB501		     ;CBA1797 	
+%C701%=C701.Install, Monitor\CTXC701		     ;CBA1910
+
+
+; Install sections
+;-------------------------------------------------
+[3400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3050.AddReg, 1024, DPMS
+CopyFiles=3050.CopyFiles
+[4516.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3050.AddReg, 1024, DPMS
+CopyFiles=3050.CopyFiles
+[3410.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3050.AddReg, 1024, DPMS
+CopyFiles=3050.CopyFiles
+
+[5655.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3067.AddReg, 1024, DPMS
+CopyFiles=3051.CopyFiles
+[3580.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3067.AddReg, 1024, DPMS
+CopyFiles=3051.CopyFiles
+[3590.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3067.AddReg, 1024, DPMS
+CopyFiles=3051.CopyFiles
+
+[5690.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3072.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+[5002.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3072.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+[3550.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3072.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+[3560.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3072.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+
+[3575.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3068.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+[5695.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3068.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+[5699.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3068.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+[5696.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3068.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+[0150.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3068.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+[3576.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3068.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+
+[3571.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3073.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+
+[3572.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3073.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+
+[3520.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3071.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+
+[5698.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3071.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+
+[3521.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3071.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+
+[3524.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3169.AddReg, 1280, DPMS
+CopyFiles=3056.CopyFiles
+
+[5694.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3169.AddReg, 1280, DPMS
+CopyFiles=3056.CopyFiles
+
+[3525.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3169.AddReg, 1280, DPMS
+CopyFiles=3056.CopyFiles
+
+
+[3615.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3065.AddReg, 1280, DPMS
+CopyFiles=3052.CopyFiles
+
+[3620.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3070.AddReg, 1280, DPMS
+CopyFiles=3052.CopyFiles
+
+[3650.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3075.AddReg, 1280, DPMS
+CopyFiles=3052.CopyFiles
+
+[3651.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3075.AddReg, 1280, DPMS
+CopyFiles=3052.CopyFiles
+
+[3655.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3074.AddReg, 1280, DPMS
+CopyFiles=3052.CopyFiles
+
+[7694.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3074.AddReg, 1280, DPMS
+CopyFiles=3052.CopyFiles
+
+[7695.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3074.AddReg, 1280, DPMS
+CopyFiles=3052.CopyFiles
+
+[3656.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3074.AddReg, 1280, DPMS
+CopyFiles=3052.CopyFiles
+
+[3670.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3085.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+
+[3675.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3084.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+
+[3660.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3092.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+[3661.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3092.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+
+[3680.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3096.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+[3685.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3096.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+[7854.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3096.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+[7855.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3096.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+[7927.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3096.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+[3683.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3096.AddReg, 1600, DPMS
+CopyFiles=3052.CopyFiles
+
+[3700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3097.AddReg, 1600, DPMS
+CopyFiles=3053.CopyFiles
+[3710.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3097.AddReg, 1600, DPMS
+CopyFiles=3053.CopyFiles
+
+[3780.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3107.AddReg, 1600, DPMS
+CopyFiles=3053.CopyFiles
+[3781.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3107.AddReg, 1600, DPMS
+CopyFiles=3053.CopyFiles
+
+
+[3800.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3098.AddReg, 1600, DPMS
+CopyFiles=3055.CopyFiles
+[3810.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3098.AddReg, 1600, DPMS
+CopyFiles=3055.CopyFiles
+
+
+
+[3911.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3115.AddReg, 1800, DPMS
+CopyFiles=3055.CopyFiles
+
+[3912.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3115.AddReg, 1800, DPMS
+CopyFiles=3055.CopyFiles
+
+
+
+[7691.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3170.AddReg, 1280, DPMS
+CopyFiles=3165.CopyFiles
+
+[5010.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3170.AddReg, 1280, DPMS
+CopyFiles=3165.CopyFiles
+
+[5020.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3192.AddReg, 1600, DPMS
+CopyFiles=3165.CopyFiles
+
+[5021.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3192.AddReg, 1600, DPMS
+CopyFiles=3165.CopyFiles
+
+[5050.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3195.AddReg, 1600, DPMS
+CopyFiles=3165.CopyFiles
+
+[7920.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3195.AddReg, 1600, DPMS
+CopyFiles=3165.CopyFiles
+
+[5053.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3195.AddReg, 1600, DPMS
+CopyFiles=3165.CopyFiles
+
+
+[5310.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3219.AddReg, 1600, DPMS
+CopyFiles=3167.CopyFiles
+
+[5320.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3220.AddReg, 1600, DPMS
+CopyFiles=3167.CopyFiles
+
+[5420.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3118.AddReg, 1800, DPMS
+CopyFiles=3059.CopyFiles
+
+[5381.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3118.AddReg, 1800, DPMS
+CopyFiles=3059.CopyFiles
+
+[5371.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2081.AddReg, 1600, DPMS
+CopyFiles=2020.CopyFiles
+
+[5372.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=8001.AddReg, 1600, DPMS
+CopyFiles=2000.CopyFiles
+
+[5373.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2011.AddReg, 1600, DPMS
+CopyFiles=2010.CopyFiles
+
+[5374.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2021.AddReg, 1600, DPMS
+CopyFiles=2020.CopyFiles
+
+[5375.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2031.AddReg, 1600, DPMS
+CopyFiles=2030.CopyFiles
+
+[5376.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2041.AddReg, 1600, DPMS
+CopyFiles=2040.CopyFiles
+
+[5370.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2051.AddReg, 1280, DPMS
+CopyFiles=2000.CopyFiles
+[5377.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2061.AddReg, 1600, DPMS
+CopyFiles=2060.CopyFiles
+
+[3920.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2071.AddReg, 2048, DPMS
+CopyFiles=2070.CopyFiles
+
+[5700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3068.AddReg, 1280, DPMS
+CopyFiles=3051.CopyFiles
+
+[5378.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2051.AddReg, 1280, DPMS
+CopyFiles=2000.CopyFiles
+
+[5379.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2061.AddReg, 1600, DPMS
+CopyFiles=2060.CopyFiles
+
+[5389.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3118.AddReg, 1800, DPMS
+CopyFiles=3059.CopyFiles
+
+[E801.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2091.AddReg, 1800, DPMS
+CopyFiles=2080.CopyFiles
+
+[B401.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2081.AddReg, 1600, DPMS
+CopyFiles=2020.CopyFiles
+
+[B501.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=8001.AddReg, 1600, DPMS
+CopyFiles=2000.CopyFiles
+
+[C701.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3118.AddReg, 1800, DPMS
+CopyFiles=3059.CopyFiles
+
+
+;
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+[1800]
+HKR,,MaxResolution,,"1800,1440"
+[1856]
+HKR,,MaxResolution,,"1856,1392"
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[3050.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"CTX14.ICM"
+
+[3051.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-55.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"CTX14.ICM"
+
+[3052.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"CTX14.ICM"
+
+[3060.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3065.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3066.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-100.0,+,+"
+HKR,,ICMProfile,0,"CTX15.ICM"
+
+[3067.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-55.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"CTX15.ICM"
+
+[3072.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-100.0,+,+"
+HKR,,ICMProfile,0,"CTX15.ICM"
+
+[3068.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CTX15.ICM"
+
+[3070.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3073.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"CTX15.ICM"
+
+[3075.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3071.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"CTX15.ICM"
+
+[3074.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3084.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3085.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3086.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CTX20.ICM"
+
+[3087.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CTX21.ICM"
+
+[3092.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3096.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[3097.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX19.ICM"
+
+[3098.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX21.ICM"
+
+[3107.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX19.ICM"
+
+[3110.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX21.ICM"
+
+[3115.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX21.ICM"
+
+[3169.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"CTX15T.ICM"
+
+[3170.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"CTX98T.ICM"
+
+[3192.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98T.ICM"
+
+[3193.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98D.ICM"
+
+[3195.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98T.ICM"
+
+[3196.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98D.ICM"
+
+[3207.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98T.ICM"
+
+[3208.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98D.ICM"
+
+[3210.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98T.ICM"
+
+[3211.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98D.ICM"
+
+[3215.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98T.ICM"
+
+[3216.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX98D.ICM"
+
+[3217.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,60.0-120.0,+,+"
+HKR,,ICMProfile,0,"CTXLCD01.ICM"
+
+[3218.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"CTXLCD01.ICM"
+
+[3219.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX_PF.ICM"
+
+[3220.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX_PF.ICM"
+
+[3118.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.ICM"
+
+[8001.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[2011.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[2021.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.ICM"
+
+[2031.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[2041.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[2051.AddReg]
+HKR,"MODES\1280,1200",Mode1,,"30.0-72.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"CTX17.ICM"
+
+[2061.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX19.ICM"
+
+[2071.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-125.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.ICM"
+
+[2081.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.ICM"
+
+[2091.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.ICM"
+
+
+[3050.CopyFiles]
+CTX14.ICM
+[3051.CopyFiles]
+CTX15.ICM
+[3052.CopyFiles]
+CTX17.ICM
+[3053.CopyFiles]
+CTX19.ICM
+[3054.CopyFiles]
+CTX20.ICM
+[3055.CopyFiles]
+CTX21.ICM
+[3056.CopyFiles]
+CTX15T.ICM
+[3165.CopyFiles]
+CTX98T.ICM
+[3166.CopyFiles]
+CTX98D.ICM
+[3167.CopyFiles]
+CTX_PF.ICM
+[3168.CopyFiles]
+CTXLCD01.ICM
+[3059.CopyFiles]
+CTXpfs.ICM
+[2000.CopyFiles]
+CTX17.ICM
+[2010.CopyFiles]
+CTX17.ICM
+[2020.CopyFiles]
+CTXpfs.ICM
+[2030.CopyFiles]
+CTX17.ICM
+[2040.CopyFiles]
+CTX17.ICM
+[2050.CopyFiles]
+CTX17.ICM
+[2060.CopyFiles]
+CTX19.ICM
+[2070.CopyFiles]
+CTXpfs.ICM
+[2080.CopyFiles]
+CTXpfs.ICM
+CTX21.ICM
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+CTX="CTX - Chuntex Electronic"
+
+3400 ="CTX VL400"				; 14", 30-50, 50-90
+4516 ="CTX VL400"				; 14", 30-50, 50-90
+3410 ="CTX VL400"				; 14", 30-50, 50-90
+
+5655 ="CTX VL510 series, PL5 series"		; 15", 30-55, 50-110
+3580 ="CTX VL510 series"			; 15", 30-55, 50-110
+3590 ="CTX VL510 series" 			; 15", 30-55, 50-110
+
+5690 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-100
+5002 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-100
+3550 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-100
+3560 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-100
+
+3575 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-120
+5695 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-120
+5699 ="CTX PR500F series"		        ; 15", 30-70, 50-120
+5696 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-120
+0150 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-120
+3576 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-120
+
+3571 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-130
+3572 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-130
+3520 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-160
+5698 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-160
+3521 ="CTX VL500 series, MS500 series"		; 15", 30-70, 50-160
+
+3524 ="CTX PR500 series"			; 15", 30-70, 50-160, Trinitron tube
+5694 ="CTX PR500 series"			; 15", 30-70, 50-160, Trinitron tube
+3525 ="CTX PR500 series"			; 15", 30-70, 50-160, Trinitron tube
+
+3615 ="CTX VL700"				; 17", 30-65, 50-120
+
+3620 ="CTX VL700 series, MS700 series, PL7 series"   ; 17", 30-70, 50-120
+
+3650 ="CTX VL700 series, MS700 series, PL7 series"   ; 17", 30-70, 50-130
+3651 ="CTX VL700 series, MS700 series, PL7 series"   ; 17", 30-70, 50-130
+
+3655 ="CTX VL700 series, MS700 series, PL7 series"   ; 17", 30-70, 50-160
+7694 ="CTX VL700 series, MS700 series, PL7 series"   ; 17", 30-70, 50-160
+7695 ="CTX VL700 series, MS700 series, PL7 series"   ; 17", 30-70, 50-160
+3656 ="CTX VL700 series, MS700 series, PL7 series"   ; 17", 30-70, 50-160
+
+3670 ="CTX EX700"				; 17", 30-85, 50-120
+
+3675 ="CTX VL705"				; 17", 30-85, 50-160
+
+3660 ="CTX VL710 series"			; 17", 30-92, 50-160
+3661 ="CTX VL710 series" 			; 17", 30-92, 50-160
+
+3680 ="CTX VL710 series"			; 17", 30-95, 50-160
+3685 ="CTX VL710 series"			; 17", 30-95, 50-160
+7854 ="CTX VL710 series"			; 17", 30-95, 50-160
+7855 ="CTX VL710 series"			; 17", 30-95, 50-160
+7927 ="CTX VL710 series"			; 17", 30-95, 50-160
+3683 ="CTX VL710 series"			; 17", 30-95, 50-160
+
+3700 ="CTX VL950 series, EX950 series, PL9 series"   ; 19", 30-95, 50-160
+3710 ="CTX VL950 series, EX950 series, PL9 series"   ; 19", 30-95, 50-160
+
+3780 ="CTX EX960 series"			; 19", 30-107, 50-160
+3781 ="CTX EX960 series"			; 19", 30-107, 50-160
+
+3800 ="CTX EX1200 series"			; 21", 30-95, 50-160
+3810 ="CTX EX1200 series"			; 21", 30-95, 50-160
+
+3911 ="CTX EX1300 series"			; 21", 30-115, 50-160
+3912 ="CTX EX1300 series"			; 21", 30-115, 50-160
+
+7691 ="CTX PR700 series"			; 17", 30-70, 50-160, Trinitron tube
+5010 ="CTX PR700 series"			; 17", 30-70, 50-160, Trinitron tube
+
+5020 ="CTX PR710 series"			; 17", 30-92, 50-160, Trinitron tube
+5021 ="CTX PR710 series"			; 17", 30-92, 50-160, Trinitron tube
+
+
+
+;as following 2000 years models
+5050 ="CTX PR710, PR711 series"		        ; 17", 30-95, 50-160, Trinitron tube
+7920 ="CTX PR710, PR711 series"		        ; 17", 30-95, 50-160, Trinitron tube
+5053 ="CTX PR710, PR711 series"		        ; 17", 30-95, 50-160, Trinitron tube
+5420 ="CTX PR960F series"                       ; 19", 30-110, 50-160, Sony FD TRINITRON tube
+5381 ="CTX PR960FL series"                      ; 19", 30-110, 50-160, Sony FD TRINITRON tube(W/O USB)
+5310 ="CTX PR705F series"			; 17", 30-85, 50-160, Sony FD TRINITRON tube
+5320 ="CTX PR711F"			        ; 17", 30-97, 50-160, Sony FD TRINITRON tube
+5370 ="CTX VL700,FP700,PR700F,EX700,PL7,PL7C"  	; 17", 30-72, 50-130, 
+5371 ="CTX PR705F series"                       ; 17", 30-86, 50-160, Sony FD TRINITRON tube
+5372 ="CTX VL710 series"                        ; 17", 30-97, 50-160,
+5373 ="CTX VL705 series"                        ; 17", 30-86, 50-160,
+5374 ="CTX PR711FL series"                      ; 17", 30-97, 50-160, Sony FD TRINITRON tube
+5375 ="CTX EX710F series"                       ; 17", 30-97, 50-160, Sony FD TRINITRON tube 
+5376 ="CTX EX705F series"                       ; 17", 30-86, 50-160, Sony FD TRINITRON tube
+3920 ="CTX PR1400F series"                      ; 21", 30-125, 50-160, Sony FD TRINITRON tube
+5377 ="CTX EX950F series"                       ; 19", 30-97, 50-160, SHADOW MASK FLAT 
+5700 ="CTX PR500F series"		        ; 15", 30-70, 50-130 Sony FD TRINITRON tube
+5378 ="CTX EX700F series"                     	; 17", 30-72, 50-130, SHADOW MASK FLAT 
+5379 ="CTX VL950 series"                        ; 19", 30-97, 50-160, 
+5380 ="CTX EX960F series"                       ; 19", 30-110, 50-160,  SHADOW MASK FLAT 
+E801 ="CTX EX1300F,VL1300"                      ; 21", 30-115,50-160,
+
+
+
+;as following 2000 years models
+B401 ="CTX FP705 series"                       	; 17", 30-86, 50-160, FLATRON
+B501 ="CTX FP710 series"                        ; 17", 30-97, 50-160, FLATRON
+C701 ="CTX FP960 series"                        ; 19", 30-110, 50-160, FLATRON

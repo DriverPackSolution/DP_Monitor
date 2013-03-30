@@ -1,0 +1,102 @@
+; ###################################################
+;
+;   HP_L1750.inf        Ver. 1.00       6/18/2007
+;
+;   Copyright (c)2007, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP L1750 LCD Monitor.
+; 
+; ###################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_L1750.cat
+DriverVer=02/20/2007,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP26E9
+ExcludeFromSelect.nt = MONITOR\HWP26EA
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L1750.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_L1750.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%L1750_A%=L1750_A.Install, Monitor\HWP26E9
+%L1750_D%=L1750_D.Install, Monitor\HWP26EA
+
+[HP.NTamd64]
+%L1750_A%=L1750_A.Install, Monitor\HWP26E9
+%L1750_D%=L1750_D.Install, Monitor\HWP26EA
+
+[L1750_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1750_A.AddReg, 1280, DPMS
+CopyFiles=L1750.CopyFiles
+
+[L1750_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1750_D.AddReg, 1280, DPMS
+CopyFiles=L1750.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1750_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,50-77,-,-"
+HKR,"MODES\800,600",Mode1,,"24-83,50-77,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,50-77,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,50-77,+,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_L1750.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[L1750_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,50-77,-,-"
+HKR,"MODES\800,600",Mode1,,"24-83,50-77,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,50-77,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,50-77,+,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_L1750.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[L1750.CopyFiles]
+HP_L1750.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+L1750_A="HP L1750 LCD Monitor"
+L1750_D="HP L1750 LCD Monitor"
+Disk1="HP L1750 Driver Software"

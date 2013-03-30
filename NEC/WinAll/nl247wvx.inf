@@ -1,0 +1,86 @@
+; nl247wvx.inf
+; Setup information file for NEC MultiSync LCD2470WVX Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl247wvx.cat
+DriverVer=05/17/2007,1.07.0517.1612
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6718
+ExcludeFromSelect.nt=Monitor\NEC6719
+
+[DestinationDirs]
+LCD2470WVX.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl247wvx.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD2470WVX-A%=LCD2470WVX-A.Install, Monitor\NEC6718
+%LCD2470WVX-D%=LCD2470WVX-D.Install, Monitor\NEC6719
+
+[NECDS.ntamd64]
+%LCD2470WVX-A%=LCD2470WVX-A.Install.ntamd64, Monitor\NEC6718
+%LCD2470WVX-D%=LCD2470WVX-D.Install.ntamd64, Monitor\NEC6719
+
+[LCD2470WVX-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2470WVX-A.AddReg, 1920, DPMS
+CopyFiles=LCD2470WVX.CopyFiles
+
+[LCD2470WVX-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2470WVX-D.AddReg, 1920, DPMS
+CopyFiles=LCD2470WVX.CopyFiles
+
+[LCD2470WVX-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2470WVX-A.AddReg, 1920, DPMS
+CopyFiles=LCD2470WVX.CopyFiles
+
+[LCD2470WVX-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2470WVX-D.AddReg, 1920, DPMS
+CopyFiles=LCD2470WVX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD2470WVX-A.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-98.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl247wvx.icm"
+
+[LCD2470WVX-D.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl247wvx.icm"
+
+[LCD2470WVX.CopyFiles]
+nl247wvx.icm
+
+[Strings]
+NECDS="NEC"
+LCD2470WVX-A="NEC MultiSync LCD2470WVX (Analog)"
+LCD2470WVX-D="NEC MultiSync LCD2470WVX (Digital)"
+Disk1="NEC Monitor Installation Disk"

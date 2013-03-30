@@ -1,0 +1,102 @@
+;================================ 
+;FP231W.INF 04/08/03 Ver. 1.0 JST
+; Copyright (c)  2003, BenQ Corporation.
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+CatalogFile=FP231W.cat
+DriverVer=12/17/2003, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\BNQ7669
+ExcludeFromSelect.nt=Monitor\BNQ766A
+
+[DestinationDirs]
+DefaultDestDir=11
+FP231W_Analog.CopyFiles=23
+FP231W_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP231W.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%BenQ%=BenQ
+
+; Manufacturer sections
+;-------------------------------------------------
+ [BenQ] 
+%FP231W_Analog%=FP231W_Analog.Install, Monitor\BNQ7669
+%FP231W_Digital%=FP231W_Digital.Install, Monitor\BNQ766A
+
+; Install Sections
+;-------------------------------------------------
+
+[FP231W_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=FP231W_Analog.AddReg, 1920, DPMS
+CopyFiles=FP231W_Analog.CopyFiles
+
+[FP231W_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=FP231W_Digital.AddReg, 1920, DPMS
+CopyFiles=FP231W_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[FP231W_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP231W.icm"
+
+[FP231W_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP231W.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[FP231W_Analog.CopyFiles]
+FP231W.icm
+
+[FP231W_Digital.CopyFiles]
+FP231W.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+diskname="BenQ LCD Monitor installation diskette"
+BenQ="BenQ"
+FP231W_Analog="BenQ FP231W (Analog)"
+FP231W_Digital="BenQ FP231W (Digital)"

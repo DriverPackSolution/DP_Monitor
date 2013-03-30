@@ -1,0 +1,110 @@
+;FSCP24W3.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor P24W-3
+;Copyright 2007 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP24W3.cat
+DriverVer=07/06/2007,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS073D
+ExcludeFromSelect.nt=Monitor\FUS073E
+ExcludeFromSelect.nt=Monitor\FUS073F
+
+[DestinationDirs]
+DefaultDestDir=11
+FSCP24W3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP24W3.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%P24W-3a%=FSCP24W3a.Install, Monitor\FUS073D
+%P24W-3d%=FSCP24W3d.Install, Monitor\FUS073E
+%P24W-3h%=FSCP24W3h.Install, Monitor\FUS073F
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%P24W-3a%=FSCP24W3a.Install, Monitor\FUS073D
+%P24W-3d%=FSCP24W3d.Install, Monitor\FUS073E
+%P24W-3h%=FSCP24W3h.Install, Monitor\FUS073F
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FSCP24W3a.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP24W3a.AddReg, 1920, DPMS
+CopyFiles=FSCP24W3.CopyFiles
+
+[FSCP24W3d.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP24W3d.AddReg, 1920, DPMS
+CopyFiles=FSCP24W3.CopyFiles
+
+[FSCP24W3h.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP24W3h.AddReg, 1920, DPMS
+CopyFiles=FSCP24W3.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FSCP24W3a.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP24W3.icm"
+
+[FSCP24W3d.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP24W3.icm"
+
+[FSCP24W3h.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP24W3.icm"
+
+;---------------------------------------------------------- 
+
+[FSCP24W3.CopyFiles]
+FSCP24W3.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD SCENICVIEW P24W-3"
+FUJSIE="Fujitsu Siemens Computers"	
+P24W-3a="SCENICVIEW P24W-3"
+P24W-3d="SCENICVIEW P24W-3"
+P24W-3h="SCENICVIEW P24W-3"

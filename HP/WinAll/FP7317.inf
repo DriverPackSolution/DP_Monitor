@@ -1,0 +1,79 @@
+; #################################################
+;
+;   FP7317.inf         Ver. 1.60      2/27/2003
+;
+;   Copyright (c)2003, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq FP7317 Flat Panel Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=FP7317.cat
+DriverVer=02/27/2003,1.60
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ145B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FP7317.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+FP7317.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%FP7317%=FP7317.Install, Monitor\CPQ145B
+
+[FP7317.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP7317.AddReg, 1280, DPMS
+CopyFiles=FP7317.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP7317.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-81.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP7317.icm"
+
+[FP7317.CopyFiles]
+FP7317.icm
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+FP7317="COMPAQ FP7317 Flat Panel Monitor"
+Disk1="COMPAQ FP7317 INF Software"

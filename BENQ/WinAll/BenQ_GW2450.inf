@@ -1,0 +1,124 @@
+;========================================= 
+; BenQ_GW2450.INF 01/01/12 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista/Win7
+; Copyright (c) 2012, BENQ Corporation
+;=========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=GW2450.cat
+DriverVer=01/01/2012,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ78BE
+ExcludeFromSelect.NT=Monitor\BNQ78BF
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+GW2450_Analog.copyfiles = 23
+GW2450_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+GW2450.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%GW2450_Analog%=GW2450_Analog.Install, Monitor\BNQ78BE
+%GW2450_Digital%=GW2450_Digital.Install, Monitor\BNQ78BF
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%GW2450_Analog%=GW2450_Analog.Install, Monitor\BNQ78BE
+%GW2450_Digital%=GW2450_Digital.Install, Monitor\BNQ78BF
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%GW2450_Analog%=GW2450_Analog.Install, Monitor\BNQ78BE
+%GW2450_Digital%=GW2450_Digital.Install, Monitor\BNQ78BF
+
+; Install Sections
+;-------------------------------------------------
+
+[GW2450_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GW2450_Analog.AddReg, 1920, DPMS
+CopyFiles=GW2450_Analog.CopyFiles
+
+[GW2450_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GW2450_Digital.AddReg, 1920, DPMS
+CopyFiles=GW2450_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[GW2450_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"GW2450.icm"
+
+[GW2450_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"GW2450.icm"
+
+
+
+[GW2450_Analog.CopyFiles]
+GW2450.ICM
+
+
+[GW2450_Digital.CopyFiles]
+GW2450.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+GW2450_Analog="BenQ GW2450 (Analog)"
+GW2450_Digital="BenQ GW2450 (Digital)"
+

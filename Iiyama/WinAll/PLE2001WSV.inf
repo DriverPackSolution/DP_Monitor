@@ -1,0 +1,71 @@
+; [PLE2001WSV.INF]
+; Revision 1.00
+; Copyright(c) 2007 IIYAMA CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE2001WSV.cat
+DriverVer=09/01/2007,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\IVM5398
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+PLE2001WSV.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+PLE2001WSV.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE2001WSV%=PLE2001WSV.Install, Monitor\IVM5398
+
+[PLE2001WSV.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE2001WSV.AddReg, 1680, DPMS
+CopyFiles=PLE2001WSV.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE2001WSV.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-81.0,54.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2001WSV.icm"
+
+[PLE2001WSV.CopyFiles]
+PLE2001WSV.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+PLE2001WSV="iiyama ProLite E2001WSV"

@@ -1,0 +1,107 @@
+
+;==================================================
+; sm720TD.inf 10/04/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm720TD.cat
+DriverVer=10/04/2005,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM01F6
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm720TD.CopyFiles = 23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm720TD.icm=1
+
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm720TD%=sm720TD.Install, Monitor\SAM01F6
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%sm720TD%=sm720TD.Install, Monitor\SAM01F6
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%sm720TD%=sm720TD.Install, Monitor\SAM01F6
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm720TD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm720TD.AddReg, 1280, DPMS
+CopyFiles=sm720TD.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm720TD.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm720TD.icm"
+
+;------------------------------------------------------
+
+[sm720TD.CopyFiles]
+sm720TD.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm720TD="SyncMaster 720TD,SyncMaster Magic CX719TD"

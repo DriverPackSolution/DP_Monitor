@@ -1,0 +1,62 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=Q51-9.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/01/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+Q51-9.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+Q51-9.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+ 
+%Q51-9%=Q51-9.Install,Monitor\VSC851B                    ;Q51-9
+
+[Q51-9.Install]                                          ;Q51-9
+DelReg=DEL_CURRENT_REG 
+AddReg=Q51-9.AddReg,1024,DPMS
+Copyfiles=Q51-9.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Q51-9.AddReg]                                           ;Q51-9
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+"
+HKR,,ICMProfile,0,"Q51-9.ICM"
+
+[Q51-9.CopyFiles]                                       
+Q51-9.ICM
+     
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+Q51-9="ViewSonic Q51-9"
+

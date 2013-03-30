@@ -1,0 +1,119 @@
+
+;==================================================
+; SM731B.inf 01/09/2006 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM731B.cat
+DriverVer=01/09/2006,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0215
+ExcludeFromSelect.nt=Monitor\SAM0216
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM731Ba.CopyFiles = 23
+SM731Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM731B.icm=1
+SM731B.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM731Ba%=SM731Ba.Install, Monitor\SAM0215
+%SM731Bd%=SM731Bd.Install, Monitor\SAM0216
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM731Ba%=SM731Ba.Install, Monitor\SAM0215
+%SM731Bd%=SM731Bd.Install, Monitor\SAM0216
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM731Ba%=SM731Ba.Install, Monitor\SAM0215
+%SM731Bd%=SM731Bd.Install, Monitor\SAM0216
+; Install Sections
+;-----------------------------------------------------
+
+[SM731Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM731Ba.AddReg, 1280, DPMS
+CopyFiles=SM731Ba.CopyFiles
+
+[SM731Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM731Bd.AddReg, 1280, DPMS
+CopyFiles=SM731Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM731Ba.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM731B.icm"
+
+[SM731Bd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM731B.icm"
+;------------------------------------------------------
+
+[SM731Ba.CopyFiles]
+SM731B.icm
+
+[SM731Bd.CopyFiles]
+SM731B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM731Ba="SyncMaster 731B/731BF/731BA/730BA(Analog)"
+SM731Bd="SyncMaster 731B/731BF/731BA/730BA(Digital)"

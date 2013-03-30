@@ -1,0 +1,120 @@
+
+;==================================================
+; SM2253BW.inf 11/05/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2253BW.cat
+DriverVer=11/05/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM037B
+ExcludeFromSelect.nt=Monitor\SAM037C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2253BWa.CopyFiles = 23
+SM2253BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2253BW.icm=1
+SM2253BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2253BWa%=SM2253BWa.Install, Monitor\SAM037B
+%SM2253BWd%=SM2253BWd.Install, Monitor\SAM037C
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2253BWa%=SM2253BWa.Install, Monitor\SAM037B
+%SM2253BWd%=SM2253BWd.Install, Monitor\SAM037C
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2253BWa%=SM2253BWa.Install, Monitor\SAM037B
+%SM2253BWd%=SM2253BWd.Install, Monitor\SAM037C
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2253BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2253BWa.AddReg, 1680, DPMS
+CopyFiles=SM2253BWa.CopyFiles
+
+[SM2253BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2253BWd.AddReg, 1680, DPMS
+CopyFiles=SM2253BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2253BWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2253BW.icm"
+
+[SM2253BWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2253BW.icm"
+;------------------------------------------------------
+
+[SM2253BWa.CopyFiles]
+SM2253BW.icm
+
+[SM2253BWd.CopyFiles]
+SM2253BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2253BWa="SyncMaster 2253BW/2253LW,SyncMaster Magic CX2253BW(Analog)"
+SM2253BWd="SyncMaster 2253BW/2253LW,SyncMaster Magic CX2253BW(Digital)"

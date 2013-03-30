@@ -1,0 +1,97 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=220BW9.cat
+DriverVer=06/19/2008,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL0870
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0870.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+220BW9.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%0870%=0870.Install, Monitor\PHL0870
+
+[Philips.NTx86]
+%0870%=0870.Install, Monitor\PHL0870
+
+[Philips.NTia64]
+%0870%=0870.Install, Monitor\PHL0870
+
+[Philips.NTamd64]
+%0870%=0870.Install, Monitor\PHL0870
+
+; Install sections
+;-------------------------------------------------
+[0870.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0870.AddReg,1680,DPMS
+CopyFiles=0870.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[0870.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"220BW9.icm"
+
+;-------------------------------------------------------------------
+[0870.CopyFiles]
+220BW9.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+0870="Philips 220BW (22inch LCD MONITOR 220BW9)"  

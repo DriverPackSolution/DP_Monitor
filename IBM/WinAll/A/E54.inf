@@ -1,0 +1,76 @@
+; Copyright (c) 2006 Lenovo Computer Systems, Ltd.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=LEN 6331 E54.cat
+DriverVer=08/02/2006,1.0
+
+ [ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN18BB
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LEN 6331 E54.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+LEN 6331 E54.icm=1
+
+[Manufacturer]
+%LEN%=LEN,NTx86,NTamd64,NTia64
+
+[LEN]
+%LEN 6331 E54%=LEN 6331 E54.Install, Monitor\LEN18BB
+
+[LEN.NTx86]
+%LEN 6331 E54%=LEN 6331 E54.Install, Monitor\LEN18BB
+
+[LEN.NTamd64]
+%LEN 6331 E54%=LEN 6331 E54.Install, Monitor\LEN18BB
+
+[LEN.NTia64]
+%LEN 6331 E54%=LEN 6331 E54.Install, Monitor\LEN18BB
+
+[LEN 6331 E54.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LEN 6331 E54.AddReg, 1024 ,DPMS
+Copyfiles=LEN 6331 E54.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LEN 6331 E54.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"LEN 6331 E54.icm"
+
+[LEN 6331 E54.CopyFiles]
+LEN 6331 E54.icm
+
+[Strings]
+Disk="Legend Monitor Installation Disk"
+MonitorClassName="Monitor"
+LEN="Lenovo Computer Systems, Ltd"
+LEN 6331 E54="LEN 6331 E54"

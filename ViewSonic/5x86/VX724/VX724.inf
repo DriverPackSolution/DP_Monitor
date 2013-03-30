@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX724.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/18/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX724.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX724.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX724%=VX724.Install,Monitor\VSC181C                 ;VX724
+
+[VX724.Install]                                       ;VX724
+DelReg=DEL_CURRENT_REG 
+AddReg=VX724.AddReg,1280,DPMS
+Copyfiles=VX724.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX724.AddReg]                                         ;VX724
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-85,+,+"
+HKR,,ICMProfile,0,"VX724.ICM"
+
+[VX724.CopyFiles]                                       
+VX724.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VX724="ViewSonic VX724"

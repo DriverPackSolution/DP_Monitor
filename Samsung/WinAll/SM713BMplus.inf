@@ -1,0 +1,119 @@
+
+;==================================================
+; SM713BMplus.inf 06/10/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM713BMplus.cat
+DriverVer=06/10/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0283
+ExcludeFromSelect.nt=Monitor\SAM0284
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM713BMplusa.CopyFiles = 23
+SM713BMplusd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM713BMplus.icm=1
+SM713BMplus.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM713BMplusa%=SM713BMplusa.Install, Monitor\SAM0283
+%SM713BMplusd%=SM713BMplusd.Install, Monitor\SAM0284
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM713BMplusa%=SM713BMplusa.Install, Monitor\SAM0283
+%SM713BMplusd%=SM713BMplusd.Install, Monitor\SAM0284
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM713BMplusa%=SM713BMplusa.Install, Monitor\SAM0283
+%SM713BMplusd%=SM713BMplusd.Install, Monitor\SAM0284
+; Install Sections
+;-----------------------------------------------------
+
+[SM713BMplusa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM713BMplusa.AddReg, 1280, DPMS
+CopyFiles=SM713BMplusa.CopyFiles
+
+[SM713BMplusd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM713BMplusd.AddReg, 1280, DPMS
+CopyFiles=SM713BMplusd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM713BMplusa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM713BMplus.icm"
+
+[SM713BMplusd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM713BMplus.icm"
+;------------------------------------------------------
+
+[SM713BMplusa.CopyFiles]
+SM713BMplus.icm
+
+[SM713BMplusd.CopyFiles]
+SM713BMplus.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM713BMplusa="SyncMaster 713BMplus/713BM/714BM,SyncMaster Magic CX713BM(Analog)"
+SM713BMplusd="SyncMaster 713BMplus/713BM/714BM,SyncMaster Magic CX713BM(Digital)"

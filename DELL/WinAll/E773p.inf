@@ -1,0 +1,94 @@
+
+;================================================
+;E773p.INF 10/03/03 Ver. 1.0 VS
+;Copyright 1996-2003 Dell Inc.
+;
+;This is a setupfile for  the DELL 
+;E773p Monitor.  This file supports
+;Windows 2000 & XP
+;================================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E773p.cat
+DriverVer=10/03/2003, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL700B
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E773p.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E773p.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E773p%=E773p.Install, Monitor\DEL700B
+
+; Install Sections
+;-------------------------------------------------
+
+[E773p.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E773p.AddReg, 1280, DPMS
+CopyFiles=E773p.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E773p.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E773p.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E773p.CopyFiles]
+E773p.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E773p="Dell E773p"

@@ -1,0 +1,71 @@
+;================================ 
+;FP783S.INF 08/12/02 Ver. 1.0 SND
+;Copyright 1996-2001 
+;Iiyama Corporation.
+;This is a setupfile for FP783S
+;================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IVM%
+;CatalogFile=AS4316A.cat
+DriverVer=08/12/2002,1.0
+
+;[ControlFlags]
+;ExcludeFromSelect.NT=Monitor\IVM465A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+AS4316A.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+AS4316A.ICM=1
+
+[Manufacturer]
+%IVM%=IVM
+
+[IVM]
+%AS4316A%=AS4316A.Install,Monitor\IVM465A
+
+[AS4316A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4316A.AddReg, 1280, DPMS
+CopyFiles=AS4316A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS4316A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.0,56.0-76.0,+,+"
+HKR,,ICMprofile,0,"AS4316A.ICM"
+
+[AS4316A.CopyFiles]
+AS4316A.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="IVM Flat Panel Monitor Installation Disk"
+IVM="IIYAMA CORPORATION"
+AS4316A="IIYAMA AS4316UTC A"

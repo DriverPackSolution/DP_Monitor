@@ -1,0 +1,83 @@
+; MDPL230.INF
+; Setup information file for Mitsubishi Diamond Plus 230SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=mpdl230.cat
+DriverVer=04/16/2002,2.04.0016.1518
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4631
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+Mits-DPlus230.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+mdpl230.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%Mits-DPlus230%=Mits-DPlus230.Install, Monitor\MEL4631
+
+; Install Sections
+;-------------------------------------------------
+[Mits-DPlus230.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Mits-DPlus230.AddReg, 1920, DPMS
+CopyFiles=Mits-DPlus230.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[Mits-DPlus230.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"mdpl230.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[Mits-DPlus230.CopyFiles]
+MDPL230.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+Mits-DPlus230="Mitsubishi Diamond Plus 230SB"

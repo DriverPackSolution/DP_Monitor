@@ -1,0 +1,80 @@
+; Monitor INF file of Medion MD41079EBS02
+; Issue date -- 07/26/2004
+; Revise date --									
+									
+[Version]											
+signature="$CHICAGO$"											
+Class=Monitor											
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}											
+Provider=%Medion%											
+CatalogFile=MD41079EBS02.cat
+DriverVer=07/26/2004,1.0.0.0
+;-------------------------------------------------											
+[ClassInstall32]											
+AddReg=ClassAddReg32											
+											
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED099E
+ExcludeFromSelect.NT=Monitor\MED099F
+
+[ClassAddReg32]											
+HKR,,,,%MonitorClassName%											
+HKR,,Icon,,"-1"											
+HKR,,NoInstallClass,,1											
+											
+[DestinationDirs]											
+DefaultDestDir=11
+MD41079EBS02.CopyFiles=23							
+										
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+MD41079EBS02.icm=1
+
+; Manufacturers											
+;-------------------------------------------------											
+[Manufacturer]											
+%Medion%=Medion										
+; Manufacturer sections											
+;-------------------------------------------------											
+[Medion]
+%MD41079EBS02%=MD41079EBS02.Install, Monitor\MED099E
+%MD41079EBS02%=MD41079EBS02.Install, Monitor\MED099F
+											
+; Install Sections
+;-------------------------------------------------
+[MD41079EBS02.Install]											
+DelReg=DEL_CURRENT_REG											
+AddReg=MD41079EBS02.AddReg, 1280, DPMS											
+CopyFiles=MD41079EBS02.CopyFiles
+
+; AddReg & DelReg Sections											
+;-------------------------------------------------											
+[DEL_CURRENT_REG]											
+HKR,MODES											
+HKR,,MaxResolution											
+HKR,,DPMS											
+HKR,,ICMProfile											
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+					
+[DPMS]											
+HKR,,DPMS,,1											
+											
+; Model AddReg sections											
+[MD41079EBS02.AddReg]											
+HKR,"MODES\1280,1024",Mode1,,"31.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"MD41079EBS02.icm"
+
+[MD41079EBS02.CopyFiles]
+MD41079EBS02.icm
+								
+; User visible strings											
+;-------------------------------------------------											
+[Strings]											
+MonitorClassName="Monitor"											
+diskname="Medion System Restoration CD"											
+Medion="Medion"
+MD41079EBS02="Medion MD41079EBS02"

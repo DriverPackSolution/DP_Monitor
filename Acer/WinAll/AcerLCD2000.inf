@@ -1,0 +1,415 @@
+
+; AcerView INF File for Win98
+; Setup Information File for AcerView Monitors - V2.3
+; Copyright (c)  1999, Acer Peripherals,Inc.
+
+
+;-------------------------------------------------
+; Version section
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+catalogfile=7631FE.cat
+catalogfile=7651F.cat
+catalogfile=7631F.cat
+catalogfile=7650FP.cat
+catalogfile=FP551.cat
+catalogfile=FP555.cat
+catalogfile=F51.cat
+catalogfile=LM551.cat
+catalogfile=FP855.cat
+catalogfile=FP550.cat
+catalogfile=FP350.cat
+catalogfile=FP558.cat
+catalogfile=FP501.cat
+catalogfile=FP503.cat
+catalogfile=FP750.cat
+DriverVer=02/16/2000,1.0
+
+;-------------------------------------------------
+;Monitor class install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir	 = 11
+7631FE.CopyFiles= 23
+7651F.CopyFiles = 23
+7631F.CopyFiles = 23
+7650FP.CopyFiles= 23
+FP551.CopyFiles = 23
+FP555.CopyFiles = 23
+F51.CopyFiles =   23
+FP350.CopyFiles = 23
+FP855.CopyFiles = 23
+FP550.CopyFiles = 23
+FP558.CopyFiles = 23
+FP501.CopyFiles = 23
+FP503.CopyFiles = 23
+FP750.CopyFiles = 23
+
+[SourceDisksNames]
+1="Acer LCD Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+7631FE.ICM=1
+7651F.ICM=1
+7631F.ICM=1
+7650FP.ICM=1
+FP551.ICM=1
+FP555.ICM=1
+F51.ICM=1
+FP350.ICM=1
+FP855.ICM=1
+FP550.ICM=1
+FP558.ICM=1
+FP501.ICM=1
+FP503.ICM=1
+FP750.ICM=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%Acer%=Acer
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[Acer]
+%7631FE%=7631FE.install,Monitor\API7601
+%7651F%=7651F.install,Monitor\API7602
+%7631F%=7631F.install,Monitor\API1035
+%7650FP%=7650FP.install,Monitor\API7604
+%FP551%=FP551.install,Monitor\API7607
+%FP555%=FP555.install,Monitor\API7609
+%F51%=F51.install,Monitor\API760A
+%LM551%=LM551.install,Monitor\API760E
+%FP855%=FP855.install,Monitor\API7611
+%FP550%=FP550.install,Monitor\API7612
+%FP350%=FP350.install,Monitor\API7614
+%FP558%=FP558.install,Monitor\API7615
+%FP501%=FP501.install,Monitor\API7616
+%FP503%=FP503.install,Monitor\API7617
+%FP750%=FP750.install,Monitor\API7619
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+[7631FE.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7631FE.AddReg, 1024, DPMS
+CopyFiles=7631FE.CopyFiles
+
+[7651F.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7651F.AddReg, 1024, DPMS
+CopyFiles=7651F.CopyFiles
+
+[7631F.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7631F.AddReg, 1024, DPMS
+CopyFiles=7631F.CopyFiles
+
+
+[7650FP.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7650FP.AddReg, 1024, DPMS
+CopyFiles=7650FP.CopyFiles
+
+[FP551.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP551.AddReg, 1024, DPMS
+CopyFiles=FP551.CopyFiles
+
+[FP555.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP555.AddReg, 1024, DPMS
+CopyFiles=FP555.CopyFiles
+
+[F51.install]
+DelReg=DEL_CURRENT_REG
+AddReg=F51.AddReg, 1024, DPMS
+CopyFiles=F51.CopyFiles
+
+
+[FP350.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP350.AddReg, 1024, DPMS
+CopyFiles=FP350.CopyFiles
+
+[LM551.install]
+DelReg=DEL_CURRENT_REG
+AddReg=LM551.AddReg, 1024, DPMS
+CopyFiles=FP551.CopyFiles
+
+[FP855.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP855.AddReg, 1280, DPMS
+CopyFiles=FP855.CopyFiles
+
+[FP550.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP550.AddReg, 1024, DPMS
+CopyFiles=FP550.CopyFiles
+
+[FP558.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP558.AddReg, 1024, DPMS
+CopyFiles=FP558.CopyFiles
+
+[FP501.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP501.AddReg, 1024, DPMS
+CopyFiles=FP501.CopyFiles
+
+[FP503.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP503.AddReg, 1024, DPMS
+CopyFiles=FP503.CopyFiles
+
+[FP750.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP750.AddReg, 1280, DPMS
+CopyFiles=FP750.CopyFiles
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------
+[7631FE.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"7631FE.ICM"
+
+[7651F.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"7651F.ICM"
+
+[7631F.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"7631F.ICM"
+
+[7650FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"56.5,70,-,-"
+HKR,"MODES\1024,768",Mode2,,"48.4,60,-,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"7650FP.ICM"
+
+[FP551.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-85.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP551.ICM"
+
+[FP555.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP555.ICM"
+
+[F51.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"F51.ICM"
+
+[FP350.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP350.ICM"
+
+[LM551.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP551.ICM"
+
+[FP855.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode5,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP855.ICM"
+
+[FP550.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP550.ICM"
+
+[FP558.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP558.ICM"
+
+[FP501.AddReg]
+HKR,"MODES\1024,768",Mode1,,"49,61,-,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP501.ICM"
+
+[FP503.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP503.ICM"
+
+[FP750.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-81.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-81.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-81.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-81.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode5,,"31.5-81.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP750.ICM"
+
+
+[7631FE.CopyFiles]
+7631FE.ICM
+
+[7651F.CopyFiles]
+7651F.ICM
+
+[7631F.CopyFiles]
+7631F.ICM
+
+[7650FP.CopyFiles]
+7650FP.ICM
+
+[FP551.CopyFiles]
+FP551.ICM
+
+[FP555.CopyFiles]
+FP555.ICM
+
+[F51.CopyFiles]
+F51.ICM
+
+[FP350.CopyFiles]
+FP350.ICM
+
+[LM551.CopyFiles]
+FP551.ICM
+
+[FP855.CopyFiles]
+FP855.ICM
+
+[FP550.CopyFiles]
+FP550.ICM
+
+[FP558.CopyFiles]
+FP558.ICM
+
+[FP501.CopyFiles]
+FP501.ICM
+
+[FP503.CopyFiles]
+FP503.ICM
+
+[FP750.CopyFiles]
+FP750.ICM
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\API7601
+ExcludeFromSelect.NT=Monitor\API7602
+ExcludeFromSelect.NT=Monitor\API1035
+ExcludeFromSelect.NT=Monitor\API7604
+ExcludeFromSelect.NT=Monitor\API7607
+ExcludeFromSelect.NT=Monitor\API7609
+ExcludeFromSelect.NT=Monitor\API760A
+ExcludeFromSelect.NT=Monitor\API760E
+ExcludeFromSelect.NT=Monitor\API7611
+ExcludeFromSelect.NT=Monitor\API7612
+ExcludeFromSelect.NT=Monitor\API7613
+ExcludeFromSelect.NT=Monitor\API7615
+ExcludeFromSelect.NT=Monitor\API7616
+ExcludeFromSelect.NT=Monitor\API7617
+ExcludeFromSelect.NT=Monitor\API7619
+
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+
+Acer="Acer"
+
+7631FE="AcerView F31e"
+7651F= "AcerView F51"
+7631F= "AcerView F31"
+7650FP="AcerView F50p"
+FP551= "Acer FP551-0"
+FP555= "Acer FP555"
+F51=   "Acer F51"
+FP350= "Acer FP350"
+LM551= "Acer FP551"
+FP855= "Acer FP855"
+FP550= "Acer FP550"
+FP350= "Acer FP350"
+FP558= "Acer FP558"
+FP501= "Acer FP501"
+FP503= "Acer FP503"
+FP750= "Acer FP750"
+
+

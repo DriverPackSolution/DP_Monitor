@@ -1,0 +1,83 @@
+;===============================================================
+; [L246WHX.inf]
+; Revision 1.3   February-12-2008
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L246WHX.cat
+DriverVer=02/12/2008,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM569C
+ExcludeFromSelect.NT=Monitor\GSM569D
+
+[DestinationDirs]
+DefaultDestDir = 11
+L246WHX_Analog.CopyFiles = 23
+L246WHX_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L246WHX.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L246WHX_Analog%=L246WHX_Analog.Install,Monitor\GSM569C
+%L246WHX_Digital%=L246WHX_Digital.Install,Monitor\GSM569D
+
+[LG.NTamd64]
+%L246WHX_Analog%=L246WHX_Analog.Install,Monitor\GSM569C
+%L246WHX_Digital%=L246WHX_Digital.Install,Monitor\GSM569D
+
+[L246WHX_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L246WHX_Analog.AddReg,1920,DPMS
+CopyFiles=L246WHX_Analog.CopyFiles
+
+[L246WHX_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L246WHX_Digital.AddReg,1920,DPMS
+CopyFiles=L246WHX_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L246WHX_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1200,59"
+HKR,,ICMprofile,0,"L246WHX.ICM"
+
+[L246WHX_Digital.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1200,59"
+HKR,,ICMprofile,0,"L246WHX.ICM"
+
+[L246WHX_Analog.CopyFiles]
+L246WHX.ICM
+
+[L246WHX_Digital.CopyFiles]
+L246WHX.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L246WHX_Analog="LG L246WHX(Analog)"
+L246WHX_Digital="LG L246WHX(Digital)"

@@ -1,0 +1,89 @@
+
+;================================ 
+;E171FP.INF 07/01/02 Ver. 1.0 PCC
+;Copyright 1996-2002 Dell Computer Corporation
+;
+;This is a setupfile for E171FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E171FP.cat
+DriverVer=07/01/2002, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL300F
+
+[DestinationDirs]
+DefaultDestDir=11
+E171FP.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E171FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E171FP%=E171FP.Install, Monitor\DEL300F
+
+; Install Sections
+;-------------------------------------------------
+
+[E171FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E171FP.AddReg, 1280, DPMS
+CopyFiles=E171FP.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E171FP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E171FP.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E171FP.CopyFiles]
+E171FP.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E171FP="Dell E171FP"

@@ -1,0 +1,69 @@
+; NV191W1.inf
+; Setup information file for NEC V191W Monitor
+;
+; Copyright 2010, NEC Display Solutions,Ltd.
+; V002
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NV191W1.cat
+DriverVer=12/21/2010,1.08.1203.1421
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6853
+
+[DestinationDirs]
+DefaultDestDir = 11
+V191W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NV191W1.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%V191W%=V191W.Install, Monitor\NEC6853
+
+[NECDS.ntamd64]
+%V191W%=V191W.Install.ntamd64, Monitor\NEC6853
+
+[V191W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V191W.AddReg, 1366, DPMS
+CopyFiles=V191W.CopyFiles
+
+[V191W.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V191W.AddReg, 1366, DPMS
+CopyFiles=V191W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,1366,768
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V191W.AddReg]
+HKR,"MODES\1366,768",Mode1,,"31.0-81.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"NV191W1.icm"
+
+[V191W.CopyFiles]
+NV191W1.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+V191W="NEC V191W"

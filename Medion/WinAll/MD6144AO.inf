@@ -1,0 +1,83 @@
+; Monitor INF file of Medion MD6144AO
+; Issue date -- 01/09/2003
+; Revise date --									
+									
+[Version]											
+signature="$CHICAGO$"											
+Class=Monitor											
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}											
+Provider=%Medion%											
+CatalogFile=MD6144.cat
+DriverVer=01/09/2003
+;-------------------------------------------------											
+[ClassInstall32]											
+AddReg=ClassAddReg32											
+											
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED4561
+
+[ClassAddReg32]											
+HKR,,,,%MonitorClassName%											
+HKR,,Icon,,"-1"											
+HKR,,NoInstallClass,,1											
+											
+[DestinationDirs]											
+DefaultDestDir=11											
+MD6144AO.CopyFiles=23								
+										
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+MD6144AO.icm=1
+
+; Manufacturers											
+;-------------------------------------------------											
+[Manufacturer]											
+%Medion%=Medion										
+; Manufacturer sections											
+;-------------------------------------------------											
+[Medion]											
+%MD6144AO%=MD6144AO.Install, Monitor\MED4561										
+											
+; Install Sections											
+;-------------------------------------------------											
+[MD6144AO.Install]											
+DelReg=DEL_CURRENT_REG											
+AddReg=MD6144AO.AddReg, 1024, DPMS											
+CopyFiles=MD6144AO.CopyFiles
+
+; AddReg & DelReg Sections											
+;-------------------------------------------------											
+[DEL_CURRENT_REG]											
+HKR,MODES											
+HKR,,MaxResolution											
+HKR,,DPMS											
+HKR,,ICMProfile											
+; Pre-defined AddReg sections											
+[640]											
+HKR,,MaxResolution,,"640,480"											
+[800]											
+HKR,,MaxResolution,,"800,600"											
+[1024]											
+HKR,,MaxResolution,,"1024,768"											
+					
+[DPMS]											
+HKR,,DPMS,,1											
+											
+; Model AddReg sections											
+[MD6144AO.AddReg]											
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"MD6144AO.icm"
+
+[MD6144AO.CopyFiles]
+MD6144AO.icm
+
+									
+; User visible strings											
+;-------------------------------------------------											
+[Strings]											
+MonitorClassName="Monitor"											
+diskname="Medion System Restoration CD"											
+Medion="Medion"
+MD6144AO="Medion MD6144AO"

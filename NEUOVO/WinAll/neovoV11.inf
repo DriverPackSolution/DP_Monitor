@@ -1,0 +1,450 @@
+This is setup information file for monitors
+; Version: 1.5
+; Date: 2003-01-17
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AIC%
+DriverVer=05/20/2002, 1.4
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]  
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1151.CopyFiles=23
+1250.CopyFiles=23
+2151.CopyFiles=23
+3151.CopyFiles=23
+3152.CopyFiles=23
+4151.CopyFiles=23
+5151.CopyFiles=23
+6151.CopyFiles=23
+7151.CopyFiles=23
+1171.CopyFiles=23
+2171.CopyFiles=23
+2173.CopyFiles=23
+1181.CopyFiles=23
+1150.CopyFiles=23
+7150.CopyFiles=23
+7250.CopyFiles=23
+7350.CopyFiles=23
+7251.CopyFiles=23
+7351.CopyFiles=23
+1191.CopyFiles=23
+2190.CopyFiles=23
+2010.CopyFiles=23
+9990.CopyFiles=23
+
+[SourceDisksNames]
+1="AG neovo",,1
+
+[SourceDisksFiles]
+LCD150.icm=1
+LCD174.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%AIC%=AIC
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[AIC]
+%1151%=1151.Install, Monitor\AIC1151
+%2151%=2151.Install, Monitor\AIC2151
+%3151%=3151.Install, Monitor\AIC3151
+%3152%=3152.Install, Monitor\AIC3152
+%4151%=4151.Install, Monitor\AIC4151
+%5151%=5151.Install, Monitor\AIC5151
+%6151%=6151.Install, Monitor\AIC6151
+%7151%=7151.Install, Monitor\AIC7151
+%1171%=1171.Install, Monitor\AIC1171
+%2171%=2171.Install, Monitor\AIC2171
+%2173%=2173.Install, Monitor\AIC2173
+%1181%=1181.Install, Monitor\AIC1181
+%1150%=1150.Install, Monitor\AIC1150
+%1250%=1150.Install, Monitor\AIC1150
+%7150%=7150.Install, Monitor\AIC7150
+%7250%=7250.Install, Monitor\AIC7250
+%7350%=7350.Install, Monitor\AIC7350
+%7251%=7251.Install, Monitor\AIC7251
+%7351%=7351.Install, Monitor\AIC7351
+%1191%=1191.Install, Monitor\AIC1191
+%2190%=2190.Install, Monitor\AIC2190
+%2010%=2010.Install, Monitor\AIC2010
+%9990%=9990.Install, Monitor\AIC9990
+; Install sections
+;-------------------------------------------------
+
+[1151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1151.AddReg,1024,DPMS
+CopyFiles=1151.CopyFiles
+
+[2151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2151.AddReg,1024,DPMS
+CopyFiles=2151.CopyFiles
+
+[3151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3151.AddReg,1024,DPMS
+CopyFiles=3151.CopyFiles
+
+[3152.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3152.AddReg,1024,DPMS
+CopyFiles=3152.CopyFiles
+
+[4151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=4151.AddReg,1024,DPMS
+CopyFiles=4151.CopyFiles
+
+[5151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=5151.AddReg,1024,DPMS
+CopyFiles=5151.CopyFiles
+
+[6151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=6151.AddReg,1024,DPMS
+CopyFiles=6151.CopyFiles
+
+[7150.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7150.AddReg,1280,DPMS
+CopyFiles=7150.CopyFiles
+
+[7250.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7250.AddReg,1280,DPMS
+CopyFiles=7150.CopyFiles
+
+[7350.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7350.AddReg,1280,DPMS
+CopyFiles=7350.CopyFiles
+
+
+[7151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7151.AddReg,1024,DPMS
+CopyFiles=7151.CopyFiles
+
+[7251.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7251.AddReg,1024,DPMS
+CopyFiles=7251.CopyFiles
+
+
+[7351.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7351.AddReg,1024,DPMS
+CopyFiles=7351.CopyFiles
+
+
+[1171.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1171.AddReg,1280,DPMS
+CopyFiles=1171.CopyFiles
+
+[2171.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2171.AddReg,1280,DPMS
+CopyFiles=2171.CopyFiles
+
+[2173.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2173.AddReg,1280,DPMS
+CopyFiles=2173.CopyFiles
+
+[1181.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1181.AddReg,1280,DPMS
+CopyFiles=1181.CopyFiles
+
+[1150.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1150.AddReg,1024,DPMS
+CopyFiles=1150.CopyFiles
+
+[1250.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1250.AddReg,1024,DPMS
+CopyFiles=1250.CopyFiles
+
+[1191.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1191.AddReg,1280,DPMS
+CopyFiles=1191.CopyFiles
+
+[2190.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2190.AddReg,1280,DPMS
+CopyFiles=2190.CopyFiles
+
+[2010.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2010.AddReg,1280,DPMS
+CopyFiles=2010.CopyFiles
+
+[9990.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=9990.AddReg,1280,DPMS
+CopyFiles=9990.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+
+
+[1151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[2151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[3151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[3152.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[4151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[5151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[6151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[7150.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[7250.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[7350.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+
+[7151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[7251.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[7351.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[1171.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[2171.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[2173.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[1181.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[1150.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[1250.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD150.icm"
+
+[1191.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[2190.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[2010.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+[9990.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,56.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD174.icm"
+
+;-------------------------------------------------------------------
+
+[1150.CopyFiles]
+LCD150.icm
+
+[1151.CopyFiles]
+LCD150.icm
+
+[1250.CopyFiles]
+LCD150.icm
+
+[2151.CopyFiles]
+LCD150.icm
+
+[3151.CopyFiles]
+LCD150.icm
+
+[3152.CopyFiles]
+LCD150.icm
+
+[4151.CopyFiles]
+LCD150.icm
+
+[5151.CopyFiles]
+LCD150.icm
+
+[6151.CopyFiles]
+LCD150.icm
+
+[7151.CopyFiles]
+LCD150.icm
+
+[7251.CopyFiles]
+LCD150.icm
+
+[7351.CopyFiles]
+LCD150.icm
+
+[7150.CopyFiles]
+LCD174.icm
+
+[7250.CopyFiles]
+LCD174.icm
+
+[7350.CopyFiles]
+LCD174.icm
+
+[1171.CopyFiles]
+LCD174.icm
+
+[1181.CopyFiles]
+LCD174.icm
+
+[2171.CopyFiles]
+LCD174.icm
+
+[2173.CopyFiles]
+LCD174.icm
+
+[1191.CopyFiles]
+LCD174.icm
+
+[2190.CopyFiles]
+LCD174.icm
+
+[2010.CopyFiles]
+LCD174.icm
+
+[9990.CopyFiles]
+LCD174.icm
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+
+AIC="AG neovo"
+
+1151="AG neovo M-15"
+
+2151="AG neovo S-15"
+
+3151="AG neovo M-15V"
+
+3152="AG neovo M-15T"
+
+4151="AG neovo S-15V"
+
+5151="AG neovo S-15T"
+
+6151="AG neovo S-15D"
+
+7151="AG neovo F-15"
+
+7251="AG neovo F-215"
+
+7351="AG neovo F-315"
+
+1171="AG neovo S-17"
+
+2171="AG neovo X-174"
+
+2173="AG neovo X-170"
+
+1181="AG neovo S-18"
+
+1150="AG neovo X-150"
+
+1250="AG neovo X-215"
+
+7150="AG neovo F-17"
+
+7250="AG neovo F-217"
+
+7350="AG neovo F-317"
+
+1191="AG neovo S-19"
+
+2190="AG neovo X-190"
+
+2010="AG neovo X-201"
+
+9990="K-19"
+

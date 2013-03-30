@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX710.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/29/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX710.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX710.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX710%=VX710.Install,Monitor\VSC3B19                 ;VX710
+
+[VX710.Install]                                       ;VX710
+DelReg=DEL_CURRENT_REG 
+AddReg=VX710.AddReg,1280,DPMS
+Copyfiles=VX710.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX710.AddReg]                                         ;VX710
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-85,+,+"
+HKR,,ICMProfile,0,"VX710.ICM"
+
+[VX710.CopyFiles]                                       
+VX710.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VX710="ViewSonic VX710"

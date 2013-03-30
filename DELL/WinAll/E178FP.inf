@@ -1,0 +1,99 @@
+
+;================================ 
+;E178FP.INF 01/11/07 Ver. 2.0 PCC
+;Copyright 1996-2007 Dell Inc.
+;
+;This is a setupfile for E178FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E178FP.cat
+DriverVer=01/11/2007, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA027
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E178FP.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E178FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E178FP%=E178FP.Install, Monitor\DELA027
+
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%E178FP%=E178FP.Install, Monitor\DELA027
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E178FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E178FP.AddReg, 1280, DPMS
+CopyFiles=E178FP.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E178FP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"E178FP.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E178FP.CopyFiles]
+E178FP.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E178FP="Dell E178FP"

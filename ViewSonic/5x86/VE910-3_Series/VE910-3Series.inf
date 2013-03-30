@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VE910-3Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=12/21/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VE910-3Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VE910-3Series.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VE910-3Series%=VE910-3Series.Install,Monitor\VSC501C		;VE910-3Series
+
+[VE910-3Series.Install]                                 	;VE910-3Series
+DelReg=DEL_CURRENT_REG 
+AddReg=VE910-3Series.AddReg,1280,DPMS
+Copyfiles=VE910-3Series.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VE910-3Series.AddReg]                                    	;VE910-3Series
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-85,+,+" 
+HKR,,ICMProfile,0,"VE910-3Series.ICM"
+
+[VE910-3Series.CopyFiles]                                       
+VE910-3Series.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VE910-3Series="ViewSonic VE910-3 Series"

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2011, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG2732.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/12/2011, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG2732.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG2732_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC2A29
+
+[ViewSonic]   
+%VG2732%=VG2732.Install,Monitor\VSC2A29  
+
+[ViewSonic.NTia64]   
+%VG2732%=VG2732.Install,Monitor\VSC2A29
+
+[ViewSonic.NTamd64]   
+%VG2732%=VG2732.Install,Monitor\VSC2A29 
+
+[VG2732.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2732.AddReg,1920,DPMS
+Copyfiles=VG2732.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG2732.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"15-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VG2732_SERIES.ICM"
+
+[VG2732.CopyFiles]                                       
+VG2732_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VG2732 SERIES ViewSonic Wizard"
+VG2732="ViewSonic VG2732 SERIES"

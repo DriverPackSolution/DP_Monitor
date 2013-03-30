@@ -1,0 +1,105 @@
+;-------------------------------------------------
+; CV735.INF
+;
+; This is a Setup information file for Compaq
+; CV735 Consumer monitors. 
+;
+; Copyright (c) 1998-2000, Compaq Computer Corporation
+;
+;  Version 08.22.2000
+;  
+;-------------------------------------------------
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=Cqcv735.cat
+DriverVer=08/22/2000,
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CPQ3038
+;-------------------------------------------------
+; Monitor Class Install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+CV735.CopyFiles=23
+
+[SourceDisksNames]
+1="Compaq Consumer Monitor Installation Disk",,,
+
+[SourceDisksFiles]
+CQCV735.icm=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[COMPAQ]
+%CV735% =CV735.Install, Monitor\CPQ3038
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+
+[CV735.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CV735.AddReg, 1280, DPMS
+CopyFiles=CV735.CopyFiles
+
+
+;-------------------------------------------------
+; Common AddReg/DelReg Sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------------
+; Model AddReg Sections
+;-------------------------------------------------
+
+
+[CV735.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"CQCV735.icm"
+
+[CV735.CopyFiles]
+CQCV735.icm
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+Compaq="COMPAQ"
+MonitorClassName="Monitor"
+CV735="COMPAQ CV735 Color Monitor"

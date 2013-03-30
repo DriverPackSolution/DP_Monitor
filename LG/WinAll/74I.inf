@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [74I.INF]
+;
+;      Revision 1.0   January-21-2002
+;      LGE
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=01/21/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+74I.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG74I.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%74I%=74I, Monitor\GSM4278
+
+;------------------------------------; .Install
+
+[74I] 
+AddReg=74I.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=74I.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[74I.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LG74I.ICM"
+
+;------------------------------------; .CopyFiles
+
+[74I.CopyFiles]  
+LG74I.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4278
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+74I="Studioworks 74I"

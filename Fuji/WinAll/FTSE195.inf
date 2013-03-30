@@ -1,0 +1,72 @@
+;FTSE195.INF Ver. 1.0
+;Monitor INF file for FUJITSU E19-5 ECO 
+;Copyright2009 Fujitsu Technology Solutions 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSE195.cat
+DriverVer=09/15/2009, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07CD
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSE195.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSE195.ICM=1
+
+[Manufacturer]
+%FTS.MfG%=FTS.MfG,NTAMD64
+
+[FTS.MfG]
+%FTSE195%=FTSE195.Install, Monitor\FUS07CD
+
+[FTS.MfG.NTAMD64]
+%FTSE195%=FTSE195.Install, Monitor\FUS07CD
+
+[FTSE195.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSE195.AddReg, 1280, DPMS
+CopyFiles=FTSE195.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTSE195.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"FTSE195.ICM"
+
+[FTSE195.CopyFiles]
+FTSE195.ICM
+
+[Strings]
+DISK="Driver & Utility CD E19-5 / E19W-5"
+MonitorClassName="Monitor"
+FTS.MfG="Fujitsu Technology Solutions"
+FTSE195="FUJITSU E19-5 ECO"

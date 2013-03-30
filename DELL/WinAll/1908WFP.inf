@@ -1,0 +1,97 @@
+;-------------------------------------------
+; Copyright (c) 2007 Dell Corporation
+; Issue date -- 05/30/07
+; revision 1
+;This is a setupfile for 1908WFP
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1908WFP.cat
+DriverVer=05/30/2007,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+1908WFP_Analog.copyfiles = 23
+1908WFP_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+1908WFP.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%1908WFP_Analog%=1908WFP_Analog.Install, Monitor\DELF007
+%1908WFP_Digital%=1908WFP_Digital.Install, Monitor\DELF008
+
+[DELL.NTx86]
+%1908WFP_Analog%=1908WFP_Analog.Install, Monitor\DELF007
+%1908WFP_Digital%=1908WFP_Digital.Install, Monitor\DELF008
+
+[DELL.NTAMD64]
+%1908WFP_Analog%=1908WFP_Analog.Install, Monitor\DELF007
+%1908WFP_Digital%=1908WFP_Digital.Install, Monitor\DELF008
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DELF007
+ExcludeFromSelect.NT=Monitor\DELF008
+
+[1908WFP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1908WFP_Analog.AddReg, 1440, DPMS
+CopyFiles=1908WFP_Analog.CopyFiles
+
+[1908WFP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1908WFP_Digital.AddReg, 1440, DPMS
+CopyFiles=1908WFP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1908WFP_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"1908WFP.icm"
+
+[1908WFP_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"1908WFP.icm"
+
+
+[1908WFP_Analog.CopyFiles]
+1908WFP.ICM
+
+[1908WFP_Digital.CopyFiles]
+1908WFP.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+
+1908WFP_Analog="Dell 1908WFP(Analog)"
+1908WFP_Digital="Dell 1908WFP(Digital)"
+

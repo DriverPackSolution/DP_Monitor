@@ -1,0 +1,75 @@
+;Monitor.Inf for Windows(R) 7 x86, 7 x64, 8 x86, 8 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2370_Series.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/27/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2370_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VX2370_Series.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC342C
+
+[ViewSonic]   
+%VX2370_Series%=VX2370_Series.Install,Monitor\VSC342C 
+
+[ViewSonic.NTx86]   
+%VX2370_Series%=VX2370_Series.Install,Monitor\VSC342C
+
+[ViewSonic.NTAMD64]   
+%VX2370_Series%=VX2370_Series.Install,Monitor\VSC342C 
+
+[VX2370_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2370_Series.AddReg
+Copyfiles=VX2370_Series.CopyFiles
+
+[VX2370_Series.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[VX2370_Series.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"15-83,50-76,+,+" 
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMProfile,0,"VX2370_Series.ICM"
+
+[VX2370_Series.CopyFiles]                                       
+VX2370_Series.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VX2370 Series ViewSonic Wizard"
+VX2370_Series="ViewSonic VX2370 Series"

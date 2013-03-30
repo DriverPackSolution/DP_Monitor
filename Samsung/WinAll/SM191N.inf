@@ -1,0 +1,95 @@
+
+;==================================================
+; sm191N.inf 08/12/2002 ver. 1.0
+;
+; Copyright 2002 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm191N.cat
+DriverVer=08/12/2002,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0080
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm191N.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm191N.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm191N%=sm191N.Install, Monitor\SAM0080
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm191N.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm191N.AddReg, 1280, DPMS
+CopyFiles=sm191N.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm191N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"sm191N.icm"
+
+
+;------------------------------------------------------
+
+[sm191N.CopyFiles]
+sm191N.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm191N=" SyncMaster 191N/195N, SyncMaster Magic CX191N/CX195N"

@@ -1,0 +1,86 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [1465DLS.INF]
+;
+;      Revision 1.0   MAY-13-2002
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=05/13/2002,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+1465DLS.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG1465.icm=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%1465DLS%=1465DLS.Install, Monitor\GSM36BA
+
+;------------------------------------; .Install
+
+[1465DLS.Install]
+AddReg=1465DLS.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1465DLS.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;------------------------------------; .AddReg
+
+
+[1465DLS.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"LG1465.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[1465DLS.CopyFiles]
+LG1465.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM36BA
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+1465DLS="1465DLS"

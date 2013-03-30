@@ -1,0 +1,83 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; Monitor INF file for ImageQuest L70S
+;
+; Copyright 1997-2002, ImageQuest Co., Ltd.
+;
+; This is a INF file for installing monitors for Windows.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%ImageQuest%
+CatalogFile=L70S.cat
+DriverVer=10/07/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L70S.CopyFiles=23
+
+[SourceDisksNames]
+1=%InsDisk%,,
+
+[SourceDisksFiles]
+L70S.icm=1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%L70S%=L70S.Install, Monitor\IQT0703
+
+[L70S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L70S.AddReg, 1280, DPMS
+CopyFiles=L70S.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280, 1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[L70S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"L70S.icm"
+
+[L70S.CopyFiles]
+L70S.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IQT0703
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+MonitorClassName="Monitor"
+InsDisk="ImageQuest Monitor Installation Disk"
+ImageQuest="ImageQuest Co., Ltd."
+L70S="ImageQuest L70S"
+

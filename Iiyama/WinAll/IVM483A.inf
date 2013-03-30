@@ -1,0 +1,95 @@
+; This is a Setup information file for monitors  with ICM  file
+;
+; Copyright (C) 2008, iiyama Corporation.
+
+
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+CatalogFile=IVM483A.cat
+DriverVer=04/28/2008,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM483A
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+IVM483A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+IVM483A.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%iiyama%=iiyama, NTx86, NTia64, NTamd64 
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama]
+%IVM483A%=IVM483A.Install, Monitor\IVM483A
+
+[iiyama.NTx86]
+%IVM483A%=IVM483A.Install, Monitor\IVM483A
+
+[iiyama.NTia64]
+%IVM483A%=IVM483A.Install, Monitor\IVM483A
+
+[iiyama.NTamd64]
+%IVM483A%=IVM483A.Install, Monitor\IVM483A
+
+
+; Install sections
+;-------------------------------------------------
+[IVM483A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IVM483A.AddReg,1280,DPMS
+CopyFiles=IVM483A.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[IVM483A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"IVM483A.icm"
+
+;-------------------------------------------------------------------
+[IVM483A.CopyFiles]
+IVM483A.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama Corporation."
+DiskName="iiyama LCD Utility Disk"
+IVM483A="iiyama PLPB1904S-B1"

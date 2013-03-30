@@ -1,0 +1,89 @@
+; MONMX75.INF
+;
+; Revision History
+;-----------------
+; 1499 = hp pavilion mx75
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+Catalogfile=MX75.cat
+DriverVer= 08/01/2001,1.20.1.2
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\HWP05DB
+
+;Monitor class install (required for NT)
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+P1499A.CopyFiles=23
+
+[SourceDisksNames]
+1="HP Pavilion Monitor",,,
+
+[SourceDisksFiles]
+MX75.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%HP%=HP
+
+; Manufacturer sections
+;-------------------------------------------------
+
+[HP]
+
+; ID 2000 Monitors
+
+%P1499A%=P1499A, Monitor\HWP05DB
+
+; Install sections
+;-------------------------------------------------
+; -------------- HP ------------------------------
+[P1499A]
+DelReg=DEL_CURRENT_REG
+AddReg=P1499A.AddReg, 1280,DPMS
+CopyFiles=P1499A.CopyFiles
+
+; AddReg sections
+;-------------------------------------------------
+[P1499A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"MX75.ICM"
+
+[P1499A.CopyFiles]
+MX75.ICM
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+
+HP="Hewlett Packard"
+
+;ID 2000 Displays
+P1499A="hp pavilion mx75"

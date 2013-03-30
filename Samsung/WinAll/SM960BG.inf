@@ -1,0 +1,119 @@
+
+;==================================================
+; sm960BG.inf 12/08/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm960BG.cat
+DriverVer=12/08/2005,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0219
+ExcludeFromSelect.nt=Monitor\SAM021A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm960BGa.CopyFiles = 23
+sm960BGd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm960BG.icm=1
+sm960BG.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm960BGa%=sm960BGa.Install, Monitor\SAM0219
+%sm960BGd%=sm960BGd.Install, Monitor\SAM021A
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%sm960BGa%=sm960BGa.Install, Monitor\SAM0219
+%sm960BGd%=sm960BGd.Install, Monitor\SAM021A
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%sm960BGa%=sm960BGa.Install, Monitor\SAM0219
+%sm960BGd%=sm960BGd.Install, Monitor\SAM021A
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm960BGa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm960BGa.AddReg, 1280, DPMS
+CopyFiles=sm960BGa.CopyFiles
+
+[sm960BGd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm960BGd.AddReg, 1280, DPMS
+CopyFiles=sm960BGd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+[sm960BGa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm960BG.icm"
+
+[sm960BGd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm960BG.icm"
+;------------------------------------------------------
+
+[sm960BGa.CopyFiles]
+sm960BG.icm
+
+[sm960BGd.CopyFiles]
+sm960BG.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm960BGa="SyncMaster 960BG(Analog)"
+sm960BGd="SyncMaster 960BG(Digital)"

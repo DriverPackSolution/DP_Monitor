@@ -1,0 +1,102 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ E2200HD.INF 06/22/08 Ver. 1.00
+; Copyright (C) 2007 BenQ Corporation. reserves all rights.
+; This is a setup file for E2200HD
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=E2200HD.cat
+	DriverVer=06/22/2008,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	E2200HD D-SUB.CopyFiles=23
+        	E2200HD DVI.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	E2200HD D-SUB.icm=1
+        E2200HD DVI.icm=1
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ790B
+	ExcludeFromSelect.NT=Monitor\BNQ790C
+	
+[BenQ]
+	%E2200HD D-SUB%=E2200HD D-SUB.Install, Monitor\BNQ790B
+	%E2200HD DVI%=E2200HD DVI.Install, Monitor\BNQ790C
+
+[BenQ.NTx86]
+	%E2200HD D-SUB%=E2200HD D-SUB.Install, Monitor\BNQ790B
+	%E2200HD DVI%=E2200HD DVI.Install, Monitor\BNQ790C
+
+[BenQ.NTAMD64]
+	%E2200HD D-SUB%=E2200HD D-SUB.Install, Monitor\BNQ790B
+	%E2200HD DVI%=E2200HD DVI.Install, Monitor\BNQ790C
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[E2200HD D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=E2200HD D-SUB.AddReg, 1920, DPMS
+	CopyFiles=E2200HD D-SUB.CopyFiles
+
+[E2200HD DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=E2200HD DVI.AddReg, 1920, DPMS
+	CopyFiles=E2200HD DVI.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1920]
+	HKR,,MaxResolution,,"1920,1080"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[E2200HD D-SUB.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"30.0-94.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"E2200HD D-SUB.icm"
+
+[E2200HD DVI.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"30.0-94.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"E2200HD DVI.icm"
+
+[E2200HD D-SUB.CopyFiles]	
+	E2200HD D-SUB.icm
+
+[E2200HD DVI.CopyFiles]	
+	E2200HD DVI.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	E2200HD D-SUB="BenQ E2200HD D-SUB"
+        E2200HD DVI="BenQ E2200HD DVI"

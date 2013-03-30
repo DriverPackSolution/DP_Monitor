@@ -1,0 +1,86 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [44I.INF]
+;
+;      Revision 1.0   APRIL-15-2002
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=04/15/2002,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+44I.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG44I.icm=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%44I%=44I.Install, Monitor\GSM36B9
+
+;------------------------------------; .Install
+
+[44I.Install]
+AddReg=44I.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=44I.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;------------------------------------; .AddReg
+
+
+[44I.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"LG44I.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[44I.CopyFiles]
+LG44I.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM36B9
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+44I="StudioWorks 44I"

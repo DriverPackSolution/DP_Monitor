@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=E220-2.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/10/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS23852-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+E220-2.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic] 
+%VCDTS23852-3%=VCDTS23852-3.Install,Monitor\VSCBD0C             ;E220-2
+ 
+[VCDTS23852-3.Install]                                          ;E220-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23852-3.AddReg,1920,DPMS
+Copyfiles=VCDTS23852-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS23852-3.AddReg]                                           ;E220-2
+HKR,"MODES\1920,1440",Mode1,,"30-97,50-180,+,+"
+HKR,,ICMProfile,0,"E220-2.ICM"
+
+[VCDTS23852-3.CopyFiles]                                       
+E220-2.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS23852-3="ViewSonic E220-2"

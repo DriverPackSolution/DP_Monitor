@@ -1,0 +1,84 @@
+; N2180WG.inf
+; Setup information file for NEC LCD2180 WideGamut LED Monitor
+; Copyright (C) 2005-08 NEC Display Solutions, Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=N2180WG.cat
+DriverVer=04/10/2008,1.01.0000.0000
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC668D
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+LCD2180WIDEGAMUT.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L215_50.icc=1
+L215_65.icc=1
+L215_93.icc=1
+
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD2180WIDEGAMUT%=LCD2180WIDEGAMUT.Install, Monitor\NEC668D
+
+[NECDS.ntamd64]
+%LCD2180WIDEGAMUT%=LCD2180WIDEGAMUT.Install.ntamd64, Monitor\NEC668D
+
+
+[LCD2180WIDEGAMUT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2180WIDEGAMUT.AddReg, 1600, DPMS
+CopyFiles=LCD2180WIDEGAMUT.CopyFiles
+
+[LCD2180WIDEGAMUT.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2180WIDEGAMUT.AddReg, 1600, DPMS
+CopyFiles=LCD2180WIDEGAMUT.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD2180WIDEGAMUT.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-75.0,60.0-60.0,+,+"
+HKR,,ICMProfile,0,"L215_50.icc"
+
+[LCD2180WIDEGAMUT.CopyFiles]
+L215_50.icc
+L215_65.icc
+L215_93.icc
+
+[Strings]
+NECDS="NEC"
+MonitorClassName="Monitor"
+Disk1="NEC Display Monitor Installation Disk"
+LCD2180WIDEGAMUT="NEC LCD2180 WideGamut LED"

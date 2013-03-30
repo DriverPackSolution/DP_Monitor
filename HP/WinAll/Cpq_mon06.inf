@@ -1,0 +1,754 @@
+; ##################################################
+;
+;   Cpq_mon06.inf         Ver. 4.00      3/15/2006
+;
+;   Copyright (c)2006, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows 98/ME setup 
+;   information file for Compaq branded monitors.
+; 
+; ##################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+DriverVer=03/15/2006,4.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ1320
+ExcludeFromSelect.nt = MONITOR\CPQ1321
+ExcludeFromSelect.nt = MONITOR\CPQ1322
+ExcludeFromSelect.nt = MONITOR\CPQ1323
+ExcludeFromSelect.nt = MONITOR\CPQ1324
+ExcludeFromSelect.nt = MONITOR\CPQ1325
+ExcludeFromSelect.nt = MONITOR\CPQ1327
+ExcludeFromSelect.nt = MONITOR\CPQ1329
+ExcludeFromSelect.nt = MONITOR\CPQ1330
+ExcludeFromSelect.nt = MONITOR\CPQ1331
+ExcludeFromSelect.nt = MONITOR\CPQ1332
+ExcludeFromSelect.nt = MONITOR\CPQ1333
+ExcludeFromSelect.nt = MONITOR\CPQ1334
+ExcludeFromSelect.nt = MONITOR\CPQ1336
+ExcludeFromSelect.nt = MONITOR\CPQ1337
+ExcludeFromSelect.nt = MONITOR\CPQ1338
+ExcludeFromSelect.nt = MONITOR\CPQ1340
+ExcludeFromSelect.nt = MONITOR\CPQ1341
+ExcludeFromSelect.nt = MONITOR\CPQ1342
+ExcludeFromSelect.nt = MONITOR\CPQ1343
+ExcludeFromSelect.nt = MONITOR\CPQ1345
+ExcludeFromSelect.nt = MONITOR\CPQ1347
+ExcludeFromSelect.nt = MONITOR\CPQ1349
+ExcludeFromSelect.nt = MONITOR\CPQ1350
+ExcludeFromSelect.nt = MONITOR\CPQ1353
+ExcludeFromSelect.nt = MONITOR\CPQ1354
+ExcludeFromSelect.nt = MONITOR\CPQ1356
+ExcludeFromSelect.nt = MONITOR\CPQ1357
+ExcludeFromSelect.nt = MONITOR\CPQ1358
+ExcludeFromSelect.nt = MONITOR\CPQ1359
+ExcludeFromSelect.nt = MONITOR\CPQ1361
+ExcludeFromSelect.nt = MONITOR\CPQ1362
+ExcludeFromSelect.nt = MONITOR\CPQ1365
+ExcludeFromSelect.nt = MONITOR\CPQ1366
+ExcludeFromSelect.nt = MONITOR\CPQ1370
+ExcludeFromSelect.nt = MONITOR\CPQ1371
+ExcludeFromSelect.nt = MONITOR\CPQ1383
+ExcludeFromSelect.nt = MONITOR\CPQ1435
+ExcludeFromSelect.nt = MONITOR\CPQ170A
+ExcludeFromSelect.nt = MONITOR\CPQ1730
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+P50.CopyFiles=23
+P70.CopyFiles=23
+P75.CopyFiles=23
+P900.CopyFiles=23
+P110.CopyFiles=23
+P1100.CopyFiles=23
+P1610.CopyFiles=23
+S500.CopyFiles=23
+S510.CopyFiles=23
+S700.CopyFiles=23
+S710.CopyFiles=23
+S900.CopyFiles=23
+S910.CopyFiles=23
+TFT450.CopyFiles=23
+TFT500.CopyFiles=23
+TFT5000.CopyFiles=23
+TFT5000s.CopyFiles=23
+TFT5005.CopyFiles=23
+TFT5010.CopyFiles=23
+TFT7000.CopyFiles=23
+TFT8000.CopyFiles=23
+TFT8020.CopyFiles=23
+7020.CopyFiles=23
+V40.CopyFiles=23
+V45.CopyFiles=23
+V50.CopyFiles=23
+V55.CopyFiles=23
+V500.CopyFiles=23
+V70.CopyFiles=23
+V75.CopyFiles=23
+V700.CopyFiles=23
+V90.CopyFiles=23
+V900.CopyFiles=23
+V1000.CopyFiles=23
+V1100.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQP50.icm=1
+CPQP70.icm=1
+CPQP75.icm=1
+CPQP900.icm=1
+CPQP110.icm=1
+CPQP1100.icm=1
+CPQP1610.icm=1
+CPQS500.icm=1
+CPQS510.icm=1
+CPQS700.icm=1
+CPQS710.icm=1
+CPQS900.icm=1
+CPQS910.icm=1
+CQTFT450.icm=1
+CQTFT500.icm=1
+CPQ_5000.icm=1
+CPQ5000s.icm=1
+TFT5004-5005.icm=1
+CPQ_5010.icm=1
+CPQ_7000.icm=1
+CPQ_7020.icm=1
+CPQ_8000.icm=1
+CPQ_8020.icm=1
+CPQV40.icm=1
+CPQV45.icm=1
+CPQV50.icm=1
+CPQV55.icm=1
+CPQV500.icm=1
+CPQV70.icm=1
+CPQV75.icm=1
+CPQV700.icm=1
+CPQV90.icm=1
+CPQV900.icm=1
+CPQV1000.icm=1
+CPQV1100.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%P50%=P50.Install, Monitor\CPQ1323
+%P70%=P70.Install, Monitor\CPQ1320
+%P75%=P75.Install, Monitor\CPQ1330
+%P900%=P900.Install, Monitor\CPQ1353
+%P110%=P110.Install, Monitor\CPQ1321
+%P1100%=P1100.Install, Monitor\CPQ1337
+%P1610%=P1610.Install, Monitor\CPQ1327
+%S500%=S500.Install, Monitor\CPQ1356
+%S510%=S510.Install, Monitor\CPQ1371
+%S700%=S700.Install, Monitor\CPQ1349
+%S710_1%=S710_1.Install, Monitor\CPQ1362
+%S710_2%=S710_2.Install, Monitor\CPQ1366
+%S900%=S900.Install, Monitor\CPQ1350
+%S910%=S910.Install, Monitor\CPQ1361
+%TFT450%=TFT450.Install, Monitor\CPQ1333
+%TFT500%=TFT500.Install, Monitor\CPQ1324
+%TFT5000%=TFT5000.Install, Monitor\CPQ1341
+%TFT5000s_1%=TFT5000s_1.Install, Monitor\CPQ1358
+%TFT5000s_2%=TFT5000s_2.Install, Monitor\CPQ1357
+%TFT5000s_3%=TFT5000s_3.Install, Monitor\CPQ1365
+%TFT5005%=TFT5005.Install, Monitor\CPQ1383
+%TFT5010%=TFT5010.Install, Monitor\CPQ1370
+%TFT7000%=TFT7000.Install, Monitor\CPQ1359
+%TFT8000%=TFT8000.Install, Monitor\CPQ1329
+%TFT8020%=TFT8020.Install, Monitor\CPQ1345
+%7020%=7020.Install, Monitor\CPQ1435
+%V40%=V40.Install, Monitor\CPQ1334
+%V45%=V45.Install, Monitor\CPQ1338
+%V50%=V50.Install, Monitor\CPQ1322
+%V55%=V55.Install, Monitor\CPQ1331
+%V500%=V500.Install, Monitor\CPQ1343
+%V500%=V500.Install, Monitor\CPQ1354
+%V70%=V70.Install, Monitor\CPQ170A
+%V75%=V75.Install, Monitor\CPQ1332
+%V700%=V700.Install, Monitor\CPQ1340
+%V700%=V700.Install, Monitor\CPQ1342
+%V90%=V90.Install, Monitor\CPQ1730
+%V900%=V900.Install, Monitor\CPQ1325
+%V1000%=V1000.Install, Monitor\CPQ1347
+%V1100%=V1100.Install, Monitor\CPQ1336
+
+[P50.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P50.AddReg, 1280, DPMS
+CopyFiles=P50.CopyFiles
+
+[P70.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P70.AddReg, 1600, DPMS
+CopyFiles=P70.CopyFiles
+
+[P75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P75.AddReg, 1280, DPMS
+CopyFiles=P75.CopyFiles
+
+[P900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P900.AddReg, 1920_2, DPMS
+CopyFiles=P900.CopyFiles
+
+[P110.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P110.AddReg, 1800, DPMS
+CopyFiles=P110.CopyFiles
+
+[P1100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P1100.AddReg, 1920_2, DPMS
+CopyFiles=P1100.CopyFiles
+
+[P1610.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P1610.AddReg, 1920_1, DPMS
+CopyFiles=P1610.CopyFiles
+
+[S500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S500.AddReg, 1024, DPMS
+CopyFiles=S500.CopyFiles
+
+[S510.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S510.AddReg, 1024, DPMS
+CopyFiles=S510.CopyFiles
+
+[S700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S700.AddReg, 1280, DPMS
+CopyFiles=S700.CopyFiles
+
+[S710_1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S710_1.AddReg, 1280, DPMS
+CopyFiles=S710.CopyFiles
+
+[S710_2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S710_2.AddReg, 1280, DPMS
+CopyFiles=S710.CopyFiles
+
+[S900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S900.AddReg, 1600, DPMS
+CopyFiles=S900.CopyFiles
+
+[S910.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S910.AddReg, 1600, DPMS
+CopyFiles=S910.CopyFiles
+
+[TFT450.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT450.AddReg, 1024, DPMS
+CopyFiles=TFT450.CopyFiles
+
+[TFT500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT500.AddReg, 1024, DPMS
+CopyFiles=TFT500.CopyFiles
+
+[TFT5000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT5000.AddReg, 1024, DPMS
+CopyFiles=TFT5000.CopyFiles
+
+[TFT5000s_1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT5000s_1.AddReg, 1024, DPMS
+CopyFiles=TFT5000s.CopyFiles
+
+[TFT5000s_2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT5000s_2.AddReg, 1024, DPMS
+CopyFiles=TFT5000s.CopyFiles
+
+[TFT5000s_3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT5000s_3.AddReg, 1024, DPMS
+CopyFiles=TFT5000s.CopyFiles
+
+[TFT5005.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT5005.AddReg, 1024, DPMS
+CopyFiles=TFT5005.CopyFiles
+
+[TFT5010.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT5010.AddReg, 1024, DPMS
+CopyFiles=TFT5010.CopyFiles
+
+[TFT7000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT7000.AddReg, 1280, DPMS
+CopyFiles=TFT7000.CopyFiles
+
+[TFT8000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT8000.AddReg, 1280, DPMS
+CopyFiles=TFT8000.CopyFiles
+
+[TFT8020.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFT8020.AddReg, 1280, DPMS
+CopyFiles=TFT8020.CopyFiles
+
+[7020.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7020.AddReg, 1280, DPMS
+CopyFiles=7020.CopyFiles
+
+[V40.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V40.AddReg, 1024, DPMS
+CopyFiles=V40.CopyFiles
+
+[V45.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V45.AddReg, 1024, DPMS
+CopyFiles=V45.CopyFiles
+
+[V50.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V50.AddReg, 1024, DPMS
+CopyFiles=V50.CopyFiles
+
+[V55.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V55.AddReg, 1024, DPMS
+CopyFiles=V55.CopyFiles
+
+[V500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V500.AddReg, 1280, DPMS
+CopyFiles=V500.CopyFiles
+
+[V70.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V70.AddReg, 1280, DPMS
+CopyFiles=V70.CopyFiles
+
+[V75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V75.AddReg, 1280, DPMS
+CopyFiles=V75.CopyFiles
+
+[V700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V700.AddReg, 1600, DPMS
+CopyFiles=V700.CopyFiles
+
+[V90.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V90.AddReg, 1600, DPMS
+CopyFiles=V90.CopyFiles
+
+[V900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V900.AddReg, 1600, DPMS
+CopyFiles=V900.CopyFiles
+
+[V1000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V1000.AddReg, 1800, DPMS
+CopyFiles=V1000.CopyFiles
+
+[V1100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V1100.AddReg, 1792, DPMS
+CopyFiles=V1100.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,icmProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+[1800]
+HKR,,MaxResolution,,"1800,1440"
+[1920_1]
+HKR,,MaxResolution,,"1920,1200"
+[1920_2]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[P50.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-125.0,+,+"
+HKR,,icmProfile,0,"CPQP50.icm"
+HKR,,PreferredMode,,"800,600,85"
+
+[P70.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,48.0-150.0,+,+"
+HKR,,icmProfile,0,"CPQP70.icm"
+HKR,,PreferredMode,,"1024,768,85"
+
+[P75.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-150.0,+,+"
+HKR,,icmProfile,0,"CPQP75.icm"
+HKR,,PreferredMode,,"1024,768,85"
+
+[P900.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-107.0,48.0-120.0,+,+"
+HKR,,icmProfile,0,"CPQP900.icm"
+HKR,,PreferredMode,,"1280,1024,85"
+
+[P110.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-107.0,48.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQP110.icm"
+HKR,,PreferredMode,,"1600,1200,85"
+
+[P1100.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-121.0,50.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQP1100.icm"
+HKR,,PreferredMode,,"1600,1200,85"
+
+[P1610.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQP1610.icm"
+HKR,,PreferredMode,,"1920,1200,76"
+
+[S500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,icmProfile,0,"CPQS500.icm"
+HKR,,PreferredMode,,"800,600,85"
+
+[S510.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-120.0,+,+"
+HKR,,icmProfile,0,"CPQS510.icm"
+HKR,,PreferredMode,,"800,600,85"
+
+[S700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQS700.icm"
+HKR,,PreferredMode,,"1024,768,85"
+
+[S710_1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+HKR,,icmProfile,0,"CPQS710.icm"
+HKR,,PreferredMode,,"1024,768,85"
+
+[S710_2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQS710.icm"
+HKR,,PreferredMode,,"1024,768,85"
+
+[S900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CPQS900.icm"
+HKR,,PreferredMode,,"1280,1024,85"
+
+[S910.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-120.0,+,+"
+HKR,,icmProfile,0,"CPQS910.icm"
+HKR,,PreferredMode,,"1280,1024,85"
+
+[TFT450.AddReg]
+HKR,"MODES\1024,768",Mode1,,"32.0-60.0,57.0-85.0,+,+"
+HKR,,icmProfile,0,"CQTFT450.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[TFT500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"32.0-60.0,57.0-85.0,+,+"
+HKR,,icmProfile,0,"CQTFT500.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[TFT5000.AddReg]
+HKR,"MODES\1024,768",Mode1,,"32.0-60.0,57.0-85.0,+,+"
+HKR,,icmProfile,0,"CPQ_5000.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[TFT5000s_1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"32.0-60.0,57.0-85.0,+,+"
+HKR,,icmProfile,0,"CPQ5000s.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[TFT5000s_2.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-57.0,56.0-75.0,+,+"
+HKR,,icmProfile,0,"CPQ5000s.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[TFT5000s_3.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,56.0-75.0,+,+"
+HKR,,icmProfile,0,"CPQ5000s.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[TFT5005.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,icmProfile,0,"TFT5004-5005.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[TFT5010.AddReg]
+HKR,"MODES\1024,768",Mode1,,"32.0-60.0,57.0-85.0,+,+"
+HKR,,icmProfile,0,"CPQ_5010.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[TFT7000.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,58.0-85.0,+,+"
+HKR,,icmProfile,0,"CPQ_7000.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[TFT8000.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,58.0-85.0,+,+"
+HKR,,icmProfile,0,"CPQ_8000.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[TFT8020.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"32.0-80.0,57.0-85.0,+,+"
+HKR,,icmProfile,0,"CPQ_8020.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[7020.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"32.0-61.0,56.0-75.0,+,+"
+HKR,,icmProfile,0,"CPQ_7020.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[V40.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-48.0,59.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-48.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-48.0,59.0-61.0,-,-"
+HKR,,icmProfile,0,"CPQV40.icm"
+HKR,,PreferredMode,,"800,600,85"
+
+[V45.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-48.0,59.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-48.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-48.0,59.0-61.0,-,-"
+HKR,,icmProfile,0,"CPQV45.icm"
+HKR,,PreferredMode,,"800,600,85"
+
+[V50.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,50.0-125.0,+,+"
+HKR,,icmProfile,0,"CPQV50.icm"
+HKR,,PreferredMode,,"800,600,85"
+
+[V55.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,48.0-125.0,+,+"
+HKR,,icmProfile,0,"CPQV55.icm"
+HKR,,PreferredMode,,"800,600,85"
+
+[V500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQV500.icm"
+HKR,,PreferredMode,,"800,600,85"
+
+[V70.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.5,50.0-125.0,+,+"
+HKR,,icmProfile,0,"CPQV70.icm"
+HKR,,PreferredMode,,"1024,768,85"
+
+[V75.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,48.0-125.0,+,+"
+HKR,,icmProfile,0,"CPQV75.icm"
+HKR,,PreferredMode,,"1024,768,85"
+
+[V700.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQV700.icm"
+HKR,,PreferredMode,,"1024,768,85"
+
+[V90.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-94.0,48.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQV90.icm"
+HKR,,PreferredMode,,"1280,1024,85"
+
+[V900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQV900.icm"
+HKR,,PreferredMode,,"1280,1024,85"
+
+[V1000.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQV1000.icm"
+HKR,,PreferredMode,,"1280,1024,85"
+
+[V1100.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30.0-107.0,48.0-160.0,+,+"
+HKR,,icmProfile,0,"CPQV1100.icm"
+HKR,,PreferredMode,,"1280,1024,85"
+
+[P50.CopyFiles]
+CPQP50.icm
+
+[P70.CopyFiles]
+CPQP70.icm
+
+[P75.CopyFiles]
+CPQP75.icm
+
+[P900.CopyFiles]
+CPQP900.icm
+
+[P110.CopyFiles]
+CPQP110.icm
+
+[P1100.CopyFiles]
+CPQP1100.icm
+
+[P1610.CopyFiles]
+CPQP1610.icm
+
+[S500.CopyFiles]
+CPQS500.icm
+
+[S510.CopyFiles]
+CPQS510.icm
+
+[S700.CopyFiles]
+CPQS700.icm
+
+[S710.CopyFiles]
+CPQS710.icm
+
+[S900.CopyFiles]
+CPQS900.icm
+
+[S910.CopyFiles]
+CPQS910.icm
+
+[V40.CopyFiles]
+CPQV40.icm
+
+[V45.CopyFiles]
+CPQV45.icm
+
+[V50.CopyFiles]
+CPQV50.icm
+
+[V55.CopyFiles]
+CPQV55.icm
+
+[V70.CopyFiles]
+CPQV70.icm
+
+[V75.CopyFiles]
+CPQV75.icm
+
+[V90.CopyFiles]
+CPQV90.icm
+
+[V500.CopyFiles]
+CPQV500.icm
+
+[V700.CopyFiles]
+CPQV700.icm
+
+[V900.CopyFiles]
+CPQV900.icm
+
+[V1000.CopyFiles]
+CPQV1000.icm
+
+[V1100.CopyFiles]
+CPQV1100.icm
+
+[TFT450.CopyFiles]
+CQTFT450.icm
+
+[TFT500.CopyFiles]
+CQTFT500.icm
+
+[TFT5000.CopyFiles]
+CPQ_5000.icm
+
+[TFT5000s.CopyFiles]
+CPQ5000s.icm
+
+[TFT5005.CopyFiles]
+TFT5004-5005.icm
+
+[TFT5010.CopyFiles]
+CPQ_5010.icm
+
+[TFT7000.CopyFiles]
+CPQ_7000.icm
+
+[TFT8000.CopyFiles]
+CPQ_8000.icm
+
+[TFT8020.CopyFiles]
+CPQ_8020.icm
+
+[7020.CopyFiles]
+CPQ_7020.icm
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+Disk1="See readme.txt for more information."
+P50="COMPAQ P50 CRT Monitor"
+P70="COMPAQ P70 CRT Monitor"
+P75="COMPAQ P75 CRT Monitor"
+P900="COMPAQ P900 CRT Monitor"
+P110="COMPAQ P110 CRT Monitor"
+P1100="COMPAQ P1100 CRT Monitor"
+P1610="COMPAQ P1610 CRT Monitor"
+S500="COMPAQ S500 CRT Monitor"
+S510="COMPAQ S510 CRT Monitor"
+S700="COMPAQ S700 Color Monitor"
+S710_1="COMPAQ S710 CRT Monitor"
+S710_2="COMPAQ S710 CRT Monitor"
+S900="COMPAQ S900 CRT Monitor"
+S910="COMPAQ S910 CRT Monitor"
+TFT450="COMPAQ TFT450 Flat Panel Monitor"
+TFT500="COMPAQ TFT500 Flat Panel Monitor"
+TFT5000="COMPAQ TFT5000 Flat Panel Monitor"
+TFT5000s_1="COMPAQ TFT5000S Flat Panel Monitor"
+TFT5000s_2="COMPAQ TFT5000S Flat Panel Monitor"
+TFT5000s_3="COMPAQ TFT5000S Flat Panel Monitor"
+TFT5005="COMPAQ TFT5004/TFT5005 Flat Panel Monitor"
+TFT5010="COMPAQ TFT5010 Flat Panel Monitor"
+TFT7000="COMPAQ TFT7000 Flat Panel Monitor"
+TFT8000="COMPAQ TFT8000 Flat Panel Monitor"
+TFT8020="COMPAQ TFT8020 Flat Panel Monitor"
+7020="COMPAQ 7020 Flat Panel Monitor"
+V40="COMPAQ V40 CRT Monitor"
+V45="COMPAQ V45 CRT Monitor"
+V50="COMPAQ V50 CRT Monitor"
+V55="COMPAQ V55 CRT Monitor"
+V70="COMPAQ V70 CRT Monitor"
+V75="COMPAQ V75 CRT Monitor"
+V90="COMPAQ V90 CRT Monitor"
+V500="COMPAQ V500 CRT Monitor"
+V700="COMPAQ V700 CRT Monitor"
+V900="COMPAQ V900 CRT Monitor"
+V1000="COMPAQ V1000 CRT Monitor"
+V1100="COMPAQ V1100 CRT Monitor"
+
+
+Copyright (c) 2006 Hewlett-Packard Development Company, L.P.

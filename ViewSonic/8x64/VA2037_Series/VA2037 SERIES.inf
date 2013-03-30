@@ -1,0 +1,80 @@
+;Monitor.Inf 
+;Copyright 2012, ViewSonic Corporation
+;v001
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VA2037 SERIES.cat
+DriverVer=07/19/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2037 SERIES.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VA2037 SERIES.ICM=1
+
+
+;Monitor class function driver loading parameters
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ViewSonic]   
+%VA2037 SERIES%=VA2037 SERIES.Install,Monitor\VSCCC2C  
+
+[ViewSonic.NTia64]   
+%VA2037 SERIES%=VA2037 SERIES.Install,Monitor\VSCCC2C
+
+[ViewSonic.NTamd64]   
+%VA2037 SERIES%=VA2037 SERIES.Install,Monitor\VSCCC2C 
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCCC2C
+
+[VA2037 SERIES.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2037 SERIES.AddReg
+Copyfiles=VA2037 SERIES.CopyFiles
+
+[VA2037 SERIES.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install; install monitor class function driver
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+
+[VA2037 SERIES.AddReg]  
+HKR,"MODES\1600,900",Mode1,,"24-82,50-75,+,+" 
+HKR,,MaxResolution,,"1600,900"
+HKR,,DPMS,,1
+HKR,,PreferredMode,,"1600,900,60"
+HKR,,ICMProfile,0,"VA2037 SERIES.ICM"
+
+[VA2037 SERIES.CopyFiles]                                       
+VA2037 SERIES.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VA2037 SERIES ViewSonic Wizard"
+
+VA2037 SERIES="ViewSonic VA2037 SERIES"

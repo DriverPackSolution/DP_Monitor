@@ -1,0 +1,87 @@
+; [L685.INF]
+; Revision 1.01
+; Copyright(c) 2001 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L685.cat
+DriverVer=09/27/2001,1.01
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1645
+;ExcludeFromSelect.nt = Monitor\ENC1646
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L685D.CopyFiles = 23
+L685.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L685__M1.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L685D%=L685D.Install, Monitor\ENC1645
+%L685%=L685.Install, Monitor\ENC1646
+
+[L685D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L685D.AddReg, 1280, DPMS
+CopyFiles=L685D.CopyFiles
+
+[L685.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L685.AddReg, 1280, DPMS
+CopyFiles=L685.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L685D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L685__M1.ICM"
+
+[L685.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L685__M1.ICM"
+
+[L685D.CopyFiles]
+L685__M1.ICM
+
+[L685.CopyFiles]
+L685__M1.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L685D="L685"
+L685="L685"

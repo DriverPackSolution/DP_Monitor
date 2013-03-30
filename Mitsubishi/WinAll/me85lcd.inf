@@ -1,0 +1,82 @@
+; ME85LCD.INF
+; Setup information file for Mitsubishi E85LCD Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=ME85LCD.cat
+DriverVer=04/04/2002,2.04.0004.1007
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4344
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+MITS-E85LCD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+me85lcd.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%MITS-E85LCD%=MITS-E85LCD.Install, Monitor\MEL4344
+
+; Install Sections
+;-------------------------------------------------
+[MITS-E85LCD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MITS-E85LCD.AddReg, 1280, DPMS
+CopyFiles=MITS-E85LCD.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[MITS-E85LCD.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-82.0,55.0-85.0,+,+"
+HKR,,ICMProfile,0,"me85lcd.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[MITS-E85LCD.CopyFiles]
+ME85LCD.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+MITS-E85LCD="Mitsubishi E85LCD"

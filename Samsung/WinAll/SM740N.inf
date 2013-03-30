@@ -1,0 +1,102 @@
+
+;==================================================
+; SM740N.inf 02/15/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM740N.cat
+DriverVer=02/15/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM01B7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM740N.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM740N.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM740N%=SM740N.Install, Monitor\SAM01B7
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM740N%=SM740N.Install, Monitor\SAM01B7
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM740N%=SM740N.Install, Monitor\SAM01B7
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM740N.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM740N.AddReg, 1280, DPMS
+CopyFiles=SM740N.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM740N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM740N.icm"
+
+;------------------------------------------------------
+
+[SM740N.CopyFiles]
+SM740N.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM740N="SyncMaster 740N/179N,SyncMaster Magic CX721N/CX714N"

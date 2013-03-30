@@ -1,0 +1,69 @@
+; HM903DA/DTA.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor HM903DA/DTA 
+;Copyright 2002 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=HM903DA.cat      
+DriverVer=12/24/2002,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM1942
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+HM903DA.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+HM903DA.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%HM903DA%=HM903DA.Install, Monitor\IVM1942
+
+[HM903DA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HM903DA.AddReg, 2048, DPMS
+CopyFiles=HM903DA.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HM903DA.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-132,50-200,+,+"
+HKR,,ICMProfile,0,"HM903DA.ICM"
+
+[HM903DA.CopyFiles]
+HM903DA.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA CRT Monitor Installation Disk"
+
+HM903DA="IIYAMA HM903D A/DT A"

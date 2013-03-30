@@ -1,0 +1,83 @@
+;===============================================================
+; [W2600.inf]
+; Revision 1.3   October-15-2009
+; Copyright(c)1998~2009 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=W2600.cat
+DriverVer=10/15/2009,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM5674
+ExcludeFromSelect.NT=Monitor\GSM5675
+
+[DestinationDirs]
+DefaultDestDir = 11
+W2600_Analog.CopyFiles = 23
+W2600_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+W2600.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%W2600_Analog%=W2600_Analog.Install,Monitor\GSM5674
+%W2600_Digital%=W2600_Digital.Install,Monitor\GSM5675
+
+[LG.NTamd64]
+%W2600_Analog%=W2600_Analog.Install,Monitor\GSM5674
+%W2600_Digital%=W2600_Digital.Install,Monitor\GSM5675
+
+[W2600_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W2600_Analog.AddReg,1920,DPMS
+CopyFiles=W2600_Analog.CopyFiles
+
+[W2600_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W2600_Digital.AddReg,1920,DPMS
+CopyFiles=W2600_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[W2600_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1200,59"
+HKR,,ICMprofile,0,"W2600.ICM"
+
+[W2600_Digital.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1200,59"
+HKR,,ICMprofile,0,"W2600.ICM"
+
+[W2600_Analog.CopyFiles]
+W2600.ICM
+
+[W2600_Digital.CopyFiles]
+W2600.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+W2600_Analog="LG W2600(Analog)"
+W2600_Digital="LG W2600(Digital)"

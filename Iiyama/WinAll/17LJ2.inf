@@ -1,0 +1,72 @@
+;17LJ2.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH 17LJ2
+;Copyright 2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=17LJ2.cat      
+DriverVer=09/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46DE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+17LJ2.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+17LJ2.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%17LJ2%=17LJ2.Install, Monitor\IVM46DE
+
+[17LJ2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=17LJ2.AddReg, 1280, DPMS
+CopyFiles=17LJ2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[17LJ2.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"17LJ2.ICM"
+
+[17LJ2.CopyFiles]
+17LJ2.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+17LJ2="e-yama 17LJ2"

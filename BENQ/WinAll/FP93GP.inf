@@ -1,0 +1,122 @@
+;================================ 
+; BenQ_FP93GP.INF 11/07/06 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2006, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=FP93GP.cat
+DriverVer=10/16/2006,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7702
+ExcludeFromSelect.NT=Monitor\BNQ7703
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP93GP_Analog.copyfiles = 23
+FP93GP_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP93GP.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%FP93GP_Analog%=FP93GP_Analog.Install, Monitor\BNQ7702
+%FP93GP_Digital%=FP93GP_Digital.Install, Monitor\BNQ7703
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%FP93GP_Analog%=FP93GP_Analog.Install, Monitor\BNQ7702
+%FP93GP_Digital%=FP93GP_Digital.Install, Monitor\BNQ7703
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%FP93GP_Analog%=FP93GP_Analog.Install, Monitor\BNQ7702
+%FP93GP_Digital%=FP93GP_Digital.Install, Monitor\BNQ7703
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FP93GP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP93GP_Analog.AddReg, 1280, DPMS
+CopyFiles=FP93GP_Analog.CopyFiles
+
+[FP93GP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP93GP_Digital.AddReg, 1280, DPMS
+CopyFiles=FP93GP_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[FP93GP_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP93GP.icm"
+
+[FP93GP_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP93GP.icm"
+
+
+
+[FP93GP_Analog.CopyFiles]
+FP93GP.ICM
+
+[FP93GP_Digital.CopyFiles]
+FP93GP.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+FP93GP_Analog="BenQ FP93GP (Analog)"
+FP93GP_Digital="BenQ FP93GP (Digital)"
+

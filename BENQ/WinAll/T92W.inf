@@ -1,0 +1,76 @@
+;T92W.INF Ver. 1.0
+;Monitor INF file for BenQ T92W
+;Copyright 2001,2008 BenQ Co., Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+CatalogFile=T92W.cat
+DriverVer=01/03/2008, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\BEQ2177
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+T92W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+T92W.ICM=1
+
+
+[Manufacturer]
+%BenQ%=BenQ,NTX86,NTAMD64
+
+[BenQ]
+%T92W%=T92W.Install, Monitor\BEQ2177
+
+[BenQ.NTX86]
+%T92W%=T92W.Install, Monitor\BEQ2177
+
+[BenQ.NTAMD64]
+%T92W%=T92W.Install, Monitor\BEQ2177
+
+[T92W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T92W.AddReg, 1440, DPMS
+CopyFiles=T92W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[T92W.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-80,56-75,+,+"
+HKR,,ICMProfile,0,"T92W.ICM"
+
+
+[T92W.CopyFiles]
+T92W.ICM
+
+[Strings]
+DISK="BenQ Manual and Driver CD"
+MonitorClassName="Monitor"
+BenQ="BenQ Co., Ltd."
+T92W="BenQ T92W"

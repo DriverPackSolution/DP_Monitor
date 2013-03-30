@@ -1,0 +1,72 @@
+;PLX436.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH PLX436S
+;Copyright 2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLX436S.cat      
+DriverVer=7/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46D7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLX436S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLX436S.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLX436S%=PLX436S.Install, Monitor\IVM46D7
+
+[PLX436S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLX436S.AddReg, 1280, DPMS
+CopyFiles=PLX436S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLX436S.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLX436S.ICM"
+
+[PLX436S.CopyFiles]
+PLX436S.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLX436S="iiyama ProLite X436S"

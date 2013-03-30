@@ -1,0 +1,119 @@
+
+;==================================================
+; SM961BF.inf 01/04/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM961BF.cat
+DriverVer=01/04/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM02A0
+ExcludeFromSelect.nt=Monitor\SAM02A1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM961BFa.CopyFiles = 23
+SM961BFd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM961BF.icm=1
+SM961BF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM961BFa%=SM961BFa.Install, Monitor\SAM02A0
+%SM961BFd%=SM961BFd.Install, Monitor\SAM02A1
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM961BFa%=SM961BFa.Install, Monitor\SAM02A0
+%SM961BFd%=SM961BFd.Install, Monitor\SAM02A1
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM961BFa%=SM961BFa.Install, Monitor\SAM02A0
+%SM961BFd%=SM961BFd.Install, Monitor\SAM02A1
+; Install Sections
+;-----------------------------------------------------
+
+[SM961BFa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM961BFa.AddReg, 1280, DPMS
+CopyFiles=SM961BFa.CopyFiles
+
+[SM961BFd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM961BFd.AddReg, 1280, DPMS
+CopyFiles=SM961BFd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM961BFa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM961BF.icm"
+
+[SM961BFd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM961BF.icm"
+;------------------------------------------------------
+
+[SM961BFa.CopyFiles]
+SM961BF.icm
+
+[SM961BFd.CopyFiles]
+SM961BF.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM961BFa="SyncMaster 961BF,SyncMaster Magic CX961BF(Analog)"
+SM961BFd="SyncMaster 961BF,SyncMaster Magic CX961BF(Digital)"

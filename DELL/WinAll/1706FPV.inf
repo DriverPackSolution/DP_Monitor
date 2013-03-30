@@ -1,0 +1,111 @@
+
+;================================ 
+;1706FPV.INF 03/08/05 Ver. 1.0 PCC
+;Copyright 1996-2005 Dell Inc.
+;
+;This is a setupfile for 1706FPV 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1706FPV.cat
+DriverVer=03/08/2005, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL3017
+ExcludeFromSelect.nt=Monitor\DEL3018
+
+[DestinationDirs]
+DefaultDestDir=11
+1706FPV_Analog.CopyFiles=23
+1706FPV_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+1706FPV.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%1706FPV_Analog%=1706FPV_Analog.Install, Monitor\DEL3017
+%1706FPV_Digital%=1706FPV_Digital.Install, Monitor\DEL3018
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%1706FPV_Analog%=1706FPV_Analog.Install, Monitor\DEL3017
+%1706FPV_Digital%=1706FPV_Digital.Install, Monitor\DEL3018
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[1706FPV_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1706FPV_Analog.AddReg, 1280, DPMS
+CopyFiles=1706FPV_Analog.CopyFiles
+
+[1706FPV_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1706FPV_Digital.AddReg, 1280, DPMS
+CopyFiles=1706FPV_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[1706FPV_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1706FPV.icm"
+
+[1706FPV_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1706FPV.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[1706FPV_Analog.CopyFiles]
+1706FPV.icm
+
+[1706FPV_Digital.CopyFiles]
+1706FPV.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+1706FPV_Analog="Dell 1706FPV (Analog)"
+1706FPV_Digital="Dell 1706FPV (Digital)"

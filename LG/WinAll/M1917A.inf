@@ -1,0 +1,65 @@
+;=============================================================== 
+; [M1917A.INF] 
+; Revision 1.4   Oct-19-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M1917A.cat
+DriverVer=10/19/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4ADA
+
+[DestinationDirs]
+DefaultDestDir=11
+M1917A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M1917A.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M1917A%=M1917A.Install,Monitor\GSM4ADA
+
+[LG.NTamd64]
+%M1917A%=M1917A.Install,Monitor\GSM4ADA
+
+[M1917A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1917A.AddReg,1280,DPMS
+CopyFiles=M1917A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1917A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1917A.ICM"
+
+[M1917A.CopyFiles]
+M1917A.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M1917A="LG M1917A"

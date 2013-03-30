@@ -1,0 +1,97 @@
+;-------------------------------------------
+; Copyright (c) 2005 Dell Corporation
+; Issue date -- 07/07/2005
+; Revise date -- 09/13/2005
+; revision 1
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1907FP.cat
+DriverVer=08/21/2006,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+1907FP_Analog.copyfiles = 23
+1907FP_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+1907FP.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%1907FP_Analog%=1907FP_Analog.Install, Monitor\DEL4014
+%1907FP_Digital%=1907FP_Digital.Install, Monitor\DEL4015
+
+[DELL.NTx86]
+%1907FP_Analog%=1907FP_Analog.Install, Monitor\DEL4014
+%1907FP_Digital%=1907FP_Digital.Install, Monitor\DEL4015
+
+[DELL.NTAMD64]
+%1907FP_Analog%=1907FP_Analog.Install, Monitor\DEL4014
+%1907FP_Digital%=1907FP_Digital.Install, Monitor\DEL4015
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL4014
+ExcludeFromSelect.NT=Monitor\DEL4015
+
+[1907FP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1907FP_Analog.AddReg, 1280, DPMS
+CopyFiles=1907FP_Analog.CopyFiles
+
+[1907FP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1907FP_Digital.AddReg, 1280, DPMS
+CopyFiles=1907FP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1907FP_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1907FP.icm"
+
+[1907FP_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1907FP.icm"
+
+
+[1907FP_Analog.CopyFiles]
+1907FP.ICM
+
+[1907FP_Digital.CopyFiles]
+1907FP.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+
+1907FP_Analog="Dell 1907FP(Analog)"
+1907FP_Digital="Dell 1907FP(Digital)"
+

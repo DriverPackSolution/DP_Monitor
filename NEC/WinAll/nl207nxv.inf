@@ -1,0 +1,68 @@
+; nl207nxv.inf
+; Setup information file for NEC MultiSync LCD2070NX Monitor
+;
+; Copyright 2007, NEC Display Solutions,Ltd
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl207nxv.cat
+DriverVer=01/13/2007,1.07.0113.1712
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC667B
+
+[DestinationDirs]
+LCD2070NX.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl207nxv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD2070NX%=LCD2070NX.Install, Monitor\NEC667B
+
+[NECDS.ntamd64]
+%LCD2070NX%=LCD2070NX.Install.ntamd64, Monitor\NEC667B
+
+[LCD2070NX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2070NX.AddReg, 1600, DPMS
+CopyFiles=LCD2070NX.CopyFiles
+
+[LCD2070NX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2070NX.AddReg, 1600, DPMS
+CopyFiles=LCD2070NX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD2070NX.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl207nxv.icm"
+
+[LCD2070NX.CopyFiles]
+nl207nxv.icm
+
+[Strings]
+NECDS="NEC"
+LCD2070NX="NEC MultiSync LCD2070NX"
+Disk1="NEC Monitor Installation Disk"

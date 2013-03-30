@@ -1,0 +1,106 @@
+;-------------------------------------------------
+; FS740.INF
+;
+; This is a Setup information file for Compaq
+; FS740 Consumer monitors. 
+;
+; Copyright (c) 1998-2000, Compaq Computer Corporation
+;
+;  Version 08.17.2000
+;  
+;-------------------------------------------------
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=Cqfs740.cat
+DriverVer=08/17/2000,
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CPQ3053
+;-------------------------------------------------
+; Monitor Class Install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FS740.CopyFiles=23
+
+[SourceDisksNames]
+1="Compaq Consumer Monitor Installation Disk",,,
+
+[SourceDisksFiles]
+CQFS740.icm=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[COMPAQ]
+%FS740% =FS740.Install, Monitor\CPQ3053
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+
+[FS740.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FS740.AddReg, 1280, DPMS
+CopyFiles=FS740.CopyFiles
+
+
+;-------------------------------------------------
+; Common AddReg/DelReg Sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------------
+; Model AddReg Sections
+;-------------------------------------------------
+
+
+[FS740.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"CQFS740.icm"
+
+[FS740.CopyFiles]
+CQFS740.icm
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+Compaq="COMPAQ"
+MonitorClassName="Monitor"
+FS740="COMPAQ FS740 Color Monitor"

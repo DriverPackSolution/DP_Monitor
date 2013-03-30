@@ -1,0 +1,107 @@
+; nf23w1a.inf
+; Setup information file for NEC F23W1A Monitor
+;
+; Copyright (C) 2008, NEC Display Solutions,Ltd
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nf23w1a.cat
+DriverVer=12/17/2008,1.08.1217.0543
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6773
+ExcludeFromSelect.nt=Monitor\NEC6774
+ExcludeFromSelect.nt=Monitor\NEC6775
+
+[DestinationDirs]
+F23W1A.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nf23w1a.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%F23W1A-A%=F23W1A-A.Install, Monitor\NEC6773
+%F23W1A-D%=F23W1A-D.Install, Monitor\NEC6774
+%F23W1A-H%=F23W1A-H.Install, Monitor\NEC6775
+
+[NECDS.ntamd64]
+%F23W1A-A%=F23W1A-A.Install.ntamd64, Monitor\NEC6773
+%F23W1A-D%=F23W1A-D.Install.ntamd64, Monitor\NEC6774
+%F23W1A-H%=F23W1A-H.Install.ntamd64, Monitor\NEC6775
+
+[F23W1A-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W1A-A.AddReg, 1920, DPMS
+CopyFiles=F23W1A.CopyFiles
+
+[F23W1A-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W1A-D.AddReg, 1920, DPMS
+CopyFiles=F23W1A.CopyFiles
+
+[F23W1A-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W1A-H.AddReg, 1920, DPMS
+CopyFiles=F23W1A.CopyFiles
+
+
+[F23W1A-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W1A-A.AddReg, 1920, DPMS
+CopyFiles=F23W1A.CopyFiles
+
+[F23W1A-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W1A-D.AddReg, 1920, DPMS
+CopyFiles=F23W1A.CopyFiles
+
+[F23W1A-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W1A-H.AddReg, 1920, DPMS
+CopyFiles=F23W1A.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F23W1A-A.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"nf23w1a.icm"
+
+[F23W1A-D.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"nf23w1a.icm"
+
+[F23W1A-H.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"nf23w1a.icm"
+
+
+[F23W1A.CopyFiles]
+nf23w1a.icm
+
+[Strings]
+NECDS="NEC"
+F23W1A-A="NEC F23W1A(Analog)"
+F23W1A-D="NEC F23W1A(Digital)"
+F23W1A-H="NEC F23W1A(HDMI)"
+Disk1="NEC Monitor Installation Disk"

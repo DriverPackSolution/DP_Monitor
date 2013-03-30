@@ -1,0 +1,95 @@
+
+;==================================================
+; ST98PDF.inf 01/28/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=ST98PDF.cat
+DriverVer=01/28/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\STN0020
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+ST98PDF.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+ST98PDF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%ST98PDF%=ST98PDF.Install, Monitor\STN0020
+
+; Install Sections
+;-----------------------------------------------------
+
+[ST98PDF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ST98PDF.AddReg, 2048, DPMS
+CopyFiles=ST98PDF.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[ST98PDF.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-96,50-160,+,+"
+HKR,,ICMProfile,0,"ST98PDF.icm"
+
+
+;------------------------------------------------------
+
+[ST98PDF.CopyFiles]
+ST98PDF.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+ST98PDF="SAMTRON 98PDF/99DF/99PDF"
+

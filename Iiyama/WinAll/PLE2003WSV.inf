@@ -1,0 +1,104 @@
+;=========================================== 
+; iiyama_PLE2003WSV.INF 09/17/07 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2007, iiyama Corporation
+;===========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+catalogfile=PLE2003WSV.cat
+DriverVer=09/17/2007,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IVM5398
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+PLE2003WSV.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+PLE2003WSV.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%iiyama%=iiyama,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama] 
+%PLE2003WSV%=PLE2003WSV.Install, Monitor\IVM5398
+
+
+;-------------------------------------------------
+
+ [iiyama.NTx86] 
+%PLE2003WSV%=PLE2003WSV.Install, Monitor\IVM5398
+
+;-------------------------------------------------
+ [iiyama.NTAMD64] 
+%PLE2003WSV%=PLE2003WSV.Install, Monitor\IVM5398
+
+
+; Install Sections
+;-------------------------------------------------
+
+[PLE2003WSV.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE2003WSV.AddReg, 1680, DPMS
+CopyFiles=PLE2003WSV.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[PLE2003WSV.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"31-83.0,55.0-60.0,+,+"
+HKR,,ICMProfile,0,"PLE2003WSV.icm"
+
+[PLE2003WSV.CopyFiles]
+PLE2003WSV.ICM
+
+
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama"
+diskname="iiyama LCD Monitor installation diskette"
+PLE2003WSV="iiyama PLE2003WSV"
+
+
+

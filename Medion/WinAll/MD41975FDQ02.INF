@@ -1,0 +1,80 @@
+; #################################################
+;
+;    MD41975FDQ02.inf         Ver. 1.1      7/01/2004
+;
+;   Copyright (c)2004, Medion Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Medion Color Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=Medion15.cat
+DriverVer=07/01/2004,1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt =*
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+Medion_15.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+ MD41975FDQ02.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%Medion_15%=Medion_15.Install, Monitor\MEDD55B
+
+
+[Medion_15.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Medion_15.AddReg, 1024, DPMS
+CopyFiles=Medion_15.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Medion_15.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0," MD41975FDQ02.icm"
+
+[Medion_15.CopyFiles]
+ MD41975FDQ02.icm
+
+
+[Strings]
+Medion="Medion AG"
+MonitorClassName="Monitor"
+Medion_15="Medion 15 inch FD"
+DiskLabel="Medion INF and ICM Software"

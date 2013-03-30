@@ -1,0 +1,69 @@
+; Setup Information File for Windows Me/9x/2000/XP
+; Copyright (c)  2002, Benq Corporation.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BENQ%
+catalogfile=FP567s.cat
+DriverVer=12/12/2002,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7651
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP567s.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP567s.icm=1
+
+[Manufacturer]
+%BENQ%=BENQ
+
+[BENQ]
+%FP567s%=FP567s.Install, Monitor\BNQ7651
+
+[FP567s.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP567s.AddReg, 1024, DPMS
+CopyFiles=FP567s.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP567s.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-63.0,56.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.5-63.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FP567s.icm"
+
+[FP567s.CopyFiles]
+FP567s.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BENQ LCD Monitor installation diskette"
+FP567s="BENQ FP567s"
+BENQ="BENQ"

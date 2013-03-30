@@ -1,0 +1,74 @@
+; NECA500.INF
+; Setup information file for NEC AccuSync 500 Monitor
+;
+; Copyright 1995-2003, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NECA500.cat
+DriverVer=10/28/2003,3.10.0028.1403
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61DF
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-AS500.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+NECA500.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-AS500%=NEC-AS500.Install, Monitor\NEC61DF
+
+; Install Sections
+;-------------------------------------------------
+[NEC-AS500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS500.AddReg, 1280, DPMS
+CopyFiles=NEC-AS500.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-AS500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"NECA500.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-AS500.CopyFiles]
+NECA500.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-AS500="NEC AccuSync 500"

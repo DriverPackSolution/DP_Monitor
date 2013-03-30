@@ -1,0 +1,120 @@
+
+;==================================================
+; SM940UX.inf 03/11/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM940UX.cat
+DriverVer=03/11/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM02CC
+ExcludeFromSelect.nt=Monitor\SAM02CD
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM940UXa.CopyFiles = 23
+SM940UXd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM940UX.icm=1
+SM940UX.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM940UXa%=SM940UXa.Install, Monitor\SAM02CC
+%SM940UXd%=SM940UXd.Install, Monitor\SAM02CD
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM940UXa%=SM940UXa.Install, Monitor\SAM02CC
+%SM940UXd%=SM940UXd.Install, Monitor\SAM02CD
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM940UXa%=SM940UXa.Install, Monitor\SAM02CC
+%SM940UXd%=SM940UXd.Install, Monitor\SAM02CD
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM940UXa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM940UXa.AddReg, 1280, DPMS
+CopyFiles=SM940UXa.CopyFiles
+
+[SM940UXd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM940UXd.AddReg, 1280, DPMS
+CopyFiles=SM940UXd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM940UXa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM940UX.icm"
+
+[SM940UXd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM940UX.icm"
+;------------------------------------------------------
+
+[SM940UXa.CopyFiles]
+SM940UX.icm
+
+[SM940UXd.CopyFiles]
+SM940UX.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM940UXa="SyncMaster 940UX,SyncMaster Magic CX940UX(Analog)"
+SM940UXd="SyncMaster 940UX,SyncMaster Magic CX940UX(Digital)"

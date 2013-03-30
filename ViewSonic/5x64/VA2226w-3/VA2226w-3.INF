@@ -1,0 +1,85 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for ViewSonic
+;   Copyright, ViewSonic Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the ViewSonic Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%ViewSonic%
+	CatalogFile=VA2226w-3.cat
+	DriverVer=08/01/2007,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	VA2226w-3.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	VA2226w-3.icm=1
+
+[Manufacturer]
+	%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\VSC5120
+	
+[ViewSonic]
+	%VA2226w-3%=VA2226w-3.Install, Monitor\VSC5120
+
+[ViewSonic.NTx86]
+	%VA2226w-3%=VA2226w-3.Install, Monitor\VSC5120
+
+[ViewSonic.NTAMD64]
+	%VA2226w-3%=VA2226w-3.Install, Monitor\VSC5120
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VA2226w-3.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=VA2226w-3.AddReg, 1680, DPMS
+	CopyFiles=VA2226w-3.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1680]
+	HKR,,MaxResolution,,"1680,1050"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VA2226w-3.AddReg]
+	HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,50.0-75.0,-,+"
+	HKR,,ICMProfile,0,"VA2226w-3.icm"
+
+[VA2226w-3.CopyFiles]	
+	VA2226w-3.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	DiskLabel="ViewSonic INF and ICM Software"
+	ViewSonic="ViewSonic Corporation"
+
+	VA2226w-3="ViewSonic VA2226w-3 "

@@ -1,0 +1,83 @@
+;=============================================================== 
+; [LX713D.INF] 
+; Revision 1.4   June-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX713D.cat
+DriverVer=06/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4416
+ExcludeFromSelect.NT=Monitor\GSM4417
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX713D_Analog.CopyFiles = 23
+LX713D_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX713D.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX713D_Analog%=LX713D_Analog.Install,Monitor\GSM4416
+%LX713D_Digital%=LX713D_Digital.Install,Monitor\GSM4417
+
+[LG.NTamd64]
+%LX713D_Analog%=LX713D_Analog.Install,Monitor\GSM4416
+%LX713D_Digital%=LX713D_Digital.Install,Monitor\GSM4417
+
+[LX713D_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX713D_Analog.AddReg,1280,DPMS
+CopyFiles=LX713D_Analog.CopyFiles
+
+[LX713D_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX713D_Digital.AddReg,1280,DPMS
+CopyFiles=LX713D_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX713D_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX713D.ICM"
+
+[LX713D_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX713D.ICM"
+
+[LX713D_Analog.CopyFiles]
+LX713D.ICM
+
+[LX713D_Digital.CopyFiles]
+LX713D.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX713D_Analog="LG LX713D(Analog)"
+LX713D_Digital="LG LX713D(Digital)"

@@ -1,0 +1,68 @@
+; ea221wm.inf
+; Setup information file for NEC MultiSync EA221WM Monitor
+;
+; Copyright 2008, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea221wm.cat
+DriverVer=01/09/2008,1.08.0109.1354
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC673D
+
+[DestinationDirs]
+EA221WM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea221wm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA221WM%=EA221WM.Install, Monitor\NEC673D
+
+[NECDS.ntamd64]
+%EA221WM%=EA221WM.Install.ntamd64, Monitor\NEC673D
+
+[EA221WM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA221WM.AddReg, 1680, DPMS
+CopyFiles=EA221WM.CopyFiles
+
+[EA221WM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA221WM.AddReg, 1680, DPMS
+CopyFiles=EA221WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA221WM.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"ea221wm.icm"
+
+[EA221WM.CopyFiles]
+ea221wm.icm
+
+[Strings]
+NECDS="NEC"
+EA221WM="NEC MultiSync EA221WM"
+Disk1="NEC Display Solutions Installation Disk"

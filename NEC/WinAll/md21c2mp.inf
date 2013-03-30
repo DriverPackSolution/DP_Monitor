@@ -1,0 +1,60 @@
+; md21c2mp.inf
+; Setup information file for NEC MD21C-2MP Monitor
+;
+; Copyright 2005, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=md21c2mp.cat
+DriverVer=02/02/2005,1.05.0202.1453
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6687
+
+[DestinationDirs]
+MD21C-2MP.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+md21c2mp.icm=1
+
+[Manufacturer]
+%NMD%=NMD
+
+[NMD]
+%MD21C-2MP%=MD21C-2MP.Install, Monitor\NEC6687
+
+[MD21C-2MP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD21C-2MP.AddReg, 1600, DPMS
+CopyFiles=MD21C-2MP.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD21C-2MP.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"md21c2mp.icm"
+
+[MD21C-2MP.CopyFiles]
+md21c2mp.icm
+
+[Strings]
+NMD="NEC-Mitsubishi"
+MD21C-2MP="NEC MD21C-2MP"
+Disk1="NEC-Mitsubishi Monitor Installation Disk"

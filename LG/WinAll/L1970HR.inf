@@ -1,0 +1,83 @@
+;===============================================================
+; [L1970HR.inf]
+; Revision 1.3   November-21-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1970HR.cat
+DriverVer=11/21/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AE8
+ExcludeFromSelect.NT=Monitor\GSM4AE9
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1970HR_Analog.CopyFiles = 23
+L1970HR_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1970HR.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1970HR_Analog%=L1970HR_Analog.Install,Monitor\GSM4AE8
+%L1970HR_Digital%=L1970HR_Digital.Install,Monitor\GSM4AE9
+
+[LG.NTamd64]
+%L1970HR_Analog%=L1970HR_Analog.Install,Monitor\GSM4AE8
+%L1970HR_Digital%=L1970HR_Digital.Install,Monitor\GSM4AE9
+
+[L1970HR_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1970HR_Analog.AddReg,1280,DPMS
+CopyFiles=L1970HR_Analog.CopyFiles
+
+[L1970HR_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1970HR_Digital.AddReg,1280,DPMS
+CopyFiles=L1970HR_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1970HR_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1970HR.ICM"
+
+[L1970HR_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1970HR.ICM"
+
+[L1970HR_Analog.CopyFiles]
+L1970HR.ICM
+
+[L1970HR_Digital.CopyFiles]
+L1970HR.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1970HR_Analog="LG L1970HR(Analog)"
+L1970HR_Digital="LG L1970HR(Digital)"

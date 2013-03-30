@@ -1,0 +1,97 @@
+;-------------------------------------------
+; Copyright (c) 2007 Dell Corporation
+; Issue date -- 3/15/07
+; revision 1
+;This is a setupfile for E198WFP
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E198WFP.cat
+DriverVer=03/15/2007,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+E198WFP_Analog.copyfiles = 23
+E198WFP_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+E198WFP.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%E198WFP_Analog%=E198WFP_Analog.Install, Monitor\DELF005
+%E198WFP_Digital%=E198WFP_Digital.Install, Monitor\DELF006
+
+[DELL.NTx86]
+%E198WFP_Analog%=E198WFP_Analog.Install, Monitor\DELF005
+%E198WFP_Digital%=E198WFP_Digital.Install, Monitor\DELF006
+
+[DELL.NTAMD64]
+%E198WFP_Analog%=E198WFP_Analog.Install, Monitor\DELF005
+%E198WFP_Digital%=E198WFP_Digital.Install, Monitor\DELF006
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DELF005
+ExcludeFromSelect.NT=Monitor\DELF006
+
+[E198WFP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E198WFP_Analog.AddReg, 1440, DPMS
+CopyFiles=E198WFP_Analog.CopyFiles
+
+[E198WFP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E198WFP_Digital.AddReg, 1440, DPMS
+CopyFiles=E198WFP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E198WFP_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"E198WFP.icm"
+
+[E198WFP_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"E198WFP.icm"
+
+
+[E198WFP_Analog.CopyFiles]
+E198WFP.ICM
+
+[E198WFP_Digital.CopyFiles]
+E198WFP.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+
+E198WFP_Analog="Dell E198WFP(Analog)"
+E198WFP_Digital="Dell E198WFP(Digital)"
+

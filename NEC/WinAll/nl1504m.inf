@@ -1,0 +1,68 @@
+; nl1504m.inf
+; Setup information file for NEC LCD1504M Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl1504m.cat
+DriverVer=08/30/2005,2.05.0830.2352
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6676
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-NL1504M.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl1504m.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%NEC-NL1504M%=NEC-NL1504M.Install, Monitor\NEC6676
+
+[NECDS.ntamd64]
+%NEC-NL1504M%=NEC-NL1504M.Install.ntamd64, Monitor\NEC6676
+
+[NEC-NL1504M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-NL1504M.AddReg, 1024, DPMS
+CopyFiles=NEC-NL1504M.CopyFiles
+
+[NEC-NL1504M.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-NL1504M.AddReg, 1024, DPMS
+CopyFiles=NEC-NL1504M.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,1024,768
+
+[DPMS]
+HKR,,DPMS,,1
+
+[NEC-NL1504M.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl1504m.icm"
+
+[NEC-NL1504M.CopyFiles]
+nl1504m.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+NEC-NL1504M="NEC LCD1504M"

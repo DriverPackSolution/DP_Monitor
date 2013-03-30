@@ -1,0 +1,118 @@
+; nlm461.inf
+; Setup information file for NEC Multeos P401 Monitor
+;
+; Copyright (C) 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlm461.cat
+DriverVer=08/04/2009, 1.09.0804.1427
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC679E
+ExcludeFromSelect.nt=Monitor\NEC679F
+ExcludeFromSelect.nt=Monitor\NEC67A1
+
+[DestinationDirs]
+M461.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlm461.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%M461-A%=M461-A.Install, Monitor\NEC679E
+%M461-D%=M461-D.Install, Monitor\NEC679F
+%M461-P%=M461-P.Install, Monitor\NEC67A1
+
+[NECDS.ntamd64]
+%M461-A%=M461-A.Install.ntamd64, Monitor\NEC679E
+%M461-D%=M461-D.Install.ntamd64, Monitor\NEC679F
+%M461-P%=M461-P.Install.ntamd64, Monitor\NEC67A1
+
+; Install Sections
+;-------------------------------------------------
+[M461-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M461-A.AddReg, 1920, DPMS
+CopyFiles=M461.CopyFiles
+
+[M461-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M461-D.AddReg, 1920, DPMS
+CopyFiles=M461.CopyFiles
+
+[M461-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M461-P.AddReg, 1920, DPMS
+CopyFiles=M461.CopyFiles
+
+[M461-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M461-A.AddReg, 1920, DPMS
+CopyFiles=M461.CopyFiles
+
+[M461-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M461-D.AddReg, 1920, DPMS
+CopyFiles=M461.CopyFiles
+
+[M461-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M461-P.AddReg, 1920, DPMS
+CopyFiles=M461.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[M461-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlm461.icm"
+
+[M461-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlm461.icm"
+
+[M461-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlm461.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[M461.CopyFiles]
+nlm461.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+M461-A="NEC Multeos M461(Analog)"
+M461-D="NEC Multeos M461(Digital)"
+M461-P="NEC Multeos M461(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

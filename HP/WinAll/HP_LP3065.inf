@@ -1,0 +1,86 @@
+; #################################################
+;
+;   HP_LP3065.inf          Ver. 2.50          12/15/2006
+;
+;   Copyright (c)2006, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP LP3065 Wide LCD Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_LP3065.cat
+DriverVer=12/15/2006,2.50
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\HWP2690
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LP3065.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_LP3065.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%LP3065%=LP3065.Install, Monitor\HWP2690
+
+[HP.NTamd64]
+%LP3065%=LP3065.Install.NTamd64, Monitor\HWP2690
+
+[LP3065.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP3065.AddReg, 2560, DPMS
+CopyFiles=LP3065.CopyFiles
+
+[LP3065.Install.NTamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LP3065.AddReg, 2560, DPMS
+CopyFiles=LP3065.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2560]
+HKR,,MaxResolution,,"2560,1600"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LP3065.AddReg]
+HKR,"MODES\1280,800",Mode1,,"98.0-100.0,59-60,+,-"
+HKR,"MODES\2560,1600",Mode1,,"98.0-100.0,59-60,+,-"
+HKR,,ICMProfile,0x00010000,"HP_LP3065.icm"
+HKR,,PreferredMode,,"2560,1600,60"
+
+[LP3065.CopyFiles]
+HP_LP3065.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+LP3065="HP LP3065 Wide LCD Monitor"
+Disk1="HP LP3065 Driver Software"

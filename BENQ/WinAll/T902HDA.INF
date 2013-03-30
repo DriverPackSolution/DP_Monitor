@@ -1,0 +1,91 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ T902HDA.INF 05/12/09 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for T902HDA
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=T902HDA.cat
+	DriverVer=05/12/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	T902HDA.CopyFiles=23
+       
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	T902HDA.icm=1
+      
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ772B
+	
+	
+[BenQ]
+	%T902HDA%=T902HDA.Install, Monitor\BNQ772B
+	
+
+[BenQ.NTx86]
+	%T902HDA%=T902HDA.Install, Monitor\BNQ772B
+	
+
+[BenQ.NTAMD64]
+	%T902HDA%=T902HDA.Install, Monitor\BNQ772B
+	
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[T902HDA.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=T902HDA.AddReg, 1366, DPMS
+	CopyFiles=T902HDA.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1366]
+	HKR,,MaxResolution,,"1366,768"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[T902HDA.AddReg]
+	HKR,"MODES\1366,768",Mode1,,"31.0-83.0,55.0-76.0,+,+"
+	HKR,,ICMProfile,0,"T902HDA.icm"
+
+[T902HDA.CopyFiles]	
+	T902HDA.icm
+
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	T902HDA="BenQ T902HDA"
+       

@@ -1,0 +1,74 @@
+; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2002, Mitsubishi Electric Australia Pty. Ltd. 
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+;catalogfile=DV172.cat
+DriverVer=11/20/2002,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA0172
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+DV172.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+DV172.icm=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%DV172%=DV172.Install, Monitor\MEA0172
+
+[DV172.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DV172.AddReg, 1280, DPMS
+CopyFiles=DV172.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[DV172.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-81.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5-81.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.5-81.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-81.0,56.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.5-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"DV172.icm"
+
+[DV172.CopyFiles]
+DV172.ICM
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA0172
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="MEA LCD Monitor installation diskette"
+DV172="MEA DV172"
+MEA="Mitsubishi Electric Australia"

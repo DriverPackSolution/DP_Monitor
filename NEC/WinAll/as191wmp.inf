@@ -1,0 +1,68 @@
+; as191wmp.inf
+; Setup information file for NEC AS191WMP Monitor
+;
+; Copyright 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=as191wmp.cat
+DriverVer=05/06/2010,1.10.0506.1117
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67EC
+
+[DestinationDirs]
+DefaultDestDir=11
+AS191WMP.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+as191wmp.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%AS191WMP%=AS191WMP.Install, Monitor\NEC67EC
+
+[NECDS.ntamd64]
+%AS191WMP%=AS191WMP.Install.ntamd64, Monitor\NEC67EC
+
+[AS191WMP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS191WMP.AddReg, 1440, DPMS
+CopyFiles=AS191WMP.CopyFiles
+
+[AS191WMP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS191WMP.AddReg, 1440, DPMS
+CopyFiles=AS191WMP.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS191WMP.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-85.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"as191wmp.icm"
+
+[AS191WMP.CopyFiles]
+as191wmp.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+AS191WMP="NEC AS191WMP"

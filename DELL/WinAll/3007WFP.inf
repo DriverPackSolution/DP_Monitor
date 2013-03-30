@@ -1,0 +1,99 @@
+
+;================================ 
+;3007WFP.INF 08/21/06 Ver. 2.0 PCC
+;Copyright 1996-2005 Dell Inc.
+;
+;This is a setupfile for 3007WFP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=3007WFP.cat
+DriverVer=08/21/2006, 2.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL4016
+
+
+[DestinationDirs]
+DefaultDestDir=11
+3007WFP.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+3007WFP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%3007WFP%=3007WFP.Install, Monitor\DEL4016
+
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%3007WFP%=3007WFP.Install, Monitor\DEL4016
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[3007WFP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=3007WFP.AddReg, 2560, DPMS
+CopyFiles=3007WFP.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[2560]
+HKR,,MaxResolution,,"2560,1600"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[3007WFP.AddReg]
+HKR,"MODES\2560,1600",Mode1,,"30.0-100.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"3007WFP.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[3007WFP.CopyFiles]
+3007WFP.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+3007WFP="Dell 3007WFP"

@@ -1,0 +1,1181 @@
+; NEC-Mon.INF
+; Setup information file for NEC Monitors
+; Modified by P.Waberg
+; Copyright 1995-2000, NEC-Mitsubishi Electronics Display
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NEC%
+DriverVer=12/29/2000
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-AS50.CopyFiles = 23
+NEC-AS70.CopyFiles = 23
+NEC-V721.CopyFiles = 23
+NEC-AS75F.CopyFiles = 23
+NEC-AS90.CopyFiles = 23
+NEC-V921.CopyFiles = 23
+NEC-AS95F.CopyFiles = 23
+NEC-AS120.CopyFiles = 23
+NEC-MS50.CopyFiles = 23
+NEC-MS70.CopyFiles = 23
+NEC-MS75F.CopyFiles = 23
+NEC-MS90.CopyFiles = 23
+NEC-MS95F.CopyFiles = 23
+NEC-A500P.CopyFiles = 23
+NEC-A700P.CopyFiles = 23
+NEC-E750.CopyFiles = 23
+NEC-E900P.CopyFiles = 23
+NEC-E1100P.CopyFiles = 23
+NEC-FE700.CopyFiles = 23
+NEC-FE700P.CopyFiles = 23
+NEC-FE750.CopyFiles = 23
+NEC-FE750P.CopyFiles = 23
+NEC-FE950.CopyFiles = 23
+NEC-FE950P.CopyFiles = 23
+NEC-FE1250.CopyFiles = 23
+NEC-FE1250P.CopyFiles = 23
+NEC-FP950.CopyFiles = 23
+NEC-FP1350.CopyFiles = 23
+NEC-M700.CopyFiles = 23
+NEC-P1250P.CopyFiles = 23
+NEC-LCD1500M.CopyFiles = 23
+NEC-LCD1510Plus.CopyFiles = 23
+NEC-LCD1525M.CopyFiles = 23
+NEC-LCD1525S.CopyFiles = 23
+NEC-LCD1525V.CopyFiles = 23
+NEC-LCD1530V.CopyFiles = 23
+NEC-LCD15T.CopyFiles = 23
+NEC-LCD1800.CopyFiles = 23
+NEC-LCD1810.CopyFiles = 23
+NEC-LCD1810X.CopyFiles = 23
+
+NEC-A500.CopyFiles = 23
+NEC-A700.CopyFiles = 23
+NEC-A900.CopyFiles = 23
+NEC-E500.CopyFiles = 23
+NEC-E700.CopyFiles = 23
+NEC-E900.CopyFiles = 23
+NEC-E1100.CopyFiles = 23
+NEC-M500.CopyFiles = 23
+NEC-P750.CopyFiles = 23
+NEC-P1150.CopyFiles = 23
+NEC-LCD400.CopyFiles = 23
+NEC-LCD1510.CopyFiles = 23
+NEC-LCD1510V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NECDiskLabel%,,,
+
+[SourceDisksFiles]
+neca50-1.icm=1
+neca70-1.icm=1
+neca70-2.icm=1
+neca75f1.icm=1
+neca90-1.icm=1
+neca90-2.icm=1
+neca95f1.icm=1
+neca1201.icm=1
+nec50-1.icm=1
+nec70-1.icm=1
+nec75f-1.icm=1
+nec90-1.icm=1
+nec95f-1.icm=1
+neca5p-1.icm=1
+neca7p-1.icm=1
+nece751.icm=1
+nece9p1.icm=1
+nece11p1.icm=1
+necfe7-1.icm=1
+necfe7p1.icm=1
+necfe751.icm=1
+n-fe75p1.icm=1
+necfe951.icm=1
+n-fe95p1.icm=1
+necfe251.icm=1
+n-fe25p1.icm=1
+necfp9-1.icm=1
+necfp131.icm=1
+necm7-1.icm=1
+necp12p1.icm=1
+necl15m1.icm=1
+necl51p1.icm=1
+necl52m1.icm=1
+necl52s1.icm=1
+necl52v1.icm=1
+necl53v1.icm=1
+necl15t1.icm=1
+necl1801.icm=1
+necl18-2.icm=1
+necl18x1.icm=1
+
+neca5-2.icm=1
+neca7-1.icm=1
+neca9-1.icm=1
+nece5-2.icm=1
+nece7-1.icm=1
+nece9-1.icm=1
+nece11-1.icm=1
+necm5-2.icm=1
+necp7-1.icm=1
+necp11-1.icm=1
+necl4-1.icm=1
+necl15-2.icm=1
+necl15v2.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NEC%=NEC
+
+; Manufacturer sections
+;-------------------------------------------------
+[NEC]
+%NEC-AS50%=NEC-AS50.Install, Monitor\NEC5DC3
+%NEC-AS70%=NEC-AS70.Install, Monitor\NEC5DC4
+%NEC-V721%=NEC-V721.Install, Monitor\NEC61BC
+%NEC-AS75F%=NEC-AS75F.Install, Monitor\NEC5DCF
+%NEC-AS90%=NEC-AS90.Install, Monitor\NEC5DC5
+%NEC-V921%=NEC-V921.Install, Monitor\NEC5DC2
+%NEC-AS95F%=NEC-AS95F.Install, Monitor\NEC5DD0
+%NEC-AS120%=NEC-AS120.Install, Monitor\NEC5DD5
+%NEC-MS50%=NEC-MS50.Install, Monitor\NEC1D4D
+%NEC-MS70%=NEC-MS70.Install, Monitor\NEC1E15
+%NEC-MS75%=NEC-MS75.Install, Monitor\NEC5DC9
+%NEC-MS75F%=NEC-MS75F.Install, Monitor\NEC5DD1
+%NEC-MS90%=NEC-MS90.Install, Monitor\NEC4BF0
+%NEC-MS95%=NEC-MS95.Install, Monitor\NEC5DCA
+%NEC-MS95F%=NEC-MS95F.Install, Monitor\NEC5DD2
+%NEC-MS125%=NEC-MS125.Install, Monitor\NEC61B2
+%NEC-A500P%=NEC-A500P.Install, Monitor\NEC3DC2
+%NEC-A700P%=NEC-A700P.Install, Monitor\NEC43EE
+%NEC-E750%=NEC-E750.Install, Monitor\NEC443E
+%NEC-E900P%=NEC-E900P.Install, Monitor\NEC4BDC
+%NEC-E950%=NEC-E950.Install, Monitor\NEC4BFA
+%NEC-E1100P%=NEC-E1100P.Install, Monitor\NEC53DE
+%NEC-FE700%=NEC-FE700.Install, Monitor\NEC4272
+%NEC-FE700P%=NEC-FE700P.Install, Monitor\NEC61BA
+%NEC-FE750%=NEC-FE750.Install, Monitor\NEC61AD
+%NEC-FE750P%=NEC-FE750P.Install, Monitor\NEC61B3
+%NEC-FE950%=NEC-FE950.Install, Monitor\NEC61AE
+%NEC-FE950P%=NEC-FE950P.Install, Monitor\NEC61B4
+%NEC-FE1250%=NEC-FE1250.Install, Monitor\NEC61AB
+%NEC-FE1250P%=NEC-FE1250P.Install, Monitor\NEC61B6
+%NEC-FP950%=NEC-FP950.Install, Monitor\NEC4C04
+%NEC-FP1350%=NEC-FP1350.Install, Monitor\NEC578A
+%NEC-FP1350XA%=NEC-FP1350XA.Install, Monitor\NEC61B0
+%NEC-FP1350XD%=NEC-FP1350XD.Install, Monitor\NEC61B1
+%NEC-FP1370%=NEC-FP1370.Install, Monitor\NEC61A8
+%NEC-M700%=NEC-M700.Install, Monitor\NEC43C6
+%NEC-P1250P%=NEC-P1250P.Install, Monitor\NEC53E8
+%NEC-LCD1500M%=NEC-LCD1500M.Install, Monitor\NEC3B88
+%NEC-LCD1510Plus%=NEC-LCD1510Plus.Install, Monitor\NEC3D5F
+%NEC-LCD1525M%=NEC-LCD1525M.Install, Monitor\NEC3BB0
+%NEC-LCD1525S%=NEC-LCD1525S.Install, Monitor\NEC3BCE
+%NEC-LCD1525V%=NEC-LCD1525V.Install, Monitor\NEC3BA6
+%NEC-LCD1525X%=NEC-LCD1525X.Install, Monitor\NEC6591
+%NEC-LCD1530V%=NEC-LCD1530V.Install, Monitor\NEC65A8
+%NEC-LCD15T%=NEC-LCD15T.Install, Monitor\NEC6590
+%NEC-LCD1700M%=NEC-LCD1700M.Install, Monitor\NEC65A9
+%NEC-LCD1800%=NEC-LCD1800.Install, Monitor\NEC65A1
+%NEC-LCD1810%=NEC-LCD1810.Install, Monitor\NEC4786
+%NEC-LCD1810X%=NEC-LCD1810X.Install, Monitor\NEC6594
+%NEC-LCD2010%=NEC-LCD2010.Install, Monitor\NEC4F60
+%NEC-LCD2010X%=NEC-LCD2010X.Install, Monitor\NEC65A2
+%NEC-LCD2110%=NEC-LCD2110.Install, Monitor\NEC6597
+
+%NEC-XE15%=NEC-XE15.Install, Monitor\NEC3C1E
+%NEC-XE17%=NEC-XE17.Install, Monitor\NEC43B2
+%NEC-XV14%=NEC-XV14.Install, Monitor\NEC37FA
+%NEC-XV14%=NEC-XV14.Install, Monitor\NEC37FB
+%NEC-XV15%=NEC-XV15.Install, Monitor\NEC3C14
+%NEC-XV15PLUS%=NEC-XV15PLUS.Install, Monitor\NEC3D5E
+%NEC-XV17PLUS%=NEC-XV17PLUS.Install, Monitor\NEC43BD
+%NEC-C400%=NEC-C400.Install, Monitor\NEC3A66
+%NEC-C500%=NEC-C500.Install, Monitor\NEC3E4E
+%NEC-A500%=NEC-A500.Install, Monitor\NEC3D90
+%NEC-A700%=NEC-A700.Install, Monitor\NEC43D0
+%NEC-A900%=NEC-A900.Install, Monitor\NEC4BE6
+%NEC-E500%=NEC-E500.Install, Monitor\NEC3D86
+%NEC-E700%=NEC-E700.Install, Monitor\NEC4434
+%NEC-E900%=NEC-E900.Install, Monitor\NEC4BD2
+%NEC-E1100%=NEC-E1100.Install, Monitor\NEC53C0
+%NEC-M500%=NEC-M500.Install, Monitor\NEC3D68
+%NEC-P750%=NEC-P750.Install, Monitor\NEC4420
+%NEC-P1150%=NEC-P1150.Install, Monitor\NEC53CA
+%NEC-LCD1280%=NEC-LCD1280.Install
+%NEC-LCD200%=NEC-LCD200.Install, Monitor\NEC2FB2
+%NEC-LCD300%=NEC-LCD300.Install
+%NEC-LCD400%=NEC-LCD400.Install, Monitor\NEC3782
+%NEC-LCD400V%=NEC-LCD400V.Install, Monitor\NEC378C
+%NEC-LCD1400M%=NEC-LCD1400M.Install, Monitor\NEC37BE
+%NEC-LCD1510%=NEC-LCD1510.Install, Monitor\NEC3B6A
+%NEC-LCD1510V%=NEC-LCD1510V.Install, Monitor\NEC3B74
+%NEC-LCD1510VPlus%=NEC-LCD1510VPlus.Install, Monitor\NEC3D73
+%NEC-LCD2000%=NEC-LCD2000.Install, Monitor\NEC4F56
+
+; Install Sections
+;-------------------------------------------------
+[NEC-AS50.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS50.AddReg, 1280, DPMS
+CopyFiles=NEC-AS50.CopyFiles
+
+[NEC-AS70.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS70.AddReg, 1280, DPMS
+CopyFiles=NEC-AS70.CopyFiles
+
+[NEC-V721.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-V721.AddReg, 1280, DPMS
+CopyFiles=NEC-V721.CopyFiles
+
+[NEC-AS75F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS75F.AddReg, 1280, DPMS
+CopyFiles=NEC-AS75F.CopyFiles
+
+[NEC-AS90.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS90.AddReg, 1920, DPMS
+CopyFiles=NEC-AS90.CopyFiles
+
+[NEC-V921.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-V921.AddReg,1920, DPMS
+CopyFiles=NEC-V921.CopyFiles
+
+[NEC-AS95F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS95F.AddReg, 1920, DPMS
+CopyFiles=NEC-AS95F.CopyFiles
+
+[NEC-AS120.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS120.AddReg, 1920, DPMS
+CopyFiles=NEC-AS120.CopyFiles
+
+[NEC-MS50.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS50.AddReg, 1280, DPMS
+CopyFiles=NEC-MS50.CopyFiles
+
+[NEC-MS70.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS70.AddReg, 1280, DPMS
+CopyFiles=NEC-MS70.CopyFiles
+
+[NEC-MS75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS75.AddReg, 1280, DPMS
+
+[NEC-MS75F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS75F.AddReg, 1280, DPMS
+CopyFiles=NEC-MS75F.CopyFiles
+
+[NEC-MS90.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS90.AddReg, 1600, DPMS
+CopyFiles=NEC-MS90.CopyFiles
+
+[NEC-MS95.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS95.AddReg, 1920, DPMS
+
+[NEC-MS95F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS95F.AddReg, 1920, DPMS
+CopyFiles=NEC-MS95F.CopyFiles
+
+[NEC-MS125.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS125.AddReg, 1920, DPMS
+
+[NEC-A500P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-A500P.AddReg, 1280, DPMS
+CopyFiles=NEC-A500P.CopyFiles
+
+[NEC-A700P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-A700P.AddReg, 1280, DPMS
+CopyFiles=NEC-A700P.CopyFiles
+
+[NEC-E750.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E750.AddReg, 1600, DPMS
+CopyFiles=NEC-E750.CopyFiles
+
+[NEC-E900P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E900P.AddReg, 1600, DPMS
+CopyFiles=NEC-E900P.CopyFiles
+
+[NEC-E950.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E950.AddReg, 1920, DPMS
+
+[NEC-E1100P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E1100P.AddReg, 1600, DPMS
+CopyFiles=NEC-E1100P.CopyFiles
+
+[NEC-FE700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE700.AddReg, 1280, DPMS
+CopyFiles=NEC-FE700.CopyFiles
+
+[NEC-FE700P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE700P.AddReg, 1280, DPMS
+CopyFiles=NEC-FE700P.CopyFiles
+
+[NEC-FE750.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE750.AddReg, 1600, DPMS
+CopyFiles=NEC-FE750.CopyFiles
+
+[NEC-FE750P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE750P.AddReg, 1600, DPMS
+CopyFiles=NEC-FE750P.CopyFiles
+
+[NEC-FE950.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE950.AddReg, 1792, DPMS
+CopyFiles=NEC-FE950.CopyFiles
+
+[NEC-FE950P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE950P.AddReg, 1792, DPMS
+CopyFiles=NEC-FE950P.CopyFiles
+
+[NEC-FE1250.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE1250.AddReg, 1920, DPMS
+CopyFiles=NEC-FE1250.CopyFiles
+
+[NEC-FE1250P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE1250P.AddReg, 1920, DPMS
+CopyFiles=NEC-FE1250P.CopyFiles
+
+[NEC-FP950.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FP950.AddReg, 1920, DPMS
+CopyFiles=NEC-FP950.CopyFiles
+
+[NEC-FP1350.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FP1350.AddReg, 1920, DPMS
+CopyFiles=NEC-FP1350.CopyFiles
+
+[NEC-FP1350XA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FP1350XA.AddReg, 1920, DPMS
+
+[NEC-FP1350XD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FP1350XD.AddReg, 1600, DPMS
+
+[NEC-FP1370.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FP1370.AddReg, 2048, DPMS
+
+[NEC-M700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-M700.AddReg, 1280, DPMS
+CopyFiles=NEC-M700.CopyFiles
+
+[NEC-P1250P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-P1250P.AddReg, 1600, DPMS
+CopyFiles=NEC-P1250P.CopyFiles
+
+[NEC-LCD1500M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1500M.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1500M.CopyFiles
+
+[NEC-LCD1510Plus.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1510Plus.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1510Plus.CopyFiles
+
+[NEC-LCD1525M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1525M.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1525M.CopyFiles
+
+[NEC-LCD1525S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1525S.AddReg, 1280, DPMS
+CopyFiles=NEC-LCD1525S.CopyFiles
+
+[NEC-LCD1525V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1525V.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1525V.CopyFiles
+
+[NEC-LCD1525X.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1525X.AddReg, 1024, DPMS
+
+[NEC-LCD1530V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1530V.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1530V.CopyFiles
+
+[NEC-LCD15T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD15T.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD15T.CopyFiles
+
+[NEC-LCD1700M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1700M.AddReg, 1280, DPMS
+
+[NEC-LCD1800.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1800.AddReg, 1280, DPMS
+CopyFiles=NEC-LCD1800.CopyFiles
+
+[NEC-LCD1810.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1810.AddReg, 1280, DPMS
+CopyFiles=NEC-LCD1810.CopyFiles
+
+[NEC-LCD1810X.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1810X.AddReg, 1280, DPMS
+CopyFiles=NEC-LCD1810X.CopyFiles
+
+[NEC-LCD2010.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD2010.AddReg, 1280, DPMS
+
+[NEC-LCD2010X.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD2010X.AddReg, 1280, DPMS
+
+[NEC-LCD2110.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD2110.AddReg, 1600, DPMS
+
+[NEC-XE15.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-XE15.AddReg, 1280, DPMS
+
+[NEC-XE17.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-XE17.AddReg, 1280, DPMS
+
+[NEC-XV14.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-XV14.AddReg, 1280, DPMS
+
+[NEC-XV15.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-XV15.AddReg, 1280, DPMS
+
+[NEC-XV15PLUS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-XV15PLUS.AddReg, 1280, DPMS
+
+[NEC-XV17PLUS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-XV17PLUS.AddReg, 1600, DPMS
+
+[NEC-C400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-C400.AddReg, 1024, DPMS
+
+[NEC-C500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-C500.AddReg, 1280, DPMS
+
+[NEC-A500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-A500.AddReg, 1280, DPMS
+CopyFiles=NEC-A500.CopyFiles
+
+[NEC-A700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-A700.AddReg, 1280, DPMS
+CopyFiles=NEC-A700.CopyFiles
+
+[NEC-A900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-A900.AddReg, 1600, DPMS
+CopyFiles=NEC-A900.CopyFiles
+
+[NEC-E500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E500.AddReg, 1280, DPMS
+CopyFiles=NEC-E500.CopyFiles
+
+[NEC-E700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E700.AddReg, 1600, DPMS
+CopyFiles=NEC-E700.CopyFiles
+						     
+[NEC-E900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E900.AddReg, 1600, DPMS
+CopyFiles=NEC-E900.CopyFiles
+
+[NEC-E1100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-E1100.AddReg, 1600, DPMS
+CopyFiles=NEC-E1100.CopyFiles
+
+[NEC-M500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-M500.AddReg, 1280, DPMS
+CopyFiles=NEC-M500.CopyFiles
+
+[NEC-P750.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-P750.AddReg, 1600, DPMS
+CopyFiles=NEC-P750.CopyFiles
+
+[NEC-P1150.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-P1150.AddReg, 1600, DPMS
+CopyFiles=NEC-P1150.CopyFiles
+
+[NEC-LCD1280.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1280.AddReg, 1280, DPMS
+
+[NEC-LCD200.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD200.AddReg, 1024, DPMS
+
+[NEC-LCD300.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD300.AddReg, 1280, DPMS
+
+[NEC-LCD400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD400.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD400.CopyFiles
+
+[NEC-LCD400V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD400V.AddReg, 1024, DPMS
+
+[NEC-LCD1400M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1400M.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1400M.CopyFiles
+
+[NEC-LCD1510.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1510.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1510.CopyFiles
+
+[NEC-LCD1510V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1510V.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1510V.CopyFiles
+
+[NEC-LCD1510VPlus.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1510VPlus.AddReg, 1024, DPMS
+
+[NEC-LCD2000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD2000.AddReg, 1280, DPMS
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-AS50.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca50-1.icm"
+
+[NEC-AS70.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca70-1.icm"
+
+[NEC-V721.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca70-2.icm"
+
+[NEC-AS75F.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca75f1.icm"
+
+[NEC-AS90.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"neca90-1.icm"
+
+[NEC-V921.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"neca90-2.icm"
+
+[NEC-AS95F.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"neca95f1.icm"
+
+[NEC-AS120.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-200.0,+,+"
+HKR,,ICMProfile,0,"neca1201.icm"
+
+[NEC-MS50.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"nec50-1.icm"
+
+[NEC-MS70.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"nec70-1.icm"
+
+[NEC-MS75.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+
+[NEC-MS75F.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"nec75f-1.icm"
+
+[NEC-MS90.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.0-92.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"nec90-1.icm"
+
+[NEC-MS95.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+
+[NEC-MS95F.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"nec95f-1.icm"
+
+[NEC-MS125.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-200.0,+,+"
+HKR,,ICMProfile,0,"nec125-1.icm"
+
+[NEC-A500P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca5p-1.icm"
+
+[NEC-A700P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca7p-1.icm"
+
+[NEC-E750.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"nece751.icm"
+
+[NEC-E900P.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"nece9p1.icm"
+
+[NEC-E950.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+
+[NEC-E1100P.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"nece11p1.icm"
+
+[NEC-FE700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"necfe7-1.icm"
+
+[NEC-FE700P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"necfe7p1.icm"
+
+[NEC-FE750.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necfe751.icm"
+
+[NEC-FE750P.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"n-fe75p1.icm"
+
+[NEC-FE950.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necfe951.icm"
+
+[NEC-FE950P.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"n-fe95p1.icm"
+
+[NEC-FE1250.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-110.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necfe251.icm"
+
+[NEC-FE1250P.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"n-fe25p1.icm"
+
+[NEC-FP950.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-110.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necfp9-1.icm"
+
+[NEC-FP1350.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-115.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necfp131.icm"
+
+[NEC-FP1350XA.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-115.0,55.0-160.0,+,+"
+
+[NEC-FP1350XD.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,55.0-160.0,+,+"
+
+[NEC-FP1370.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"31.0-130.0,55.0-160.0,+,+"
+
+[NEC-M700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"necm7-1.icm"
+
+[NEC-P1250P.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-110.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necp12p1.icm"
+
+[NEC-LCD1500M.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-77.0,+,+"
+HKR,,ICMProfile,0,"necl15m1.icm"
+
+[NEC-LCD1510Plus.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"necl51p1.icm"
+
+[NEC-LCD1525M.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"necl52m1.icm"
+
+[NEC-LCD1525S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"necl52s1.icm"
+
+[NEC-LCD1525V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-49.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"necl52v1.icm"
+
+[NEC-LCD1525X.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-75.0,+,+"
+
+[NEC-LCD1530V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"necl53v1.icm"
+
+[NEC-LCD15T.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-85.0,+,+"
+HKR,,ICMProfile,0,"necl15t1.icm"
+
+[NEC-LCD1700M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.0,56.0-75.0,+,+"
+
+[NEC-LCD1800.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,55.0-86.0,+,+"
+HKR,,ICMProfile,0,"necl1801.icm"
+
+[NEC-LCD1810.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"necl18-2.icm"
+
+[NEC-LCD1810X.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-82.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"necl18x1.icm"
+
+[NEC-LCD2010.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,56.0-76.0,+,+"
+
+[NEC-LCD2010X.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,56.0-85.0,+,+"
+
+[NEC-LCD2110.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-82.0,56.0-76.0,+,+"
+
+[NEC-XE15.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-120.0,+,+"
+
+[NEC-XE17.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-120.0,+,+"
+
+[NEC-XV14.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-57.0,55.0-100.0,+,+"
+
+[NEC-XV15.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-100.0,+,+"
+
+[NEC-XV15PLUS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-100.0,+,+"
+
+[NEC-XV17PLUS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-82.0,55.0-100.0,+,+"
+
+[NEC-C400.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64.0,47.0-120.0,+,+"
+
+[NEC-C500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,47.0-120.0,+,+"
+
+[NEC-A500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca5-2.icm"
+
+[NEC-A700.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca7-1.icm"
+
+[NEC-A900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"neca9-1.icm"
+
+[NEC-E500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"nece5-2.icm"
+
+[NEC-E700.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-82.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"nece7-1.icm"
+
+[NEC-E900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"nece9-1.icm"
+
+[NEC-E1100.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-82.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"nece11-1.icm"
+
+[[NEC-M500.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"necm5-2.icm"
+
+[NEC-P750.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-94.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necp7-1.icm"
+
+[NEC-P1150.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-94.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"necp11-1.icm"
+
+[NEC-LCD1280.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"63.0-66.4,60.0-62.0,+,+"
+HKR,"MODES\640,480",Mode1,,"29.5-33.5,60.0-62.0,+,+"
+
+[NEC-LCD200.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-62.0,53.0-85.0,+,+"
+
+[NEC-LCD300.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"59.0-78.2,55.0-76.0,+,+"
+HKR,"MODES\640,480",Mode1,,"30.8-38.0,55.0-72.8,+,+"
+
+[NEC-LCD400.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-86.0,+,+"
+HKR,,ICMProfile,0,"necl4-1.icm"
+
+[NEC-LCD400V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-86.0,+,+"
+
+[NEC-LCD1510.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-86.0,+,+"
+HKR,,ICMProfile,0,"necl15-2.icm"
+
+[NEC-LCD1510V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-86.0,+,+"
+HKR,,ICMProfile,0,"necl15v2.icm"
+
+[NEC-LCD1510VPlus.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,55.0-75.0,+,+"
+
+[NEC-LCD2000.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-81.0,55.0-85.0,+,+"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-AS50.CopyFiles]
+NECA50-1.ICM
+
+[NEC-AS70.CopyFiles]
+NECA70-1.ICM
+
+[NEC-V721.CopyFiles]
+NECA70-2.ICM
+
+[NEC-AS75F.CopyFiles]
+NECA75F1.ICM
+
+[NEC-AS90.CopyFiles]
+NECA90-1.ICM
+
+[NEC-V921.CopyFiles]
+NECA90-2.ICM
+
+[NEC-AS95F.CopyFiles]
+NECA95F1.ICM
+
+[NEC-AS120.CopyFiles]
+NECA1201.ICM
+
+[NEC-MS50.CopyFiles]
+NEC50-1.ICM
+
+[NEC-MS70.CopyFiles]
+NEC70-1.ICM
+
+[NEC-MS75F.CopyFiles]
+NEC75F-1.ICM
+
+[NEC-MS90.CopyFiles]
+NEC90-1.ICM
+
+[NEC-MS95F.CopyFiles]
+NEC95F-1.ICM
+
+[NEC-MS125.CopyFiles]
+NEC125-1.ICM
+
+[NEC-A500P.CopyFiles]
+NECA5P-1.ICM
+
+[NEC-A700P.CopyFiles]
+NECA7P-1.ICM
+
+[NEC-E750.CopyFiles]
+NECE751.ICM
+
+[NEC-E900P.CopyFiles]
+NECE9P1.ICM
+
+[NEC-E1100P.CopyFiles]
+NECE11P1.ICM
+
+[NEC-FE700.CopyFiles]
+NECFE7-1.ICM
+
+[NEC-FE700P.CopyFiles]
+NECFE7P1.ICM
+
+[NEC-FE750.CopyFiles]
+NECFE751.ICM
+
+[NEC-FE750P.CopyFiles]
+N-FE75P1.ICM
+
+[NEC-FE950.CopyFiles]
+NECFE951.ICM
+
+[NEC-FE950P.CopyFiles]
+N-FE95P1.ICM
+
+[NEC-FE1250.CopyFiles]
+NECFE251.ICM
+
+[NEC-FE1250P.CopyFiles]
+N-FE25P1.ICM
+
+[NEC-FP950.CopyFiles]
+NECFP9-1.ICM
+
+[NEC-FP1350.CopyFiles]
+NECFP131.ICM
+
+[NEC-M700.CopyFiles]
+NECM7-1.ICM
+
+[NEC-P1250P.CopyFiles]
+NECP12P1.ICM
+
+[NEC-LCD1500M.CopyFiles]
+NECL15M1.ICM
+
+[NEC-LCD1510Plus.CopyFiles]
+NECL51P1.ICM
+
+[NEC-LCD1525M.CopyFiles]
+NECL52M1.ICM
+
+[NEC-LCD1525S.CopyFiles]
+NECL52S1.ICM
+
+[NEC-LCD1525V.CopyFiles]
+NECL52V1.ICM
+
+[NEC-LCD1530V.CopyFiles]
+NECL53V1.ICM
+
+[NEC-LCD15T.CopyFiles]
+NECL15T1.ICM
+
+[NEC-LCD1800.CopyFiles]
+NECL1801.ICM
+
+[NEC-LCD1810.CopyFiles]
+NECL18-2.ICM
+
+[NEC-LCD1810X.CopyFiles]
+NECL18X1.ICM
+
+[NEC-A500.CopyFiles]
+NECA5-2.ICM
+
+[NEC-A700.CopyFiles]
+NECA7-1.ICM
+
+[NEC-A900.CopyFiles]
+NECA9-1.ICM
+
+[NEC-E500.CopyFiles]
+NECE5-2.ICM
+
+[NEC-E700.CopyFiles]
+NECE7-1.ICM
+
+[NEC-E900.CopyFiles]
+NECE9-1.ICM
+
+[NEC-E1100.CopyFiles]
+NECE11-1.ICM
+
+[NEC-M500.CopyFiles]
+NECM5-2.ICM
+
+[NEC-P750.CopyFiles]
+NECP7-1.ICM
+
+[NEC-P1150.CopyFiles]
+NECP11-1.ICM
+
+[NEC-LCD400.CopyFiles]
+NECL4-1.ICM
+
+[NEC-LCD1510.CopyFiles]
+NECL15-2.ICM
+
+[NEC-LCD1510V.CopyFiles]
+NECL15V2.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NEC="NEC-Mitsubishi"
+NECDiskLabel="NEC Monitor Installation Disk"
+NEC-AS50="NEC AccuSync 50"
+NEC-AS70="NEC AccuSync 70"
+NEC-V721="NEC MultiSync V721"
+NEC-AS75F="NEC AccuSync 75F"
+NEC-AS90="NEC AccuSync 90"
+NEC-V921="NEC MultiSync V921"
+NEC-AS95F="NEC AccuSync 95F"
+NEC-AS120="NEC AccuSync 120"
+NEC-MS50="NEC MultiSync 50"
+NEC-MS70="NEC MultiSync 70"
+NEC-MS75="NEC MultiSync 75"
+NEC-MS75F="NEC MultiSync 75F"
+NEC-MS90="NEC MultiSync 90"
+NEC-MS95="NEC MultiSync 95"
+NEC-MS95F="NEC MultiSync 95F"
+NEC-MS125="NEC MultiSync 125"
+NEC-A500P="NEC MultiSync A500+"
+NEC-A700P="NEC MultiSync A700+"
+NEC-E750="NEC MultiSync E750"
+NEC-E900P="NEC MultiSync E900+"
+NEC-E950="NEC MultiSync E950"
+NEC-E1100P="NEC MultiSync E1100+"
+NEC-FE700="NEC MultiSync FE700"
+NEC-FE700P="NEC MultiSync FE700+"
+NEC-FE750="NEC MultiSync FE750"
+NEC-FE750P="NEC MultiSync FE750+"
+NEC-FE950="NEC MultiSync FE950"
+NEC-FE950P="NEC MultiSync FE950+"
+NEC-FE1250="NEC MultiSync FE1250"
+NEC-FE1250P="NEC MultiSync FE1250+"
+NEC-FP950="NEC MultiSync FP950"
+NEC-FP1350="NEC MultiSync FP1350"
+NEC-FP1350XA="NEC MultiSync FP1350X (Analog)"
+NEC-FP1350XD="NEC MultiSync FP1350X (Digital)"
+NEC-FP1370="NEC MultiSync FP1370"
+NEC-M700="NEC MultiSync M700"
+NEC-P1250P="NEC MultiSync P1250+"
+NEC-LCD1500M="NEC MultiSync LCD1500M"
+NEC-LCD1510Plus="NEC MultiSync LCD1510+"
+NEC-LCD1525M="NEC MultiSync LCD1525M"
+NEC-LCD1525S="NEC MultiSync LCD1525S"
+NEC-LCD1525V="NEC MultiSync LCD1525V"
+NEC-LCD1525X="NEC MultiSync LCD1525X"
+NEC-LCD1530V="NEC MultiSync LCD1530V"
+NEC-LCD15T="NEC MultiSync LCD15T"
+NEC-LCD1700M="NEC MultiSync LCD1700M"
+NEC-LCD1800="NEC MultiSync LCD1800"
+NEC-LCD1810="NEC MultiSync LCD1810"
+NEC-LCD1810X="NEC MultiSync LCD1810X"
+NEC-LCD2010="NEC MultiSync LCD2010"
+NEC-LCD2010X="NEC MultiSync LCD2010X"
+NEC-LCD2110="NEC MultiSync LCD2110"
+
+NEC-XE15="NEC MultiSync XE15"
+NEC-XE17="NEC MultiSync XE17"
+NEC-XE21="NEC MultiSync XE21"
+NEC-XP15="NEC MultiSync XP15"
+NEC-XP17="NEC MultiSync XP17"
+NEC-XP21="NEC MultiSync XP21"
+NEC-XV14="NEC MultiSync XV14"
+NEC-XV15="NEC MultiSync XV15"
+NEC-XV15PLUS="NEC MultiSync XV15+"
+NEC-XV17="NEC MultiSync XV17 / XV17+"
+NEC-XV17PLUS="NEC MultiSync XV17+ (-2)"
+NEC-C400="NEC MultiSync C400"
+NEC-C500="NEC MultiSync C500"
+NEC-A500="NEC MultiSync A500"
+NEC-A700="NEC MultiSync A700"
+NEC-A900="NEC MultiSync A900"
+NEC-E500="NEC MultiSync E500"
+NEC-E700="NEC MultiSync E700"
+NEC-E900="NEC MultiSync E900"
+NEC-E1100="NEC MultiSync E1100"
+NEC-M500="NEC MultiSync M500"
+NEC-P750="NEC MultiSync P750"
+NEC-P1150="NEC MultiSync P1150"
+NEC-LCD1280="NEC LCD1280"
+NEC-LCD200="NEC LCD200"
+NEC-LCD300="NEC LCD300"
+NEC-LCD400="NEC MultiSync LCD400"
+NEC-LCD400V="NEC MultiSync LCD400V"
+NEC-LCD1400M="NEC MultiSync LCD1400M"
+NEC-LCD1510="NEC MultiSync LCD1510"
+NEC-LCD1510V="NEC MultiSync LCD1510V"
+NEC-LCD1510VPlus="NEC MultiSync LCD1510V+"
+NEC-LCD2000="NEC MultiSync LCD2000"

@@ -1,0 +1,66 @@
+; Setup information file for Mitsubishi Diamond Plus 92 Monitor
+; Copyright 2001, NEC-Mitsubishi Electronics Display, Inc.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+DriverVer=08/22/2001,1.01.0822.1120
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL44B0
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+MITS-DPLUS92.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+dplus92.icm=1
+
+[Manufacturer]
+%NMD%=NMD
+
+[NMD]
+%MITS-DPLUS92%=MITS-DPLUS92.Install, Monitor\MEL44B0
+
+[MITS-DPLUS92.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MITS-DPLUS92.AddReg, 1792, DPMS
+CopyFiles=MITS-DPLUS92.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MITS-DPLUS92.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"dplus92.icm"
+
+[MITS-DPLUS92.CopyFiles]
+dplus92.icm
+
+[Strings]
+NMD="NEC-Mitsubishi"
+MonitorClassName="Monitor"
+Disk1="NEC-Mitsubishi Display Monitor Installation Disk"
+MITS-DPLUS92="Mitsubishi Diamond Plus 92"

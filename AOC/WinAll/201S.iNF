@@ -1,0 +1,88 @@
+; Copyright 2006 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=201S.cat
+DriverVer=12/28/2006,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC0201
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0201.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+201S.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%0201%=0201.Install, Monitor\AOC0201
+
+[AOC.ntamd64]
+%0201%=0201.Install, Monitor\AOC0201
+
+; Install Sections
+;-------------------------------------------------
+[0201.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0201.AddReg, 1400,DPMS
+Copyfiles=0201.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1400]
+HKR,,MaxResolution,,"1400,1050"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[0201.AddReg]
+HKR,"MODES\1400,1050",Mode1,,"29.0-82.0,55.0-75.0,+,-"
+HKR,,ICMProfile,0,"201S.icm"
+
+
+[0201.CopyFiles]
+201S.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+0201="AOC 201S"

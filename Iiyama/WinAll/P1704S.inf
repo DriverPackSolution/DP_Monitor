@@ -1,0 +1,71 @@
+; [PLP1704S.INF]
+; Revision 1.00
+; Copyright(c) 2007 IIYAMA CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLP1704S.cat
+DriverVer=09/01/2007,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\IVM46E3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+PLP1704S.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+PLP1704S.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLP1704S%=PLP1704S.Install, Monitor\IVM46E3
+
+[PLP1704S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLP1704S.AddReg, 1280, DPMS
+CopyFiles=PLP1704S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLP1704S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLP1704S.icm"
+
+[PLP1704S.CopyFiles]
+PLP1704S.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+PLP1704S="iiyama ProLite P1704S"

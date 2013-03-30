@@ -1,0 +1,89 @@
+; Copyright 2008 AOC
+; This is a Setup information file for monitors with ICM file.
+; Vista
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=419.cat
+DriverVer=03/11/2008,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC2419
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+2419.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+419.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%2419%=2419.Install, Monitor\AOC2419
+
+[AOC.ntamd64]
+%2419%=2419.Install, Monitor\AOC2419
+
+; Install Sections
+;-------------------------------------------------
+[2419.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2419.AddReg, 1920, DPMS
+Copyfiles=2419.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[2419.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"24.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"419.icm"
+
+
+[2419.CopyFiles]
+419.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC"
+
+2419="AOC 419"

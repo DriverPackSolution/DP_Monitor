@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2435wm.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=11/08/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2435wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2435wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX2435wm%=VX2435wm.Install,Monitor\VSCBD1E  
+
+[ViewSonic.NTia64]   
+%VX2435wm%=VX2435wm.Install,Monitor\VSCBD1E  
+
+[ViewSonic.NTamd64]   
+%VX2435wm%=VX2435wm.Install,Monitor\VSCBD1E  
+
+[VX2435wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2435wm.AddReg,1920,DPMS
+Copyfiles=VX2435wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2435wm.AddReg]  
+HKR,"MODES\1920,1200",Mode1,,"30-82,50-76,+,-" 
+HKR,,ICMProfile,0,"VX2435wm.ICM"
+
+[VX2435wm.CopyFiles]                                       
+VX2435wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VX2435wm="ViewSonic VX2435wm"

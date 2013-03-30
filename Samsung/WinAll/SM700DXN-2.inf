@@ -1,0 +1,120 @@
+
+;==================================================
+; SM700DXN-2.inf 09/03/2009 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM700DXN-2.cat
+DriverVer=09/03/2009,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM061D
+ExcludeFromSelect.nt=Monitor\SAM061E
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM700DXN-2a.CopyFiles = 23
+SM700DXN-2d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM700DXN-2.icm=1
+SM700DXN-2.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM700DXN-2a%=SM700DXN-2a.Install, Monitor\SAM061D
+%SM700DXN-2d%=SM700DXN-2d.Install, Monitor\SAM061E
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM700DXN-2a%=SM700DXN-2a.Install, Monitor\SAM061D
+%SM700DXN-2d%=SM700DXN-2d.Install, Monitor\SAM061E
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM700DXN-2a%=SM700DXN-2a.Install, Monitor\SAM061D
+%SM700DXN-2d%=SM700DXN-2d.Install, Monitor\SAM061E
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM700DXN-2a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM700DXN-2a.AddReg, 1920, DPMS
+CopyFiles=SM700DXN-2a.CopyFiles
+
+[SM700DXN-2d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM700DXN-2d.AddReg, 1920, DPMS
+CopyFiles=SM700DXN-2d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM700DXN-2a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM700DXN-2.icm"
+
+[SM700DXN-2d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM700DXN-2.icm"
+;------------------------------------------------------
+
+[SM700DXN-2a.CopyFiles]
+SM700DXN-2.icm
+
+[SM700DXN-2d.CopyFiles]
+SM700DXN-2.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM700DXN-2a="SyncMaster 700DX-2/700DXN-2(Analog)"
+SM700DXN-2d="SyncMaster 700DX-2/700DXN-2(Digital)"

@@ -1,0 +1,97 @@
+
+;================================ 
+;E196FP.INF 05/16/05 Ver. 2.0 MK Chin
+;Copyright 1996-2005 Dell Inc.
+;
+;This is a setupfile for E196FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E196FP.cat
+DriverVer=06/22/2005, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA015
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E196FP.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E196FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64 
+
+; Manufacturer sections 
+;-------------------------------------------------  
+[DELL]  
+%E196FP%=E196FP.Install, Monitor\DELA015
+;-------------------------------------------------  
+[DELL.NTAMD64]  
+%E196FP%=E196FP.Install, Monitor\DELA015
+
+; Install Sections
+;-------------------------------------------------
+
+[E196FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E196FP.AddReg, 1280, DPMS
+CopyFiles=E196FP.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E196FP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E196FP.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E196FP.CopyFiles]
+E196FP.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E196FP="Dell E196FP"
+

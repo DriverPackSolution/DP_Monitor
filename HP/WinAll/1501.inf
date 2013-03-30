@@ -1,0 +1,78 @@
+; #################################################
+;
+;   1501.inf         Ver. 2.60      7/09/2002
+;
+;   Copyright (c)2002, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq 1501 Flat Panel Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=CPQ1501.cat
+DriverVer=07/09/2002,2.60
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ144D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1501.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQ_1501.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%1501%=1501.Install, Monitor\CPQ144D
+
+[1501.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1501.AddReg, 1024, DPMS
+CopyFiles=1501.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1501.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"CPQ_1501.icm"
+
+[1501.CopyFiles]
+CPQ_1501.icm
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+1501="COMPAQ 1501 Flat Panel Monitor"
+Disk1="COMPAQ 1501 Software CD"

@@ -1,0 +1,104 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2004 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=230W5.cat
+DriverVer=03/17/2004,1.01.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL0825          
+ExcludeFromSelect.nt=Monitor\PHL0827     
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0825.CopyFiles=23
+0827.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+PH_LCD23.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%0825%=0825.Install, Monitor\PHL0825
+%0827%=0827.Install, Monitor\PHL0827
+
+
+; Install sections
+;-------------------------------------------------
+[0825.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0825.AddReg,1920,DPMS
+CopyFiles=0825.CopyFiles
+
+[0827.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0827.AddReg,1920,DPMS
+CopyFiles=0827.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[0825.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-94.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"PH_LCD23.icm"
+
+[0827.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-93.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"PH_LCD23.icm"
+
+
+;-------------------------------------------------------------------
+[0825.CopyFiles]
+Ph_LCD23.icm
+
+[0827.CopyFiles]
+Ph_LCD23.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+0825="Philips  230W5 (23 inch LCD MONITOR 230W5)"
+0827="Philips  230W5 (23 inch LCD MONITOR 230W5)"

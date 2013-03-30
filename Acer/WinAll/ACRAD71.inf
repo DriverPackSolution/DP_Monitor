@@ -1,0 +1,89 @@
+; This is a Setup information file for monitors  with ICM  file; 
+; Copyright 2006 Acer Incorporated 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ACR%
+CatalogFile=ACRAD71.cat   
+DriverVer=08/31/2006,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ACRAD71
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AD71.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+ACRAD71.ICM=1
+; Manufacturers 
+;-------------------------------------------------
+[Manufacturer]
+%ACR%=ACR,NTAMD64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[ACR]
+%AD71%=AD71.Install, Monitor\ACRAD71
+;-------------------------------------------------
+[ACR.NTAMD64] 
+%AD71%=AD71.Install, Monitor\ACRAD71
+
+; Install Sections
+;-------------------------------------------------
+[AD71.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AD71.AddReg, 1024 ,DPMS
+Copyfiles=AD71.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[AD71.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-63.0,55.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-63.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"ACRAD71.icm"
+
+[AD71.CopyFiles]
+ACRAD71.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Acer Monitor AL1516 Installation Disk"
+MonitorClassName="Monitor"
+ACR="Acer Incorporated"
+AD71="Acer LCD Monitor AL1516"
+ 

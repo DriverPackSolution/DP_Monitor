@@ -1,0 +1,96 @@
+;================================ 
+; BenQ_T705.INF 11/22/06 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2006, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=T705.cat
+DriverVer=11/22/2006,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7688
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+T705_Analog.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+T705.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%T705_Analog%=T705_Analog.Install, Monitor\BNQ7688
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%T705_Analog%=T705_Analog.Install, Monitor\BNQ7688
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%T705_Analog%=T705_Analog.Install, Monitor\BNQ7688
+
+
+; Install Sections
+;-------------------------------------------------
+
+[T705_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T705_Analog.AddReg, 1280, DPMS
+CopyFiles=T705_Analog.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[T705_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"T705.icm"
+
+[T705_Analog.CopyFiles]
+T705.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+T705_Analog="BenQ T705"
+
+

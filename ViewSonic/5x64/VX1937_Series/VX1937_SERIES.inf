@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VX1937.cat    
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/22/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX1937.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX1937_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC2D24
+
+[ViewSonic]   
+%VX1937%=VX1937.Install,Monitor\VSC2D24  
+
+[ViewSonic.NTia64]   
+%VX1937%=VX1937.Install,Monitor\VSC2D24
+
+[ViewSonic.NTamd64]   
+%VX1937%=VX1937.Install,Monitor\VSC2D24 
+
+[VX1937.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX1937.AddReg,1440,DPMS
+Copyfiles=VX1937.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX1937.AddReg]  
+HKR,"MODES\1440,900",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX1937_SERIES.ICM"
+
+[VX1937.CopyFiles]                                       
+VX1937_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX1937 SERIES ViewSonic Wizard"
+VX1937="ViewSonic VX1937 SERIES"

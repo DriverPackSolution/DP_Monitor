@@ -1,0 +1,95 @@
+; Copyright 2008 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+; Vista
+
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=930Wx.cat
+DriverVer=03/24/2008,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC1930
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1930.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+930Wx.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%1930%=1930.Install, Monitor\AOC1930
+
+[AOC.ntamd64]
+%1930%=1930.Install, Monitor\AOC1930
+
+; Install Sections
+;-------------------------------------------------
+[1930.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1930.AddReg, 1680 ,DPMS
+Copyfiles=1930.CopyFiles
+
+[1930.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=1930.AddReg, 1680 ,DPMS
+Copyfiles=1930.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[1930.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"930Wx.icm"
+
+
+[1930.CopyFiles]
+930Wx.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+1930="AOC 930Wx"

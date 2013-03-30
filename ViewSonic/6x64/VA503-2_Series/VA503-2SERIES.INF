@@ -1,0 +1,86 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for ViewSonic
+;   Copyright, ViewSonic Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the ViewSonic Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%ViewSonic%
+	CatalogFile=VA503-2SERIES.cat
+	DriverVer=12/01/2006,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	VA503-2SERIES.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	VA503-2SERIES.ICM=1
+
+[Manufacturer]
+	%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\VSC611E
+	
+[ViewSonic]
+	%VA503-2SERIES%=VA503-2SERIES.Install, Monitor\VSC611E
+
+[ViewSonic.NTx86]
+	%VA503-2SERIES%=VA503-2SERIES.Install, Monitor\VSC611E
+
+[ViewSonic.NTAMD64]
+	%VA503-2SERIES%=VA503-2SERIES.Install, Monitor\VSC611E
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VA503-2SERIES.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=VA503-2SERIES.AddReg, 1024, DPMS
+	CopyFiles=VA503-2SERIES.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1024]
+	HKR,,MaxResolution,,"1024,768"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VA503-2SERIES.AddReg]
+	HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-75.0,-,-"
+	HKR,,ICMProfile,0,"VA503-2SERIES.ICM"
+
+[VA503-2SERIES.CopyFiles]	
+	VA503-2SERIES.ICM
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="ViewSonic Monitor Installation Disk"
+	DiskLabel="ViewSonic INF and ICM Software"
+	ViewSonic="ViewSonic Corporation"
+
+	VA503-2SERIES="ViewSonic VA503-2SERIES "

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2253_Series.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/25/2010, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2253_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2253_Series.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC0A28
+
+[ViewSonic]   
+%VX2253_Series%=VX2253_Series.Install,Monitor\VSC0A28  
+
+[ViewSonic.NTia64]   
+%VX2253_Series%=VX2253_Series.Install,Monitor\VSC0A28  
+
+[ViewSonic.NTamd64]   
+%VX2253_Series%=VX2253_Series.Install,Monitor\VSC0A28  
+
+[VX2253_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2253_Series.AddReg,1920,DPMS
+Copyfiles=VX2253_Series.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2253_Series.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-83,50-76,+,+"
+HKR,,ICMProfile,0,"VX2253_Series.ICM"
+
+[VX2253_Series.CopyFiles]                                       
+VX2253_Series.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2253 Series ViewSonic Wizard"
+VX2253_Series="ViewSonic VX2253 Series"

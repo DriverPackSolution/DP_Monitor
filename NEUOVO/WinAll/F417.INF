@@ -1,0 +1,73 @@
+; F417.INF      Ver.1.00     2003.04.15
+;
+; Copyright 2002-2004, AGN neovo
+; All Rights Reserved
+;  
+; This is a Microsoft Windows setup information file 
+; for the AGN neovo F417 LCD Monitor.
+;
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$" 
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AIC%
+CatalogFile=F417.cat     
+DriverVer=04/15/2003,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\AIC7450
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+F417.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+LCD_193.icm=1
+
+[Manufacturer]
+%AIC%=AIC
+
+[AIC]
+%F417%=F417.Install,Monitor\AIC7450
+
+[F417.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F417.AddReg, 1280, DPMS
+CopyFiles=F417.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F417.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,49.0-75.0,+,+"
+HKR,,ICMProfile,0,"LCD_193.icm"
+
+[F417.CopyFiles]
+LCD_193.icm
+
+[Strings]
+MonitorClassName="Monitor"
+AIC="AG neovo"
+F417="F-417"
+Disk1="AIC Monitor INF Disk"

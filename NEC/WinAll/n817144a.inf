@@ -1,0 +1,68 @@
+; n817144a.inf
+; Setup information file for NEC LCD Monitor N8171-44A
+;
+; Copyright 2006, NEC Display Solutions,Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n817144a.cat
+DriverVer=12/12/2006,1.06.1212.1948
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66F5
+
+[DestinationDirs]
+N8171-44A.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n817144a.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%N8171-44A%=N8171-44A.Install, Monitor\NEC66F5
+
+[NECDS.ntamd64]
+%N8171-44A%=N8171-44A.Install.ntamd64, Monitor\NEC66F5
+
+[N8171-44A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=N8171-44A.AddReg, 1600, DPMS
+CopyFiles=N8171-44A.CopyFiles
+
+[N8171-44A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=N8171-44A.AddReg, 1600, DPMS
+CopyFiles=N8171-44A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[N8171-44A.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"n817144a.icm"
+
+[N8171-44A.CopyFiles]
+n817144a.icm
+
+[Strings]
+NECDS="NEC"
+N8171-44A="NEC N8171-44A"
+Disk1="NEC Monitor Installation Disk"

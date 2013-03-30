@@ -1,0 +1,88 @@
+; Copyright 2006 Lenovo International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+Catalogfile=L192 Wide.cat
+DriverVer=08/31/2006,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN6920
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+6920.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+L192 Wide.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%LEN%=LEN,NTAMD64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[LEN]
+%6920%=6920.Install, Monitor\LEN6920
+;-------------------------------------------------
+[LEN.NTAMD64]
+%6920%=6920.Install, Monitor\LEN6920
+
+; Install Sections
+;-------------------------------------------------
+[6920.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=6920.AddReg, 1440 ,DPMS
+Copyfiles=6920.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[6920.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L192 Wide.icm"
+
+
+[6920.CopyFiles]
+L192 Wide.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="LEN Monitor Installation Disk"
+MonitorClassName="Monitor"
+LEN="LEN International (Europe) GmbH"
+
+6920="L192 Wide"

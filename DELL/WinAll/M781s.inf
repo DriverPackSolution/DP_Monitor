@@ -1,0 +1,102 @@
+
+;================================ 
+;M781s.INF 12/14/99 Ver. 1.0 SND
+;Copyright 1996-1999 Dell Computer Corporation
+;
+;This is a setupfile for DELL 
+;Monitors
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=M781s.cat
+DriverVer=01/03/2000,  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL32B0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+M781s.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+M781s.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%M781s%=M781s.Install, Monitor\DEL32B0
+
+; Install Sections
+;-------------------------------------------------
+
+[M781s.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M781s.AddReg, 1600, DPMS
+CopyFiles=M781s.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[M781s.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M781s.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[M781s.CopyFiles]
+M781s.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+MonitorClassName="Monitor"
+Dell="Dell Computer Corp."	
+M781s="Dell M781s"
+

@@ -1,0 +1,127 @@
+;========================================= 
+; GL2055.INF 12/28/2011 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista/Win7
+; Copyright (c) 2011, BENQ Corporation
+;=========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=GL2055.cat
+DriverVer=12/28/2011,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ78B8
+ExcludeFromSelect.NT=Monitor\BNQ78B9
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+GL2055_Analog.copyfiles = 23
+GL2055_Digital.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+GL2055.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%GL2055_Analog%=GL2055_Analog.Install, Monitor\BNQ78B8
+%GL2055_Digital%=GL2055_Digital.Install, Monitor\BNQ78B9
+
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%GL2055_Analog%=GL2055_Analog.Install, Monitor\BNQ78B8
+%GL2055_Digital%=GL2055_Digital.Install, Monitor\BNQ78B9
+
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%GL2055_Analog%=GL2055_Analog.Install, Monitor\BNQ78B8
+%GL2055_Digital%=GL2055_Digital.Install, Monitor\BNQ78B9
+
+
+; Install Sections
+;-------------------------------------------------
+
+[GL2055_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GL2055_Analog.AddReg, 1600, DPMS
+CopyFiles=GL2055_Analog.CopyFiles
+
+[GL2055_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GL2055_Digital.AddReg, 1600, DPMS
+CopyFiles=GL2055_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[GL2055_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1600,900",Mode1,,"24.0-83.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"GL2055.icm"
+
+[GL2055_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1600,900",Mode1,,"24.0-83.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"GL2055.icm"
+
+
+
+[GL2055_Analog.CopyFiles]
+GL2055.ICM
+
+[GL2055_Digital.CopyFiles]
+GL2055.ICM
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+GL2055_Analog="BenQ GL2055 (Analog)"
+GL2055_Digital="BenQ GL2055 (Digital)"
+
+

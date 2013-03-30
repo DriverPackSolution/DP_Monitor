@@ -1,0 +1,82 @@
+##############################################################################
+; This is a setup information file for Belinea o.display 3.1_26" wide monitor
+; Modified by MAXDATA International GmbH (ABA)                            
+; Revision 1.0.0.0, January 03, 2008
+; Copyright 2000-2008 MAXDATA International GmbH
+##############################################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=112601.cat
+DriverVer=01/03/2008,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX0A29
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea o.display 3.1_26'' wide / Art. No. 112601" = 112601.Install, Monitor\MAX0A29
+
+[Belinea.NTx86]
+"Belinea o.display 3.1_26'' wide / Art. No. 112601" = 112601.Install, Monitor\MAX0A29
+
+[Belinea.NTia64]
+"Belinea o.display 3.1_26'' wide / Art. No. 112601" = 112601.Install, Monitor\MAX0A29
+
+[Belinea.NTamd64]
+"Belinea o.display 3.1_26'' wide / Art. No. 112601" = 112601.Install, Monitor\MAX0A29
+
+
+; Install sections
+;-------------------------------------------------
+[112601.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=112601.AddReg,1920,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[112601.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-81.0,40.0-63.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA International GmbH"
+BELINEA="MAXDATA International GmbH"
+

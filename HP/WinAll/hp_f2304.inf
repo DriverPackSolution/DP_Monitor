@@ -1,0 +1,103 @@
+; ###################################################
+;
+;   hp_f2304.inf        Ver. 1.60     1/9/2004
+;
+;   Copyright (c)2004, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the hp f2304 flat panel monitor.
+; 
+; ###################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=hp_f2304.cat
+DriverVer=01/09/2004,1.60
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\HWP2619
+ExcludeFromSelect.nt = Monitor\HWP261A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+f2304.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+hp_f2304.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%f2304_A%=f2304_A.Install, Monitor\HWP2619
+%f2304_D%=f2304_D.Install, Monitor\HWP261A
+
+[f2304_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=f2304_A.AddReg, 1920, DPMS
+CopyFiles=f2304.CopyFiles
+
+[f2304_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=f2304_D.AddReg, 1920, DPMS
+CopyFiles=f2304.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[f2304_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-94.0,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1920,1200",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"hp_f2304.icm"
+
+[f2304_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-94.0,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1920,1200",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"hp_f2304.icm"
+
+[f2304.CopyFiles]
+hp_f2304.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+f2304_A="hp f2304 flat panel monitor"
+f2304_D="hp f2304 flat panel monitor"
+Disk1="hp f2304 INF software"

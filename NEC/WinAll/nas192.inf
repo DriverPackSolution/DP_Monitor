@@ -1,0 +1,68 @@
+; nas192.inf
+; Setup information file for NEC AS192 Monitor
+;
+; Copyright 2010, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nas192.cat
+DriverVer=10/04/2010,1.10.1004.1956
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6849
+
+[DestinationDirs]
+DefaultDestDir = 11
+AS192.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nas192.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%AS192%=AS192.Install, Monitor\NEC6849
+
+[NECDS.ntamd64]
+%AS192%=AS192.Install.ntamd64, Monitor\NEC6849
+
+[AS192.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS192.AddReg, 1280, DPMS
+CopyFiles=AS192.CopyFiles
+
+[AS192.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS192.AddReg, 1280, DPMS
+CopyFiles=AS192.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS192.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nas192.icm"
+
+[AS192.CopyFiles]
+nas192.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+AS192="NEC AS192"

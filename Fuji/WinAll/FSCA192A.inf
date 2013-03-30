@@ -1,0 +1,72 @@
+; SCENICVIEW A19-2A.INF Ver. 1.1
+;Monitor INF file for Fujitsu Siemens Monitor SCENICVIEW A19-2A
+;Copyright 2002,2003,2004,2005 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCA192A.cat
+DriverVer=12/06/2006, 1.0.0.2
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0660
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-A19-2A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCA192A.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+[FUJSIE]
+%FUS-A19-2A%=FUS-A19-2A.Install, Monitor\FUS0660
+
+[FUJSIE.NTAMD64]
+%FUS-A19-2A%=FUS-A19-2A.Install, Monitor\FUS0660
+
+[FUS-A19-2A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-A19-2A.AddReg, 1280, DPMS
+CopyFiles=FUS-A19-2A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-A19-2A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FSCA192A.ICM"
+
+[FUS-A19-2A.CopyFiles]
+FSCA192A.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor SCENICVIEW A17-2/A19-2A"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-A19-2A="Fujitsu Siemens SCENICVIEW A19-2A"

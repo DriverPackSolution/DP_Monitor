@@ -1,0 +1,87 @@
+; This is a Setup information file for monitors  with ICM  file
+; CopyRight 2002 HP.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=L1815.cat
+DriverVer=01/30/2002,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\HWP4830                
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+4830.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1815.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%HP%=HP
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[HP]
+%4830%=4830.Install, Monitor\HWP4830
+
+; Install sections
+;-------------------------------------------------
+[4830.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=4830.AddReg,1280,DPMS
+CopyFiles=4830.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[4830.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-75.0,+,-"
+HKR,,ICMProfile,0,"L1815.icm"
+
+;-------------------------------------------------------------------
+[4830.CopyFiles]
+L1815.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+HP="HP"
+DiskName="HP Monitor Setup Disk"
+
+4830="HP L1815"

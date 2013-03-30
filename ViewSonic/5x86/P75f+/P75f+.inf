@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=P75f+.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/27/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS23957-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+P75f_p.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS23957-1%=VCDTS23957-1.Install,Monitor\VSC2C09            ;P75f+
+
+[VCDTS23957-1.Install]                                         ;P75f+
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23957-1.AddReg,1600,DPMS
+Copyfiles=VCDTS23957-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS23957-1.AddReg]                                          ;P75f+
+HKR,"MODES\1600,1200",Mode1,,"30-97,50-160,+,+"
+HKR,,ICMProfile,0,"P75f_p.ICM"
+
+[VCDTS23957-1.CopyFiles]                                       
+P75f_p.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS23957-1="ViewSonic P75f+"

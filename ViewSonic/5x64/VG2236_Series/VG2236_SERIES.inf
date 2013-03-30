@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG2236.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/05/2010, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG2236.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG2236_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCE726
+
+[ViewSonic]   
+%VG2236%=VG2236.Install,Monitor\VSCE726  
+
+[ViewSonic.NTia64]   
+%VG2236%=VG2236.Install,Monitor\VSCE726
+
+[ViewSonic.NTamd64]   
+%VG2236%=VG2236.Install,Monitor\VSCE726 
+
+[VG2236.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2236.AddReg,1920,DPMS
+Copyfiles=VG2236.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG2236.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VG2236_SERIES.ICM"
+
+[VG2236.CopyFiles]                                       
+VG2236_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VG2236 SERIES ViewSonic Wizard"
+VG2236="ViewSonic VG2236 SERIES"

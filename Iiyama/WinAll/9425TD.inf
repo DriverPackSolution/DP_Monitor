@@ -1,0 +1,68 @@
+;9425TD15_H2_2.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor 9425TD15_H2_2 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=9425TD.cat      
+DriverVer=10/01/2002,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM3868
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+9425TD.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+9425TD.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%9425TD%=9425TD.Install, Monitor\IVM3868
+[9425TD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=9425TD.AddReg, 1024, DPMS
+CopyFiles=9425TD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[9425TD.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-60,55-76,+,+"
+HKR,,ICMProfile,0,"9425TD.ICM"
+
+[9425TD.CopyFiles]
+9425TD.ICM
+
+[Strings]
+DISK1="IIYAMA LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+9425TD="TPS 9425TD15_H2_2"

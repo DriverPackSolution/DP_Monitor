@@ -1,0 +1,77 @@
+; #################################################
+;
+;   7550.inf           Ver. 1.10      11/01/2001
+;
+;   Copyright (c)2001, Compaq Computer Corporation
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq 7550 Color Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=7550.cat
+DriverVer=11/01/2001,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ1446
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+7550.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQ7550.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%7550%=7550.Install, Monitor\CPQ1446
+
+[7550.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7550.AddReg, 1600, DPMS
+CopyFiles=7550.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[7550.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-140.0,+,+"
+HKR,,ICMProfile,0,"CPQ7550.icm"
+
+[7550.CopyFiles]
+CPQ7550.ICM
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+Disk1="COMPAQ 7550 Monitor Software CD"
+7550="COMPAQ 7550 Color Monitor"
+

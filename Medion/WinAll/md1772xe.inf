@@ -1,0 +1,72 @@
+
+; MEDION INF File for Win98
+; Setup Information File for MEDION Monitors
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEDION%
+DriverVer=01/20/2003,1.00.00.00
+catalogfile=0815.cat
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+MD1772xe.CopyFiles = 23
+
+[SourceDisksNames]
+1="MEDION Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+MD1772xe.ICM=1
+
+[Manufacturer]
+%MEDION%=MEDION
+
+[MEDION]
+%MD1772xe%=MD1772xe.install,Monitor\MED1705
+
+[MD1772xe.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD1772xe.AddReg, 1280, DPMS
+CopyFiles=MD1772xe.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD1772xe.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"MD1772xe.ICM"
+
+[MD1772xe.CopyFiles]
+MD1772xe.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+
+MEDION="MEDION"
+
+MD1772xe= "MEDION MD1772xe"

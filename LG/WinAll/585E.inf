@@ -1,0 +1,64 @@
+;=============================================================== 
+; [585E.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=585E.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3B23
+
+[DestinationDirs]
+DefaultDestDir=11
+585E.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG585E.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%585E%=585E.Install,Monitor\GSM3B23
+
+[LG.NTamd64]
+%585E%=585E.Install,Monitor\GSM3B23
+
+[585E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=585E.AddReg,1280,DPMS
+CopyFiles=585E.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[585E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LG585E.ICM"
+
+[585E.CopyFiles]
+LG585E.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+585E="LG 585E"

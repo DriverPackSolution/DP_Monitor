@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VLED221WM.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=11/08/2007, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLED221WM.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VLED221WM.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC2321
+
+[ViewSonic]   
+%VLED221WM%=VLED221WM.Install,Monitor\VSC2321  
+
+[ViewSonic.NTia64]   
+%VLED221WM%=VLED221WM.Install,Monitor\VSC2321
+
+[ViewSonic.NTamd64]   
+%VLED221WM%=VLED221WM.Install,Monitor\VSC2321 
+
+[VLED221WM.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VLED221WM.AddReg,1680,DPMS
+Copyfiles=VLED221WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLED221WM.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"30-82,56-75,-,+" 
+HKR,,ICMProfile,0,"VLED221WM.icm"
+
+[VLED221WM.CopyFiles]                                       
+VLED221WM.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VLED221WM ViewSonic Wizard"
+VLED221WM="ViewSonic VLED221WM"

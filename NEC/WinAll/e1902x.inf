@@ -1,0 +1,68 @@
+; E1902X.inf
+; Setup information file for NEC E1902X Monitor
+;
+; Copyright 2010, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=E1902X.cat
+DriverVer=10/13/2010,1.09.1126.1945
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6819
+
+[DestinationDirs]
+DefaultDestDir = 11
+E1902X.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+E1902X.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%E1902X%=E1902X.Install, Monitor\NEC6819
+
+[NECDS.ntamd64]
+%E1902X%=E1902X.Install.ntamd64, Monitor\NEC6819
+
+[E1902X.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E1902X.AddReg, 1440, DPMS
+CopyFiles=E1902X.CopyFiles
+
+[E1902X.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=E1902X.AddReg, 1440, DPMS
+CopyFiles=E1902X.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,1440,900
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E1902X.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"E1902X.icm"
+
+[E1902X.CopyFiles]
+E1902X.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+E1902X="NEC E1902X"

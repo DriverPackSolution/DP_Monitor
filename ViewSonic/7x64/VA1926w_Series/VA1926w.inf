@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA1926w-5.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/29/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1926w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1926w-5.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC5920
+
+[ViewSonic]   
+%VA1926w%=VA1926w.Install,Monitor\VSC5920  
+
+[ViewSonic.NTia64]   
+%VA1926w%=VA1926w.Install,Monitor\VSC5920
+
+[ViewSonic.NTamd64]   
+%VA1926w%=VA1926w.Install,Monitor\VSC5920 
+
+[VA1926w.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1926w.AddReg,1440,DPMS
+Copyfiles=VA1926w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1926w.AddReg]  
+HKR,"MODES\1440,900",Mode1,,"30-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA1926w-5.ICM"
+
+[VA1926w.CopyFiles]                                       
+VA1926w-5.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA1926w ViewSonic Wizard"
+VA1926w="ViewSonic VA1926w"

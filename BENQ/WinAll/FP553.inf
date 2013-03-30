@@ -1,0 +1,69 @@
+; Setup Information File for Acer LCD Monitors - V2.3
+; Copyright (c)  2000, Acer Comunications & Multimedia Inc.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+catalogfile=FP553.cat
+DriverVer=08/16/2001,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\API761F
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP553.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP553.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%FP553%=FP553.Install, Monitor\API761F
+
+[FP553.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP553.AddReg, 1024, DPMS
+CopyFiles=FP553.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP553.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FP553.icm"
+
+[FP553.CopyFiles]
+FP553.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Acer flat panel Monitor installation diskette"
+FP553="Acer FP553"
+Acer="Acer"

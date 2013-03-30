@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VG732m.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/07/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG732m.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG732m.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC7125
+
+[ViewSonic]   
+%VG732m%=VG732m.Install,Monitor\VSC7125  
+
+[ViewSonic.NTia64]   
+%VG732m%=VG732m.Install,Monitor\VSC7125  
+
+[ViewSonic.NTamd64]   
+%VG732m%=VG732m.Install,Monitor\VSC7125  
+
+[VG732m.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG732m.AddReg,1280,DPMS
+Copyfiles=VG732m.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG732m.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"24-83,50-76,+,+"
+HKR,,ICMProfile,0,"VG732m.icm"
+
+[VG732m.CopyFiles]                                       
+VG732m.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VG732m ViewSonic Wizard"
+VG732m="ViewSonic VG732m"

@@ -1,0 +1,72 @@
+;FTSB175E.INF Ver. 1.1
+;Monitor INF file for FUJITSU B17-5 ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSB175E.cat
+DriverVer=02/19/2009, 1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07BF
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSB175E.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB175E.ICM=1
+
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+[FTS.Mfg]
+%FTSB175E%=FTSB175E.Install, Monitor\FUS07BF
+
+[FTS.Mfg.NTAMD64]
+%FTSB175E%=FTSB175E.Install, Monitor\FUS07BF
+
+[FTSB175E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSB175E.AddReg, 1280, DPMS
+CopyFiles=FTSB175E.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTSB175E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FTSB175E.ICM"
+
+[FTSB175E.CopyFiles]
+FTSB175E.ICM
+
+[Strings]
+DISK="Driver & Utility CD B17-5 ECO/B19-5 ECO"
+MonitorClassName="Monitor"
+FTS.Mfg="Fujitsu Technology Solutions"
+FTSB175E="FUJITSU B17-5 ECO"

@@ -1,0 +1,68 @@
+; n225wnxm.inf
+; Setup information file for NEC MultiSync LCD225WNXM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n225wnxm.cat
+DriverVer=09/14/2007,1.07.0914.2128
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC672E
+
+[DestinationDirs]
+LCD225WNXM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n225wnxm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD225WNXM%=LCD225WNXM.Install, Monitor\NEC672E
+
+[NECDS.ntamd64]
+%LCD225WNXM%=LCD225WNXM.Install.ntamd64, Monitor\NEC672E
+
+[LCD225WNXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD225WNXM.AddReg, 1680, DPMS
+CopyFiles=LCD225WNXM.CopyFiles
+
+[LCD225WNXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD225WNXM.AddReg, 1680, DPMS
+CopyFiles=LCD225WNXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD225WNXM.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n225wnxm.icm"
+
+[LCD225WNXM.CopyFiles]
+n225wnxm.icm
+
+[Strings]
+NECDS="NEC"
+LCD225WNXM="NEC MultiSync LCD225WNXM"
+Disk1="NEC Display Solutions Installation Disk"

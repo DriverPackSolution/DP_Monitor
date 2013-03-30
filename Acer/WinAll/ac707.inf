@@ -1,0 +1,109 @@
+; Acer AC 901 and AC 707 INF File for Windows
+; Copyright (c) 2002, Acer Inc.
+; Revise date -- 07/10/2002
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+DriverVer=07/10/2002,1.2
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+B1996NSL.CopyFiles=23
+B1996NST(99).CopyFiles=23
+B1786MNST/L.CopyFiles=23
+
+[SourceDisksNames]
+1="Acer Monitor Profiles Installation Disk",,1
+
+[SourceDisksFiles]
+
+B1996-99.icm=1
+B1786MNST/L.icm=1
+
+;-----------------------------------------------------
+;Manufacturers
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+
+%B1996NST(99)%=B1996NST(99).Install, Monitor\LTNB968
+%B1786MNST/L%=B1786MNST/L.Install  , Monitor\LTN170E
+
+;-----------------------------------------------------
+;Install sections
+
+
+[B1996NST(99).Install]
+DelReg=DEL_CURRENT_REG
+AddReg=B1996NST(99).AddReg, 1600, DPMS
+;CopyFiles=B1996NST(99).CopyFiles
+
+[B1786MNST/L.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=B1786MNST/L.AddReg, 1280, DPMS
+;CopyFiles=B1786MNST/L.CopyFiles
+
+
+;-----------------------------------------------------
+;Common AddReg/DelReg sections
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-----------------------------------------------------
+;AddReg sections
+
+[B1996NST(99).AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"B1996-99.icm"
+
+[B1786MNST/L.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"B1786MNST/L.icm"
+
+
+;-----------------------------------------------------
+
+[B1996NST(99).CopyFiles]
+B1996-99.icm
+
+[B1786MNST/L.CopyFiles]
+B1786MNST/L.icm
+
+;-----------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer Inc."
+B1996NST(99)="Acer AC 901 CRT Monitor"
+B1786MNST/L="Acer AC 707 CRT Monitor"

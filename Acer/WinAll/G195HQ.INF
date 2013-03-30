@@ -1,0 +1,86 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for Acer
+;   Copyright, Acer Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the Acer Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%Acer%
+	CatalogFile=G195HQ.cat
+	DriverVer=08/26/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	G195HQ.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	G195HQ.icm=1
+
+[Manufacturer]
+	%Acer%=Acer,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\ACR011D
+	
+[Acer]
+	%G195HQ%=G195HQ.Install, Monitor\ACR011D
+
+[Acer.NTx86]
+	%G195HQ%=G195HQ.Install, Monitor\ACR011D
+
+[Acer.NTAMD64]
+	%G195HQ%=G195HQ.Install, Monitor\ACR011D
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G195HQ.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G195HQ.AddReg, 1366, DPMS
+	CopyFiles=G195HQ.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1366]
+	HKR,,MaxResolution,,"1366,768"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G195HQ.AddReg]
+	HKR,"MODES\1366,768",Mode1,,"30.0-80.0,55.0-75.0,-,+"
+	HKR,,ICMProfile,0,"G195HQ.icm"
+
+[G195HQ.CopyFiles]	
+	G195HQ.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="Acer Monitor Installation Disk"
+	DiskLabel="Acer INF and ICM Software"
+	Acer="Acer Corporation"
+
+	G195HQ="Acer G195HQ "

@@ -1,0 +1,65 @@
+;=============================================================== 
+; [M1910S.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M1910S.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4ABF
+
+[DestinationDirs]
+DefaultDestDir=11
+M1910S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M1910S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M1910S%=M1910S.Install,Monitor\GSM4ABF
+
+[LG.NTamd64]
+%M1910S%=M1910S.Install,Monitor\GSM4ABF
+
+[M1910S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1910S.AddReg,1280,DPMS
+CopyFiles=M1910S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1910S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1910S.ICM"
+
+[M1910S.CopyFiles]
+M1910S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M1910S="LG M1910S"

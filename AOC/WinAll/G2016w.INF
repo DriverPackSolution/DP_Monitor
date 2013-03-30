@@ -1,0 +1,88 @@
+; Copyright 2007 Envision International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+; vista
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ENV%
+Catalogfile=G2016w.cat
+DriverVer=04/10/2007,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENV2016
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+2016.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+G2016w.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%ENV%=ENV,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[ENV]
+%2016%=2016.Install, Monitor\ENV2016
+
+[ENV.ntamd64]
+%2016%=2016.Install, Monitor\ENV2016
+
+; Install Sections
+;-------------------------------------------------
+[2016.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2016.AddReg, 1680, DPMS
+Copyfiles=2016.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[2016.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"G2016w.icm"
+
+
+[2016.CopyFiles]
+G2016w.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Envision Monitor Installation Disk"
+MonitorClassName="Monitor"
+ENV="Envision International (Europe) GmbH"
+
+2016="Envision G2016w"

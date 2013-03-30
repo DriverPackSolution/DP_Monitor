@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA926g.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=04/21/2010, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA926g.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA926g_SERIES.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC5F27
+
+[ViewSonic]   
+%VA926g%=VA926g.Install,Monitor\VSC5F27  
+
+[ViewSonic.NTia64]   
+%VA926g%=VA926g.Install,Monitor\VSC5F27
+
+[ViewSonic.NTamd64]   
+%VA926g%=VA926g.Install,Monitor\VSC5F27 
+
+[VA926g.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA926g.AddReg,1280,DPMS
+Copyfiles=VA926g.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA926g.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA926g_SERIES.icm"
+
+[VA926g.CopyFiles]                                       
+VA926g_SERIES.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA926g SERIES ViewSonic Wizard"
+VA926g="ViewSonic VA926g SERIES"

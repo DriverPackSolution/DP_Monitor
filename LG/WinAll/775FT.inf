@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [775FT.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=775FT.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+775FT.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+775FT.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%775FT%=775FT, Monitor\GSM42D1
+
+[LG.NTamd64]
+%775FT%=775FT, Monitor\GSM42D1
+
+;------------------------------------; .Install
+
+[775FT] 
+AddReg=775FT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=775FT.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[775FT.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"775FT.ICM"
+
+;------------------------------------; .CopyFiles
+
+[775FT.CopyFiles]  
+775FT.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM42D1
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+775FT="LG 775FT"

@@ -1,0 +1,72 @@
+#############################################################
+; This is a setup information file for Belinea 1945 G1 monitor
+; Modified by MAXDATA Systeme GmbH (ABA)
+; Revision 1.0.0.0, October 25, 2006
+; Copyright 2000-2006 MAXDATA Systeme GmbH
+#############################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=111937.cat
+DriverVer=10/25/2006,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX0791
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea 1945 G1 / Art. No. 111937" = 111937.Install, Monitor\MAX0791
+
+; Install sections
+;-------------------------------------------------
+[111937.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=111937.AddReg,1280,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[111937.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA Systeme GmbH"
+BELINEA="MAXDATA Systeme GmbH"
+

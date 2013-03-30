@@ -1,0 +1,68 @@
+; nl19wxm.inf
+; Setup information file for NEC MultiSync LCD195WXM Monitor
+;
+; Copyright 2005, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl19wxm.cat
+DriverVer=01/09/2007,1.07.0109.1821
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66F8
+
+[DestinationDirs]
+LCD195WXM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl19wxm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD195WXM%=LCD195WXM.Install, Monitor\NEC66F8
+
+[NECDS.ntamd64]
+%LCD195WXM%=LCD195WXM.Install.ntamd64, Monitor\NEC66F8
+
+[LCD195WXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD195WXM.AddReg, 1440, DPMS
+CopyFiles=LCD195WXM.CopyFiles
+
+[LCD195WXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD195WXM.AddReg, 1440, DPMS
+CopyFiles=LCD195WXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD195WXM.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"nl19wxm.icm"
+
+[LCD195WXM.CopyFiles]
+nl19wxm.icm
+
+[Strings]
+NECDS="NEC"
+LCD195WXM="NEC MultiSync LCD195WXM"
+Disk1="NEC Monitor Installation Disk"

@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=P225f-5.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/07/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+P225f-5.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+P225f-5.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%P225f-5%=P225f-5.Install,Monitor\VSC8012              ;P225f-5
+
+[P225f-5.Install]                                      ;P225f-5
+DelReg=DEL_CURRENT_REG 
+AddReg=P225f-5.AddReg,2048,DPMS
+Copyfiles=P225f-5.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[P225f-5.AddReg]                                       ;P225f-5
+HKR,"MODES\2048,1536",Mode1,,"30-127,50-160,+,+"
+HKR,,ICMProfile,0,"P225f-5.ICM"
+
+[P225f-5.CopyFiles]                                       
+P225f-5.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+P225f-5="ViewSonic P225f-5"

@@ -1,0 +1,83 @@
+;===============================================================
+; [M228WA.inf]
+; Revision 1.3   December-14-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M228WA.cat
+DriverVer=12/14/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM563C
+ExcludeFromSelect.NT=Monitor\GSM563D
+
+[DestinationDirs]
+DefaultDestDir = 11
+M228WA_Analog.CopyFiles = 23
+M228WA_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M228WA.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M228WA_Analog%=M228WA_Analog.Install,Monitor\GSM563C
+%M228WA_Digital%=M228WA_Digital.Install,Monitor\GSM563D
+
+[LG.NTamd64]
+%M228WA_Analog%=M228WA_Analog.Install,Monitor\GSM563C
+%M228WA_Digital%=M228WA_Digital.Install,Monitor\GSM563D
+
+[M228WA_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M228WA_Analog.AddReg,1680,DPMS
+CopyFiles=M228WA_Analog.CopyFiles
+
+[M228WA_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M228WA_Digital.AddReg,1680,DPMS
+CopyFiles=M228WA_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M228WA_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"M228WA.ICM"
+
+[M228WA_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"M228WA.ICM"
+
+[M228WA_Analog.CopyFiles]
+M228WA.ICM
+
+[M228WA_Digital.CopyFiles]
+M228WA.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M228WA_Analog="LG M228WA(Analog)"
+M228WA_Digital="LG M228WA(Digital)"

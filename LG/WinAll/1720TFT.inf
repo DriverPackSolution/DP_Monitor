@@ -1,0 +1,64 @@
+;=============================================================== 
+; [1720TFT.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LGIBM%
+CatalogFile=1720TFT.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM439E
+
+[DestinationDirs]
+DefaultDestDir=11
+1720TFT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1720TFT.ICM=1
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTamd64
+
+[LGIBM]
+%1720TFT%=1720TFT.Install,Monitor\GSM439E
+
+[LGIBM.NTamd64]
+%1720TFT%=1720TFT.Install,Monitor\GSM439E
+
+[1720TFT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1720TFT.AddReg,1280,DPMS
+CopyFiles=1720TFT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1720TFT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1720TFT.ICM"
+
+[1720TFT.CopyFiles]
+1720TFT.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1720TFT="LGIBM FLATRON LCD 1720TFT"

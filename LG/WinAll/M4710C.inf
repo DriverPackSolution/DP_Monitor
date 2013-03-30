@@ -1,0 +1,87 @@
+;===============================================================
+; [M4710C.inf]
+; Revision 1.3   June-14-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M4710C.cat
+DriverVer=06/14/2007,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM9CD7
+ExcludeFromSelect.NT=Monitor\GSM9CD8
+
+[DestinationDirs]
+DefaultDestDir = 11
+M4710C_Analog.CopyFiles = 23
+M4710C_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M4710C.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M4710C_Analog%=M4710C_Analog.Install,Monitor\GSM9CD7
+%M4710C_Digital%=M4710C_Digital.Install,Monitor\GSM9CD8
+
+[LG.NTamd64]
+%M4710C_Analog%=M4710C_Analog.Install,Monitor\GSM9CD7
+%M4710C_Digital%=M4710C_Digital.Install,Monitor\GSM9CD8
+
+[M4710C_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M4710C_Analog.AddReg,1600,DPMS
+CopyFiles=M4710C_Analog.CopyFiles
+
+[M4710C_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M4710C_Digital.AddReg,1360,DPMS
+CopyFiles=M4710C_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+
+[1360]
+HKR,,MaxResolution,,"1360,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M4710C_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"M4710C.ICM"
+
+[M4710C_Digital.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30.0-72.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"M4710C.ICM"
+
+[M4710C_Analog.CopyFiles]
+M4710C.ICM
+
+[M4710C_Digital.CopyFiles]
+M4710C.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M4710C_Analog="LG M4710C(Analog)"
+M4710C_Digital="LG M4710C(Digital)"

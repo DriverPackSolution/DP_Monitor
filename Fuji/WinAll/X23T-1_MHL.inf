@@ -1,0 +1,129 @@
+;X23T-1_MHL.inf Ver. 1.0
+;Monitor INF file for Fujitsu Display X23T-1_MHL
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=X23T-1_MHL.cat
+DriverVer=08/16/2012,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS081D
+ExcludeFromSelect.nt=Monitor\FUS081E
+ExcludeFromSelect.nt=Monitor\FUS081F
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+X23T-1_MHL.icm=1
+
+[DestinationDirs]
+DefaultDestDir=12
+FTSX23T1.CopyFiles=23
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTx86,NTAMD64
+
+[FTS_Mfg] 
+%X23T-1a%=FTSX23T1a.Install, Monitor\FUS081D
+%X23T-1h1%=FTSX23T1h1.Install, Monitor\FUS081E
+%X23T-1h2%=FTSX23T1h2.Install, Monitor\FUS081F
+
+[FTS_Mfg.NTx86] 
+%X23T-1a%=FTSX23T1a.Install, Monitor\FUS081D
+%X23T-1h1%=FTSX23T1h1.Install, Monitor\FUS081E
+%X23T-1h2%=FTSX23T1h2.Install, Monitor\FUS081F
+
+[FTS_Mfg.NTAMD64] 
+%X23T-1a%=FTSX23T1a.Install, Monitor\FUS081D
+%X23T-1h1%=FTSX23T1h1.Install, Monitor\FUS081E
+%X23T-1h2%=FTSX23T1h2.Install, Monitor\FUS081F
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSX23T1a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSX23T1a.AddReg, 1920, DPMS
+CopyFiles=FTSX23T1.CopyFiles
+
+[FTSX23T1h1.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSX23T1h1.AddReg, 1920, DPMS
+CopyFiles=FTSX23T1.CopyFiles
+
+[FTSX23T1h2.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSX23T1h2.AddReg, 1920, DPMS
+CopyFiles=FTSX23T1.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSX23T1a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"X23T-1_MHL.icm"
+
+[FTSX23T1h1.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"X23T-1_MHL.icm"
+
+[FTSX23T1h2.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"15.0-82.0,49.0-76.0,+,+"
+HKR,,ICMProfile,0,"X23T-1_MHL.icm"
+
+;---------------------------------------------------------- 
+
+[FTSX23T1.CopyFiles]
+X23T-1_MHL.icm
+
+;---------------------------------------------------------- 
+
+[FTSX23T1a.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[FTSX23T1h1.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[FTSX23T1h2.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Monitor Class Function Driver Service"
+
+DISK="Fujitsu Drivers, Manuals & Utilities Display"
+FTS_Mfg="Fujitsu Technology Solutions"	
+
+X23T-1a="Fujitsu X23T-1_MHL (Analog)"
+X23T-1h1="Fujitsu X23T-1_MHL (HDMI1)"
+X23T-1h2="Fujitsu X23T-1_MHL (HDMI2)"

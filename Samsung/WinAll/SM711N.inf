@@ -1,0 +1,95 @@
+
+;==================================================
+; SM711N.inf 02/05/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM711N.cat
+DriverVer=02/05/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0124
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM711N.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM711N.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM711N%=SM711N.Install, Monitor\SAM0124
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM711N.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM711N.AddReg, 1280, DPMS
+CopyFiles=SM711N.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM711N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM711N.icm"
+
+
+;------------------------------------------------------
+
+[SM711N.CopyFiles]
+SM711N.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM711N="SyncMaster 711N/712N"

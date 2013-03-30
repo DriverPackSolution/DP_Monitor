@@ -1,0 +1,72 @@
+;PLC1900WTV.INF Ver. 1.00
+;Monitor INF file for IIYAMA ProLite C1900WTV
+;Copyright 2007 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLC1900.cat      
+DriverVer=01/01/2007,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM4837
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLC1900W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLC1900W.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLC1900W%=PLC1900W.Install, Monitor\IVM4837
+
+[PLC1900W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE1901S.AddReg, 1280, DPMS
+CopyFiles=PLC1900W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLC1900W.AddReg]
+;HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+;HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLC1900W.ICM"
+
+[PLC1900W.CopyFiles]
+PLC1900W.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLC1900W="iiyama ProLite C1900WTV"

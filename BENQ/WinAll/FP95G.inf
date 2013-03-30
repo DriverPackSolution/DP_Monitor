@@ -1,0 +1,108 @@
+;========================================== 
+; BenQ_FP95G.INF 12/18/06 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2006, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=FP95G.cat
+DriverVer=12/18/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ76CB
+ExcludeFromSelect.NT=Monitor\BNQ76CC
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP95G_Analog.copyfiles = 23
+FP95G_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP95G.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%FP95G_Analog%=FP95G_Analog.Install, Monitor\BNQ76CB
+%FP95G_Digital%=FP95G_Digital.Install, Monitor\BNQ76CC
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%FP95G_Analog%=FP95G_Analog.Install, Monitor\BNQ76CB
+%FP95G_Digital%=FP95G_Digital.Install, Monitor\BNQ76CC
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%FP95G_Analog%=FP95G_Analog.Install, Monitor\BNQ76CB
+%FP95G_Digital%=FP95G_Digital.Install, Monitor\BNQ76CC
+
+
+; Install Sections
+;-------------------------------------------------
+[FP95G_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP95G_Analog.AddReg, 1280, DPMS
+CopyFiles=FP95G_Analog.CopyFiles
+
+[FP95G_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP95G_Digital.AddReg, 1280, DPMS
+CopyFiles=FP95G_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+[FP95G_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP95G.icm"
+
+[FP95G_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP95G.icm"
+
+
+[FP95G_Analog.CopyFiles]
+FP95G.ICM
+
+[FP95G_Digital.CopyFiles]
+FP95G.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+FP95G_Analog="BenQ FP95G (Analog)"
+FP95G_Digital="BenQ FP95G (Digital)"

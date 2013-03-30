@@ -1,0 +1,86 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [55I.INF]
+;
+;      Revision 1.0   January-18-2002
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=01/18/2002,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+55I.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG55I.icm=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%55I%=55I.Install, Monitor\GSM3ABD
+
+;------------------------------------; .Install
+
+[55I.Install]
+AddReg=55I.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=55I.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;------------------------------------; .AddReg
+
+
+[55I.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"LG55I.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[55I.CopyFiles]
+LG55I.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3ABD
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+55I="StudioWorks 55I"

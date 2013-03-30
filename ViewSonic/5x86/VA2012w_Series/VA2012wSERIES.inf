@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2012wSERIES.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/25/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2012w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2012wSERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA2012w%=VA2012w.Install,Monitor\VSC6A1C           ;VA2012w/VA2012wb
+
+[VA2012w.Install]                                   ;VA2012w/VA2012wb
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2012w.AddReg,1680,DPMS
+Copyfiles=VA2012w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2012w.AddReg]                                     ;VA2012w/VA2012wb
+HKR,"MODES\1680,1050",Mode1,,"30-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VA2012wSERIES.ICM"
+
+[VA2012w.CopyFiles]                                       
+VA2012wSERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA2012w="ViewSonic VA2012w SERIES"

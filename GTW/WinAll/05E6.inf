@@ -1,0 +1,96 @@
+; FPD1510, AUGUST-12-2001
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Gateway%
+CatalogFile=05E6.cat
+DriverVer=08/12/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+
+[DestinationDirs]
+DefaultDestDir=11
+05E6.CopyFiles=23
+05E7.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+05E6.icm=1
+05E6.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%05E6%=05E6.Install, Monitor\GWY05E6
+%05E7%=05E7.Install, Monitor\GWY05E7
+
+;------------------------------------; .Install
+
+[05E6.Install]
+AddReg=05E6.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=05E6.CopyFiles
+
+[05E7.Install]
+AddReg=05E7.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=05E7.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[05E6.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"05E6.icm"
+
+[05E7.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"05E6.icm"
+
+;------------------------------------; .CopyFiles
+
+[05E6.CopyFiles]
+05E6.icm
+
+[05E7.CopyFiles]
+05E6.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY05E6
+ExcludeFromSelect.NT=Monitor\GWY05E7
+
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+Gateway="Gateway"
+05E6="Gateway FPD1510"
+05E7="Gateway FPD1510"

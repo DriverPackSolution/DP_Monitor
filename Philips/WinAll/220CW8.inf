@@ -1,0 +1,98 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=220CW8.cat
+DriverVer=06/08/2007,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHLC01A          
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+C01A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+220CW8.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64 
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%C01A%=C01A.Install, Monitor\PHLC01A
+
+
+[Philips.NTx86]
+%C01A%=C01A.Install, Monitor\PHLC01A
+
+[Philips.NTia64]
+%C01A%=C01A.Install, Monitor\PHLC01A
+
+
+[Philips.NTamd64]
+%C01A%=C01A.Install, Monitor\PHLC01A
+
+
+; Install sections
+;-------------------------------------------------
+[C01A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C01A.AddReg,1680,DPMS
+CopyFiles=C01A.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[C01A.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-93.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"220CW8.icm"
+
+;-------------------------------------------------------------------
+[C01A.CopyFiles]
+220CW8.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+C01A="Philips 220CW (22inch WIDE LCD MONITOR 220CW8)"

@@ -1,0 +1,101 @@
+;FTSB19W5.INF Ver. 1.1
+;Monitor INF file for Fujitsu DISPLAY B19W-5 ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS%
+CatalogFile=FTSB19W5.cat
+DriverVer=10/04/2009, 1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07D1
+ExcludeFromSelect.nt=Monitor\FUS07D2
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSB19W5.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB19W5.ICM=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS%=FTS,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[FTS]
+%FTSB19W5%=FTSB19W5a.Install, Monitor\FUS07D1
+%FTSB19W5%=FTSB19W5d.Install, Monitor\FUS07D2
+
+;-------------------------------------------------
+[FTS.NTAMD64]
+%FTSB19W5%=FTSB19W5a.Install, Monitor\FUS07D1
+%FTSB19W5%=FTSB19W5d.Install, Monitor\FUS07D2
+
+; Install Sections
+;-------------------------------------------------
+[FTSB19W5a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSB19W5a.AddReg, 1440, DPMS
+CopyFiles=FTSB19W5.CopyFiles
+
+[FTSB19W5d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSB19W5d.AddReg, 1440, DPMS
+CopyFiles=FTSB19W5.CopyFiles
+
+; AddReg & DELReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+[FTSB19W5a.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-82.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSB19W5.ICM"
+
+[FTSB19W5d.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-82.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSB19W5.ICM"
+
+;---------------------------------------------------------- 
+
+[FTSB19W5.CopyFiles]
+FTSB19W5.ICM
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Technology Solutions B19W-5 ECO"
+MonitorClassName="Monitor"
+FTS="Fujitsu Technology Solutions"
+FTSB19W5="Fujitsu B19W-5 ECO"

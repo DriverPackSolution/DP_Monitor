@@ -1,0 +1,95 @@
+
+;==================================================
+; sm957p.inf 09/07/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm957p.cat
+DriverVer=09/07/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM002C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm957p.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm957p.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm957p%=sm957p.Install, Monitor\SAM002C
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm957p.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm957p.AddReg, 2048, DPMS
+CopyFiles=sm957p.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm957p.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-96,50-160,+,+"
+HKR,,ICMProfile,0,"sm957p.icm"
+
+
+;------------------------------------------------------
+
+[sm957p.CopyFiles]
+sm957p.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm957p="SyncMaster 957p(T)/907p(T)/950p(T),MagicSyncMaster CM197A(M)"
+

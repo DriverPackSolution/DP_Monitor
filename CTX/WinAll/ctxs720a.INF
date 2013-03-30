@@ -1,0 +1,66 @@
+;
+; ctxs720a.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Apr 25, 2003
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=04/25/2003,1.0.0
+CatalogFile=ctxs720a.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX2014
+
+[DestinationDirs]
+DefaultDestDir=11
+
+S720A.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTXpfs.icm=1
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%S720A%=S720A.Install,Monitor\CTX2014
+
+[S720A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S720A.AddReg, 1280, DPMS
+CopyFiles=S720A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[S720A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,59.0-75.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.icm"
+
+[S720A.CopyFiles]
+CTXpfs.icm
+
+[Strings]
+Disk="CTX LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+S720A="CTX S720,S720A"

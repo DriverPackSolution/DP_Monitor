@@ -1,0 +1,95 @@
+
+;================================ 
+;E151FPp.INF 03/26/02 Ver. 1.0 JG
+;Copyright 1996-2002 Dell Computer Corporation
+;
+;This is a setupfile for E151FPp 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E151FPp.cat
+DriverVer=03/26/2002, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL7006
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E151FPp.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E151FPp.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E151FPp%=E151FPp.Install, Monitor\DEL7006
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E151FPp.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E151FPp.AddReg, 1024, DPMS
+CopyFiles=E151FPp.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E151FPp.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E151FPp.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E151FPp.CopyFiles]
+E151FPp.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E151FPp="Dell E151FPp"
+

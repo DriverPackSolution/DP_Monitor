@@ -1,0 +1,95 @@
+
+;==================================================
+; sm1510mp.inf 09/01/2003 ver. 1.0
+;
+; Copyright 2003 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm1510mp.cat
+DriverVer=09/01/2003,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM00D1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm1510mp.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm1510mp.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm1510mp%=sm1510mp.Install, Monitor\SAM00D1
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm1510mp.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm1510mp.AddReg, 1024, DPMS
+CopyFiles=sm1510mp.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm1510mp.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"sm1510mp.icm"
+
+
+;------------------------------------------------------
+
+[sm1510mp.CopyFiles]
+sm1510mp.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm1510mp="SyncMaster 1510mp/157MP,SyncMaster Magic CX511MP/CX510MP"

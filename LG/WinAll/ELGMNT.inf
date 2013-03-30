@@ -1,0 +1,2504 @@
+; LG Electronics Inc. MONITOR Information for Windows95 and Windows98 Version.
+; Last up-dated in 2001.02.13.
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+StudioWorks57i.CopyFiles=23
+StudioWorks57M.CopyFiles=23
+StudioWorks57T5.CopyFiles=23
+StudioWorks77i.CopyFiles=23
+StudioWorks77S.CopyFiles=23
+StudioWorks77T5.CopyFiles=23
+StudioWorks77M.CopyFiles=23
+StudioWorks216SC.CopyFiles=23
+StudioWorks216Si.CopyFiles=23
+StudioWorks74i.CopyFiles=23
+StudioWorks74m.CopyFiles=23
+StudioWorks76i.CopyFiles=23
+StudioWorks76m.CopyFiles=23
+StudioWorks76T.CopyFiles=23
+StudioWorks78i.CopyFiles=23
+StudioWorks78m.CopyFiles=23
+StudioWorks78T.CopyFiles=23
+StudioWorks78D.CopyFiles=23
+StudioWorks78DT.CopyFiles=23
+StudioWorks7D.CopyFiles=23
+StudioWorks7DT.CopyFiles=23
+StudioWorks78T5.CopyFiles=23
+StudioWorks78DT5.CopyFiles=23
+Flatron78FT.CopyFiles=23
+StudioWorks760SC.CopyFiles=23
+StudioWorks760Si.CopyFiles=23
+1505s.CopyFiles=23
+StudioWorks56m.CopyFiles=23
+StudioWorks56i.CopyFiles=23
+StudioWorks56T.CopyFiles=23
+StudioWorks5D.CopyFiles=23
+StudioWorks5DT.CopyFiles=23
+StudioWorks54m.CopyFiles=23
+StudioWorks55i.CopyFiles=23
+StudioWorks560SC.CopyFiles=23
+StudioWorks560Si.CopyFiles=23
+1455.CopyFiles=23
+1462DM.CopyFiles=23
+1466.CopyFiles=23
+1467.CopyFiles=23
+1505.CopyFiles=23
+CS555DM.CopyFiles=23
+1520DM.CopyFiles=23
+1527.CopyFiles=23
+1725.CopyFiles=23
+1725DM.CopyFiles=23
+1727.CopyFiles=23
+2010.CopyFiles=23
+StudioWorks44i.CopyFiles=23
+StudioWorks44m.CopyFiles=23
+StudioWorks45i.CopyFiles=23
+1725s.CopyFiles=23
+StudioWorks790UR.CopyFiles=23
+StudioWorks790SC.CopyFiles=23
+StudioWorks20i.CopyFiles=23
+StudioWorks28i.CopyFiles=23
+StudioWorks28T5.CopyFiles=23
+StudioWorks99T.CopyFiles=23
+500LC.CopyFiles=23
+1485.CopyFiles=23
+CS585DM.CopyFiles=23
+CB795C.CopyFiles=23
+CF786C.CopyFiles=23
+CF900C.CopyFiles=23
+StudioWorks440Si.CopyFiles=23
+StudioWorks520Si.CopyFiles=23
+StudioWorks795SC.CopyFiles=23
+StudioWorks521Mi.CopyFiles=23
+StudioWorks910SC.CopyFiles=23
+StudioWorks910UC.CopyFiles=23
+StudioWorks770Si.CopyFiles=23
+StudioWorks441.CopyFiles=23
+Flatron78FTPlus.CopyFiles=23
+StudioWorks550M.CopyFiles=23
+StudioWorks795UR.CopyFiles=23
+StudioWorks575N.CopyFiles=23
+StudioWorks575C.CopyFiles=23
+StudioWorks775N.CopyFiles=23
+StudioWorks775C.CopyFiles=23
+CB790C.CopyFiles=23
+CB910C.CopyFiles=23
+CS788C.CopyFiles=23
+Flatron795FTPLUS.CopyFiles=23
+StudioWorks221U.CopyFiles=23
+StudioWorks880LC.CopyFiles=23
+Flatron795FT.CopyFiles=23
+StudioWorks912U.CopyFiles=23
+StudioWorks912E.CopyFiles=23
+StudioWorks520Si1.CopyFiles=23
+StudioWorks995E.CopyFiles=23
+StudioWorks995U.CopyFiles=23
+StudioWorks776M.CopyFiles=23
+StudioWorks776S.CopyFiles=23
+StudioWorks576M.CopyFiles=23
+CS778DC.CopyFiles=23
+Flatron775FT.CopyFiles=23
+StudioWorks995C.CopyFiles=23
+Flatron915FTplus.CopyFiles=23
+StudioWorks560N.CopyFiles=23
+LB570BZ.CopyFiles=23
+CS777BY.CopyFiles=23
+CS991DC.CopyFiles=23
+CS990DC.CopyFiles=23
+Flatron774FT.CopyFiles=23
+StudioWorks45V.CopyFiles=23
+StudioWorks55V.CopyFiles=23
+StudioWorks450N.CopyFiles=23
+FB795CE.CopyFiles=23
+FB795CU.CopyFiles=23
+CS990DE.CopyFiles=23
+99G.CopyFiles=23
+CB770DM.CopyFiles=23
+CB770DE.CopyFiles=23
+77G.CopyFiles=23
+SW995U.CopyFiles=23
+77E.CopyFiles=23
+StudioWorks575N-noir.CopyFiles=23
+StudioWorks561N.CopyFiles=23
+StudioWorks575E.CopyFiles=23
+StudioWorks775N-noir.CopyFiles=23
+StudioWorks775E.CopyFiles=23
+FLATRON773FT.CopyFiles=23
+StudioWorks995SU.CopyFiles=23
+FLATRON793FT.CopyFiles=23
+FLATRON793FTPLUS.CopyFiles=23
+FLATRON776FM.CopyFiles=23
+FLATRON995FT.CopyFiles=23
+StudioWorks291U.CopyFiles=23
+StudioWorks773N.CopyFiles=23
+StudioWorks773E.CopyFiles=23
+StudioWorks573N.CopyFiles=23
+StudioWorks573E.CopyFiles=23
+StudioWorks560A.CopyFiles=23
+StudioWorks550D.CopyFiles=23
+WS771A.CopyFiles=23
+WS771B.CopyFiles=23
+SW452V.CopyFiles=23
+SW552V.CopyFiles=23
+SW553V.CopyFiles=23
+CS771DM.CopyFiles=23
+FLATRON777FNPLUS.CopyFiles=23
+StudioWorks795E.CopyFiles=23
+FLATRON773Fi.CopyFiles=23
+StudioWorks785NF.CopyFiles=23
+StudioWorks995NF.CopyFiles=23
+StudioWorks995NFPL.CopyFiles=23
+StudioWorks585E.CopyFiles=23
+
+[SourceDisksNames]
+1="Monitor Profiles Installation Disk",,1
+
+[SourceDisksFiles]
+57i.icm=1
+57m.icm=1
+57t5.icm=1
+77i.icm=1
+77s.icm=1
+77t5.icm=1
+77m.icm=1
+216SC.icm=1
+216Si.icm=1
+74i.icm=1
+74m.icm=1
+76i.icm=1
+76m.icm=1
+76t.icm=1
+78i.icm=1
+78m.icm=1
+78t.icm=1
+78d.icm=1
+78dt.icm=1
+7d.icm=1
+7dt.icm=1
+78t5.icm=1
+78dt5.icm=1
+78ft.icm=1
+760sc.icm=1
+760si.icm=1
+1505s.icm=1
+56m.icm=1
+56i.icm=1
+56T.icm=1
+5D.icm=1
+5DT.icm=1
+54m.icm=1
+55i.icm=1
+560SC.icm=1
+560Si.icm=1
+520Si.icm=1
+1455.icm=1
+1462DM.icm=1
+1466.icm=1
+1467.icm=1
+1505.icm=1
+CS555DM.icm=1
+1520DM.icm=1
+1527.icm=1
+1725.icm=1
+1725DM.icm=1
+1727.icm=1
+2010.icm=1
+44i.icm=1
+44m.icm=1
+45i.icm=1
+440Si.icm=1
+1725s.icm=1
+790UR.icm=1
+790SC.icm=1
+20i.icm=1
+28i.icm=1
+28T5.icm=1
+99T.icm=1
+500LC.icm=1
+1485.icm=1
+CS585DM.icm=1
+CB795C.icm=1
+CF786C.icm=1
+CF900C.icm=1
+440Si.icm=1
+520Si.icm=1
+795SC.icm=1
+521Mi.icm=1
+910SC.icm=1
+910UC.icm=1
+770Si.icm=1
+441.icm=1
+79FT.icm=1
+550M.icm=1
+795UR.icm=1
+575N.icm=1
+575C.icm=1
+775N.icm=1
+775C.icm=1
+CB790C.icm=1
+CB910C.icm=1
+CS788C.icm=1
+795FTPL.icm=1
+221U.icm=1
+880LC.icm=1
+795FT.icm=1
+912U.ICM=1
+912E.ICM=1
+520Si1.ICM=1
+995E.ICM=1
+776M.ICM=1
+776S.ICM=1
+576M.ICM=1
+778DC.ICM=1
+775FT.ICM=1
+SW995E.ICM=1
+915FT.icm=1
+SW560N.ICM=1
+LB570BZ.ICM=1
+CS777BY.ICM=1
+CS990DC.ICM=1
+CS991DC.ICM=1
+774FT.ICM=1
+45V.ICM=1
+55V.ICM=1
+SW450N.ICM=1
+CS990DE.ICM=1
+99G.ICM=1
+CB770DM.ICM=1
+CB770DE.ICM=1
+77G.ICM=1
+SW995U.ICM=1
+77E.ICM=1
+575N-NOIR.ICM=1
+561N.ICM=1
+575ES.ICM=1
+775N-NOIR.ICM=1
+775ES.ICM=1
+773FT.ICM=1
+995.ICM=1
+793FT.ICM=1
+793FT-PLUS.ICM=1
+776FM.ICM=1
+995FT.ICM=1
+291U.ICM=1
+773N.ICM=1
+773E.ICM=1
+573N.ICM=1
+573E.ICM=1
+SW560A.ICM=1
+SW550D.ICM=1
+WS771A.ICM=1
+WS771B.ICM=1
+SW452V.ICM=1
+SW552V.ICM=1
+SW553V.ICM=1
+CS771DM.ICM=1
+FM77NC.ICM=1
+CB795D.ICM=1
+773Fi.ICM=1
+785NF.ICM=1
+995NF.ICM=1
+995NFPL.ICM=1
+SW585E.ICM=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%StudioWorks57i%=StudioWorks57i, Monitor\GSM3ABE
+%StudioWorks57M%=StudioWorks57M, Monitor\GSM3ACB
+%StudioWorks57T5%=StudioWorks57T5, Monitor\GSM3AC2
+%StudioWorks77i%=StudioWorks77i, Monitor\GSM428A
+%StudioWorks77S%=StudioWorks77S, Monitor\GSM42A0
+%StudioWorks77T5%=StudioWorks77T5, Monitor\GSM4292
+%StudioWorks77M%=StudioWorks77M, Monitor\GSM429D
+%StudioWorks216SC%=StudioWorks216SC, Monitor\GSM520E
+%StudioWorks216Si%=StudioWorks216Si, Monitor\GSM520D
+%StudioWorks74i%=StudioWorks74i, Monitor\GSM4278
+%StudioWorks74m%=StudioWorks74m, Monitor\GSM4277
+%StudioWorks76i%=StudioWorks76i, Monitor\GSM426E
+%StudioWorks76m%=StudioWorks76m, Monitor\GSM4273
+%StudioWorks76T%=StudioWorks76T, Monitor\GSM4284
+%StudioWorks78i%=StudioWorks78i, Monitor\GSM426C
+%StudioWorks78m%=StudioWorks78m, Monitor\GSM4274
+%StudioWorks78T%=StudioWorks78T, Monitor\GSM426D
+%StudioWorks78D%=StudioWorks78D, Monitor\GSM427F
+%StudioWorks78DT%=StudioWorks78DT, Monitor\GSM4280
+%StudioWorks7D%=StudioWorks7D, Monitor\GSM427E
+%StudioWorks7DT%=StudioWorks7DT, Monitor\GSM4281
+%StudioWorks78T5%=StudioWorks78T5, Monitor\GSM428E
+%StudioWorks78DT5%=StudioWorks78DT5, Monitor\GSM428F
+%Flatron78FT%=Flatron78FT, Monitor\GSM4298
+%StudioWorks760SC%=StudioWorks760SC, Monitor\GSM42A1
+%StudioWorks760Si%=StudioWorks760Si, Monitor\GSM42A2
+%1505s%=1505s, Monitor\GSM3AA0
+%StudioWorks56m%=StudioWorks56m, Monitor\GSM3AA2
+%StudioWorks56i%=StudioWorks56i, Monitor\GSM3AA8
+%StudioWorks56T%=StudioWorks56T, Monitor\GSM3AAF
+%StudioWorks5D%=StudioWorks5D, Monitor\GSM3AB0
+%StudioWorks5DT%=StudioWorks5DT, Monitor\GSM3AB7
+%StudioWorks54m%=StudioWorks54m, Monitor\GSM3AA9
+%StudioWorks55i%=StudioWorks55i, Monitor\GSM3ABD
+%StudioWorks560SC%=StudioWorks560SC, Monitor\GSM3AD1
+%StudioWorks560Si%=StudioWorks560Si, Monitor\GSM3AD2
+%1455%=1455, MonID_1455
+%1462DM%=1462DM.Install, MonID_1462DM
+%1466%=1466, MonID_1466
+%1467%=1467, MonID_1467
+%1505%=1505, MonID_1505
+%CS555DM%=CS555DM, MonID_CS555DM
+%1520DM%=1520DM, MonID_1520DM
+%1527%=1527, MonID_1527
+%1725%=1725, MonID_1725
+%1725DM%=1725DM, MonID_1725DM
+%1727%=1727, MonID_1727
+%2010%=2010, MonID_2010
+%StudioWorks44i%=StudioWorks44i, Monitor\GSM36B9
+%StudioWorks44m%=StudioWorks44m, Monitor\GSM36B4
+%StudioWorks45i%=StudioWorks45i, Monitor\GSM36BB
+%1725s%=1725s, Monitor\GSM42CF
+%StudioWorks790UR%=StudioWorks790UR, Monitor\GSM42A3
+%StudioWorks790SC%=StudioWorks790SC, Monitor\GSM42A4
+%StudioWorks20i%=StudioWorks20i, Monitor\GSM4E21
+%StudioWorks28i%=StudioWorks28i, Monitor\GSM520B
+%StudioWorks28T5%=StudioWorks28T5, Monitor\GSM520C
+%StudioWorks99T%=StudioWorks99T, Monitor\GSM4A3A
+%500LC%=500LC, Monitor\GSM3ACE
+%1485%=1485, Monitor\GSM36B4
+%CS585DM%=CS585DM, Monitor\GSM3AAD
+%CB795C%=CB795C, Monitor\GSM429F
+%CF786C%=CF786C, Monitor\GSM4A3A
+%CF900C%=CF900C, Monitor\GSM36B4
+%StudioWorks440Si%=StudioWorks440Si, Monitor\GSM36BD
+%StudioWorks520Si%=StudioWorks520Si, Monitor\GSM3AD7
+%StudioWorks795SC%=StudioWorks795SC, Monitor\GSM42AB
+%StudioWorks521Mi%=StudioWorks521Mi, Monitor\GSM3ADD
+%StudioWorks910SC%=StudioWorks910SC, Monitor\GSM4A3E
+%StudioWorks910UC%=StudioWorks910UC, Monitor\GSM4A3F
+%StudioWorks770Si%=StudioWorks770Si, Monitor\GSM42B2
+%StudioWorks441%=StudioWorks441, Monitor\GSM36BF
+%Flatron78FTPlus%=Flatron78FTPlus, Monitor\GSM42B4
+%StudioWorks550M%=StudioWorks550M, Monitor\GSM3AE0
+%StudioWorks795UR%=StudioWorks795UR, Monitor\GSM42BB
+%StudioWorks575N%=StudioWorks575N, Monitor\GSM3AE1
+%StudioWorks575C%=StudioWorks575C, Monitor\GSM3AE4
+%StudioWorks775N%=StudioWorks775N, Monitor\GSM42B9
+%StudioWorks775C%=StudioWorks775C, Monitor\GSM42BA
+%CB790C%=CB790C, Monitor\GSM42BC
+%CB910C%=CB910C, Monitor\GSM4A40
+%CS788C%=CS788C, Monitor\GSM42A8
+%Flatron795FTPLUS%=Flatron795FTPLUS, Monitor\GSM42BD
+%StudioWorks221U%=StudioWorks221U, Monitor\GSM5212
+%StudioWorks880LC%=StudioWorks880LC, Monitor\GSM4651
+%Flatron795FT%=Flatron795FT, Monitor\GSM42C6
+%StudioWorks912U%=StudioWorks912U, Monitor\GSM4A48
+%StudioWorks912E%=StudioWorks912E, Monitor\GSM4A47
+%StudioWorks520Si1%=StudioWorks520Si1, Monitor\GSM3AEB
+%StudioWorks995E%=StudioWorks995E.Install, Monitor\GSM4A49
+%StudioWorks995U%=StudioWorks995U.Install, Monitor\GSM4A4A
+%StudioWorks776M%=StudioWorks776M, Monitor\GSM42CC
+%StudioWorks776S%=StudioWorks776S, Monitor\GSM42CD
+%StudioWorks576M%=StudioWorks576M, Monitor\GSM3AEE
+%CS778DC%=CS778DC.Install, Monitor\GSM42CA
+%Flatron775FT%=Flatron775FT, Monitor\GSM42D1
+%StudioWorks995C%=StudioWorks995C, Monitor\GSM4A4C
+%Flatron915FTplus%=Flatron915FTplus, Monitor\GSM4A4D
+%StudioWorks560N%=StudioWorks560N, Monitor\GSM3AFE
+%LB570BZ%=LB570BZ, Monitor\GSM3AFF
+%CS777BY%=CS777BY, Monitor\GSM42DA
+%CS991DC%=CS991DC, Monitor\GSM4A4F
+%CS990DC%=CS990DC, Monitor\GSM4A50
+%Flatron774FT%=Flatron774FT, Monitor\GSM42DB
+%StudioWorks45V%=StudioWorks45V, Monitor\GSM63C4
+%StudioWorks55V%=StudioWorks55V, Monitor\GSM3AF6
+%StudioWorks450N%=StudioWorks450N, Monitor\GSM36C2
+%FB795CE%=FB795CE, Monitor\GSM42DC
+%FB795CU%=FB795CU, Monitor\GSM42DD
+%CS990DE%=CS990DE, Monitor\GSM4A53
+%99G%=99G, Monitor\GSM4A54
+%CB770DM%=CB770DM, Monitor\GSM42E2
+%CB770DE%=CB770DE, Monitor\GSM42E3
+%77G%=77G, Monitor\GSM42E4
+%SW995U%=SW995U, Monitor\GSM4A56
+%77E%=77E, Monitor\GSM42E5
+%StudioWorks575N-noir%=StudioWorks575N-noir, Monitor\GSM3B0D
+%StudioWorks561N%=StudioWorks561N, Monitor\GSM3B0F
+%StudioWorks575E%=StudioWorks575E, Monitor\GSM3B10
+%StudioWorks775N-noir%=StudioWorks775N-noir, Monitor\GSM42E6
+%StudioWorks775E%=StudioWorks775E, Monitor\GSM42E7
+%FLATRON773FT%=FLATRON773FT, Monitor\GSM42E9
+%StudioWorks995SU%=StudioWorks995SU, Monitor\GSM4A55
+%FLATRON793FT%=FLATRON793FT, Monitor\GSM42EA
+%FLATRON793FTPLUS%=FLATRON793FTPLUS, Monitor\GSM42EB
+%FLATRON776FM%=FLATRON776FM, Monitor\GSM42F1
+%FLATRON995FT%=FLATRON995FT, Monitor\GSM4A57
+%StudioWorks291U%=StudioWorks291U, Monitor\GSM5215
+%StudioWorks773N%=StudioWorks773N, Monitor\GSM42ED
+%StudioWorks773E%=StudioWorks773E, Monitor\GSM42EF
+%StudioWorks573N%=StudioWorks573N, Monitor\GSM3B12
+%StudioWorks573E%=StudioWorks573E, Monitor\GSM3B14
+%StudioWorks560A%=StudioWorks560A, Monitor\GSM3B18
+%StudioWorks550D%=StudioWorks550D, Monitor\GSM3B17
+%WS771A%=WS771A, Monitor\GSM42F2
+%WS771B%=WS771B, Monitor\GSM42F3
+%SW452V%=SW452V, Monitor\GSM36C4
+%SW552V%=SW552V, Monitor\GSM3AF6
+%SW553V%=SW553V, Monitor\GSM3B16
+%CS771DM%=CS771DM, Monitor\GSM427B
+%FLATRON777FNPLUS%=FLATRON777FNPLUS, Monitor\GSM42F7
+%StudioWorks795E%=StudioWorks795E, Monitor\GSM42F9
+%FLATRON773Fi%=FLATRON773Fi, Monitor\GSM4303
+%StudioWorks785NF%=StudioWorks785NF, Monitor\GSM42FD
+%StudioWorks995NF%=StudioWorks995NF, Monitor\GSM4A58
+%StudioWorks995NFPL%=StudioWorks995NFPL, Monitor\GSM4A59
+%StudioWorks585E%=StudioWorks585E, Monitor\GSM3B23
+
+;---------------------------------------;Install
+
+[StudioWorks57i]
+AddReg=StudioWorks57i.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks57i.CopyFiles
+
+[StudioWorks57M]
+AddReg=StudioWorks57M.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks57M.CopyFiles
+
+[StudioWorks57T5]
+AddReg=StudioWorks57T5.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks57T5.CopyFiles
+
+[StudioWorks77i]
+AddReg=StudioWorks77i.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks77i.CopyFiles
+
+[StudioWorks77S]
+AddReg=StudioWorks77S.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks77S.CopyFiles
+
+[StudioWorks77T5]
+AddReg=StudioWorks77T5.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks77T5.CopyFiles
+
+[StudioWorks77M]
+AddReg=StudioWorks77M.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks77M.CopyFiles
+
+[StudioWorks216SC]
+AddReg=StudioWorks216SC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks216SC.CopyFiles
+
+[StudioWorks216Si]
+AddReg=StudioWorks216Si.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks216Si.CopyFiles
+
+[StudioWorks74i]
+AddReg=StudioWorks74i.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks74i.CopyFiles
+
+[StudioWorks74m]
+AddReg=StudioWorks74m.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks74m.CopyFiles
+
+[StudioWorks76i]
+AddReg=StudioWorks76i.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks76i.CopyFiles
+
+[StudioWorks76m]
+AddReg=StudioWorks76m.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks76m.CopyFiles
+
+[StudioWorks76T]
+AddReg=StudioWorks76T.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks76T.CopyFiles
+
+[StudioWorks78i]
+AddReg=StudioWorks78i.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks78i.CopyFiles
+
+[StudioWorks78m]
+AddReg=StudioWorks78m.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks78m.CopyFiles
+
+[StudioWorks78T]
+AddReg=StudioWorks78T.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks78T.CopyFiles
+
+[StudioWorks78D]
+AddReg=StudioWorks78D.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks78D.CopyFiles
+
+[StudioWorks78DT]
+AddReg=StudioWorks78DT.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks78DT.CopyFiles
+
+[StudioWorks7D]
+AddReg=StudioWorks7D.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks7D.CopyFiles
+
+[StudioWorks7DT]
+AddReg=StudioWorks7DT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks7DT.CopyFiles
+
+[StudioWorks78T5]
+AddReg=StudioWorks78T5.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks78T5.CopyFiles
+
+[StudioWorks78DT5]
+AddReg=StudioWorks78DT5.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks78DT5.CopyFiles
+
+[Flatron78FT]
+AddReg=Flatron78FT.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=Flatron78FT.CopyFiles
+
+[StudioWorks760SC]
+AddReg=StudioWorks760SC.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks760SC.CopyFiles
+
+[StudioWorks760Si]
+AddReg=StudioWorks760Si.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks760Si.CopyFiles
+
+[1505s]
+AddReg=1505s.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1505s.CopyFiles
+
+[StudioWorks56m]
+AddReg=StudioWorks56m.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks56m.CopyFiles
+
+[StudioWorks56i]
+AddReg=StudioWorks56i.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks56i.CopyFiles
+
+[StudioWorks56T]
+AddReg=StudioWorks56T.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks56T.CopyFiles
+
+[StudioWorks5D]
+AddReg=StudioWorks5D.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks5D.CopyFiles
+
+[StudioWorks5DT]
+AddReg=StudioWorks5DT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks5DT.CopyFiles
+
+[StudioWorks54m]
+AddReg=StudioWorks54m.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks54m.CopyFiles
+
+[StudioWorks55i]
+AddReg=StudioWorks55i.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks55i.CopyFiles
+
+[StudioWorks560SC]
+AddReg=StudioWorks560SC.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks560SC.CopyFiles
+
+[StudioWorks560Si]
+AddReg=StudioWorks560Si.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks560Si.CopyFiles
+
+[1455]
+AddReg=1455.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1455.CopyFiles
+
+[1462DM.Install]
+AddReg=1462DM.AddReg, 1024, DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1462DM.CopyFiles
+
+[1466]
+AddReg=1466.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1466.CopyFiles
+
+[1467]
+AddReg=1467.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1467.CopyFiles
+
+[1505]
+AddReg=1505.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1505.CopyFiles
+
+[CS555DM]
+AddReg=CS555DM.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS555DM.CopyFiles
+
+[1520DM]
+AddReg=1520DM.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1520DM.CopyFiles
+
+[1527]
+AddReg=1527.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1527.CopyFiles
+
+[1725]
+AddReg=1725.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1725.CopyFiles
+
+[1725DM]
+AddReg=1725DM.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1725DM.CopyFiles
+
+[1727]
+AddReg=1727.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1727.CopyFiles
+
+[2010]
+AddReg=2010.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=2010.CopyFiles
+
+[StudioWorks44i]
+AddReg=StudioWorks44i.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks44i.CopyFiles
+
+[StudioWorks44m]
+AddReg=StudioWorks44m.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks44m.CopyFiles
+
+[StudioWorks45i]
+AddReg=StudioWorks45i.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks45i.CopyFiles
+
+[1725s]
+AddReg=1725s.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1725s.CopyFiles
+
+[StudioWorks790UR]
+AddReg=StudioWorks790UR.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks790UR.CopyFiles
+
+[StudioWorks790SC]
+AddReg=StudioWorks790SC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks790SC.CopyFiles
+
+[StudioWorks20i]
+AddReg=StudioWorks20i.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks20i.CopyFiles
+
+[StudioWorks28i]
+AddReg=StudioWorks28i.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks28i.CopyFiles
+
+[StudioWorks28T5]
+AddReg=StudioWorks28T5.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks28T5.CopyFiles
+
+[StudioWorks99T]
+AddReg=StudioWorks99T.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks99T.CopyFiles
+
+[500LC]
+AddReg=500LC.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=500LC.CopyFiles
+
+[1485]
+AddReg=1485.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1485.CopyFiles
+
+[CS585DM]
+AddReg=CS585DM.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS585DM.CopyFiles
+
+[CB795C]
+AddReg=CB795C.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CB795C.CopyFiles
+
+[CF786C]
+AddReg=CF786C.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CF786C.CopyFiles
+
+[CF900C]
+AddReg=CF900C.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CF900C.CopyFiles
+
+[StudioWorks440Si]
+AddReg=StudioWorks440Si.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks440Si.CopyFiles
+
+[StudioWorks520Si]
+AddReg=StudioWorks520Si.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks520Si.CopyFiles
+
+[StudioWorks795SC]
+AddReg=StudioWorks795SC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks795SC.CopyFiles
+
+[StudioWorks521Mi]
+AddReg=StudioWorks521Mi.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks521Mi.CopyFiles
+
+[StudioWorks910SC]
+AddReg=StudioWorks910SC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks910SC.CopyFiles
+
+[StudioWorks910UC]
+AddReg=StudioWorks910UC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks910UC.CopyFiles
+
+[StudioWorks770Si]
+AddReg=StudioWorks770Si.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks770Si.CopyFiles
+
+[StudioWorks441]
+AddReg=StudioWorks441.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks441.CopyFiles
+
+[Flatron78FTPlus]
+AddReg=Flatron78FTPlus.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=Flatron78FTPlus.CopyFiles
+
+[StudioWorks550M]
+AddReg=StudioWorks550M.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks550M.CopyFiles
+
+[StudioWorks795UR]
+AddReg=StudioWorks795UR.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks795UR.CopyFiles
+
+[StudioWorks575N]
+AddReg=StudioWorks575N.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks575N.CopyFiles
+
+[StudioWorks575C]
+AddReg=StudioWorks575C.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks575C.CopyFiles
+
+[StudioWorks775N]
+AddReg=StudioWorks775N.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks775N.CopyFiles
+
+[StudioWorks775C]
+AddReg=StudioWorks775C.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks775C.CopyFiles
+
+[CB790C]
+AddReg=CB790C.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CB790C.CopyFiles
+
+[CB910C]
+AddReg=CB910C.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CB910C.CopyFiles
+
+[CS788C]
+DelReg=DEL_CURRENT_REG
+AddReg=CS788C.AddReg,1280,DPMS
+CopyFiles=CS788C.CopyFiles
+
+[Flatron795FTPLUS]
+AddReg=Flatron795FTPLUS.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=Flatron795FTPLUS.CopyFiles
+
+[StudioWorks221U]
+AddReg=StudioWorks221U.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks221U.CopyFiles
+
+[StudioWorks880LC]
+AddReg=StudioWorks880LC.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks880LC.CopyFiles
+
+[Flatron795FT]
+AddReg=Flatron795FT.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=Flatron795FT.CopyFiles
+
+[StudioWorks912U]
+AddReg=StudioWorks912U.AddReg, 1600, DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks912U.CopyFiles
+
+[StudioWorks912E]
+AddReg=StudioWorks912E.AddReg, 1600, DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks912E.CopyFiles
+
+[StudioWorks520Si1]
+AddReg=StudioWorks520Si1.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks520Si1.CopyFiles
+
+[StudioWorks995E.Install]
+AddReg=StudioWorks995E.AddReg, 1600, DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks995E.CopyFiles
+
+[StudioWorks995U.Install]
+AddReg=StudioWorks995U.AddReg, 1600, DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks995U.CopyFiles
+
+[StudioWorks776M]
+AddReg=StudioWorks776M.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks776M.CopyFiles
+
+[StudioWorks776S]
+AddReg=StudioWorks776S.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks776S.CopyFiles
+
+[StudioWorks576M]
+AddReg=StudioWorks576M.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks576M.CopyFiles
+
+[CS778DC.Install]
+AddReg=CS778DC.AddReg, 1280, DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS778DC.CopyFiles
+
+[StudioWorks995C]
+AddReg=StudioWorks995C.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks995C.CopyFiles
+
+[Flatron775FT]
+AddReg=Flatron775FT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=Flatron775FT.CopyFiles
+
+[Flatron915FTplus]
+AddReg=Flatron915FTplus.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=Flatron915FTplus.CopyFiles
+
+[StudioWorks560N]
+AddReg=StudioWorks560N.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks560N.CopyFiles
+
+[LB570BZ]
+AddReg=LB570BZ.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=LB570BZ.CopyFiles
+
+[CS777BY]
+AddReg=CS777BY.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS777BY.CopyFiles
+
+[CS991DC]
+AddReg=CS991DC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS991DC.CopyFiles
+
+[CS990DC]
+AddReg=CS990DC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS990DC.CopyFiles
+
+[Flatron774FT]
+AddReg=Flatron774FT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=Flatron774FT.CopyFiles
+
+[StudioWorks45V]
+AddReg=StudioWorks45V.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks45V.CopyFiles
+
+[StudioWorks55V]
+AddReg=StudioWorks55V.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks55V.CopyFiles
+
+[StudioWorks450N]
+AddReg=StudioWorks450N.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks450N.CopyFiles
+
+[FB795CE]
+AddReg=FB795CE.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FB795CE.CopyFiles
+
+[FB795CU]
+AddReg=FB795CU.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FB795CU.CopyFiles
+
+[CS990DE]
+AddReg=CS990DE.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS990DE.CopyFiles
+
+[99G]
+AddReg=99G.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=99G.CopyFiles
+
+[CB770DM]
+AddReg=CB770DM.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CB770DM.CopyFiles
+
+[CB770DE]
+AddReg=CB770DE.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CB770DE.CopyFiles
+
+[77G]
+AddReg=77G.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=77G.CopyFiles
+
+[SW995U]
+AddReg=SW995U.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=SW995U.CopyFiles
+
+[77E]
+AddReg=77E.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=77E.CopyFiles
+
+[StudioWorks575N-noir]
+AddReg=StudioWorks575N-noir.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks575N-noir.CopyFiles
+
+[StudioWorks561N]
+AddReg=StudioWorks561N.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks561N.CopyFiles
+
+[StudioWorks575E]
+AddReg=StudioWorks575E.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks575E.CopyFiles
+
+[StudioWorks775N-noir]
+AddReg=StudioWorks775N-noir.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks775N-noir.CopyFiles
+
+[StudioWorks775E]
+AddReg=StudioWorks775E.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks775E.CopyFiles
+
+[FLATRON773FT]
+AddReg=FLATRON773FT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRON773FT.CopyFiles
+
+[StudioWorks995SU]
+AddReg=StudioWorks995SU.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks995SU.CopyFiles
+
+[FLATRON793FT]
+AddReg=FLATRON793FT.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRON793FT.CopyFiles
+
+[FLATRON793FTPLUS]
+AddReg=FLATRON793FTPLUS.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRON793FTPLUS.CopyFiles
+
+[FLATRON776FM]
+AddReg=FLATRON776FM.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRON776FM.CopyFiles
+
+[FLATRON995FT]
+AddReg=FLATRON995FT.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRON995FT.CopyFiles
+
+[StudioWorks291U]
+AddReg=StudioWorks291U.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks291U.CopyFiles
+
+[StudioWorks773N]
+AddReg=StudioWorks773N.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks773N.CopyFiles
+
+[StudioWorks773E]
+AddReg=StudioWorks773E.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks773E.CopyFiles
+
+[StudioWorks573N]
+AddReg=StudioWorks573N.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks573N.CopyFiles
+
+[StudioWorks573E]
+AddReg=StudioWorks573E.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks573E.CopyFiles
+
+[StudioWorks560A]
+AddReg=StudioWorks560A.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks560A.CopyFiles
+
+[StudioWorks550D]
+AddReg=StudioWorks550D.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks550D.CopyFiles
+
+[WS771A]
+AddReg=WS771A.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=WS771A.CopyFiles
+
+[WS771B]
+AddReg=WS771B.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=WS771B.CopyFiles
+
+[SW452V]
+AddReg=SW452V.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=SW452V.CopyFiles
+
+[SW552V]
+AddReg=SW552V.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=SW552V.CopyFiles
+
+[SW553V]
+AddReg=SW553V.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=SW553V.CopyFiles
+
+[CS771DM]
+AddReg=CS771DM.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS771DM.CopyFiles
+
+[FLATRON777FNPLUS]
+AddReg=FLATRON777FNPLUS.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRON777FNPLUS.CopyFiles
+
+[StudioWorks795E]
+AddReg=StudioWorks795E.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks795E.CopyFiles
+
+[FLATRON773Fi]
+AddReg=FLATRON773Fi.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRON773Fi.CopyFiles
+
+[StudioWorks785NF]
+AddReg=StudioWorks785NF.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks785NF.CopyFiles
+
+[StudioWorks995NF]
+AddReg=StudioWorks995NF.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks995NF.CopyFiles
+
+[StudioWorks995NFPL]
+AddReg=StudioWorks995NFPL.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks995NFPL.CopyFiles
+
+[StudioWorks585E]
+AddReg=StudioWorks585E.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=StudioWorks585E.CopyFiles
+
+;---------------------------------------;CopyFiles
+
+[StudioWorks57i.CopyFiles]
+57i.icm
+
+[StudioWorks57M.CopyFiles]
+57m.icm
+
+[StudioWorks57T5.CopyFiles]
+57t5.icm
+
+[StudioWorks77i.CopyFiles]
+77i.icm
+
+[StudioWorks77S.CopyFiles]
+77s.icm
+
+[StudioWorks77T5.CopyFiles]
+77t5.icm
+
+[StudioWorks77M.CopyFiles]
+77m.icm
+
+[StudioWorks216SC.CopyFiles]
+216SC.icm
+
+[StudioWorks216Si.CopyFiles]
+216Si.icm
+
+[StudioWorks74i.CopyFiles]
+74i.icm
+
+[StudioWorks74m.CopyFiles]
+74m.icm
+
+[StudioWorks76i.CopyFiles]
+76i.icm
+
+[StudioWorks76m.CopyFiles]
+76m.icm
+
+[StudioWorks76T.CopyFiles]
+76t.icm
+
+[StudioWorks78i.CopyFiles]
+78i.icm
+
+[StudioWorks78m.CopyFiles]
+78m.icm
+
+[StudioWorks78T.CopyFiles]
+78t.icm
+
+[StudioWorks78D.CopyFiles]
+78d.icm
+
+[StudioWorks78DT.CopyFiles]
+78dt.icm
+
+[StudioWorks7D.CopyFiles]
+7d.icm
+
+[StudioWorks7DT.CopyFiles]
+7dt.icm
+
+[StudioWorks78T5.CopyFiles]
+78t5.icm
+
+[StudioWorks78DT5.CopyFiles]
+78dt5.icm
+
+[Flatron78FT.CopyFiles]
+78ft.icm
+
+[StudioWorks760SC.CopyFiles]
+760sc.icm
+
+[StudioWorks760Si.CopyFiles]
+760si.icm
+
+[1505s.CopyFiles]
+1505s.icm
+
+[StudioWorks56m.CopyFiles]
+56m.icm
+
+[StudioWorks56i.CopyFiles]
+56i.icm
+
+[StudioWorks56T.CopyFiles]
+56T.icm
+
+[StudioWorks5D.CopyFiles]
+5D.icm
+
+[StudioWorks5DT.CopyFiles]
+5DT.icm
+
+[StudioWorks54m.CopyFiles]
+54m.icm
+
+[StudioWorks55i.CopyFiles]
+55i.icm
+
+[StudioWorks560SC.CopyFiles]
+560SC.icm
+
+[StudioWorks560Si.CopyFiles]
+560Si.icm
+
+[1455.CopyFiles]
+1455.icm
+
+[1462DM.CopyFiles]
+1462DM.icm
+
+[1466.CopyFiles]
+1466.icm
+
+[1467.CopyFiles]
+1467.icm
+
+[1505.CopyFiles]
+1505.icm
+
+[CS555DM.CopyFiles]
+CS555DM.icm
+
+[1520DM.CopyFiles]
+1520DM.icm
+
+[1527.CopyFiles]
+1527.icm
+
+[1725.CopyFiles]
+1725.icm
+
+[1725DM.CopyFiles]
+1725DM.icm
+
+[1727.CopyFiles]
+1727.icm
+
+[2010.CopyFiles]
+2010.icm
+
+[StudioWorks44i.CopyFiles]
+44i.icm
+
+[StudioWorks44m.CopyFiles]
+44m.icm
+
+[StudioWorks45i.CopyFiles]
+45i.icm
+
+[1725s.CopyFiles]
+1725s.icm
+
+[StudioWorks790UR.CopyFiles]
+790UR.icm
+
+[StudioWorks790SC.CopyFiles]
+790SC.icm
+
+[StudioWorks20i.CopyFiles]
+20i.icm
+
+[StudioWorks28i.CopyFiles]
+28i.icm
+
+[StudioWorks28T5.CopyFiles]
+28T5.icm
+
+[StudioWorks99T.CopyFiles]
+99T.icm
+
+[500LC.CopyFiles]
+500LC.icm
+
+[1485.CopyFiles]
+1485.icm
+
+[CS585DM.CopyFiles]
+CS585DM.icm
+
+[CB795C.CopyFiles]
+CB795C.icm
+
+[CF786C.CopyFiles]
+CF786C.icm
+
+[CF900C.CopyFiles]
+CF900C.icm
+
+[StudioWorks440Si.CopyFiles]
+440Si.icm
+
+[StudioWorks520Si.CopyFiles]
+520Si.icm
+
+[StudioWorks795SC.CopyFiles]
+795SC.icm
+
+[StudioWorks521Mi.CopyFiles]
+521Mi.icm
+
+[StudioWorks910SC.CopyFiles]
+910SC.icm
+
+[StudioWorks910UC.CopyFiles]
+910UC.icm
+
+[StudioWorks770Si.CopyFiles]
+770Si.icm
+
+[StudioWorks441.CopyFiles]
+441.icm
+
+[Flatron78FTPlus.CopyFiles]
+79FT.icm
+
+[StudioWorks550M.CopyFiles]
+550M.icm
+
+[StudioWorks795UR.CopyFiles]
+795UR.icm
+
+[StudioWorks575N.CopyFiles]
+575N.icm
+
+[StudioWorks575C.CopyFiles]
+575C.icm
+
+[StudioWorks775N.CopyFiles]
+775N.icm
+
+[StudioWorks775C.CopyFiles]
+775C.icm
+
+[CB790C.CopyFiles]
+CB790C.icm
+
+[CB910C.CopyFiles]
+CB910C.icm
+
+[CS788C.CopyFiles]
+CS788C.icm
+
+[Flatron795FTPLUS.CopyFiles]
+795FTPL.icm
+
+[StudioWorks221U.CopyFiles]
+221U.icm
+
+[StudioWorks880LC.CopyFiles]
+880LC.icm
+
+[Flatron795FT.CopyFiles]
+795FT.icm
+
+[StudioWorks912U.CopyFiles]
+912U.ICM
+
+[StudioWorks912E.CopyFiles]
+912E.ICM
+
+[StudioWorks520Si1.CopyFiles]
+520Si1.icm
+
+[StudioWorks995E.CopyFiles]
+995E.ICM
+
+[StudioWorks995U.CopyFiles]
+995E.ICM
+
+[StudioWorks776M.CopyFiles]
+776M.icm
+
+[StudioWorks776S.CopyFiles]
+776S.icm
+
+[StudioWorks576M.CopyFiles]
+576M.icm
+
+[CS778DC.CopyFiles]
+778DC.ICM
+
+[StudioWorks995C.CopyFiles]
+SW995E.icm
+
+[Flatron775FT.CopyFiles]
+775FT.icm
+
+[Flatron915FTplus.CopyFiles]
+915FT.icm
+
+[StudioWorks560N.CopyFiles]
+SW560N.ICM
+
+[LB570BZ.CopyFiles]
+LB570BZ.ICM
+
+[CS777BY.CopyFiles]
+CS777BY.ICM
+
+[CS991DC.CopyFiles]
+CS991DC.ICM
+
+[CS990DC.CopyFiles]
+CS990DC.ICM
+
+[Flatron774FT.CopyFiles]
+774FT.ICM
+
+[StudioWorks45V.CopyFiles]
+45V.ICM
+
+[StudioWorks55V.CopyFiles]
+55V.ICM
+
+[StudioWorks450N.CopyFiles]
+SW450N.ICM
+
+[FB795CE.CopyFiles]
+795FT.ICM
+
+[FB795CU.CopyFiles]
+795FTPL.ICM
+
+[CS990DE.CopyFiles]
+CS990DE.ICM
+
+[99G.CopyFiles]
+99G.ICM
+
+[CB770DM.CopyFiles]
+CB770DM.ICM
+
+[CB770DE.CopyFiles]
+CB770DE.ICM
+
+[77G.CopyFiles]
+77G.ICM
+
+[SW995U.CopyFiles]
+SW995U.icm
+
+[77E.CopyFiles]
+77E.ICM
+
+[StudioWorks575N-noir.CopyFiles]
+575N-NOIR.ICM
+
+[StudioWorks561N.CopyFiles]
+561N.ICM
+
+[StudioWorks575E.CopyFiles]
+575ES.ICM
+
+[StudioWorks775N-noir.CopyFiles]
+775N-NOIR.ICM
+
+[StudioWorks775E.CopyFiles]
+775ES.ICM
+
+[FLATRON773FT.CopyFiles]
+773FT.ICM
+
+[StudioWorks995SU.CopyFiles]
+995.ICM
+
+[FLATRON793FT.CopyFiles]
+793FT.ICM
+
+[FLATRON793FTPLUS.CopyFiles]
+793FT-PLUS.ICM
+
+[FLATRON776FM.CopyFiles]
+776FM.ICM
+
+[FLATRON995FT.CopyFiles]
+995FT.ICM
+
+[StudioWorks291U.CopyFiles]
+291U.ICM
+
+[StudioWorks773E.CopyFiles]
+773E.ICM
+
+[StudioWorks773N.CopyFiles]
+773N.ICM
+
+[StudioWorks573E.CopyFiles]
+573E.ICM
+
+[StudioWorks573N.CopyFiles]
+573N.ICM
+
+[StudioWorks560A.CopyFiles]
+SW560A.ICM
+
+[StudioWorks550D.CopyFiles]
+SW550D.ICM
+
+[WS771A.CopyFiles]
+WS771A.ICM
+
+[WS771B.CopyFiles]
+WS771B.ICM
+
+[SW452V.CopyFiles]
+SW452V.ICM
+
+[SW552V.CopyFiles]
+SW552V.ICM
+
+[SW553V.CopyFiles]
+SW553V.ICM
+
+[CS771DM.CopyFiles]
+CS771DM.ICM
+
+[FLATRON777FNPLUS.CopyFiles]
+FM77NC.ICM
+
+[StudioWorks795E.CopyFiles]
+CB795D.icm
+
+[FLATRON773Fi.CopyFiles]
+773Fi.ICM
+
+[StudioWorks785NF.CopyFiles]
+785NF.ICM
+
+[StudioWorks995NF.CopyFiles]
+995NF.ICM
+
+[StudioWorks995NFPL.CopyFiles]
+995NFPL.ICM
+
+[StudioWorks585E.CopyFiles]
+SW585E.ICM
+
+;---------------------------------------;
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+
+[800]
+HKR,,MaxResolution,,"800,600"
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;---------------------------------------;AddReg
+[StudioWorks57i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"57i.icm"
+
+[StudioWorks57M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"57m.icm"
+
+[StudioWorks57T5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"57t5.icm"
+
+[StudioWorks77i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"77i.icm"
+
+[StudioWorks77S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"77s.icm"
+
+[StudioWorks77T5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"77t5.icm"
+
+[StudioWorks77M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"77m.icm"
+
+[StudioWorks216SC.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"216SC.icm"
+
+[StudioWorks216Si.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"216Si.icm"
+
+[StudioWorks74i.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"74i.icm"
+
+[StudioWorks74m.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"74m.icm"
+
+[StudioWorks76i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"76i.icm"
+
+[StudioWorks76m.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"76m.icm"
+
+[StudioWorks76T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"76t.icm"
+
+[StudioWorks78i.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"78i.icm"
+
+[StudioWorks78m.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"78m.icm"
+
+[StudioWorks78T.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"78t.icm"
+
+[StudioWorks78D.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"78d.icm"
+
+[StudioWorks78DT.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"78dt.icm"
+
+[StudioWorks7D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"7d.icm"
+
+[StudioWorks7DT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"7dt.icm"
+
+[StudioWorks78T5.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"78t5.icm"
+
+[StudioWorks78DT5.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"78dt5.icm"
+
+[Flatron78FT.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"78ft.icm"
+
+[StudioWorks760SC.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"760sc.icm"
+
+[StudioWorks760Si.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"760si.icm"
+
+[1505s.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.1,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.1,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,59.9,-,-"
+HKR,"MODES\640,480",Mode4,,"37.5,75.0,-,-"
+HKR,"MODES\640,480",Mode5,,"37.9,72.8,-,-"
+HKR,"MODES\800,600",Mode6,,"37.9,60.3,+,+"
+HKR,"MODES\800,600",Mode7,,"46.9,75.0,+,+"
+HKR,"MODES\1024,768",Mode8,,"48.4,60.0,-,-"
+HKR,,ICMProfile,0,"1505s.icm"
+
+[StudioWorks56m.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-110.0,+,+"
+HKR,,ICMProfile,0,"56m.icm"
+
+[StudioWorks56i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"56i.icm"
+
+[StudioWorks56T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"56T.icm"
+
+[StudioWorks5D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"5D.icm"
+
+[StudioWorks5DT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"5DT.icm"
+
+[StudioWorks54m.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.1,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.1,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,59.9,-,-"
+HKR,"MODES\640,480",Mode4,,"37.5,75.0,-,-"
+HKR,"MODES\640,480",Mode5,,"37.9,72.8,-,-"
+HKR,"MODES\800,600",Mode6,,"37.9,60.3,+,+"
+HKR,"MODES\800,600",Mode7,,"46.9,75.0,+,+"
+HKR,"MODES\1024,768",Mode8,,"48.4,60.0,-,-"
+HKR,,ICMProfile,0,"54m.icm"
+
+[StudioWorks55i.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"55i.icm"
+
+[StudioWorks560SC.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"560SC.icm"
+
+[StudioWorks560Si.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"560Si.icm"
+
+[1455.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.0,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.0,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,60.0,-,-"
+HKR,"MODES\1024,768",Mode4,,"35.5,87.0,+,+"
+HKR,"MODES\800,600",Mode5,,"35.2,56.0,+/-,+/-"
+HKR,"MODES\640,480",Mode6,,"37.9,72.8,-,-"
+HKR,,ICMProfile,0,"1455.icm"
+
+[1462DM.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.0,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.0,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,60.0,-,-"
+HKR,"MODES\1024,768",Mode4,,"35.2,56.0,+,+"
+HKR,"MODES\800,600",Mode5,,"35.5,87.0,+,+"
+HKR,"MODES\640,480",Mode6,,"37.9,72.8,-,-"
+HKR,,ICMProfile,0,"1462DM.icm"
+
+[1466.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.1,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.1,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,59.9,-,-"
+HKR,"MODES\640,480",Mode4,,"37.5,75.0,-,-"
+HKR,"MODES\640,480",Mode5,,"37.9,72.8,-,-"
+HKR,"MODES\800,600",Mode6,,"37.9,60.3,+,+"
+HKR,"MODES\800,600",Mode7,,"46.9,75.0,+,+"
+HKR,"MODES\800,600",Mode8,,"48.1,72.2,+,+"
+HKR,"MODES\1024,768",Mode9,,"48.4,60.0,-,-"
+HKR,,ICMProfile,0,"1466.icm"
+
+[1467.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.1,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.1,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,59.9,-,-"
+HKR,"MODES\640,480",Mode4,,"37.5,75.0,-,-"
+HKR,"MODES\640,480",Mode5,,"37.9,72.8,-,-"
+HKR,"MODES\800,600",Mode6,,"37.9,60.3,+,+"
+HKR,"MODES\800,600",Mode7,,"46.9,75.0,+,+"
+HKR,"MODES\800,600",Mode8,,"48.1,72.2,+,+"
+HKR,"MODES\1024,768",Mode9,,"48.4,60.0,-,-"
+HKR,,ICMProfile,0,"1467.icm"
+
+[1505.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.1,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.1,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,59.9,-,-"
+HKR,"MODES\1024,768",Mode4,,"35.5,87.0,+,+"
+HKR,"MODES\800,600",Mode5,,"35.2,56.0,+/-,+/-"
+HKR,"MODES\640,480",Mode6,,"37.9,72.8,-,-"
+HKR,"MODES\800,600",Mode7,,"37.9,60.3,+/-,+/-"
+HKR,"MODES\800,600",Mode8,,"48.1,72.2,+,+"
+HKR,"MODES\1024,768",Mode9,,"48.4,60.0,-,-"
+HKR,"MODES\800,600",Mode10,,"46.9,75.0,+,+"
+HKR,"MODES\640,480",Mode11,,"37.5,75.0,-,-"
+HKR,,ICMProfile,0,"1505.icm"
+
+[CS555DM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CS555DM.icm"
+
+[1520DM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"1520DM.icm"
+
+[1527.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"1527.icm"
+
+[1725.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.8,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"1725.icm"
+
+[1725DM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.8,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"1725DM.icm"
+
+[1727.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.8,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"1727.icm"
+
+[2010.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"2010.icm"
+
+[StudioWorks44i.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.1,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.1,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,59.9,-,-"
+HKR,"MODES\640,480",Mode4,,"37.5,75.0,-,-"
+HKR,"MODES\640,480",Mode5,,"37.9,72.8,-,-"
+HKR,"MODES\800,600",Mode6,,"37.9,60.3,+,+"
+HKR,"MODES\800,600",Mode7,,"46.9,75.0,+,+"
+HKR,"MODES\800,600",Mode8,,"48.1,72.2,+,+"
+HKR,"MODES\1024,768",Mode9,,"48.4,60.0,-,-"
+HKR,,ICMProfile,0,"44i.icm"
+
+[StudioWorks44m.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.1,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.1,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,59.9,-,-"
+HKR,"MODES\640,480",Mode4,,"37.5,75.0,-,-"
+HKR,"MODES\640,480",Mode5,,"37.9,72.8,-,-"
+HKR,"MODES\800,600",Mode6,,"37.9,60.3,+,+"
+HKR,"MODES\800,600",Mode7,,"46.9,75.0,+,+"
+HKR,"MODES\800,600",Mode8,,"48.1,72.2,+,+"
+HKR,"MODES\1024,768",Mode9,,"48.4,60.0,-,-"
+HKR,,ICMProfile,0,"44m.icm"
+
+[StudioWorks45i.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"45i.icm"
+
+[1725s.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.8,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"1725s.icm"
+
+[StudioWorks790UR.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"790UR.icm"
+
+[StudioWorks790SC.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"790SC.icm"
+
+[StudioWorks20i.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"20i.icm"
+
+[StudioWorks28i.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"28i.icm"
+
+[StudioWorks28T5.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"28T5.icm"
+
+[StudioWorks99T.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"99T.icm"
+
+[500LC.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.0,+,-"
+HKR,"MODES\720,400",Mode2,,"31.5,70.0,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,60.0,-,-"
+HKR,"MODES\640,480",Mode4,,"35.0,66.7,-,-"
+HKR,"MODES\640,480",Mode5,,"37.9,72.8,-,-"
+HKR,"MODES\640,480",Mode6,,"37.5,75.0,-,-"
+HKR,"MODES\800,600",Mode7,,"35.2,56.3,+,+"
+HKR,"MODES\800,600",Mode8,,"37.9,60.3,+,+"
+HKR,"MODES\800,600",Mode9,,"48.1,72.2,+,+"
+HKR,"MODES\800,600",Mode10,,"46.9,75.0,+,+"
+HKR,"MODES\832,624",Mode11,,"49.7,74.6,-,-"
+HKR,"MODES\1024,768",Mode12,,"48.4,60.0,-,-"
+HKR,"MODES\1024,768",Mode13,,"56.5,70.0,-,-"
+HKR,"MODES\1024,768",Mode14,,"60.0,75.0,+,+"
+HKR,,ICMProfile,0,"500LC.icm"
+
+[1485.AddReg]
+HKR,"MODES\640,350",Mode1,,"31.5,70.1,+,-"
+HKR,"MODES\640,400",Mode2,,"31.5,70.1,-,+"
+HKR,"MODES\640,480",Mode3,,"31.5,59.9,-,-"
+HKR,"MODES\640,480",Mode4,,"37.5,75.0,-,-"
+HKR,"MODES\640,480",Mode5,,"37.9,72.8,-,-"
+HKR,"MODES\800,600",Mode6,,"37.9,60.3,+,+"
+HKR,"MODES\800,600",Mode7,,"46.9,75.0,+,+"
+HKR,"MODES\800,600",Mode8,,"48.1,72.2,+,+"
+HKR,"MODES\1024,768",Mode9,,"48.4,60.0,-,-"
+HKR,,ICMProfile,0,"1485.icm"
+
+[CS585DM.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CS585DM.icm"
+
+[CB795C.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"CB795C.icm"
+
+[CF786C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CF786C.icm"
+
+[CF900C.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CF900C.icm"
+
+[StudioWorks440Si.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-48.0,50.0-95.0,+,+"
+HKR,,ICMProfile,0,"440Si.icm"
+
+[StudioWorks520Si.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"520Si.icm"
+
+[StudioWorks795SC.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"795SC.icm"
+
+[StudioWorks521Mi.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"521Mi.icm"
+
+[StudioWorks910SC.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"910SC.icm"
+
+[StudioWorks910UC.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"910UC.icm"
+
+[StudioWorks770Si.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"770Si.icm"
+
+[StudioWorks441.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-48.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"441.icm"
+
+[Flatron78FTPlus.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"79FT.icm"
+
+[StudioWorks550M.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"550M.icm"
+
+[StudioWorks795UR.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"795UR.icm"
+
+[StudioWorks575N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"575N.icm"
+
+[StudioWorks575C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"575C.icm"
+
+[StudioWorks775N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"775N.icm"
+
+[StudioWorks775C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"775C.icm"
+
+[CB790C.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"CB790C.icm"
+
+[CB910C.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CB910C.icm"
+
+[CS788C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CS788C.icm"
+
+[Flatron795FTPLUS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"795FTPL.icm"
+
+[StudioWorks221U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-115.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"221U.icm"
+
+[StudioWorks880LC.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,58.0-120.0,+,+"
+HKR,,ICMProfile,0,"880LC.icm"
+
+[Flatron795FT.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"795FT.icm"
+
+[StudioWorks912U.AddReg]
+HKR,"MODES\1600,1200",MODE1,,"30.0-110.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"912U.ICM"
+
+[StudioWorks912E.AddReg]
+HKR,"MODES\1600,1200",MODE1,,"30.0-110.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"912E.ICM"
+
+[StudioWorks520Si1.AddReg]
+HKR,"MODES\1024,768",MODE1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"520Si1.ICM"
+
+[StudioWorks995E.AddReg]
+HKR,"MODES\1600,1200",MODE1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"995E.ICM"
+
+[StudioWorks995U.AddReg]
+HKR,"MODES\1600,1200",MODE1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"995E.ICM"
+
+[StudioWorks776M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"776M.icm"
+
+[StudioWorks776S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"776S.icm"
+
+[StudioWorks576M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"576M.icm"
+
+[CS778DC.AddReg]
+HKR,"MODES\1280,1024",MODE1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"778DC.ICM"
+
+[StudioWorks995C.AddReg]
+HKR,"MODES\1600,1200",MODE1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"SW995E.ICM"
+
+[Flatron775FT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"775FT.icm"
+
+[Flatron915FTplus.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-110.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"915FT.icm"
+
+[StudioWorks560N.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"SW560N.icm"
+
+[LB570BZ.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-69.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"LB570BZ.icm"
+
+[CS777BY.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CS777BY.icm"
+
+[CS991DC.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CS991DC.icm"
+
+[CS990DC.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CS990DC.icm"
+
+[Flatron774FT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"774FT.icm"
+
+[StudioWorks45V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"45V.icm"
+
+[StudioWorks55V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"55V.icm"
+
+[StudioWorks450N.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"SW450N.icm"
+
+[FB795CE.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"795FT.icm"
+
+[FB795CU.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"795FTPL.icm"
+
+[CS990DE.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CS990DE.icm"
+
+[99G.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"99G.icm"
+
+[CB770DM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CB770DM.icm"
+
+[CB770DE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CB770DE.icm"
+
+[77G.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"77G.icm"
+
+[SW995U.AddReg]
+HKR,"MODES\1600,1200",MODE1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"SW995U.ICM"
+
+[77E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"77E.icm"
+
+[StudioWorks575N-noir.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"575N-NOIR.icm"
+
+[StudioWorks561N.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"561N.icm"
+
+[StudioWorks575E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"575ES.icm"
+
+[StudioWorks775N-noir.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"775N-NOIR.icm"
+
+[StudioWorks775E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"775ES.icm"
+
+[FLATRON773FT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"773FT.icm"
+
+[StudioWorks995SU.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"995.icm"
+
+[FLATRON793FT.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"793FT.icm"
+
+[FLATRON793FTPLUS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"793FT-PLUS.ICM"
+
+[FLATRON776FM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"776FM.ICM"
+
+[FLATRON995FT.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"995FT.ICM"
+
+[StudioWorks291U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,55.0-200.0,+,+"
+HKR,,ICMProfile,0,"291U.ICM"
+
+[StudioWorks773E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"773E.ICM"
+
+[StudioWorks773N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"773N.ICM"
+
+[StudioWorks573E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"573E.ICM"
+
+[StudioWorks573N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"573N.ICM"
+
+[StudioWorks560A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"SW560A.ICM"
+
+[StudioWorks550D.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"SW550D.ICM"
+
+[WS771A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"WS771A.ICM"
+
+[WS771B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"WS771B.ICM"
+
+[SW452V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"SW452V.ICM"
+
+[SW552V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"SW552V.ICM"
+
+[SW553V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"SW553V.ICM"
+
+[CS771DM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CS771DM.icm"
+
+[FLATRON777FNPLUS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FM77NC.icm"
+
+[StudioWorks795E.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CB795D.icm"
+
+[FLATRON773Fi.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"773Fi.icm"
+
+[StudioWorks785NF.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"785NF.icm"
+
+[StudioWorks995NF.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"995NF.icm"
+
+[StudioWorks995NFPL.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"995NFPL.icm"
+
+[StudioWorks585E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"SW585E.icm"
+
+;------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+LG="LG Electronics Inc."
+StudioWorks57i="LG StudioWorks 57i"
+StudioWorks57T5="LG StudioWorks 57T5"
+StudioWorks57M="LG StudioWorks 57M"
+StudioWorks77M="LG StudioWorks 77M"
+StudioWorks77S="LG StudioWorks 77S"
+StudioWorks77i="LG StudioWorks 77i"
+StudioWorks77T5="LG StudioWorks 77T5"
+StudioWorks216Si="LG StudioWorks 216Si"
+StudioWorks216SC="LG StudioWorks 216SC"
+StudioWorks74i="LG StudioWorks 74i"
+StudioWorks74m="LG StudioWorks 74m"
+StudioWorks76i="LG StudioWorks 76i"
+StudioWorks76m="LG StudioWorks 76m"
+StudioWorks76T="LG StudioWorks 76T"
+StudioWorks78i="LG StudioWorks 78i"
+StudioWorks78m="LG StudioWorks 78m"
+StudioWorks78T="LG StudioWorks 78T"
+StudioWorks78D="LG StudioWorks 78D"
+StudioWorks78DT="LG StudioWorks 78DT"
+StudioWorks7D="LG StudioWorks 7D"
+StudioWorks7DT="LG StudioWorks 7DT"
+StudioWorks78T5="LG StudioWorks 78T5"
+StudioWorks78DT5="LG StudioWorks 78DT5"
+Flatron78FT="LG Flatron 78FT"
+StudioWorks760SC="LG StudioWorks 760SC"
+StudioWorks760Si="LG StudioWorks 760Si"
+1505s="LG 1505s"
+StudioWorks56m="LG StudioWorks 56m"
+StudioWorks56i="LG StudioWorks 56i"
+StudioWorks56T="LG StudioWorks 56T"
+StudioWorks5D="LG StudioWorks 5D"
+StudioWorks5DT="LG StudioWorks 5DT"
+StudioWorks54m="LG StudioWorks 54m"
+StudioWorks55i="LG StudioWorks 55i"
+StudioWorks560SC="LG StudioWorks 560SC"
+StudioWorks560Si="LG StudioWorks 560Si"
+1455="LG 1455"
+1462DM="LG 1462DM"
+1466="LG 1466"
+1467="LG 1467"
+1505="LG 1505"
+CS555DM="LG CS555DM"
+1520DM="LG 1520DM"
+1527="LG 1527"
+1725="LG 1725"
+1725DM="LG 1725DM"
+1727="LG 1727"
+2010="LG 2010"
+StudioWorks44i="LG StudioWorks 44i"
+StudioWorks44m="LG StudioWorks 44m"
+StudioWorks45i="LG StudioWorks 45i"
+500LC="LG 500LC (15.1inch LCD Monitor)"
+1725s="LG 1725s"
+StudioWorks790SC="LG StudioWorks 790SC"
+StudioWorks790UR="LG StudioWorks 790UR"
+StudioWorks795SC="LG StudioWorks 795SC"
+StudioWorks20i="LG StudioWorks 20i"
+StudioWorks28i="LG StudioWorks 28i"
+StudioWorks28T5="LG StudioWorks 28T5"
+StudioWorks99T="LG StudioWorks 99T"
+1485="LG 1485"
+CS585DM="LG CS585DM"
+CB795C="LG CB795C"
+CF786C="LG CF786C"
+CF900C="LG CF900C"
+StudioWorks440Si="LG StudioWorks 440Si"
+StudioWorks520Si="LG StudioWorks 520Si"
+StudioWorks795SC="LG StudioWorks 795SC"
+StudioWorks521Mi="LG StudioWorks 521Mi"
+StudioWorks910SC="LG StudioWorks 910SC"
+StudioWorks910UC="LG StudioWorks 910UC"
+StudioWorks770Si="LG StudioWorks 770Si"
+StudioWorks441="LG StudioWorks 441"
+Flatron78FTPlus="LG Flatron 78FT Plus"
+StudioWorks550M="LG StudioWorks 550M"
+StudioWorks795UR="LG StudioWorks 795UR"
+StudioWorks575N="LG StudioWorks 575N"
+StudioWorks575C="LG StudioWorks 575C"
+StudioWorks775N="LG StudioWorks 775N"
+StudioWorks775C="LG StudioWorks 775C"
+CB790C="LG CB790C"
+CB910C="LG CB910C"
+CS788C="LG CS788C"
+Flatron795FTPLUS="LG FLATRON 795FT PLUS"
+StudioWorks221U="LG StudioWorks 221U"
+StudioWorks880LC="LG StudioWorks 880LC"
+Flatron795FT="LG FLATRON 795FT"
+StudioWorks912U="LG StudioWorks 912U"
+StudioWorks912E="LG StudioWorks 912E"
+StudioWorks520Si1="LG StudioWorks 520Si(CB550BN)"
+StudioWorks995E="LG StudioWorks 995E"
+StudioWorks995U="LG StudioWorks 995U"
+StudioWorks776M="LG StudioWorks 77M(MB776BM)"
+StudioWorks776S="LG StudioWorks 77S(MB776BA)"
+StudioWorks576M="LG StudioWorks 57M(MB576BM)"
+CS778DC="LG CS778DC"
+StudioWorks995C="LG StudioWorks 995E(CB995CE)"
+Flatron775FT="LG FLATRON 775FT"
+Flatron915FTplus="LG FLATRON 915FT PLUS"
+StudioWorks560N="LG StudioWorks 560N"
+LB570BZ="LG LB570BZ"
+CS777BY="LG CS777BY"
+CS991DC="LG CS991DC"
+CS990DC="LG CS990DC"
+Flatron774FT="LG FLATRON 774FT"
+StudioWorks45V="LG StudioWorks 45V"
+StudioWorks55V="LG StudioWorks 55V"
+StudioWorks450N="LG StudioWorks 450N"
+FB795CE="LG FLATRON 795FT(FB795CE)"
+FB795CU="LG FLATRON 795FT PLUS(FB795CU)"
+CS990DE="LG CS990DE"
+99G="LG 99G"
+CB770DM="LG CB770DM"
+CB770DE="LG CB770DE"
+77G="LG 77G"
+SW995U="LG StudioWorks 995E PLUS"
+77E="77E"
+StudioWorks575N-noir="StudioWorks 575N-noir"
+StudioWorks561N="StudioWorks 561N"
+StudioWorks575E="StudioWorks 575E"
+StudioWorks775N-noir="StudioWorks 775N-noir"
+StudioWorks775E="StudioWorks 775E"
+FLATRON773FT="FLATRON 773FT"
+StudioWorks995SU="StudioWorks 995SU"
+FLATRON793FT="FLATRON 793FT"
+FLATRON793FTPLUS="FLATRON 793FT PLUS"
+FLATRON776FM="FLATRON 776FM"
+FLATRON995FT="FLATRON 995FT"
+StudioWorks291U="StudioWorks/HiSync 291U"
+StudioWorks773E="StudioWorks/HiSync 773E"
+StudioWorks773N="StudioWorks/HiSync 773N"
+StudioWorks573E="StudioWorks/HiSync 573E"
+StudioWorks573N="StudioWorks/HiSync 573N"
+StudioWorks560A="StudioWorks 560A"
+StudioWorks550D="StudioWorks 550D"
+WS771A="WS771A"
+WS771B="WS771B"
+SW452V="StudioWorks 452V"
+SW552V="StudioWorks 552V"
+SW553V="StudioWorks 553V"
+CS771DM="LG CS771DM"
+FLATRON777FNPLUS="FLATRON 777FN PLUS"
+StudioWorks795E="StudioWorks 795E"
+FLATRON773Fi="LG FLATRON 773Fi"
+StudioWorks785NF="LG StudioWorks 785NF"
+StudioWorks995NF="LG StudioWorks 995NF"
+StudioWorks995NFPL="LG StudioWorks 995NF PLUS"
+StudioWorks585E="StudioWorks 585E"

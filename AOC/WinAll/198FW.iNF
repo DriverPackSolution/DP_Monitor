@@ -1,0 +1,88 @@
+; Copyright 2007 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=198FW.cat
+DriverVer=03/18/2007,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC1953
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1953.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+198FW.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%1953%=1953.Install, Monitor\AOC1953
+
+[AOC.ntamd64]
+%1953%=1953.Install, Monitor\AOC1953
+
+; Install Sections
+;-------------------------------------------------
+[1953.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1953.AddReg, 1440, DPMS
+Copyfiles=1953.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[1953.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"198FW.icm"
+
+
+[1953.CopyFiles]
+198FW.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+1953="AOC 198FW"

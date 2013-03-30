@@ -1,0 +1,103 @@
+
+;================================ 
+;1704FPT.INF 04/19/04 Ver. 1.0 PCC
+;Copyright 1996-2004 Dell Inc.
+;
+;This is a setupfile for 1704FPT 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1704FPT.cat
+DriverVer=04/19/2004, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL4004
+ExcludeFromSelect.nt=Monitor\DEL4005
+
+[DestinationDirs]
+DefaultDestDir=11
+1704FPT_Analog.CopyFiles=23
+1704FPT_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+1704FPT.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%1704FPT_Analog%=1704FPT_Analog.Install, Monitor\DEL4004
+%1704FPT_Digital%=1704FPT_Digital.Install, Monitor\DEL4005
+
+; Install Sections
+;-------------------------------------------------
+
+[1704FPT_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1704FPT_Analog.AddReg, 1280, DPMS
+CopyFiles=1704FPT_Analog.CopyFiles
+
+[1704FPT_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1704FPT_Digital.AddReg, 1280, DPMS
+CopyFiles=1704FPT_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[1704FPT_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1704FPT.icm"
+
+[1704FPT_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1704FPT.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[1704FPT_Analog.CopyFiles]
+1704FPT.icm
+
+[1704FPT_Digital.CopyFiles]
+1704FPT.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+1704FPT_Analog="Dell 1704FPT (Analog)"
+1704FPT_Digital="Dell 1704FPT (Digital)"

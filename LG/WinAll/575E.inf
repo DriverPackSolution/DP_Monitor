@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [575E.INF]
+;
+;      Revision 1.3   April-14-2005
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=575E.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+575E.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG575E.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%575E%=575E, Monitor\GSM3B10
+
+[LG.NTamd64]
+%575E%=575E, Monitor\GSM3B10
+
+;------------------------------------; .Install
+
+[575E] 
+AddReg=575E.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=575E.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[575E.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LG575E.ICM"
+
+;------------------------------------; .CopyFiles
+
+[575E.CopyFiles]  
+LG575E.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM3B10
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+575E="LG 575E"

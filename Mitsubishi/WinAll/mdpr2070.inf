@@ -1,0 +1,83 @@
+; MDPR2070.INF
+; Setup information file for Mitsubishi Diamond Pro 2070SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=mdpr2070.cat
+DriverVer=04/16/2002,2.04.0016.1519
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4632
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+Mits-DPro2070SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+mdpr2070.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%Mits-DPro2070SB%=Mits-DPro2070SB.Install, Monitor\MEL4632
+
+; Install Sections
+;-------------------------------------------------
+[Mits-DPro2070SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Mits-DPro2070SB.AddReg, 2048, DPMS
+CopyFiles=Mits-DPro2070SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[Mits-DPro2070SB.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-140.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"mdpr2070.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[Mits-DPro2070SB.CopyFiles]
+MDPR2070.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+Mits-DPro2070SB="Mitsubishi Diamond Pro 2070SB"

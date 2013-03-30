@@ -1,0 +1,120 @@
+
+;==================================================
+; SM931BWPlus.inf 01/29/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM931BWPlus.cat
+DriverVer=01/29/2008,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM03B5
+ExcludeFromSelect.nt=Monitor\SAM03B6
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM931BWPlusa.CopyFiles = 23
+SM931BWPlusd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM931BWPlus.icm=1
+SM931BWPlus.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM931BWPlusa%=SM931BWPlusa.Install, Monitor\SAM03B5
+%SM931BWPlusd%=SM931BWPlusd.Install, Monitor\SAM03B6
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM931BWPlusa%=SM931BWPlusa.Install, Monitor\SAM03B5
+%SM931BWPlusd%=SM931BWPlusd.Install, Monitor\SAM03B6
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM931BWPlusa%=SM931BWPlusa.Install, Monitor\SAM03B5
+%SM931BWPlusd%=SM931BWPlusd.Install, Monitor\SAM03B6
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM931BWPlusa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM931BWPlusa.AddReg, 1440, DPMS
+CopyFiles=SM931BWPlusa.CopyFiles
+
+[SM931BWPlusd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM931BWPlusd.AddReg, 1440, DPMS
+CopyFiles=SM931BWPlusd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM931BWPlusa.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM931BWPlus.icm"
+
+[SM931BWPlusd.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM931BWPlus.icm"
+;------------------------------------------------------
+
+[SM931BWPlusa.CopyFiles]
+SM931BWPlus.icm
+
+[SM931BWPlusd.CopyFiles]
+SM931BWPlus.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM931BWPlusa="SyncMaster 931BW Plus/931CW Plus(Analog)"
+SM931BWPlusd="SyncMaster 931BW Plus/931CW Plus(Digital)"

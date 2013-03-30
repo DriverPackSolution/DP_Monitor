@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L3010T.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L3010T.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM753B
+ExcludeFromSelect.NT=Monitor\GSM753C
+
+[DestinationDirs]
+DefaultDestDir = 11
+L3010T_Analog.CopyFiles = 23
+L3010T_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL3010T.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L3010T_Analog%=L3010T_Analog.Install,Monitor\GSM753B
+%L3010T_Digital%=L3010T_Digital.Install,Monitor\GSM753C
+
+[LG.NTamd64]
+%L3010T_Analog%=L3010T_Analog.Install,Monitor\GSM753B
+%L3010T_Digital%=L3010T_Digital.Install,Monitor\GSM753C
+
+[L3010T_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L3010T_Analog.AddReg,1280,DPMS
+CopyFiles=L3010T_Analog.CopyFiles
+
+[L3010T_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L3010T_Digital.AddReg,1280,DPMS
+CopyFiles=L3010T_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L3010T_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL3010T.ICM"
+
+[L3010T_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL3010T.ICM"
+
+[L3010T_Analog.CopyFiles]
+LGL3010T.ICM
+
+[L3010T_Digital.CopyFiles]
+LGL3010T.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L3010T_Analog="LG L3010T(Analog)"
+L3010T_Digital="LG L3010T(Digital)"

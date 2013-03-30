@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [781C.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=781C.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+781C.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+781C.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%781C%=781C, Monitor\GSM4312
+
+[LG.NTamd64]
+%781C%=781C, Monitor\GSM4312
+
+;------------------------------------; .Install
+
+[781C] 
+AddReg=781C.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=781C.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[781C.AddReg] 
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"781C.ICM"
+
+;------------------------------------; .CopyFiles
+
+[781C.CopyFiles]  
+781C.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4312
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+781C="LG 781C"

@@ -1,0 +1,87 @@
+; [L367.INF]
+; Revision 1.01
+; Copyright(c) 2002 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L367.cat
+DriverVer=10/22/2002,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENC1678
+ExcludeFromSelect.nt=Monitor\ENC1679
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L367D.CopyFiles = 23
+L367.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L367.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L367D%=L367D.Install, Monitor\ENC1678
+%L367%=L367.Install, Monitor\ENC1679
+
+[L367D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L367D.AddReg, 1024, DPMS
+CopyFiles=L367D.CopyFiles
+
+[L367.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L367.AddReg, 1024, DPMS
+CopyFiles=L367.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L367D.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-49.0,59.0-61.0,-,-"
+HKR,,ICMProfile,0,"L367.ICM"
+
+[L367.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-61.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"L367.ICM"
+
+[L367D.CopyFiles]
+L367.ICM
+
+[L367.CopyFiles]
+L367.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L367D="L367"
+L367="L367"

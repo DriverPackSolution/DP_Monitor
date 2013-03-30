@@ -1,0 +1,119 @@
+
+;==================================================
+; SM961BW.inf 03/21/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM961BW.cat
+DriverVer=03/21/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM02AE
+ExcludeFromSelect.nt=Monitor\SAM02AF
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM961BWa.CopyFiles = 23
+SM961BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM961BW.icm=1
+SM961BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM961BWa%=SM961BWa.Install, Monitor\SAM02AE
+%SM961BWd%=SM961BWd.Install, Monitor\SAM02AF
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM961BWa%=SM961BWa.Install, Monitor\SAM02AE
+%SM961BWd%=SM961BWd.Install, Monitor\SAM02AF
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM961BWa%=SM961BWa.Install, Monitor\SAM02AE
+%SM961BWd%=SM961BWd.Install, Monitor\SAM02AF
+; Install Sections
+;-----------------------------------------------------
+
+[SM961BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM961BWa.AddReg, 1440, DPMS
+CopyFiles=SM961BWa.CopyFiles
+
+[SM961BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM961BWd.AddReg, 1440, DPMS
+CopyFiles=SM961BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM961BWa.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM961BW.icm"
+
+[SM961BWd.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM961BW.icm"
+;------------------------------------------------------
+
+[SM961BWa.CopyFiles]
+SM961BW.icm
+
+[SM961BWd.CopyFiles]
+SM961BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM961BWa="SyncMaster 961BW/961GW,SyncMaster Magic CX961BW/CX961GW(Analog)"
+SM961BWd="SyncMaster 961BW/961GW,SyncMaster Magic CX961BW/CX961GW(Digital)"

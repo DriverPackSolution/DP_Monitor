@@ -1,0 +1,86 @@
+; ea261wm7.inf
+; Setup information file for NEC MultiSync EA261WM Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea261wm7.cat
+DriverVer=09/15/2009,1.09.0915.1429
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC673C
+ExcludeFromSelect.nt=Monitor\NEC6750
+
+[DestinationDirs]
+EA261WM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea261wm7.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA261WM-A%=EA261WM-A.Install, Monitor\NEC673C
+%EA261WM-D%=EA261WM-D.Install, Monitor\NEC6750
+
+[NECDS.ntamd64]
+%EA261WM-A%=EA261WM-A.Install.ntamd64, Monitor\NEC673C
+%EA261WM-D%=EA261WM-D.Install.ntamd64, Monitor\NEC6750
+
+[EA261WM-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA261WM-A.AddReg, 1920, DPMS
+CopyFiles=EA261WM.CopyFiles
+
+[EA261WM-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA261WM-D.AddReg, 1920, DPMS
+CopyFiles=EA261WM.CopyFiles
+
+[EA261WM-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA261WM-A.AddReg, 1920, DPMS
+CopyFiles=EA261WM.CopyFiles
+
+[EA261WM-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA261WM-D.AddReg, 1920, DPMS
+CopyFiles=EA261WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA261WM-A.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-85.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea261wm7.icm"
+
+[EA261WM-D.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"26.0-85.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea261wm7.icm"
+
+[EA261WM.CopyFiles]
+ea261wm7.icm
+
+[Strings]
+NECDS="NEC"
+EA261WM-A="NEC MultiSync EA261WM (Analog)"
+EA261WM-D="NEC MultiSync EA261WM (Digital)"
+Disk1="NEC Monitor Installation Disk"

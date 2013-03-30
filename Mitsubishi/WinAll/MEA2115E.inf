@@ -1,0 +1,66 @@
+; INF File for Windows 9x/Me/2000
+; Copyright (c)  2000, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+DriverVer=12/5/2001,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA2115
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+Mea2115e.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+Mea2115e.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%Mea2115e%=Mea2115e.Install,Monitor\MEA2115
+
+[Mea2115e.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Mea2115e.AddReg, 1856, DPMS
+CopyFiles=Mea2115e.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1856]
+HKR,,MaxResolution,,"1856,1392"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Mea2115e.AddReg]
+HKR,"MODES\1856,1392",Mode1,,"30.0-120.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"Mea2115e.ICM"
+
+[Mea2115e.CopyFiles]
+Mea2115e.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Mitsubishi Monitor Installation Disk"
+MEA="Mitsubishi Electric Australia"
+Mea2115e="Diamond View Mea2115e"

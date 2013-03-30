@@ -1,0 +1,120 @@
+
+;==================================================
+; SM400BX.inf 01/13/2011 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM400BX.cat
+DriverVer=01/13/2011 ,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM081A
+ExcludeFromSelect.nt=Monitor\SAM081B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM400BXa.CopyFiles = 23
+SM400BXd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM400BX.icm=1
+SM400BX.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM400BXa%=SM400BXa.Install, Monitor\SAM081A
+%SM400BXd%=SM400BXd.Install, Monitor\SAM081B
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM400BXa%=SM400BXa.Install, Monitor\SAM081A
+%SM400BXd%=SM400BXd.Install, Monitor\SAM081B
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM400BXa%=SM400BXa.Install, Monitor\SAM081A
+%SM400BXd%=SM400BXd.Install, Monitor\SAM081B
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM400BXa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM400BXa.AddReg, 1920, DPMS
+CopyFiles=SM400BXa.CopyFiles
+
+[SM400BXd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM400BXd.AddReg, 1920, DPMS
+CopyFiles=SM400BXd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM400BXa.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM400BX.icm"
+
+[SM400BXd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM400BX.icm"
+;------------------------------------------------------
+
+[SM400BXa.CopyFiles]
+SM400BX.icm
+
+[SM400BXd.CopyFiles]
+SM400BX.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM400BXa="SyncMaster 400BX (Analog)"
+SM400BXd="SyncMaster 400BX (Digital)"

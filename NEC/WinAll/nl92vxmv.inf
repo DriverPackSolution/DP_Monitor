@@ -1,0 +1,68 @@
+; nl92vxm.inf
+; Setup information file for NEC LCD92VXM Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl92vxmv.cat
+DriverVer=12/20/2006,1.06.1220.1915
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66C8
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD92VXM.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl92vxmv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD92VXM%=LCD92VXM.Install, Monitor\NEC66C8
+
+[NECDS.ntamd64]
+%LCD92VXM%=LCD92VXM.Install.ntamd64, Monitor\NEC66C8
+
+[LCD92VXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD92VXM.AddReg, 1280, DPMS
+CopyFiles=LCD92VXM.CopyFiles
+
+[LCD92VXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD92VXM.AddReg, 1280, DPMS
+CopyFiles=LCD92VXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD92VXM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl92vxmv.icm"
+
+[LCD92VXM.CopyFiles]
+nl92vxmv.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD92VXM="NEC LCD92VXM"

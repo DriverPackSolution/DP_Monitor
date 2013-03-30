@@ -1,0 +1,107 @@
+
+;==================================================
+; sm243T.inf 10/20/2003 ver. 1.0
+;
+; Copyright 2003 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm243T.cat
+DriverVer=10/20/2002,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM00D9
+ExcludeFromSelect.nt=Monitor\SAM00F7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm243Ta.CopyFiles = 23
+sm243Td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm243T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm243Ta%=sm243Ta.Install, Monitor\SAM00D9	
+%sm243Td%=sm243Td.Install, Monitor\SAM00F7
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm243Ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm243Ta.AddReg, 1920, DPMS
+CopyFiles=sm243Ta.CopyFiles
+
+[sm243Td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm243Td.AddReg, 1920, DPMS
+CopyFiles=sm243Td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm243Ta.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30-80,55-75,+,+"
+HKR,,ICMProfile,0,"sm243T.icm"
+
+[sm243Td.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30-80,55-75,+,+"
+HKR,,ICMProfile,0,"sm243T.icm"
+
+;------------------------------------------------------
+
+[sm243Ta.CopyFiles]
+sm243T.icm
+
+[sm243Td.CopyFiles]
+sm243T.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm243Ta="SyncMaster 243T,SyncMaster Magic CX240T(Analog)"
+sm243Td="SyncMaster 243T,SyncMaster Magic CX240T(Digital)"

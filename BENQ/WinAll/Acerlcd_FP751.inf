@@ -1,0 +1,71 @@
+; Setup Information File for AcerView Monitors - V2.3
+; Copyright (c)  1999, Acer Peripherals,Inc.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+catalogfile=FP751.cat
+DriverVer=08/01/2001,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\API7618
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP751.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP751.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%FP751%=FP751.Install, Monitor\API7618
+
+[FP751.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP751.AddReg, 1280, DPMS
+CopyFiles=FP751.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP751.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-81.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-81.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-81.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-81.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode5,,"31.5-81.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"FP751.ICM"
+
+[FP751.CopyFiles]
+FP751.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Acer flat panel Monitor installation diskette"
+FP751="Acer FP751"
+Acer="Acer"

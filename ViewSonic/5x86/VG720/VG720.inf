@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG720.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/06/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG720.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG720.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VG720%=VG720.Install,Monitor\VSC261C                 ;VG720
+
+[VG720.Install]                                       ;VG720
+DelReg=DEL_CURRENT_REG 
+AddReg=VG720.AddReg,1280,DPMS
+Copyfiles=VG720.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG720.AddReg]                                         ;VG720
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG720.ICM"
+
+[VG720.CopyFiles]                                       
+VG720.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VG720="ViewSonic VG720"

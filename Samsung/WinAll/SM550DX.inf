@@ -1,0 +1,119 @@
+;==================================================
+; SM550DX.inf 04/19/2010 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM550DX.cat
+DriverVer=04/19/2010,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM06F0
+ExcludeFromSelect.nt=Monitor\SAM06F1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM550DXa.CopyFiles = 23
+SM550DXd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM550DX.icm=1
+SM550DX.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM550DXa%=SM550DXa.Install, Monitor\SAM06F0
+%SM550DXd%=SM550DXd.Install, Monitor\SAM06F1
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM550DXa%=SM550DXa.Install, Monitor\SAM06F0
+%SM550DXd%=SM550DXd.Install, Monitor\SAM06F1
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM550DXa%=SM550DXa.Install, Monitor\SAM06F0
+%SM550DXd%=SM550DXd.Install, Monitor\SAM06F1
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM550DXa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM550DXa.AddReg, 1920, DPMS
+CopyFiles=SM550DXa.CopyFiles
+
+[SM550DXd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM550DXd.AddReg, 1920, DPMS
+CopyFiles=SM550DXd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM550DXa.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM550DX.icm"
+
+[SM550DXd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM550DX.icm"
+;------------------------------------------------------
+
+[SM550DXa.CopyFiles]
+SM550DX.icm
+
+[SM550DXd.CopyFiles]
+SM550DX.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM550DXa="SyncMaster 550DX(Analog)"
+SM550DXd="SyncMaster 550DX(Digital)"

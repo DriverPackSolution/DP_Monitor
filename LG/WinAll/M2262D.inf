@@ -1,0 +1,83 @@
+;===============================================================
+; [M2262D.inf]
+; Revision 1.0   May-20-2009
+; Copyright(c)1998~2009 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M2262D.cat
+DriverVer=05/20/2009,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM5753
+ExcludeFromSelect.NT=Monitor\GSM5754
+
+[DestinationDirs]
+DefaultDestDir = 11
+M2262D_Analog.CopyFiles = 23
+M2262D_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M2262D.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M2262D_Analog%=M2262D_Analog.Install,Monitor\GSM5753
+%M2262D_Digital%=M2262D_Digital.Install,Monitor\GSM5754
+
+[LG.NTamd64]
+%M2262D_Analog%=M2262D_Analog.Install,Monitor\GSM5753
+%M2262D_Digital%=M2262D_Digital.Install,Monitor\GSM5754
+
+[M2262D_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2262D_Analog.AddReg,1920,DPMS
+CopyFiles=M2262D_Analog.CopyFiles
+
+[M2262D_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2262D_Digital.AddReg,1920,DPMS
+CopyFiles=M2262D_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M2262D_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"M2262D.ICM"
+
+[M2262D_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"M2262D.ICM"
+
+[M2262D_Analog.CopyFiles]
+M2262D.ICM
+
+[M2262D_Digital.CopyFiles]
+M2262D.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M2262D_Analog="LG M2262D(Analog)"
+M2262D_Digital="LG M2262D(Digital)"

@@ -1,0 +1,102 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ E900HD.INF 07/18/08 Ver. 1.00
+; Copyright (C) 2007 BenQ Corporation. reserves all rights.
+; This is a setup file for E900HD
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=E900HD.cat
+	DriverVer=07/18/2008,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	E900HD D-SUB.CopyFiles=23
+        	E900HD DVI.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	E900HD D-SUB.icm=1
+        E900HD DVI.icm=1
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ7910
+	ExcludeFromSelect.NT=Monitor\BNQ7911
+	
+[BenQ]
+	%E900HD D-SUB%=E900HD D-SUB.Install, Monitor\BNQ7910
+	%E900HD DVI%=E900HD DVI.Install, Monitor\BNQ7911
+
+[BenQ.NTx86]
+	%E900HD D-SUB%=E900HD D-SUB.Install, Monitor\BNQ7910
+	%E900HD DVI%=E900HD DVI.Install, Monitor\BNQ7911
+
+[BenQ.NTAMD64]
+	%E900HD D-SUB%=E900HD D-SUB.Install, Monitor\BNQ7910
+	%E900HD DVI%=E900HD DVI.Install, Monitor\BNQ7911
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[E900HD D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=E900HD D-SUB.AddReg, 1366, DPMS
+	CopyFiles=E900HD D-SUB.CopyFiles
+
+[E900HD DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=E900HD DVI.AddReg, 1366, DPMS
+	CopyFiles=E900HD DVI.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1366]
+	HKR,,MaxResolution,,"1366,768"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[E900HD D-SUB.AddReg]
+	HKR,"MODES\1366,768",Mode1,,"31.0-83.0,55.0-76.0,+,+"
+	HKR,,ICMProfile,0,"E900HD D-SUB.icm"
+
+[E900HD DVI.AddReg]
+	HKR,"MODES\1366,768",Mode1,,"31.0-83.0,55.0-76.0,+,+"
+	HKR,,ICMProfile,0,"E900HD DVI.icm"
+
+[E900HD D-SUB.CopyFiles]	
+	E900HD D-SUB.icm
+
+[E900HD DVI.CopyFiles]	
+	E900HD DVI.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	E900HD D-SUB="BenQ E900HD D-SUB"
+        E900HD DVI="BenQ E900HD DVI"

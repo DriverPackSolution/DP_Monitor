@@ -1,0 +1,93 @@
+
+;==================================================
+; pn17sg.inf 10/23/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%samsung%
+CatalogFile=pn17sg.cat
+DriverVer=10/23/2001,1.0
+
+;--------------------------------------------------
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+pn17sg.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+pn17sg.icm=1
+
+[Manufacturer]
+%samsung%=samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[samsung]
+%pn17sg%=pn17sg.Install, Monitor\SAM0008
+
+; Install Sections
+;-----------------------------------------------------
+
+[pn17sg.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=pn17sg.AddReg, 1280, DPMS
+CopyFiles=pn17sg.CopyFiles 
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[pn17sg.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-71,50-160,+,+"
+HKR,,ICMProfile,0,"pn17sg.icm"
+
+
+;------------------------------------------------------
+
+[pn17sg.CopyFiles]
+pn17sg.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+samsung="samsung"
+pn17sg=" MagicSyncMaster CPN17SG/CPN17L"
+

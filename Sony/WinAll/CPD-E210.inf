@@ -1,0 +1,82 @@
+; #######################################
+;      [SONYMON2.INF]
+;
+;      Revision 1.00   April 06, 1999
+;      Sony Corporation
+; #######################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%SONY%
+DriverVer=12/07/1999, 
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+CPD-E210.Copyfiles=23
+
+[SourceDisksNames]
+1="SONY Monitor Information Disk",,1
+
+[SourceDisksFiles]
+sony_d93.icm=1
+sony_d65.icm=1
+sony_d50.icm=1
+
+[Manufacturer]
+%SONY%=SONY
+
+[SONY]
+
+%CPD-E210%=CPD-E210.Install, Monitor\SNY0271
+
+[CPD-E210.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-E210.AddReg, 1600, DPMS
+CopyFiles=CPD-E210.Copyfiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CPD-E210.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[CPD-E210.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+
+[Strings]
+MonitorClassName="Monitor"
+SONY="SONY Corporation"
+
+CPD-E210="SONY CPD-E210"      
+

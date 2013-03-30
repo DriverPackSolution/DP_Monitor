@@ -1,0 +1,74 @@
+;Monitor.Inf for Windows(R) 7 x86, 7 x64, 8 x86, 8 x64
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG932_Series.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/04/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG932_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VG932_Series.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCD427
+
+[ViewSonic]   
+%VG932_Series%=VG932_Series.Install,Monitor\VSCD427  
+
+[ViewSonic.NTx86]   
+%VG932_Series%=VG932_Series.Install,Monitor\VSCD427
+
+[ViewSonic.NTAMD64]   
+%VG932_Series%=VG932_Series.Install,Monitor\VSCD427 
+
+[VG932_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG932_Series.AddReg
+Copyfiles=VG932_Series.CopyFiles
+
+[VG932_Series.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[VG932_Series.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"24-92,50-85,+,+" 
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"VG932_Series.ICM"
+
+[VG932_Series.CopyFiles]                                       
+VG932_Series.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VG932 Series ViewSonic Wizard"
+VG932_Series="ViewSonic VG932 SERIES"

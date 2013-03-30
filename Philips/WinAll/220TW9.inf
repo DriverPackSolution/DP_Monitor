@@ -1,0 +1,96 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=220TW9.cat
+DriverVer=06/19/2008,2.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHLC028
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+C028.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+220TW9.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%C028%=C028.Install, Monitor\PHLC028
+
+[Philips.NTx86]
+%C028%=C028.Install, Monitor\PHLC028
+
+[Philips.NTia64]
+%C028%=C028.Install, Monitor\PHLC028
+
+[Philips.NTamd64]
+%C028%=C028.Install, Monitor\PHLC028
+
+; Install sections
+;-------------------------------------------------
+[C028.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C028.AddReg,1680,DPMS
+CopyFiles=C028.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[C028.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"220TW9.icm"
+
+;-------------------------------------------------------------------
+[C028.CopyFiles]
+220TW9.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+C028="Philips 220TW (22inch WIDE LCD MONITOR 220TW9)"  

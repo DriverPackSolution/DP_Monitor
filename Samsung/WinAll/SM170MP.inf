@@ -1,0 +1,95 @@
+
+;==================================================
+; sm170mp.inf 09/17/01 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm170mp.cat
+DriverVer=09/17/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM3677
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm170mp.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm170mp.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm170mp%=sm170mp.Install, Monitor\SAM3677
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm170mp.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm170mp.AddReg, 1280, DPMS
+CopyFiles=sm170mp.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm170mp.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-80,50-85,+,+"
+HKR,,ICMProfile,0,"sm170mp.icm"
+
+
+;------------------------------------------------------
+
+[sm170mp.CopyFiles]
+sm170mp.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm170mp="Samsung SyncMaster 170MP/170MB"

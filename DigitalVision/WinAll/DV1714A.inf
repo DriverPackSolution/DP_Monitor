@@ -1,0 +1,85 @@
+; DV_LCD-series.INF
+; This is a INF file is created special for Digital Vision LCD series monitor
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+Classguid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Digital Vision%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir    = 11
+2174.CopyFiles = 23
+
+[SourceDisksNames]
+1="DigitalVision Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+DV17LA4.ICM=1
+
+[Manufacturer]
+%Digital Vision%=DV
+
+; Manufacturer sections
+;-------------------------------------------------
+[DV]
+%1714%=1714, Monitor\DV1714A
+
+; Install sections
+;-------------------------------------------------
+[1714]
+DelReg=DEL_CURRENT_REG
+AddReg=1714.AddReg
+CopyFiles=2174.CopyFiles
+
+;
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-----MaxResolution(x,x)",Mode1,,"Hor.Freg.Range,Ver.Freg.Range, +,+"
+[1714.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"DV17LA4.ICM"
+
+[2174.CopyFiles]
+DV17LA4.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Digital Vision="Digital Vision LCD-series"
+
+1714 ="Digital Vision DV1714A"

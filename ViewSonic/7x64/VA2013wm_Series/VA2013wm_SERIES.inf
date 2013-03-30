@@ -1,0 +1,74 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VA2013wm.cat
+DriverVer=01/14/2009, 1.5.1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2013wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2013wm_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCDB22
+
+[ViewSonic]   
+%VA2013wm%=VA2013wm.Install,Monitor\VSCDB22  
+
+[ViewSonic.NTx86]   
+%VA2013wm%=VA2013wm.Install,Monitor\VSCDB22
+
+[ViewSonic.NTAMD64]   
+%VA2013wm%=VA2013wm.Install,Monitor\VSCDB22 
+
+[VA2013wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2013wm.AddReg,1600,DPMS
+Copyfiles=VA2013wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2013wm.AddReg]  
+HKR,"MODES\1600,900",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VA2013wm_SERIES.ICM"
+
+[VA2013wm.CopyFiles]                                       
+VA2013wm_SERIES.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+ViewSonic="ViewSonic"
+DiskLabel="VA2013wm SERIES ViewSonic Wizard"
+VA2013wm="ViewSonic VA2013wm SERIES"

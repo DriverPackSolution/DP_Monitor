@@ -1,0 +1,89 @@
+; SCALEOVIEW H22-1W.INF Ver. 1.1
+;Monitor INF file for Fujitsu Siemens Monitor SCALEOVIEW H22-1W
+;Copyright 2002,2003,2004,2005 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCH221W.cat
+DriverVer=12/08/2006, 1.1.0.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-H22-1W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCH221W.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+[FUJSIE]
+%FUS-H22-1Wv%=FUS-H22-1Wv.Install, Monitor\FUS0683
+%FUS-H22-1Wd%=FUS-H22-1Wd.Install, Monitor\FUS0684
+%FUS-H22-1Wd%=FUS-H22-1Wd.Install, Monitor\FUS0685
+
+[FUJSIE.NTAMD64]
+%FUS-H22-1Wv%=FUS-H22-1Wv.Install, Monitor\FUS0683
+%FUS-H22-1Wd%=FUS-H22-1Wd.Install, Monitor\FUS0684
+%FUS-H22-1Wd%=FUS-H22-1Wd.Install, Monitor\FUS0685
+
+[FUS-H22-1Wv.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-H22-1Wv.AddReg, 1680, DPMS
+CopyFiles=FUS-H22-1W.CopyFiles
+
+[FUS-H22-1Wd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-H22-1Wd.AddReg, 1920, DPMS
+CopyFiles=FUS-H22-1W.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-H22-1Wa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,-"
+HKR,,ICMProfile,0,"FSCH221W.ICM"
+
+[FUS-H22-1Wd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,-"
+HKR,"MODES\1920,1080",Mode1,,"56.0-68.0,49-61,+,+"
+HKR,"MODES\1920,1080",Mode2,,"28.0-34.0,49-61,+,+"
+HKR,,ICMProfile,0,"FSCH221W.ICM"
+
+[FUS-H22-1W.CopyFiles]
+FSCH221W.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor SCALEOVIEW H22-1W"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-H22-1Wv="Fujitsu Siemens SCALEOVIEW H22-1W"
+FUS-H22-1Wd="Fujitsu Siemens SCALEOVIEW H22-1W"

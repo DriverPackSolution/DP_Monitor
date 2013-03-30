@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1780QPL.INF] 
+; Revision 1.4   July-1-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1780QPL.cat
+DriverVer=07/01/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM441B
+ExcludeFromSelect.NT=Monitor\GSM441C
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1780QPL_Analog.CopyFiles = 23
+L1780QPL_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1780QPL.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1780QPL_Analog%=L1780QPL_Analog.Install,Monitor\GSM441B
+%L1780QPL_Digital%=L1780QPL_Digital.Install,Monitor\GSM441C
+
+[LG.NTamd64]
+%L1780QPL_Analog%=L1780QPL_Analog.Install,Monitor\GSM441B
+%L1780QPL_Digital%=L1780QPL_Digital.Install,Monitor\GSM441C
+
+[L1780QPL_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1780QPL_Analog.AddReg,1280,DPMS
+CopyFiles=L1780QPL_Analog.CopyFiles
+
+[L1780QPL_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1780QPL_Digital.AddReg,1280,DPMS
+CopyFiles=L1780QPL_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1780QPL_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1780QPL.ICM"
+
+[L1780QPL_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1780QPL.ICM"
+
+[L1780QPL_Analog.CopyFiles]
+L1780QPL.ICM
+
+[L1780QPL_Digital.CopyFiles]
+L1780QPL.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1780QPL_Analog="LG L1780Q Plus(Analog)"
+L1780QPL_Digital="LG L1780Q Plus(Digital)"

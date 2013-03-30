@@ -1,0 +1,71 @@
+; #######################################
+;      [mon06C3.INF]
+;      Revision 1.00   April  18, 2002
+;      Delta Electronics,Inc
+;      Copyright 2002
+; #######################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon06C3.cat
+DriverVer=04/18/2002,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\GWY06C3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+mon06C3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+mon06C3.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon06C3%=mon06C3.Install, Monitor\GWY06C3
+
+[mon06C3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06C3.AddReg, 1280, DPMS
+CopyFiles=mon06C3.Copyfiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon06C3.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06C3.icm"
+
+[mon06C3.Copyfiles]
+mon06C3.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DISK="Gateway System Restoration CD"
+Gateway="Gateway"
+mon06C3="Gateway FPD1720"

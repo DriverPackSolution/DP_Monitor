@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP211b.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/30/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS26064-3W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP211b.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS26064-3W%=VLCDS26064-3W.Install,Monitor\VSC6A11            ;VP211b
+
+[VLCDS26064-3W.Install]                                          ;VP211b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS26064-3W.AddReg,1600,DPMS
+Copyfiles=VLCDS26064-3W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS26064-3W.AddReg]                                           ;VP211b
+HKR,"MODES\1600,1200",Mode1,,"30-95,50-85,+,+"
+HKR,,ICMProfile,0,"VP211b.ICM"
+
+[VLCDS26064-3W.CopyFiles]                                       
+VP211b.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS26064-3W="ViewSonic VP211b"

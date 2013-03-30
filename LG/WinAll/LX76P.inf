@@ -1,0 +1,83 @@
+;=============================================================== 
+; [LX76P.INF] 
+; Revision 1.4   February-12-2008
+; Copyright(c)1998~2008 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX76P.cat
+DriverVer=01/22/2008,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4499
+ExcludeFromSelect.NT=Monitor\GSM449A
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX76P_Analog.CopyFiles = 23
+LX76P_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX76P.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX76P_Analog%=LX76P_Analog.Install,Monitor\GSM4499
+%LX76P_Digital%=LX76P_Digital.Install,Monitor\GSM449A
+
+[LG.NTamd64]
+%LX76P_Analog%=LX76P_Analog.Install,Monitor\GSM4499
+%LX76P_Digital%=LX76P_Digital.Install,Monitor\GSM449A
+
+[LX76P_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX76P_Analog.AddReg,1280,DPMS
+CopyFiles=LX76P_Analog.CopyFiles
+
+[LX76P_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX76P_Digital.AddReg,1280,DPMS
+CopyFiles=LX76P_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX76P_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX76P.ICM"
+
+[LX76P_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX76P.ICM"
+
+[LX76P_Analog.CopyFiles]
+LX76P.ICM
+
+[LX76P_Digital.CopyFiles]
+LX76P.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX76P_Analog="LG LX76P(Analog)"
+LX76P_Digital="LG LX76P(Digital)"

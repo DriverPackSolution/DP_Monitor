@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L194CW.INF] 
+; Revision 1.4   OCT-16-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L194CW.cat
+DriverVer=10/16/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B34
+
+[DestinationDirs]
+DefaultDestDir = 11
+L194CW.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L194CW.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L194CW%=L194CW.Install,Monitor\GSM4B34
+
+[LG.NTamd64]
+%L194CW%=L194CW.Install,Monitor\GSM4B34
+
+[L194CW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L194CW.AddReg,1440,DPMS
+CopyFiles=L194CW.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L194CW.AddReg]
+HKR,"MODES\1440,900",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMprofile,0,"L194CW.ICM"
+
+[L194CW.CopyFiles]
+L194CW.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L194CW="LG L194CW"

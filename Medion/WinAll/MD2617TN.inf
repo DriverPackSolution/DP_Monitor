@@ -1,0 +1,91 @@
+;================================ 
+;
+;   Medion.inf         Ver. 1.03      5/26/2003
+;
+;   Copyright (c)2003, Medion AG
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Medion Color Monitor.
+; 
+;================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD2617TN.cat
+DriverVer=04/26/2003,1.0.0.3
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD2617TN_9799.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,
+
+[SourceDisksFiles]
+MD2617TN.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+; Manufacturer sections
+;-------------------------------------------------
+[Medion] 
+%MD2617TN_9799%=MD2617TN_9799.Install, Monitor\MED9799  ;Analog
+
+
+; Install Sections
+;-------------------------------------------------
+[MD2617TN_9799.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=MD2617TN_9799.AddReg, 1024, DPMS
+CopyFiles=MD2617TN_9799.CopyFiles
+					     
+				
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;------------------------------------------------------------------------------- 
+[MD2617TN_9799.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"MD2617TN.icm"
+
+;------------------------------------------------------------------------------- 
+[MD2617TN_9799.CopyFiles]
+MD2617TN.icm
+
+;------------------------------------------------------------------------------- 
+[Strings]
+DISK="Medion Monitor Installation Disk"
+Medion="Medion AG."
+MonitorClassName="Monitor"
+MD2617TN_9799="MD2617TN"
+
+

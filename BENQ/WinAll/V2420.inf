@@ -1,0 +1,108 @@
+;========================================== 
+; BenQ_V2420.INF 12/17/2009 Ver. 1.3
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2009, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=V2420.cat
+DriverVer=12/17/2009,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7B10
+ExcludeFromSelect.NT=Monitor\BNQ7B12
+
+[DestinationDirs]
+DefaultDestDir  = 11
+V2420_Analog.copyfiles = 23
+V2420_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+V2420DSUB.icm=1
+V2420DVI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%V2420_Analog%=V2420_Analog.Install, Monitor\BNQ7B10
+%V2420_Digital%=V2420_Digital.Install, Monitor\BNQ7B12
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%V2420_Analog%=V2420_Analog.Install, Monitor\BNQ7B10
+%V2420_Digital%=V2420_Digital.Install, Monitor\BNQ7B12
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%V2420_Analog%=V2420_Analog.Install, Monitor\BNQ7B10
+%V2420_Digital%=V2420_Digital.Install, Monitor\BNQ7B12
+
+
+; Install Sections
+;-------------------------------------------------
+
+[V2420_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V2420_Analog.AddReg, 1920, DPMS
+CopyFiles=V2420_Analog.CopyFiles
+
+[V2420_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V2420_Digital.AddReg, 1920, DPMS
+CopyFiles=V2420_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[V2420_Analog.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"V2420DSUB.icm"
+
+[V2420_Digital.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"V2420DVI.icm"
+
+
+[V2420_Analog.CopyFiles]
+V2420DSUB.ICM
+
+[V2420_Digital.CopyFiles]
+V2420DVI.ICM
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+V2420_Analog="BenQ V2420 (Analog)"
+V2420_Digital="BenQ V2420 (Digital)"

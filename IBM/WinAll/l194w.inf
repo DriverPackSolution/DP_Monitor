@@ -1,0 +1,112 @@
+; ###########################################################
+;
+;   L194W.inf        Ver. 2.00      06/21/2007
+;
+;   Copyright 1996-2007 LEN Inc.
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the LENOVO 194 Wide LCD Monitor.
+; 
+; ###########################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=L194W.cat
+DriverVer=06/21/2007,2.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\LEN4434
+ExcludeFromSelect.nt = MONITOR\LEN4434
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L194W.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L194W.icm=1
+
+[Manufacturer]
+%LEN%=LEN,NTx86,NTAMD64
+
+[LEN]
+%L194W_A%=L194W_A.Install, Monitor\LEN4434
+%L194W_D%=L194W_D.Install, Monitor\LEN4434
+
+[LEN.NTx86] 
+%L194W_A%=L194W_A.Install, Monitor\LEN4434
+%L194W_D%=L194W_D.Install, Monitor\LEN4434
+
+[LEN.NTamd64]
+%L194W_A%=L194W_A.Install, Monitor\LEN4434
+%L194W_D%=L194W_D.Install, Monitor\LEN4434
+
+[L194W_A.Install]
+DelReg=LEN_CURRENT_REG
+AddReg=L194W_A.AddReg, 1440, DPMS
+CopyFiles=L194W.CopyFiles
+
+[L194W_D.Install]
+DelReg=LEN_CURRENT_REG
+AddReg=L194W_D.AddReg, 1440, DPMS
+CopyFiles=L194W.CopyFiles
+
+[LEN_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L194W_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,50.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1152,720",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,"MODES\1280,960",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1440,900",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"L194W.icm"
+
+[L194W_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,50.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1152,720",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,"MODES\1280,960",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1440,900",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"L194W.icm"
+
+[L194W.CopyFiles]
+L194W.icm
+
+[Strings]
+LEN="LEN Inc."
+MonitorClassName="Monitor"
+L194W_A="LEN L194W Wide LCD Monitor"
+L194W_D="LEN L194W Wide LCD Monitor"
+Disk1="LEN L194W Driver Software"

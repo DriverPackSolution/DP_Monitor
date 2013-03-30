@@ -1,0 +1,108 @@
+;================================ 
+;2007FP.INF 08/22/06 Ver. 2.0 PCC
+;Copyright 1996-2006 Dell Inc.
+;
+;This is a setupfile for 2007FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2007FP.cat
+DriverVer=08/22/2006, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA020
+ExcludeFromSelect.nt=Monitor\DELA021
+
+[DestinationDirs]
+DefaultDestDir=11
+2007FP_Analog.CopyFiles=23
+2007FP_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+2007FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%2007FP_Analog%=2007FP_Analog.Install, Monitor\DELA020
+%2007FP_Digital%=2007FP_Digital.Install, Monitor\DELA021
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%2007FP_Analog%=2007FP_Analog.Install, Monitor\DELA020
+%2007FP_Digital%=2007FP_Digital.Install, Monitor\DELA021
+
+
+; Install Sections
+;-------------------------------------------------
+
+[2007FP_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2007FP_Analog.AddReg, 1600, DPMS
+CopyFiles=2007FP_Analog.CopyFiles
+
+[2007FP_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2007FP_Digital.AddReg, 1600, DPMS
+CopyFiles=2007FP_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[2007FP_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2007FP.icm"
+
+[2007FP_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2007FP.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[2007FP_Analog.CopyFiles]
+2007FP.icm
+
+[2007FP_Digital.CopyFiles]
+2007FP.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+2007FP_Analog="Dell 2007FP (Analog)"
+2007FP_Digital="Dell 2007FP (Digital)"

@@ -1,0 +1,111 @@
+; [HD2442W.INF]
+; Revision 1.10
+; Copyright(c) 2008 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=HD2442W.cat
+DriverVer=04/11/2008,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1978
+ExcludeFromSelect.nt = Monitor\ENC1977
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+HD2442W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HD2442W Custom 6500K G2.2.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%HD2442WD%=HD2442WD.Install, Monitor\ENC1978
+%HD2442W%=HD2442W.Install, Monitor\ENC1977
+
+[EIZONANAO.NTamd64]
+%HD2442WD%=HD2442WD.Installamd64, Monitor\ENC1978
+%HD2442W%=HD2442W.Installamd64, Monitor\ENC1977
+
+[EIZONANAO.NTia64]
+%HD2442WD%=HD2442WD.Installia64, Monitor\ENC1978
+%HD2442W%=HD2442W.Installia64, Monitor\ENC1977
+
+[HD2442WD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2442WD.AddReg, 1920, DPMS
+CopyFiles=HD2442W.CopyFiles
+
+[HD2442W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2442W.AddReg, 1920, DPMS
+CopyFiles=HD2442W.CopyFiles
+
+[HD2442WD.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2442WD.AddReg, 1920, DPMS
+CopyFiles=HD2442W.CopyFiles
+
+[HD2442W.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2442W.AddReg, 1920, DPMS
+CopyFiles=HD2442W.CopyFiles
+
+[HD2442WD.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2442WD.AddReg, 1920, DPMS
+CopyFiles=HD2442W.CopyFiles
+
+[HD2442W.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2442W.AddReg, 1920, DPMS
+CopyFiles=HD2442W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HD2442WD.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-76.0,59.0-61.0,+,-"
+HKR,,ICMProfile,0,"HD2442W Custom 6500K G2.2.icm"
+
+[HD2442W.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-80.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"HD2442W Custom 6500K G2.2.icm"
+
+[HD2442W.CopyFiles]
+HD2442W Custom 6500K G2.2.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+HD2442WD="HD2442W Digital"
+HD2442W="HD2442W Analog"

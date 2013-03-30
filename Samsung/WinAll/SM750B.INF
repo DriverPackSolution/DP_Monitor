@@ -1,0 +1,84 @@
+; File Name : sm750b.inf
+;
+; This is a Setup information file for the Samsung Monitor. 
+;     Copyright 1999 Samsung Electronics Co., Ltd
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+750b.CopyFiles=23
+
+[SourceDisksNames]
+1="Samsung Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+sm750b.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+[Samsung]
+%750b%=750b.Install, Monitor\SAM1059
+
+
+[750b.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=750b.AddReg, 1280, DPMS
+CopyFiles=750b.CopyFiles
+
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;-----------------------------------------------------
+
+
+[750b.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"sm750b.icm"
+
+;------------------------------------------------------
+
+[750b.CopyFiles]
+sm750b.icm
+
+;------------------------------------------------------
+
+[Strings]
+
+MonitorClassName="Monitor"
+Samsung="Samsung"
+
+750b="Samsung SyncMaster 750(M)b"
+

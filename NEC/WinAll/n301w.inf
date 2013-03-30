@@ -1,0 +1,100 @@
+; n301w.inf
+; Setup information file for NEC MultiSync PA301W Monitor
+;
+; Copyright (C) 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n301w.cat
+DriverVer=06/16/2010,1.10.0616.1644
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC680F
+ExcludeFromSelect.nt=Monitor\NEC6811
+
+[DestinationDirs]
+PA301W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n301w.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%PA301W-D%=PA301W-D.Install, Monitor\NEC680F
+%PA301W-DP%=PA301W-DP.Install, Monitor\NEC6811
+
+[NECDS.ntamd64]
+%PA301W-D%=PA301W-D.Install.ntamd64, Monitor\NEC680F
+%PA301W-DP%=PA301W-DP.Install.ntamd64, Monitor\NEC6811
+
+; Install Sections
+;-------------------------------------------------
+[PA301W-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PA301W-D.AddReg, 2560, DPMS
+CopyFiles=PA301W.CopyFiles
+
+[PA301W-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PA301W-DP.AddReg, 2560, DPMS
+CopyFiles=PA301W.CopyFiles
+
+[PA301W-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PA301W-D.AddReg, 2560, DPMS
+CopyFiles=PA301W.CopyFiles
+
+[PA301W-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PA301W-DP.AddReg, 2560, DPMS
+CopyFiles=PA301W.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[2560]
+HKR,,MaxResolution,,"2560,1600"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[PA301W-D.AddReg]
+HKR,"MODES\2560,1600",Mode1,,"32.0-99.0,24.0-87.0,+,+"
+HKR,,ICMProfile,0,"n301w.icm"
+
+[PA301W-DP.AddReg]
+HKR,"MODES\2560,1600",Mode1,,"32.0-99.0,24.0-87.0,+,+"
+HKR,,ICMProfile,0,"n301w.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[PA301W.CopyFiles]
+n301w.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+PA301W-D="NEC MultiSync PA301W(Digital)"
+PA301W-DP="NEC MultiSync PA301W(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

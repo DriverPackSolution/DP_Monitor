@@ -1,0 +1,98 @@
+;================================ 
+; PLE2472HDD.INF 03/29/2010 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2010, iiyama Corporation
+;================================
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+CatalogFile=PLE2472HDD.cat
+DriverVer=03/29/2010,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM6104
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+6104.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+PLE2472HDD.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%iiyama%=iiyama, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama]
+%6104%=6104.Install, Monitor\IVM6104
+
+[iiyama.NTx86]
+%6104%=6104.Install, Monitor\IVM6104
+
+[iiyama.NTia64]
+%6104%=6104.Install, Monitor\IVM6104
+
+[iiyama.NTamd64]
+%6104%=6104.Install, Monitor\IVM6104
+
+; Install sections
+;-------------------------------------------------
+[6104.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=6104.AddReg,1920,DPMS
+CopyFiles=6104.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[6104.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2472HDD.icm"
+
+;-------------------------------------------------------------------
+[6104.CopyFiles]
+PLE2472HDD.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama"
+DiskName="iiyama Monitor Setup Disk"
+
+6104="iiyama PLE2472HDD"  

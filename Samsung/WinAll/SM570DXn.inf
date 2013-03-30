@@ -1,0 +1,120 @@
+
+;==================================================
+; SM570DXn.inf 11/21/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM570DXn.cat
+DriverVer=11/21/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0361
+ExcludeFromSelect.nt=Monitor\SAM0362
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM570DXna.CopyFiles = 23
+SM570DXnd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM570DXn.icm=1
+SM570DXn.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM570DXna%=SM570DXna.Install, Monitor\SAM0361
+%SM570DXnd%=SM570DXnd.Install, Monitor\SAM0362
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM570DXna%=SM570DXna.Install, Monitor\SAM0361
+%SM570DXnd%=SM570DXnd.Install, Monitor\SAM0362
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM570DXna%=SM570DXna.Install, Monitor\SAM0361
+%SM570DXnd%=SM570DXnd.Install, Monitor\SAM0362
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM570DXna.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM570DXna.AddReg, 1920, DPMS
+CopyFiles=SM570DXna.CopyFiles
+
+[SM570DXnd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM570DXnd.AddReg, 1920, DPMS
+CopyFiles=SM570DXnd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM570DXna.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM570DXn.icm"
+
+[SM570DXnd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM570DXn.icm"
+;------------------------------------------------------
+
+[SM570DXna.CopyFiles]
+SM570DXn.icm
+
+[SM570DXnd.CopyFiles]
+SM570DXn.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM570DXna="SyncMaster 570DXn(Analog)"
+SM570DXnd="SyncMaster 570DXn(Digital)"

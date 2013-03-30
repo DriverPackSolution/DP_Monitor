@@ -1,0 +1,69 @@
+; VE2402X.inf
+; Setup information file for NEC VE2402X Monitor
+;
+; Copyright 2010, NEC Display Solutions,Ltd.
+; V002
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=VE2402X.cat
+DriverVer=10/13/2010,1.09.1126.1945
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC681B
+
+[DestinationDirs]
+DefaultDestDir = 11
+VE2402X.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+VE2402X.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%VE2402X%=VE2402X.Install, Monitor\NEC681B
+
+[NECDS.ntamd64]
+%VE2402X%=VE2402X.Install.ntamd64, Monitor\NEC681B
+
+[VE2402X.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VE2402X.AddReg, 1920, DPMS
+CopyFiles=VE2402X.CopyFiles
+
+[VE2402X.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=VE2402X.AddReg, 1920, DPMS
+CopyFiles=VE2402X.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,1920,1080
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VE2402X.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"VE2402X.icm"
+
+[VE2402X.CopyFiles]
+VE2402X.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+VE2402X="NEC VE2402X"

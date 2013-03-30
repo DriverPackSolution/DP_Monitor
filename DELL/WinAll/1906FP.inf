@@ -1,0 +1,111 @@
+
+;================================ 
+;1906FP.INF 03/21/05 Ver. 1.0 PCC
+;Copyright 1996-2005 Dell Inc.
+;
+;This is a setupfile for 1906FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1906FP.cat
+DriverVer=03/21/2005, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL400E
+ExcludeFromSelect.nt=Monitor\DEL400F
+
+[DestinationDirs]
+DefaultDestDir=11
+1906FP_Analog.CopyFiles=23
+1906FP_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+1906FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%1906FP_Analog%=1906FP_Analog.Install, Monitor\DEL400E
+%1906FP_Digital%=1906FP_Digital.Install, Monitor\DEL400F
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%1906FP_Analog%=1906FP_Analog.Install, Monitor\DEL400E
+%1906FP_Digital%=1906FP_Digital.Install, Monitor\DEL400F
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[1906FP_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1906FP_Analog.AddReg, 1280, DPMS
+CopyFiles=1906FP_Analog.CopyFiles
+
+[1906FP_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1906FP_Digital.AddReg, 1280, DPMS
+CopyFiles=1906FP_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[1906FP_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1906FP.icm"
+
+[1906FP_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1906FP.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[1906FP_Analog.CopyFiles]
+1906FP.icm
+
+[1906FP_Digital.CopyFiles]
+1906FP.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+1906FP_Analog="Dell 1906FP (Analog)"
+1906FP_Digital="Dell 1906FP (Digital)"

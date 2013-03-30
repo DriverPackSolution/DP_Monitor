@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [880LC.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=880LC.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+880LC.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG880LC.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%880LC%=880LC, Monitor\GSM4658
+
+[LG.NTamd64]
+%880LC%=880LC, Monitor\GSM4658
+
+;------------------------------------; .Install
+
+[880LC] 
+AddReg=880LC.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=880LC.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[880LC.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"LG880LC.ICM"
+
+;------------------------------------; .CopyFiles
+
+[880LC.CopyFiles]  
+LG880LC.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4658
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+880LC="LG 880LC"

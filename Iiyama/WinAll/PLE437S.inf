@@ -1,0 +1,72 @@
+;PLE437S.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH PLE437S
+;Copyright 2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE437S.cat      
+DriverVer=07/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46D8
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE437S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE437S.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE437S%=PLE437S.Install, Monitor\IVM46D8
+
+[PLE437S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE437S.AddReg, 1280, DPMS
+CopyFiles=PLE437S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE437S.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE437S.ICM"
+
+[PLE437S.CopyFiles]
+PLE437S.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE437S="iiyama ProLite E437S"

@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [777FNPLU.INF]
+;
+;      Revision 1.0   OCTOBER-25-2001
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=10/25/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+777FNPLU.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG777FN.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%777FNPLU%=777FNPLU, Monitor\GSM42F7
+
+;------------------------------------; .Install
+
+[777FNPLU] 
+AddReg=777FNPLU.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=777FNPLU.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[777FNPLU.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LG777FN.ICM"
+
+;------------------------------------; .CopyFiles
+
+[777FNPLU.CopyFiles]  
+LG777FN.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM42F7
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+777FNPLU=" FLATRON 777FN Plus "

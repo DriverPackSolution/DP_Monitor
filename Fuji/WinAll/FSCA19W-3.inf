@@ -1,0 +1,73 @@
+;SCENICVIEW A19W-3.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor SCENICVIEW A19W-3
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCA19W-3.cat
+DriverVer=02/27/2008, 1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS077D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-A19W-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCA19W-3.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+[FUJSIE]
+%FUS-A19W-3%=FUS-A19W-3.Install, Monitor\FUS077D
+
+[FUJSIE.NTAMD64]
+%FUS-A19W-3%=FUS-A19W-3.Install, Monitor\FUS077D
+
+[FUS-A19W-3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-A19W-3.AddReg, 1440, DPMS
+CopyFiles=FUS-A19W-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-A19W-3.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-82,56-75,+,+"
+HKR,,ICMProfile,0,"FSCA19W-3.ICM"
+
+[FUS-A19W-3.CopyFiles]
+FSCA19W-3.ICM
+
+[Strings]
+DISK="Driver & Utility for SCENICVIEW A19W-3"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-A19W-3="Fujitsu Siemens SCENICVIEW A19W-3"

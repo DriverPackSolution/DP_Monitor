@@ -1,0 +1,86 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for Acer
+;   Copyright, Acer Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the Acer Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%Acer%
+	CatalogFile=D240H.cat
+	DriverVer=06/29/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	D240H.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	D240H.icm=1
+
+[Manufacturer]
+	%Acer%=Acer,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\ACR0074
+	
+[Acer]
+	%D240H%=D240H.Install, Monitor\ACR0074
+
+[Acer.NTx86]
+	%D240H%=D240H.Install, Monitor\ACR0074
+
+[Acer.NTAMD64]
+	%D240H%=D240H.Install, Monitor\ACR0074
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[D240H.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=D240H.AddReg, 1920, DPMS
+	CopyFiles=D240H.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1920]
+	HKR,,MaxResolution,,"1920,1080"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[D240H.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"31.0-83.0,56.0-76.0,-,+"
+	HKR,,ICMProfile,0,"D240H.icm"
+
+[D240H.CopyFiles]	
+	D240H.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="Acer Monitor Installation Disk"
+	DiskLabel="Acer INF and ICM Software"
+	Acer="Acer Corporation"
+
+	D240H="Acer D240H "

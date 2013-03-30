@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2423W.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/13/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2423W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2423W.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCF722
+
+[ViewSonic]   
+%VX2423W%=VX2423W.Install,Monitor\VSCF722  
+
+[ViewSonic.NTia64]   
+%VX2423W%=VX2423W.Install,Monitor\VSCF722
+
+[ViewSonic.NTamd64]   
+%VX2423W%=VX2423W.Install,Monitor\VSCF722 
+
+[VX2423W.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2423W.AddReg,1920,DPMS
+Copyfiles=VX2423W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2423W.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VX2423W.ICM"
+
+[VX2423W.CopyFiles]                                       
+VX2423W.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2423W ViewSonic Wizard"
+VX2423W="ViewSonic VX2423W"

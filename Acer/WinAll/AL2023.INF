@@ -1,0 +1,72 @@
+
+; AL2023.INF
+;
+; This is Setup information file for monitors
+;
+; Copyright (c) 2006, ACER
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=AL2023.cat
+DriverVer=12/13/2006,1.02
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ACR07E7
+
+;[ClassInstall32]
+;AddReg=ClassAddReg32
+
+;[ClassAddReg32]
+;HKR,,,,%MonitorClassName%
+;HKR,,Icon,,"-1"
+;HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+AL2023.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+AL2023.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AL2023%=AL2023.Install, Monitor\ACR07E7
+
+[AL2023.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL2023.AddReg, 1600, DPMS
+CopyFiles=AL2023.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL2023.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-81.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"AL2023.icm"
+
+[AL2023.CopyFiles]
+AL2023.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer"
+Disk1="Acer LCD Utility Disk"
+AL2023="Acer AL2023"

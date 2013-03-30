@@ -1,0 +1,77 @@
+; IBM_6633, March-21-2002
+
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%IBM%
+CatalogFile=IBM_6633.cat
+DriverVer=03/21/2002,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_6633.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+IBM_6633.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_6633%=IBM_6633, Monitor\IBM19E9
+
+;------------------------------------; .Install
+[IBM_6633]
+AddReg=IBM_6633.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=IBM_6633.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+[IBM_6633.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"IBM_6633.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[IBM_6633.CopyFiles]
+IBM_6633.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM19E9
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+IBM="IBM"
+IBM_6633="IBM 6633 E52"

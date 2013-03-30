@@ -1,0 +1,68 @@
+; nl191vxm.inf
+; Setup information file for NEC LCD191VXM Monitor
+;
+; Copyright 2008, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl191vxm.cat
+DriverVer=02/28/2008,1.08.0228.1320
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6743
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD191VXM.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl191vxm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD191VXM%=LCD191VXM.Install, Monitor\NEC6743
+
+[NECDS.ntamd64]
+%LCD191VXM%=LCD191VXM.Install.ntamd64, Monitor\NEC6743
+
+[LCD191VXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD191VXM.AddReg, 1280, DPMS
+CopyFiles=LCD191VXM.CopyFiles
+
+[LCD191VXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD191VXM.AddReg, 1280, DPMS
+CopyFiles=LCD191VXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD191VXM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl191vxm.icm"
+
+[LCD191VXM.CopyFiles]
+nl191vxm.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD191VXM="NEC LCD191VXM"

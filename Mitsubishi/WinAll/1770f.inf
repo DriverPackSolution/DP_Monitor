@@ -1,0 +1,63 @@
+     
+; Setup Information File for Diamond View Monitors
+; Copyright (c)  2000, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir    = 11
+MEA1770f.CopyFiles = 23
+
+[SourceDisksNames]
+1="Mitsubishi Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+1770f.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%MEA1770f%=MEA1770f.install,Monitor\MEA1774
+
+[MEA1770f.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1770f.AddReg, 1280, DPMS
+CopyFiles=MEA1770f.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+     
+[MEA1770f.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"1770f.ICM"
+
+[MEA1770f.CopyFiles]
+1770f.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+MEA="Mitsubishi Electric Australia"
+
+MEA1770f="DiamondView 1770f"

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VA706b.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=11/24/2009, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA706b.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA706b.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA706b%=VA706b.Install,Monitor\VSCE825  
+
+[ViewSonic.NTia64]   
+%VA706b%=VA706b.Install,Monitor\VSCE825  
+
+[ViewSonic.NTamd64]   
+%VA706b%=VA706b.Install,Monitor\VSCE825  
+
+[VA706b.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA706b.AddReg,1280,DPMS
+Copyfiles=VA706b.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA706b.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"30-81,55-75,+,+"
+HKR,,ICMProfile,0,"VA706b.icm"
+
+[VA706b.CopyFiles]                                       
+VA706b.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA706b ViewSonic Wizard"
+VA706b="ViewSonic VA706b"

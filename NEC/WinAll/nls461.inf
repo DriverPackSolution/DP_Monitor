@@ -1,0 +1,118 @@
+; nls461.inf
+; Setup information file for NEC MultiSync S461 Monitor
+;
+; Copyright (C) 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nls461.cat
+DriverVer=08/28/2009, 1.09.0828.1424
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67AA
+ExcludeFromSelect.nt=Monitor\NEC67AB
+ExcludeFromSelect.nt=Monitor\NEC67AD
+
+[DestinationDirs]
+S461.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nls461.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%S461-A%=S461-A.Install, Monitor\NEC67AA
+%S461-D%=S461-D.Install, Monitor\NEC67AB
+%S461-P%=S461-P.Install, Monitor\NEC67AD
+
+[NECDS.ntamd64]
+%S461-A%=S461-A.Install.ntamd64, Monitor\NEC67AA
+%S461-D%=S461-D.Install.ntamd64, Monitor\NEC67AB
+%S461-P%=S461-P.Install.ntamd64, Monitor\NEC67AD
+
+; Install Sections
+;-------------------------------------------------
+[S461-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S461-A.AddReg, 1920, DPMS
+CopyFiles=S461.CopyFiles
+
+[S461-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S461-D.AddReg, 1920, DPMS
+CopyFiles=S461.CopyFiles
+
+[S461-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S461-P.AddReg, 1920, DPMS
+CopyFiles=S461.CopyFiles
+
+[S461-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=S461-A.AddReg, 1920, DPMS
+CopyFiles=S461.CopyFiles
+
+[S461-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=S461-D.AddReg, 1920, DPMS
+CopyFiles=S461.CopyFiles
+
+[S461-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=S461-P.AddReg, 1920, DPMS
+CopyFiles=S461.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[S461-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nls461.icm"
+
+[S461-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nls461.icm"
+
+[S461-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nls461.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[S461.CopyFiles]
+nls461.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+S461-A="NEC MultiSync S461(Analog)"
+S461-D="NEC MultiSync S461(Digital)"
+S461-P="NEC MultiSync S461(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

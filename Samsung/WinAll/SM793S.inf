@@ -1,0 +1,95 @@
+
+;==================================================
+; SM793S.inf 02/18/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM793S.cat
+DriverVer=02/18/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0117
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM793S.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM793S.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM793S%=SM793S.Install, Monitor\SAM0117
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM793S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM793S.AddReg, 1280, DPMS
+CopyFiles=SM793S.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM793S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-71,50-160,+,+"
+HKR,,ICMProfile,0,"SM793S.icm"
+
+
+;------------------------------------------------------
+
+[SM793S.CopyFiles]
+SM793S.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM793S="SyncMaster 793S/793V , SyncMaster Magic CM173G"
+

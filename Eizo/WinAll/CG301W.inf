@@ -1,0 +1,165 @@
+; [CG301W.INF]
+; Revision 1.00
+; Copyright(c) 2007 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=CG301W.cat
+DriverVer=11/13/2007,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1869
+;ExcludeFromSelect.nt = Monitor\ENC1870
+;ExcludeFromSelect.nt = Monitor\ENC1871
+;ExcludeFromSelect.nt = Monitor\ENC1872
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+CG301W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CG301W Custom 5000K G2.2.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%CG301WSD1%=CG301WSD1.Install, Monitor\ENC1869
+%CG301WS2%=CG301WS2.Install, Monitor\ENC1870
+%CG301WPP%=CG301WPP.Install, Monitor\ENC1871
+%CG301WSS1%=CG301WSS1.Install, Monitor\ENC1872
+
+[EIZONANAO.NTamd64]
+%CG301WSD1%=CG301WSD1.Installamd64, Monitor\ENC1869
+%CG301WS2%=CG301WS2.Installamd64, Monitor\ENC1870
+%CG301WPP%=CG301WPP.Installamd64, Monitor\ENC1871
+%CG301WSS1%=CG301WSS1.Installamd64, Monitor\ENC1872
+
+[EIZONANAO.NTia64]
+%CG301WSD1%=CG301WSD1.Installia64, Monitor\ENC1869
+%CG301WS2%=CG301WS2.Installia64, Monitor\ENC1870
+%CG301WPP%=CG301WPP.Installia64, Monitor\ENC1871
+%CG301WSS1%=CG301WSS1.Installia64, Monitor\ENC1872
+
+[CG301WSD1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WSD1.AddReg, 2560, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WS2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WS2.AddReg, 1920, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WPP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WPP.AddReg, 1200, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WSS1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WSS1.AddReg, 2560, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WSD1.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WSD1.AddReg, 2560, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WS2.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WS2.AddReg, 1920, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WPP.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WPP.AddReg, 1200, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WSS1.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WSS1.AddReg, 2560, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WSD1.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WSD1.AddReg, 2560, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WS2.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WS2.AddReg, 1920, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WPP.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WPP.AddReg, 1200, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[CG301WSS1.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG301WSS1.AddReg, 2560, DPMS
+CopyFiles=CG301W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2560]
+HKR,,MaxResolution,,"2560,1600"
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[1200]
+HKR,,MaxResolution,,"1200,1600"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CG301WSD1.AddReg]
+HKR,"MODES\2560,1600",Mode1,,"31.0-99.0,59.0-61.0,+,-"
+HKR,,ICMProfile,0,"CG301W Custom 5000K G2.2.icm"
+
+[CG301WS2.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-76.0,23.0-61.0,+,-"
+HKR,,ICMProfile,0,"CG301W Custom 5000K G2.2.icm"
+
+[CG301WPP.AddReg]
+HKR,"MODES\1200,1600",Mode1,,"31.0-100.0,59.0-61.0,-,+"
+HKR,,ICMProfile,0,"CG301W Custom 5000K G2.2.icm"
+
+[CG301WSS1.AddReg]
+HKR,"MODES\2560,1600",Mode1,,"31.0-76.0,23.0-61.0,-,+"
+HKR,,ICMProfile,0,"CG301W Custom 5000K G2.2.icm"
+
+[CG301W.CopyFiles]
+CG301W Custom 5000K G2.2.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+CG301WSD1="CG301W Single Display/Dual Link(Signal1)"
+CG301WS2="CG301W Single Display(Signal2)"
+CG301WPP="CG301W Dual Display"
+CG301WSS1="CG301W Single Display/Single Link(Signal1)"

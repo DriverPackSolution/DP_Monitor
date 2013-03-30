@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1910BM.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1910BM.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4A74
+ExcludeFromSelect.NT=Monitor\GSM4A75
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1910BM_Analog.CopyFiles = 23
+L1910BM_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1910BM.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1910BM_Analog%=L1910BM_Analog.Install,Monitor\GSM4A74
+%L1910BM_Digital%=L1910BM_Digital.Install,Monitor\GSM4A75
+
+[LG.NTamd64]
+%L1910BM_Analog%=L1910BM_Analog.Install,Monitor\GSM4A74
+%L1910BM_Digital%=L1910BM_Digital.Install,Monitor\GSM4A75
+
+[L1910BM_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1910BM_Analog.AddReg,1280,DPMS
+CopyFiles=L1910BM_Analog.CopyFiles
+
+[L1910BM_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1910BM_Digital.AddReg,1280,DPMS
+CopyFiles=L1910BM_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1910BM_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1910BM.ICM"
+
+[L1910BM_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1910BM.ICM"
+
+[L1910BM_Analog.CopyFiles]
+L1910BM.ICM
+
+[L1910BM_Digital.CopyFiles]
+L1910BM.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1910BM_Analog="LG L1910BM(Analog)"
+L1910BM_Digital="LG L1910BM(Digital)"

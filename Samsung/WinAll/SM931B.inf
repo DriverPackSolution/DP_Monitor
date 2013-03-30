@@ -1,0 +1,119 @@
+
+;==================================================
+; SM931B.inf 01/09/2006 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM931B.cat
+DriverVer=01/09/2006,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0217
+ExcludeFromSelect.nt=Monitor\SAM0218
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM931Ba.CopyFiles = 23
+SM931Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM931B.icm=1
+sm740BF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM931Ba%=SM931Ba.Install, Monitor\SAM0217
+%SM931Bd%=SM931Bd.Install, Monitor\SAM0218
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM931Ba%=SM931Ba.Install, Monitor\SAM0217
+%SM931Bd%=SM931Bd.Install, Monitor\SAM0218
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM931Ba%=SM931Ba.Install, Monitor\SAM0217
+%SM931Bd%=SM931Bd.Install, Monitor\SAM0218
+; Install Sections
+;-----------------------------------------------------
+
+[SM931Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM931Ba.AddReg, 1280, DPMS
+CopyFiles=SM931Ba.CopyFiles
+
+[SM931Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM931Bd.AddReg, 1280, DPMS
+CopyFiles=SM931Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM931Ba.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM931B.icm"
+
+[SM931Bd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM931B.icm"
+;------------------------------------------------------
+
+[SM931Ba.CopyFiles]
+SM931B.icm
+
+[SM931Bd.CopyFiles]
+SM931B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM931Ba="SyncMaster 931B/931BF/931BA/930BA(Analog)"
+SM931Bd="SyncMaster 931B/931BF/931BA/930BA(Digital)"

@@ -1,0 +1,117 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ M2700HD.INF 08/20/09 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for M2700HD
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=M2700HD.cat
+	DriverVer=08/20/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	M2700HD D-SUB.CopyFiles=23
+        	M2700HD DVI.CopyFiles=23
+	M2700HD HDMI.CopyFiles=23       
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	M2700HD D-SUB.icm=1
+        	M2700HD DVI.icm=1
+	M2700HD HDMI.icm=1      
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ7C05
+	ExcludeFromSelect.NT=Monitor\BNQ7C06
+	ExcludeFromSelect.NT=Monitor\BNQ7C06
+[BenQ]
+	%M2700HD D-SUB%=M2700HD D-SUB.Install, Monitor\BNQ7C05
+	%M2700HD DVI%=M2700HD DVI.Install, Monitor\BNQ7C06
+	%M2700HD HDMI%=M2700HD HDMI.Install, Monitor\BNQ7C06        
+[BenQ.NTx86]
+	%M2700HD D-SUB%=M2700HD D-SUB.Install, Monitor\BNQ7C05
+	%M2700HD DVI%=M2700HD DVI.Install, Monitor\BNQ7C06
+	%M2700HD HDMI%=M2700HD HDMI.Install, Monitor\BNQ7C06        
+
+[BenQ.NTAMD64]
+	%M2700HD D-SUB%=M2700HD D-SUB.Install, Monitor\BNQ7C05
+	%M2700HD DVI%=M2700HD DVI.Install, Monitor\BNQ7C06
+	%M2700HD HDMI%=M2700HD HDMI.Install, Monitor\BNQ7C06        
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[M2700HD D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=M2700HD D-SUB.AddReg, 1920, DPMS
+	CopyFiles=M2700HD D-SUB.CopyFiles
+
+[M2700HD DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=M2700HD DVI.AddReg, 1920, DPMS
+	CopyFiles=M2700HD DVI.CopyFiles
+
+[M2700HD HDMI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=M2700HD HDMI.AddReg, 1920, DPMS
+	CopyFiles=M2700HD HDMI.CopyFiles
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1920]
+	HKR,,MaxResolution,,"1920,1080"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[M2700HD D-SUB.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"M2700HD D-SUB.icm"
+
+[M2700HD DVI.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"M2700HD DVI.icm"
+
+[M2700HD HDMI.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"M2700HD HDMI.icm"
+
+[M2700HD D-SUB.CopyFiles]	
+	M2700HD D-SUB.icm
+
+[M2700HD DVI.CopyFiles]	
+	M2700HD DVI.icm
+
+[M2700HD HDMI.CopyFiles]	
+	M2700HD HDMI.icm
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	M2700HD D-SUB="BenQ M2700HD D-SUB"
+        	M2700HD DVI="BenQ M2700HD DVI"
+   	M2700HD HDMI="BenQ M2700HD HDMI"
+       

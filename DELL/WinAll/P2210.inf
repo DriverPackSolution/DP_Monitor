@@ -1,0 +1,118 @@
+;-------------------------------------------
+; Copyright (c) 2009 Dell Corporation
+; Issue date -- 01/20/2009
+; Revise date -- 01/20/2009
+; revision 1.0
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=P2210.cat
+DriverVer=01/20/2009,1.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+P2210_Analog.copyfiles = 23
+P2210_Digital.copyfiles = 23
+P2210_DP.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+P2210_VGA.icm=1
+P2210_DVI.icm=1
+P2210_DP.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%P2210_Analog%=P2210_Analog.Install, Monitor\DEL404C
+%P2210_Digital%=P2210_Digital.Install, Monitor\DEL404E
+%P2210_DP%=P2210_DP.Install, Monitor\DEL404D
+
+[DELL.NTx86]
+%P2210_Analog%=P2210_Analog.Install, Monitor\DEL404C
+%P2210_Digital%=P2210_Digital.Install, Monitor\DEL404E
+%P2210_DP%=P2210_DP.Install, Monitor\DEL404D
+
+[DELL.NTAMD64]
+%P2210_Analog%=P2210_Analog.Install, Monitor\DEL404C
+%P2210_Digital%=P2210_Digital.Install, Monitor\DEL404E
+%P2210_DP%=P2210_DP.Install, Monitor\DEL404D
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL404C
+ExcludeFromSelect.NT=Monitor\DEL404E
+ExcludeFromSelect.NT=Monitor\DEL404D
+
+[P2210_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P2210_Analog.AddReg, 1680, DPMS
+CopyFiles=P2210_Analog.CopyFiles
+
+[P2210_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P2210_Digital.AddReg, 1680, DPMS
+CopyFiles=P2210_Digital.CopyFiles
+
+[P2210_DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P2210_DP.AddReg, 1680, DPMS
+CopyFiles=P2210_DP.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[P2210_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"P2210_VGA.icm"
+
+[P2210_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,-"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"P2210_DVI.icm"
+
+[P2210_DP.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,-"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"P2210_DP.icm"
+
+[P2210_Analog.CopyFiles]
+P2210_VGA.ICM
+
+[P2210_Digital.CopyFiles]
+P2210_DVI.ICM
+
+[P2210_DP.CopyFiles]
+P2210_DP.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+diskname="Dell Monitor installtion disk"
+P2210_Analog="Dell P2210 (Analog)"
+P2210_Digital="Dell P2210 (Digital)"
+P2210_DP="Dell P2210 (DP)"

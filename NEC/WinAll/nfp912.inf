@@ -1,0 +1,83 @@
+; NFP912.INF
+; Setup information file for NEC MultiSync FP912SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NFP912.cat
+DriverVer=07/23/2002,2.07.0023.1721
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61DD
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-FP912SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+nfp9121.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-FP912SB%=NEC-FP912SB.Install, Monitor\NEC61DD
+
+; Install Sections
+;-------------------------------------------------
+[NEC-FP912SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FP912SB.AddReg, 1920, DPMS
+CopyFiles=NEC-FP912SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-FP912SB.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"nfp9121.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-FP912SB.CopyFiles]
+NFP9121.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-FP912SB="NEC MultiSync FP912SB"

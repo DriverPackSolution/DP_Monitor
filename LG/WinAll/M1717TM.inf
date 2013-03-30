@@ -1,0 +1,83 @@
+;=============================================================== 
+; [M1717TM.INF] 
+; Revision 1.4   Oct-15-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M1717TM.cat
+DriverVer=10/15/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM442C
+ExcludeFromSelect.NT=Monitor\GSM442D
+
+[DestinationDirs]
+DefaultDestDir = 11
+M1717TM_Analog.CopyFiles = 23
+M1717TM_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M1717TM.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M1717TM_Analog%=M1717TM_Analog.Install,Monitor\GSM442C
+%M1717TM_Digital%=M1717TM_Digital.Install,Monitor\GSM442D
+
+[LG.NTamd64]
+%M1717TM_Analog%=M1717TM_Analog.Install,Monitor\GSM442C
+%M1717TM_Digital%=M1717TM_Digital.Install,Monitor\GSM442D
+
+[M1717TM_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1717TM_Analog.AddReg,1280,DPMS
+CopyFiles=M1717TM_Analog.CopyFiles
+
+[M1717TM_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1717TM_Digital.AddReg,1280,DPMS
+CopyFiles=M1717TM_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1717TM_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1717TM.ICM"
+
+[M1717TM_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1717TM.ICM"
+
+[M1717TM_Analog.CopyFiles]
+M1717TM.ICM
+
+[M1717TM_Digital.CopyFiles]
+M1717TM.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M1717TM_Analog="LG M1717TM(Analog)"
+M1717TM_Digital="LG M1717TM(Digital)"

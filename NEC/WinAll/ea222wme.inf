@@ -1,0 +1,105 @@
+; ea222wme.inf
+; Setup information file for NEC MultiSync EA222WMe Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea222wme.cat
+DriverVer=09/24/2009,1.09.0924.1612
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67BB
+ExcludeFromSelect.nt=Monitor\NEC67BC
+ExcludeFromSelect.nt=Monitor\NEC67BD
+
+[DestinationDirs]
+EA222WMe.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea222wme.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA222WMe-A%=EA222WMe-A.Install, Monitor\NEC67BB
+%EA222WMe-D%=EA222WMe-D.Install, Monitor\NEC67BC
+%EA222WMe-DP%=EA222WMe-DP.Install, Monitor\NEC67BD
+
+[NECDS.ntamd64]
+%EA222WMe-A%=EA222WMe-A.Install.ntamd64, Monitor\NEC67BB
+%EA222WMe-D%=EA222WMe-D.Install.ntamd64, Monitor\NEC67BC
+%EA222WMe-DP%=EA222WMe-DP.Install.ntamd64, Monitor\NEC67BD
+
+[EA222WMe-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA222WMe-A.AddReg, 1680, DPMS
+CopyFiles=EA222WMe.CopyFiles
+
+[EA222WMe-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA222WMe-D.AddReg, 1680, DPMS
+CopyFiles=EA222WMe.CopyFiles
+
+[EA222WMe-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA222WMe-DP.AddReg, 1680, DPMS
+CopyFiles=EA222WMe.CopyFiles
+
+[EA222WMe-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA222WMe-A.AddReg, 1680, DPMS
+CopyFiles=EA222WMe.CopyFiles
+
+[EA222WMe-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA222WMe-D.AddReg, 1680, DPMS
+CopyFiles=EA222WMe.CopyFiles
+
+[EA222WMe-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA222WMe-DP.AddReg, 1680, DPMS
+CopyFiles=EA222WMe.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA222WMe-A.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"ea222wme.icm"
+
+[EA222WMe-D.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"ea222wme.icm"
+
+[EA222WMe-DP.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"ea222wme.icm"
+
+
+[EA222WMe.CopyFiles]
+ea222wme.icm
+
+[Strings]
+NECDS="NEC"
+EA222WMe-A="NEC MultiSync EA222WMe(Analog)"
+EA222WMe-D="NEC MultiSync EA222WMe(Digital)"
+EA222WMe-DP="NEC MultiSync EA222WMe(DisplayPort)"
+Disk1="NEC Display Solutions Installation Disk"

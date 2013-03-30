@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1932P.INF] 
+; Revision 1.4   July-22-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1932P.cat
+DriverVer=07/22/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AD4
+ExcludeFromSelect.NT=Monitor\GSM4AD5
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1932P_Analog.CopyFiles = 23
+L1932P_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1932P.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1932P_Analog%=L1932P_Analog.Install,Monitor\GSM4AD4
+%L1932P_Digital%=L1932P_Digital.Install,Monitor\GSM4AD5
+
+[LG.NTamd64]
+%L1932P_Analog%=L1932P_Analog.Install,Monitor\GSM4AD4
+%L1932P_Digital%=L1932P_Digital.Install,Monitor\GSM4AD5
+
+[L1932P_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1932P_Analog.AddReg,1280,DPMS
+CopyFiles=L1932P_Analog.CopyFiles
+
+[L1932P_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1932P_Digital.AddReg,1280,DPMS
+CopyFiles=L1932P_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1932P_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1932P.ICM"
+
+[L1932P_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1932P.ICM"
+
+[L1932P_Analog.CopyFiles]
+L1932P.ICM
+
+[L1932P_Digital.CopyFiles]
+L1932P.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1932P_Analog="LG L1932P(Analog)"
+L1932P_Digital="LG L1932P(Digital)"

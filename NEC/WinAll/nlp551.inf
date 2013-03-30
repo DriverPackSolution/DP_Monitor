@@ -1,0 +1,136 @@
+; nlp551.inf
+; Setup information file for NEC MultiSync P551 Monitor
+;
+; Copyright (C) 2011, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlp551.cat
+DriverVer=03/09/2011, 1.11.0309.1925
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6792
+ExcludeFromSelect.nt=Monitor\NEC6793
+ExcludeFromSelect.nt=Monitor\NEC6794
+ExcludeFromSelect.nt=Monitor\NEC6795
+
+[DestinationDirs]
+P551.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlp551.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%P551-A%=P551-A.Install, Monitor\NEC6792
+%P551-D%=P551-D.Install, Monitor\NEC6793
+%P551-H%=P551-H.Install, Monitor\NEC6794
+%P551-P%=P551-P.Install, Monitor\NEC6795
+
+[NECDS.ntamd64]
+%P551-A%=P551-A.Install.ntamd64, Monitor\NEC6792
+%P551-D%=P551-D.Install.ntamd64, Monitor\NEC6793
+%P551-H%=P551-H.Install.ntamd64, Monitor\NEC6794
+%P551-P%=P551-P.Install.ntamd64, Monitor\NEC6795
+
+; Install Sections
+;-------------------------------------------------
+[P551-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P551-A.AddReg, 1920, DPMS
+CopyFiles=P551.CopyFiles
+
+[P551-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P551-D.AddReg, 1920, DPMS
+CopyFiles=P551.CopyFiles
+
+[P551-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P551-H.AddReg, 1920, DPMS
+CopyFiles=P551.CopyFiles
+
+[P551-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P551-P.AddReg, 1920, DPMS
+CopyFiles=P551.CopyFiles
+
+[P551-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P551-A.AddReg, 1920, DPMS
+CopyFiles=P551.CopyFiles
+
+[P551-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P551-D.AddReg, 1920, DPMS
+CopyFiles=P551.CopyFiles
+
+[P551-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P551-H.AddReg, 1920, DPMS
+CopyFiles=P551.CopyFiles
+
+[P551-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P551-P.AddReg, 1920, DPMS
+CopyFiles=P551.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[P551-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp551.icm"
+
+[P551-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp551.icm"
+
+[P551-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp551.icm"
+
+[P551-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp551.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[P551.CopyFiles]
+nlp551.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+P551-A="NEC MultiSync P551(Analog)"
+P551-D="NEC MultiSync P551(Digital)"
+P551-H="NEC MultiSync P551(HDMI)"
+P551-P="NEC MultiSync P551(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

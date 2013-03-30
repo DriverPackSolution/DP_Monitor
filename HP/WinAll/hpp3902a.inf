@@ -1,0 +1,88 @@
+; hpp3902a.inf
+;
+; This is a Setup information file for monitors 
+; supported in the Windows 95/98/ME/XP retail product.
+; Ver. 1.3
+; Copyright (c) 2001, Hewlett-Packard Company
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%hp%
+CatalogFile=P3902A.cat
+DriverVer=07/31/2001
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+
+[DestinationDirs]
+DefaultDestDir=11
+hp_p3902a.CopyFiles=23
+
+[SourceDisksNames]
+1="HP Monitor Installation Disk",,,
+
+[SourceDisksFiles]
+hpp3902a.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%hp%=hp
+
+; Manufacturer sections
+;-------------------------------------------------
+[hp]
+%hp_p3902a% =hp_p3902a.Install, Monitor\HWP0F3E
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\HWP0F3E
+
+; Install sections
+;-------------------------------------------------
+
+[hp_p3902a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=hp_p3902a.AddReg, 1280, DPMS
+CopyFiles=hp_p3902a.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-------------------------------------------------
+
+[hp_p3902a.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"hpp3902a.icm"
+
+[hp_p3902a.CopyFiles]
+hpp3902a.icm
+;============================
+
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+hp="HEWLETT PACKARD"
+hp_p3902a="hp pavilion v70s"

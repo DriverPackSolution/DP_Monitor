@@ -1,0 +1,95 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2006 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=190CW.cat
+DriverVer=01/05/2006,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL084A
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+084A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+190CW.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%084A%=084A.Install, Monitor\PHL084A
+[Philips.NTx86]
+%084A%=084A.Install, Monitor\PHL084A
+
+[Philips.NTia64]
+%084A%=084A.Install, Monitor\PHL084A
+
+[Philips.NTamd64]
+%084A%=084A.Install, Monitor\PHL084A
+
+; Install sections
+;-------------------------------------------------
+[084A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=084A.AddReg,1440,DPMS
+CopyFiles=084A.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[084A.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"190CW.icm"
+
+;-------------------------------------------------------------------
+[084A.CopyFiles]
+190CW.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+084A="Philips 190CW (19inch LCD WIDE MONITOR 190CW7)"  

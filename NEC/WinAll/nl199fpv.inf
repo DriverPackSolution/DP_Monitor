@@ -1,0 +1,82 @@
+; nl199fpv.inf
+; Setup information file for NEC MultiSync LCD1990FXp Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl199fpv.cat
+DriverVer=03/02/2007,2.07.0302.1145
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66C9
+
+[DestinationDirs]
+LCD1990FXp.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl199fpv.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD1990FXp%=LCD1990FXp.Install, Monitor\NEC66C9
+
+[NECDS.ntamd64]
+%LCD1990FXp%=LCD1990FXp.Install,ntamd64, Monitor\NEC66C9
+
+; Install Sections
+;-------------------------------------------------
+[LCD1990FXp.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1990FXp.AddReg, 1280, DPMS
+CopyFiles=LCD1990FXp.CopyFiles
+
+[LCD1990FXp.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1990FXp.AddReg, 1280, DPMS
+CopyFiles=LCD1990FXp.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD1990FXp.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl199fpv.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD1990FXp.CopyFiles]
+nl199fpv.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD1990FXp="NEC MultiSync LCD1990FXp"
+Disk1="NEC Display Solutions Installation Disk"

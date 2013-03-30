@@ -1,0 +1,66 @@
+; INF File for Windows 9x/Me/2000
+; Copyright (c)  2001, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+DriverVer=10/20/2000,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA1701
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+1770G.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1770G.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%1770G%=1770G.Install,Monitor\MEA1701
+
+[1770G.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1770G.AddReg, 1280, DPMS
+CopyFiles=1770G.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1770G.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"1770G.ICM"
+
+[1770G.CopyFiles]
+1770G.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Mitsubishi Monitor Installation Disk"
+MEA="Mitsubishi Electric Australia"
+1770G="Diamond View 1770G"

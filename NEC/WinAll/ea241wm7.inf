@@ -1,0 +1,86 @@
+; ea241wm7.inf
+; Setup information file for NEC MultiSync EA241WM Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea241wm7.cat
+DriverVer=09/15/2009,1.09.0915.1426
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC674E
+ExcludeFromSelect.nt=Monitor\NEC674F
+
+[DestinationDirs]
+EA241WM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea241wm7.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA241WM-A%=EA241WM-A.Install, Monitor\NEC674E
+%EA241WM-D%=EA241WM-D.Install, Monitor\NEC674F
+
+[NECDS.ntamd64]
+%EA241WM-A%=EA241WM-A.Install.ntamd64, Monitor\NEC674E
+%EA241WM-D%=EA241WM-D.Install.ntamd64, Monitor\NEC674F
+
+[EA241WM-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA241WM-A.AddReg, 1920, DPMS
+CopyFiles=EA241WM.CopyFiles
+
+[EA241WM-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA241WM-D.AddReg, 1920, DPMS
+CopyFiles=EA241WM.CopyFiles
+
+[EA241WM-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA241WM-A.AddReg, 1920, DPMS
+CopyFiles=EA241WM.CopyFiles
+
+[EA241WM-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA241WM-D.AddReg, 1920, DPMS
+CopyFiles=EA241WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA241WM-A.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-85.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea241wm7.icm"
+
+[EA241WM-D.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"26.0-85.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea241wm7.icm"
+
+[EA241WM.CopyFiles]
+ea241wm7.icm
+
+[Strings]
+NECDS="NEC"
+EA241WM-A="NEC MultiSync EA241WM (Analog)"
+EA241WM-D="NEC MultiSync EA241WM (Digital)"
+Disk1="NEC Monitor Installation Disk"

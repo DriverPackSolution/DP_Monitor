@@ -1,0 +1,78 @@
+; Copyright 2006 Lenovo International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=LEN19DE.cat
+DriverVer=08/03/2006,1.00.0000.0000
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN19DE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+19DE.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LEN19DE.icm=1
+
+[Manufacturer]
+%LEN%=LEN,ntamd64
+
+[LEN]
+%19DE%=19DE.Install, Monitor\LEN19DE
+
+[LEN.ntamd64]
+%19DE%=19DE.Install.ntamd64, Monitor\LEN19DE
+
+
+[19DE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=19DE.AddReg, 1680, DPMS
+CopyFiles=19DE.CopyFiles
+
+[19DE.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=19DE.AddReg, 1680, DPMS
+CopyFiles=19DE.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[19DE.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"LEN19DE.icm"
+
+[19DE.CopyFiles]
+LEN19DE.icm
+
+[Strings]
+DISK="LEN Monitor Installation Disk"
+MonitorClassName="Monitor"
+LEN="LEN International (Europe) GmbH"
+
+19DE="LEN D221 Wide"

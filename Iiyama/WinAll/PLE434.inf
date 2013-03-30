@@ -1,0 +1,72 @@
+;PLE434.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH PLE434
+;Copyright 2004 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE434.cat      
+DriverVer=06/01/2004,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46D3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE434.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE434.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE434%=PLE434.Install, Monitor\IVM46D3
+
+[PLE434.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE434.AddReg, 1280, DPMS
+CopyFiles=PLE434.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE434.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE434.ICM"
+
+[PLE434.CopyFiles]
+PLE434.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE434="iiyama ProLite E434S"

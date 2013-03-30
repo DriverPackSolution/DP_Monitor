@@ -1,0 +1,66 @@
+; INF File for Windows 9x/Me/2000
+; Copyright (c)  2000, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+DriverVer=10/20/2000,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA1702
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+1786FD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1786FD.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%1786FD%=1786FD.Install,Monitor\MEA1702
+
+[1786FD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1786FD.AddReg, 1600, DPMS
+CopyFiles=1786FD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1786FD.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"1786FD.ICM"
+
+[1786FD.CopyFiles]
+1786FD.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Mitsubishi Monitor Installation Disk"
+MEA="Mitsubishi Electric Australia"
+1786FD="Diamond View 1786FD"

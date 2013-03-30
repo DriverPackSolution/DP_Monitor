@@ -1,0 +1,102 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ G920W.INF 07/09/2009 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for G920W
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=G920W.cat
+	DriverVer=07/09/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	G920W D-SUB.CopyFiles=23
+        G920W DVI.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	G920W D-SUB.icm=1
+        G920W DVI.icm=1
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ784A
+	ExcludeFromSelect.NT=Monitor\BNQ784B
+	
+[BenQ]
+	%G920W D-SUB%=G920W D-SUB.Install, Monitor\BNQ784A
+	%G920W DVI%=G920W DVI.Install, Monitor\BNQ784B
+
+[BenQ.NTx86]
+	%G920W D-SUB%=G920W D-SUB.Install, Monitor\BNQ784A
+	%G920W DVI%=G920W DVI.Install, Monitor\BNQ784B
+
+[BenQ.NTAMD64]
+	%G920W D-SUB%=G920W D-SUB.Install, Monitor\BNQ784A
+	%G920W DVI%=G920W DVI.Install, Monitor\BNQ784B
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G920W D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G920W D-SUB.AddReg, 1440, DPMS
+	CopyFiles=G920W D-SUB.CopyFiles
+
+[G920W DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G920W DVI.AddReg, 1440, DPMS
+	CopyFiles=G920W DVI.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1440]
+	HKR,,MaxResolution,,"1440,900"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G920W D-SUB.AddReg]
+	HKR,"MODES\1440,900",Mode1,,"24.0-63.0,50.0-75.0,-,+"
+	HKR,,ICMProfile,0,"G920W D-SUB.icm"
+
+[G920W DVI.AddReg]
+	HKR,"MODES\1440,900",Mode1,,"24.0-63.0,50.0-75.0,-,+"
+	HKR,,ICMProfile,0,"G920W DVI.icm"
+
+[G920W D-SUB.CopyFiles]	
+	G920W D-SUB.icm
+
+[G920W DVI.CopyFiles]	
+	G920W DVI.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	G920W D-SUB="BenQ G920W D-SUB"
+        G920W DVI="BenQ G920W DVI"

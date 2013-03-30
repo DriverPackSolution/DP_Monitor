@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2703.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/22/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2703.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2703_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCF62B
+
+[ViewSonic]   
+%VX2703%=VX2703.Install,Monitor\VSCF62B  
+
+[ViewSonic.NTia64]   
+%VX2703%=VX2703.Install,Monitor\VSCF62B
+
+[ViewSonic.NTamd64]   
+%VX2703%=VX2703.Install,Monitor\VSCF62B 
+
+[VX2703.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2703.AddReg,1920,DPMS
+Copyfiles=VX2703.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2703.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"15-83,50-76,+,+" 
+HKR,,ICMProfile,0,"VX2703_SERIES.ICM"
+
+[VX2703.CopyFiles]                                       
+VX2703_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2703 SERIES ViewSonic Wizard"
+VX2703="ViewSonic VX2703 SERIES"

@@ -1,0 +1,68 @@
+; MEA INF File for Windows 9x/Me/2000
+; Copyright (c)  2002
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+;CatalogFile=MEA1770H.cat
+DriverVer=01/18/2002,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA1703
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+MEA1770H.CopyFiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,,
+
+[SourceDisksFiles]
+MEA1770H.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%MEA1770H%=MEA1770H.Install,Monitor\MEA1703
+
+[MEA1770H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1770H.AddReg, 1280, DPMS
+CopyFiles=MEA1770H.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MEA1770H.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"MEA1770H.ICM"
+
+[MEA1770H.CopyFiles]
+MEA1770H.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="MEA Monitor Installation Disk"
+MEA="MEA"
+
+MEA1770H="MEA 1770H"

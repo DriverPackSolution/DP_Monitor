@@ -1,0 +1,82 @@
+; N-L70MP.INF
+; Setup information file for NEC MultiSync LCD1700M+ Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=N-L70MP.cat
+DriverVer=01/17/2002,2.1.0017.1423
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC65B5
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-LCD1700MPlus.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+n-l70mp1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-LCD1700MPlus%=NEC-LCD1700MPlus.Install, Monitor\NEC65B5
+
+; Install Sections
+;-------------------------------------------------
+[NEC-LCD1700MPlus.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1700MPlus.AddReg, 1280, DPMS
+CopyFiles=NEC-LCD1700MPlus.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-LCD1700MPlus.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n-l70mp1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-LCD1700MPlus.CopyFiles]
+N-L70MP1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-LCD1700MPlus="NEC MultiSync LCD1700M+"

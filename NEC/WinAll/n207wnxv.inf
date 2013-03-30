@@ -1,0 +1,68 @@
+; n207wnxv.inf
+; Setup information file for NEC MultiSync LCD2070WNX Monitor
+;
+; Copyright 2006, NEC Display Solutions,Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n207wnxv.cat
+DriverVer=10/27/2006,1.06.1027.1310
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66BA
+
+[DestinationDirs]
+LCD2070WNX.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n207wnxv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD2070WNX%=LCD2070WNX.Install, Monitor\NEC66BA
+
+[NECDS.ntamd64]
+%LCD2070WNX%=LCD2070WNX.Install.ntamd64, Monitor\NEC66BA
+
+[LCD2070WNX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2070WNX.AddReg, 1680, DPMS
+CopyFiles=LCD2070WNX.CopyFiles
+
+[LCD2070WNX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2070WNX.AddReg, 1680, DPMS
+CopyFiles=LCD2070WNX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD2070WNX.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n207wnxv.icm"
+
+[LCD2070WNX.CopyFiles]
+n207wnxv.icm
+
+[Strings]
+NECDS="NEC"
+LCD2070WNX="NEC MultiSync LCD2070WNX"
+Disk1="NEC Monitor Installation Disk"

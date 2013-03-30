@@ -1,0 +1,129 @@
+;FTSB23T6.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display B23T-6 LED
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=FTSB23T6.cat
+DriverVer=08/14/2012,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07FB
+ExcludeFromSelect.nt=Monitor\FUS07FC
+ExcludeFromSelect.nt=Monitor\FUS07FD
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB23T6.icm=1
+
+[DestinationDirs]
+DefaultDestDir=12
+FTSB23T6.CopyFiles=23
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTx86,NTAMD64
+
+ [FTS_Mfg] 
+%B23T-6a%=FTSB23T6a.Install, Monitor\FUS07FB
+%B23T-6d%=FTSB23T6d.Install, Monitor\FUS07FC
+%B23T-6dp%=FTSB23T6dp.Install, Monitor\FUS07FD
+
+ [FTS_Mfg.NTx86] 
+%B23T-6a%=FTSB23T6a.Install, Monitor\FUS07FB
+%B23T-6d%=FTSB23T6d.Install, Monitor\FUS07FC
+%B23T-6dp%=FTSB23T6dp.Install, Monitor\FUS07FD
+
+ [FTS_Mfg.NTAMD64] 
+%B23T-6a%=FTSB23T6a.Install, Monitor\FUS07FB
+%B23T-6d%=FTSB23T6d.Install, Monitor\FUS07FC
+%B23T-6dp%=FTSB23T6dp.Install, Monitor\FUS07FD
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSB23T6a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB23T6a.AddReg, 1920, DPMS
+CopyFiles=FTSB23T6.CopyFiles
+
+[FTSB23T6d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB23T6d.AddReg, 1920, DPMS
+CopyFiles=FTSB23T6.CopyFiles
+
+[FTSB23T6dp.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB23T6dp.AddReg, 1920, DPMS
+CopyFiles=FTSB23T6.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSB23T6a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSB23T6.icm"
+
+[FTSB23T6d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-82.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSB23T6.icm"
+
+[FTSB23T6dp.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-82.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSB23T6.icm"
+
+;---------------------------------------------------------- 
+
+[FTSB23T6.CopyFiles]
+FTSB23T6.icm
+
+;---------------------------------------------------------- 
+
+[FTSB23T6a.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[FTSB23T6d.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[FTSB23T6dp.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Monitor Class Function Driver Service"
+
+DISK="Fujitsu Drivers, Manuals & Utilities Display"
+FTS_Mfg="Fujitsu Technology Solutions"	
+
+B23T-6a="Fujitsu B23T-6 LED (analog)"
+B23T-6d="Fujitsu B23T-6 LED (digital)"
+B23T-6dp="Fujitsu B23T-6 LED (DP)"

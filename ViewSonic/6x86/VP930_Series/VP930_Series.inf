@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP930_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=11/03/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP930_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP930_Series.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VP930_Series%=VP930_Series.Install,Monitor\VSCE41B          ;VP930_Series
+
+[ViewSonic.NTia64]   
+%VP930_Series%=VP930_Series.Install,Monitor\VSCE41B
+
+[ViewSonic.NTamd64]   
+%VP930_Series%=VP930_Series.Install,Monitor\VSCE41B
+
+[VP930_Series.Install]                                       ;VP930_Series
+DelReg=DEL_CURRENT_REG 
+AddReg=VP930_Series.AddReg,1280,DPMS
+Copyfiles=VP930_Series.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP930_Series.AddReg]                                          ;VP930_Series
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VP930_Series.ICM"
+
+[VP930_Series.CopyFiles]                                       
+VP930_Series.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VP930_Series="ViewSonic VP930 Series"

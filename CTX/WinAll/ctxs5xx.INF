@@ -1,0 +1,68 @@
+;
+; ctxs500.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 May 10, 2002
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=05/10/2002,1.0.0
+CatalogFile=ctxs500.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX1006
+
+[DestinationDirs]
+DefaultDestDir=11
+
+S500.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTXpfs.icm=1
+
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%S500%=S500.Install,Monitor\CTX1006
+
+[S500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S500.AddReg, 1024, DPMS
+CopyFiles=S500.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[S500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.icm"
+
+[S500.CopyFiles]
+CTXpfs.icm
+
+
+[Strings]
+Disk="CTX LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+S500="CTX S500,S500B,S530"

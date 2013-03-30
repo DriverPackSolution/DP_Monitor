@@ -1,0 +1,69 @@
+; Copyright (c) 2001    MEDION AG
+; Monitor INF file of Medion MD1998OA
+; Issue date -- 07/10/2001
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MED%
+DriverVer=01/20/2003,1.00.00.00
+catalogfile=0815.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED2359
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD-1998.copyfiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+MD1998OB.icm=1
+
+[Manufacturer]
+%MED%=MED
+
+[MED]
+%MD-1998%=MD-1998.Install,Monitor\MED2359
+
+[MD-1998.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD-1998.AddReg,1600,DPMS
+CopyFiles=MD-1998.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HkR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD-1998.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,IcmProfile,0,"MD1998.icm"
+
+[MD-1998.CopyFiles]
+MD1998OB.icm
+
+[strings]
+DISK="MED Monitor Installation Disk"
+MonitorClassName="Monitor"
+MED="Medion AG"
+MD-1998="MD 1998OB"

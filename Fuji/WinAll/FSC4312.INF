@@ -1,0 +1,70 @@
+; T50 FSC4312.INF Ver. 0.1
+;Monitor INF file for Fujitsu Siemens Monitor 4312
+;Copyright 2002 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSC4312.cat
+DriverVer=02/07/2002, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0310
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-4312.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSC4312.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FUS-4312%=FUS-4312.Install, Monitor\FUS0310
+
+[FUS-4312.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-4312.AddReg, 1280, DPMS
+CopyFiles=FUS-4312.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-4312.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-76,+,+"
+HKR,,ICMProfile,0,"FSC4312.ICM"
+
+[FUS-4312.CopyFiles]
+FSC4312.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor 4312 FA"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-4312="Fujitsu Siemens 4312 FA"

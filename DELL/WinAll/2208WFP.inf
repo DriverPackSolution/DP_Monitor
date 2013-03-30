@@ -1,0 +1,99 @@
+;-------------------------------------------
+; Copyright 1999-2007 Dell Inc.
+; Issue date -- 07/03/2007
+; Revise date -- 07/03/2007
+; revision 1.0.0.0
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2208WFP.cat
+DriverVer=07/03/2007,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+2208WFP_Analog.copyfiles = 23
+2208WFP_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+2208WFP_VGA.ICM=1
+2208WFP_DVI.ICM=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%2208WFP_Analog%=2208WFP_Analog.Install, Monitor\DEL403B
+%2208WFP_Digital%=2208WFP_Digital.Install, Monitor\DEL403C
+
+[DELL.NTx86]
+%2208WFP_Analog%=2208WFP_Analog.Install, Monitor\DEL403B
+%2208WFP_Digital%=2208WFP_Digital.Install, Monitor\DEL403C
+
+[DELL.NTAMD64]
+%2208WFP_Analog%=2208WFP_Analog.Install, Monitor\DEL403B
+%2208WFP_Digital%=2208WFP_Digital.Install, Monitor\DEL403C
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL403B
+ExcludeFromSelect.NT=Monitor\DEL403C
+
+[2208WFP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2208WFP_Analog.AddReg, 1680, DPMS
+CopyFiles=2208WFP_Analog.CopyFiles
+
+[2208WFP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2208WFP_Digital.AddReg, 1680, DPMS
+CopyFiles=2208WFP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2208WFP_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"2208WFP_VGA.ICM"
+
+[2208WFP_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"2208WFP_DVI.ICM"
+
+[2208WFP_Analog.CopyFiles]
+2208WFP_VGA.ICM
+
+[2208WFP_Digital.CopyFiles]
+2208WFP_DVI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+diskname="Dell Monitor installtion disk"
+2208WFP_Analog="Dell 2208WFP(Analog)"
+2208WFP_Digital="Dell 2208WFP(Digital)"
+

@@ -1,0 +1,75 @@
+;Monitor.Inf for Windows(R) 7 x86, 7 x64, 8 x86, 8 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG2732_Series.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/27/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG2732_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VG2732_Series.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC2A29
+
+[ViewSonic]   
+%VG2732_Series%=VG2732_Series.Install,Monitor\VSC2A29 
+
+[ViewSonic.NTx86]   
+%VG2732_Series%=VG2732_Series.Install,Monitor\VSC2A29
+
+[ViewSonic.NTAMD64]   
+%VG2732_Series%=VG2732_Series.Install,Monitor\VSC2A29 
+
+[VG2732_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2732_Series.AddReg
+Copyfiles=VG2732_Series.CopyFiles
+
+[VG2732_Series.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[VG2732_Series.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"15-82,50-75,+,+" 
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMProfile,0,"VG2732_Series.ICM"
+
+[VG2732_Series.CopyFiles]                                       
+VG2732_Series.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VG2732 Series ViewSonic Wizard"
+VG2732_Series="ViewSonic VG2732 Series"

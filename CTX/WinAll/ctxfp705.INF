@@ -1,0 +1,66 @@
+;
+; ctxfp705.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Mar 28, 2002
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=03/28/2002,1.0.0
+CatalogFile=ctxfp705.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTXB401
+
+[DestinationDirs]
+DefaultDestDir=11
+
+FP705.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTXpfs.icm=1
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%FP705%=FP705.Install,Monitor\CTXB401
+
+[FP705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP705.AddReg, 1600, DPMS
+CopyFiles=FP705.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.icm"
+
+[FP705.CopyFiles]
+CTXpfs.icm
+
+[Strings]
+Disk="CTX CRT Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+FP705="CTX FP705"

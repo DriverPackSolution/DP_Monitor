@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [568LM.INF]
+;
+;      Revision 1.3   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=568LM.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+568LM.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG568LM.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%568LM%=568LM, Monitor\GSM3B43
+
+[LG.NTamd64]
+%568LM%=568LM, Monitor\GSM3B43
+
+;------------------------------------; .Install
+
+[568LM] 
+AddReg=568LM.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=568LM.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[568LM.AddReg] 
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"LG568LM.ICM"
+
+;------------------------------------; .CopyFiles
+
+[568LM.CopyFiles]  
+LG568LM.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM3B43
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+568LM="LG 568LM"

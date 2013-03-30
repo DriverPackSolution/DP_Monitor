@@ -1,0 +1,90 @@
+;================================ 
+;AOC4V.INF 10/13/00 Ver. 1.0 
+;Copyright (C) By TOP Victory Electronics Co.,Ltd.
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+CatalogFile=AOC4V.cat
+DriverVer=10/13/2000,  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOCD356
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+4V.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+AOC4V.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC
+
+; Manufacturer sections
+;-------------------------------------------------
+ [AOC] 
+%4V%=4V.Install, Monitor\AOCD356
+
+; Install Sections
+;-------------------------------------------------
+
+[4V.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=4V.AddReg, 1024, DPMS
+CopyFiles=4V.CopyFiles
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[4V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"AOC4V.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[4V.CopyFiles]
+AOC4V.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) Gmbh"	
+4V="AOC Spectrum 4V,4VA,4Vn,4VnA,4Vlr & 4VlrA"
+

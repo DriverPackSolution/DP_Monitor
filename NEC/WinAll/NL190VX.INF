@@ -1,0 +1,68 @@
+; nl190vx.inf
+; Setup information file for NEC LCD190VX Monitor
+;
+; Copyright 2007, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl190vx.cat
+DriverVer=04/11/2007,1.06.0703.1338
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6715
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD190VX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl190vx.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD190VX%=LCD190VX.Install, Monitor\NEC6715
+
+[NECDS.ntamd64]
+%LCD190VX%=LCD190VX.Install.ntamd64, Monitor\NEC6715
+
+[LCD190VX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD190VX.AddReg, 1280, DPMS
+CopyFiles=LCD190VX.CopyFiles
+
+[LCD190VX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD190VX.AddReg, 1280, DPMS
+CopyFiles=LCD190VX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD190VX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl190vx.icm"
+
+[LCD190VX.CopyFiles]
+nl190vx.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD190VX="NEC LCD190VX"

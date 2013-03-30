@@ -1,0 +1,86 @@
+; nl177nxv.inf
+; Setup information file for NEC MultiSync LCD1770NX Monitor
+;
+; Copyright 2007, NEC Display Solutions,Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl177nxv.cat
+DriverVer=01/09/2007,1.07.0109.1143
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6664
+ExcludeFromSelect.nt=Monitor\NEC6665
+
+[DestinationDirs]
+LCD1770NX.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl177nxv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD1770NX-A%=LCD1770NX-A.Install, Monitor\NEC6664
+%LCD1770NX-D%=LCD1770NX-D.Install, Monitor\NEC6665
+
+[NECDS.ntamd64]
+%LCD1770NX-A%=LCD1770NX-A.Install.ntamd64, Monitor\NEC6664
+%LCD1770NX-D%=LCD1770NX-D.Install.ntamd64, Monitor\NEC6665
+
+[LCD1770NX-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1770NX-A.AddReg, 1280, DPMS
+CopyFiles=LCD1770NX.CopyFiles
+
+[LCD1770NX-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1770NX-D.AddReg, 1280, DPMS
+CopyFiles=LCD1770NX.CopyFiles
+
+[LCD1770NX-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1770NX-A.AddReg, 1280, DPMS
+CopyFiles=LCD1770NX.CopyFiles
+
+[LCD1770NX-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1770NX-D.AddReg, 1280, DPMS
+CopyFiles=LCD1770NX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD1770NX-A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl177nxv.icm"
+
+[LCD1770NX-D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl177nxv.icm"
+
+[LCD1770NX.CopyFiles]
+nl177nxv.icm
+
+[Strings]
+NECDS="NEC"
+LCD1770NX-A="NEC MultiSync LCD1770NX(Analog)"
+LCD1770NX-D="NEC MultiSync LCD1770NX(Digital)"
+Disk1="NEC Monitor Installation Disk"

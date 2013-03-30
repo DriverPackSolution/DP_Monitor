@@ -1,0 +1,68 @@
+; LCD220WX.inf
+; Setup information file for NEC LCD Monitor LCD220WX
+;
+; Copyright 2007, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL220WX.cat
+DriverVer=05/09/2007,1.06.1110.1729
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC671B
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD220WX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL220WX.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD220WX%=LCD220WX.Install, Monitor\NEC671B
+
+[NECDS.ntamd64]
+%LCD220WX%=LCD220WX.Install.ntamd64,Monitor\NEC671B
+
+[LCD220WX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD220WX.AddReg, 1680, DPMS
+CopyFiles=LCD220WX.CopyFiles
+
+[LCD220WX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD220WX.AddReg, 1680, DPMS
+CopyFiles=LCD220WX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,1680,1050
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD220WX.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"NL220WX.icm"
+
+[LCD220WX.CopyFiles]
+NL220WX.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD220WX="NEC LCD220WX"

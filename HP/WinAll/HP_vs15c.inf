@@ -1,0 +1,80 @@
+; ###################################################
+;
+;   HP_vs15c.inf        Ver. 2.00      10/29/2004
+;
+;   Copyright (c)2004, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the HP vs15c LCD monitor.
+; 
+; ###################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_vs15c.cat
+DriverVer=10/29/2004,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP2656
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+vs15c.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_vs15c.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%vs15c%=vs15c.Install, Monitor\HWP2656
+
+[vs15c.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=vs15c.AddReg, 1024, DPMS
+CopyFiles=vs15c.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[vs15c.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-63.0,50.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-63.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_vs15c.icm"
+HKR,,PreferredMode,,"1024,768,60"
+
+[vs15c.CopyFiles]
+HP_vs15c.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+vs15c="HP vs15c LCD monitor"
+Disk1="HP vs15c INF software"

@@ -1,0 +1,96 @@
+; ###################################################
+;
+;   FP9419.inf        Ver. 2.00      5/10/2004
+;
+;   Copyright (c)2004, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq FP9419 flat panel monitor.
+; 
+; ###################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=FP9419.cat
+DriverVer=05/10/2004,2.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP262A
+ExcludeFromSelect.nt = MONITOR\HWP262B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FP9419.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+FP9419.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%FP9419_A%=FP9419_A.Install, Monitor\HWP262A
+%FP9419_D%=FP9419_D.Install, Monitor\HWP262B
+
+[FP9419_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP9419_A.AddReg, 1280, DPMS
+CopyFiles=FP9419.CopyFiles
+
+[FP9419_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP9419_D.AddReg, 1280, DPMS
+CopyFiles=FP9419.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP9419_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP9419.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[FP9419_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP9419.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[FP9419.CopyFiles]
+FP9419.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+FP9419_A="COMPAQ FP9419 Flat Panel Monitor"
+FP9419_D="COMPAQ FP9419 Flat Panel Monitor"
+Disk1="COMPAQ FP9419 INF software"

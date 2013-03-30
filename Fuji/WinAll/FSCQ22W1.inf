@@ -1,0 +1,112 @@
+;FSCQ22W1.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor Q22W-1
+;Copyright 2007 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCQ22W1.cat
+DriverVer=09/09/2007,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0761
+ExcludeFromSelect.nt=Monitor\FUS0762
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FSCQ22W1.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCQ22W1.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%Q22W-1%=FSCQ22W1a.Install, Monitor\FUS0761
+%Q22W-1%=FSCQ22W1d.Install, Monitor\FUS0762
+
+
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%Q22W-1%=FSCQ22W1a.Install, Monitor\FUS0761
+%Q22W-1%=FSCQ22W1d.Install, Monitor\FUS0762
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FSCQ22W1a.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCQ22W1a.AddReg, 1680, DPMS
+CopyFiles=FSCQ22W1.CopyFiles
+
+[FSCQ22W1d.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCQ22W1d.AddReg, 1680, DPMS
+CopyFiles=FSCQ22W1.CopyFiles
+
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+
+[FSCQ22W1a.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-94.0,55.0-75.0,-,+"
+HKR,,ICMProfile,0,"FSCQ22W1.icm"
+
+[FSCQ22W1d.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"FSCQ22W1.icm"
+
+
+;---------------------------------------------------------- 
+
+
+
+[FSCQ22W1.CopyFiles]
+FSCQ22W1.icm
+
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="FUJSIE Inc. Monitor Installation Disk"
+FUJSIE="Fujitsu Siemens Computers"	
+Q22W-1="Fujitsu Siemens Computers Q22W-1"

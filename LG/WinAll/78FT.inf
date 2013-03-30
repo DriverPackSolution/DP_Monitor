@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [78FT.INF]
+;
+;      Revision 1.0   OCTOBER-22-2001
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=10/22/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+78FT.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG78FT.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%78FT%=78FT, Monitor\GSM4298
+
+;------------------------------------; .Install
+
+[78FT] 
+AddReg=78FT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=78FT.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[78FT.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LG78FT.ICM"
+
+;------------------------------------; .CopyFiles
+
+[78FT.CopyFiles]  
+LG78FT.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4298
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+78FT="78FT"

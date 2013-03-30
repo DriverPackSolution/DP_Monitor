@@ -1,0 +1,100 @@
+; nl219uxp.inf
+; Setup information file for NEC MultiSync LCD2190UXp Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl219uxp.cat
+DriverVer=01/11/2007, 2.07.0111.1123
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66BC
+ExcludeFromSelect.nt=Monitor\NEC66BD
+
+[DestinationDirs]
+LCD2190UXp.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl219uxp.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD2190UXp-D%=LCD2190UXp-D.Install, Monitor\NEC66BC
+%LCD2190UXp-A%=LCD2190UXp-A.Install, Monitor\NEC66BD
+
+[NECDS.ntamd64]
+%LCD2190UXp-D%=LCD2190UXp-D.Install.ntamd64, Monitor\NEC66BC
+%LCD2190UXp-A%=LCD2190UXp-A.Install.ntamd64, Monitor\NEC66BD
+
+; Install Sections
+;-------------------------------------------------
+[LCD2190UXp-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2190UXp-D.AddReg, 1600, DPMS
+CopyFiles=LCD2190UXp.CopyFiles
+
+[LCD2190UXp-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2190UXp-A.AddReg, 1600, DPMS
+CopyFiles=LCD2190UXp.CopyFiles
+
+[LCD2190UXp-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2190UXp-D.AddReg, 1600, DPMS
+CopyFiles=LCD2190UXp.CopyFiles
+
+[LCD2190UXp-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2190UXp-A.AddReg, 1600, DPMS
+CopyFiles=LCD2190UXp.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD2190UXp-D.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl219uxp.icm"
+
+[LCD2190UXp-A.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl219uxp.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD2190UXp.CopyFiles]
+nl219uxp.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD2190UXp-D="NEC MultiSync LCD2190UXp (Digital)"
+LCD2190UXp-A="NEC MultiSync LCD2190UXp (Analog)"
+Disk1="NEC Monitor Installation Disk"

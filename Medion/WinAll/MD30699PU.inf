@@ -1,0 +1,78 @@
+;L10.INF Ver. 1.1
+;Monitor INF file for Medion L10
+;Copyright 2001,2002 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD30699PU.cat
+DriverVer=12/18/2006, 1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED89ED
+ExcludeFromSelect.nt=Monitor\MED89EE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L10.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+L10.ICM=1
+
+[Manufacturer]
+%Medion%=Medion,NTX86,NTAMD64
+
+[Medion]
+%L10%=L10.Install, Monitor\MED89ED
+%L10%=L10.Install, Monitor\MED89EE
+
+[Medion.NTX86]
+%L10%=L10.Install, Monitor\MED89ED
+%L10%=L10.Install, Monitor\MED89EE
+
+[Medion.NTAMD64]
+%L10%=L10.Install, Monitor\MED89ED
+%L10%=L10.Install, Monitor\MED89EE
+
+[L10.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L10.AddReg, 1280, DPMS
+CopyFiles=L10.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L10.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,50-75,+,+"
+HKR,,ICMProfile,0,"L10.ICM"
+
+[L10.CopyFiles]
+L10.ICM
+
+[Strings]
+DISK="Medion Manual and Driver CD"
+MonitorClassName="Monitor"
+Medion="Medion AG"
+L10="Medion MD30699PU L10"

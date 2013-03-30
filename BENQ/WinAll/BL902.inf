@@ -1,0 +1,110 @@
+;========================================== 
+; BenQ_BL902.INF 06/17/10 Ver. 1.1
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2010, BENQ Corporation
+; Version 01
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=BL902.cat
+DriverVer=06/17/2010,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ8007
+ExcludeFromSelect.NT=Monitor\BNQ8008
+
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+BL902_Analog.copyfiles = 23
+BL902_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+BL902DSUB.icm=1
+BL902DVI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%BL902_Analog%=BL902_Analog.Install, Monitor\BNQ8007
+%BL902_Digital%=BL902_Digital.Install, Monitor\BNQ8008
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%BL902_Analog%=BL902_Analog.Install, Monitor\BNQ8007
+%BL902_Digital%=BL902_Digital.Install, Monitor\BNQ8008
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%BL902_Analog%=BL902_Analog.Install, Monitor\BNQ8007
+%BL902_Digital%=BL902_Digital.Install, Monitor\BNQ8008
+
+
+; Install Sections
+;-------------------------------------------------
+
+[BL902_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BL902_Analog.AddReg, 1280, DPMS
+CopyFiles=BL902_Analog.CopyFiles
+
+[BL902_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BL902_Digital.AddReg, 1280, DPMS
+CopyFiles=BL902_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[BL902_Analog.AddReg]
+
+HKR,"MODES\1280,1024",Mode1,,"30-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"BL902DSUB.icm"
+
+[BL902_Digital.AddReg]
+
+HKR,"MODES\1280,1024",Mode1,,"30-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"BL902DVI.icm"
+
+
+[BL902_Analog.CopyFiles]
+BL902DSUB.ICM
+
+[BL902_Digital.CopyFiles]
+BL902DVI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+BL902_Analog="BenQ BL902 (Analog)"
+BL902_Digital="BenQ BL902 (Digital)"

@@ -1,0 +1,77 @@
+; #################################################
+;
+;   5500.inf           Ver. 1.10      11/01/2001
+;
+;   Copyright (c)2001, Compaq Computer Corporation
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq 5500 Color Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=5500.cat
+DriverVer=11/01/2001,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ1444
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+5500.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQ5500.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%5500%=5500.Install, Monitor\CPQ1444
+
+[5500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=5500.AddReg, 1024, DPMS
+CopyFiles=5500.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[5500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CPQ5500.icm"
+
+[5500.CopyFiles]
+CPQ5500.ICM
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+Disk1="COMPAQ 5500 Monitor Software CD"
+5500="COMPAQ 5500 Color Monitor"
+

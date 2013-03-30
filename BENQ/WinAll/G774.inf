@@ -1,0 +1,68 @@
+; Benq INF File for Windows 9x/2000/Me/XP
+; Copyright (c)  2001, Benq Corporation
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Benq%
+CatalogFile=G774.cat
+DriverVer=12/24/2001,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ0104
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+G774.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+G774.ICM=1
+
+[Manufacturer]
+%Benq%=Benq
+
+[Benq]
+%G774%=G774.Install,Monitor\BNQ0104
+
+[G774.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G774.AddReg, 1280, DPMS
+CopyFiles=G774.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[G774.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"G774.ICM"
+
+[G774.CopyFiles]
+G774.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Benq Monitor Installation Disk"
+Benq="BENQ"
+
+G774="BENQ G774"

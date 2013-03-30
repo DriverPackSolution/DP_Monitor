@@ -1,0 +1,72 @@
+;PL1706.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH PL1706
+;Copyright 2009 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL1706.cat      
+DriverVer=02/03/2009,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46E9
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PL1706.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PL1706.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,NTAMD64
+
+[IIYAMA]
+%PL1706%=PL1706.Install, Monitor\IVM46E9
+
+[IIYAMA.NTAMD64]
+%PL1706%=PL1706.Install, Monitor\IVM46E9
+
+[PL1706.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL1706.AddReg, 1280, DPMS
+CopyFiles=PL1706.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL1706.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"PL1706.ICM"
+
+[PL1706.CopyFiles]
+PL1706.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PL1706="iiyama ProLite PL1706"

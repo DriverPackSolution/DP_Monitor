@@ -1,0 +1,689 @@
+
+;================================ 
+;DELLMON.INF 11/15/99 Ver. 4.2 SND
+;
+;This is a setupfile for DELL 
+;Monitors
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell% 
+
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+D1428L.CopyFiles=23
+1400FP.CopyFiles=23
+1500FP.CopyFiles=23
+1700FP.CopyFiles=23
+D825HT.CopyFiles=23
+800M.CopyFiles=23
+828FI.CopyFiles=23 
+D825TM.CopyFiles=23 
+D828L.CopyFiles=23
+D825HR.CopyFiles=23
+D1569.CopyFiles = 23
+D1025HE.Copyfiles=23
+D1025HT.CopyFiles=23
+D1025HTX.CopyFiles=23
+D1028L.CopyFiles=23
+M770.Copyfiles=23
+M780.Copyfiles=23
+D1025TM.CopyFiles=23
+D1226H.CopyFiles=23
+P990.CopyFiles=23
+D2128TCO.CopyFiles=23
+D2026T.CopyFiles=23
+D1626HT.CopyFiles=23
+M1110.CopyFiles=23
+P1690.CopyFiles=23
+M990.CopyFiles=23
+P1110.CopyFiles=23
+P780.CopyFiles=23
+E550.CopyFiles=23
+P991.CopyFiles=23
+M570.CopyFiles=23
+P790.CopyFiles=23
+E550mm/E550mmw.CopyFiles=23
+E770s.CopyFiles=23
+E770p.CopyFiles=23
+1501FP(Analog).CopyFiles=23
+1501FP(Digital).CopyFiles=23
+1401FP.CopyFiles=23
+
+[SourceDisksNames]
+1="Dell Computer Corp. Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+D1428L.icm=1
+1400FP.icm=1
+1500FP.icm=1
+1700FP.icm=1
+D825HT.icm=1
+828FI.icm=1
+800M.icm=1
+D828L.icm=1
+D825TM.icm=1
+D1569.icm=1
+D1025HT.icm=1
+D1025HTX.icm=1
+D1028L.icm=1
+M770.icm=1
+M780.icm=1
+D1226H.icm=1
+P990.icm=1
+D1025HE.icm=1
+D2128TCO.icm=1
+D825HR.icm=1
+D2026T.icm=1
+D1025TM.icm=1
+D1626HT.icm=1
+M1110.icm=1
+P1690.icm=1
+M990.icm=1
+P1110.icm=1
+P780.icm=1
+E550.icm=1
+P991.icm=1
+M570.icm=1
+P790.icm=1
+E550mm.icm=1
+E770s.icm=1
+E770p.icm=1
+1501FP.icm=1
+1401FP.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%D1428L%=D1428L.Install, Monitor\DEL3276
+%1400FP%=1400FP.Install, Monitor\DEL8162
+%1500FP%=1500FP.Install, Monitor\DEL715D
+%1700FP%=1700FP.Install, Monitor\DEL3092
+%800M%=800M.Install, Monitor\DEL5697
+%828FI%=828FI.Install, Monitor\DEL3319
+%D825HT%=D825HT.Install, Monitor\DEL5033
+%D825HR%=D825HR.Install, Monitor\DEL62FF
+%D828L%=D828L.Install, Monitor\DEL32FE
+%D1569%=D1569.Install, Monitor\DEL6915
+%D825TM%=D825TM.Install, Monitor\DEL512C
+%D1025HE%=D1025HE.Install, Monitor\DEL6124
+%D1028L%=D1028L.Install, Monitor\DEL730B
+%M770%=M770.Install, Monitor\DEL71A5
+%M780%=M780.Install, Monitor\DEL3142
+%D1025HTX%=D1025HTX.Install, Monitor\DEL5062
+%D1025HT%=D1025HT.Install, Monitor\DEL5319
+%D1025TM%=D1025TM.Install, Monitor\DEL5155
+%D2026T%=D2026T.Install, Monitor\DEL5314
+%D2128TCO%=D2128TCO.Install, Monitor\DEL602F
+%D1226H%=D1226H.Install, Monitor\DEL7077
+%P990%=P990.Install, Monitor\DEL50DD
+%D1626HT%=D1626HT.Install, Monitor\DEL515B
+%M1110%=M1110.Install, Monitor\DEL93D5
+%P1690%=P1690.Install, Monitor\DEL5348
+%M990%=M990.Install, Monitor\DEL708A
+%P1110%=P1110.Install, Monitor\DEL50AB
+%P780%=P780.Install, Monitor\DEL510F
+%E550%=E550.Install, Monitor\DELA2F1
+%P991%=P991.Install, Monitor\DEL5178
+%M570%=M570.Install, Monitor\DEL30CC
+%P790%=P790.Install, Monitor\DEL62F5
+%E550mm/E550mmw%=E550mm/E550mmw.Install, Monitor\DELA355
+%E770s%=E770s.Install, Monitor\DEL300A
+%E770p%=E770p.Install, Monitor\DEL7340
+%1501FP(Analog)%=1501FP(Analog).Install, Monitor\DEL73A4
+%1501FP(Digital)%=1501FP(Digital).Install, Monitor\DEL7140
+%1401FP%=1401FP.Install, Monitor\DELC0EC
+
+; Install Sections
+;-------------------------------------------------
+
+[D1428L.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1428L.AddReg, 800, DPMS
+CopyFiles=D1428L.CopyFiles
+
+[800M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=800M.AddReg, 1280 ,DPMS
+CopyFiles=800M.CopyFiles
+
+[828FI.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=828FI.AddReg, 1280, DPMS
+CopyFiles=828FI.CopyFiles
+
+[D825HT.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D825HT.AddReg, 1280, DPMS
+CopyFiles=D825HT.CopyFiles
+
+[1400FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1400FP.AddReg, 1024, DPMS
+CopyFiles=1400FP.CopyFiles
+
+[1500FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1500FP.AddReg, 1024, DPMS
+CopyFiles=1500FP.CopyFiles
+
+[1700FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1700FP.AddReg, 1280, DPMS
+CopyFiles=1700FP.CopyFiles
+
+[D825HR.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D825HR.AddReg, 1280, DPMS
+CopyFiles=D825HR.CopyFiles
+
+[D828L.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D828L.AddReg, 1024, DPMS
+CopyFiles=D828L.CopyFiles
+
+[D825TM.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D825TM.AddReg, 1280, DPMS
+CopyFiles=D825TM.CopyFiles
+
+[D1569.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=D1569.AddReg, 1280, DPMS
+CopyFiles=D1569.CopyFiles
+
+[D1028L.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1028L.AddReg, 1280, DPMS
+CopyFiles=D1028L.CopyFiles
+
+[M770.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M770.AddReg, 1280, DPMS
+CopyFiles=M770.CopyFiles
+
+[M780.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M780.AddReg, 1280, DPMS
+CopyFiles=M780.CopyFiles
+
+[D1025HE.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1025HE.AddReg, 1600, DPMS
+CopyFiles=D1025HE.CopyFiles
+
+[D1025HTX.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1025HTX.AddReg, 1280, DPMS
+CopyFiles=D1025HTX.CopyFiles
+
+[D1025HT.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1025HT.AddReg, 1600, DPMS
+CopyFiles=D1025HT.CopyFiles
+
+[D1025TM.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1025TM.AddReg, 1600, DPMS
+CopyFiles=D1025TM.CopyFiles
+
+[D2026T.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D2026T.AddReg, 1600, DPMS
+CopyFiles=D2026T.CopyFiles
+
+[D2128TCO.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D2128TCO.AddReg, 1600, DPMS
+CopyFiles=D2128TCO.CopyFiles
+
+[D1226H.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1226H.AddReg, 1600, DPMS
+CopyFiles=D1226H.CopyFiles
+
+[P990.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P990.AddReg, 1600, DPMS
+CopyFiles=P990.CopyFiles
+
+[D1626HT.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=D1626HT.AddReg, 1600, DPMS
+CopyFiles=D1626HT.CopyFiles
+
+[M1110.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M1110.AddReg, 1600, DPMS
+CopyFiles=M1110.CopyFiles
+
+[P1690.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P1690.AddReg, 1920, DPMS
+CopyFiles=P1690.CopyFiles
+
+[M990.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M990.AddReg, 1600, DPMS
+CopyFiles=M990.CopyFiles
+
+[P1110.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P1110.AddReg, 1800, DPMS
+CopyFiles=P1110.CopyFiles
+
+[P780.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P780.AddReg, 1600, DPMS
+CopyFiles=P780.CopyFiles
+
+[E550.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E550.AddReg, 1024, DPMS
+CopyFiles=E550.CopyFiles
+
+[P991.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P991.AddReg, 1600, DPMS
+CopyFiles=P991.CopyFiles
+
+[M570.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M570.AddReg, 1280, DPMS
+CopyFiles=M570.CopyFiles
+
+[P790.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P790.AddReg, 1600, DPMS
+CopyFiles=P790.CopyFiles
+
+[E550mm/E550mmw.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E550mm/E550mmw.AddReg, 1024, DPMS
+CopyFiles=E550mm/E550mmw.CopyFiles
+
+[E770s.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E770s.AddReg, 1280, DPMS
+CopyFiles=E770s.CopyFiles
+
+[E770p.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E770p.AddReg, 1280, DPMS
+CopyFiles=E770p.CopyFiles
+
+[1501FP(Analog).Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1501FP(Analog).AddReg, 1024, DPMS
+CopyFiles=1501FP(Analog).CopyFiles
+
+[1501FP(Digital).Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1501FP(Digital).AddReg, 1024, DPMS
+CopyFiles=1501FP(Digital).CopyFiles
+
+[1401FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1401FP.AddReg, 1024, DPMS
+CopyFiles=1401FP.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1800]
+HKR,,MaxResolution,,"1800,1440"
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[D1428L.AddReg]
+HKR,"MODES\800,600",Mode1,,"31.0-48.0,43.0-75.0,+,+"
+HKR,,ICMProfile,0,"D1428L.icm"
+
+
+[800M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,ICMProfile,0,"800M.ICM"
+
+[828FI.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"828FI.icm"
+
+[D825HT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"D825HT.icm"
+
+[D825HR.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"D825HR.icm"
+
+[D828L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"D828L.icm"
+
+[D825TM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"D825TM.icm"
+
+[1400FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,55.0-86.0,+,+"
+HKR,,ICMProfile,0,"1400FP.icm"
+
+[1500FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"1500FP.icm"
+
+[1700FP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1700FP.icm"
+
+[D1569.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"D1569.ICM"
+
+[D1025HE.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"D1025HE.icm"
+
+[D1028L.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"D1028L.icm"
+
+[M770.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"M770.icm"
+
+[M780.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M780.icm"
+
+[D1025HTX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"D1025HTX.icm"
+
+[D1025HT.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"D1025HT.icm"
+
+[D1025TM.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"D1025TM.icm"
+
+[D2026T.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"D2026T.icm"
+
+[D2128TCO.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-102.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"D2128TCO.icm"
+
+[D1226H.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"D1226H.icm"
+
+[P990.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"P990.icm"
+
+[D1626HT.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"D1626HT.icm"
+
+[M1110.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M1110.icm"
+
+[P1690.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"P1690.icm"
+
+[M990.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M990.icm"
+
+[P1110.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-121.0,48.0-160.0,+,-"
+HKR,,ICMProfile,0,"P1110.icm"
+
+[P780.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"P780.icm"
+
+[E550.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"E550.icm"
+
+[P991.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"P991.icm"
+
+[M570.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M570.icm"
+
+[P790.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"P790.icm"
+
+[E550mm/E550mmw.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"E550mm.icm"
+
+[E770s.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E770s.icm"
+
+[E770p.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E770p.icm"
+
+[1501FP(Analog).AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"1501FP.icm"
+
+[1501FP(Digital).AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"1501FP.icm"
+
+[1401FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"60.0-60.0,31.0-48.0,+,+"
+HKR,,ICMProfile,0,"1401FP.icm"
+
+;------------------------------------------------------------------------------------------
+[D1428L.CopyFiles]
+D1428L.icm
+
+[1400FP.CopyFiles]
+1400FP.icm
+
+[1500FP.CopyFiles]
+1500FP.icm
+
+[1700FP.CopyFiles]
+1700FP.icm
+
+[D825HT.CopyFiles]
+D825HT.icm
+
+[828FI.CopyFiles]
+828FI.icm
+
+[800M.CopyFiles]
+800M.icm
+
+[D828L.CopyFiles]
+D828L.icm
+
+[D825HR.CopyFiles]
+D825HR.icm
+
+[D825TM.CopyFiles]
+D825TM.icm 
+
+[D1569.CopyFiles]
+D1569.ICM
+
+[D1025HT.CopyFiles]
+D1025HT.icm
+
+[D1025HTX.CopyFiles]
+D1025HTX.icm
+
+[D1028L.CopyFiles]
+D1028L.icm
+
+[M770.CopyFiles]
+M770.icm
+
+[M780.CopyFiles]
+M780.icm
+
+[D1025TM.CopyFiles]
+D1025TM.icm
+
+[D1226H.CopyFiles]
+D1226H.icm
+
+[P990.CopyFiles]
+P990.icm
+
+[D1025HE.CopyFiles]
+D1025HE.icm
+
+[D2128TCO.CopyFiles]
+D2128TCO.icm
+
+[D2026T.CopyFiles]
+D2026T.icm
+
+[D1626HT.CopyFiles]
+D1626HT.icm
+
+[M1110.Copyfiles]
+M1110.icm
+
+[P1690.Copyfiles]
+P1690.icm
+
+[M990.CopyFiles]
+M990.icm
+
+[P1110.CopyFiles]
+P1110.icm
+
+[P780.CopyFiles]
+P780.icm
+
+[E550.CopyFiles]
+E550.icm
+
+[P991.CopyFiles]
+P991.icm
+
+[M570.CopyFiles]
+M570.icm
+
+[P790.CopyFiles]
+P790.icm
+
+[E550mm/E550mmw.CopyFiles]
+E550mm.icm
+
+[E770s.CopyFiles]
+E770s.icm
+
+[E770p.CopyFiles]
+E770p.icm
+
+[1501FP(Analog).CopyFiles]
+1501FP.icm
+
+[1501FP(Digital).CopyFiles]
+1501FP.icm
+
+[1401FP.CopyFiles]
+1401FP.icm
+;------------------------------------------------------------------------------------------
+[Strings]
+
+MonitorClassName="Monitor"
+Dell="Dell Computer Corp."	
+D1428L="Dell D1428L"
+800M ="800M" 
+828FI="DELL 828FI"     
+1400FP="DELL 1400FP"
+1500FP="Dell 1500FP"
+1700FP="Dell 1700FP"
+D825HT="Dell D825HT"
+D825HR="Dell D825HR"
+D828L="Dell D828L"
+D825TM="Dell D825TM"
+D1569="DELL 1569"
+D1025HE="Dell D1025HE"
+D1028L="Dell D1028L"
+M770="Dell M770"
+M780="Dell M780"
+D1025HTX="Dell D1025HTX"
+D1025TM="Dell D1025TM"
+D1025HT="Dell 1726T-HS/ D1025HT"
+D2026T="Dell D2026T"
+D2128TCO="Dell D2128-TCO"
+P990="Dell P990"
+D1226H="Dell D1226H"
+D1626HT="Dell D1626HT"
+M1110="Dell M1110"
+P1690="Dell P1690"
+M990="Dell M990"
+P1110="Dell P1110"
+P780="Dell P780"
+E550="Dell E550"
+P991="Dell P991"
+M570="Dell M570"
+P790="Dell P790"
+E550mm/E550mmw="Dell E550mm/E550mmw"
+E770s="Dell E770s"
+E770p="Dell E770p"
+1501FP(Analog)="Dell 1501FP(Analog)"
+1501FP(Digital)="Dell 1501FP(Digital)"
+1401FP="Dell 1401FP"
+

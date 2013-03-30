@@ -1,0 +1,101 @@
+;===============================================================
+; [E2351.inf]
+; Revision 1.1   November-21-2011
+; Copyright(c)1998~2011 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=E2351.cat
+DriverVer=11/21/2011,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM5870
+ExcludeFromSelect.NT=Monitor\GSM5871
+ExcludeFromSelect.NT=Monitor\GSM5872
+
+[DestinationDirs]
+DefaultDestDir = 11
+E2351_Analog.CopyFiles = 23
+E2351_Digital.CopyFiles = 23
+E2351_HDMI.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+E2351.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%E2351_Analog%=E2351_Analog.Install,Monitor\GSM5870
+%E2351_Digital%=E2351_Digital.Install,Monitor\GSM5871
+%E2351_HDMI%=E2351_HDMI.Install,Monitor\GSM5872
+
+[LG.NTamd64]
+%E2351_Analog%=E2351_Analog.Install,Monitor\GSM5870
+%E2351_Digital%=E2351_Digital.Install,Monitor\GSM5871
+%E2351_HDMI%=E2351_HDMI.Install,Monitor\GSM5872
+
+[E2351_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2351_Analog.AddReg,1920,DPMS
+CopyFiles=E2351_Analog.CopyFiles
+
+[E2351_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2351_Digital.AddReg,1920,DPMS
+CopyFiles=E2351_Digital.CopyFiles
+
+[E2351_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2351_HDMI.AddReg,1920,DPMS
+CopyFiles=E2351_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E2351_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"E2351.ICM"
+
+[E2351_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"E2351.ICM"
+
+[E2351_HDMI.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-61.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"E2351.ICM"
+
+[E2351_Analog.CopyFiles]
+E2351.ICM
+
+[E2351_Digital.CopyFiles]
+E2351.ICM
+
+[E2351_HDMI.CopyFiles]
+E2351.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+E2351_Analog="LG E2351(Analog)"
+E2351_Digital="LG E2351(Digital)"
+E2351_HDMI="LG E2351(HDMI)"

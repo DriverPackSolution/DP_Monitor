@@ -1,0 +1,81 @@
+; Copyright 2002 Medion AG
+; this is a Setup information file for monitors  with ICM  file
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MED%
+Catalogfile=MD5043OD.cat
+DriverVer=08/22/2002,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED5736
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+5736.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+MD5043OD.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%MED%=MED
+
+; Manufacturer Sections
+;-------------------------------------------------
+[MED]
+%5736%=5736.Install, Monitor\MED5736
+
+; Install Sections
+;-------------------------------------------------
+[5736.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=5736.AddReg, 1280 ,DPMS
+Copyfiles=5736.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[5736.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"MD5043OD.icm"
+
+[5736.CopyFiles]
+MD5043OD.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Medion LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+MED="Medion AG"
+5736="MD 5043 OD"

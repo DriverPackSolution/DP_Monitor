@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2245wm.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/25/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2245wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2245wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX2245wm%=VX2245wm.Install,Monitor\VSCBB1E  
+
+[ViewSonic.NTia64]   
+%VX2245wm%=VX2245wm.Install,Monitor\VSCBB1E  
+
+[ViewSonic.NTamd64]   
+%VX2245wm%=VX2245wm.Install,Monitor\VSCBB1E  
+
+[VX2245wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2245wm.AddReg,1680,DPMS
+Copyfiles=VX2245wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2245wm.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"30-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX2245wm.ICM"
+
+[VX2245wm.CopyFiles]                                       
+VX2245wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VX2245wm="ViewSonic VX2245wm"

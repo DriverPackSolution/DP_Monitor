@@ -1,0 +1,83 @@
+; N-FE95P.INF
+; Setup information file for NEC MultiSync FE950+ Monitor
+;
+; Copyright 2001, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=N-FE95P.cat
+DriverVer=08/10/2001,1.08.0010.1831
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61B4
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-FE950P.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+n-fe95p1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-FE950P%=NEC-FE950P.Install, Monitor\NEC61B4
+
+; Install Sections
+;-------------------------------------------------
+[NEC-FE950P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE950P.AddReg, 1792, DPMS
+CopyFiles=NEC-FE950P.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-FE950P.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"n-fe95p1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-FE950P.CopyFiles]
+N-FE95P1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-FE950P="NEC MultiSync FE950+"

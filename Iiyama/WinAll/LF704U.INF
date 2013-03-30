@@ -1,0 +1,69 @@
+;LF704U.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor LF704U
+;Copyright 2004 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=LF704U.cat      
+DriverVer=05/01/2004,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM1770
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LF704U.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+LF704U.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%LF704U%=LF704U.Install, Monitor\IVM1770
+
+[LF704U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LF704U.AddReg, 1280, DPMS
+CopyFiles=LF704U.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LF704U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-72,50-160,+,+"
+HKR,,ICMProfile,0,"LF704U.ICM"
+
+[LF704U.CopyFiles]
+LF704U.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA CRT Monitor Installation Disk"
+
+LF704U="IIYAMA LF704U"

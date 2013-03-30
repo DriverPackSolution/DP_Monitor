@@ -1,0 +1,87 @@
+; [L885.INF]
+; Revision 1.01
+; Copyright(c) 2003 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L885.cat
+DriverVer=10/03/2003,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENC1705
+ExcludeFromSelect.nt=Monitor\ENC1706
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L885D.CopyFiles = 23
+L885.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L885.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L885D%=L885D.Install, Monitor\ENC1705
+%L885%=L885.Install, Monitor\ENC1706
+
+[L885D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L885D.AddReg, 1600, DPMS
+CopyFiles=L885D.CopyFiles
+
+[L885.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L885.AddReg, 1600, DPMS
+CopyFiles=L885.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L885D.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-76.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L885.icm"
+
+[L885.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.0-94.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"L885.icm"
+
+[L885D.CopyFiles]
+L885.icm
+
+[L885.CopyFiles]
+L885.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L885D="L885"
+L885="L885"

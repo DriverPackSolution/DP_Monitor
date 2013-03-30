@@ -1,0 +1,82 @@
+; N-FE992.INF	
+; Setup information file for NEC MultiSync FE992 Monitor
+;
+; Copyright 2005, NEC Display Solutions of America Inc.
+;-------------------------------------------------																		
+[Version]
+signature="$CHICAGO$"
+Class=Monitor																
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NDS%
+CatalogFile=N-FE992.cat
+DriverVer=05/10/2005,5.05.0010
+;-------------------------------------------------																
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61E7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-FE992.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NDSDiskLabel%,,,
+
+[SourceDisksFiles]
+n-fe992.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NDS%=NDS
+
+; Manufacturer sections
+;-------------------------------------------------	
+[NDS]
+%NEC-FE992%=NEC-FE992.Install, Monitor\NEC61E7
+
+; Install Sections
+;-------------------------------------------------					
+[NEC-FE992.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE992.AddReg, 2048, DPMS
+CopyFiles=NEC-FE992.CopyFiles
+
+; AddReg & DelReg Sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+; Model AddReg sections
+[NEC-FE992.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"n-fe992.icm"
+; Copyfiles Section
+[NEC-FE992.CopyFiles]
+n-fe992.ICM
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+NDS="NEC Display Solutions"
+NDSDiskLabel="NEC Display Monitor Installation Disk"
+NEC-FE992="NEC MultiSync FE992"
+

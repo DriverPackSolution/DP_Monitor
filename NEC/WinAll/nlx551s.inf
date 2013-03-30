@@ -1,0 +1,136 @@
+; nlx551s.inf
+; Setup information file for NEC MultiSync X551S Monitor
+;
+; Copyright (C) 2011, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlx551s.cat
+DriverVer=04/08/2011, 1.11.0408.2234
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6824
+ExcludeFromSelect.nt=Monitor\NEC6825
+ExcludeFromSelect.nt=Monitor\NEC6826
+ExcludeFromSelect.nt=Monitor\NEC6827
+
+[DestinationDirs]
+X551S.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlx551s.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%X551S-A%=X551S-A.Install, Monitor\NEC6824
+%X551S-D%=X551S-D.Install, Monitor\NEC6825
+%X551S-H%=X551S-H.Install, Monitor\NEC6826
+%X551S-P%=X551S-P.Install, Monitor\NEC6827
+
+[NECDS.ntamd64]
+%X551S-A%=X551S-A.Install.ntamd64, Monitor\NEC6824
+%X551S-D%=X551S-D.Install.ntamd64, Monitor\NEC6825
+%X551S-H%=X551S-H.Install.ntamd64, Monitor\NEC6826
+%X551S-P%=X551S-P.Install.ntamd64, Monitor\NEC6827
+
+; Install Sections
+;-------------------------------------------------
+[X551S-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X551S-A.AddReg, 1920, DPMS
+CopyFiles=X551S.CopyFiles
+
+[X551S-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X551S-D.AddReg, 1920, DPMS
+CopyFiles=X551S.CopyFiles
+
+[X551S-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X551S-H.AddReg, 1920, DPMS
+CopyFiles=X551S.CopyFiles
+
+[X551S-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X551S-P.AddReg, 1920, DPMS
+CopyFiles=X551S.CopyFiles
+
+[X551S-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X551S-A.AddReg, 1920, DPMS
+CopyFiles=X551S.CopyFiles
+
+[X551S-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X551S-D.AddReg, 1920, DPMS
+CopyFiles=X551S.CopyFiles
+
+[X551S-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X551S-H.AddReg, 1920, DPMS
+CopyFiles=X551S.CopyFiles
+
+[X551S-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X551S-P.AddReg, 1920, DPMS
+CopyFiles=X551S.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[X551S-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx551s.icm"
+
+[X551S-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx551s.icm"
+
+[X551S-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx551s.icm"
+
+[X551S-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx551s.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[X551S.CopyFiles]
+nlx551s.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+X551S-A="NEC MultiSync X551S(Analog)"
+X551S-D="NEC MultiSync X551S(Digital)"
+X551S-H="NEC MultiSync X551S(HDMI)"
+X551S-P="NEC MultiSync X551S(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

@@ -1,0 +1,93 @@
+; This is a Setup information file for monitors  with ICM  file; 
+;Copyright 2008 Acer Incorporated 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ACR%
+CatalogFile=B203W.cat   
+DriverVer=02/28/2008,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ACR001F
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+001F.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+B203W.ICM=1
+
+; Manufacturers 
+;-------------------------------------------------
+[Manufacturer]
+%ACR%=ACR,NTAMD64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[ACR]
+%001F%=001F.Install, Monitor\ACR001F
+;-------------------------------------------------
+[ACR.NTAMD64] 
+%001F%=001F.Install, Monitor\ACR001F
+
+; Manufacturer Sections
+;-------------------------------------------------
+[ACR]
+%001F%=001F.Install, Monitor\ACR001F
+
+; Install Sections
+;-------------------------------------------------
+[001F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=001F.AddReg, 1680 ,DPMS
+Copyfiles=001F.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[001F.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"B203W.icm"
+
+[001F.CopyFiles]
+B203W.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Acer Monitor Installation Disk"
+MonitorClassName="Monitor"
+ACR="Acer Incorporated"
+001F="Acer LCD Monitor B203W"
+

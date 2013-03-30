@@ -1,0 +1,117 @@
+;========================================== 
+; BenQ_G900W.INF 04/19/07 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2007, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G900W.cat
+DriverVer=04/19/2007,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7805
+ExcludeFromSelect.NT=Monitor\BNQ7806
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G900W_Analog.copyfiles = 23
+G900W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G900WDSUB.icm=1
+G900WDVI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G900W_Analog%=G900W_Analog.Install, Monitor\BNQ7805
+%G900W_Digital%=G900W_Digital.Install, Monitor\BNQ7806
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G900W_Analog%=G900W_Analog.Install, Monitor\BNQ7805
+%G900W_Digital%=G900W_Digital.Install, Monitor\BNQ7806
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G900W_Analog%=G900W_Analog.Install, Monitor\BNQ7805
+%G900W_Digital%=G900W_Digital.Install, Monitor\BNQ7806
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G900W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G900W_Analog.AddReg, 1440, DPMS
+CopyFiles=G900W_Analog.CopyFiles
+
+[G900W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G900W_Digital.AddReg, 1440, DPMS
+CopyFiles=G900W_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[G900W_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1440,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"G900WDSUB.icm"
+
+[G900W_Digital.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1440,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"G900WDVI.icm"
+
+
+[G900W_Analog.CopyFiles]
+G900WDSUB.ICM
+
+[G900W_Digital.CopyFiles]
+G900WDVI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G900W_Analog="BenQ G900W (Analog)"
+G900W_Digital="BenQ G900W (Digital)"

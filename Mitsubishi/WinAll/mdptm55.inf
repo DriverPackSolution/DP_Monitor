@@ -1,0 +1,82 @@
+; MDPTM55.INF
+; Setup information file for Mitsubishi DiamondPoint M55LCD Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+
+DriverVer=11/25/2002,2.11.0025.1443
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4647
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DPoint-M55LCD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+mdptm55.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%DPoint-M55LCD%=DPoint-M55LCD.Install, Monitor\MEL4647
+
+; Install Sections
+;-------------------------------------------------
+[DPoint-M55LCD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPoint-M55LCD.AddReg, 1024, DPMS
+CopyFiles=DPoint-M55LCD.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[DPoint-M55LCD.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"mdptm55.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[DPoint-M55LCD.CopyFiles]
+mdptm55.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+DPoint-M55LCD="Mitsubishi DiamondPoint M55LCD"

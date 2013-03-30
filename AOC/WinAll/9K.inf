@@ -1,0 +1,67 @@
+; 9K.INF 06/02/03 Ver. 1.0
+; Copyright (c) 2003 AOC International (Europe) GmbH 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+CatalogFile=9K.cat
+DriverVer=06/02/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOCA991
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AOC9K.copyfiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+9K.icm=1
+
+[Manufacturer]
+%AOC%=AOC
+
+[AOC]
+%9K%=AOC9K.Install,Monitor\AOCA991
+
+[AOC9K.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AOC9K.AddReg,1600,DPMS
+CopyFiles=AOC9K.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HkR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AOC9K.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,IcmProfile,0,"9K.icm"
+
+[AOC9K.CopyFiles]
+9K.icm
+
+[strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+9K="AOC 9K+"

@@ -1,0 +1,79 @@
+; #################################################
+;
+;   1725.inf         Ver. 1.21      7/09/2002
+;
+;   Copyright (c)2002, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq 1725 Flat Panel Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=CPQ1725.cat
+DriverVer=07/09/2002,1.21
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ1454
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1725.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQ_1725.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%1725%=1725.Install, Monitor\CPQ1454
+
+[1725.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1725.AddReg, 1280, DPMS
+CopyFiles=1725.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1725.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"CPQ_1725.icm"
+
+[1725.CopyFiles]
+CPQ_1725.icm
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+1725="COMPAQ 1725 Flat Panel Monitor"
+Disk1="COMPAQ 1725 Software CD"

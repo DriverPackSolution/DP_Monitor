@@ -1,0 +1,95 @@
+
+;================================ 
+;E771a.INF 09/13/00 Ver. 2.0 SND
+;Copyright 1996-2000 Dell Computer Corporation
+;
+;This is a setupfile for  the DELL 
+;E771a Monitor.  This file supports
+;Windows 95, 98, Millennium and 2000
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E771a.cat
+DriverVer=08/29/2000, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA001
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E771a.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E771a.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E771a%=E771a.Install, Monitor\DELA001
+
+; Install Sections
+;-------------------------------------------------
+
+[E771a.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E771a.AddReg, 1280, DPMS
+CopyFiles=E771a.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E771a.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E771a.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E771a.CopyFiles]
+E771a.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E771a="Dell E771a"
+

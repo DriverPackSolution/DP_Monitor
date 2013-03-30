@@ -1,0 +1,125 @@
+;========================================= 
+; BenQ_GL2440H.INF 06/09/10 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2010, BENQ Corporation
+;=========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=GL2440H.cat
+DriverVer=06/09/2010,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7888
+ExcludeFromSelect.NT=Monitor\BNQ7889
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+GL2440H_Analog.copyfiles = 23
+GL2440H_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+GL2440HAnalog.icm=1
+GL2440HDigital.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%GL2440H_Analog%=GL2440H_Analog.Install, Monitor\BNQ7888
+%GL2440H_Digital%=GL2440H_Digital.Install, Monitor\BNQ7889
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%GL2440H_Analog%=GL2440H_Analog.Install, Monitor\BNQ7888
+%GL2440H_Digital%=GL2440H_Digital.Install, Monitor\BNQ7889
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%GL2440H_Analog%=GL2440H_Analog.Install, Monitor\BNQ7888
+%GL2440H_Digital%=GL2440H_Digital.Install, Monitor\BNQ7889
+
+; Install Sections
+;-------------------------------------------------
+
+[GL2440H_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GL2440H_Analog.AddReg, 1920, DPMS
+CopyFiles=GL2440H_Analog.CopyFiles
+
+[GL2440H_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GL2440H_Digital.AddReg, 1920, DPMS
+CopyFiles=GL2440H_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[GL2440H_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"GL2440HAnalog.icm"
+
+[GL2440H_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"GL2440HDigital.icm"
+
+
+
+[GL2440H_Analog.CopyFiles]
+GL2440HAnalog.ICM
+
+
+[GL2440H_Digital.CopyFiles]
+GL2440HDigital.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+GL2440H_Analog="BenQ GL2440H (Analog)"
+GL2440H_Digital="BenQ GL2440H (Digital)"
+

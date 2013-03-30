@@ -1,0 +1,120 @@
+
+;==================================================
+; SM400EXN.inf 03/24/2010 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM400EXN.cat
+DriverVer=03/24/2010 ,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM06E8
+ExcludeFromSelect.nt=Monitor\SAM06E9
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM400EXNa.CopyFiles = 23
+SM400EXNd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM400EXN.icm=1
+SM400EXN.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM400EXNa%=SM400EXNa.Install, Monitor\SAM06E8
+%SM400EXNd%=SM400EXNd.Install, Monitor\SAM06E9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM400EXNa%=SM400EXNa.Install, Monitor\SAM06E8
+%SM400EXNd%=SM400EXNd.Install, Monitor\SAM06E9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM400EXNa%=SM400EXNa.Install, Monitor\SAM06E8
+%SM400EXNd%=SM400EXNd.Install, Monitor\SAM06E9
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM400EXNa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM400EXNa.AddReg, 1920, DPMS
+CopyFiles=SM400EXNa.CopyFiles
+
+[SM400EXNd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM400EXNd.AddReg, 1920, DPMS
+CopyFiles=SM400EXNd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM400EXNa.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM400EXN.icm"
+
+[SM400EXNd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,23-85,+,+"
+HKR,,ICMProfile,0,"SM400EXN.icm"
+;------------------------------------------------------
+
+[SM400EXNa.CopyFiles]
+SM400EXN.icm
+
+[SM400EXNd.CopyFiles]
+SM400EXN.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM400EXNa="SyncMaster 400EXN(Analog)"
+SM400EXNd="SyncMaster 400EXN(Digital)"

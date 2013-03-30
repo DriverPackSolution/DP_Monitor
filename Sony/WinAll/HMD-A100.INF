@@ -1,0 +1,67 @@
+; #######################################
+;      [HMD-A100.INF]
+;
+;      Revision 2.72   Mar 15, 2000
+;      Sony Corporation
+;      Copyright  2000
+; #######################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%SONY%
+CatalogFile=HMD-A100.cat
+DriverVer=03/15/2000,2.7.2.0
+
+[ControlFlags]
+ExcludeFromSelect=Monitor\SNY0E50
+
+[DestinationDirs]
+DefaultDestDir=11
+HMD-A100.Copyfiles=23
+
+[SourceDisksNames]
+1=%disk%,,,
+
+[SourceDisksFiles]
+sony_d93.icm=1
+sony_d65.icm=1
+sony_d50.icm=1
+
+[Manufacturer]
+%SONY%=SONY
+
+[SONY]
+%HMD-A100%=HMD-A100.Install, Monitor\SNY0E50
+
+[HMD-A100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HMD-A100.AddReg, 1280, DPMS
+CopyFiles=HMD-A100.Copyfiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HMD-A100.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[HMD-A100.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+
+[Strings]
+SONY="SONY Corporation"
+DISK="SONY Monitor Information Disk"
+HMD-A100="SONY HMD-A100"

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP950B-2.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/19/2007, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP950B-2.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP950B-2.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCA720
+
+[ViewSonic]   
+%VP950B-2%=VP950B-2.Install,Monitor\VSCA720  
+
+[ViewSonic.NTia64]   
+%VP950B-2%=VP950B-2.Install,Monitor\VSCA720
+
+[ViewSonic.NTamd64]   
+%VP950B-2%=VP950B-2.Install,Monitor\VSCA720 
+
+[VP950B-2.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VP950B-2.AddReg,1280,DPMS
+Copyfiles=VP950B-2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP950B-2.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"24-82,50-85,+,+" 
+HKR,,ICMProfile,0,"VP950B-2.ICM"
+
+[VP950B-2.CopyFiles]                                       
+VP950B-2.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VP950B-2 ViewSonic Wizard"
+VP950B-2="ViewSonic VP950B-2"

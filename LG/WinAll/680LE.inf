@@ -1,0 +1,60 @@
+;=============================================================== 
+; [680LE.INF] 
+; Revision 1.4   APRIL-12-2002
+; Copyright(c)1998~2002 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+DriverVer=04/12/2002,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3E81
+
+[DestinationDirs]
+DefaultDestDir=11
+680LE.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG680LE.ICM=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%680LE%=680LE.Install,Monitor\GSM3E81
+
+[680LE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=680LE.AddReg,1280,DPMS
+CopyFiles=680LE.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[680LE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"LG680LE.ICM"
+
+[680LE.CopyFiles]
+LG680LE.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+680LE="FLATRON LCD 680LE"

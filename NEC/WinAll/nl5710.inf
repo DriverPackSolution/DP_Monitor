@@ -1,0 +1,100 @@
+; nl5710.inf
+; Setup information file for NEC MultiSync LCD5710 Monitor
+;
+; Copyright (C) 2007 NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl5710.cat
+DriverVer=05/16/2007, 1.07.0516.1556
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC670D
+ExcludeFromSelect.nt=Monitor\NEC670C
+
+[DestinationDirs]
+LCD5710.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl5710.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD5710-D%=LCD5710-D.Install, Monitor\NEC670D
+%LCD5710-A%=LCD5710-A.Install, Monitor\NEC670C
+
+[NECDS.ntamd64]
+%LCD5710-D%=LCD5710-D.Install.ntamd64, Monitor\NEC670D
+%LCD5710-A%=LCD5710-A.Install.ntamd64, Monitor\NEC670C
+
+; Install Sections
+;-------------------------------------------------
+[LCD5710-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD5710-D.AddReg, 1920, DPMS
+CopyFiles=LCD5710.CopyFiles
+
+[LCD5710-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD5710-A.AddReg, 1920, DPMS
+CopyFiles=LCD5710.CopyFiles
+
+[LCD5710-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD5710-D.AddReg, 1920, DPMS
+CopyFiles=LCD5710.CopyFiles
+
+[LCD5710-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD5710-A.AddReg, 1920, DPMS
+CopyFiles=LCD5710.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD5710-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl5710.icm"
+
+[LCD5710-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl5710.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD5710.CopyFiles]
+nl5710.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD5710-D="NEC MultiSync LCD5710(Digital)"
+LCD5710-A="NEC MultiSync LCD5710(Analog)"
+Disk1="NEC Monitor Installation Disk"

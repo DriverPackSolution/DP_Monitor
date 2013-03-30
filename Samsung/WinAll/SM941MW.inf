@@ -1,0 +1,120 @@
+
+;==================================================
+; SM941MW.inf 04/17/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM941MW.cat
+DriverVer=04/17/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM02F8
+ExcludeFromSelect.nt=Monitor\SAM02F9
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM941MWa.CopyFiles = 23
+SM941MWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM941MW.icm=1
+SM941MW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM941MWa%=SM941MWa.Install, Monitor\SAM02F8
+%SM941MWd%=SM941MWd.Install, Monitor\SAM02F9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM941MWa%=SM941MWa.Install, Monitor\SAM02F8
+%SM941MWd%=SM941MWd.Install, Monitor\SAM02F9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM941MWa%=SM941MWa.Install, Monitor\SAM02F8
+%SM941MWd%=SM941MWd.Install, Monitor\SAM02F9
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM941MWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM941MWa.AddReg, 1440, DPMS
+CopyFiles=SM941MWa.CopyFiles
+
+[SM941MWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM941MWd.AddReg, 1440, DPMS
+CopyFiles=SM941MWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM941MWa.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM941MW.icm"
+
+[SM941MWd.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM941MW.icm"
+;------------------------------------------------------
+
+[SM941MWa.CopyFiles]
+SM941MW.icm
+
+[SM941MWd.CopyFiles]
+SM941MW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM941MWa="SyncMaster 941MW/941MG(Analog)"
+SM941MWd="SyncMaster 941MW/941MG(Digital)"

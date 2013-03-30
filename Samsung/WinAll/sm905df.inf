@@ -1,0 +1,95 @@
+
+;==================================================
+; sm905df.inf 09/07/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm905df.cat
+DriverVer=09/07/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM002D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm905df.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm905df.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm905df%=sm905df.Install, Monitor\SAM002D
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm905df.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm905df.AddReg, 1792, DPMS
+CopyFiles=sm905df.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm905df.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30-85,50-160,+,+"
+HKR,,ICMProfile,0,"sm905df.icm"
+
+
+;------------------------------------------------------
+
+[sm905df.CopyFiles]
+sm905df.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm905df=" SyncMaster 905DF(X)/955DF(X), MagicSyncMaster CD195A(P)"
+

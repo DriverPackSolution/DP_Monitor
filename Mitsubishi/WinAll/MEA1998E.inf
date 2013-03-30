@@ -1,0 +1,100 @@
+;======================================================================
+; Diamond View 1998E Colour Display Monitor
+; DV1998E.INF 04/10/02 Ver. 1.0  
+; Setup Information File for Windows Me/9x/2000/XP
+; Copyright (c)  2002, Mitsubishi Electric Australia Pty. Ltd.  - v1.0
+;
+;======================================================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+;CatalogFile=MEA1998E.cat
+DriverVer=4/10/2002, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEA1998
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MEA1998E.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%Diskname%,,,
+
+[SourceDisksFiles]
+MEA1998E.ICM=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%MEA%=MEA
+
+; Manufacturer sections
+;-------------------------------------------------
+ [MEA] 
+%MEA1998E%=MEA1998E.Install, Monitor\MEA1998
+
+; Install Sections
+;-------------------------------------------------
+
+[MEA1998E.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=MEA1998E.AddReg, 1600, DPMS
+CopyFiles=MEA1998E.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[MEA1998E.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"MEA1998E.ICM"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[MEA1998E.CopyFiles]
+MEA1998E.ICM
+
+;------------------------------------------------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Monitor Installation Disk"
+MEA="Mitsubishi Electric Australia"
+MEA1998E="MEA 1998E"
+

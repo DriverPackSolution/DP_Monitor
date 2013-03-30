@@ -1,0 +1,132 @@
+; ###########################################################
+;
+;   HP_LP2275w.inf        Ver. 1.00        4/3/2008
+;
+;   Copyright (c)2008, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP LP2275w Wide LCD Monitor.
+; 
+; ###########################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_LP2275w.cat
+DriverVer=04/03/2008,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP2806
+ExcludeFromSelect.nt = MONITOR\HWP2807
+ExcludeFromSelect.nt = MONITOR\HWP2808
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LP2275w.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_LP2275w.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%LP2275w_VGA%=LP2275w_VGA.Install, Monitor\HWP2806
+%LP2275w_DVI%=LP2275w_DVI.Install, Monitor\HWP2807
+%LP2275w_DP%=LP2275w_DP.Install, Monitor\HWP2808
+
+[HP.NTamd64]
+%LP2275w_VGA%=LP2275w_VGA.Install, Monitor\HWP2806
+%LP2275w_DVI%=LP2275w_DVI.Install, Monitor\HWP2807
+%LP2275w_DP%=LP2275w_DP.Install, Monitor\HWP2808
+
+[LP2275w_VGA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP2275w_VGA.AddReg, 1680, DPMS
+CopyFiles=LP2275w.CopyFiles
+
+[LP2275w_DVI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP2275w_DVI.AddReg, 1680, DPMS
+CopyFiles=LP2275w.CopyFiles
+
+[LP2275w_DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP2275w_DP.AddReg, 1680, DPMS
+CopyFiles=LP2275w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LP2275w_VGA.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-93,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1280,960",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1440,900",Mode1,,"30-93,48-85,-,+"
+HKR,"MODES\1600,1000",Mode1,,"30-93,48-85,+,-"
+HKR,"MODES\1680,1050",Mode1,,"30-93,48-85,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_LP2275w.icm"
+
+[LP2275w_DVI.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-93,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1280,960",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1440,900",Mode1,,"30-93,48-85,-,+"
+HKR,"MODES\1600,1000",Mode1,,"30-93,48-85,+,-"
+HKR,"MODES\1680,1050",Mode1,,"30-93,48-85,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_LP2275w.icm"
+
+[LP2275w_DP.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-93,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1280,960",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-93,48-85,+,+"
+HKR,"MODES\1440,900",Mode1,,"30-93,48-85,-,+"
+HKR,"MODES\1600,1000",Mode1,,"30-93,48-85,+,-"
+HKR,"MODES\1680,1050",Mode1,,"30-93,48-85,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_LP2275w.icm"
+
+[LP2275w.CopyFiles]
+HP_LP2275w.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+LP2275w_VGA="HP LP2275w Wide LCD Monitor"
+LP2275w_DVI="HP LP2275w Wide LCD Monitor"
+LP2275w_DP="HP LP2275w Wide LCD Monitor"
+Disk1="HP LP2275w Driver Software"

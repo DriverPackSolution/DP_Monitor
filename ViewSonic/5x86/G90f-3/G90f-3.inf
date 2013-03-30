@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=G90f-3.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/01/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+G90f-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+G90f-3.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]
+%G90f-3%=G90f-3.Install,Monitor\VSCC91A                 ;G90f-3
+
+[G90f-3.Install]                                        ;G90f-3
+DelReg=DEL_CURRENT_REG 
+AddReg=G90f-3.AddReg,1920,DPMS
+Copyfiles=G90f-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[G90f-3.AddReg]                                          ;G90f-3
+HKR,"MODES\1920,1440",Mode1,,"30-97,50-180,+,+"
+HKR,,ICMProfile,0,"G90f-3.ICM"
+
+[G90f-3.CopyFiles] 
+G90f-3.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+G90f-3="ViewSonic G90f-3"

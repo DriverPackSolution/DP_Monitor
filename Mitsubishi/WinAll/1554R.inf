@@ -1,0 +1,66 @@
+; INF File for Windows 9x/Me/2000
+; Copyright (c)  2000, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+DriverVer=10/20/2000,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA1501
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+1554R.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1554R.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%1554R%=1554R.Install,Monitor\MEA1501
+
+[1554R.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1554R.AddReg, 1024, DPMS
+CopyFiles=1554R.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1554R.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"1554R.ICM"
+
+[1554R.CopyFiles]
+1554R.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Mitsubishi Monitor Installation Disk"
+MEA="Mitsubishi Electric Australia"
+1554R="Diamond View 1554R"

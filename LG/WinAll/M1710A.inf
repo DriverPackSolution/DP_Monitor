@@ -1,0 +1,65 @@
+;=============================================================== 
+; [M1710A.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M1710A.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM43D6
+
+[DestinationDirs]
+DefaultDestDir=11
+M1710A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGM1710A.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M1710A%=M1710A.Install,Monitor\GSM43D6
+
+[LG.NTamd64]
+%M1710A%=M1710A.Install,Monitor\GSM43D6
+
+[M1710A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1710A.AddReg,1280,DPMS
+CopyFiles=M1710A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1710A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGM1710A.ICM"
+
+[M1710A.CopyFiles]
+LGM1710A.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M1710A="LG M1710A"

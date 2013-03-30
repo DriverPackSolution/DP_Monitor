@@ -1,0 +1,69 @@
+; VE2701XG.inf
+; Setup information file for NEC VE2701XG Monitor
+;
+; Copyright 2011, NEC Display Solutions,Ltd.
+; V001
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=VE2701XG.cat
+DriverVer=05/23/2011,1.09.1126.1945
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC685E
+
+[DestinationDirs]
+DefaultDestDir = 11
+VE2701XG.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+VE2701XG.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%VE2701XG%=VE2701XG.Install, Monitor\NEC685E
+
+[NECDS.ntamd64]
+%VE2701XG%=VE2701XG.Install.ntamd64, Monitor\NEC685E
+
+[VE2701XG.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VE2701XG.AddReg, 1920, DPMS
+CopyFiles=VE2701XG.CopyFiles
+
+[VE2701XG.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=VE2701XG.AddReg, 1920, DPMS
+CopyFiles=VE2701XG.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,1920,1080
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VE2701XG.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"VE2701XG.icm"
+
+[VE2701XG.CopyFiles]
+VE2701XG.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+VE2701XG="NEC VE2701XG"

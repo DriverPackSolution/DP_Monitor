@@ -1,0 +1,65 @@
+;=============================================================== 
+; [M1510S.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M1510S.cat
+DriverVer=04/14/2005,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3BAB
+
+[DestinationDirs]
+DefaultDestDir=11
+M1510S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M1510S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M1510S%=M1510S.Install,Monitor\GSM3BAB
+
+[LG.NTamd64]
+%M1510S%=M1510S.Install,Monitor\GSM3BAB
+
+[M1510S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1510S.AddReg,1024,DPMS
+CopyFiles=M1510S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1510S.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMprofile,0,"M1510S.ICM"
+
+[M1510S.CopyFiles]
+M1510S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M1510S="LG M1510S"

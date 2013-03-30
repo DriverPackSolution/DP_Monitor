@@ -1,0 +1,122 @@
+; [PL2202W.INF]
+; Revision 2.00
+; Copyright(c) 2007 IIYAMA CORPORATION
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+Catalogfile=PL2202W.cat
+DriverVer=12/19/2007,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IVM5603
+;ExcludeFromSelect.NT=Monitor\IVM5603
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+PL2202W_Analog.Copyfiles = 23
+PL2202W_Digital.Copyfiles = 23
+
+[SourceDisksNames]
+1=%Diskname%,,,
+
+[SourceDisksfiles]
+PL2202W.icm=1
+
+[Manufacturer]
+%iiyama%=iiyama,ntamd64
+
+;[PL2202W.Install]
+;Manufacturer sections
+;-------------------------------------------------
+[iiyama] 
+%PL2202W_Analog%=PL2202W_Analog.Install, Monitor\IVM5603
+%PL2202W_Digital%=PL2202W_Digital.Install, Monitor\IVM5603
+
+;-------------------------------------------------
+[iiyama.ntamd64] 
+%PL2202W_Analog%=PL2202W_Analog.Install, Monitor\IVM5603
+%PL2202W_Digital%=PL2202W_Digital.Install, Monitor\IVM5603
+
+
+; Install Sections
+;-------------------------------------------------
+
+[PL2202W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2202W_Analog.AddReg, 1680, DPMS
+Copyfiles=PL2202W_Analog.Copyfiles
+
+[PL2202W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2202W_Digital.AddReg, 1680, DPMS
+Copyfiles=PL2202W_Digital.Copyfiles
+
+[PL2202W_Analog.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2202W_Analog.AddReg, 1680, DPMS
+Copyfiles=PL2202W_Analog.Copyfiles
+
+[PL2202W_Digital.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2202W_Digital.AddReg, 1680, DPMS
+Copyfiles=PL2202W_Digital.Copyfiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+[PL2202W_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2202W.ICM"
+
+[PL2202W_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2202W.ICM"
+
+
+[PL2202W_Analog.Copyfiles]
+PL2202W.ICM
+
+[PL2202W_Digital.Copyfiles]
+PL2202W.ICM
+
+[Strings]
+diskname="iiyama LCD Monitor installation diskette"
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+
+PL2202W_Analog="iiyama ProLite E2202WS_WSV Analog"
+PL2202W_Digital="iiyama ProLite E2202WS Digital"

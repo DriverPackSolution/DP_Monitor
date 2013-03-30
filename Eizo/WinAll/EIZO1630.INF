@@ -1,0 +1,75 @@
+; [EIZO1630.INF]
+; Revision 1.00
+; Copyright(c) 2000 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=EIZO1630.cat
+DriverVer=11/30/2000,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENC1630
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+;
+F931.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+F931__50.ICM=1
+F931__65.ICM=1
+F931__93.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%F931%=F931.Install, Monitor\ENC1630
+
+[F931.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F931.AddReg, 2048, DPMS
+CopyFiles=F931.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F931.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-130.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F931__93.ICM"
+
+[F931.CopyFiles]
+F931__50.ICM
+F931__65.ICM
+F931__93.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO CRT Utility Disk"
+
+F931="F931"

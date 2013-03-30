@@ -1,0 +1,92 @@
+; This is a setup information file for IIYAMA PLT2250MTS
+;
+; Copyright 2009 IIYAMA CORPORATION.
+;
+;-----------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PLT2250MTS.cat
+DriverVer=09/16/2009,1.0.0.0
+
+;-----------------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM5613
+
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLT2250MTS.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+PLT2250MTS.icm=1
+
+; Manufacturers
+;-----------------------------------------------------------
+[Manufacturer]
+%IIYAMA%=IIYAMA, NTx86, NTia64, NTamd64 
+
+; Manufacturer sections
+;-----------------------------------------------------------
+[IIYAMA]
+%PLT2250MTS%=PLT2250MTS.Install, Monitor\IVM5613
+
+[IIYAMA.NTx86]
+%PLT2250MTS%=PLT2250MTS.Install, Monitor\IVM5613
+
+[IIYAMA.NTia64]
+%PLT2250MTS%=PLT2250MTS.Install, Monitor\IVM5613
+
+[IIYAMA.NTamd64]
+%PLT2250MTS%=PLT2250MTS.Install, Monitor\IVM5613
+
+
+; Install Sections
+;-----------------------------------------------------------
+[PLT2250MTS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLT2250MTS.AddReg, 1920, DPMS
+CopyFiles=PLT2250MTS.CopyFiles
+
+; AddReg & DELReg sections
+;-----------------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920, 1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------------
+[PLT2250MTS.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"29.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLT2250MTS.icm"
+
+;-----------------------------------------------------------
+[PLT2250MTS.CopyFiles]
+PLT2250MTS.icm
+
+;-----------------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Disk="IIYAMA Monitor INF Disk"
+IIYAMA="IIYAMA CORPORATION."
+PLT2250MTS="IIYAMA PLT2250MTS"

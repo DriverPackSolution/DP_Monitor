@@ -1,0 +1,126 @@
+;========================================= 
+; BenQ_XL2410T.INF 07/07/10 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2010, BENQ Corporation
+;=========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=XL2410T.cat
+DriverVer=07/07/2010,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7F01
+ExcludeFromSelect.NT=Monitor\BNQ7F02
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+XL2410T_Analog.copyfiles = 23
+XL2410T_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+XL2410TAnalog.icm=1
+XL2410TDigital.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%XL2410T_Analog%=XL2410T_Analog.Install, Monitor\BNQ7F01
+%XL2410T_Digital%=XL2410T_Digital.Install, Monitor\BNQ7F02
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%XL2410T_Analog%=XL2410T_Analog.Install, Monitor\BNQ7F01
+%XL2410T_Digital%=XL2410T_Digital.Install, Monitor\BNQ7F02
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%XL2410T_Analog%=XL2410T_Analog.Install, Monitor\BNQ7F01
+%XL2410T_Digital%=XL2410T_Digital.Install, Monitor\BNQ7F02
+
+; Install Sections
+;-------------------------------------------------
+
+[XL2410T_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XL2410T_Analog.AddReg, 1920, DPMS
+CopyFiles=XL2410T_Analog.CopyFiles
+
+[XL2410T_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XL2410T_Digital.AddReg, 1920, DPMS
+CopyFiles=XL2410T_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[XL2410T_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\800,600",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"15.0-135.0,24.0-60.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"15.0-135.0,24.0-60.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"15.0-135.0,24.0-60.0,+,+"
+HKR,,ICMProfile,0,"XL2410TAnalog.icm"
+
+[XL2410T_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,,ICMProfile,0,"XL2410TDigital.icm"
+
+
+
+[XL2410T_Analog.CopyFiles]
+XL2410TAnalog.ICM
+
+
+[XL2410T_Digital.CopyFiles]
+XL2410TDigital.ICM
+
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+XL2410T_Analog="BenQ XL2410T (Analog)"
+XL2410T_Digital="BenQ XL2410T (Digital)"
+

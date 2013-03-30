@@ -1,0 +1,83 @@
+;===============================================================
+; [LX77D.inf]
+; Revision 1.3   December-20-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX77D.cat
+DriverVer=12/20/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM443A
+ExcludeFromSelect.NT=Monitor\GSM443B
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX77D_Analog.CopyFiles = 23
+LX77D_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX77D.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX77D_Analog%=LX77D_Analog.Install,Monitor\GSM443A
+%LX77D_Digital%=LX77D_Digital.Install,Monitor\GSM443B
+
+[LG.NTamd64]
+%LX77D_Analog%=LX77D_Analog.Install,Monitor\GSM443A
+%LX77D_Digital%=LX77D_Digital.Install,Monitor\GSM443B
+
+[LX77D_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX77D_Analog.AddReg,1280,DPMS
+CopyFiles=LX77D_Analog.CopyFiles
+
+[LX77D_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX77D_Digital.AddReg,1280,DPMS
+CopyFiles=LX77D_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX77D_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX77D.ICM"
+
+[LX77D_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX77D.ICM"
+
+[LX77D_Analog.CopyFiles]
+LX77D.ICM
+
+[LX77D_Digital.CopyFiles]
+LX77D.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX77D_Analog="LG LX77D(Analog)"
+LX77D_Digital="LG LX77D(Digital)"

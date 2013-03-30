@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, MEDION AG, 45307 Essen
+
+[Version]   
+CatalogFile=MD42514PFT01.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Disney%
+DriverVer=08/11/2004,1.0.0.1
+
+[DestinationDirs]
+DefaultDestDir= 11
+MD42514PFT01.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+MD42514PFT01.ICM=1
+
+[Manufacturer]
+%Disney%=Disney
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[Disney]   
+%MD42514PFT01%=MD42514PFT01.Install,Monitor\DNY0411                  ;MD42514PFT01
+
+
+[MD42514PFT01.Install]                                         ;MD42514PFT01
+DelReg=DEL_CURRENT_REG 
+AddReg=MD42514PFT01.AddReg,1024,DPMS
+Copyfiles=MD42514PFT01.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD42514PFT01.AddReg]                                           ;MD42514PFT01
+HKR,"MODES\1024,768",Mode1,,"30-60,56-76,+,+"
+HKR,,ICMProfile,0,"MD42514PFT01.ICM"
+
+[MD42514PFT01.CopyFiles]                                       
+MD42514PFT01.ICM
+
+[Strings]
+Disney="Disney"
+DiskLabel="Disney Monitor Installation Disk"
+
+MD42514PFT01="Disney MD42514PFT01"

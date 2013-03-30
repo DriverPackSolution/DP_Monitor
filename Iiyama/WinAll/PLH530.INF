@@ -1,0 +1,68 @@
+;PLH530.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor PLH530
+;Copyright 2004 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PLH530.cat      
+DriverVer=10/01/2002,1.01
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM5392
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLH530.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLH530.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLH530%=PLH530.Install, Monitor\IVM5392
+[PLH530.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLH530.AddReg, 2048, DPMS
+CopyFiles=PLH530.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLH530.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"24.8-96.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLH530.ICM"
+
+[PLH530.CopyFiles]
+PLH530.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLH530="IIYAMA PLH530"

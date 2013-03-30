@@ -1,0 +1,75 @@
+;Monitor.Inf for Windows(R) 7 x86, 7 x64, 8 x86, 8 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2270_Series.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/27/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2270_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VX2270_Series.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCE02C
+
+[ViewSonic]   
+%VX2270_Series%=VX2270_Series.Install,Monitor\VSCE02C 
+
+[ViewSonic.NTx86]   
+%VX2270_Series%=VX2270_Series.Install,Monitor\VSCE02C
+
+[ViewSonic.NTAMD64]   
+%VX2270_Series%=VX2270_Series.Install,Monitor\VSCE02C 
+
+[VX2270_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2270_Series.AddReg
+Copyfiles=VX2270_Series.CopyFiles
+
+[VX2270_Series.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[VX2270_Series.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"15-83,50-76,+,+" 
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMProfile,0,"VX2270_Series.ICM"
+
+[VX2270_Series.CopyFiles]                                       
+VX2270_Series.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VX2270 Series ViewSonic Wizard"
+VX2270_Series="ViewSonic VX2270 Series"

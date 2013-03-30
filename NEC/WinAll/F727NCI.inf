@@ -1,0 +1,72 @@
+;*********************************************************************************
+; F727NCI.INF Ver. 2.0.0.1 for Packard Bell Monitor F727
+;
+; This is a INF file to install  monitor for Windows 98,Windows 2K,Windows ME,Windows XP.
+;
+;Copyright 2000,2005     NEC Computers International
+;Written by NEC CI Monitor Engineering 
+;*********************************************************************************
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECCI%
+CatalogFile=F727NCI.cat
+DriverVer=09/25/2001,2.0.0.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+F727NCI.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+F727NCI.icm=1
+
+[Manufacturer]
+%NECCI%=NECCI
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\NCI5015
+
+[NECCI]
+%F727NCI%=F727NCI.Install,Monitor\NCI5015
+
+[F727NCI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F727NCI.AddReg, 1280, DPMS
+CopyFiles=F727NCI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F727NCI.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F727NCI.icm"
+
+[F727NCI.CopyFiles]
+F727NCI.icm
+
+[Strings]
+MonitorClassName="Monitor"
+NECCI="NEC Computers International"
+F727NCI="Monitor F727 Packard Bell"
+DISK1="NEC CI Monitors Installation Disk"

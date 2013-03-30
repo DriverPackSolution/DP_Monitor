@@ -1,0 +1,117 @@
+;========================================== 
+; BenQ_E900W.INF 04/19/07 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2007, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=E900W.cat
+DriverVer=04/19/2007,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7905
+ExcludeFromSelect.NT=Monitor\BNQ7906
+
+[DestinationDirs]
+DefaultDestDir  = 11
+E900W_Analog.copyfiles = 23
+E900W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+E900WDSUB.icm=1
+E900WDVI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%E900W_Analog%=E900W_Analog.Install, Monitor\BNQ7905
+%E900W_Digital%=E900W_Digital.Install, Monitor\BNQ7906
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%E900W_Analog%=E900W_Analog.Install, Monitor\BNQ7905
+%E900W_Digital%=E900W_Digital.Install, Monitor\BNQ7906
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%E900W_Analog%=E900W_Analog.Install, Monitor\BNQ7905
+%E900W_Digital%=E900W_Digital.Install, Monitor\BNQ7906
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E900W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E900W_Analog.AddReg, 1440, DPMS
+CopyFiles=E900W_Analog.CopyFiles
+
+[E900W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E900W_Digital.AddReg, 1440, DPMS
+CopyFiles=E900W_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E900W_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1440,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"E900WDSUB.icm"
+
+[E900W_Digital.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1440,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"E900WDVI.icm"
+
+
+[E900W_Analog.CopyFiles]
+E900WDSUB.ICM
+
+[E900W_Digital.CopyFiles]
+E900WDVI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+E900W_Analog="BenQ E900W (Analog)"
+E900W_Digital="BenQ E900W (Digital)"

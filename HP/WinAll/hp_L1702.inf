@@ -1,0 +1,79 @@
+; #################################################
+;
+;   hp_L1702.inf         Ver. 1.70      2/10/2003
+;
+;   Copyright (c)2003, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the hp L1702 flat panel monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=hp_L1702.cat
+DriverVer=02/10/2003,1.70
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP2601
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L1702.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+hp_L1702.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%L1702%=L1702.Install, Monitor\HWP2601
+
+[L1702.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1702.AddReg, 1280, DPMS
+CopyFiles=L1702.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1702.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-81.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"hp_L1702.icm"
+
+[L1702.CopyFiles]
+hp_L1702.icm
+
+[Strings]
+MonitorClassName="Monitor"
+HP="Hewlett-Packard"
+L1702="hp L1702 flat panel monitor"
+Disk1="hp L1702 INF software"

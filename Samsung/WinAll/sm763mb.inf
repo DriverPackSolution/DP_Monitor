@@ -1,0 +1,95 @@
+
+;==================================================
+; sm763mb.inf 07/20/2002 ver. 1.0
+;
+; Copyright 2002 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm763mb.cat
+DriverVer=07/20/2002,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0045
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm763mb.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm763mb.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm763mb%=sm763mb.Install, Monitor\SAM0045
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm763mb.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm763mb.AddReg, 1280, DPMS
+CopyFiles=sm763mb.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm763mb.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-71,50-160,+,+"
+HKR,,ICMProfile,0,"sm763mb.icm"
+
+
+;------------------------------------------------------
+
+[sm763mb.CopyFiles]
+sm763mb.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm763mb="SyncMaster 763MB/713MB, SyncMaster Magic CD173D(P)/MD173D(P)/LD173D(P)"
+

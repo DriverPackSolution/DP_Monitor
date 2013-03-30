@@ -1,0 +1,95 @@
+
+;==================================================
+; sm152MP.inf 04/16/2003 ver. 1.0
+;
+; Copyright 2003 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm152MP.cat
+DriverVer=04/16/2003,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM00A8
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm152MP.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm152MP.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm152MP%=sm152MP.Install, Monitor\SAM00A8
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm152MP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm152MP.AddReg, 1024, DPMS
+CopyFiles=sm152MP.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm152MP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-71,56-75,+,+"
+HKR,,ICMProfile,0,"sm152MP.icm"
+
+
+;------------------------------------------------------
+
+[sm152MP.CopyFiles]
+sm152MP.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm152MP="SyncMaster 152MP/156MP,SyncMaster Magic CX510MP/CX500MB"

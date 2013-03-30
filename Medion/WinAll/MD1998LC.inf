@@ -1,0 +1,69 @@
+; Monitor INF file of Medion MD1998LC
+; Issue date -- 04/18/2001
+; Revise date -- 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD1998LC.cat
+DriverVer=01/20/2003,1.00.00.00
+catalogfile=0815.cat
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD1998LC.CopyFiles=23
+
+[SourceDisksNames]
+1="Medion Monitor Profiles Installation Disk",,,
+
+[SourceDisksFiles]
+MD1998LC.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%MD1998LC%=MD1998LC.Install, Monitor\MED2914
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED2914
+
+[MD1998LC.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD1998LC.AddReg, 1600, DPMS
+CopyFiles=MD1998LC.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD1998LC.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"MD1998LC.icm"
+
+[MD1998LC.CopyFiles]
+MD1998LC.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Medion="Medion"
+MD1998LC="MD1998LC"

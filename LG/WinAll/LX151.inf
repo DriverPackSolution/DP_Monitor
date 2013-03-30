@@ -1,0 +1,64 @@
+;=============================================================== 
+; [LX151.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX151.cat
+DriverVer=04/14/2005,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3BA2
+
+[DestinationDirs]
+DefaultDestDir=11
+LX151.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX151.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX151%=LX151.Install,Monitor\GSM3BA2
+
+[LG.NTamd64]
+%LX151%=LX151.Install,Monitor\GSM3BA2
+
+[LX151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX151.AddReg,1024,DPMS
+CopyFiles=LX151.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"LX151.ICM"
+
+[LX151.CopyFiles]
+LX151.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX151="LG LX151"

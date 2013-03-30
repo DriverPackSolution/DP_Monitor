@@ -1,0 +1,81 @@
+;PLE2200WS.INF Ver. 1.00
+;Monitor INF file for IIYAMA ProLite E2200WS
+;Copyright 2006 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE2200WS.cat      
+DriverVer=12/01/2006,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM5600
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE2200WS.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE2200WS.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE2200WS%=PLE2200WS.Install, Monitor\IVM5600
+
+[PLE2200WS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE2200WS.AddReg, 1680, DPMS
+CopyFiles=PLE2200WS.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE2200WS.AddReg]
+;HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-76.0,-,-"
+;HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1152,864",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1280,720",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1280,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1280,960",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1360,768",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1360,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+;HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,55.0-62.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2200WS.ICM"
+
+[PLE2200WS.CopyFiles]
+PLE2200WS.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE2200WS="iiyama ProLite E2200WS"

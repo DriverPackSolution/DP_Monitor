@@ -1,0 +1,95 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2005 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=200P7.cat
+DriverVer=11/11/2005,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL0844          
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0844.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+200P7.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%0844%=0844.Install, Monitor\PHL0844
+
+[Philips.NTx86]
+%0844%=0844.Install, Monitor\PHL0844
+
+[Philips.NTia64]
+%0844%=0844.Install, Monitor\PHL0844
+
+[Philips.NTamd64]
+%0844%=0844.Install, Monitor\PHL0844
+
+; Install sections
+;-------------------------------------------------
+[0844.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0844.AddReg,1600,DPMS
+CopyFiles=0844.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[0844.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,56.0-85.0,+,-"
+HKR,,ICMProfile,0,"200P7.icm"
+
+;-------------------------------------------------------------------
+[0844.CopyFiles]
+200P7.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+0844="Philips 200P (20inch LCD MONITOR 200P7)"

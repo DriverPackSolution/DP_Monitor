@@ -1,0 +1,100 @@
+; x461un.inf
+; Setup information file for NEC MultiSync X461UN Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=x461un.cat
+DriverVer=03/10/2009, 1.09.0310.0004
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC677B
+ExcludeFromSelect.nt=Monitor\NEC677C
+
+[DestinationDirs]
+X461UN.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+x461un.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%X461UN-A%=X461UN-A.Install, Monitor\NEC677B
+%X461UN-D%=X461UN-D.Install, Monitor\NEC677C
+
+[NECDS.ntamd64]
+%X461UN-A%=X461UN-A.Install.ntamd64, Monitor\NEC677B
+%X461UN-D%=X461UN-D.Install.ntamd64, Monitor\NEC677C
+
+; Install Sections
+;-------------------------------------------------
+[X461UN-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UN-A.AddReg, 1920, DPMS
+CopyFiles=X461UN.CopyFiles
+
+[X461UN-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UN-D.AddReg, 1920, DPMS
+CopyFiles=X461UN.CopyFiles
+
+[X461UN-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UN-A.AddReg, 1920, DPMS
+CopyFiles=X461UN.CopyFiles
+
+[X461UN-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UN-D.AddReg, 1920, DPMS
+CopyFiles=X461UN.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[X461UN-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"x461un.icm"
+
+[X461UN-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"x461un.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[X461UN.CopyFiles]
+x461un.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+X461UN-A="NEC MultiSync X461UN(Analog)"
+X461UN-D="NEC MultiSync X461UN(Digital)"
+Disk1="NEC Monitor Installation Disk"

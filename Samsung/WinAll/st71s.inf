@@ -1,0 +1,95 @@
+
+;==================================================
+; st71s.inf 09/11/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for SAMTRON Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%SAMTRON%
+CatalogFile=st71s.cat
+DriverVer=09/11/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\STN0014
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+st71s.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+st71s.icm=1
+
+[Manufacturer]
+%SAMTRON%=SAMTRON
+
+; Manufacturer sections
+;-----------------------------------------------------
+[SAMTRON]
+%st71s%=st71s.Install, Monitor\STN0014
+
+; Install Sections
+;-----------------------------------------------------
+
+[st71s.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=st71s.AddReg, 1280, DPMS
+CopyFiles=st71s.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[st71s.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-76,+,+"
+HKR,,ICMProfile,0,"st71s.icm"
+
+
+;------------------------------------------------------
+
+[st71s.CopyFiles]
+st71s.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="SAMTRON Monitor Installation Disk"
+MonitorClassName="Monitor"
+SAMTRON="SAMTRON"
+st71s="SAMTRON 71S/71B/72S/72B"

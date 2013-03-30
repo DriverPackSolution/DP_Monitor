@@ -1,0 +1,68 @@
+; nl193wxm.inf
+; Setup information file for NEC LCD193WXM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl193wxm.cat
+DriverVer=02/08/2007,1.07.0208.1150
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66EE
+
+[DestinationDirs]
+LCD193WXM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl193wxm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD193WXM%=LCD193WXM.Install, Monitor\NEC66EE
+
+[NECDS.ntamd64]
+%LCD193WXM%=LCD193WXM.Install.ntamd64, Monitor\NEC66EE
+
+[LCD193WXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD193WXM.AddReg, 1440, DPMS
+CopyFiles=LCD193WXM.CopyFiles
+
+[LCD193WXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD193WXM.AddReg, 1440, DPMS
+CopyFiles=LCD193WXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD193WXM.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"nl193wxm.icm"
+
+[LCD193WXM.CopyFiles]
+nl193wxm.icm
+
+[Strings]
+NECDS="NEC"
+LCD193WXM="NEC LCD193WXM"
+Disk1="NEC Monitor Installation Disk"

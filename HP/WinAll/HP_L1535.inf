@@ -1,0 +1,80 @@
+; ###################################################
+;
+;   HP_L1535.inf          Ver. 2.00         10/24/2005
+;
+;   Copyright (c)2005, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows 32-bit setup information 
+;   file for the HP L1535 LCD Monitor.
+; 
+; ###################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_L1535.cat
+DriverVer=10/24/2005,2.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP2684
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L1535.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_L1535.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%L1535%=L1535.Install, Monitor\HWP2684
+
+[L1535.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1535.AddReg, 1024, DPMS
+CopyFiles=L1535.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1535.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-63.0,56.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_L1535.icm"
+
+[L1535.CopyFiles]
+HP_L1535.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+L1535="HP L1535 LCD Monitor"
+Disk1="HP L1535 Driver Software"

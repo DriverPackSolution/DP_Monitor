@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VP2250wb.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/26/2007, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP2250wb.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP2250wb.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC5320
+
+[ViewSonic]   
+%VP2250wb%=VP2250wb.Install,Monitor\VSC5320  
+
+[ViewSonic.NTia64]   
+%VP2250wb%=VP2250wb.Install,Monitor\VSC5320
+
+[ViewSonic.NTamd64]   
+%VP2250wb%=VP2250wb.Install,Monitor\VSC5320 
+
+[VP2250wb.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VP2250wb.AddReg,1920,DPMS
+Copyfiles=VP2250wb.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP2250wb.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"30-94,50-75,-,+" 
+HKR,,ICMProfile,0,"VP2250wb.ICM"
+
+[VP2250wb.CopyFiles]                                       
+VP2250wb.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VP2250wb ViewSonic Wizard"
+VP2250wb="ViewSonic VP2250wb"

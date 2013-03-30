@@ -1,0 +1,103 @@
+
+;================================ 
+;2005FPW.INF 09/15/04 Ver. 1.0 FRA
+;Copyright 1996-2004 Dell Inc.
+;
+;This is a setupfile for 2005FPW 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2005FPW.cat
+DriverVer=09/15/2004, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELE008
+ExcludeFromSelect.nt=Monitor\DELE009
+
+[DestinationDirs]
+DefaultDestDir=11
+2005FPW_Analog.CopyFiles=23
+2005FPW_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+2005FPW.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%2005FPW_Analog%=2005FPW_Analog.Install, Monitor\DELE008
+%2005FPW_Digital%=2005FPW_Digital.Install, Monitor\DELE009
+
+; Install Sections
+;-------------------------------------------------
+
+[2005FPW_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2005FPW_Analog.AddReg, 1680, DPMS
+CopyFiles=2005FPW_Analog.CopyFiles
+
+[2005FPW_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2005FPW_Digital.AddReg, 1680, DPMS
+CopyFiles=2005FPW_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[2005FPW_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"2005FPW.icm"
+
+[2005FPW_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"2005FPW.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[2005FPW_Analog.CopyFiles]
+2005FPW.icm
+
+[2005FPW_Digital.CopyFiles]
+2005FPW.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+2005FPW_Analog="Dell 2005FPW (Analog)"
+2005FPW_Digital="Dell 2005FPW (Digital)"

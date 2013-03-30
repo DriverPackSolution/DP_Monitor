@@ -1,0 +1,118 @@
+; nlp521.inf
+; Setup information file for NEC MultiSync P521 Monitor
+;
+; Copyright (C) 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlp521.cat
+DriverVer=08/28/2009, 1.09.0828.1406
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC678E
+ExcludeFromSelect.nt=Monitor\NEC678F
+ExcludeFromSelect.nt=Monitor\NEC6791
+
+[DestinationDirs]
+P521.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlp521.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%P521-A%=P521-A.Install, Monitor\NEC678E
+%P521-D%=P521-D.Install, Monitor\NEC678F
+%P521-P%=P521-P.Install, Monitor\NEC6791
+
+[NECDS.ntamd64]
+%P521-A%=P521-A.Install.ntamd64, Monitor\NEC678E
+%P521-D%=P521-D.Install.ntamd64, Monitor\NEC678F
+%P521-P%=P521-P.Install.ntamd64, Monitor\NEC6791
+
+; Install Sections
+;-------------------------------------------------
+[P521-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P521-A.AddReg, 1920, DPMS
+CopyFiles=P521.CopyFiles
+
+[P521-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P521-D.AddReg, 1920, DPMS
+CopyFiles=P521.CopyFiles
+
+[P521-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P521-P.AddReg, 1920, DPMS
+CopyFiles=P521.CopyFiles
+
+[P521-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P521-A.AddReg, 1920, DPMS
+CopyFiles=P521.CopyFiles
+
+[P521-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P521-D.AddReg, 1920, DPMS
+CopyFiles=P521.CopyFiles
+
+[P521-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P521-P.AddReg, 1920, DPMS
+CopyFiles=P521.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[P521-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp521.icm"
+
+[P521-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp521.icm"
+
+[P521-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp521.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[P521.CopyFiles]
+nlp521.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+P521-A="NEC MultiSync P521(Analog)"
+P521-D="NEC MultiSync P521(Digital)"
+P521-P="NEC MultiSync P521(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

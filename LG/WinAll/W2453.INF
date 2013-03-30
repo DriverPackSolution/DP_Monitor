@@ -1,0 +1,101 @@
+;=============================================================== 
+; [W2453.INF] 
+; Revision 1.0   November-18-2008
+; Copyright(c)1998~2008 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=W2453.cat
+DriverVer=11/18/2008,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM56F3
+ExcludeFromSelect.NT=Monitor\GSM56F4
+ExcludeFromSelect.NT=Monitor\GSM56F5
+
+[DestinationDirs]
+DefaultDestDir = 11
+W2453_Analog.CopyFiles = 23
+W2453_Digital.CopyFiles = 23
+W2453_HDMI.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+W2453.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%W2453_Analog%=W2453_Analog.Install,Monitor\GSM56F3
+%W2453_Digital%=W2453_Digital.Install,Monitor\GSM56F4
+%W2453_HDMI%=W2453_HDMI.Install,Monitor\GSM56F5
+
+[LG.NTamd64]
+%W2453_Analog%=W2453_Analog.Install,Monitor\GSM56F3
+%W2453_Digital%=W2453_Digital.Install,Monitor\GSM56F4
+%W2453_HDMI%=W2453_HDMI.Install,Monitor\GSM56F5
+
+[W2453_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W2453_Analog.AddReg,1920,DPMS
+CopyFiles=W2453_Analog.CopyFiles
+
+[W2453_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W2453_Digital.AddReg,1920,DPMS
+CopyFiles=W2453_Digital.CopyFiles
+
+[W2453_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W2453_HDMI.AddReg,1920,DPMS
+CopyFiles=W2453_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[W2453_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"W2453.ICM"
+
+[W2453_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"W2453.ICM"
+
+[W2453_HDMI.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-61.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"W2453.ICM"
+
+[W2453_Analog.CopyFiles]
+W2453.ICM
+
+[W2453_Digital.CopyFiles]
+W2453.ICM
+
+[W2453_HDMI.CopyFiles]
+W2453.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+W2453_Analog="LG W2453(Analog)"
+W2453_Digital="LG W2453(Digital)"
+W2453_HDMI="LG W2453(HDMI)"

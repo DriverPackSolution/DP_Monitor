@@ -1,0 +1,97 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=190B8.cat
+DriverVer=03/30/2007,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL085A
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+085A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+190B8.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%085A%=085A.Install, Monitor\PHL085A
+
+[Philips.NTx86]
+%085A%=085A.Install, Monitor\PHL085A
+
+[Philips.NTia64]
+%085A%=085A.Install, Monitor\PHL085A
+
+[Philips.NTamd64]
+%085A%=085A.Install, Monitor\PHL085A
+
+; Install sections
+;-------------------------------------------------
+[085A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=085A.AddReg,1280,DPMS
+CopyFiles=085A.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[085A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"190B8.icm"
+
+;-------------------------------------------------------------------
+[085A.CopyFiles]
+190B8.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+085A="Philips 190B (19inch LCD MONITOR 190B8)"  

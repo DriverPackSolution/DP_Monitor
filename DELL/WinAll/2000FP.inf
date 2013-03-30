@@ -1,0 +1,97 @@
+;================================ 
+;2000FP.INF 08/13/01 Ver. 3.0 SND
+;Copyright 1996-2001 
+;Dell Computer Corporation
+;This is a setupfile for 2000FP
+;================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2000FP.cat
+DriverVer=08/13/2001,3.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DELA002
+ExcludeFromSelect.NT=Monitor\DELA003
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+2000FP_Analog.CopyFiles = 23
+2000FP_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+2000FP.ICM=1
+
+[Manufacturer]
+%Dell%=Dell
+
+[Dell]
+%2000FP_Analog%=2000FP_Analog.Install,Monitor\DELA002
+%2000FP_Digital%=2000FP_Digital.Install,Monitor\DELA003
+
+[2000FP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2000FP_Analog.AddReg, 1600, DPMS
+CopyFiles=2000FP_Analog.CopyFiles
+
+[2000FP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2000FP_Digital.AddReg, 1600, DPMS
+CopyFiles=2000FP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2000FP_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,,ICMprofile,0,"2000FP.ICM"
+
+[2000FP_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,,ICMprofile,0,"2000FP.ICM"
+
+[2000FP_Analog.CopyFiles]
+2000FP.ICM
+
+[2000FP_Digital.CopyFiles]
+2000FP.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."
+
+2000FP_Analog="Dell 2000FP(Analog)"
+
+2000FP_Digital="Dell 2000FP(Digital)"

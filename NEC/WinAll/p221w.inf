@@ -1,0 +1,68 @@
+; p221w.inf
+; Setup information file for NEC MultiSync P221W Monitor
+;
+; Copyright 2008, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=p221w.cat
+DriverVer=03/11/2008,1.08.0311.1421
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC674A
+
+[DestinationDirs]
+P221W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+p221w.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%P221W%=P221W.Install, Monitor\NEC674A
+
+[NECDS.ntamd64]
+%P221W%=P221W.Install.ntamd64, Monitor\NEC674A
+
+[P221W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P221W.AddReg, 1680, DPMS
+CopyFiles=P221W.CopyFiles
+
+[P221W.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P221W.AddReg, 1680, DPMS
+CopyFiles=P221W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[P221W.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"p221w.icm"
+
+[P221W.CopyFiles]
+p221w.icm
+
+[Strings]
+NECDS="NEC"
+P221W="NEC MultiSync P221W"
+Disk1="NEC Display Solutions Installation Disk"

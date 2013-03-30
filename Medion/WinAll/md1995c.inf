@@ -1,0 +1,78 @@
+;---------------------
+; Update : Aug.05'98   ;
+;---------------------
+;-------------------------------------------------
+; Version section
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Medion%
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%Medion%=Medion
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[Medion]
+
+%7299c%=7299c,	 Monitor\API9718
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+[7299c]
+DelReg=DEL_CURRENT_REG
+AddReg=7299c.AddReg, 1600, DPMS
+
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------
+
+
+[7299c.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600*1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,9
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+
+Medion="Medion"
+
+7299c=	"MD 1995c"

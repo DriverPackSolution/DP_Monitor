@@ -1,0 +1,79 @@
+;-------------------------------------------
+; Copyright (c) 2007 ViewSonic Corporation
+; Issue date -- 07/20/07
+; revision 1
+;This is a setupfile for VX2240w
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VX2240w.cat
+DriverVer=07/20/2007,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+VX2240w.copyfiles = 23
+
+[SourceDisksNames]
+1="ViewSonic Monitor installtion disk",,,
+
+[SourceDisksFiles]
+VX2240w.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ViewSonic]
+%VX2240w%=VX2240w.Install, Monitor\VSC6B20
+
+[ViewSonic.NTx86]
+%VX2240w%=VX2240w.Install, Monitor\VSC6B20
+
+[ViewSonic.NTAMD64]
+%VX2240w%=VX2240w.Install, Monitor\VSC6B20
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\VSC6B20
+
+[VX2240w.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VX2240w.AddReg, 1680, DPMS
+CopyFiles=VX2240w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2240w.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"24.0-82.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"VX2240w.icm"
+
+[VX2240w.CopyFiles]
+VX2240w.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+ViewSonic="ViewSonic Inc."
+
+VX2240w="ViewSonic VX2240w"
+
+

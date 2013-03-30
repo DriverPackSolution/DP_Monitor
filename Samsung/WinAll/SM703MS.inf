@@ -1,0 +1,105 @@
+
+;==================================================
+; SM703MS.inf 02/16/2006 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM703MS.cat
+DriverVer=02/16/2006,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM021F
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM703MS.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM703MS.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM703MS%=SM703MS.Install, Monitor\SAM021F
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM703MS%=SM703MS.Install, Monitor\SAM021F
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM703MS%=SM703MS.Install, Monitor\SAM021F
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM703MS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM703MS.AddReg, 1280, DPMS
+CopyFiles=SM703MS.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM703MS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"SM703MS.icm"
+
+
+;------------------------------------------------------
+
+[SM703MS.CopyFiles]
+SM703MS.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM703MS="SyncMaster 703MS(plus)/704MS(plus), SyncMaster Magic CD173KP"

@@ -1,0 +1,83 @@
+;=============================================================== 
+; L2013P.INF 04/14/2005 
+; Revision 1.0   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L2013P.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E2E
+ExcludeFromSelect.NT=Monitor\GSM4E2F
+
+[DestinationDirs]
+DefaultDestDir = 11
+L2013P_Analog.CopyFiles = 23
+L2013P_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL2013P.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L2013P_Analog%=L2013P_Analog.Install,Monitor\GSM4E2E
+%L2013P_Digital%=L2013P_Digital.Install,Monitor\GSM4E2F
+
+[LG.NTamd64]
+%L2013P_Analog%=L2013P_Analog.Install,Monitor\GSM4E2E
+%L2013P_Digital%=L2013P_Digital.Install,Monitor\GSM4E2F
+
+[L2013P_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2013P_Analog.AddReg,1600,DPMS
+CopyFiles=L2013P_Analog.CopyFiles
+
+[L2013P_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2013P_Digital.AddReg,1600,DPMS
+CopyFiles=L2013P_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L2013P_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-92.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"LGL2013P.ICM"
+
+[L2013P_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-80.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"LGL2013P.ICM"
+
+[L2013P_Analog.CopyFiles]
+LGL2013P.ICM
+
+[L2013P_Digital.CopyFiles]
+LGL2013P.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L2013P_Analog="LG L2013P(Analog)"
+L2013P_Digital="LG L2013P(Digital)"

@@ -1,0 +1,83 @@
+;=============================================================== 
+; [M2040A.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M2040A.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E32
+ExcludeFromSelect.NT=Monitor\GSM4E33
+
+[DestinationDirs]
+DefaultDestDir = 11
+M2040A_Analog.CopyFiles = 23
+M2040A_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M2040A.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M2040A_Analog%=M2040A_Analog.Install,Monitor\GSM4E32
+%M2040A_Digital%=M2040A_Digital.Install,Monitor\GSM4E33
+
+[LG.NTamd64]
+%M2040A_Analog%=M2040A_Analog.Install,Monitor\GSM4E32
+%M2040A_Digital%=M2040A_Digital.Install,Monitor\GSM4E33
+
+[M2040A_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2040A_Analog.AddReg,1600,DPMS
+CopyFiles=M2040A_Analog.CopyFiles
+
+[M2040A_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2040A_Digital.AddReg,1600,DPMS
+CopyFiles=M2040A_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M2040A_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"M2040A.ICM"
+
+[M2040A_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"M2040A.ICM"
+
+[M2040A_Analog.CopyFiles]
+M2040A.ICM
+
+[M2040A_Digital.CopyFiles]
+M2040A.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M2040A_Analog="LG M2040A(Analog)"
+M2040A_Digital="LG M2040A(Digital)"

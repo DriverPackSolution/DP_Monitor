@@ -1,0 +1,95 @@
+
+;==================================================
+; sm757df.inf 09/07/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm757df.cat
+DriverVer=09/07/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0029
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm757df.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm757df.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm757df%=sm757df.Install, Monitor\SAM0029
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm757df.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm757df.AddReg, 2048, DPMS
+CopyFiles=sm757df.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm757df.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-96,50-160,+,+"
+HKR,,ICMProfile,0,"sm757df.icm"
+
+
+;------------------------------------------------------
+
+[sm757df.CopyFiles]
+sm757df.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm757df=" SyncMaster 757DF(X)/707DF(X)/700IFT,MagicSyncMaster CD177A(P)"
+

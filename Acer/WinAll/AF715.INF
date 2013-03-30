@@ -1,0 +1,95 @@
+
+;================================================
+;AF715.INF 03/11/03 Ver. 1.0 JG
+;Copyright 2003 Acer Incorporated 
+;
+;This is a setupfile for  the ACER 
+;AF715 Monitor.  This file supports
+;Windows 2000 & XP
+;================================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ACER%
+CatalogFile=AF715.cat
+DriverVer=03/11/2003, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ACRAC05
+
+
+[DestinationDirs]
+DefaultDestDir=11
+AF715.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+AF715.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%ACER%=ACER
+
+; Manufacturer sections
+;-------------------------------------------------
+ [ACER] 
+%AF715%=AF715.Install, Monitor\ACRAC05
+
+; Install Sections
+;-------------------------------------------------
+
+[AF715.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=AF715.AddReg, 1600, DPMS
+CopyFiles=AF715.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[AF715.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"AF715.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[AF715.CopyFiles]
+AF715.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="ACER Monitor Installation Disk"
+ACER="Acer Incorporated "	
+AF715="Acer AF715"
+

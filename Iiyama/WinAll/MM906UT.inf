@@ -1,0 +1,69 @@
+;MM906UT.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH MM906UT
+;Copyright 2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=MM906UT.cat      
+DriverVer=07/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM1948
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MM906UT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+MM906UT.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%MM906UT%=MM906UT.Install, Monitor\IVM1948
+
+[MM906UT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MM906UT.AddReg, 2048, DPMS
+CopyFiles=MM906UT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MM906UT.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-111,50-162,+,+"
+HKR,,ICMProfile,0,"MM906UT.ICM"
+
+[MM906UT.CopyFiles]
+MM906UT.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA CRT Monitor Installation Disk"
+
+MM906UT="iiyama MM906UT"

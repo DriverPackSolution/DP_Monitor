@@ -1,0 +1,100 @@
+; nlm40.inf
+; Setup information file for NEC Multeos M40 Monitor
+;
+; Copyright (C) 2007 NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlm40.cat
+DriverVer=03/15/2007, 1.07.0315.2251
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66DD
+ExcludeFromSelect.nt=Monitor\NEC66DC
+
+[DestinationDirs]
+M40.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlm40.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%M40-D%=M40-D.Install, Monitor\NEC66DD
+%M40-A%=M40-A.Install, Monitor\NEC66DC
+
+[NECDS.ntamd64]
+%M40-D%=M40-D.Install.ntamd64, Monitor\NEC66DD
+%M40-A%=M40-A.Install.ntamd64, Monitor\NEC66DC
+
+; Install Sections
+;-------------------------------------------------
+[M40-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M40-D.AddReg, 1920, DPMS
+CopyFiles=M40.CopyFiles
+
+[M40-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M40-A.AddReg, 1920, DPMS
+CopyFiles=M40.CopyFiles
+
+[M40-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M40-D.AddReg, 1920, DPMS
+CopyFiles=M40.CopyFiles
+
+[M40-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M40-A.AddReg, 1920, DPMS
+CopyFiles=M40.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[M40-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlm40.icm"
+
+[M40-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlm40.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[M40.CopyFiles]
+nlm40.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+M40-D="NEC Multeos M40(Digital)"
+M40-A="NEC Multeos M40(Analog)"
+Disk1="NEC Monitor Installation Disk"

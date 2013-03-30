@@ -1,0 +1,88 @@
+;================================ 
+;E157FP.INF 01/12/06 Ver. 1.0 CC
+;Copyright 1996-2005 Dell Inc.
+;
+;This is a setupfile for E157FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+Catalogfile=E157FP.cat
+DriverVer=01/12/2006,1.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA022
+
+[DestinationDirs]
+DefaultDestDir=11
+E157FP.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E157FP.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[DELL]
+%E157FP%=E157FP.Install, Monitor\DELA022
+;-------------------------------------------------
+[DELL.NTx86] 
+%E157FP%=E157FP.Install, Monitor\DELA022
+;-------------------------------------------------  
+[DELL.NTAMD64]  
+%E157FP%=E157FP.Install, Monitor\DELA022
+
+; Install Sections
+;-------------------------------------------------
+
+[E157FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E157FP.AddReg, 1024, DPMS
+CopyFiles=E157FP.CopyFiles
+
+; AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E157FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E157FP.icm"
+
+;------------------------------------------------------------------------------------------
+
+[E157FP.CopyFiles]
+E157FP.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E157FP="Dell E157FP"

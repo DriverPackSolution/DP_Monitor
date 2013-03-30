@@ -1,0 +1,100 @@
+; n269wui2v.inf
+; Setup information file for NEC MultiSync LCD2690WUXi2 Monitor
+;
+; Copyright (C) 2008, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n269wui2v.cat
+DriverVer=08/27/2008, 2.08.0827.1917
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC675D
+ExcludeFromSelect.nt=Monitor\NEC675E
+
+[DestinationDirs]
+LCD2690WUXi2.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n269wui2v.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD2690WUXi2-D%=LCD2690WUXi2-D.Install, Monitor\NEC675D
+%LCD2690WUXi2-A%=LCD2690WUXi2-A.Install, Monitor\NEC675E
+
+[NECDS.ntamd64]
+%LCD2690WUXi2-D%=LCD2690WUXi2-D.Install.ntamd64, Monitor\NEC675D
+%LCD2690WUXi2-A%=LCD2690WUXi2-A.Install.ntamd64, Monitor\NEC675E
+
+; Install Sections
+;-------------------------------------------------
+[LCD2690WUXi2-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2690WUXi2-D.AddReg, 1600, DPMS
+CopyFiles=LCD2690WUXi2.CopyFiles
+
+[LCD2690WUXi2-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2690WUXi2-A.AddReg, 1600, DPMS
+CopyFiles=LCD2690WUXi2.CopyFiles
+
+[LCD2690WUXi2-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2690WUXi2-D.AddReg, 1600, DPMS
+CopyFiles=LCD2690WUXi2.CopyFiles
+
+[LCD2690WUXi2-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2690WUXi2-A.AddReg, 1600, DPMS
+CopyFiles=LCD2690WUXi2.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD2690WUXi2-D.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"n269wui2v.icm"
+
+[LCD2690WUXi2-A.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"n269wui2v.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD2690WUXi2.CopyFiles]
+n269wui2v.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD2690WUXi2-D="NEC MultiSync LCD2690WUXi2(Digital)"
+LCD2690WUXi2-A="NEC MultiSync LCD2690WUXi2(Analog)"
+Disk1="NEC Monitor Installation Disk"

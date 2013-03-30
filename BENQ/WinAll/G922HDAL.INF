@@ -1,0 +1,84 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ G922HDAL.INF 08/18/09 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for G922HDAL
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=G922HDAL.cat
+	DriverVer=08/18/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	G922HDAL.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	G922HDAL.icm=1
+        
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ784C	
+	
+[BenQ]
+	%G922HDAL%=G922HDAL.Install, Monitor\BNQ784C	
+
+[BenQ.NTx86]
+	%G922HDAL%=G922HDAL.Install, Monitor\BNQ784C	
+
+[BenQ.NTAMD64]
+	%G922HDAL%=G922HDAL.Install, Monitor\BNQ784C	
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G922HDAL.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G922HDAL.AddReg, 1366, DPMS
+	CopyFiles=G922HDAL.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1366]
+	HKR,,MaxResolution,,"1366,768"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G922HDAL.AddReg]
+	HKR,"MODES\1366,768",Mode1,,"24.0-63.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"G922HDAL.icm"
+
+[G922HDAL.CopyFiles]	
+	G922HDAL.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	G922HDAL="BenQ G922HDAL"

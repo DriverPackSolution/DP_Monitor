@@ -1,0 +1,89 @@
+; Copyright 2007 TPV
+; This is a Setup information file for monitors with ICM file.
+; Vista
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%TPV%
+Catalogfile=2416.cat
+DriverVer=05/16/2007,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\TPV2416
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+2416.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+2416.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%TPV%=TPV,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[TPV]
+%2416%=2416.Install, Monitor\TPV2416
+
+[TPV.ntamd64]
+%2416%=2416.Install, Monitor\TPV2416
+
+; Install Sections
+;-------------------------------------------------
+[2416.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2416.AddReg, 1920, DPMS
+Copyfiles=2416.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[2416.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-75.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"2416.icm"
+
+
+[2416.CopyFiles]
+2416.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="TPV Monitor Installation Disk"
+MonitorClassName="Monitor"
+TPV="TPV"
+
+2416="TPV 2416"

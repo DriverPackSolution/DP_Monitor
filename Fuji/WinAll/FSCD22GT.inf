@@ -1,0 +1,72 @@
+; SCENICVIEW D22W-1GT.INF Ver. 1.1
+;Monitor INF file for Fujitsu Siemens Monitor SCENICVIEW D22W-1GT
+;Copyright 2002,2003,2004,2005,2006,2007,2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCD22GT.cat
+DriverVer=05/28/2008, 1.1.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS076E
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-D22W-1GT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCD22GT.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+[FUJSIE]
+%FUS-D22W-1GT%=FUS-D22W-1GT.Install, Monitor\FUS076E
+
+[FUJSIE.NTAMD64]
+%FUS-D22W-1GT%=FUS-D22W-1GT.Install, Monitor\FUS076E
+
+[FUS-D22W-1GT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-D22W-1GT.AddReg, 1680, DPMS
+CopyFiles=FUS-D22W-1GT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-D22W-1GT.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.5-83.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCD22GT.ICM"
+
+[FUS-D22W-1GT.CopyFiles]
+FSCD22GT.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor SCENICVIEW D22W-1GT"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-D22W-1GT="Fujitsu Siemens SCENICVIEW D22W-1GT"

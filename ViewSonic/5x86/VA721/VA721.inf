@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA721.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/17/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA721.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA721.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA721%=VA721.Install,Monitor\VSC6E19                ;VA721
+
+[VA721.Install]                                      ;VA721
+DelReg=DEL_CURRENT_REG 
+AddReg=VA721.AddReg,1280,DPMS
+Copyfiles=VA721.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA721.AddReg]                                         ;VA721
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-85,+,+"
+HKR,,ICMProfile,0,"VA721.ICM"
+
+[VA721.CopyFiles]                                       
+VA721.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA721="ViewSonic VA721"

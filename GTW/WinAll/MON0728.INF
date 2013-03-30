@@ -1,0 +1,120 @@
+; #######################################
+;      [mon0728.INF]
+;      Revision 1.00   July  18, 2002
+;      Delta Electronics,Inc
+;      Copyright 2002
+; #######################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon0728.cat
+DriverVer=07/24/2002,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\GWY0728
+ExcludeFromSelect.nt=Monitor\GWY0729
+ExcludeFromSelect.nt=Monitor\GWY072C
+ExcludeFromSelect.nt=Monitor\GWY072D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+mon0728.CopyFiles=23
+mon0729.CopyFiles=23
+mon072C.CopyFiles=23
+mon072D.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+mon0728.icm=1
+mon072C.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon0728%=mon0728.Install, Monitor\GWY0728
+%mon0729%=mon0729.Install, Monitor\GWY0729
+%mon072C%=mon072C.Install, Monitor\GWY072C
+%mon072D%=mon072D.Install, Monitor\GWY072D
+
+[mon0728.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon0728.AddReg, 1280, DPMS
+CopyFiles=mon0728.Copyfiles
+
+[mon0729.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon0729.AddReg, 1280, DPMS
+CopyFiles=mon0729.Copyfiles
+
+[mon072C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon072C.AddReg, 1280, DPMS
+CopyFiles=mon072C.CopyFiles
+
+[mon072D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon072D.AddReg, 1280, DPMS
+CopyFiles=mon072D.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon0728.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon0728.icm"
+
+[mon0729.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon0728.icm"
+
+[mon072C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon072C.icm"
+
+[mon072D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon072C.icm"
+
+[mon0728.Copyfiles]
+mon0728.icm
+
+[mon0729.Copyfiles]
+mon0728.icm
+
+[mon072C.Copyfiles]
+mon072C.icm
+
+[mon072D.Copyfiles]
+mon072C.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DISK="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon0728="Gateway FPD1830"
+mon0729="Gateway FPD1830"
+mon072C="Gateway FPD1830"
+mon072D="Gateway FPD1830"

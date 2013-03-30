@@ -1,0 +1,102 @@
+
+;====================================================================== 
+;DV156.INF 06/06/01 Ver. 1.0 
+;Copyright 1996-2001 Mitsubishi Electric Australia Pty. Ltd.
+;
+;Windows 95/98/2000 setup file for the Diamond View DV156 LCD Monitor
+;======================================================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Mitsubishi%
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEA0156
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+DV156.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+DV156.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Mitsubishi%=Mitsubishi
+
+; Manufacturer sections
+;-------------------------------------------------
+ [Mitsubishi] 
+%DV156%=DV156.Install, Monitor\MEA0156
+
+; Install Sections
+;-------------------------------------------------
+
+[DV156.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=DV156.AddReg, 1024, DPMS
+CopyFiles=DV156.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[DV156.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"DV156.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[DV156.CopyFiles]
+DV156.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Mitsubishi Electric Monitor Installation Disk"
+MonitorClassName="Monitor"
+Mitsubishi="Mitsubishi Electric Australia"	
+DV156="Mitsubishi DV156"
+
+

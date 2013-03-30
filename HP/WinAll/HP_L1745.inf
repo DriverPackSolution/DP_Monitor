@@ -1,0 +1,112 @@
+; ###################################################
+;
+;   HP_L1745.inf        Ver. 1.00      2/20/2007
+;
+;   Copyright (c)2007, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP L1745 LCD Monitor.
+; 
+; ###################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_L1745.cat
+DriverVer=02/20/2007,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP26E2
+ExcludeFromSelect.nt = MONITOR\HWP26E3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1745.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_L1745.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%1745_A%=1745_A.Install, Monitor\HWP26E2
+%1745_D%=1745_D.Install, Monitor\HWP26E3
+
+[HP.NTamd64]
+%1745_A%=1745_A.Install.NTamd64, Monitor\HWP26E2
+%1745_D%=1745_D.Install.NTamd64, Monitor\HWP26E3
+
+[1745_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1745_A.AddReg, 1280, DPMS
+CopyFiles=1745.CopyFiles
+
+[1745_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1745_D.AddReg, 1280, DPMS
+CopyFiles=1745.CopyFiles
+
+[1745_A.Install.NTamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=1745_A.AddReg, 1280, DPMS
+CopyFiles=1745.CopyFiles
+
+[1745_D.Install.NTamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=1745_D.AddReg, 1280, DPMS
+CopyFiles=1745.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1745_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-83,50-76,-,-"
+HKR,"MODES\800,600",Mode1,,"30-83,50-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-83,50-76,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-83,50-76,+,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_L1745.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[1745_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-83,50-76,-,-"
+HKR,"MODES\800,600",Mode1,,"30-83,50-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-83,50-76,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-83,50-76,+,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_L1745.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[1745.CopyFiles]
+HP_L1745.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+1745_A="HP L1745 LCD Monitor"
+1745_D="HP L1745 LCD Monitor"
+Disk1="HP L1745 Driver Software"

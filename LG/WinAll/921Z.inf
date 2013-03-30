@@ -1,0 +1,65 @@
+;=============================================================== 
+; [921Z.INF] 
+; Revision 1.4   May-18-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=921Z.cat
+DriverVer=05/18/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4ACC
+
+[DestinationDirs]
+DefaultDestDir=11
+921Z.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+921Z.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%921Z%=921Z.Install,Monitor\GSM4ACC
+
+[LG.NTamd64]
+%921Z%=921Z.Install,Monitor\GSM4ACC
+
+[921Z.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=921Z.AddReg,1280,DPMS
+CopyFiles=921Z.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[921Z.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"921Z.ICM"
+
+[921Z.CopyFiles]
+921Z.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+921Z="Zenith 921Z"

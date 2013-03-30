@@ -1,0 +1,120 @@
+;FTSP22W5.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display P22W-5 ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSP22W5.cat
+DriverVer=07/13/2009,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07B8
+ExcludeFromSelect.nt=Monitor\FUS07B9
+ExcludeFromSelect.nt=Monitor\FUS07BA
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSP22W5.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSP22W5.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%P22W-5%=FTSP22W5a.Install, Monitor\FUS07B8
+%P22W-5%=FTSP22W5d.Install, Monitor\FUS07B9
+%P22W-5%=FTSP22W5h.Install, Monitor\FUS07BA
+
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%P22W-5%=FTSP22W5a.Install, Monitor\FUS07B8
+%P22W-5%=FTSP22W5d.Install, Monitor\FUS07B9
+%P22W-5%=FTSP22W5h.Install, Monitor\FUS07BA
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSP22W5a.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FTSP22W5a.AddReg, 1680, DPMS
+CopyFiles=FTSP22W5.CopyFiles
+
+[FTSP22W5d.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FTSP22W5d.AddReg, 1680, DPMS
+CopyFiles=FTSP22W5.CopyFiles
+
+[FTSP22W5h.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FTSP22W5h.AddReg, 1680, DPMS
+CopyFiles=FTSP22W5.CopyFiles
+
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+
+[FTSP22W5a.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-94.0,55.0-75.0,-,+"
+HKR,,ICMProfile,0,"FTSP22W5.icm"
+
+[FTSP22W5d.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"FTSP22W5.icm"
+
+[FTSP22W5h.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"FTSP22W5.icm"
+
+
+;---------------------------------------------------------- 
+
+
+
+[FTSP22W5.CopyFiles]
+FTSP22W5.icm
+
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Display Installation Disk P22W-5 ECO"
+FTS.Mfg="Fujitsu Technology Solutions"	
+P22W-5="Fujitsu Display P22W-5 ECO"

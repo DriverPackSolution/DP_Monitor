@@ -1,0 +1,87 @@
+
+;==========================================================
+;IBM_L191P.INF 05/24/2004 Ver. 1.1 
+;Copyright 1996-2004 IBM Computer Corporation
+;
+;This is a setupfile for the IBM Computer Monitors
+;
+;==========================================================
+;
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_L191P.cat
+DriverVer=03/04/2003, 1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM24CB
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_L191P.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM_L191P.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%IBM%=IBM
+
+; Manufacturer sections
+;-------------------------------------------------
+[IBM] 
+%IBM_L191P%=IBM_L191P.Install, Monitor\IBM24CB
+
+; Install Sections
+;-------------------------------------------------
+
+[IBM_L191P.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_L191P.AddReg, 1280, DPMS
+CopyFiles=IBM_L191P.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[IBM_L191P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"IBM_L191P.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[IBM_L191P.CopyFiles]
+IBM_L191P.icm
+
+;------------------------------------------------------------------------------------------
+
+[Strings]
+DISK="IBM Flat Panel Monitor Installation disk"
+IBM="IBM"	
+IBM_L191P="IBM L191P TFT Monitor"

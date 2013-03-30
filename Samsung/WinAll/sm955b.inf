@@ -1,0 +1,95 @@
+
+;==================================================
+; sm955b.inf 09/07/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm955b.cat
+DriverVer=09/07/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM002B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm955b.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm955b.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm955b%=sm955b.Install, Monitor\SAM002B
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm955b.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm955b.AddReg, 1792, DPMS
+CopyFiles=sm955b.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm955b.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30-85,50-160,+,+"
+HKR,,ICMProfile,0,"sm955b.icm"
+
+
+;------------------------------------------------------
+
+[sm955b.CopyFiles]
+sm955b.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm955b=" SyncMaster 955b(T)/905b(T)/950b(T), MagicSyncMaster CM195A(M)"
+

@@ -1,0 +1,70 @@
+; DISPLAY P20-2S.INF Ver. 1.3.0.0
+;Monitor INF file for Fujitsu Display P20-2S
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSP202S.cat
+DriverVer=06/19/2009, 1.3.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0554
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[FTS.Mfg]
+%FUS-P20-2S%=FUS-P20-2S.Install, Monitor\FUS0554
+
+[FTS.Mfg.NTAMD64]
+%FUS-P20-2S%=FUS-P20-2S.Install, Monitor\FUS0554
+
+; Install Sections
+;-------------------------------------------------
+[FUS-P20-2S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P20-2S.AddReg, 1600, DPMS
+
+; AddReg & DELReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-------------------------------------------------
+[FUS-P20-2S.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-82,51-75,+,+"
+HKR,,ICMProfile,0,"sRGB Color Space Profile.icm"
+
+;-------------------------------------------------
+
+[Strings]
+DISK="Fujitsu Driver & Utility CD for DISPLAY P20-2S"
+MonitorClassName="Monitor"
+FTS.Mfg="Fujitsu Technology Solutions"
+FUS-P20-2S="FUJITSU P20-2S"

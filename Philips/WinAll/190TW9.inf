@@ -1,0 +1,97 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=190TW9.cat
+DriverVer=06/19/2008,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHLC027
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+C027.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+190TW9.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%C027%=C027.Install, Monitor\PHLC027
+
+[Philips.NTx86]
+%C027%=C027.Install, Monitor\PHLC027
+
+[Philips.NTia64]
+%C027%=C027.Install, Monitor\PHLC027
+
+[Philips.NTamd64]
+%C027%=C027.Install, Monitor\PHLC027
+
+; Install sections
+;-------------------------------------------------
+[C027.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C027.AddReg,1440,DPMS
+CopyFiles=C027.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[C027.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"190TW9.icm"
+
+;-------------------------------------------------------------------
+[C027.CopyFiles]
+190TW9.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+C027="Philips 190TW (19inch WIDE LCD MONITOR 190TW9)"  

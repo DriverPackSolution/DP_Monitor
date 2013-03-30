@@ -1,0 +1,72 @@
+
+; AL1923.INF
+;
+; This is Setup information file for monitors 
+;
+; Copyright (c) 2006, Acer
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%	
+CatalogFile=AL1923.cat
+DriverVer=12/13/2006,1.02
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ACR0783
+
+[ClassInstall32]
+;AddReg=ClassAddReg32
+
+[ClassAddReg32]
+;HKR,,,,%MonitorClassName%
+;HKR,,Icon,,"-1"
+;HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+AL1923.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+AL1923.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AL1923%=AL1923.Install, Monitor\ACR0783
+
+[AL1923.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=AL1923.AddReg, 1280, DPMS
+CopyFiles=AL1923.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL1923.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"AL1923.icm"
+
+[AL1923.CopyFiles]
+AL1923.icm
+
+[Strings]
+;MonitorClassName="Monitor"
+Acer="Acer"
+Disk1="Acer LCD Utility Disk"
+AL1923="Acer AL1923"

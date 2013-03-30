@@ -1,0 +1,64 @@
+;=============================================================== 
+; [1771X.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LGIBM%
+CatalogFile=1771X.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4380
+
+[DestinationDirs]
+DefaultDestDir=11
+1771X.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1771X.ICM=1
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTAMD64
+
+[LGIBM]
+%1771X%=1771X.Install,Monitor\GSM4380
+
+[LGIBM.NTAMD64]
+%1771X%=1771X.Install,Monitor\GSM4380
+
+[1771X.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1771X.AddReg,1280,DPMS
+CopyFiles=1771X.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1771X.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"1771X.ICM"
+
+[1771X.CopyFiles]
+1771X.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1771X="LGIBM 1771X"

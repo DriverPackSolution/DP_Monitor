@@ -1,0 +1,83 @@
+; NL1545V.INF
+; Setup information file for NEC MultiSync LCD1545V Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NL1545V.cat
+DriverVer=04/04/2002,2.04.0004.0954
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC65D7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-LCD1454V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+nl1545v1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-LCD1454V%=NEC-LCD1454V.Install, Monitor\NEC65D7
+
+; Install Sections
+;-------------------------------------------------
+[NEC-LCD1454V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1454V.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1454V.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-LCD1454V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl1545v1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-LCD1454V.CopyFiles]
+NL1545V1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-LCD1454V="NEC MultiSync LCD1454V"

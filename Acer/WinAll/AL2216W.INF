@@ -1,0 +1,72 @@
+
+; AL2216W.INF
+;
+; This is Setup information file for monitors 
+;
+; Copyright (c) 2006, WayTech
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%	
+CatalogFile=AL2216W.cat
+DriverVer=11/29/2006,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ACRAD74
+
+;[ClassInstall32]
+;AddReg=ClassAddReg32
+
+;[ClassAddReg32]
+;HKR,,,,%MonitorClassName%
+;HKR,,Icon,,"-1"
+;HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+AL2216W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+AL2216W.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AL2216W%=AL2216W.Install, Monitor\ACRAD74
+
+[AL2216W.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=AL2216W.AddReg, 1680, DPMS
+CopyFiles=AL2216W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL2216W.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"AL2216W.icm"
+
+[AL2216W.CopyFiles]
+AL2216W.icm
+
+[Strings]
+;MonitorClassName="Monitor"
+Acer="Acer"
+Disk1="Acer LCD Utility Disk"
+AL2216W="Acer AL2216W"

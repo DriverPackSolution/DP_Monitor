@@ -1,0 +1,72 @@
+
+; MD30717VE.INF
+;
+; This is Setup information file for monitors 
+;
+; Copyright (c) 2007, Medion
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%	
+CatalogFile=MD30717VE.cat
+DriverVer=01/15/2007,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\MED87F5
+
+[ClassInstall32]
+;AddReg=ClassAddReg32
+
+[ClassAddReg32]
+;HKR,,,,%MonitorClassName%
+;HKR,,Icon,,"-1"
+;HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+MD30717VE.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+MD30717VE.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%MD30717VE%=MD30717VE.Install, Monitor\MED87F5
+
+[MD30717VE.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=MD30717VE.AddReg, 1280, DPMS
+CopyFiles=MD30717VE.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,720"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD30717VE.AddReg]
+HKR,"MODES\1280,720",Mode1,,"31.0-81.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"MD30717VE.icm"
+
+[MD30717VE.CopyFiles]
+MD30717VE.icm
+
+[Strings]
+;MonitorClassName="Monitor"
+Medion="Medion"
+Disk1="Medion LCD Utility Disk"
+MD30717VE="Medion MD30717VE"

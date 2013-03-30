@@ -1,0 +1,102 @@
+;=========================================================================== 
+;DV200B.INF 23/11/01 Ver. 3.0 SND
+;
+;Copyright 1996-2002 Mitsubishi Electric Australia Pty. Ltd.
+;
+;Windows 95/98/2000/Me/XP setup file for the Diamond View DV200B LCD Monitor
+;===========================================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+;CatalogFile=DV200B.cat
+DriverVer=11/23/2001,3.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA200D
+ExcludeFromSelect.NT=Monitor\MEA200A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DV200B_Digital.CopyFiles = 23
+DV200B_Analog.CopyFiles = 23
+
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+DV200B.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%DV200B_Digital%=DV200B_Digital.Install,Monitor\MEA200D
+%DV200B_Analog%=DV200B_Analog.Install,Monitor\MEA200A
+
+
+[DV200B_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DV200B_Digital.AddReg, 1600, DPMS
+CopyFiles=DV200B_Digital.CopyFiles
+
+[DV200B_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DV200B_Analog.AddReg, 1600, DPMS
+CopyFiles=DV200B_Analog.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+
+[DV200B_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,,ICMprofile,0,"DV200B.ICM"
+
+[DV200B_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"31.5-80.0,56.0-76.0,+,+"
+HKR,,ICMprofile,0,"DV200B.ICM"
+
+[DV200B_Analog.CopyFiles]
+DV200B.ICM
+
+[DV200B_Digital.CopyFiles]
+DV200B.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="DV200B TFT Monitor installation diskette"
+MEA="Mitsubishi Electric Australia"
+DV200B_Analog="DV200B(Analog)"
+
+DV200B_Digital="DV200B(Digital)"			

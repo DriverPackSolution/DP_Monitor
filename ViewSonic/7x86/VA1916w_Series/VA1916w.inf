@@ -1,0 +1,96 @@
+; This is a Setup information file for monitors with ICM file
+;
+; Copyright (c) 2007, ViewSonic Corporation.
+
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VA1916w.cat
+DriverVer=05/03/2007,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCF91F
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+VA1916w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+VA1916w.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%ViewSonic%=ViewSonic, NTx86, NTia64, NTamd64 
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[ViewSonic]
+%VA1916w%=VA1916w.Install, Monitor\VSCF91F
+
+
+[ViewSonic.NTx86]
+%VA1916w%=VA1916w.Install, Monitor\VSCF91F
+
+[ViewSonic.NTia64]
+%VA1916w%=VA1916w.Install, Monitor\VSCF91F
+
+
+[ViewSonic.NTamd64]
+%VA1916w%=VA1916w.Install, Monitor\VSCF91F
+
+
+; Install sections
+;-------------------------------------------------
+[VA1916w.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VA1916w.AddReg,1440,DPMS
+CopyFiles=VA1916w.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[VA1916w.AddReg]
+HKR,"MODES\1440,900",Mode1,,"24.0-82.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"VA1916w.icm"
+
+;-------------------------------------------------------------------
+[VA1916w.CopyFiles]
+VA1916w.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+ViewSonic="ViewSonic Corporation"
+DiskName="ViewSonic Monitor Setup Disk"
+VA1916w="ViewSonic VA1916w"

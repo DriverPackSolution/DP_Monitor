@@ -1,0 +1,105 @@
+; e201w.inf
+; Setup information file for NEC MultiSync E201W Monitor
+;
+; Copyright 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=e201w.cat
+DriverVer=07/23/2010,1.10.0723.2345
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67FE
+ExcludeFromSelect.nt=Monitor\NEC67FF
+ExcludeFromSelect.nt=Monitor\NEC6800
+
+[DestinationDirs]
+E201W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+e201w.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%E201W-A%=E201W-A.Install, Monitor\NEC67FE
+%E201W-D%=E201W-D.Install, Monitor\NEC67FF
+%E201W-DP%=E201W-DP.Install, Monitor\NEC6800
+
+[NECDS.ntamd64]
+%E201W-A%=E201W-A.Install.ntamd64, Monitor\NEC67FE
+%E201W-D%=E201W-D.Install.ntamd64, Monitor\NEC67FF
+%E201W-DP%=E201W-DP.Install.ntamd64, Monitor\NEC6800
+
+[E201W-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E201W-A.AddReg, 1600, DPMS
+CopyFiles=E201W.CopyFiles
+
+[E201W-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E201W-D.AddReg, 1600, DPMS
+CopyFiles=E201W.CopyFiles
+
+[E201W-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E201W-DP.AddReg, 1600, DPMS
+CopyFiles=E201W.CopyFiles
+
+[E201W-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=E201W-A.AddReg, 1600, DPMS
+CopyFiles=E201W.CopyFiles
+
+[E201W-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=E201W-D.AddReg, 1600, DPMS
+CopyFiles=E201W.CopyFiles
+
+[E201W-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=E201W-DP.AddReg, 1600, DPMS
+CopyFiles=E201W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E201W-A.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"e201w.icm"
+
+[E201W-D.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"e201w.icm"
+
+[E201W-DP.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"e201w.icm"
+
+
+[E201W.CopyFiles]
+e201w.icm
+
+[Strings]
+NECDS="NEC"
+E201W-A="NEC MultiSync E201W(Analog)"
+E201W-D="NEC MultiSync E201W(Digital)"
+E201W-DP="NEC MultiSync E201W(DisplayPort)"
+Disk1="NEC Display Solutions Installation Disk"

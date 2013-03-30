@@ -1,0 +1,99 @@
+;=============================================================== 
+; Gateway FPD1530
+; manufactured by LG Electronics
+; mon05FF.inf
+; Revision 1.1, January-16-2004
+; Copyright(c) Gateway,All Rights Reserved.
+;===============================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon05FF.cat
+DriverVer=01/16/2004,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY05FF
+ExcludeFromSelect.NT=Monitor\GWY05FE
+ExcludeFromSelect.NT=Monitor\GWY05FC
+
+[DestinationDirs]
+DefaultDestDir=11
+mon05FF.CopyFiles=23
+mon05FE.CopyFiles=23
+05FC.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon05FF.icm=1
+mon05FE.icm=1
+05FC.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon05FF%=mon05FF.Install, Monitor\GWY05FF
+%mon05FE%=mon05FE.Install, Monitor\GWY05FE
+%05FC%=05FC.Install, Monitor\GWY05FC
+
+[mon05FF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon05FF.AddReg, 1024, DPMS
+CopyFiles=mon05FF.CopyFiles
+
+[mon05FE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon05FE.AddReg, 1024, DPMS
+CopyFiles=mon05FE.CopyFiles
+
+[05FC.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=05FC.AddReg, 1024, DPMS
+CopyFiles=05FC.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon05FF.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon05FF.icm"
+
+[mon05FE.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon05FE.icm"
+
+[05FC.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"05FC.icm"
+
+[mon05FF.CopyFiles]
+mon05FF.icm
+
+[mon05FE.CopyFiles]
+mon05FE.icm
+
+[05FC.CopyFiles]
+05FC.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon05FF="Gateway FPD1530"
+mon05FE="Gateway FPD1530"
+05FC="Gateway FPD1530"
+

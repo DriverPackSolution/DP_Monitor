@@ -1,0 +1,87 @@
+; [EIZO1620.INF]
+; Revision 1.00
+; Copyright(c) 2000 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=EIZO1620.cat
+DriverVer=12/01/2000,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENC1619
+ExcludeFromSelect.nt=Monitor\ENC1620
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+;
+L671D.CopyFiles=23
+L671.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L671__M1.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L671D%=L671D.Install, Monitor\ENC1619
+%L671%=L671.Install, Monitor\ENC1620
+
+[L671D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L671D.AddReg, 1280, DPMS
+CopyFiles=L671D.CopyFiles
+
+[L671.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L671.AddReg, 1280, DPMS
+CopyFiles=L671.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L671D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L671__M1.ICM"
+
+[L671.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L671__M1.ICM"
+
+[L671D.CopyFiles]
+L671__M1.ICM
+
+[L671.CopyFiles]
+L671__M1.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L671D="L671"
+L671="L671"

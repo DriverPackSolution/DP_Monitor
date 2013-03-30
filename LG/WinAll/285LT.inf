@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [285LT.INF]
+;
+;      Revision 1.0   OCTOBER-25-2001
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=10/25/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+285LT.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG285LT.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%285LT%=285LT, Monitor\GSM55F1
+
+;------------------------------------; .Install
+
+[285LT] 
+AddReg=285LT.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=285LT.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[285LT.AddReg] 
+HKR,"MODES\1600,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"LG285LT.ICM"
+
+;------------------------------------; .CopyFiles
+
+[285LT.CopyFiles]  
+LG285LT.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM55F1
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+285LT="FLATRON LCD 285LT"

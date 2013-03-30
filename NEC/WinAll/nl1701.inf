@@ -1,0 +1,83 @@
+; NL1701.INF
+; Setup information file for NEC LCD1701 Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=nl1701.cat
+DriverVer=10/23/2002,2.10.0023.1503
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC65EF
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-LCD1701.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+nl1701.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-LCD1701%=NEC-LCD1701.Install, Monitor\NEC65EF
+
+; Install Sections
+;-------------------------------------------------
+[NEC-LCD1701.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1701.AddReg, 1280, DPMS
+CopyFiles=NEC-LCD1701.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-LCD1701.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl1701.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-LCD1701.CopyFiles]
+nl1701.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-LCD1701="NEC LCD1701"

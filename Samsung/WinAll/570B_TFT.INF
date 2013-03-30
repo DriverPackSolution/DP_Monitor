@@ -1,0 +1,81 @@
+; File Name : 570B_TFT.inf
+;
+; This is a Setup information file for the Samsung Monitor. 
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+570B_TFT.CopyFiles = 23
+
+[SourceDisksNames]
+1="Samsung Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+570B_TFT.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+[Samsung]
+%570B_TFT%=570B_TFT.Install, Monitor\SAM49D5
+[570B_TFT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=570B_TFT.AddReg, 1024, DPMS
+CopyFiles=570B_TFT.CopyFiles
+
+
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;-----------------------------------------------------
+
+
+[570B_TFT.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,50-75,+,+"
+HKR,,ICMProfile,0,"570B_TFT.icm"
+
+
+;------------------------------------------------------
+
+[570B_TFT.CopyFiles]
+570B_TFT.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+
+MonitorClassName="Monitor"
+Samsung="Samsung"
+
+570B_TFT="Samsung SyncMaster 570B/580B TFT"
+

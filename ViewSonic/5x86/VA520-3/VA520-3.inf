@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA520-3.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=02/04/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS23722-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA520-3.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]
+%VLCDS23722-3%=VLCDS23722-3.Install,Monitor\VSCF70C         ;VA520-3
+
+[VLCDS23722-3.Install]                                      ;VA520-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23722-3.AddReg,1024,DPMS
+Copyfiles=VLCDS23722-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS23722-3.AddReg]                                       ;VA520-3
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VA520-3.ICM"
+
+[VLCDS23722-3.CopyFiles]                                       
+VA520-3.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS23722-3="ViewSonic VA520-3"

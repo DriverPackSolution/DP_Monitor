@@ -1,0 +1,105 @@
+;=================================================
+; Gateway FPD1730
+; Manufactured by Quanta
+; mon06CF.inf
+; August-11-2003
+;=================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon06CF.cat
+DriverVer=08/11/2003,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY06CF
+ExcludeFromSelect.NT=Monitor\GWY06CE
+ExcludeFromSelect.NT=Monitor\GWY06C5
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+mon06CF.CopyFiles=23
+mon06CE.CopyFiles=23
+mon06C5.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+mon06CF.icm=1
+mon06CE.icm=1
+mon06C5.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon06CF%=mon06CF.Install, Monitor\GWY06CF
+%mon06CE%=mon06CE.Install, Monitor\GWY06CE
+%mon06C5%=mon06C5.Install, Monitor\GWY06C5
+
+[mon06CF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06CF.AddReg, 1280, DPMS
+CopyFiles=mon06CF.CopyFiles
+
+[mon06CE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06CE.AddReg, 1280, DPMS
+CopyFiles=mon06CE.CopyFiles
+
+[mon06C5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06C5.AddReg, 1280, DPMS
+CopyFiles=mon06C5.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon06CF.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06CF.icm"
+
+[mon06CE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06CE.icm"
+
+[mon06C5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06C5.icm"
+
+[mon06CF.CopyFiles]
+mon06CF.icm
+
+[mon06CE.CopyFiles]
+mon06CE.icm
+
+[mon06C5.CopyFiles]
+mon06C5.icm
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon06CF="Gateway FPD1730"
+mon06CE="Gateway FPD1730"
+mon06C5="Gateway FPD1730"

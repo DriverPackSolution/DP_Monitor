@@ -1,0 +1,74 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VA1931.cat
+DriverVer=12/30/2009, 1.5.1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1931.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1931_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCAC25
+
+[ViewSonic]   
+%VA1931%=VA1931.Install,Monitor\VSCAC25  
+
+[ViewSonic.NTx86]   
+%VA1931%=VA1931.Install,Monitor\VSCAC25
+
+[ViewSonic.NTAMD64]   
+%VA1931%=VA1931.Install,Monitor\VSCAC25 
+
+[VA1931.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1931.AddReg,1366,DPMS
+Copyfiles=VA1931.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1931.AddReg]  
+HKR,"MODES\1366,768",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VA1931_SERIES.ICM"
+
+[VA1931.CopyFiles]                                       
+VA1931_SERIES.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+ViewSonic="ViewSonic"
+DiskLabel="VA1931 SERIES ViewSonic Wizard"
+VA1931="ViewSonic VA1931 SERIES"

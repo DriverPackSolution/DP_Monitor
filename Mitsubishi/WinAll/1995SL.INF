@@ -1,0 +1,68 @@
+; INF File for Windows 9x/Me/2000
+; Copyright (c)  2000, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+;CatalogFile=1995SL.cat
+DriverVer=09/20/2000,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA1997
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+1995SL.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1995SL.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%1995SL%=1995SL.Install,Monitor\MEA1997
+
+[1995SL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1995SL.AddReg, 1600, DPMS
+CopyFiles=1995SL.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1995SL.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"1995SL.ICM"
+
+[1995SL.CopyFiles]
+1995SL.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Mitsubishi Monitor Installation Disk"
+MEA="Mitsubishi Electric Australia"
+
+1995SL="Diamond View 1995SL"

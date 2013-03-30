@@ -1,0 +1,95 @@
+
+;==================================================
+; sm150mp.inf 09/18/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm150mp.cat
+DriverVer=09/18/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM3675
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm150mp.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm150mp.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm150mp%=sm150mp.Install, Monitor\SAM3675
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm150mp.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm150mp.AddReg, 1024, DPMS
+CopyFiles=sm150mp.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm150mp.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-70,50-85,+,+"
+HKR,,ICMProfile,0,"sm150mp.icm"
+
+
+;------------------------------------------------------
+
+[sm150mp.CopyFiles]
+sm150mp.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm150mp="Samsung SyncMaster 150MP/150MB"

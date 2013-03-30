@@ -1,0 +1,83 @@
+;=============================================================== 
+; [M198WA.INF] 
+; Revision 1.3   November-02-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M198WA.cat
+DriverVer=11/02/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B35
+ExcludeFromSelect.NT=Monitor\GSM4B36
+
+[DestinationDirs]
+DefaultDestDir = 11
+M198WA_Analog.CopyFiles = 23
+M198WA_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M198WA.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M198WA_Analog%=M198WA_Analog.Install,Monitor\GSM4B35
+%M198WA_Digital%=M198WA_Digital.Install,Monitor\GSM4B36
+
+[LG.NTamd64]
+%M198WA_Analog%=M198WA_Analog.Install,Monitor\GSM4B35
+%M198WA_Digital%=M198WA_Digital.Install,Monitor\GSM4B36
+
+[M198WA_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M198WA_Analog.AddReg,1440,DPMS
+CopyFiles=M198WA_Analog.CopyFiles
+
+[M198WA_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M198WA_Digital.AddReg,1440,DPMS
+CopyFiles=M198WA_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M198WA_Analog.AddReg]
+HKR,"MODES\1400,900",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,59"
+HKR,,ICMprofile,0,"M198WA.ICM"
+
+[M198WA_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,59"
+HKR,,ICMprofile,0,"M198WA.ICM"
+
+[M198WA_Analog.CopyFiles]
+M198WA.ICM
+
+[M198WA_Digital.CopyFiles]
+M198WA.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M198WA_Analog="LG M198WA(Analog)"
+M198WA_Digital="LG M198WA(Digital)"

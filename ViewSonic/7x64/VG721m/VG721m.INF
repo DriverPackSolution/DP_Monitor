@@ -1,0 +1,86 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for ViewSonic
+;   Copyright, ViewSonic Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the ViewSonic Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%ViewSonic%
+	CatalogFile=VG721m.cat
+	DriverVer=12/04/2006,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	VG721m.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	VG721M.icm=1
+
+[Manufacturer]
+	%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\VSC5D1E
+	
+[ViewSonic]
+	%VG721m%=VG721m.Install, Monitor\VSC5D1E
+
+[ViewSonic.NTx86]
+	%VG721m%=VG721m.Install, Monitor\VSC5D1E
+
+[ViewSonic.NTAMD64]
+	%VG721m%=VG721m.Install, Monitor\VSC5D1E
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VG721m.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=VG721m.AddReg, 1280, DPMS
+	CopyFiles=VG721m.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1280]
+	HKR,,MaxResolution,,"1280,1024"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VG721m.AddReg]
+	HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,50.0-75.0,+,+"
+	HKR,,ICMProfile,0,"VG721M.icm"
+
+[VG721m.CopyFiles]	
+	VG721M.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="ViewSonic Monitor Installation Disk"
+	DiskLabel="ViewSonic INF and ICM Software"
+	ViewSonic="ViewSonic Corporation"
+
+	VG721m="ViewSonic VG721m "

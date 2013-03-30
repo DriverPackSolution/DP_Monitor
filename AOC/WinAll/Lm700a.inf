@@ -1,0 +1,83 @@
+;
+; This is a Setup information file for monitors  with ICM  file
+; Modified by EPI Top Victory (Fujian), Ltd. R&D.
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+A780.CopyFiles=23
+
+[SourceDisksNames]
+1="AOC Supersync Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+LM700A.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%A780%=A780.Install, Monitor\AOCA780
+
+; Install Sections
+;-------------------------------------------------
+[A780.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=A780.AddReg, 1280 ,DPMS
+Copyfiles=A780.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[A780.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"LM700A.icm"
+
+[A780.CopyFiles]
+LM700A.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+MonitorClassName="Monitor"
+AOC="AOC TOP VICTORY ELECTRONIC  CO.,LTD"
+
+A780="AOC LCD MONITOR LM-700/ LM-700A"
+

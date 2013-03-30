@@ -1,0 +1,124 @@
+;=========================================== 
+; BenQ_EW2730.INF 12/12/10 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista/7
+; Copyright (c) 2010, BENQ Corporation
+;===========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=EW2730.cat
+DriverVer=12/12/2010,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7926
+ExcludeFromSelect.NT=Monitor\BNQ7927
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+EW2730_Analog.copyfiles = 23
+EW2730_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+EW2730Analog.icm=1
+EW2730Digital.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%EW2730_Analog%=EW2730_Analog.Install, Monitor\BNQ7926
+%EW2730_Digital%=EW2730_Digital.Install, Monitor\BNQ7927
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%EW2730_Analog%=EW2730_Analog.Install, Monitor\BNQ7926
+%EW2730_Digital%=EW2730_Digital.Install, Monitor\BNQ7927
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%EW2730_Analog%=EW2730_Analog.Install, Monitor\BNQ7926
+%EW2730_Digital%=EW2730_Digital.Install, Monitor\BNQ7927
+
+; Install Sections
+;-------------------------------------------------
+
+[EW2730_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EW2730_Analog.AddReg, 1920, DPMS
+CopyFiles=EW2730_Analog.CopyFiles
+
+[EW2730_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EW2730_Digital.AddReg, 1920, DPMS
+CopyFiles=EW2730_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[EW2730_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"EW2730Analog.icm"
+
+[EW2730_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"EW2730Digital.icm"
+
+
+
+[EW2730_Analog.CopyFiles]
+EW2730Analog.ICM
+
+
+[EW2730_Digital.CopyFiles]
+EW2730Digital.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+EW2730_Analog="BenQ EW2730 (Analog)"
+EW2730_Digital="BenQ EW2730 (Digital)"

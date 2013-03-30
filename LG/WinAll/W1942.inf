@@ -1,0 +1,83 @@
+;=============================================================== 
+; [W1942.INF] 
+; Revision 1.2   October-15-2009
+; Copyright(c)1998~2009 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=W1942.cat
+DriverVer=10/15/2009,1.2
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B6F
+ExcludeFromSelect.NT=Monitor\GSM4B70
+
+[DestinationDirs]
+DefaultDestDir = 11
+W1942_Analog.CopyFiles = 23
+W1942_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+W1942.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%W1942_Analog%=W1942_Analog.Install,Monitor\GSM4B6F
+%W1942_Digital%=W1942_Digital.Install,Monitor\GSM4B70
+
+[LG.NTamd64]
+%W1942_Analog%=W1942_Analog.Install,Monitor\GSM4B6F
+%W1942_Digital%=W1942_Digital.Install,Monitor\GSM4B70
+
+[W1942_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W1942_Analog.AddReg,1440,DPMS
+CopyFiles=W1942_Analog.CopyFiles
+
+[W1942_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W1942_Digital.AddReg,1440,DPMS
+CopyFiles=W1942_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[W1942_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMprofile,0,"W1942.ICM"
+
+[W1942_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMprofile,0,"W1942.ICM"
+
+[W1942_Analog.CopyFiles]
+W1942.ICM
+
+[W1942_Digital.CopyFiles]
+W1942.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+W1942_Analog="LG W1942(Analog)"
+W1942_Digital="LG W1942(Digital)"

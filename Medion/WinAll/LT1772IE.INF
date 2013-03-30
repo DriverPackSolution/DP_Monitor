@@ -1,0 +1,101 @@
+
+; LIFETEC INF File for Win98
+; Setup Information File for LIFETEC Monitors - V1.0
+
+;-------------------------------------------------
+; Version section
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LIFETEC%
+
+;-------------------------------------------------
+;Monitor class install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+LT1772IE.CopyFiles = 23
+
+[SourceDisksNames]
+1="LIFETEC Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+LT1772IE.ICM=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%LIFETEC%=LIFETEC
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[LIFETEC]
+%LT1772IE%=LT1772IE.install,Monitor\LFT1772
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+[LT1772IE.install]
+DelReg=DEL_CURRENT_REG
+AddReg=LT1772IE.AddReg, 1280, DPMS
+CopyFiles=LT1772IE.CopyFiles
+
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------
+
+[LT1772IE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"LT1772IE.ICM"
+
+[LT1772IE.CopyFiles]
+LT1772IE.ICM
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+
+LIFETEC="LIFETEC"
+
+LT1772IE= "LIFETEC LT1772ie"

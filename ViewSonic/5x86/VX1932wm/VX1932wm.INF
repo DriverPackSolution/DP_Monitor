@@ -1,0 +1,86 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for ViewSonic
+;   Copyright, ViewSonic Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the ViewSonic Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%ViewSonic%
+	CatalogFile=ViewSonic19w.cat
+	DriverVer=06/06/2007,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	VX1932wm.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	VX1932wm.icm=1
+
+[Manufacturer]
+	%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\VSCD41F
+	
+[ViewSonic]
+	%VX1932wm%=VX1932wm.Install, Monitor\VSCD41F
+
+[ViewSonic.NTx86]
+	%VX1932wm%=VX1932wm.Install, Monitor\VSCD41F
+
+[ViewSonic.NTAMD64]
+	%VX1932wm%=VX1932wm.Install, Monitor\VSCD41F
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VX1932wm.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=VX1932wm.AddReg, 1440, DPMS
+	CopyFiles=VX1932wm.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1440]
+	HKR,,MaxResolution,,"1440,900"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VX1932wm.AddReg]
+	HKR,"MODES\1440,900",Mode1,,"30-82,50-75,-,+"
+	HKR,,ICMProfile,0,"VX1932wm.icm"
+
+[VX1932wm.CopyFiles]	
+	VX1932wm.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="ViewSonic Monitor Installation Disk"
+	DiskLabel="ViewSonic INF and ICM Software"
+	ViewSonic="ViewSonic"
+
+	VX1932wm="ViewSonic VX1932wm"

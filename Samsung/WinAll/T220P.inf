@@ -1,0 +1,120 @@
+
+;==================================================
+; T220P.inf 04/28/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=T220P.cat
+DriverVer=04/28/2008,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM041C
+ExcludeFromSelect.nt=Monitor\SAM041D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+T220Pa.CopyFiles = 23
+T220Pd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+T220P.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%T220Pa%=T220Pa.Install, Monitor\SAM041C
+%T220Pd%=T220Pd.Install, Monitor\SAM041D
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%T220Pa%=T220Pa.Install, Monitor\SAM041C
+%T220Pd%=T220Pd.Install, Monitor\SAM041D
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%T220Pa%=T220Pa.Install, Monitor\SAM041C
+%T220Pd%=T220Pd.Install, Monitor\SAM041D
+
+; Install Sections
+;-----------------------------------------------------
+
+[T220Pa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T220Pa.AddReg, 1920, DPMS
+CopyFiles=T220Pa.CopyFiles
+
+[T220Pd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T220Pd.AddReg, 1920, DPMS
+CopyFiles=T220Pd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[T220Pa.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T220P.icm"
+
+[T220Pd.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T220P.icm"
+;------------------------------------------------------
+
+[T220Pa.CopyFiles]
+T220P.icm
+
+[T220Pd.CopyFiles]
+T220P.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+T220Pa="SyncMaster T220P,SyncMaster Magic T220P(Analog)"
+T220Pd="SyncMaster T220P,SyncMaster Magic T220P(Digital)"

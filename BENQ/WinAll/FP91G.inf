@@ -1,0 +1,77 @@
+;================================ 
+;FP91E.INF 07/15/04 Ver. 1.0 
+;; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2004, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=FP91G.cat
+DriverVer=07/15/2004,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP91G.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP91G.icm=1
+
+[Manufacturer]
+%BenQ%=BenQ
+
+[BenQ]
+%FP91G%=FP91G.Install, Monitor\BNQ7686
+%FP91G%=FP91G.Install, Monitor\BNQ7687
+
+[FP91G.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP91G.AddReg, 1280, DPMS
+CopyFiles=FP91G.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP91G.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP91G.icm"
+
+[FP91G.CopyFiles]
+FP91G.ICM
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7686
+ExcludeFromSelect.NT=Monitor\BNQ7687
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BenQ flat panel Monitor installation diskette"
+FP91G="BenQ FP91G"
+BenQ="BenQ"

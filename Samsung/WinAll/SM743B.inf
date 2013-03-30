@@ -1,0 +1,120 @@
+
+;==================================================
+; SM743B.inf 10/22/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM743B.cat
+DriverVer=10/22/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0366
+ExcludeFromSelect.nt=Monitor\SAM0367
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM743Ba.CopyFiles = 23
+SM743Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM743B.icm=1
+SM743B.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM743Ba%=SM743Ba.Install, Monitor\SAM0366
+%SM743Bd%=SM743Bd.Install, Monitor\SAM0367
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM743Ba%=SM743Ba.Install, Monitor\SAM0366
+%SM743Bd%=SM743Bd.Install, Monitor\SAM0367
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM743Ba%=SM743Ba.Install, Monitor\SAM0366
+%SM743Bd%=SM743Bd.Install, Monitor\SAM0367
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM743Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM743Ba.AddReg, 1280, DPMS
+CopyFiles=SM743Ba.CopyFiles
+
+[SM743Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM743Bd.AddReg, 1280, DPMS
+CopyFiles=SM743Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM743Ba.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM743B.icm"
+
+[SM743Bd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM743B.icm"
+;------------------------------------------------------
+
+[SM743Ba.CopyFiles]
+SM743B.icm
+
+[SM743Bd.CopyFiles]
+SM743B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM743Ba="SyncMaster 743B/743BM/743BX(Analog)"
+SM743Bd="SyncMaster 743B/743BM/743BX(Digital)"

@@ -1,0 +1,108 @@
+
+;==================================================
+; sm152T.inf 10/24/2002 ver. 1.0
+;
+; Copyright 2002 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm152T.cat
+DriverVer=10/24/2002,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0052
+ExcludeFromSelect.nt=Monitor\SAM0053
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm152Ta.CopyFiles = 23
+sm152Td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm152T.icm=1
+sm152T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm152Ta%=sm152Ta.Install, Monitor\SAM0052
+%sm152Td%=sm152Td.Install, Monitor\SAM0053
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm152Ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm152Ta.AddReg, 1024, DPMS
+CopyFiles=sm152Ta.CopyFiles
+
+[sm152Td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm152Td.AddReg, 1024, DPMS
+CopyFiles=sm152Td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm152Ta.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"sm152T.icm"
+
+[sm152Td.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"sm152T.icm"
+;------------------------------------------------------
+
+[sm152Ta.CopyFiles]
+sm152T.icm
+
+[sm152Td.CopyFiles]
+sm152T.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm152Ta="SyncMaster 152T/155T, SyncMaster Magic CX155T(M)/MX154T(M)(Analog)"
+sm152Td="SyncMaster 152T/155T, SyncMaster Magic CX155T(M)/MX154T(M)(Digital)"

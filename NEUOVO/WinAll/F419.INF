@@ -1,0 +1,76 @@
+; F419.INF      Ver.2.00     2003.04.16
+;
+; Copyright 2002-2004, AGN neovo
+; All Rights Reserved
+;  
+; This is a Microsoft Windows setup information file 
+; for the AGN neovo F419 LCD Monitor.
+;
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$" 
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AIC%
+CatalogFile=F419.cat     
+DriverVer=04/16/2003,2.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\AIC4191
+ExcludeFromSelect.nt = Monitor\AIC4190
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+F419.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+LCD_193.icm=1
+
+[Manufacturer]
+%AIC%=AIC
+
+[AIC]
+%F4191%=F419.Install,Monitor\AIC4191
+%F4190%=F419.Install,Monitor\AIC4190
+
+[F419.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F419.AddReg, 1280, DPMS
+CopyFiles=F419.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F419.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"LCD_193.icm"
+
+[F419.CopyFiles]
+LCD_193.icm
+
+[Strings]
+MonitorClassName="Monitor"
+AIC="AG neovo"
+F4191="F-419"
+F4190="F-419 DVI"
+Disk1="AIC Monitor INF Disk"

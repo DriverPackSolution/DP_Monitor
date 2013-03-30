@@ -1,0 +1,117 @@
+;================================ 
+;1800FP.INF 03/21/03 Ver. 3.0 SND
+;Copyright 1996-2003 
+;Dell Computer Corporation
+;This is a setupfile for 1800FP
+;================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1800FP.cat
+DriverVer=03/21/2003,3.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DELE000
+ExcludeFromSelect.NT=Monitor\DELE001
+
+ExcludeFromSelect.NT=Monitor\DELE002
+ExcludeFromSelect.NT=Monitor\DELE003
+
+[DestinationDirs]
+DefaultDestDir = 11
+1800FP_Analog.CopyFiles = 23
+1800FP_Digital.CopyFiles = 23
+
+1800FP_Analog2.CopyFiles = 23
+1800FP_Digital3.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1800FP.ICM=1
+
+[Manufacturer]
+%Dell%=Dell
+
+[Dell]
+%1800FP_Analog%=1800FP_Analog.Install,Monitor\DELE000
+%1800FP_Digital%=1800FP_Digital.Install,Monitor\DELE001
+
+%1800FP_Analog2%=1800FP_Analog2.Install,Monitor\DELE002
+%1800FP_Digital3%=1800FP_Digital3.Install,Monitor\DELE003
+
+[1800FP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1800FP_Analog.AddReg, 1280, DPMS
+CopyFiles=1800FP_Analog.CopyFiles
+
+[1800FP_Analog2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1800FP_Analog2.AddReg, 1280, DPMS
+CopyFiles=1800FP_Analog2.CopyFiles
+
+[1800FP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1800FP_Digital.AddReg, 1280, DPMS
+CopyFiles=1800FP_Digital.CopyFiles
+
+[1800FP_Digital3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1800FP_Digital3.AddReg, 1280, DPMS
+CopyFiles=1800FP_Digital3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1800FP_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"1800FP.ICM"
+
+[1800FP_Analog2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1800FP.ICM"
+
+[1800FP_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"1800FP.ICM"
+
+[1800FP_Digital3.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1800FP.ICM"
+
+[1800FP_Analog.CopyFiles]
+1800FP.ICM
+
+[1800FP_Analog2.CopyFiles]
+1800FP.ICM
+
+[1800FP_Digital.CopyFiles]
+1800FP.ICM
+
+[1800FP_Digital3.CopyFiles]
+1800FP.ICM
+
+[Strings]
+DiskName="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."
+
+1800FP_Analog="Dell 1800FP(Analog)"
+
+1800FP_Digital="Dell 1800FP(Digital)"
+
+1800FP_Analog2="Dell 1800FP(Analog)"
+
+1800FP_Digital3="Dell 1800FP(Digital)"

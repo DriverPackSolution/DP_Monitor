@@ -1,0 +1,68 @@
+;MD41405A10.INF Ver. 1.0
+;Monitor INF file for Medion MD41405A10
+;Copyright 2001,2002 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=md41405A10.cat
+DriverVer=11/08/2004, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED87B5
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD41405A10.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+MD41405A10.ICM=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%MD41405A10%=MD41405A10.Install, Monitor\MED87B5
+
+[MD41405A10.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD41405A10.AddReg, 1280, DPMS
+CopyFiles=MD41405A10.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD41405A10.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-62,56-76,+,+"
+HKR,,ICMProfile,0,"MD41405A10.ICM"
+
+[MD41405A10.CopyFiles]
+MD41405A10.ICM
+
+[Strings]
+;DISK="Driver & Utility for Medion MD41405A10"
+MonitorClassName="Monitor"
+Medion="Medion"
+MD41405A10="Medion MD41405A10"

@@ -1,0 +1,120 @@
+
+;==================================================
+; SM460UX-2.inf 07/14/2009 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM460UX-2.cat
+DriverVer=07/14/2009,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM05DF
+ExcludeFromSelect.nt=Monitor\SAM05E0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM460UX-2a.CopyFiles = 23
+SM460UX-2d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM460UX-2.icm=1
+SM460UX-2.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM460UX-2a%=SM460UX-2a.Install, Monitor\SAM05DF
+%SM460UX-2d%=SM460UX-2d.Install, Monitor\SAM05E0
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM460UX-2a%=SM460UX-2a.Install, Monitor\SAM05DF
+%SM460UX-2d%=SM460UX-2d.Install, Monitor\SAM05E0
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM460UX-2a%=SM460UX-2a.Install, Monitor\SAM05DF
+%SM460UX-2d%=SM460UX-2d.Install, Monitor\SAM05E0
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM460UX-2a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM460UX-2a.AddReg, 1920, DPMS
+CopyFiles=SM460UX-2a.CopyFiles
+
+[SM460UX-2d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM460UX-2d.AddReg, 1920, DPMS
+CopyFiles=SM460UX-2d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM460UX-2a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM460UX-2.icm"
+
+[SM460UX-2d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM460UX-2.icm"
+;------------------------------------------------------
+
+[SM460UX-2a.CopyFiles]
+SM460UX-2.icm
+
+[SM460UX-2d.CopyFiles]
+SM460UX-2.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM460UX-2a="SyncMaster 460UX-2/460UXN-2(Analog)"
+SM460UX-2d="SyncMaster 460UX-2/460UXN-2(Digital)"

@@ -1,0 +1,100 @@
+; nl6520l.inf
+; Setup information file for NEC MultiSync LCD6520L Monitor
+;
+; Copyright (C) 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl6520l.cat
+DriverVer=06/14/2007, 1.07.0614.1558
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6722
+ExcludeFromSelect.nt=Monitor\NEC6721
+
+[DestinationDirs]
+LCD6520L.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl6520l.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD6520L-D%=LCD6520L-D.Install, Monitor\NEC6722
+%LCD6520L-A%=LCD6520L-A.Install, Monitor\NEC6721
+
+[NECDS.ntamd64]
+%LCD6520L-D%=LCD6520L-D.Install.ntamd64, Monitor\NEC6722
+%LCD6520L-A%=LCD6520L-A.Install.ntamd64, Monitor\NEC6721
+
+; Install Sections
+;-------------------------------------------------
+[LCD6520L-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD6520L-D.AddReg, 1920, DPMS
+CopyFiles=LCD6520L.CopyFiles
+
+[LCD6520L-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD6520L-A.AddReg, 1920, DPMS
+CopyFiles=LCD6520L.CopyFiles
+
+[LCD6520L-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD6520L-D.AddReg, 1920, DPMS
+CopyFiles=LCD6520L.CopyFiles
+
+[LCD6520L-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD6520L-A.AddReg, 1920, DPMS
+CopyFiles=LCD6520L.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD6520L-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl6520l.icm"
+
+[LCD6520L-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl6520l.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD6520L.CopyFiles]
+nl6520l.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD6520L-D="NEC MultiSync LCD6520L(Digital)"
+LCD6520L-A="NEC MultiSync LCD6520L(Analog)"
+Disk1="NEC Monitor Installation Disk"

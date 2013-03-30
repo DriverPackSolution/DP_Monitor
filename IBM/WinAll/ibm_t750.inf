@@ -1,0 +1,116 @@
+
+;==========================================================
+;IBM_T750.INF 06/11/2002 Ver. 1.1 
+;Copyright 1996-2002 IBM Computer Corporation
+;
+;This is a setupfile for the IBM T750 Flat Panel Monitors
+;
+;==========================================================
+;
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_T750.cat
+DriverVer=06/11/2002, 1.1
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM1A01
+ExcludeFromSelect.nt=Monitor\IBM4111
+ExcludeFromSelect.nt=Monitor\IBM6821
+
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_T750.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM_T750.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%IBM%=IBM
+
+; Manufacturer sections
+;-------------------------------------------------
+[IBM] 
+%IBM_T750(analog)%=IBM_T750(analog).Install, Monitor\IBM1A01
+%IBM_T750(digital)%=IBM_T750(digital).Install, Monitor\IBM4111
+%IBM_T750%=IBM_T750.Install, Monitor\IBM6821
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[IBM_T750(analog).Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_T750(analog).AddReg, 1280, DPMS
+CopyFiles=IBM_T750.CopyFiles
+
+[IBM_T750(digital).Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_T750(digital).AddReg, 1280, DPMS
+CopyFiles=IBM_T750.CopyFiles
+
+[IBM_T750.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_T750.AddReg, 1280, DPMS
+CopyFiles=IBM_T750.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[IBM_T750(analog).AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"IBM_T750.icm"
+
+[IBM_T750(digital).AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"IBM_T750.icm"
+
+[IBM_T750.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"IBM_T750.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[IBM_T750.CopyFiles]
+IBM_T750.icm
+
+;------------------------------------------------------------------------------------------
+
+[Strings]
+DISK="IBM Flat Panel Monitor Installation disk"
+IBM="IBM"	
+IBM_T750(analog)="IBM 6657-H*2 T750 TFT Monitor(analog)"
+IBM_T750(digital)="IBM 6657-H*2 T750 TFT Monitor(digital)"
+IBM_T750="IBM 6657-H*0 T750 TFT Monitor"

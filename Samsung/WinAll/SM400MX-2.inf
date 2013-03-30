@@ -1,0 +1,120 @@
+
+;==================================================
+; SM400MX-2.inf 02/02/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM400MX-2.cat
+DriverVer=02/02/2008,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0547
+ExcludeFromSelect.nt=Monitor\SAM0548
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM400MX-2a.CopyFiles = 23
+SM400MX-2d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM400MX-2.icm=1
+SM400MX-2.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM400MX-2a%=SM400MX-2a.Install, Monitor\SAM0547
+%SM400MX-2d%=SM400MX-2d.Install, Monitor\SAM0548
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM400MX-2a%=SM400MX-2a.Install, Monitor\SAM0547
+%SM400MX-2d%=SM400MX-2d.Install, Monitor\SAM0548
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM400MX-2a%=SM400MX-2a.Install, Monitor\SAM0547
+%SM400MX-2d%=SM400MX-2d.Install, Monitor\SAM0548
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM400MX-2a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM400MX-2a.AddReg, 1920, DPMS
+CopyFiles=SM400MX-2a.CopyFiles
+
+[SM400MX-2d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM400MX-2d.AddReg, 1920, DPMS
+CopyFiles=SM400MX-2d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM400MX-2a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM400MX-2.icm"
+
+[SM400MX-2d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM400MX-2.icm"
+;------------------------------------------------------
+
+[SM400MX-2a.CopyFiles]
+SM400MX-2.icm
+
+[SM400MX-2d.CopyFiles]
+SM400MX-2.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM400MX-2a="SyncMaster 400MX(n)-2/400MP(n)-2/400FP(n)-2(Analog)"
+SM400MX-2d="SyncMaster 400MX(n)-2/400MP(n)-2/400FP(n)-2(Digital)"

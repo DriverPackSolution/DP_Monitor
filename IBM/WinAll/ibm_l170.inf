@@ -1,0 +1,91 @@
+
+;==========================================================
+;IBM_L170.INF 03/04/2003 Ver. 1.1 
+;Copyright 1996-2003 IBM Computer Corporation
+;
+;This is a setupfile for the IBM Computer Monitors
+;
+;==========================================================
+;
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_L170.cat
+DriverVer=03/04/2003, 1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM1A4E
+
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_L170.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM_L170.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%IBM%=IBM
+
+; Manufacturer sections
+;-------------------------------------------------
+[IBM] 
+%IBM_L170%=IBM_L170.Install, Monitor\IBM1A4E
+
+
+; Install Sections
+;-------------------------------------------------
+
+[IBM_L170.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_L170.AddReg, 1280, DPMS
+CopyFiles=IBM_L170.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[IBM_L170.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"IBM_L170.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[IBM_L170.CopyFiles]
+IBM_L170.icm
+
+;------------------------------------------------------------------------------------------
+
+[Strings]
+DISK="IBM Flat Panel Monitor Installation disk"
+IBM="IBM"	
+IBM_L170="IBM L170 TFT Monitor"

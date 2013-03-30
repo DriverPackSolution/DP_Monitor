@@ -1,0 +1,72 @@
+;PLC510T.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH PLC510T
+;Copyright 2004 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLC510T.cat      
+DriverVer=09/01/2004,1.05
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM5371
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLC510T.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLC510T.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLC510T%=PLC510T.Install, Monitor\IVM5371
+
+[PLC510T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLC510T.AddReg, 1024, DPMS
+CopyFiles=PLC510T.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLC510T.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-66,55-76,+,+"
+HKR,"MODES\800,600",Mode1,,"30-66,55-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-66,55-76,+,+"
+
+HKR,,ICMProfile,0,"PLC510T.ICM"
+
+[PLC510T.CopyFiles]
+PLC510T.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLC510T="iiyama ProLite C510T"

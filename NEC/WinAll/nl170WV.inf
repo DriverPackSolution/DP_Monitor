@@ -1,0 +1,68 @@
+; NL170WV.inf
+; Setup information file for NEC LCD170WV Monitor
+;
+; Copyright 2008, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL170WV.cat
+DriverVer=07/24/2008,1.05.1012.1049
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC675A
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD170WV.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL170WV.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD170WV%=LCD170WV.Install, Monitor\NEC675A
+
+[NECDS.ntamd64]
+%LCD170WV%=LCD170WV.Install.ntamd64, Monitor\NEC675A
+
+[LCD170WV.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD170WV.AddReg, 1440, DPMS
+CopyFiles=LCD170WV.CopyFiles
+
+[LCD170WV.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD170WV.AddReg, 1440, DPMS
+CopyFiles=LCD170WV.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,1440,900
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD170WV.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"NL170WV.icm"
+
+[LCD170WV.CopyFiles]
+NL170WV.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD170WV="NEC LCD170WV"

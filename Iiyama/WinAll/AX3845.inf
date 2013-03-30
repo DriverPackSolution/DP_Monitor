@@ -1,0 +1,68 @@
+;AX3845.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor AX3845D 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=AX3845.cat      
+DriverVer=10/01/2002,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM4F0A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AX3845.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+AX3845.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%AX3845%=AX3845.Install, Monitor\IVM4F0A
+[AX3845.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AX3845.AddReg, 1024, DPMS
+CopyFiles=AX3845.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AX3845.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-60,55-76,+,+"
+HKR,,ICMProfile,0,"AX3845.ICM"
+
+[AX3845.CopyFiles]
+AX3845.ICM
+
+[Strings]
+DISK1="IIYAMA LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+AX3845="IIYAMA AX3845D"

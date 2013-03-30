@@ -1,0 +1,82 @@
+; IBM_9494, OCTOBER-26-2001
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%IBM%
+CatalogFile=IBM_9494.cat
+DriverVer=10/26/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_9494.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+IBM_9494.icm=1 
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_9494%=IBM_9494.Install, Monitor\IBM2516
+
+;------------------------------------; .Install
+
+[IBM_9494.Install] 
+AddReg=IBM_9494.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=IBM_9494.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[IBM_9494.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"IBM_9494.ICM"
+
+;------------------------------------; .CopyFiles
+
+[IBM_9494.CopyFiles]  
+IBM_9494.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\IBM2516
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+IBM="IBM"
+IBM_9494="IBM 9494 T860"

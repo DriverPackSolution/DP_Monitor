@@ -1,0 +1,1233 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/16/2007, 1.5.2.24
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS21356-2.CopyFiles=23
+VCDTS21378-2.CopyFiles=23
+VCDTS21379-1.CopyFiles=23
+VCDTS21403-1.CopyFiles=23
+VCDTS21404-1.CopyFiles=23
+VCDTS21354-2.CopyFiles=23
+VCDTS21432-1.CopyFiles=23
+VCDTS21443-3.CopyFiles=23
+VCDTS21444-2.CopyFiles=23
+VCDTS21455-2.CopyFiles=23
+VCDTS21448-2.CopyFiles=23
+VCDTS21454-3.CopyFiles=23
+VCDTS21384-1.CopyFiles=23
+VCDTS21490-1.CopyFiles=23
+VCDTS21428-1.CopyFiles=23
+VCDTS21468-1.CopyFiles=23
+VCDTS21502-1.CopyFiles=23
+VCDTS21524-3.CopyFiles=23
+VCDTS21524-R.CopyFiles=23
+VCDTS21384-1G.CopyFiles=23
+VCDTS21490-2G.CopyFiles=23
+VCDTS21490-2.CopyFiles=23
+VCDTS21526-4.CopyFiles=23
+VCDTS21553-5.CopyFiles=23
+VCDTS21552-4.CopyFiles=23
+VCDTS21553-3.CopyFiles=23
+VCDTS21553-4.CopyFiles=23
+VCDTS21553-2.CopyFiles=23
+VCDTS21580-1.CopyFiles=23
+VCDTS21914-1.CopyFiles=23
+VCDTS21915-2.CopyFiles=23
+VCDTS22436-3.CopyFiles=23
+VCDTS23284-4.CopyFiles=23
+VCDTS21914-2.CopyFiles=23
+VCDTS23284-5.CopyFiles=23
+VCDTS21914-3.CopyFiles=23
+VCDTS23284.CopyFiles=23
+Q51-8.CopyFiles=23
+E50c-6.CopyFiles=23
+Q51-9.CopyFiles=23
+E55-4.CopyFiles=23
+E50c-7.CopyFiles=23
+E50-7.CopyFiles=23
+E50-8.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+E641-2.ICM=1
+E655-2.ICM=1
+G653.ICM=1
+GA655.ICM=1
+P655.ICM=1
+E40.ICM=1
+E651.ICM=1
+MB50.ICM=1
+E655-3.ICM=1
+G653-2.ICM=1
+E651-2.ICM=1
+E40-2.ICM=1
+E641-3.ICM=1
+G655.ICM=1
+E40-3.ICM=1
+E653.ICM=1
+M50.ICM=1
+E651-3.ICM=1
+A50.ICM=1
+E40-5.ICM=1
+E653-2.ICM=1
+E50.ICM=1
+E655-4.ICM=1
+G55.ICM=1
+E40-4.ICM=1
+E53-G.ICM=1
+E53.ICM=1
+Z50-2.ICM=1
+G50m.ICM=1
+E55.ICM=1
+E50-2.ICM=1
+E50-3.ICM=1
+E50-4.ICM=1
+E55-2.ICM=1
+E50-5.ICM=1
+E55-3.ICM=1
+E50c.ICM=1
+Q51-8.ICM=1
+E50c-6.ICM=1
+Q51-9.ICM=1
+E55-4.ICM=1
+E50c-7.ICM=1
+E50-7.ICM=1
+E50-8.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%1448ES-1%=1448ES-1.Install,Monitor\VSC3141			;14ES
+%1569GS-1%=1569GS-1.Install,Monitor\VSC2601	                ;15GS
+%1562ES-2%=1562ES-2.Install,Monitor\VSC3844			;15ES-2
+%1569GS-2%=1569GS-2.Install,Monitor\VSC4439                     ;15GS-2
+%1565G-1%=1565G-1.Install,Monitor\VSC3744                       ;15G-2
+%1569GS-3%=1569GS-3.Install,Monitor\VSC3145                     ;15GS-3
+%1569GA-1%=1569GA-1.Install,Monitor\VSC3644                     ;15GA-1
+%1569GA-2%=1569GA-2.Install,Monitor\VSC3245                     ;15GA-2
+%E641%=E641.Install,Monitor\VSC3441                             ;E641 
+%E655%=E655.Install,Monitor\VSC3345                             ;E655
+%VCDTS21355-1%=VCDTS21355-1.Install,Monitor\VSC3445             ;E51
+%VCDTS21356-2%=VCDTS21356-2.Install,Monitor\VSC3641             ;E641-2
+%VCDTS21354-1%=VCDTS21354-1.Install,Monitor\VSC3741             ;E41
+%VCDTS21378-2%=VCDTS21378-2.Install,Monitor\VSC3745             ;E655-2
+%VCDTS21379-1%=VCDTS21379-1.Install,Monitor\VSC3645             ;G653
+%VCDTS21403-1%=VCDTS21403-1.Install,Monitor\VSC4145             ;GA655
+%VCDTS21404-1%=VCDTS21404-1.Install,Monitor\VSC4245             ;P655
+%VCDTS21354-2%=VCDTS21354-2.Install,Monitor\VSC4441             ;E40
+%VCDTS21432-1%=VCDTS21432-1.Install,Monitor\VSC4645             ;E651
+%VCDTS21428-1%=VCDTS21428-1.Install,Monitor\VSC4845             ;MB50
+%VCDTS21443-3%=VCDTS21443-3.Install,Monitor\VSC4945             ;E655-3
+%VCDTS21444-2%=VCDTS21444-2.Install,Monitor\VSC4745             ;G653-2
+%VCDTS21455-2%=VCDTS21455-2.Install,Monitor\VSC4D45             ;E651-2
+%VCDTS21448-2%=VCDTS21448-2.Install,Monitor\VSC4741             ;E40-2
+%VCDTS21454-3%=VCDTS21454-3.Install,Monitor\VSC4541             ;E641-3
+%VCDTS21468-1%=VCDTS21468-1.Install,Monitor\VSC5045             ;G655
+%VCDTS21384-1%=VCDTS21384-1.Install,Monitor\VSC4943             ;E40-3
+%VCDTS21490-1%=VCDTS21490-1.Install,Monitor\VSC5249             ;E653
+%VCDTS21502-1%=VCDTS21502-1.Install,Monitor\VSC5445             ;M50
+%VCDTS21524-3%=VCDTS21524-3.Install,Monitor\VSC5745             ;E651-3
+%VCDTS21524-R%=VCDTS21524-R.Install,Monitor\VSC5A45             ;A50
+%VCDTS21384-1G%=VCDTS21384-1G.Install,Monitor\VSC4A42           ;E40-5
+%VCDTS21490-2G%=VCDTS21490-2G.Install,Monitor\VSC5645           ;E653-2
+%VCDTS21490-2%=VCDTS21490-2.Install,Monitor\VSC4545             ;E50
+%VCDTS21526-4%=VCDTS21526-4.Install,Monitor\VSC5845             ;E655-4
+%VCDTS21553-5%=VCDTS21553-5.Install,Monitor\VSC0400             ;G55
+%VCDTS21552-4%=VCDTS21552-4.Install,Monitor\VSC0900             ;E40-4
+%VCDTS21553-3%=VCDTS21553-3.Install,Monitor\VSC0E00             ;E53
+%VCDTS21553-4%=VCDTS21553-4.Install,Monitor\VSC1300             ;E53-G
+%VCDTS21553-2%=VCDTS21553-2.Install,Monitor\VSC1800             ;Z50-2
+%VCDTS21580-1%=VCDTS21580-1.Install,Monitor\VSCAE0D             ;G50m
+%VCDTS21914-1%=VCDTS21914-1.Install,Monitor\VSC2E01             ;E55
+%VCDTS21915-2%=VCDTS21915-2.Install,Monitor\VSC2F01             ;E50-2
+%VCDTS22436-3%=VCDTS22436-3.Install,Monitor\VSC0338             ;E50-3  
+%VCDTS23284-4%=VCDTS23284-4.Install,Monitor\VSC8B06             ;E50-4  
+%VCDTS21914-2%=VCDTS21914-2.Install,Monitor\VSC2D0C             ;E55-2
+%VCDTS23284-5%=VCDTS23284-5.Install,Monitor\VSC6F13             ;E50-5
+%VCDTS21914-3%=VCDTS21914-3.Install,Monitor\VSC5E13             ;E55-3
+%VCDTS23284%=VCDTS23284.Install,Monitor\VSC6615                 ;E50c
+%Q51-8%=Q51-8.Install,Monitor\VSCB019
+%E50c-6%=E50c-6.Install,Monitor\VSC7E1B
+%Q51-9%=Q51-9.Install,Monitor\VSC851B
+%E55-4%=E55-4.Install,Monitor\VSC111C
+%E50c-7%=E50c-7.Install,Monitor\VSC881D
+%E50-7%=E50-7.Install,Monitor\VSC861E
+%E50-8%=E50-8.Install,Monitor\VSCB820
+
+%7031%=7031.Install                                             ;ViewSonic 1
+%7031_2%=7031_2.Install                                         ;ViewSonic 2
+%TX-14H8PTK%=TX-14H8PTK.Install                                 ;ViewSonic 3
+%TX-14H10PTK%=TX-14H10PTK.Install                               ;ViewSonic 4
+%7033%=7033.Install                                             ;ViewSonic 4E
+%7035%=7035.Install                                             ;ViewSonic 5
+%7035A%=7035A.Install                                           ;ViewSonic 5+
+%7035B%=7035B.Install                                           ;ViewSonic 5E
+%TX-14H30PTK%=TX-14H30PTK.Install                               ;ViewSonic 6
+%7034T%=7034T.Install                                           ;ViewSonic 6E
+%7056%=7056.Install                                             ;ViewSonic S6E
+%1449%=1449.Install                                             ;ViewSonic 6FS
+%1457%=1457.Install                                             ;ViewSonic 14E
+%1564%=1564.Install                                             ;ViewSonic 15
+%1562%=1562.Install                                             ;ViewSonic 15E
+%1562EX-1%=1562EX-1.Install                                     ;ViewSonic 15EX
+%1562ES-1%=1562ES-1.Install                                     ;ViewSonic 15ES
+%1564G-1%=1564G-1.Install                                       ;ViewSonic 15G
+
+[ViewSonic.NTia64]   
+%1448ES-1%=1448ES-1.Install,Monitor\VSC3141			;14ES
+%1569GS-1%=1569GS-1.Install,Monitor\VSC2601	                ;15GS
+%1562ES-2%=1562ES-2.Install,Monitor\VSC3844			;15ES-2
+%1569GS-2%=1569GS-2.Install,Monitor\VSC4439                     ;15GS-2
+%1565G-1%=1565G-1.Install,Monitor\VSC3744                       ;15G-2
+%1569GS-3%=1569GS-3.Install,Monitor\VSC3145                     ;15GS-3
+%1569GA-1%=1569GA-1.Install,Monitor\VSC3644                     ;15GA-1
+%1569GA-2%=1569GA-2.Install,Monitor\VSC3245                     ;15GA-2
+%E641%=E641.Install,Monitor\VSC3441                             ;E641 
+%E655%=E655.Install,Monitor\VSC3345                             ;E655
+%VCDTS21355-1%=VCDTS21355-1.Install,Monitor\VSC3445             ;E51
+%VCDTS21356-2%=VCDTS21356-2.Install,Monitor\VSC3641             ;E641-2
+%VCDTS21354-1%=VCDTS21354-1.Install,Monitor\VSC3741             ;E41
+%VCDTS21378-2%=VCDTS21378-2.Install,Monitor\VSC3745             ;E655-2
+%VCDTS21379-1%=VCDTS21379-1.Install,Monitor\VSC3645             ;G653
+%VCDTS21403-1%=VCDTS21403-1.Install,Monitor\VSC4145             ;GA655
+%VCDTS21404-1%=VCDTS21404-1.Install,Monitor\VSC4245             ;P655
+%VCDTS21354-2%=VCDTS21354-2.Install,Monitor\VSC4441             ;E40
+%VCDTS21432-1%=VCDTS21432-1.Install,Monitor\VSC4645             ;E651
+%VCDTS21428-1%=VCDTS21428-1.Install,Monitor\VSC4845             ;MB50
+%VCDTS21443-3%=VCDTS21443-3.Install,Monitor\VSC4945             ;E655-3
+%VCDTS21444-2%=VCDTS21444-2.Install,Monitor\VSC4745             ;G653-2
+%VCDTS21455-2%=VCDTS21455-2.Install,Monitor\VSC4D45             ;E651-2
+%VCDTS21448-2%=VCDTS21448-2.Install,Monitor\VSC4741             ;E40-2
+%VCDTS21454-3%=VCDTS21454-3.Install,Monitor\VSC4541             ;E641-3
+%VCDTS21468-1%=VCDTS21468-1.Install,Monitor\VSC5045             ;G655
+%VCDTS21384-1%=VCDTS21384-1.Install,Monitor\VSC4943             ;E40-3
+%VCDTS21490-1%=VCDTS21490-1.Install,Monitor\VSC5249             ;E653
+%VCDTS21502-1%=VCDTS21502-1.Install,Monitor\VSC5445             ;M50
+%VCDTS21524-3%=VCDTS21524-3.Install,Monitor\VSC5745             ;E651-3
+%VCDTS21524-R%=VCDTS21524-R.Install,Monitor\VSC5A45             ;A50
+%VCDTS21384-1G%=VCDTS21384-1G.Install,Monitor\VSC4A42           ;E40-5
+%VCDTS21490-2G%=VCDTS21490-2G.Install,Monitor\VSC5645           ;E653-2
+%VCDTS21490-2%=VCDTS21490-2.Install,Monitor\VSC4545             ;E50
+%VCDTS21526-4%=VCDTS21526-4.Install,Monitor\VSC5845             ;E655-4
+%VCDTS21553-5%=VCDTS21553-5.Install,Monitor\VSC0400             ;G55
+%VCDTS21552-4%=VCDTS21552-4.Install,Monitor\VSC0900             ;E40-4
+%VCDTS21553-3%=VCDTS21553-3.Install,Monitor\VSC0E00             ;E53
+%VCDTS21553-4%=VCDTS21553-4.Install,Monitor\VSC1300             ;E53-G
+%VCDTS21553-2%=VCDTS21553-2.Install,Monitor\VSC1800             ;Z50-2
+%VCDTS21580-1%=VCDTS21580-1.Install,Monitor\VSCAE0D             ;G50m
+%VCDTS21914-1%=VCDTS21914-1.Install,Monitor\VSC2E01             ;E55
+%VCDTS21915-2%=VCDTS21915-2.Install,Monitor\VSC2F01             ;E50-2
+%VCDTS22436-3%=VCDTS22436-3.Install,Monitor\VSC0338             ;E50-3  
+%VCDTS23284-4%=VCDTS23284-4.Install,Monitor\VSC8B06             ;E50-4  
+%VCDTS21914-2%=VCDTS21914-2.Install,Monitor\VSC2D0C             ;E55-2
+%VCDTS23284-5%=VCDTS23284-5.Install,Monitor\VSC6F13             ;E50-5
+%VCDTS21914-3%=VCDTS21914-3.Install,Monitor\VSC5E13             ;E55-3
+%VCDTS23284%=VCDTS23284.Install,Monitor\VSC6615                 ;E50c
+%Q51-8%=Q51-8.Install,Monitor\VSCB019
+%E50c-6%=E50c-6.Install,Monitor\VSC7E1B
+%Q51-9%=Q51-9.Install,Monitor\VSC851B
+%E55-4%=E55-4.Install,Monitor\VSC111C
+%E50c-7%=E50c-7.Install,Monitor\VSC881D
+%E50-7%=E50-7.Install,Monitor\VSC861E
+%E50-8%=E50-8.Install,Monitor\VSCB820
+
+[ViewSonic.NTamd64]   
+%1448ES-1%=1448ES-1.Install,Monitor\VSC3141			;14ES
+%1569GS-1%=1569GS-1.Install,Monitor\VSC2601	                ;15GS
+%1562ES-2%=1562ES-2.Install,Monitor\VSC3844			;15ES-2
+%1569GS-2%=1569GS-2.Install,Monitor\VSC4439                     ;15GS-2
+%1565G-1%=1565G-1.Install,Monitor\VSC3744                       ;15G-2
+%1569GS-3%=1569GS-3.Install,Monitor\VSC3145                     ;15GS-3
+%1569GA-1%=1569GA-1.Install,Monitor\VSC3644                     ;15GA-1
+%1569GA-2%=1569GA-2.Install,Monitor\VSC3245                     ;15GA-2
+%E641%=E641.Install,Monitor\VSC3441                             ;E641 
+%E655%=E655.Install,Monitor\VSC3345                             ;E655
+%VCDTS21355-1%=VCDTS21355-1.Install,Monitor\VSC3445             ;E51
+%VCDTS21356-2%=VCDTS21356-2.Install,Monitor\VSC3641             ;E641-2
+%VCDTS21354-1%=VCDTS21354-1.Install,Monitor\VSC3741             ;E41
+%VCDTS21378-2%=VCDTS21378-2.Install,Monitor\VSC3745             ;E655-2
+%VCDTS21379-1%=VCDTS21379-1.Install,Monitor\VSC3645             ;G653
+%VCDTS21403-1%=VCDTS21403-1.Install,Monitor\VSC4145             ;GA655
+%VCDTS21404-1%=VCDTS21404-1.Install,Monitor\VSC4245             ;P655
+%VCDTS21354-2%=VCDTS21354-2.Install,Monitor\VSC4441             ;E40
+%VCDTS21432-1%=VCDTS21432-1.Install,Monitor\VSC4645             ;E651
+%VCDTS21428-1%=VCDTS21428-1.Install,Monitor\VSC4845             ;MB50
+%VCDTS21443-3%=VCDTS21443-3.Install,Monitor\VSC4945             ;E655-3
+%VCDTS21444-2%=VCDTS21444-2.Install,Monitor\VSC4745             ;G653-2
+%VCDTS21455-2%=VCDTS21455-2.Install,Monitor\VSC4D45             ;E651-2
+%VCDTS21448-2%=VCDTS21448-2.Install,Monitor\VSC4741             ;E40-2
+%VCDTS21454-3%=VCDTS21454-3.Install,Monitor\VSC4541             ;E641-3
+%VCDTS21468-1%=VCDTS21468-1.Install,Monitor\VSC5045             ;G655
+%VCDTS21384-1%=VCDTS21384-1.Install,Monitor\VSC4943             ;E40-3
+%VCDTS21490-1%=VCDTS21490-1.Install,Monitor\VSC5249             ;E653
+%VCDTS21502-1%=VCDTS21502-1.Install,Monitor\VSC5445             ;M50
+%VCDTS21524-3%=VCDTS21524-3.Install,Monitor\VSC5745             ;E651-3
+%VCDTS21524-R%=VCDTS21524-R.Install,Monitor\VSC5A45             ;A50
+%VCDTS21384-1G%=VCDTS21384-1G.Install,Monitor\VSC4A42           ;E40-5
+%VCDTS21490-2G%=VCDTS21490-2G.Install,Monitor\VSC5645           ;E653-2
+%VCDTS21490-2%=VCDTS21490-2.Install,Monitor\VSC4545             ;E50
+%VCDTS21526-4%=VCDTS21526-4.Install,Monitor\VSC5845             ;E655-4
+%VCDTS21553-5%=VCDTS21553-5.Install,Monitor\VSC0400             ;G55
+%VCDTS21552-4%=VCDTS21552-4.Install,Monitor\VSC0900             ;E40-4
+%VCDTS21553-3%=VCDTS21553-3.Install,Monitor\VSC0E00             ;E53
+%VCDTS21553-4%=VCDTS21553-4.Install,Monitor\VSC1300             ;E53-G
+%VCDTS21553-2%=VCDTS21553-2.Install,Monitor\VSC1800             ;Z50-2
+%VCDTS21580-1%=VCDTS21580-1.Install,Monitor\VSCAE0D             ;G50m
+%VCDTS21914-1%=VCDTS21914-1.Install,Monitor\VSC2E01             ;E55
+%VCDTS21915-2%=VCDTS21915-2.Install,Monitor\VSC2F01             ;E50-2
+%VCDTS22436-3%=VCDTS22436-3.Install,Monitor\VSC0338             ;E50-3  
+%VCDTS23284-4%=VCDTS23284-4.Install,Monitor\VSC8B06             ;E50-4  
+%VCDTS21914-2%=VCDTS21914-2.Install,Monitor\VSC2D0C             ;E55-2
+%VCDTS23284-5%=VCDTS23284-5.Install,Monitor\VSC6F13             ;E50-5
+%VCDTS21914-3%=VCDTS21914-3.Install,Monitor\VSC5E13             ;E55-3
+%VCDTS23284%=VCDTS23284.Install,Monitor\VSC6615                 ;E50c
+%Q51-8%=Q51-8.Install,Monitor\VSCB019
+%E50c-6%=E50c-6.Install,Monitor\VSC7E1B
+%Q51-9%=Q51-9.Install,Monitor\VSC851B
+%E55-4%=E55-4.Install,Monitor\VSC111C
+%E50c-7%=E50c-7.Install,Monitor\VSC881D
+%E50-7%=E50-7.Install,Monitor\VSC861E
+%E50-8%=E50-8.Install,Monitor\VSCB820
+		
+[E641.Install]                                                  ;E641
+DelReg=DEL_CURRENT_REG
+AddReg=E641.AddReg,1024,DPMS
+
+[1448ES-1.Install]                                              ;14ES
+DelReg=DEL_CURRENT_REG
+AddReg=1448ES-1.AddReg,1024,DPMS
+
+[1562ES-2.Install]                                              ;15ES-2
+DelReg=DEL_CURRENT_REG
+AddReg=1562ES-2.AddReg,1024,DPMS
+
+[E655.Install]                                                  ;E655
+DelReg=DEL_CURRENT_REG
+AddReg=E655.AddReg,1280,DPMS
+
+[1565G-1.Install]                                               ;15G-2
+DelReg=DEL_CURRENT_REG 
+AddReg=1565G-1.AddReg,1280,DPMS
+
+[1569GS-1.Install]                                              ;15GS
+DelReg=DEL_CURRENT_REG
+AddReg=1569GS-1.AddReg,1280,DPMS
+
+[1569GS-2.Install]                                              ;15GS-2
+DelReg=DEL_CURRENT_REG
+AddReg=1569GS-2.AddReg,1280,DPMS
+
+[1569GS-3.Install]                                              ;15GS-3
+DelReg=DEL_CURRENT_REG
+AddReg=1569GS-3.AddReg,1280,DPMS
+
+[1569GA-1.Install]                                              ;15GA
+DelReg=DEL_CURRENT_REG	
+AddReg=1569GA-1.AddReg,1280,DPMS
+
+[1569GA-2.Install]                                              ;15GA-2
+DelReg=DEL_CURRENT_REG
+AddReg=1569GA-2.AddReg,1280,DPMS
+
+[VCDTS21355-1.Install]                                          ;E51
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21355-1.AddReg,1280,DPMS
+
+[VCDTS21356-2.Install]                                          ;E641-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21356-2.AddReg,1024,DPMS
+Copyfiles=VCDTS21356-2.CopyFiles
+
+[VCDTS21354-1.Install]                                          ;E41 
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21354-1.AddReg,1024,DPMS
+
+[VCDTS21378-2.Install]                                          ;E655-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21378-2.AddReg,1280,DPMS
+Copyfiles=VCDTS21378-2.CopyFiles
+
+[VCDTS21379-1.Install]                                          ;G653
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21379-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21379-1.CopyFiles
+
+[VCDTS21403-1.Install]                                          ;GA655
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21403-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21403-1.CopyFiles
+
+[VCDTS21404-1.Install]                                          ;P655
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21404-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21404-1.CopyFiles
+
+[VCDTS21354-2.Install]                                          ;E40
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21354-2.AddReg,1024,DPMS
+Copyfiles=VCDTS21354-2.CopyFiles
+
+[VCDTS21432-1.Install]                                          ;E651
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21432-1.AddReg,1024,DPMS
+Copyfiles=VCDTS21432-1.CopyFiles
+
+[VCDTS21428-1.Install]                                          ;MB50
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21428-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21428-1.CopyFiles
+
+[VCDTS21443-3.Install]                                          ;E655-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21443-3.AddReg,1280,DPMS
+Copyfiles=VCDTS21443-3.CopyFiles
+
+[VCDTS21444-2.Install]                                          ;G653-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21444-2.AddReg,1280,DPMS
+Copyfiles=VCDTS21444-2.CopyFiles
+
+[VCDTS21455-2.Install]                                          ;E651-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21455-2.AddReg,1024,DPMS
+Copyfiles=VCDTS21455-2.CopyFiles
+
+[VCDTS21448-2.Install]                                          ;E40-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21448-2.AddReg,1024,DPMS
+Copyfiles=VCDTS21448-2.CopyFiles
+
+[VCDTS21454-3.Install]                                          ;E641-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21454-3.AddReg,1024,DPMS
+Copyfiles=VCDTS21454-3.CopyFiles
+
+[VCDTS21468-1.Install]                                          ;G655
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21468-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21468-1.CopyFiles
+
+[VCDTS21384-1.Install]                                          ;E40-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21384-1.AddReg,1024,DPMS
+Copyfiles=VCDTS21384-1.CopyFiles
+
+[VCDTS21490-1.Install]                                          ;E653
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21490-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21490-1.CopyFiles
+
+[VCDTS21502-1.Install]                                          ;M50
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21502-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21502-1.CopyFiles
+
+[VCDTS21524-3.Install]                                          ;E651-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21524-3.AddReg,1024,DPMS
+Copyfiles=VCDTS21524-3.CopyFiles
+
+[VCDTS21524-R.Install]                                          ;A50
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21524-R.AddReg,1024,DPMS
+Copyfiles=VCDTS21524-R.CopyFiles
+
+[VCDTS21384-1G.Install]                                         ;E40-5
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21384-1G.AddReg,1024,DPMS
+Copyfiles=VCDTS21384-1G.CopyFiles
+
+[VCDTS21490-2G.Install]                                         ;E653-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21490-2G.AddReg,1280,DPMS
+Copyfiles=VCDTS21490-2G.CopyFiles
+
+[VCDTS21490-2.Install]                                          ;E50
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21490-2.AddReg,1280,DPMS
+Copyfiles=VCDTS21490-2.CopyFiles
+
+[VCDTS21526-4.Install]                                          ;E655-4
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21526-4.AddReg,1280,DPMS
+Copyfiles=VCDTS21526-4.CopyFiles
+
+[VCDTS21553-5.Install]                                          ;G55
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21553-5.AddReg,1280,DPMS
+Copyfiles=VCDTS21553-5.CopyFiles
+
+[VCDTS21552-4.Install]                                          ;E40-4
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21552-4.AddReg,1024,DPMS
+Copyfiles=VCDTS21552-4.CopyFiles
+
+[VCDTS21553-3.Install]                                          ;E53
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21553-3.AddReg,1280,DPMS
+Copyfiles=VCDTS21553-3.CopyFiles
+
+[VCDTS21553-4.Install]                                          ;E53-G
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21553-4.AddReg,1280,DPMS
+Copyfiles=VCDTS21553-4.CopyFiles
+
+[VCDTS21553-2.Install]                                          ;Z50-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21553-2.AddReg,1280,DPMS
+Copyfiles=VCDTS21553-2.CopyFiles
+
+[VCDTS21580-1.Install]                                          ;G50m
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21580-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21580-1.CopyFiles
+
+[VCDTS21914-1.Install]                                          ;E55
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21914-1.AddReg,1280,DPMS
+Copyfiles=VCDTS21914-1.CopyFiles
+
+[VCDTS21915-2.Install]                                          ;E50-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21915-2.AddReg,1024,DPMS
+Copyfiles=VCDTS21915-2.CopyFiles
+
+[VCDTS22436-3.Install]                                          ;E50-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS22436-3.AddReg,1024,DPMS
+Copyfiles=VCDTS22436-3.CopyFiles
+
+[VCDTS23284-4.Install]                                          ;E50-4
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23284-4.AddReg,1024,DPMS
+Copyfiles=VCDTS23284-4.CopyFiles
+
+[VCDTS21914-2.Install]                                          ;E55-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21914-2.AddReg,1280,DPMS
+Copyfiles=VCDTS21914-2.CopyFiles
+
+[VCDTS23284-5.Install]                                          ;E50-5
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23284-5.AddReg,1024,DPMS
+Copyfiles=VCDTS23284-5.CopyFiles
+
+[VCDTS21914-3.Install]                                          ;E55-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21914-3.AddReg,1280,DPMS
+Copyfiles=VCDTS21914-3.CopyFiles
+
+[VCDTS23284.Install]                                           ;E50c
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23284.AddReg,1024,DPMS
+Copyfiles=VCDTS23284.CopyFiles
+
+[Q51-8.Install] 
+DelReg=DEL_CURRENT_REG 
+AddReg=Q51-8.AddReg,1024,DPMS
+Copyfiles=Q51-8.CopyFiles
+
+[E50c-6.Install]           
+DelReg=DEL_CURRENT_REG 
+AddReg=E50c-6.AddReg,1024,DPMS
+Copyfiles=E50c-6.CopyFiles
+
+[Q51-9.Install]          
+DelReg=DEL_CURRENT_REG 
+AddReg=Q51-9.AddReg,1024,DPMS
+Copyfiles=Q51-9.CopyFiles
+
+[E55-4.Install]        
+DelReg=DEL_CURRENT_REG 
+AddReg=E55-4.AddReg,1280,DPMS
+Copyfiles=E55-4.CopyFiles
+
+[E50c-7.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=E50c-7.AddReg,1024,DPMS
+Copyfiles=E50c-7.CopyFiles
+
+[7031.Install]                                                  ;ViewSonic 1
+DelReg=DEL_CURRENT_REG
+AddReg=7031.AddReg,640
+
+[7031_2.Install]                                                ;ViewSonic 2
+DelReg=DEL_CURRENT_REG
+AddReg=7031_2.AddReg,640
+
+[TX-14H8PTK.Install]                                            ;ViewSonic 3
+DelReg=DEL_CURRENT_REG
+AddReg=TX-14H8PTK.AddReg,1024
+
+[TX-14H10PTK.Install]                                           ;ViewSonic 4
+DelReg=DEL_CURRENT_REG
+AddReg=TX-14H10PTK.AddReg,1024
+
+[7033.Install]                                                  ;ViewSonic 4E
+DelReg=DEL_CURRENT_REG
+AddReg=7033.AddReg,1024
+
+[7035.Install]                                                  ;ViewSonic 5
+DelReg=DEL_CURRENT_REG
+AddReg=7035.AddReg,1024
+
+[7035A.Install]                                                 ;ViewSonic 5+
+DelReg=DEL_CURRENT_REG
+AddReg=7035A.AddReg,1024
+
+[7035B.Install]                                                 ;ViewSonic 5E
+DelReg=DEL_CURRENT_REG
+AddReg=7035B.AddReg,1024
+
+[TX-14H30PTK.Install]                                           ;ViewSonic 6
+DelReg=DEL_CURRENT_REG
+AddReg=TX-14H30PTK.AddReg,1024
+
+[7034T.Install]                                                 ;ViewSonic 6E
+DelReg=DEL_CURRENT_REG
+AddReg=7034T.AddReg,1024,DPMS
+
+[1449.Install]                                                  ;ViewSonic 6FS
+DelReg=DEL_CURRENT_REG
+AddReg=1449.AddReg,1024
+
+[7056.Install]                                                  ;ViewSonic S6E
+DelReg=DEL_CURRENT_REG
+AddReg=7056.AddReg,1024
+
+[1564.Install]                                                  ;ViewSonic 15
+DelReg=DEL_CURRENT_REG
+AddReg=1564.AddReg,1280
+
+[1564G-1.Install]                                               ;ViewSonic 15G
+DelReg=DEL_CURRENT_REG
+AddReg=1564G-1.AddReg,1280,DPMS
+
+
+[1457.Install]                                                  ;ViewSonic 14E
+DelReg=DEL_CURRENT_REG
+AddReg=1457.AddReg,1024,DPMS
+
+[1562.Install]                                                  ;ViewSonic 15E
+DelReg=DEL_CURRENT_REG
+AddReg=1562.AddReg,1024,DPMS
+
+[1562EX-1.Install]                                              ;ViewSonic 15EX
+DelReg=DEL_CURRENT_REG
+AddReg=1562EX-1.AddReg,1024,DPMS
+
+[1562ES-1.Install]                                              ;ViewSonic 15ES
+DelReg=DEL_CURRENT_REG
+AddReg=1562ES-1.AddReg,1024,DPMS
+
+[E50-7.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=E50-7.AddReg,1024,DPMS
+Copyfiles=E50-7.CopyFiles
+
+[E50-8.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=E50-8.AddReg,1024,DPMS
+Copyfiles=E50-8.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1448ES-1.AddReg]						;14ES						
+HKR,"MODES\1024,768",Mode1,,"30-48.4,50-100,-,-"
+HKR,,ICMProfile,1,9
+
+[E641.AddReg]							;E641			
+HKR,"MODES\1024,768",Mode1,,"30-54,50-100,-,-"
+HKR,,ICMProfile,1,9
+
+[1562ES-2.AddReg]						;15ES-2	
+HKR,"MODES\1024,768",Mode1,,"31.5-62,50-100,+,+"
+HKR,,ICMProfile,1,9
+
+[E655.AddReg]						        ;E655
+HKR,"MODES\1280,1024",Mode1,,"30-65,50-100,+,+"
+HKR,,ICMProfile,1,9
+
+[1565G-1.AddReg]						;15G-2
+HKR,"MODES\1280,1024",Mode1,,"30-66,50-100,+,+"
+HKR,,ICMProfile,1,9 
+
+[1569GS-1.AddReg]					        ;15GS
+HKR,"MODES\1280,1024",Mode1,,"30-69,50-120,+,+"
+HKR,,ICMProfile,1,9
+
+[1569GS-2.AddReg]					        ;15GS-2
+HKR,"MODES\1280,1024",Mode1,,"30-69,50-120,+,+"
+HKR,,ICMProfile,1,9
+
+[1569GS-3.AddReg]						;15GS-3
+HKR,"MODES\1280,1024",Mode1,,"30-69,50-120,+,+"
+HKR,,ICMProfile,1,9
+
+[1569GA-1.AddReg]						;15GA
+HKR,"MODES\1280,1024",Mode1,,"30-69,50-160,-,-"
+HKR,,ICMProfile,1,9
+
+[1569GA-2.AddReg]						;15GA-2
+HKR,"MODES\1280,1024",Mode1,,"30-69,50-160,-,-"
+HKR,,ICMProfile,1,9
+
+[VCDTS21355-1.AddReg]						;E51
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,1,9
+
+[VCDTS21356-2.AddReg]						;E641-2
+HKR,"MODES\1024,768",Mode1,,"30-54,50-100,+,+"
+HKR,,ICMProfile,0,"E641-2.ICM"
+
+[VCDTS21354-1.AddReg]						;E41
+HKR,"MODES\1024,768",Mode1,,"30-54,50-100,+,+"
+HKR,,ICMProfile,1,9
+
+[VCDTS21378-2.AddReg]						;E655-2
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-100,+,+"
+HKR,,ICMProfile,0,"E655-2.ICM"
+
+[VCDTS21379-1.AddReg]						;G653
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"G653.ICM"
+
+[VCDTS21403-1.AddReg]						;GA655
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-180,+,+"
+HKR,,ICMProfile,0,"GA655.ICM"
+
+[VCDTS21404-1.AddReg]						;P655
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-180,+,+"
+HKR,,ICMProfile,0,"P655.ICM"
+
+[VCDTS21354-2.AddReg]                                           ;E40
+HKR,"MODES\1024,768",Mode1,,"30-54,55-100,+,+"
+HKR,,ICMProfile,0,"E40.ICM"
+
+[VCDTS21432-1.AddReg]                                           ;E651
+HKR,"MODES\1024,768",Mode1,,"30-54,50-100,+,+"
+HKR,,ICMProfile,0,"E651.ICM"
+
+[VCDTS21428-1.AddReg]                                           ;MB50
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"MB50.ICM"
+
+[VCDTS21443-3.AddReg]                                           ;E655-3
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"E655-3.ICM"
+
+[VCDTS21444-2.AddReg]                                           ;G653-2
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"G653-2.ICM"
+
+[VCDTS21455-2.AddReg]                                           ;E651-2
+HKR,"MODES\1024,768",Mode1,,"30-50,50-100,+,+"
+HKR,,ICMProfile,0,"E651-2.ICM"
+
+[VCDTS21448-2.AddReg]                                           ;E40-2
+HKR,"MODES\1024,768",Mode1,,"30-54,50-100,+,+"
+HKR,,ICMProfile,0,"E40-2.ICM"
+
+[VCDTS21454-3.AddReg]                                           ;E641-3
+HKR,"MODES\1024,768",Mode1,,"30-54,50-100,+,+"
+HKR,,ICMProfile,0,"E641-3.ICM"
+
+[VCDTS21468-1.AddReg]                                           ;G655
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"G655.ICM"
+
+[VCDTS21384-1.AddReg]                                           ;E40-3
+HKR,"MODES\1024,768",Mode1,,"30-48,50-90,+,+"
+HKR,,ICMProfile,0,"E40-3.ICM"
+
+[VCDTS21490-1.AddReg]                                           ;E653
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"E653.ICM"
+
+[VCDTS21502-1.AddReg]                                           ;M50
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"M50.ICM"
+
+[VCDTS21524-3.AddReg]                                           ;E651-3
+HKR,"MODES\1024,768",Mode1,,"30-56,50-120,+,+"
+HKR,,ICMProfile,0,"E651-3.ICM"
+
+[VCDTS21524-R.AddReg]                                           ;A50
+HKR,"MODES\1024,768",Mode1,,"30-56,50-120,+,+"
+HKR,,ICMProfile,0,"A50.ICM"
+
+[VCDTS21384-1G.AddReg]                                          ;E40-5
+HKR,"MODES\1024,768",Mode1,,"30-48,50-90,+,+"
+HKR,,ICMProfile,0,"E40-5.ICM"
+
+[VCDTS21490-2G.AddReg]                                          ;E653-2
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"E653-2.ICM"
+
+[VCDTS21490-2.AddReg]                                           ;E50
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"E50.ICM"
+
+[VCDTS21526-4.AddReg]                                           ;E655-4
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"E655-4.ICM"
+
+[VCDTS21553-5.AddReg]                                           ;G55
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"G55.ICM"
+
+[VCDTS21552-4.AddReg]                                           ;E40-4
+HKR,"MODES\1024,768",Mode1,,"30-48,50-90,+,+"
+HKR,,ICMProfile,0,"E40-4.ICM"
+
+[VCDTS21553-3.AddReg]                                           ;E53
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"E53.ICM"
+
+[VCDTS21553-4.AddReg]                                           ;E53-G
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"E53-G.ICM"
+
+[VCDTS21553-2.AddReg]                                           ;Z50-2
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+"
+HKR,,ICMProfile,0,"Z50-2.ICM"
+
+[VCDTS21580-1.AddReg]                                           ;G50m
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-120,+,+" 
+HKR,,ICMProfile,0,"G50m.ICM"
+
+[VCDTS21914-1.AddReg]                                           ;E55
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"E55.ICM"
+
+[VCDTS21915-2.AddReg]                                           ;E50-2
+HKR,"MODES\1280,1024",Mode1,,"30-56,50-120,+,+"
+HKR,,ICMProfile,0,"E50-2.ICM"
+
+[VCDTS22436-3.AddReg]                                           ;E50-3
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+"
+HKR,,ICMProfile,0,"E50-3.ICM"
+
+[VCDTS23284-4.AddReg]                                           ;E50-4
+HKR,"MODES\1024,768",Mode1,,"30-56,50-120,+,+"
+HKR,,ICMProfile,0,"E50-4.ICM"
+
+[VCDTS21914-2.AddReg]                                           ;E55-2
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"E55-2.ICM"
+
+[VCDTS23284-5.AddReg]                                          ;E50-5
+HKR,"MODES\1024,768",Mode1,,"30-56,50-120,+,+"
+HKR,,ICMProfile,0,"E50-5.ICM"
+
+[VCDTS21914-3.AddReg]                                          ;E55-3
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"E55-3.ICM"
+
+[VCDTS23284.AddReg]                                           ;E50c
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+"
+HKR,,ICMProfile,0,"E50c.ICM"
+
+[Q51-8.AddReg] 
+HKR,"MODES\1024,768",Mode1,,"30-56,50-120,+,+"
+HKR,,ICMProfile,0,"Q51-8.ICM"
+
+[E50c-6.AddReg]         
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+"
+HKR,,ICMProfile,0,"E50c-6.ICM"
+
+[Q51-9.AddReg]            
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+"
+HKR,,ICMProfile,0,"Q51-9.ICM"
+
+[E55-4.AddReg]   
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"E55-4.ICM"
+
+[E50c-7.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+" 
+HKR,,ICMProfile,0,"E50c-7.ICM"
+
+[E50-7.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+" 
+HKR,,ICMProfile,0,"E50-7.ICM"
+
+[7031.AddReg]						       ;ViewSonic 1
+HKR,"MODES\640,350",Mode1,,"31.47,70,+,-"
+HKR,"MODES\640,400",Mode1,,"31.47,70,-,+"
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,,ICMProfile,1,9
+
+[7031_2.AddReg]						       ;ViewSonic 2
+HKR,"MODES\640,350",Mode1,,"31.47,70,+,-"
+HKR,"MODES\640,400",Mode1,,"31.47,70,-,+"
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,,ICMProfile,1,9
+
+[TX-14H8PTK.AddReg]						;ViewSonic 3
+HKR,"MODES\640,350",Mode1,,"31.47,70,+,-"
+HKR,"MODES\640,400",Mode1,,"31.47,70,-,+"
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"35.16,56.25,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.52,43.48,+,+"
+HKR,,ICMProfile,1,9
+
+[TX-14H10PTK.AddReg]					  	;ViewSonic 4
+HKR,"MODES\640,350",Mode1,,"31.47,70,+,-"
+HKR,"MODES\640,400",Mode1,,"31.47,70,-,+"
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"35.16,56.25,+,+"
+HKR,"MODES\1024,768",Mode5,,"35.52,43.48,+,+"
+HKR,,ICMProfile,1,9
+
+[7033.AddReg]							;ViewSonic 4E
+HKR,"MODES\640,350",Mode1,,"31.47,70,+,-"
+HKR,"MODES\640,400",Mode1,,"31.47,70,-,+"
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"35.16,56.25,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.52,43.48,+,+"
+HKR,,ICMProfile,1,9
+
+[7035.AddReg]							;ViewSonic 5
+HKR,"MODES\640,350",Mode1,,"31.47,70,+,-"
+HKR,"MODES\640,400",Mode1,,"31.47,70,-,+"
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"35.16,56.25,+,+"
+HKR,"MODES\800,600",Mode1,,"37.88,60,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.52,43.48,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.36,60,-,-"
+HKR,,ICMProfile,1,9
+
+[7035A.AddReg]							;ViewSonic 5+
+HKR,"MODES\640,350",Mode1,,"31.47,70,+,-"
+HKR,"MODES\640,400",Mode1,,"31.47,70,-,+"
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"35.16,56.25,+,+"
+HKR,"MODES\800,600",Mode1,,"37.88,60,+,+"
+HKR,"MODES\800,600",Mode1,,"48.08,72,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.52,43.48,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.36,60,-,-"
+HKR,"MODES\1024,768",Mode1,,"56.48,70,-,-"
+HKR,,ICMProfile,1,9
+
+[7035B.AddReg]							 ;ViewSonic 5E
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\640,480",Mode1,,"37.86,72,-,-"
+HKR,"MODES\800,600",Mode1,,"35.16,56.25,+,+"
+HKR,"MODES\800,600",Mode1,,"37.88,60,+,+"
+HKR,"MODES\800,600",Mode1,,"48.08,72,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.52,43.48,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.36,60,-,-"
+HKR,"MODES\1024,768",Mode1,,"56.48,70,-,-"
+HKR,"MODES\1024,768",Mode1,,"59.52,72,-,-"
+HKR,,ICMProfile,1,9
+
+[TX-14H30PTK.AddReg]						 ;ViewSonic 6
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"35.16,56.25,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.52,43.48,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.36,60,-,-"
+HKR,,ICMProfile,1,9
+
+[7034T.AddReg]							  ;ViewSonic 6E
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"37.88,60,+,+"
+HKR,"MODES\800,600",Mode1,,"48.08,72,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.36,60,-,-"
+HKR,,ICMProfile,1,9
+
+[1449.AddReg]							  ;ViewSonic 6FS
+HKR,"MODES\1024,768",Mode1,,"31-60,50-90,-,-"
+HKR,,ICMProfile,1,9
+
+[7056.AddReg]							  ;ViewSonic S6E
+HKR,"MODES\1024,768",Mode1,,"30-60,50-90,-,-"
+HKR,,ICMProfile,1,9
+
+[1564.AddReg]							  ;ViewSonic 15
+HKR,"MODES\1280,1024",Mode1,,"30-65,50-90,+,+"
+HKR,,ICMProfile,1,9
+
+[1564G-1.AddReg]						  ;ViewSonic 15G
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\640,480",Mode1,,"37.86,72,-,-"
+HKR,"MODES\800,600",Mode1,,"37.88,60,+,+"
+HKR,"MODES\800,600",Mode1,,"48.08,72,+,+"
+HKR,"MODES\1024,768",Mode1,,"35.52,43.48,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.36,60,-,-"
+HKR,"MODES\1024,768",Mode1,,"56.48,70,-,-"
+HKR,"MODES\1024,768",Mode1,,"59.5,72,-,-"
+HKR,"MODES\1024,768",Mode1,,"62,76,-,-"
+HKR,"MODES\1280,1024",Mode1,,"48.1,43.48,-,-"
+HKR,"MODES\1280,1024",Mode1,,"63.7,60,-,-"
+HKR,,ICMProfile,1,9
+
+[1457.AddReg]							  ;ViewSonic 14E
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"37.88,60,+,+"
+HKR,"MODES\800,600",Mode1,,"48.08,72,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.36,60,-,-"
+HKR,"MODES\1024,768",Mode1,,"56.48,70,-,-"
+HKR,,ICMProfile,1,9
+
+[1562.AddReg]							  ;ViewSonic 15E
+HKR,"MODES\640,480",Mode1,,"31.47,60,-,-"
+HKR,"MODES\800,600",Mode1,,"37.88,60,+,+"
+HKR,"MODES\800,600",Mode1,,"48.08,72,+,+"
+HKR,"MODES\1024,768",Mode1,,"48.36,60,-,-"
+HKR,"MODES\1024,768",Mode1,,"56.48,70,-,-"
+HKR,"MODES\1024,768",Mode1,,"60.02,75,+,+"
+HKR,,ICMProfile,1,9
+
+[1562EX-1.AddReg]						  ;ViewSonic 15EX
+HKR,"MODES\1024,768",Mode1,,"30-62,50-100,+,+"
+HKR,,ICMProfile,1,9
+
+[1562ES-1.AddReg]						  ;ViewSonic 15ES
+HKR,"MODES\1024,768",Mode1,,"30-62,50-100,+,+"	
+HKR,,ICMProfile,1,9
+
+[E50-8.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"30-54,50-160,+,+" 
+HKR,,ICMProfile,0,"E50-8.ICM"
+
+[VCDTS21356-2.CopyFiles]                                       
+E641-2.ICM
+
+[VCDTS21378-2.CopyFiles]
+E655-2.ICM
+
+[VCDTS21379-1.CopyFiles]                                       
+G653.ICM
+
+[VCDTS21403-1.CopyFiles]                                       
+GA655.ICM
+
+[VCDTS21404-1.CopyFiles]                                       
+P655.ICM
+
+[VCDTS21354-2.CopyFiles]                                       
+E40.ICM
+
+[VCDTS21432-1.CopyFiles]                                       
+E651.ICM
+
+[VCDTS21428-1.CopyFiles]                                       
+MB50.ICM
+
+[VCDTS21443-3.CopyFiles]                                       
+E655-3.ICM
+
+[VCDTS21444-2.CopyFiles]                                       
+G653-2.ICM
+
+[VCDTS21455-2.CopyFiles]                                       
+E651-2.ICM
+
+[VCDTS21448-2.CopyFiles]                                       
+E40-2.ICM
+
+[VCDTS21454-3.CopyFiles]                                       
+E641-3.ICM
+
+[VCDTS21468-1.CopyFiles]                                       
+G655.ICM
+
+[VCDTS21384-1.CopyFiles]                                       
+E40-3.ICM
+
+[VCDTS21490-1.CopyFiles]                                       
+E653.ICM
+
+[VCDTS21502-1.CopyFiles]                                       
+M50.ICM
+
+[VCDTS21524-3.CopyFiles]                                       
+E651-3.ICM
+
+[VCDTS21524-R.CopyFiles]                                       
+A50.ICM
+
+[VCDTS21384-1G.CopyFiles]                                       
+E40-5.ICM
+
+[VCDTS21490-2G.CopyFiles]                                       
+E653-2.ICM
+
+[VCDTS21490-2.CopyFiles]                                       
+E50.ICM
+       
+[VCDTS21526-4.CopyFiles]                                       
+E655-4.ICM
+
+[VCDTS21553-5.CopyFiles]                                       
+G55.ICM
+
+[VCDTS21552-4.CopyFiles]                                       
+E40-4.ICM
+
+[VCDTS21553-3.CopyFiles]                                       
+E53.ICM 
+
+[VCDTS21553-4.CopyFiles]                                       
+E53-G.ICM
+
+[VCDTS21553-2.CopyFiles]                                       
+Z50-2.ICM
+
+[VCDTS21580-1.CopyFiles]                                       
+G50m.ICM
+
+[VCDTS21914-1.CopyFiles]                                       
+E55.ICM
+
+[VCDTS21915-2.CopyFiles]                                       
+E50-2.ICM
+
+[VCDTS22436-3.CopyFiles]                                       
+E50-3.ICM
+ 
+[VCDTS23284-4.CopyFiles]                                       
+E50-4.ICM
+     
+[VCDTS21914-2.CopyFiles]                                       
+E55-2.ICM
+
+[VCDTS23284-5.CopyFiles]                                       
+E50-5.ICM
+
+[VCDTS21914-3.CopyFiles]                                       
+E55-3.ICM
+
+[VCDTS23284.CopyFiles]                                       
+E50c.ICM
+
+[Q51-8.CopyFiles]                                       
+Q51-8.ICM
+
+[E50c-6.CopyFiles]                                       
+E50c-6.ICM
+
+[Q51-9.CopyFiles]                                       
+Q51-9.ICM
+
+[E55-4.CopyFiles]                                       
+E55-4.ICM
+
+[E50c-7.CopyFiles]                                       
+E50c-7.ICM
+
+[E50-7.CopyFiles]                                       
+E50-7.ICM
+
+[E50-8.CopyFiles]                                       
+E50-8.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Wizard"
+
+1569GA-1="ViewSonic 15GA"
+1448ES-1="ViewSonic 14ES"
+1569GS-1="ViewSonic 15GS"
+1562ES-2="ViewSonic 15ES-2"
+1569GS-2="ViewSonic 15GS-2"
+1565G-1="ViewSonic 15G-2"
+1569GS-3="ViewSonic 15GS-3"    
+1569GA-2="ViewSonic 15GA-2"
+E641="ViewSonic E641"
+E655="ViewSonic E655"
+VCDTS21355-1="ViewSonic E51"         
+VCDTS21356-2="ViewSonic E641-2"         
+VCDTS21354-1="ViewSonic E41"          
+VCDTS21378-2="ViewSonic E655-2"         
+VCDTS21379-1="ViewSonic G653"         
+VCDTS21403-1="ViewSonic GA655"         
+VCDTS21404-1="ViewSonic P655" 
+VCDTS21354-2="ViewSonic E40"
+VCDTS21432-1="ViewSonic E651" 
+VCDTS21428-1="ViewSonic MB50"
+VCDTS21443-3="ViewSonic E655-3"         
+VCDTS21444-2="ViewSonic G653-2"         
+VCDTS21455-2="ViewSonic E651-2"         
+VCDTS21448-2="ViewSonic E40-2"         
+VCDTS21454-3="ViewSonic E641-3"
+VCDTS21468-1="ViewSonic G655"         
+VCDTS21384-1="ViewSonic E40-3"
+VCDTS21490-1="ViewSonic E653"
+VCDTS21502-1="ViewSonic M50"
+VCDTS21524-3="ViewSonic E651-3"
+VCDTS21524-R="ViewSonic A50"
+VCDTS21384-1G="ViewSonic E40-5"
+VCDTS21490-2G="ViewSonic E653-2"
+VCDTS21490-2="ViewSonic E50"
+VCDTS21526-4="ViewSonic E655-4"
+VCDTS21553-5="ViewSonic G55"
+VCDTS21552-4="ViewSonic E40-4"
+VCDTS21553-3="ViewSonic E53"
+VCDTS21553-4="ViewSonic E53-G"
+VCDTS21553-2="ViewSonic Z50-2"
+VCDTS21580-1="ViewSonic G50m"
+VCDTS21914-1="ViewSonic E55"
+VCDTS21915-2="ViewSonic E50-2"
+VCDTS22436-3="ViewSonic E50-3"
+VCDTS23284-4="ViewSonic E50-4"
+VCDTS21914-2="ViewSonic E55-2"
+VCDTS23284-5="ViewSonic E50-5"
+VCDTS21914-3="ViewSonic E55-3"
+VCDTS23284="ViewSonic E50c"
+Q51-8="ViewSonic Q51-8"
+E50c-6="ViewSonic E50c-6"
+E55-4="ViewSonic E55-4"
+Q51-9="ViewSonic Q51-9"
+E50c-7="ViewSonic E50c-7"
+E50-7="ViewSonic E50-7"
+
+7031="ViewSonic 1"
+7031_2="ViewSonic 2"
+TX-14H8PTK="ViewSonic 3"
+TX-14H10PTK="ViewSonic 4"
+7033="ViewSonic 4E"
+7035="ViewSonic 5"
+7035A="ViewSonic 5+"
+7035B="ViewSonic 5E"
+TX-14H30PTK="ViewSonic 6"
+7034T="ViewSonic 6E"
+7056="ViewSonic S6E"
+1449="ViewSonic 6FS"
+1457="ViewSonic 14E"
+1564="Viewsonic 15"
+1562="ViewSonic 15E"
+1562ES-1="ViewSonic 15ES"
+1562EX-1="ViewSonic 15EX"
+1564G-1="ViewSonic 15G"
+E50-8="ViewSonic E50-8"

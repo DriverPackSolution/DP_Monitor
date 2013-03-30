@@ -1,0 +1,100 @@
+;=====================================================
+;
+;    AL1716W.inf         Ver. 1.0      04/10/2007
+;
+;   Copyright 2007 Acer International Electronic AG 
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Acer Color Monitor.
+; 
+;=====================================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=AL1716W.cat   
+DriverVer=04/10/2007, 1.0  
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AL1716W_Analog.copyfiles=23
+AL1716W_Digital.copyfiles=23
+
+[SourceDisksNames]
+1="Acer Monitor installtion disk",,,
+
+[SourceDisksFiles]
+AL1716W.ICM=1
+
+[Manufacturer]
+%Acer%=Acer,NTx86,NTAMD64
+
+[Acer]
+%AL1716W_Analog%=AL1716W_Analog.Install, Monitor\ACRADA8
+%AL1716W_Digital%=AL1716W_Digital.Install, Monitor\ACRADA8
+
+[Acer.NTx86]
+%AL1716W_Analog%=AL1716W_Analog.Install, Monitor\ACRADA8
+%AL1716W_Digital%=AL1716W_Digital.Install, Monitor\ACRADA8
+
+[Acer.NTAMD64] 
+%AL1716W_Analog%=AL1716W_Analog.Install, Monitor\ACRADA8
+%AL1716W_Digital%=AL1716W_Digital.Install, Monitor\ACRADA8
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACRADA8
+
+[AL1716W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL1716W_Analog.AddReg, 1440 ,DPMS
+Copyfiles=AL1716W_Analog.CopyFiles
+
+[AL1716W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL1716W_Digital.AddReg, 1440 ,DPMS
+Copyfiles=AL1716W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL1716W_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"AL1716W.icm"
+
+[AL1716W_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"AL1716W.icm"
+
+[AL1716W_Analog.CopyFiles]
+AL1716W.icm
+
+[AL1716W_Digital.CopyFiles]
+AL1716W.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer Inc."
+
+AL1716W_Analog="Acer AL1716W"
+AL1716W_Digital="Acer AL1716W (Digital)"
+
+DISK="Acer Inc. Monitor AL1716W Installation Disk"

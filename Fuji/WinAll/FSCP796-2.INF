@@ -1,0 +1,69 @@
+; FSCP7962.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor P796-2
+;Copyright 2002 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP7962.cat                                  
+DriverVer=08/09/2004,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0536
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-P7962.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP796-2.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FSC-FSCP7962%=FSC-FSCP7962.Install, Monitor\FUS0536
+
+[FSC-FSCP7962.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FSC-FSCP7962.AddReg, 1600, DPMS
+CopyFiles=FUS-P7962.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FSC-FSCP7962.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-98,50-160,+,+"
+HKR,,ICMProfile,0,"FSCP796-2.ICM"
+
+[FUS-P7962.CopyFiles]
+FSCP796-2.ICM
+
+[Strings]
+DISK="Fujitsu Siemens Monitor P796-2 Installation Disk"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FSC-FSCP7962="Fujitsu Siemens P796-2"

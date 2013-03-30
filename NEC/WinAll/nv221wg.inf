@@ -1,0 +1,68 @@
+; NV221WG.inf
+; Setup information file for NEC V221WG Monitor
+;
+; Copyright 2009, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NV221WG.cat
+DriverVer=11/30/2009,1.09.1130.1746
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67D4
+
+[DestinationDirs]
+DefaultDestDir = 11
+V221WG.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NV221WG.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%V221WG%=V221WG.Install, Monitor\NEC67D4
+
+[NECDS.ntamd64]
+%V221WG%=V221WG.Install.ntamd64, Monitor\NEC67D4
+
+[V221WG.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V221WG.AddReg, 1920, DPMS
+CopyFiles=V221WG.CopyFiles
+
+[V221WG.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V221WG.AddReg, 1920, DPMS
+CopyFiles=V221WG.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,1920,1080
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V221WG.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"NV221WG.icm"
+
+[V221WG.CopyFiles]
+NV221WG.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+V221WG="NEC V221WG"

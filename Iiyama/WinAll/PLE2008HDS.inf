@@ -1,0 +1,98 @@
+;================================ 
+; PLE2008HDS.INF 02/17/09 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2009, iiyama Corporation
+;================================
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+CatalogFile=PLE2008HDS.cat
+DriverVer=02/17/2009,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM539C
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+539C.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+PLE2008HDS.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%iiyama%=iiyama, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama]
+%539C%=539C.Install, Monitor\IVM539C
+
+[iiyama.NTx86]
+%539C%=539C.Install, Monitor\IVM539C
+
+[iiyama.NTia64]
+%539C%=539C.Install, Monitor\IVM539C
+
+[iiyama.NTamd64]
+%539C%=539C.Install, Monitor\IVM539C
+
+; Install sections
+;-------------------------------------------------
+[539C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=539C.AddReg,1600,DPMS
+CopyFiles=539C.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[539C.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2008HDS.icm"
+
+;-------------------------------------------------------------------
+[539C.CopyFiles]
+PLE2008HDS.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama"
+DiskName="iiyama Monitor Setup Disk"
+
+539C="iiyama PLE2008HDS"  

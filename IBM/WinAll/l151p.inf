@@ -1,0 +1,94 @@
+; Copyright (c) 2005 Lenovo Corporation
+; Issue date -- 06/24/2005
+; Revise date -- 07/15/2005
+; revision 1
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=L151P.cat
+DriverVer=07/15/2005,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+L151P_Analog.copyfiles = 23
+L151P_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Lenovo Monitor installtion disk",,,
+
+[SourceDisksFiles]
+L151P.icm=1
+
+[Manufacturer]
+%LEN%=LEN,NTx86,NTAMD64
+
+[LEN]
+%L151P_Analog%=L151P_Analog.Install, Monitor\LEN23F5
+%L151P_Digital%=L151P_Digital.Install, Monitor\LEN23F5
+
+[LEN.NTx86]
+%L151P_Analog%=L151P_Analog.Install, Monitor\LEN23F5
+%L151P_Digital%=L151P_Digital.Install, Monitor\LEN23F5
+
+[LEN.NTAMD64]
+%L151P_Analog%=L151P_Analog.Install, Monitor\LEN23F5
+%L151P_Digital%=L151P_Digital.Install, Monitor\LEN23F5
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\LEN23F5
+
+[L151P_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L151P_Analog.AddReg, 1024, DPMS
+CopyFiles=L151P_Analog.CopyFiles
+
+[L151P_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L151P_Digital.AddReg, 1024, DPMS
+CopyFiles=L151P_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L151P_Analog.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-77.0,+,+"
+HKR,,ICMProfile,0,"L151P.icm"
+
+[L151P_Digital.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-77.0,+,+"
+HKR,,ICMProfile,0,"L151P.icm"
+
+
+[L151P_Analog.CopyFiles]
+L151P.ICM
+
+[L151P_Digital.CopyFiles]
+L151P.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+LEN="Lenovo"
+
+L151P_Analog="Lenovo L151P(Analog)"
+L151P_Digital="Lenovo L151P(Digital)"
+

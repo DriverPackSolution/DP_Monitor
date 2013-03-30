@@ -1,0 +1,120 @@
+
+;==================================================
+; SM320TSN.inf 11/06/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM320TSN.cat
+DriverVer=11/06/2008,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM04F7
+ExcludeFromSelect.nt=Monitor\SAM04F8
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM320TSNa.CopyFiles = 23
+SM320TSNd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM320TSN.icm=1
+SM320TSN.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM320TSNa%=SM320TSNa.Install, Monitor\SAM04F7
+%SM320TSNd%=SM320TSNd.Install, Monitor\SAM04F8
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM320TSNa%=SM320TSNa.Install, Monitor\SAM04F7
+%SM320TSNd%=SM320TSNd.Install, Monitor\SAM04F8
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM320TSNa%=SM320TSNa.Install, Monitor\SAM04F7
+%SM320TSNd%=SM320TSNd.Install, Monitor\SAM04F8
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM320TSNa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM320TSNa.AddReg, 1360, DPMS
+CopyFiles=SM320TSNa.CopyFiles
+
+[SM320TSNd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM320TSNd.AddReg, 1360, DPMS
+CopyFiles=SM320TSNd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1360]
+HKR,,MaxResolution,,"1360,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM320TSNa.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM320TSN.icm"
+
+[SM320TSNd.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM320TSN.icm"
+;------------------------------------------------------
+
+[SM320TSNa.CopyFiles]
+SM320TSN.icm
+
+[SM320TSNd.CopyFiles]
+SM320TSN.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM320TSNa="SyncMaster 320TSN/320TSN-2(Analog)"
+SM320TSNd="SyncMaster 320TSN/320TSN-2 (Digital)"

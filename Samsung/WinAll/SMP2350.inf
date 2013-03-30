@@ -1,0 +1,120 @@
+
+;==================================================
+; SMP2350.inf 06/17/2009 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SMP2350.cat
+DriverVer=06/17/2009,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0525
+ExcludeFromSelect.nt=Monitor\SAM0526
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SMP2350a.CopyFiles = 23
+SMP2350d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SMP2350.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SMP2350a%=SMP2350a.Install, Monitor\SAM0525
+%SMP2350d%=SMP2350d.Install, Monitor\SAM0526
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SMP2350a%=SMP2350a.Install, Monitor\SAM0525
+%SMP2350d%=SMP2350d.Install, Monitor\SAM0526
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SMP2350a%=SMP2350a.Install, Monitor\SAM0525
+%SMP2350d%=SMP2350d.Install, Monitor\SAM0526
+
+; Install Sections
+;-----------------------------------------------------
+
+[SMP2350a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMP2350a.AddReg, 1920, DPMS
+CopyFiles=SMP2350a.CopyFiles
+
+[SMP2350d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMP2350d.AddReg, 1920, DPMS
+CopyFiles=SMP2350d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SMP2350a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-60,+,+"
+HKR,,ICMProfile,0,"SMP2350.icm"
+
+[SMP2350d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-60,+,+"
+HKR,,ICMProfile,0,"SMP2350.icm"
+;------------------------------------------------------
+
+[SMP2350a.CopyFiles]
+SMP2350.icm
+
+[SMP2350d.CopyFiles]
+SMP2350.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SMP2350a="SyncMaster P2350(G)/P23500(G),Magic P2350G(Analog)"
+SMP2350d="SyncMaster P2350(G)/P23500(G),Magic P2350G(Digital)"

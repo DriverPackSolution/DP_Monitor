@@ -1,0 +1,80 @@
+;This is a Setup information file for monitors  with ICM  file
+;Copyright 2002 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MED%
+CatalogFile=MD5042OC.cat   
+DriverVer=08/22/2002,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED5535
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+5535.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+MD5042OC.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%MED%=MED
+
+; Manufacturer Sections
+;-------------------------------------------------
+[MED]
+%5535%=5535.Install, Monitor\MED5535
+
+; Install Sections
+;-------------------------------------------------
+[5535.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=5535.AddReg, 1024 ,DPMS
+Copyfiles=5535.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[5535.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"MD5042OC.icm"
+
+[5535.CopyFiles]
+MD5042OC.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Medion LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+MED="Medion AG"
+5535="MD 5042 OC"
+

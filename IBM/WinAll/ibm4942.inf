@@ -1,0 +1,87 @@
+;================================ 
+;IBM4942.INF 09/19/2005 Ver. 1.0 
+;Copyright 1996-2002 IBM Computer Corporation
+;
+;This is a setupfile for the IBM Flat Panel Monitors
+;Monitor. Supports Windows 98, 2000 , Millennium & XP
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM4942.cat
+DriverVer=09/19/2005, 1.0
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM4942
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM4942.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM4942.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%IBM%=IBM,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[IBM] 
+%IBM4942%=IBM4942.Install, Monitor\IBM4942
+
+
+;-------------------------------------------------
+[IBM.NTAMD64] 
+%IBM4942%=IBM4942.Install, Monitor\IBM4942
+
+
+; Install Sections
+;-------------------------------------------------
+
+[IBM4942.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM4942.AddReg, 1024, DPMS
+CopyFiles=IBM4942.CopyFiles
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[IBM4942.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"IBM4942.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[IBM4942.CopyFiles]
+IBM4942.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="IBM Flat Panel Monitor Installation disk"
+IBM="IBM"	
+IBM4942="IBM T115 Monitor "

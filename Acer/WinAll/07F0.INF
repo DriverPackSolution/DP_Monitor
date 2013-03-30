@@ -1,0 +1,66 @@
+; Acer AL2032W, October-13-2004
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=07F0.cat
+DriverVer=10/13/2004,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACR07F0
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+07F0.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+07F0.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%07F0%=07F0.Install, Monitor\ACR07F0
+
+[07F0.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=07F0.AddReg, 1600, DPMS
+CopyFiles=07F0.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[07F0.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"07F0.icm"
+
+[07F0.CopyFiles]
+07F0.icm
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Acer System Restoration CD"
+Acer="Acer"
+07F0="Acer AL2032W"

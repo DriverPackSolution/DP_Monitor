@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [871TFT.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LGIBM
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LGIBM%
+CatalogFile=871TFT.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+871TFT.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+871TFT.icm=1 
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTamd64
+
+[LGIBM]
+%871TFT%=871TFT, Monitor\GSM465A
+
+[LGIBM.NTamd64]
+%871TFT%=871TFT, Monitor\GSM465A
+
+;------------------------------------; .Install
+
+[871TFT] 
+AddReg=871TFT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=871TFT.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[871TFT.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"871TFT.ICM"
+
+;------------------------------------; .CopyFiles
+
+[871TFT.CopyFiles]  
+871TFT.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM465A
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+871TFT="LGIBM 871TFT"

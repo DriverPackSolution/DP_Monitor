@@ -1,0 +1,117 @@
+;================================ 
+;ST2410.INF 05/11/09 Ver. 1.0
+;Copyright 1996-2009 Dell Inc.
+;
+;This is a setupfile for ST2410
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=ST2410.cat
+DriverVer=05/11/2009, 1.0  
+
+;-------------------------------------------------
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+ST2410_Analog.CopyFiles = 23
+ST2410_Digital.CopyFiles = 23
+ST2410_HDMI.CopyFiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+ST2410.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64 
+
+[DELL]  
+%ST2410_Analog%=ST2410_Analog.Install, Monitor\DELA05B
+%ST2410_Digital%=ST2410_Digital.Install, Monitor\DELA05C
+%ST2410_HDMI%=ST2410_HDMI.Install, Monitor\DELA05D
+
+[DELL.NTx86]
+%ST2410_Analog%=ST2410_Analog.Install, Monitor\DELA05B
+%ST2410_Digital%=ST2410_Digital.Install, Monitor\DELA05C
+%ST2410_HDMI%=ST2410_HDMI.Install, Monitor\DELA05D
+
+[DELL.NTAMD64]  
+%ST2410_Analog%=ST2410_Analog.Install, Monitor\DELA05B
+%ST2410_Digital%=ST2410_Digital.Install, Monitor\DELA05C
+%ST2410_HDMI%=ST2410_HDMI.Install, Monitor\DELA05D
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA05B
+ExcludeFromSelect.nt=Monitor\DELA05C
+ExcludeFromSelect.nt=Monitor\DELA05D
+
+[ST2410_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=ST2410_Analog.AddReg, 1920, DPMS
+CopyFiles=ST2410_Analog.CopyFiles
+
+[ST2410_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=ST2410_Digital.AddReg, 1920, DPMS
+CopyFiles=ST2410_Digital.CopyFiles
+
+[ST2410_HDMI.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=ST2410_HDMI.AddReg, 1920, DPMS
+CopyFiles=ST2410_HDMI.CopyFiles
+					     
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[ST2410_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"ST2410.icm"
+
+[ST2410_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"ST2410.icm"
+
+[ST2410_HDMI.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"ST2410.icm"
+
+[ST2410_Analog.CopyFiles]
+ST2410.icm
+
+[ST2410_Digital.CopyFiles]
+ST2410.icm
+
+[ST2410_HDMI.CopyFiles]
+ST2410.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."	
+
+ST2410_Analog="Dell ST2410(Analog)"
+ST2410_Digital="Dell ST2410(Digital)"
+ST2410_HDMI="Dell ST2410(HDMI)"

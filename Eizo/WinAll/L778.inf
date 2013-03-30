@@ -1,0 +1,90 @@
+; [L778.INF]
+; Revision 1.10
+; Copyright(c) 2004 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L778.cat
+DriverVer=11/09/2004,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1766
+ExcludeFromSelect.nt = Monitor\ENC1767
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L778D.CopyFiles = 23
+L778.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L778D65.icm=1
+L778D50.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L778D%=L778D.Install, Monitor\ENC1766
+%L778%=L778.Install, Monitor\ENC1767
+
+[L778D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L778D.AddReg, 1280, DPMS
+CopyFiles=L778D.CopyFiles
+
+[L778.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L778.AddReg, 1280, DPMS
+CopyFiles=L778.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L778D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-64.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L778D65.icm"
+
+[L778.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L778D65.icm"
+
+[L778D.CopyFiles]
+L778D65.icm
+L778D50.icm
+
+[L778.CopyFiles]
+L778D65.icm
+L778D50.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L778D="L778"
+L778="L778"

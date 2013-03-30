@@ -1,0 +1,95 @@
+;Monitor INF file for SL3220W
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=SL3220W.cat
+DriverVer=09/23/2009,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07C7
+ExcludeFromSelect.nt=Monitor\FUS07C8
+
+[DestinationDirs]
+DefaultDestDir=11
+SL3220W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SL3220W.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%SL_3220Wa%=SL3220Wa.Install, Monitor\FUS07C7
+%SL_3220Wd%=SL3220Wd.Install, Monitor\FUS07C8
+
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%SL_3220Wa%=SL3220Wa.Install, Monitor\FUS07C7
+%SL_3220Wd%=SL3220Wd.Install, Monitor\FUS07C8
+
+; Install Sections
+;-------------------------------------------------
+
+[SL3220Wa.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=SL3220Wa.AddReg, 1680, DPMS
+CopyFiles=SL3220W.CopyFiles
+
+[SL3220Wd.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=SL3220Wd.AddReg, 1680, DPMS
+CopyFiles=SL3220W.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[SL3220Wa.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.5-83.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"SL3220W.icm"
+
+[SL3220Wd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.5-83.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"SL3220W.icm"
+
+;---------------------------------------------------------- 
+
+[SL3220W.CopyFiles]
+SL3220W.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD SL3220W"
+FTS.Mfg="Fujitsu Technology Solutions"	
+SL_3220Wa="Fujitsu SL3220W"
+SL_3220Wd="Fujitsu SL3220W"

@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2413wm.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/24/2008, 1.5.1.0
+
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2413wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2413wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC2222
+
+[ViewSonic]   
+%VA2413wm%=VA2413wm.Install,Monitor\VSC2222  
+
+[ViewSonic.NTia64]   
+%VA2413wm%=VA2413wm.Install,Monitor\VSC2222 
+
+[ViewSonic.NTamd64]   
+%VA2413wm%=VA2413wm.Install,Monitor\VSC2222  
+
+[VA2413wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2413wm.AddReg,1920,DPMS
+Copyfiles=VA2413wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2413wm.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"22-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA2413wm.ICM"
+
+[VA2413wm.CopyFiles]                                       
+VA2413wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA2413wm ViewSonic Wizard"
+VA2413wm="ViewSonic VA2413wm"

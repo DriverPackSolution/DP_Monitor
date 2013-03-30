@@ -1,0 +1,467 @@
+;
+;****************************************************************
+;*								*
+;*  File name : Monitor.INF					*
+;*								*
+;*  This is a Setup information file for TFT LCD monitors.	*
+;*								*
+;*                                        Version 1.08		*
+;*                                        July.07.2003 		*
+;*								*
+;*								*
+;*   Copyright (c) 1999-2003, Hansol Electronics		*
+;*								*	
+;****************************************************************
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Hansol%      
+DriverVer=7/7/2003,1.08
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+500F.CopyFiles=23
+510F.CopyFiles=23
+520F.CopyFiles=23
+H520.CopyFiles=23
+H521.CopyFiles=23
+H530.CopyFiles=23
+H530v.CopyFiles=23
+H550.CopyFiles=23
+
+700F.CopyFiles=23
+700Fs.CopyFiles=23
+H700T.CopyFiles=23
+H710.CopyFiles=23
+H711.CopyFiles=23
+H712.CopyFiles=23
+H750.CopyFiles=23
+H750D.CopyFiles=23
+H755.CopyFiles=23
+
+H950.CopyFiles=23
+
+
+[SourceDisksNames.x86]
+1="Hansol Mazellan Monitor Installation Disk",,1
+
+[SourceDisksNames]
+1="Hansol Mazellan Monitor Installation Disk",,,A:\
+
+[SourceDisksFiles]
+500F.icm=1
+510F.icm=1
+520F.icm=1
+H520.icm=1
+H521.icm=1
+H530.icm=1
+H530v.icm=1
+H550.icm=1
+700F.icm=1
+700Fs.icm=1
+H700T.icm=1
+H710.icm=1
+H711.icm=1
+H712.icm=1
+H750.icm=1
+H750D.icm=1
+H755.icm=1
+H950.icm=1
+
+[Manufacturer]
+%Hansol%=Hansol
+
+;-------------------------------------------------
+; Driver sections
+;-------------------------------------------------
+[Hansol]
+%500F%	=500F.Install, Monitor\HSL01F4
+%510F%	=510F.Install, Monitor\HSL510F
+%520F%	=520F.Install, Monitor\HSL510F
+%H520%	=H520.Install, Monitor\HSL0021
+%H520s%	=H520.Install, Monitor\HSL0021
+%H521%	=H521.Install, Monitor\HSL9020
+%H530%	=H530.Install, Monitor\HSL2021
+%H530s%	=H530.Install, Monitor\HSL2021
+%H530v%	=H530v.Install, Monitor\HSL2221
+%H550%	=H550.Install, Monitor\HSL6022
+
+%700F%	=700F.Install, Monitor\HSL700F
+%700Fs%	=700Fs.Install, Monitor\HSL701F
+%H700T%	=H700T.Install, Monitor\HSLC42B
+%H710%	=H710.Install, Monitor\HSL602C
+%H710s%	=H710.Install, Monitor\HSL602C
+%H711%	=H711.Install, Monitor\HSL702C
+%H711s%	=H711.Install, Monitor\HSL702C
+%H711G%	=H711.Install, Monitor\HSL702C
+%H712%	=H712.Install, Monitor\HSL802C
+%H712s%	=H712.Install, Monitor\HSL802C
+%H750%	=H750.Install, Monitor\HSLE02E
+%H750D%	=H750D.Install, Monitor\HSLE42E
+%H750DA%=H750D.Install, Monitor\HSLE52E
+%H755%	=H755.Install, Monitor\HSLE02E
+%H950%	=H950.Install, Monitor\HSL643B
+%H950A%	=H950.Install, Monitor\HSL603B
+
+;-------------------------------------------------
+; Install sections
+;-------------------------------------------------
+[500F.Install]
+DelReg=Del_Current_Reg
+AddReg=500F.AddReg, 1024, DPMS
+CopyFiles=500F.CopyFiles
+
+[510F.Install]
+DelReg=Del_Current_Reg
+AddReg=510F.AddReg, 1024, DPMS
+CopyFiles=510F.CopyFiles
+
+[520F.Install]
+DelReg=Del_Current_Reg
+AddReg=520F.AddReg, 1024, DPMS
+CopyFiles=520F.CopyFiles
+
+[H520.Install]
+DelReg=Del_Current_Reg
+AddReg=H520.AddReg, 1024, DPMS
+CopyFiles=H520.CopyFiles
+
+[H521.Install]
+DelReg=Del_Current_Reg
+AddReg=H521.AddReg, 1024, DPMS
+CopyFiles=H521.CopyFiles
+
+[H530.Install]
+DelReg=Del_Current_Reg
+AddReg=H530.AddReg, 1024, DPMS
+CopyFiles=H530.CopyFiles
+
+[H530v.Install]
+DelReg=Del_Current_Reg
+AddReg=H530v.AddReg, 1024, DPMS
+CopyFiles=H530v.CopyFiles
+
+[H550.Install]
+DelReg=Del_Current_Reg
+AddReg=H550.AddReg, 1024, DPMS
+CopyFiles=H550.CopyFiles
+
+[700F.Install]
+DelReg=Del_Current_Reg
+AddReg=700F.AddReg, 1280, DPMS
+CopyFiles=700F.CopyFiles
+
+[700Fs.Install]
+DelReg=Del_Current_Reg
+AddReg=700Fs.AddReg, 1280, DPMS
+CopyFiles=700Fs.CopyFiles
+
+[H700T.Install]
+DelReg=Del_Current_Reg
+AddReg=H700T.AddReg, 1280, DPMS
+CopyFiles=H700T.CopyFiles
+
+[H710.Install]
+DelReg=Del_Current_Reg
+AddReg=H710.AddReg, 1280, DPMS
+CopyFiles=H710.CopyFiles
+
+[H711.Install]
+DelReg=Del_Current_Reg
+AddReg=H711.AddReg, 1280, DPMS
+CopyFiles=H711.CopyFiles
+
+[H712.Install]
+DelReg=Del_Current_Reg
+AddReg=H712.AddReg, 1280, DPMS
+CopyFiles=H712.CopyFiles
+
+[H750.Install]
+DelReg=Del_Current_Reg
+AddReg=H750.AddReg, 1280, DPMS
+CopyFiles=H750.CopyFiles
+
+[H750D.Install]
+DelReg=Del_Current_Reg
+AddReg=H750D.AddReg, 1280, DPMS
+CopyFiles=H750D.CopyFiles
+
+[H755.Install]
+DelReg=Del_Current_Reg
+AddReg=H755.AddReg, 1280, DPMS
+CopyFiles=H755.CopyFiles
+
+[H950.Install]
+DelReg=Del_Current_Reg
+AddReg=H950.AddReg, 1280, DPMS
+CopyFiles=H950.CopyFiles
+
+;-------------------------------------------------
+; Common AddReg sections
+;-------------------------------------------------
+[Del_Current_Reg]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;-------------------------------------------------
+; Pre-defined AddReg sections
+;-------------------------------------------------
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------------
+; Model AddReg sections
+;-------------------------------------------------
+[500F.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0,"500F.icm"
+
+[510F.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0,"510F.icm"
+
+[520F.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0,"520F.icm"
+
+[H520.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0,"H520.icm"
+
+[H521.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0,"H521.icm"
+
+[H530.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0,"H530.icm"
+
+[H530v.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-45.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-55.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-75.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0,"H530v.icm"
+
+[H550.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMProfile,0,"H550.icm"
+
+[700F.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"700F.icm"
+
+[700Fs.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"700Fs.icm"
+
+[H700T.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-45.0,55.0-87.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-55.0,55.0-87.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-75.0,55.0-87.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"H700T.icm"
+
+[H710.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"H710.icm"
+
+[H711.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"H711.icm"
+
+[H712.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"H712.icm"
+
+[H750.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"H750.icm"
+
+[H755.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,55.0-77.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"H755.icm"
+
+[H750D.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,55.0-72.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"H750D.icm"
+
+[H950.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-40.0,55.0-77.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-50.0,55.0-77.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-65.0,55.0-77.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,55.0-72.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"H950.icm"
+
+;
+;----------------------------------------------------------
+; ICM copy files
+;----------------------------------------------------------
+[500F.CopyFiles]
+500F.ICM
+
+[510F.CopyFiles]
+510F.ICM
+
+[520F.CopyFiles]
+520F.ICM
+
+[H520.CopyFiles]
+H520.ICM
+
+[H521.CopyFiles]
+H521.ICM
+
+[H530.CopyFiles]
+H530.ICM
+
+[H530v.CopyFiles]
+H530v.ICM
+
+[H550.CopyFiles]
+H550.ICM
+
+[700F.CopyFiles]
+700F.ICM
+
+[700Fs.CopyFiles]
+700Fs.ICM
+
+[H700T.CopyFiles]
+H700T.ICM
+
+[H710.CopyFiles]
+H710.ICM
+
+[H711.CopyFiles]
+H711.ICM
+
+[H712.CopyFiles]
+H712.ICM
+
+[H750.CopyFiles]
+H750.ICM
+
+[H755.CopyFiles]
+H755.ICM
+
+[H750D.CopyFiles]
+H750D.ICM
+
+[H950.CopyFiles]
+H950.ICM
+
+;
+;-----------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Hansol="Hansol Electronics"
+
+500F	="Hansol   500F"
+510F	="Hansol   510F"
+520F	="Hansol   520F"
+H520	="Hansol   H520"
+H520s	="Hansol   H520s"
+H521	="Hansol   H521"
+H530	="Hansol   H530"
+H530s	="Hansol   H530s"
+H530v	="Hansol   H530v"
+H550	="Hansol   H550"
+
+700F	="Hansol   700F"
+700Fs	="Hansol   700Fs"
+H700T	="Hansol   H700T"
+H710	="Hansol   H710"
+H710s	="Hansol   H710s"
+H711	="Hansol   H711"
+H711s	="Hansol   H711s"
+H711G	="Hansol   H711G"
+H712	="Hansol   H712"
+H712s	="Hansol   H712s"
+H750	="Hansol   H750"
+H755	="Hansol   H755"
+H750D	="Hansol   H750D(Digital)"
+H750DA	="Hansol   H750D(Analog)"
+H950	="Hansol   H950(Digital)"
+H950A	="Hansol   H950(Analog)"
+
+

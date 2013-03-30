@@ -1,0 +1,102 @@
+
+;==================================================
+; CX716ND.inf 01/09/2006 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=CX716ND.cat
+DriverVer=01/09/2006,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM01FC
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+CX716ND.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+CX716ND.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%CX716ND%=CX716ND.Install, Monitor\SAM01FC
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%CX716ND%=CX716ND.Install, Monitor\SAM01FC
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%CX716ND%=CX716ND.Install, Monitor\SAM01FC
+
+; Install Sections
+;-----------------------------------------------------
+
+[CX716ND.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CX716ND.AddReg, 1280, DPMS
+CopyFiles=CX716ND.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[CX716ND.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"CX716ND.icm"
+
+;------------------------------------------------------
+
+[CX716ND.CopyFiles]
+CX716ND.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+CX716ND="SyncMaster 711ND, SyncMaster Magic CX716ND"

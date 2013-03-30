@@ -1,0 +1,64 @@
+;=============================================================== 
+; [LX1951.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX1951.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AC0
+
+[DestinationDirs]
+DefaultDestDir=11
+LX1951.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX1951.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX1951%=LX1951.Install,Monitor\GSM4AC0
+
+[LG.NTamd64]
+%LX1951%=LX1951.Install,Monitor\GSM4AC0
+
+[LX1951.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX1951.AddReg,1280,DPMS
+CopyFiles=LX1951.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX1951.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"LX1951.ICM"
+
+[LX1951.CopyFiles]
+LX1951.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX1951="LG LX1951"

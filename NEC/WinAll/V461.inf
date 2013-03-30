@@ -1,0 +1,104 @@
+; V461.inf
+; Setup information file for NEC LCD Monitor V461
+;
+; Copyright (C) 2011 NEC Electric Corporation
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NEC%
+CatalogFile=V461.cat
+DriverVer=02/11/2011,1.00.0000.0000
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67B8
+ExcludeFromSelect.nt=Monitor\NEC67B9
+ExcludeFromSelect.nt=Monitor\NEC67BA
+
+[DestinationDirs]
+V461.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+V461.icm=1
+
+[Manufacturer]
+%NEC%=NEC,ntamd64
+
+[NEC]
+%V461-A%=V461-A.Install, Monitor\NEC67B8
+%V461-D%=V461-D.Install, Monitor\NEC67B9
+%V461-H%=V461-D.Install, Monitor\NEC67BA
+
+[NEC.ntamd64]
+%V461-A%=V461-A.Install, Monitor\NEC67B8
+%V461-D%=V461-D.Install, Monitor\NEC67B9
+%V461-H%=V461-D.Install, Monitor\NEC67BA
+
+[V461-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V461-A.AddReg, 1920, DPMS
+CopyFiles=V461.CopyFiles
+
+[V461-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V461-D.AddReg, 1920, DPMS
+CopyFiles=V461.CopyFiles
+
+[V461-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V461-H.AddReg, 1920, DPMS
+CopyFiles=V461.CopyFiles
+
+[V461-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V461-A.AddReg, 1920, DPMS
+CopyFiles=V461.CopyFiles
+
+[V461-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V461-D.AddReg, 1920, DPMS
+CopyFiles=V461.CopyFiles
+
+[V461-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V461-H.AddReg, 1920, DPMS
+CopyFiles=V461.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V461-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"V461.icm"
+
+[V461-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"V461.icm"
+
+[V461-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"26.0-68.0,49.0-61.0,+,+"
+HKR,,ICMProfile,0,"V461.icm"
+
+[V461.CopyFiles]
+V461.icm
+
+[Strings]
+NEC="NEC"
+V461-A="NEC V461 (Analog)"
+V461-D="NEC V461 (Digital)"
+V461-H="NEC V461 (Hdmi)"
+Disk1="NEC Display Monitor Installation Disk"

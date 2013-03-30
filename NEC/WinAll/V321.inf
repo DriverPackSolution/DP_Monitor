@@ -1,0 +1,104 @@
+; V321.inf
+; Setup information file for NEC LCD Monitor V321
+;
+; Copyright (C) 2009 NEC Electric Corporation
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NEC%
+CatalogFile=V321.cat
+DriverVer=06/08/2009,1.00.0000.0000
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67B2
+ExcludeFromSelect.nt=Monitor\NEC67B3
+ExcludeFromSelect.nt=Monitor\NEC67B4
+
+[DestinationDirs]
+V321.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+V321.icm=1
+
+[Manufacturer]
+%NEC%=NEC,ntamd64
+
+[NEC]
+%V321-A%=V321-A.Install, Monitor\NEC67B2
+%V321-D%=V321-D.Install, Monitor\NEC67B3
+%V321-H%=V321-D.Install, Monitor\NEC67B4
+
+[NEC.ntamd64]
+%V321-A%=V321-A.Install, Monitor\NEC67B2
+%V321-D%=V321-D.Install, Monitor\NEC67B3
+%V321-H%=V321-D.Install, Monitor\NEC67B4
+
+[V321-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V321-A.AddReg, 1920, DPMS
+CopyFiles=V321.CopyFiles
+
+[V321-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V321-D.AddReg, 1920, DPMS
+CopyFiles=V321.CopyFiles
+
+[V321-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V321-H.AddReg, 1920, DPMS
+CopyFiles=V321.CopyFiles
+
+[V321-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V321-A.AddReg, 1920, DPMS
+CopyFiles=V321.CopyFiles
+
+[V321-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V321-D.AddReg, 1920, DPMS
+CopyFiles=V321.CopyFiles
+
+[V321-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V321-H.AddReg, 1920, DPMS
+CopyFiles=V321.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V321-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"V321.icm"
+
+[V321-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"V321.icm"
+
+[V321-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"26.0-150.0,49.0-61.0,+,+"
+HKR,,ICMProfile,0,"V321.icm"
+
+[V321.CopyFiles]
+V321.icm
+
+[Strings]
+NEC="NEC"
+V321-A="NEC V321 (Analog)"
+V321-D="NEC V321 (Digital)"
+V321-H="NEC V321 (Hdmi)"
+Disk1="NEC Display Monitor Installation Disk"

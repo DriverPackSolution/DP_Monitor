@@ -1,0 +1,96 @@
+; ###################################################
+;
+;   hp_L1925.inf        Ver. 2.50      12/1/2003
+;
+;   Copyright (c)2003, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the hp L1925 flat panel monitor.
+; 
+; ###################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=hp_L1925.cat
+DriverVer=12/01/2003,2.50
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP259A
+ExcludeFromSelect.nt = MONITOR\HWP259B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1925.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+hp_L1925.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%1925_A%=1925_A.Install, Monitor\HWP259A
+%1925_D%=1925_D.Install, Monitor\HWP259B
+
+[1925_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1925_A.AddReg, 1280, DPMS
+CopyFiles=1925.CopyFiles
+
+[1925_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1925_D.AddReg, 1280, DPMS
+CopyFiles=1925.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1925_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"hp_L1925.icm"
+HKR,,PreferredMode,,"1280,1024,75"
+
+[1925_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"hp_L1925.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[1925.CopyFiles]
+hp_L1925.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+1925_A="hp L1925 flat panel monitor"
+1925_D="hp L1925 flat panel monitor"
+Disk1="hp L1925 INF software"

@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA1703w_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/12/2007,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1703w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1703w_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC121F
+
+[ViewSonic]   
+%VA1703w%=VA1703w.Install,Monitor\VSC121F 
+
+[ViewSonic.NTia64]   
+%VA1703w%=VA1703w.Install,Monitor\VSC121F
+
+[ViewSonic.NTamd64]   
+%VA1703w%=VA1703w.Install,Monitor\VSC121F
+
+[VA1703w.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1703w.AddReg,1440,DPMS
+Copyfiles=VA1703w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1703w.AddReg]  
+HKR,"MODES\1440,900",Mode1,,"24-70,50-75,-,+" 
+HKR,,ICMProfile,0,"VA1703w_SERIES.ICM"
+
+[VA1703w.CopyFiles]                                       
+VA1703w_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA1703w="ViewSonic VA1703w Series"

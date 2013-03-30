@@ -1,0 +1,95 @@
+;========================================== 
+; BenQ_G925HDA.INF 11/24/09 Ver. 1.1 
+; INF File for Windows 9x/Me/2000/XP/Vista/Win7
+; Copyright (c) 2009, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G925HDA.cat
+DriverVer=11/24/2009,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7843
+
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G925HDA_Analog.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G925HDADSUB.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G925HDA_Analog%=G925HDA_Analog.Install, Monitor\BNQ7843
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G925HDA_Analog%=G925HDA_Analog.Install, Monitor\BNQ7843
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G925HDA_Analog%=G925HDA_Analog.Install, Monitor\BNQ7843
+
+; Install Sections
+;-------------------------------------------------
+
+[G925HDA_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G925HDA_Analog.AddReg, 1366, DPMS
+CopyFiles=G925HDA_Analog.CopyFiles
+
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[G925HDA_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\1366,768",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"G925HDADSUB.icm"
+
+
+
+[G925HDA_Analog.CopyFiles]
+G925HDADSUB.ICM
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G925HDA_Analog="BenQ G925HDA (Analog)"

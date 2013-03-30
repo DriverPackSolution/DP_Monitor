@@ -1,0 +1,76 @@
+; Copyright (c) 2006 Lenovo Computer Systems, Ltd.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=Len E75.cat
+DriverVer=09/05/2006,1.0
+
+ [ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN18A3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+Len E75.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+Len E75.icm=1
+
+[Manufacturer]
+%LEN%=LEN,NTx86,NTamd64,NTia64
+
+[LEN]
+%Len E75%=Len E75.Install, Monitor\LEN18A3
+
+[LEN.NTx86]
+%Len E75%=Len E75.Install, Monitor\LEN18A3
+
+[LEN.NTamd64]
+%Len E75%=Len E75.Install, Monitor\LEN18A3
+
+[LEN.NTia64]
+%Len E75%=Len E75.Install, Monitor\LEN18A3
+
+[Len E75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Len E75.AddReg, 1280 ,DPMS
+Copyfiles=Len E75.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Len E75.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"Len E75.icm"
+
+[Len E75.CopyFiles]
+Len E75.icm
+
+[Strings]
+Disk="Legend Monitor Installation Disk"
+MonitorClassName="Monitor"
+LEN="Lenovo Computer Systems, Ltd"
+Len E75="Len E75"

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]
+CatalogFile=VE1911W.cat   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/25/2009, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VE1911W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VE1911W.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VE1911W%=VE1911W.Install,Monitor\VSC3B24  
+
+[ViewSonic.NTia64]   
+%VE1911W%=VE1911W.Install,Monitor\VSC3B24  
+
+[ViewSonic.NTamd64]   
+%VE1911W%=VE1911W.Install,Monitor\VSC3B24  
+
+[VE1911W.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VE1911W.AddReg,1440,DPMS
+Copyfiles=VE1911W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VE1911W.AddReg]  
+HKR,"MODES\1440,900",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VE1911W.ICM"
+
+[VE1911W.CopyFiles]                                       
+VE1911W.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VE1911W ViewSonic Wizard"
+VE1911W="ViewSonic VE1911W"

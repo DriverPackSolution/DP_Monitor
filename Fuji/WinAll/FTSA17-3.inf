@@ -1,0 +1,72 @@
+;FTSA17-3.INF Ver. 1.0
+;Monitor INF file for Fujitsu A17-3
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSA17-3.cat
+DriverVer=02/19/2009, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS067B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSA17-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSA17-3.ICM=1
+
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+[FTS.Mfg]
+%FTSA17-3%=FTSA17-3.Install, Monitor\FUS067B
+
+[FTS.Mfg.NTAMD64]
+%FTSA17-3%=FTSA17-3.Install, Monitor\FUS067B
+
+[FTSA17-3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSA17-3.AddReg, 1280, DPMS
+CopyFiles=FTSA17-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTSA17-3.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSA17-3.ICM"
+
+[FTSA17-3.CopyFiles]
+FTSA17-3.ICM
+
+[Strings]
+DISK="Driver & Utility CD A17-3/A19-3"
+MonitorClassName="Monitor"
+FTS.Mfg="Fujitsu Technology Solutions"
+FTSA17-3="FUJITSU A17-3"

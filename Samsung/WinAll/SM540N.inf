@@ -1,0 +1,102 @@
+
+;==================================================
+; SM540N.inf 03/27/2007 ver. 3.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM540N.cat
+DriverVer=03/27/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM01CE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM540N.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM540N.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM540N%=SM540N.Install, Monitor\SAM01CE
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM540N%=SM540N.Install, Monitor\SAM01CE
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM540N%=SM540N.Install, Monitor\SAM01CE
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM540N.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM540N.AddReg, 1024, DPMS
+CopyFiles=SM540N.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM540N.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"SM540N.icm"
+
+;------------------------------------------------------
+
+[SM540N.CopyFiles]
+SM540N.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM540N="SyncMaster 540N,SyncMaster Magic CX512N/CX502N"

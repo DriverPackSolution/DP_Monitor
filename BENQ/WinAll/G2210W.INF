@@ -1,0 +1,102 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ G2210W.INF 06/30/09 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for G2210W
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=G2210W.cat
+	DriverVer=06/30/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	G2210W D-SUB.CopyFiles=23
+        G2210W DVI.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	G2210W D-SUB.icm=1
+        G2210W DVI.icm=1
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ784F
+	ExcludeFromSelect.NT=Monitor\BNQ7850
+	
+[BenQ]
+	%G2210W D-SUB%=G2210W D-SUB.Install, Monitor\BNQ784F
+	%G2210W DVI%=G2210W DVI.Install, Monitor\BNQ7850
+
+[BenQ.NTx86]
+	%G2210W D-SUB%=G2210W D-SUB.Install, Monitor\BNQ784F
+	%G2210W DVI%=G2210W DVI.Install, Monitor\BNQ7850
+
+[BenQ.NTAMD64]
+	%G2210W D-SUB%=G2210W D-SUB.Install, Monitor\BNQ784F
+	%G2210W DVI%=G2210W DVI.Install, Monitor\BNQ7850
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G2210W D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G2210W D-SUB.AddReg, 1680, DPMS
+	CopyFiles=G2210W D-SUB.CopyFiles
+
+[G2210W DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G2210W DVI.AddReg, 1680, DPMS
+	CopyFiles=G2210W DVI.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1680]
+	HKR,,MaxResolution,,"1680,1050"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G2210W D-SUB.AddReg]
+	HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,55.0-76.0,+,-"
+	HKR,,ICMProfile,0,"G2210W D-SUB.icm"
+
+[G2210W DVI.AddReg]
+	HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,55.0-76.0,+,-"
+	HKR,,ICMProfile,0,"G2210W DVI.icm"
+
+[G2210W D-SUB.CopyFiles]	
+	G2210W D-SUB.icm
+
+[G2210W DVI.CopyFiles]	
+	G2210W DVI.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	G2210W D-SUB="BenQ G2210W D-SUB"
+        G2210W DVI="BenQ G2210W DVI"

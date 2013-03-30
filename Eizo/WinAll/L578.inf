@@ -1,0 +1,90 @@
+; [L578.INF]
+; Revision 1.10
+; Copyright(c) 2004 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L578.cat
+DriverVer=11/09/2004,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1764
+ExcludeFromSelect.nt = Monitor\ENC1765
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L578D.CopyFiles = 23
+L578.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L578D65.icm=1
+L578D50.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L578D%=L578D.Install, Monitor\ENC1764
+%L578%=L578.Install, Monitor\ENC1765
+
+[L578D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L578D.AddReg, 1280, DPMS
+CopyFiles=L578D.CopyFiles
+
+[L578.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L578.AddReg, 1280, DPMS
+CopyFiles=L578.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L578D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-64.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L578D65.icm"
+
+[L578.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L578D65.icm"
+
+[L578D.CopyFiles]
+L578D65.icm
+L578D50.icm
+
+[L578.CopyFiles]
+L578D65.icm
+L578D50.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L578D="L578"
+L578="L578"

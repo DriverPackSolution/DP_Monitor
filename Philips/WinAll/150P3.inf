@@ -1,0 +1,87 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2002 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=150P3.cat
+DriverVer=01/16/2002,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL080A
+
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+080A.CopyFiles=23
+
+[SourceDisksNames]
+1=%sourcedisk%,,,
+
+[SourceDisksFiles]
+Ph_LCD15.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%080A%=080A.Install, Monitor\PHL080A
+
+; Install sections
+;-------------------------------------------------
+[080A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=080A.AddReg,1024,DPMS
+CopyFiles=080A.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[080A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"Ph_LCD15.icm"
+
+;-------------------------------------------------------------------
+[080A.CopyFiles]
+Ph_LCD15.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+sourcedisk="Philips Monitor Setup Disk"
+
+080A="Philips BRILLIANCE 150P (15inch LCD MONITOR 150P3)" 

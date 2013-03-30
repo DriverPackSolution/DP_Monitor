@@ -1,0 +1,68 @@
+;
+; ctxX562Aa.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Jul 22, 2003
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=07/22/2003,1.0.0
+CatalogFile=ctxX562a.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX1016
+
+[DestinationDirs]
+DefaultDestDir=11
+
+X562A.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTXpfs.icm=1
+
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%X562A%=X562A.Install,Monitor\CTX1016
+
+[X562A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X562A.AddReg, 1024, DPMS
+CopyFiles=X562A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[X562A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.icm"
+
+[X562A.CopyFiles]
+CTXpfs.icm
+
+
+[Strings]
+Disk="CTX LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+X562A="CTX X560A,X561A,X562A"

@@ -1,0 +1,83 @@
+; NFP2141.INF
+; Setup information file for NEC MultiSync FP2141SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NFP2141.cat
+DriverVer=06/03/2002,2.06.0003.1050
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61DB
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-FP2141SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+nfp21411.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-FP2141SB%=NEC-FP2141SB.Install, Monitor\NEC61DB
+
+; Install Sections
+;-------------------------------------------------
+[NEC-FP2141SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FP2141SB.AddReg, 2048, DPMS
+CopyFiles=NEC-FP2141SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-FP2141SB.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-140.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"nfp21411.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-FP2141SB.CopyFiles]
+NFP21411.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-FP2141SB="NEC MultiSync FP2141SB"

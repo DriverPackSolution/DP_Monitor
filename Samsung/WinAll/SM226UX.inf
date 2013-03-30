@@ -1,0 +1,120 @@
+
+;==================================================
+; SM226UX.inf 09/11/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM226UX.cat
+DriverVer=09/11/2007,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM035F
+ExcludeFromSelect.nt=Monitor\SAM0360
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM226UXa.CopyFiles = 23
+SM226UXd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM226UX.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM226UXa%=SM226UXa.Install, Monitor\SAM035F
+%SM226UXd%=SM226UXd.Install, Monitor\SAM0360
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM226UXa%=SM226UXa.Install, Monitor\SAM035F
+%SM226UXd%=SM226UXd.Install, Monitor\SAM0360
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM226UXa%=SM226UXa.Install, Monitor\SAM035F
+%SM226UXd%=SM226UXd.Install, Monitor\SAM0360
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM226UXa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM226UXa.AddReg, 1680, DPMS
+CopyFiles=SM226UXa.CopyFiles
+
+[SM226UXd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM226UXd.AddReg, 1680, DPMS
+CopyFiles=SM226UXd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM226UXa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM226UX.icm"
+
+[SM226UXd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM226UX.icm"
+;------------------------------------------------------
+
+[SM226UXa.CopyFiles]
+SM226UX.icm
+
+[SM226UXd.CopyFiles]
+SM226UX.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM226UXa="SyncMaster 226UX,SyncMaster Magic CX226UX(Analog)"
+SM226UXd="SyncMaster 226UX,SyncMaster Magic CX226UX(Digital)"

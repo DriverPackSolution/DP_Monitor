@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [E900P.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=E900P.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+E900P.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LGE900P.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%E900P%=E900P, Monitor\GSM4A62
+
+[LG.NTamd64]
+%E900P%=E900P, Monitor\GSM4A62
+
+;------------------------------------; .Install
+
+[E900P] 
+AddReg=E900P.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=E900P.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[E900P.AddReg] 
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LGE900P.ICM"
+
+;------------------------------------; .CopyFiles
+
+[E900P.CopyFiles]  
+LGE900P.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4A62
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+E900P="LG E900P"

@@ -1,0 +1,102 @@
+; n271w.inf
+; Setup information file for NEC MultiSync PA271W Monitor
+;
+; Copyright (C) 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n271w.cat
+DriverVer=02/19/2010,1.10.0219.2052
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67DA
+ExcludeFromSelect.nt=Monitor\NEC67DC
+
+[DestinationDirs]
+PA271W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n271w.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%PA271W-D%=PA271W-D.Install, Monitor\NEC67DA
+%PA271W-DP%=PA271W-DP.Install, Monitor\NEC67DC
+
+[NECDS.ntamd64]
+%PA271W-D%=PA271W-D.Install.ntamd64, Monitor\NEC67DA
+%PA271W-DP%=PA271W-DP.Install.ntamd64, Monitor\NEC67DC
+
+; Install Sections
+;-------------------------------------------------
+
+[PA271W-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PA271W-D.AddReg, 2560, DPMS
+CopyFiles=PA271W.CopyFiles
+
+[PA271W-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PA271W-DP.AddReg, 2560, DPMS
+CopyFiles=PA271W.CopyFiles
+
+[PA271W-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PA271W-D.AddReg, 2560, DPMS
+CopyFiles=PA271W.CopyFiles
+
+[PA271W-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PA271W-DP.AddReg, 2560, DPMS
+CopyFiles=PA271W.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[2560]
+HKR,,MaxResolution,,"2560,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+
+[PA271W-D.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"31.0-95.0,50.0-87.0,+,+"
+HKR,,ICMProfile,0,"n271w.icm"
+
+[PA271W-DP.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"31.0-95.0,50.0-87.0,+,+"
+HKR,,ICMProfile,0,"n271w.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[PA271W.CopyFiles]
+n271w.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+PA271W-D="NEC MultiSync PA271W(Digital)"
+PA271W-DP="NEC MultiSync PA271W(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

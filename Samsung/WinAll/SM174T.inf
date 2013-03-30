@@ -1,0 +1,108 @@
+
+;==================================================
+; sm174T.inf 09/17/2003 ver. 1.1
+;
+; Copyright 2003 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm174T.cat
+DriverVer=09/16/2003,1.1
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM00F0
+ExcludeFromSelect.nt=Monitor\SAM00F1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm174Ta.CopyFiles = 23
+sm174Td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm174T.icm=1
+sm174T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm174Ta%=sm174Ta.Install, Monitor\SAM00F0
+%sm174Td%=sm174Td.Install, Monitor\SAM00F1
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm174Ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm174Ta.AddReg, 1280, DPMS
+CopyFiles=sm174Ta.CopyFiles
+
+[sm174Td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm174Td.AddReg, 1280, DPMS
+CopyFiles=sm174Td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm174Ta.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm174T.icm"
+
+[sm174Td.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm174T.icm"
+;------------------------------------------------------
+
+[sm174Ta.CopyFiles]
+sm174T.icm
+
+[sm174Td.CopyFiles]
+sm174T.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm174Ta="SyncMaster 174T,SyncMaster Magic CX711T (Analog)"
+sm174Td="SyncMaster 174T,SyncMaster Magic CX711T (Digital)"

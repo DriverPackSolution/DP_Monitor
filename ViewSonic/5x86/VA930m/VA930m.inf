@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA930m.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/18/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA930m.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA930m.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA930m%=VA930m.Install,Monitor\VSCFB1E  
+
+[ViewSonic.NTia64]   
+%VA930m%=VA930m.Install,Monitor\VSCFB1E
+
+[ViewSonic.NTamd64]   
+%VA930m%=VA930m.Install,Monitor\VSCFB1E 
+
+[VA930m.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA930m.AddReg,1280,DPMS
+Copyfiles=VA930m.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA930m.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"30-82,56-75,+,+" 
+HKR,,ICMProfile,0,"VA930m.ICM"
+
+[VA930m.CopyFiles]                                       
+VA930m.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA930m="ViewSonic VA930m"

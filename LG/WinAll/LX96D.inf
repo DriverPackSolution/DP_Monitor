@@ -1,0 +1,83 @@
+;===============================================================
+; [LX96D.inf]
+; Revision 1.3   December-21-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX96D.cat
+DriverVer=12/21/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B2D
+ExcludeFromSelect.NT=Monitor\GSM4B2E
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX96D_Analog.CopyFiles = 23
+LX96D_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX96D.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX96D_Analog%=LX96D_Analog.Install,Monitor\GSM4B2D
+%LX96D_Digital%=LX96D_Digital.Install,Monitor\GSM4B2E
+
+[LG.NTamd64]
+%LX96D_Analog%=LX96D_Analog.Install,Monitor\GSM4B2D
+%LX96D_Digital%=LX96D_Digital.Install,Monitor\GSM4B2E
+
+[LX96D_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX96D_Analog.AddReg,1280,DPMS
+CopyFiles=LX96D_Analog.CopyFiles
+
+[LX96D_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX96D_Digital.AddReg,1280,DPMS
+CopyFiles=LX96D_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX96D_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX96D.ICM"
+
+[LX96D_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX96D.ICM"
+
+[LX96D_Analog.CopyFiles]
+LX96D.ICM
+
+[LX96D_Digital.CopyFiles]
+LX96D.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX96D_Analog="LG LX96D(Analog)"
+LX96D_Digital="LG LX96D(Digital)"

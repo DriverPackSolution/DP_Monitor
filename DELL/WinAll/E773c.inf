@@ -1,0 +1,99 @@
+
+;================================================
+;E773c.INF 11/15/06 Ver. 1.0 JG
+;Copyright 2006 Dell Computer Corporation
+;
+;This is a setupfile for  the DELL 
+;E773c Monitor.  
+;================================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E773c.cat
+DriverVer=11/15/2006, 1.0.0.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELD005
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E773c.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E773c.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E773c%=E773c.Install, Monitor\DELD005
+;-------------------------------------------------
+
+ [DELL.NTAMD64] 
+%E773c%=E773c.Install, Monitor\DELD005
+;-------------------------------------------------
+
+; Install Sections
+;-------------------------------------------------
+
+[E773c.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E773c.AddReg, 1280, DPMS
+CopyFiles=E773c.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E773c.AddReg]
+HKR,"MODES\1208,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E773c.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E773c.CopyFiles]
+E773c.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E773c="Dell E773c"
+

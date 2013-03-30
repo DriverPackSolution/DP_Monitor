@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=E75f.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/01/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VCDTS23103-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+E75f.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS23103-1%=VCDTS23103-1.Install,Monitor\VSCD305	             ;E75f
+
+[VCDTS23103-1.Install]                                               ;E75f
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23103-1.AddReg,1600,DPMS
+Copyfiles=VCDTS23103-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS23103-1.AddReg]                                                ;E75f
+HKR,"MODES\1600,1200",Mode1,,"30-86,50-150,+,+"
+HKR,,ICMProfile,0,"E75f.ICM"
+
+[VCDTS23103-1.CopyFiles]                                       
+E75f.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Wizard"
+
+VCDTS23103-1="ViewSonic E75f"

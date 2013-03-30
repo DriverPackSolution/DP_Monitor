@@ -1,0 +1,127 @@
+;========================================== 
+; BenQ_G2320HD.INF 02/19/09 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2009, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G2320HD.cat
+DriverVer=02/19/2009,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7826
+ExcludeFromSelect.NT=Monitor\BNQ7827
+ExcludeFromSelect.NT=Monitor\BNQ7827
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G2320HD_Analog.copyfiles = 23
+G2320HD_Digital.copyfiles = 23
+G2320HD_HDMI.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G2320HDDSUB.icm=1
+G2320HDDVI.icm=1
+G2320HDHDMI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G2320HD_Analog%=G2320HD_Analog.Install, Monitor\BNQ7826
+%G2320HD_Digital%=G2320HD_Digital.Install, Monitor\BNQ7827
+%G2320HD_HDMI%=G2320HD_HDMI.Install, Monitor\BNQ7827
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G2320HD_Analog%=G2320HD_Analog.Install, Monitor\BNQ7826
+%G2320HD_Digital%=G2320HD_Digital.Install, Monitor\BNQ7827
+%G2320HD_HDMI%=G2320HD_HDMI.Install, Monitor\BNQ7827
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G2320HD_Analog%=G2320HD_Analog.Install, Monitor\BNQ7826
+%G2320HD_Digital%=G2320HD_Digital.Install, Monitor\BNQ7827
+%G2320HD_HDMI%=G2320HD_HDMI.Install, Monitor\BNQ7827
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G2320HD_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2320HD_Analog.AddReg, 1920, DPMS
+CopyFiles=G2320HD_Analog.CopyFiles
+
+[G2320HD_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2320HD_Digital.AddReg, 1920, DPMS
+CopyFiles=G2320HD_Digital.CopyFiles
+
+[G2320HD_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2320HD_HDMI.AddReg, 1920, DPMS
+CopyFiles=G2320HD_HDMI.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[G2320HD_Analog.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-94.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"G2320HDDSUB.icm"
+
+[G2320HD_Digital.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-94.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"G2320HDDVI.icm"
+
+[G2320HD_HDMI.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-94.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"G2320HDHDMI.icm"
+
+
+[G2320HD_Analog.CopyFiles]
+G2320HDDSUB.ICM
+
+[G2320HD_Digital.CopyFiles]
+G2320HDDVI.ICM
+
+[G2320HD_HDMI.CopyFiles]
+G2320HDHDMI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G2320HD_Analog="BenQ G2320HD (Analog)"
+G2320HD_Digital="BenQ G2320HD (Digital)"
+G2320HD_HDMI="BenQ G2320HD (HDMI)"

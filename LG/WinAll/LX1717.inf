@@ -1,0 +1,65 @@
+;=============================================================== 
+; [LX1717.INF] 
+; Revision 1.4   June-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX1717.cat
+DriverVer=06/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4415
+
+[DestinationDirs]
+DefaultDestDir=11
+LX1717.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX1717.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX1717%=LX1717.Install,Monitor\GSM4415
+
+[LG.NTamd64]
+%LX1717%=LX1717.Install,Monitor\GSM4415
+
+[LX1717.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX1717.AddReg,1280,DPMS
+CopyFiles=LX1717.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX1717.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX1717.ICM"
+
+[LX1717.CopyFiles]
+LX1717.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX1717="LG LX1717"

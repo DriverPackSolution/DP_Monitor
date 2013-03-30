@@ -1,0 +1,89 @@
+
+;================================ 
+;M783p.INF 03/11/04 Ver. 1.0 TP
+;Copyright 1996-2004 Dell Inc.
+;
+;This is a setupfile for the M783p 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=M783p.cat
+DriverVer=03/11/2004, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL700D
+
+[DestinationDirs]
+DefaultDestDir=11
+M783p.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+M783p.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%M783p%=M783p.Install, Monitor\DEL700D
+
+; Install Sections
+;-------------------------------------------------
+
+[M783p.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M783p.AddReg, 1280, DPMS
+CopyFiles=M783p.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[M783p.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M783p.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[M783p.CopyFiles]
+M783p.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+M783p="Dell M783p"

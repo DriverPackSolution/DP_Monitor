@@ -1,0 +1,64 @@
+;=============================================================== 
+; [L1553S.INF] 
+; Revision 1.4   December-21-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1553S.cat
+DriverVer=12/21/2006,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3BB0
+
+[DestinationDirs]
+DefaultDestDir=11
+L1553S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1553S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1553S%=L1553S.Install,Monitor\GSM3BB0
+
+[LG.NTamd64]
+%L1553S%=L1553S.Install,Monitor\GSM3BB0
+
+[L1553S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1553S.AddReg,1024,DPMS
+CopyFiles=L1553S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1553S.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"L1553S.ICM"
+
+[L1553S.CopyFiles]
+L1553S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1553S="LG L1553S"

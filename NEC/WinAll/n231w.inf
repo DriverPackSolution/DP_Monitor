@@ -1,0 +1,118 @@
+; n231w.inf
+; Setup information file for NEC MultiSync PA231W Monitor
+;
+; Copyright (C) 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n231w.cat
+DriverVer=06/18/2010,1.10.0618.1318
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67E2
+ExcludeFromSelect.nt=Monitor\NEC67E3
+ExcludeFromSelect.nt=Monitor\NEC67E5
+
+[DestinationDirs]
+PA231W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n231w.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%PA231W-A%=PA231W-A.Install, Monitor\NEC67E2
+%PA231W-D%=PA231W-D.Install, Monitor\NEC67E3
+%PA231W-DP%=PA231W-DP.Install, Monitor\NEC67E5
+
+[NECDS.ntamd64]
+%PA231W-A%=PA231W-A.Install.ntamd64, Monitor\NEC67E2
+%PA231W-D%=PA231W-D.Install.ntamd64, Monitor\NEC67E3
+%PA231W-DP%=PA231W-DP.Install.ntamd64, Monitor\NEC67E5
+
+; Install Sections
+;-------------------------------------------------
+[PA231W-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PA231W-A.AddReg, 1920, DPMS
+CopyFiles=PA231W.CopyFiles
+
+[PA231W-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PA231W-D.AddReg, 1920, DPMS
+CopyFiles=PA231W.CopyFiles
+
+[PA231W-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PA231W-DP.AddReg, 1920, DPMS
+CopyFiles=PA231W.CopyFiles
+
+[PA231W-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PA231W-A.AddReg, 1920, DPMS
+CopyFiles=PA231W.CopyFiles
+
+[PA231W-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PA231W-D.AddReg, 1920, DPMS
+CopyFiles=PA231W.CopyFiles
+
+[PA231W-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=PA231W-DP.AddReg, 1920, DPMS
+CopyFiles=PA231W.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[PA231W-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"32.0-83.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"n231w.icm"
+
+[PA231W-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"32.0-83.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"n231w.icm"
+
+[PA231W-DP.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"32.0-83.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"n231w.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[PA231W.CopyFiles]
+n231w.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+PA231W-A="NEC MultiSync PA231W(Analog)"
+PA231W-D="NEC MultiSync PA231W(Digital)"
+PA231W-DP="NEC MultiSync PA231W(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

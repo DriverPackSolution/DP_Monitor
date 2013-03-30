@@ -1,0 +1,108 @@
+
+;==================================================
+; SM510T.inf 02/09/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM510T.cat
+DriverVer=02/09/2004,1.1
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0113
+ExcludeFromSelect.nt=Monitor\SAM0114
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM510Ta.CopyFiles = 23
+SM510Td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM510T.icm=1
+SM510T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM510Ta%=SM510Ta.Install, Monitor\SAM0113
+%SM510Td%=SM510Td.Install, Monitor\SAM0114
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM510Ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM510Ta.AddReg, 1024, DPMS
+CopyFiles=SM510Ta.CopyFiles
+
+[SM510Td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM510Td.AddReg, 1024, DPMS
+CopyFiles=SM510Td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM510Ta.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"SM510T.icm"
+
+[SM510Td.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"SM510T.icm"
+;------------------------------------------------------
+
+[SM510Ta.CopyFiles]
+SM510T.icm
+
+[SM510Td.CopyFiles]
+SM510T.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM510Ta="SyncMaster 510T,SyncMaster Magic CX511T (Analog)"
+SM510Td="SyncMaster 510T,SyncMaster Magic CX511T (Digital)"

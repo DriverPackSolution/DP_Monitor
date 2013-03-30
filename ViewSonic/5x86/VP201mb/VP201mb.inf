@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2001, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP201mb.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/18/2001,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VLCDS22720-1b.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP201mb.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS22720-1b%=VLCDS22720-1b.Install,Monitor\VSCEB04           ;VP201mb
+
+[VLCDS22720-1b.Install]                                         ;VP201mb
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS22720-1b.AddReg,1600,DPMS
+Copyfiles=VLCDS22720-1b.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS22720-1b.AddReg]                                          ;VP201mb
+HKR,"MODES\1600,1200",Mode1,,"30-82,50-85,+,+"
+HKR,,ICMProfile,0,"VP201mb.ICM"
+
+[VLCDS22720-1b.CopyFiles]
+VP201mb.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS22720-1b="ViewSonic VP201mb" 

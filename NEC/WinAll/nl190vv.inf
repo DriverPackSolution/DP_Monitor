@@ -1,0 +1,68 @@
+; nl190vv.inf
+; Setup information file for NEC LCD190V Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl190vv.cat
+DriverVer=12/27/2006,1.06.1227.2330
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66D3
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD190V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl190vv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD190V%=LCD190V.Install, Monitor\NEC66D3
+
+[NECDS.ntamd64]
+%LCD190V%=LCD190V.Install.ntamd64, Monitor\NEC66D3
+
+[LCD190V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD190V.AddReg, 1280, DPMS
+CopyFiles=LCD190V.CopyFiles
+
+[LCD190V.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD190V.AddReg, 1280, DPMS
+CopyFiles=LCD190V.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD190V.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl190vv.icm"
+
+[LCD190V.CopyFiles]
+nl190vv.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD190V="NEC LCD190V"

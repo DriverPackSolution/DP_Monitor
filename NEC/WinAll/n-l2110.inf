@@ -1,0 +1,83 @@
+; N-L2110.INF
+; Setup information file for NEC MultiSync LCD2110 Monitor
+;
+; Copyright 2001, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=N-L2110.cat
+DriverVer=04/01/2002,2.04.0001.1731
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6597
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-LCD2110.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+n-l21101.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-LCD2110%=NEC-LCD2110.Install, Monitor\NEC6597
+
+; Install Sections
+;-------------------------------------------------
+[NEC-LCD2110.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD2110.AddReg, 1600, DPMS
+CopyFiles=NEC-LCD2110.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-LCD2110.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"n-l21101.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-LCD2110.CopyFiles]
+N-L21101.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-LCD2110="NEC MultiSync LCD2110"

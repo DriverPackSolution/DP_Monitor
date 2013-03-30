@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=G70f-2.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/22/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS22355-2.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+G70f-2_WB.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS22355-2%=VCDTS22355-2.Install,Monitor\VSCEA18             ;G70f-2/G70fB-2
+
+[VCDTS22355-2.Install]                                          ;G70f-2/G70fB-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS22355-2.AddReg,1280,DPMS
+Copyfiles=VCDTS22355-2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS22355-2.AddReg]                                           ;G70f-2/G70fB-2
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"G70f-2_WB.ICM"
+
+[VCDTS22355-2.CopyFiles]                                       
+G70f-2_WB.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS22355-2="ViewSonic G70f-2"

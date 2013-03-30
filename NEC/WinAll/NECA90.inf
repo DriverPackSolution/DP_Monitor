@@ -1,0 +1,82 @@
+; NECA90.INF
+; Setup information file for NEC AccuSync 90 Monitor
+;
+; Copyright 1995-2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NECA90.cat
+DriverVer=02/08/2002,2.02.0008.1456
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC5DC5
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-AS90.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+neca90-1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-AS90%=NEC-AS90.Install, Monitor\NEC5DC5
+
+; Install Sections
+;-------------------------------------------------
+[NEC-AS90.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS90.AddReg, 1920, DPMS
+CopyFiles=NEC-AS90.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-AS90.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"neca90-1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-AS90.CopyFiles]
+NECA90-1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-AS90="NEC AccuSync 90"

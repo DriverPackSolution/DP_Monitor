@@ -1,0 +1,120 @@
+
+;==================================================
+; SMS23A550H.inf 11/24/2010 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SMS23A550H.cat
+DriverVer=11/24/2010 ,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM07C9
+ExcludeFromSelect.nt=Monitor\SAM07CA
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SMS23A550Ha.CopyFiles = 23
+SMS23A550Hd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SMS23A550H.icm=1
+SMS23A550H.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SMS23A550Ha%=SMS23A550Ha.Install, Monitor\SAM07C9
+%SMS23A550Hd%=SMS23A550Hd.Install, Monitor\SAM07CA
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SMS23A550Ha%=SMS23A550Ha.Install, Monitor\SAM07C9
+%SMS23A550Hd%=SMS23A550Hd.Install, Monitor\SAM07CA
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SMS23A550Ha%=SMS23A550Ha.Install, Monitor\SAM07C9
+%SMS23A550Hd%=SMS23A550Hd.Install, Monitor\SAM07CA
+
+; Install Sections
+;-----------------------------------------------------
+
+[SMS23A550Ha.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMS23A550Ha.AddReg, 1920, DPMS
+CopyFiles=SMS23A550Ha.CopyFiles
+
+[SMS23A550Hd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMS23A550Hd.AddReg, 1920, DPMS
+CopyFiles=SMS23A550Hd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SMS23A550Ha.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SMS23A550H.icm"
+
+[SMS23A550Hd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SMS23A550H.icm"
+;------------------------------------------------------
+
+[SMS23A550Ha.CopyFiles]
+SMS23A550H.icm
+
+[SMS23A550Hd.CopyFiles]
+SMS23A550H.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SMS23A550Ha="SyncMaster S23A550H (Analog)"
+SMS23A550Hd="SyncMaster S23A550H (Digital)"

@@ -1,0 +1,114 @@
+;L20_3.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display L20T-3 LED
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=L20_3.cat
+DriverVer=12/21/2010,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0802
+ExcludeFromSelect.nt=Monitor\FUS0803
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSL20_3a.CopyFiles=23
+FTSL20_3d.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+L20_3.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS_Mfg] 
+%L20T_3a%=FTSL20_3a.Install, Monitor\FUS0802
+%L20T_3d%=FTSL20_3d.Install, Monitor\FUS0803
+
+
+;-------------------------------------------------
+[FTS_Mfg.NTx86]
+%L20T_3a%=FTSL20_3a.Install, Monitor\FUS0802
+%L20T_3d%=FTSL20_3d.Install, Monitor\FUS0803
+
+
+;-------------------------------------------------
+ [FTS_Mfg.NTAMD64] 
+%L20T_3a%=FTSL20_3a.Install, Monitor\FUS0802
+%L20T_3d%=FTSL20_3d.Install, Monitor\FUS0803
+
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSL20_3a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL20_3a.AddReg, 1600, DPMS
+CopyFiles=FTSL20_3a.CopyFiles
+
+[FTSL20_3d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL20_3d.AddReg, 1600, DPMS
+CopyFiles=FTSL20_3d.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSL20_3a.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-82.0,59.0-75.0,-,+"
+HKR,,ICMProfile,0,"L20_3.icm"
+
+[FTSL20_3d.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-82.0,23.0-75.0,-,+"
+HKR,,ICMProfile,0,"L20_3.icm"
+
+;---------------------------------------------------------- 
+
+[FTSL20_3a.CopyFiles]
+L20_3.icm
+
+[FTSL20_3d.CopyFiles]
+L20_3.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD L20T-3 LED"
+FTS_Mfg="Fujitsu Technology Solutions"	
+L20T_3a="Fujitsu L20T-3 LED (analog)"
+L20T_3d="Fujitsu L20T-3 LED (digital)"
+
+

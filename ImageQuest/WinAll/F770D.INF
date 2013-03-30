@@ -1,0 +1,74 @@
+; F770D.INF
+;
+; Copyright 2002, ImageQuest Co., Ltd.
+; 
+; This is a INF file for installing monitors for Windows.
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ImageQuest%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+F770D.CopyFiles=23
+
+[SourceDisksNames]
+1="ImageQuest Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+F770D.icm=1
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%F770D%=F770D.Install, Monitor\IQTF772
+
+[F770D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F770D.AddReg, 1280, DPMS
+CopyFiles=F770D.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F770D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"F770D.icm"
+
+[F770D.CopyFiles]
+F770D.icm
+
+[Strings]
+MonitorClassName="Monitor"
+
+ImageQuest="ImageQuest Co., Ltd."
+F770D="ImageQuest F770D"

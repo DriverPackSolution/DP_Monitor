@@ -1,0 +1,68 @@
+; nl195nx.inf
+; Setup information file for NEC MultiSync LCD195NX Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl195nx.cat
+DriverVer=10/05/2007,1.07.1005.1327
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6728
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD195NX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl195nx.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD195NX%=LCD195NX.Install, Monitor\NEC6728
+
+[NECDS.ntamd64]
+%LCD195NX%=LCD195NX.Install.ntamd64, Monitor\NEC6728
+
+[LCD195NX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD195NX.AddReg, 1280, DPMS
+CopyFiles=LCD195NX.CopyFiles
+
+[LCD195NX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD195NX.AddReg, 1280, DPMS
+CopyFiles=LCD195NX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD195NX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl195nx.icm"
+
+[LCD195NX.CopyFiles]
+nl195nx.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD195NX="NEC MultiSync LCD195NX"

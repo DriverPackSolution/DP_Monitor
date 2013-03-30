@@ -1,0 +1,68 @@
+; FP752.INF
+; 2001/12/17
+; Setup Information File for Windows Me/9x/2000/XP
+; Copyright (c)  2001, Benq Corporation.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BENQ%
+DriverVer=12/17/2001
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7635
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP752.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+BNQFP751.icm=1
+
+[Manufacturer]
+%BENQ%=BENQ
+
+[BENQ]
+%FP752%=FP752.Install, Monitor\BNQ7635
+
+[FP752.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP752.AddReg, 1280, DPMS
+CopyFiles=FP752.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP752.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-83.0,56.0-76.0,+,+"
+HKR,,ICMprofile,0,"BNQFP751.ICM"
+
+[FP752.CopyFiles]
+BNQFP751.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BENQ LCD Monitor installation diskette"
+FP752="BENQ FP752-T"
+BENQ="BENQ"

@@ -1,0 +1,68 @@
+; nl157nx.inf
+; Setup information file for NEC MultiSync LCD1570NX Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl157nx.cat
+DriverVer=09/26/2005,2.05.0926.2215
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC667E
+
+[DestinationDirs]
+LCD1570NX.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl157nx.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD1570NX%=LCD1570NX.Install, Monitor\NEC667E
+
+[NECDS.ntamd64]
+%LCD1570NX%=LCD1570NX.Install.ntamd64, Monitor\NEC667E
+
+[LCD1570NX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1570NX.AddReg, 1024, DPMS
+CopyFiles=LCD1570NX.CopyFiles
+
+[LCD1570NX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1570NX.AddReg, 1024, DPMS
+CopyFiles=LCD1570NX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD1570NX.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl157nx.icm"
+
+[LCD1570NX.CopyFiles]
+nl157nx.icm
+
+[Strings]
+NECDS="NEC"
+LCD1570NX="NEC MultiSync LCD1570NX"
+Disk1="NEC Monitor Installation Disk"

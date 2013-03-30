@@ -1,0 +1,97 @@
+;---------------------------------------------------------
+; Copyright (c) 2005 Lenovo Corporation
+; Issue date -- 08/04/2005
+; Revise date -- 09/28/2005
+; revision 1
+;--------------------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=L171p.cat
+DriverVer=09/28/2005,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+L171p_Analog.copyfiles = 23
+L171p_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Lenovo Monitor installtion disk",,,
+
+[SourceDisksFiles]
+L171p.icm=1
+
+[Manufacturer]
+%LEN%=LEN,NTx86,NTAMD64
+
+[LEN]
+%L171p_Analog%=L171p_Analog.Install, Monitor\LEN24C9
+%L171p_Digital%=L171p_Digital.Install, Monitor\LEN4BD9
+
+[LEN.NTx86]
+%L171p_Analog%=L171p_Analog.Install, Monitor\LEN24C9
+%L171p_Digital%=L171p_Digital.Install, Monitor\LEN4BD9
+
+[LEN.NTAMD64]
+%L171p_Analog%=L171p_Analog.Install, Monitor\LEN24C9
+%L171p_Digital%=L171p_Digital.Install, Monitor\LEN4BD9
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\LEN24C9
+ExcludeFromSelect.NT=Monitor\LEN4BD9
+
+[L171p_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L171p_Analog.AddReg, 1280, DPMS
+CopyFiles=L171p_Analog.CopyFiles
+
+[L171p_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L171p_Digital.AddReg, 1280, DPMS
+CopyFiles=L171p_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L171p_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"L171p.icm"
+
+[L171p_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"L171p.icm"
+
+
+[L171p_Analog.CopyFiles]
+L171p.ICM
+
+[L171p_Digital.CopyFiles]
+L171p.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+LEN="Lenovo Inc."
+
+L171p_Analog="Lenovo L171p(Analog)"
+L171p_Digital="Lenovo L171p(Digital)"
+

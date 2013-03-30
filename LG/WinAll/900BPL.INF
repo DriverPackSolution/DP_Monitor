@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [900BPLUS.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=900BPLUS.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+900BPLUS.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+900BPL.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%900BPLUS%=900BPLUS, Monitor\GSM4A5C
+
+[LG.NTamd64]
+%900BPLUS%=900BPLUS, Monitor\GSM4A5C
+
+;------------------------------------; .Install
+
+[900BPLUS] 
+AddReg=900BPLUS.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=900BPLUS.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1280"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[900BPLUS.AddReg] 
+HKR,"MODES\1600,1280",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"900BPL.ICM"
+
+;------------------------------------; .CopyFiles
+
+[900BPLUS.CopyFiles]  
+900BPL.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4A5C
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+900BPLUS="LG 900B Plus"

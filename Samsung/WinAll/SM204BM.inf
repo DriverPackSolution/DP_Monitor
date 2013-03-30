@@ -1,0 +1,120 @@
+
+;==================================================
+; SM204BM.inf 07/11/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM204BM.cat
+DriverVer=07/11/2007,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0331
+ExcludeFromSelect.nt=Monitor\SAM0332
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM204BMa.CopyFiles = 23
+SM204BMd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM204BM.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM204BMa%=SM204BMa.Install, Monitor\SAM0331
+%SM204BMd%=SM204BMd.Install, Monitor\SAM0332
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM204BMa%=SM204BMa.Install, Monitor\SAM0331
+%SM204BMd%=SM204BMd.Install, Monitor\SAM0332
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM204BMa%=SM204BMa.Install, Monitor\SAM0331
+%SM204BMd%=SM204BMd.Install, Monitor\SAM0332
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM204BMa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM204BMa.AddReg, 1600, DPMS
+CopyFiles=SM204BMa.CopyFiles
+
+[SM204BMd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM204BMd.AddReg, 1600, DPMS
+CopyFiles=SM204BMd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM204BMa.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM204BM.icm"
+
+[SM204BMd.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM204BM.icm"
+;------------------------------------------------------
+
+[SM204BMa.CopyFiles]
+SM204BM.icm
+
+[SM204BMd.CopyFiles]
+SM204BM.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM204BMa="SyncMaster 204BM(Analog)"
+SM204BMd="SyncMaster 204BM(Digital)"

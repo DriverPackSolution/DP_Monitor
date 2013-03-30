@@ -1,0 +1,120 @@
+
+;==================================================
+; SM460DR-S.inf 03/30/2009 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM460DR-S.cat
+DriverVer=03/30/2009,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM05B4
+ExcludeFromSelect.nt=Monitor\SAM05B5
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM460DR-Sa.CopyFiles = 23
+SM460DR-Sd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM460DR-S.icm=1
+SM460DR-S.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM460DR-Sa%=SM460DR-Sa.Install, Monitor\SAM05B4
+%SM460DR-Sd%=SM460DR-Sd.Install, Monitor\SAM05B5
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM460DR-Sa%=SM460DR-Sa.Install, Monitor\SAM05B4
+%SM460DR-Sd%=SM460DR-Sd.Install, Monitor\SAM05B5
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM460DR-Sa%=SM460DR-Sa.Install, Monitor\SAM05B4
+%SM460DR-Sd%=SM460DR-Sd.Install, Monitor\SAM05B5
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM460DR-Sa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM460DR-Sa.AddReg, 1366, DPMS
+CopyFiles=SM460DR-Sa.CopyFiles
+
+[SM460DR-Sd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM460DR-Sd.AddReg, 1366, DPMS
+CopyFiles=SM460DR-Sd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM460DR-Sa.AddReg]
+HKR,"MODES\1366,768",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM460DR-S.icm"
+
+[SM460DR-Sd.AddReg]
+HKR,"MODES\1366,768",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM460DR-S.icm"
+;------------------------------------------------------
+
+[SM460DR-Sa.CopyFiles]
+SM460DR-S.icm
+
+[SM460DR-Sd.CopyFiles]
+SM460DR-S.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM460DR-Sa="SyncMaster 460DR-S/460DRN-S(Analog)"
+SM460DR-Sd="SyncMaster 460DR-S/460DRN-S(Digital)"

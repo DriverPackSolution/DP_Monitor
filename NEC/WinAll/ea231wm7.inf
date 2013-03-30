@@ -1,0 +1,108 @@
+; ea231wm7.inf
+; Setup information file for NEC MultiSync EA231WMi Monitor
+;
+; Copyright (C) 2009, NEC Display Solutions,Ltd
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea231wm7.cat
+DriverVer=09/15/2009,1.09.0915.1424
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6772
+ExcludeFromSelect.nt=Monitor\NEC6779
+ExcludeFromSelect.nt=Monitor\NEC677A
+
+[DestinationDirs]
+EA231WMi.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea231wm7.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA231WMi-A%=EA231WMi-A.Install, Monitor\NEC6772
+%EA231WMi-D%=EA231WMi-D.Install, Monitor\NEC6779
+%EA231WMi-DP%=EA231WMi-DP.Install, Monitor\NEC677A
+
+[NECDS.ntamd64]
+%EA231WMi-A%=EA231WMi-A.Install.ntamd64, Monitor\NEC6772
+%EA231WMi-D%=EA231WMi-D.Install.ntamd64, Monitor\NEC6779
+%EA231WMi-DP%=EA231WMi-DP.Install.ntamd64, Monitor\NEC677A
+
+
+[EA231WMi-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA231WMi-A.AddReg, 1920, DPMS
+CopyFiles=EA231WMi.CopyFiles
+
+[EA231WMi-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA231WMi-D.AddReg, 1920, DPMS
+CopyFiles=EA231WMi.CopyFiles
+
+[EA231WMi-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA231WMi-DP.AddReg, 1920, DPMS
+CopyFiles=EA231WMi.CopyFiles
+
+
+[EA231WMi-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA231WMi-A.AddReg, 1920, DPMS
+CopyFiles=EA231WMi.CopyFiles
+
+[EA231WMi-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA231WMi-D.AddReg, 1920, DPMS
+CopyFiles=EA231WMi.CopyFiles
+
+[EA231WMi-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA231WMi-DP.AddReg, 1920, DPMS
+CopyFiles=EA231WMi.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA231WMi-A.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"ea231wm7.icm"
+
+[EA231WMi-D.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"ea231wm7.icm"
+
+[EA231WMi-DP.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"ea231wm7.icm"
+
+
+[EA231WMi.CopyFiles]
+ea231wm7.icm
+
+[Strings]
+NECDS="NEC"
+EA231WMi-A="NEC MultiSync EA231WMi(Analog)"
+EA231WMi-D="NEC MultiSync EA231WMi(Digital)"
+EA231WMi-DP="NEC MultiSync EA231WMi(DisplayPort)"
+Disk1="NEC Display Solutions Installation Disk"

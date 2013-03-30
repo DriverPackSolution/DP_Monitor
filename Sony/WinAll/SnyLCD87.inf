@@ -1,0 +1,84 @@
+; #######################################
+;      [SNYLCD87.INF]
+;
+;      Revision 3.00  Nov 01, 2006
+;      Sony Corporation
+;      Copyright  2006
+; #######################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%SONY%
+CatalogFile=SNYLCD87.cat
+DriverVer=11/01/2006,3.00
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SNY00BA
+ExcludeFromSelect.nt=Monitor\SNY00BB
+
+[DestinationDirs]
+DefaultDestDir=11
+
+SDM-P246W.Copyfiles=23
+SDM-P246WD.Copyfiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+P246W_93.icm=1
+P246W_65.icm=1
+P246W_50.icm=1
+
+[Manufacturer]
+%SONY%=SONY
+
+[SONY]
+%SDM-P246W%=SDM-P246W.Install, Monitor\SNY00BA
+%SDM-P246WD%=SDM-P246WD.Install, Monitor\SNY00BB
+
+[SDM-P246W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SDM-P246W.AddReg, 1920, DPMS
+CopyFiles=SDM-P246W.Copyfiles
+[SDM-P246WD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SDM-P246WD.AddReg, 1920, DPMS
+CopyFiles=SDM-P246WD.Copyfiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[SDM-P246W.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"P246W_65.icm"
+[SDM-P246WD.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-75.0,57.0-63.0,+,+"
+HKR,,ICMProfile,0,"P246W_65.icm"
+
+[SDM-P246W.Copyfiles]
+P246W_93.icm
+P246W_65.icm
+P246W_50.icm
+[SDM-P246WD.Copyfiles]
+P246W_93.icm
+P246W_65.icm
+P246W_50.icm
+
+[Strings]
+DISK="SONY Monitor Information Disk"
+SONY="SONY Corporation"
+
+SDM-P246W="SONY SDM-P246W" 
+SDM-P246WD="SONY SDM-P246W DVI-D"

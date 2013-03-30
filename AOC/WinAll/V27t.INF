@@ -1,0 +1,88 @@
+; Copyright 2009 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=V27t.cat
+DriverVer=10/28/2009,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC2733
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+2733.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+V27t.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%2733%=2733.Install, Monitor\AOC2733
+
+[AOC.ntamd64]
+%2733%=2733.Install, Monitor\AOC2733
+
+; Install Sections
+;-------------------------------------------------
+[2733.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2733.AddReg, 1920, DPMS
+Copyfiles=2733.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[2733.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-80.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"V27t.icm"
+
+
+[2733.CopyFiles]
+V27t.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+2733="AOC V27t"

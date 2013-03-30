@@ -1,0 +1,68 @@
+;S14.INF Ver. 1.0
+;Monitor INF file for Medion S14
+;Copyright 2001,2002 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD30917PN.cat
+DriverVer=07/14/2005, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED87AB
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+S14.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+S14.ICM=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%S14%=S14.Install, Monitor\MED87AB
+
+[S14.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S14.AddReg, 1280, DPMS
+CopyFiles=S14.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[S14.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,50-75,+,+"
+HKR,,ICMProfile,0,"S14.ICM"
+
+[S14.CopyFiles]
+S14.ICM
+
+[Strings]
+DISK="Medion Manual and Driver CD"
+MonitorClassName="Monitor"
+Medion="Medion AG"
+S14="Medion MD30917PN S14"

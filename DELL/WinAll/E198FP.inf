@@ -1,0 +1,94 @@
+;================================ 
+;E198FP.INF 01/19/07 Ver. 1.0
+;Copyright 1996-2007 Dell Inc.
+;
+;This is a setupfile for E198FP 
+;
+;================================
+;
+;------------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E198FP.cat
+DriverVer=01/19/2007,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E198FP.copyfiles=23
+
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+E198FP.icm=1
+
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64 
+
+[DELL]  
+%E198FP%=E198FP.Install, Monitor\DELA028
+[DELL.NTx86]  
+%E198FP%=E198FP.Install, Monitor\DELA028
+[DELL.NTAMD64]  
+%E198FP%=E198FP.Install, Monitor\DELA028
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DELA028
+
+
+[E198FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E198FP.AddReg, 1280, DPMS
+CopyFiles=E198FP.CopyFiles
+
+
+					     
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+[E198FP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E198FP.icm"
+
+
+
+
+
+[E198FP.CopyFiles]
+E198FP.icm
+
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."	
+E198FP="Dell E198FP"
+

@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [500M.INF]
+;
+;      Revision 1.3   April-14-2005
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=500M.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+500M.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG500M.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%500M%=500M, Monitor\GSM3B38
+
+[LG.NTamd64]
+%500M%=500M, Monitor\GSM3B38
+
+;------------------------------------; .Install
+
+[500M] 
+AddReg=500M.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=500M.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[500M.AddReg] 
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LG500M.ICM"
+
+;------------------------------------; .CopyFiles
+
+[500M.CopyFiles]  
+LG500M.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM3B38
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+500M="LG 500M"

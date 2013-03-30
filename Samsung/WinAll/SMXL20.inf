@@ -1,0 +1,120 @@
+
+;==================================================
+; SMXL20.inf 07/31/2006 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SMXL20.cat
+DriverVer=07/31/2006,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM026A
+ExcludeFromSelect.nt=Monitor\SAM026B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SMXL20a.CopyFiles = 23
+SMXL20d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SMXL20.icm=1
+SMXL20.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SMXL20a%=SMXL20a.Install, Monitor\SAM026A
+%SMXL20d%=SMXL20d.Install, Monitor\SAM026B
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SMXL20a%=SMXL20a.Install, Monitor\SAM026A
+%SMXL20d%=SMXL20d.Install, Monitor\SAM026B
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SMXL20a%=SMXL20a.Install, Monitor\SAM026A
+%SMXL20d%=SMXL20d.Install, Monitor\SAM026B
+
+; Install Sections
+;-----------------------------------------------------
+
+[SMXL20a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMXL20a.AddReg, 1600, DPMS
+CopyFiles=SMXL20a.CopyFiles
+
+[SMXL20d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMXL20d.AddReg, 1600, DPMS
+CopyFiles=SMXL20d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SMXL20a.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SMXL20.icm"
+
+[SMXL20d.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SMXL20.icm"
+;------------------------------------------------------
+
+[SMXL20a.CopyFiles]
+SMXL20.icm
+
+[SMXL20d.CopyFiles]
+SMXL20.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SMXL20a="SyncMaster XL20(Analog)"
+SMXL20d="SyncMaster XL20(Digital)"

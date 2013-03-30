@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [LG777.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=LG777.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LG777.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG777.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LG777%=LG777, Monitor\GSM4320
+
+[LG.NTamd64]
+%LG777%=LG777, Monitor\GSM4320
+
+;------------------------------------; .Install
+
+[LG777] 
+AddReg=LG777.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=LG777.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[LG777.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LG777.ICM"
+
+;------------------------------------; .CopyFiles
+
+[LG777.CopyFiles]  
+LG777.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4320
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+LG777="LG LG777"

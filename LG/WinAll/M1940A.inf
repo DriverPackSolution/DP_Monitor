@@ -1,0 +1,83 @@
+;=============================================================== 
+; [M1940A.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M1940A.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AB4
+ExcludeFromSelect.NT=Monitor\GSM4AB5
+
+[DestinationDirs]
+DefaultDestDir = 11
+M1940A_Analog.CopyFiles = 23
+M1940A_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M1940A.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M1940A_Analog%=M1940A_Analog.Install,Monitor\GSM4AB4
+%M1940A_Digital%=M1940A_Digital.Install,Monitor\GSM4AB5
+
+[LG.NTamd64]
+%M1940A_Analog%=M1940A_Analog.Install,Monitor\GSM4AB4
+%M1940A_Digital%=M1940A_Digital.Install,Monitor\GSM4AB5
+
+[M1940A_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1940A_Analog.AddReg,1280,DPMS
+CopyFiles=M1940A_Analog.CopyFiles
+
+[M1940A_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1940A_Digital.AddReg,1280,DPMS
+CopyFiles=M1940A_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1940A_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1940A.ICM"
+
+[M1940A_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1940A.ICM"
+
+[M1940A_Analog.CopyFiles]
+M1940A.ICM
+
+[M1940A_Digital.CopyFiles]
+M1940A.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M1940A_Analog="LG M1940A(Analog)"
+M1940A_Digital="LG M1940A(Digital)"

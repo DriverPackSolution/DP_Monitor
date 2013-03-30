@@ -1,0 +1,70 @@
+; Copyright (c) 2001    MEDION AG
+; Monitor INF file of Medion MD1798OA
+; Issue date -- 07/10/2001
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MED%
+DriverVer=01/20/2003,1.00.00.00
+catalogfile=0815.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED2257
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD-1798.copyfiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+MD1798OA.icm=1
+
+[Manufacturer]
+%MED%=MED
+
+[MED]
+%MD-1798%=MD-1798.Install,Monitor\MED2257
+
+[MD-1798.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD-1798.AddReg,1600,DPMS
+CopyFiles=MD-1798.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HkR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD-1798.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,IcmProfile,0,"MD1798OA.icm"
+
+[MD-1798.CopyFiles]
+MD1798OA.icm
+
+[strings]
+DISK="MED Monitor Installation Disk"
+MonitorClassName="Monitor"
+MED="Medion AG"
+MD-1798="MD 1798OA"

@@ -1,0 +1,90 @@
+; MONMX90.INF
+;
+; Revision History
+;-----------------
+; 1284 = hp pavilion mx90
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+Catalogfile=MX90.cat
+DriverVer= 08/01/2001,1.20.1.2
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\HWP0504
+
+;Monitor class install (required for NT)
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+P1284A.CopyFiles=23
+
+[SourceDisksNames]
+1="HP Pavilion Monitor",,,
+
+[SourceDisksFiles]
+MX90.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%HP%=HP
+
+; Manufacturer sections
+;-------------------------------------------------
+
+[HP]
+
+; ID 2000 Monitors
+
+%P1284A%=P1284A, Monitor\HWP0504
+
+; Install sections
+;-------------------------------------------------
+; -------------- HP ------------------------------
+[P1284A]
+DelReg=DEL_CURRENT_REG
+AddReg=P1284A.AddReg, 1600,DPMS
+CopyFiles=P1284A.CopyFiles
+
+; AddReg sections
+;-------------------------------------------------
+[P1284A.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"MX90.ICM"
+
+[P1284A.CopyFiles]
+MX90.ICM
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+
+HP="Hewlett Packard"
+
+;ID 2000 Displays
+P1284A="hp pavilion mx90"

@@ -1,0 +1,68 @@
+; nl73vx.inf
+; Setup information file for NEC LCD73VX Monitor
+;
+; Copyright 2008, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl73vx.cat
+DriverVer=01/18/2008,1.08.0118.1453
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6734
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD73VX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl73vx.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD73VX%=LCD73VX.Install, Monitor\NEC6734
+
+[NECDS.ntamd64]
+%LCD73VX%=LCD73VX.Install.ntamd64, Monitor\NEC6734
+
+[LCD73VX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD73VX.AddReg, 1280, DPMS
+CopyFiles=LCD73VX.CopyFiles
+
+[LCD73VX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD73VX.AddReg, 1280, DPMS
+CopyFiles=LCD73VX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD73VX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl73vx.icm"
+
+[LCD73VX.CopyFiles]
+nl73vx.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD73VX="NEC LCD73VX"

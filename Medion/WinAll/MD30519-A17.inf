@@ -1,0 +1,70 @@
+;A17.INF Ver. 1.0
+;Monitor INF file for Medion A17
+;Copyright 2001,2002 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD30519-A17.cat
+DriverVer=09/26/2005, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED8963
+ExcludeFromSelect.nt=Monitor\MED8962
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+A17.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+A17.ICM=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%A17%=A17.Install, Monitor\MED8963
+%A17%=A17.Install, Monitor\MED8962
+
+[A17.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=A17.AddReg, 1280, DPMS
+CopyFiles=A17.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[A17.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,50-75,+,+"
+HKR,,ICMProfile,0,"A17.ICM"
+
+[A17.CopyFiles]
+A17.ICM
+
+[Strings]
+DISK="Medion Manual and Driver CD"
+MonitorClassName="Monitor"
+Medion="Medion AG"
+A17="Medion MD30519-A17"

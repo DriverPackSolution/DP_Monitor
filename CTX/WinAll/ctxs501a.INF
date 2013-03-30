@@ -1,0 +1,68 @@
+;
+; ctxs501a.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Jul 22, 2003
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=07/22/2003,1.0.0
+CatalogFile=ctxs501a.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX1012
+
+[DestinationDirs]
+DefaultDestDir=11
+
+S501A.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTXpfs.icm=1
+
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%S501A%=S501A.Install,Monitor\CTX1012
+
+[S501A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S501A.AddReg, 1024, DPMS
+CopyFiles=S501A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[S501A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.icm"
+
+[S501A.CopyFiles]
+CTXpfs.icm
+
+
+[Strings]
+Disk="CTX LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+S501A="CTX S501A,S501BA,S521A"

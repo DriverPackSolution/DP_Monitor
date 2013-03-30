@@ -1,0 +1,105 @@
+;-------------------------------------------------
+; CV535.INF
+;
+; This is a Setup information file for Compaq
+; CV535 Consumer monitor. 
+;
+; Copyright (c) 2000, Compaq Computer Corporation
+;
+;  Version 08.22.2000
+;-------------------------------------------------
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=Cqcv535.cat
+DriverVer=08/22/2000,
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CPQ3037
+;-------------------------------------------------
+; Monitor Class Install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+CV535.CopyFiles=23
+
+[SourceDisksNames]
+1="Compaq Consumer Monitor Installation Disk",,,
+
+[SourceDisksFiles]
+CQCV535.icm=1
+
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[COMPAQ]
+%CV535% =CV535.Install, Monitor\CPQ3037
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+[CV535.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CV535.AddReg, 1024, DPMS
+CopyFiles=CV535.CopyFiles
+
+
+;-------------------------------------------------
+; Common AddReg/DelReg Sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------------
+; Model AddReg Sections
+;-------------------------------------------------
+
+[CV535.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+"
+HKR,,ICMProfile,0,"CQCV535.icm"
+
+
+[CV535.CopyFiles]
+CQCV535.ICM
+
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+Compaq="COMPAQ"
+MonitorClassName="Monitor"
+CV535="COMPAQ CV535 Color Monitor"
+

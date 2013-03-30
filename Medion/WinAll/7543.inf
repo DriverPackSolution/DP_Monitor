@@ -1,0 +1,66 @@
+; Quanta MD5407QA, August-026-2002
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=7543.cat
+DriverVer=08/26/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED7543
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+7543.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+7543.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%7543%=7543.Install, Monitor\MED7543
+
+[7543.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7543.AddReg, 1024, DPMS
+CopyFiles=7543.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[7543.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"7543.icm"
+
+[7543.CopyFiles]
+7543.icm
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Medion System Restoration CD"
+Medion="Medion"
+7543="Medion MD5407QA"

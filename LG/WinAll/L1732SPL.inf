@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1732SPL.INF] 
+; Revision 1.4  April-26-2006
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1732SPL.cat
+DriverVer=04/26/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM444F
+
+[DestinationDirs]
+DefaultDestDir=11
+L1732SPL.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1732SPL.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1732SPL%=L1732SPL.Install,Monitor\GSM444F
+
+[LG.NTamd64]
+%L1732SPL%=L1732SPL.Install,Monitor\GSM444F
+
+[L1732SPL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1732SPL.AddReg,1280,DPMS
+CopyFiles=L1732SPL.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1732SPL.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1732SPL.ICM"
+
+[L1732SPL.CopyFiles]
+L1732SPL.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1732SPL="LG L1732S PLUS"

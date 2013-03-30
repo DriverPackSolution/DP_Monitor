@@ -1,0 +1,103 @@
+
+;================================ 
+;1900FP.INF 09/18/01 Ver. 1.0 PCC
+;Copyright 1996-2001 Dell Computer Corporation
+;
+;This is a setupfile for 1900FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1900FP.cat
+DriverVer=09/18/2001, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL3009
+ExcludeFromSelect.nt=Monitor\DEL300B
+
+[DestinationDirs]
+DefaultDestDir=11
+1900FP_Analog.CopyFiles=23
+1900FP_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+1900FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%1900FP_Analog%=1900FP_Analog.Install, Monitor\DEL300B
+%1900FP_Digital%=1900FP_Digital.Install, Monitor\DEL3009
+
+; Install Sections
+;-------------------------------------------------
+
+[1900FP_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1900FP_Analog.AddReg, 1280, DPMS
+CopyFiles=1900FP_Analog.CopyFiles
+
+[1900FP_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1900FP_Digital.AddReg, 1280, DPMS
+CopyFiles=1900FP_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[1900FP_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1900FP.icm"
+
+[1900FP_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1900FP.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[1900FP_Analog.CopyFiles]
+1900FP.icm
+
+[1900FP_Digital.CopyFiles]
+1900FP.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+1900FP_Analog="Dell 1900FP (Analog)"
+1900FP_Digital="Dell 1900FP (Digital)"

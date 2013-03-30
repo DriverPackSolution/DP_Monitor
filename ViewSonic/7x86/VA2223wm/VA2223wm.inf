@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VA2223wm.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/12/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2223wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2223wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC0523
+
+[ViewSonic]   
+%VA2223wm%=VA2223wm.Install,Monitor\VSC0523  
+
+[ViewSonic.NTia64]   
+%VA2223wm%=VA2223wm.Install,Monitor\VSC0523
+
+[ViewSonic.NTamd64]   
+%VA2223wm%=VA2223wm.Install,Monitor\VSC0523 
+
+[VA2223wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2223wm.AddReg,1920,DPMS
+Copyfiles=VA2223wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2223wm.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA2223wm.ICM"
+
+[VA2223wm.CopyFiles]                                       
+VA2223wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA2223wm ViewSonic Wizard"
+VA2223wm="ViewSonic VA2223wm"

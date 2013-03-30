@@ -1,0 +1,68 @@
+; n817146.inf
+; Setup information file for NEC LCD Monitor N8171-46
+;
+; Copyright 2008, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n817146.cat
+DriverVer=10/22/2008,1.08.1022.1440
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC676F
+
+[DestinationDirs]
+DefaultDestDir = 11
+N8171-46.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n817146.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%N8171-46%=N8171-46.Install, Monitor\NEC676F
+
+[NECDS.ntamd64]
+%N8171-46%=N8171-46.Install.ntamd64, Monitor\NEC676F
+
+[N8171-46.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=N8171-46.AddReg, 1280, DPMS
+CopyFiles=N8171-46.CopyFiles
+
+[N8171-46.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=N8171-46.AddReg, 1280, DPMS
+CopyFiles=N8171-46.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[N8171-46.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n817146.icm"
+
+[N8171-46.CopyFiles]
+n817146.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+N8171-46="NEC N8171-46"

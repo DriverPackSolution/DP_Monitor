@@ -1,0 +1,68 @@
+; NL160WV.inf
+; Setup information file for NEC LCD160WV Monitor
+;
+; Copyright 2008, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL160WV.cat
+DriverVer=07/24/2008,1.06.0426.2319
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6759
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD160WV.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL160WV.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD160WV%=LCD160WV.Install, Monitor\NEC6759
+
+[NECDS.ntamd64]
+%LCD160WV%=LCD160WV.Install.ntamd64, Monitor\NEC6759
+
+[LCD160WV.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD160WV.AddReg, 1360, DPMS
+CopyFiles=LCD160WV.CopyFiles
+
+[LCD160WV.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD160WV.AddReg, 1360, DPMS
+CopyFiles=LCD160WV.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1360]
+HKR,,MaxResolution,,1360,768
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD160WV.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30.0-60.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"NL160WV.icm"
+
+[LCD160WV.CopyFiles]
+NL160WV.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD160WV="NEC LCD160WV"

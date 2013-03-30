@@ -1,0 +1,107 @@
+;=============================================================== 
+; [L2320A.INF] 
+; Revision 1.0   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L2320A.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM55F5
+ExcludeFromSelect.NT=Monitor\GSM55F6
+ExcludeFromSelect.NT=Monitor\GSM55F7
+
+[DestinationDirs]
+DefaultDestDir = 11
+L2320A_Analog.CopyFiles = 23
+L2320A_DVI-I.CopyFiles = 23
+L2320A_DVI-D.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL2320A.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L2320A_Analog%=L2320A_Analog.Install,Monitor\GSM55F5
+%L2320A_DVI-I%=L2320A_DVI-I.Install,Monitor\GSM55F6
+%L2320A_DVI-D%=L2320A_DVI-D.Install,Monitor\GSM55F7
+
+[LG.NTamd64]
+%L2320A_Analog%=L2320A_Analog.Install,Monitor\GSM55F5
+%L2320A_DVI-I%=L2320A_DVI-I.Install,Monitor\GSM55F6
+%L2320A_DVI-D%=L2320A_DVI-D.Install,Monitor\GSM55F7
+
+[L2320A_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2320A_Analog.AddReg,1920,DPMS
+CopyFiles=L2320A_Analog.CopyFiles
+
+[L2320A_DVI-I.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2320A_DVI-I.AddReg,1600,DPMS
+CopyFiles=L2320A_DVI-I.CopyFiles
+
+[L2320A_DVI-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2320A_DVI-D.AddReg,1280,DPMS
+CopyFiles=L2320A_DVI-D.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L2320A_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-96.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMprofile,0,"LGL2320A.ICM"
+
+[L2320A_DVI-I.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"LGL2320A.ICM"
+
+[L2320A_DVI-D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL2320A.ICM"
+
+[L2320A_Analog.CopyFiles]
+LGL2320A.ICM
+
+[L2320A_DVI-I.CopyFiles]
+LGL2320A.ICM
+
+[L2320A_DVI-D.CopyFiles]
+LGL2320A.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L2320A_Analog="LG L2320A[ANALOG]"
+L2320A_DVI-I="LG L2320A[DVI-I]"
+L2320A_DVI-D="LG L2320A[DVI-D]"

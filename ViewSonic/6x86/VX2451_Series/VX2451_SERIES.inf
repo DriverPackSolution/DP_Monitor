@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2451_SERIES.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/26/2010, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2451.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2451_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC2528
+
+[ViewSonic]   
+%VX2451%=VX2451.Install,Monitor\VSC2528  
+
+[ViewSonic.NTia64]   
+%VX2451%=VX2451.Install,Monitor\VSC2528
+
+[ViewSonic.NTamd64]   
+%VX2451%=VX2451.Install,Monitor\VSC2528 
+
+[VX2451.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2451.AddReg,1920,DPMS
+Copyfiles=VX2451.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2451.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-83,50-75,+,+" 
+HKR,,ICMProfile,0,"VX2451_SERIES.ICM"
+
+[VX2451.CopyFiles]                                       
+VX2451_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2451 SERIES ViewSonic Wizard"
+VX2451="ViewSonic VX2451 SERIES"

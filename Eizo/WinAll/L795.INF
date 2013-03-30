@@ -1,0 +1,110 @@
+; [L795.INF]
+; Revision 1.01
+; Copyright(c) 2003 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L795.cat
+DriverVer=10/22/2003,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENC1707
+ExcludeFromSelect.nt=Monitor\ENC1708
+ExcludeFromSelect.nt=Monitor\ENC1709
+ExcludeFromSelect.nt=Monitor\ENC1710
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L795.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L795.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L795DL%=L795DL.Install, Monitor\ENC1707
+%L795DP%=L795DP.Install, Monitor\ENC1708
+%L795AL%=L795AL.Install, Monitor\ENC1709
+%L795AP%=L795AP.Install, Monitor\ENC1710
+
+[L795DL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L795DL.AddReg, 1280, DPMS
+CopyFiles=L795.CopyFiles
+
+[L795DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L795DP.AddReg, 1024, DPMS
+CopyFiles=L795.CopyFiles
+
+[L795AL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L795AL.AddReg, 1280, DPMS
+CopyFiles=L795.CopyFiles
+
+[L795AP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L795AP.AddReg, 1024, DPMS
+CopyFiles=L795.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1024]
+HKR,,MaxResolution,,"1024,1280"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L795DL.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L795.ICM"
+
+[L795DP.AddReg]
+HKR,"MODES\1024,1280",Mode1,,"30.0-81.0,59.0-61.0,-,+"
+HKR,,ICMProfile,0,"L795.ICM"
+
+[L795AL.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"L795.ICM"
+
+[L795AP.AddReg]
+HKR,"MODES\1024,1280",Mode1,,"30.0-81.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"L795.ICM"
+
+[L795.CopyFiles]
+L795.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L795DL="L795 Digital Landscape"
+L795DP="L795 Digital Portrait"
+L795AL="L795 Analog Landscape"
+L795AP="L795 Analog Portrait"

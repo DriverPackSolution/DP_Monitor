@@ -1,0 +1,98 @@
+;================================ 
+; PLX2472HD.INF 11/11/2010 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000/Win7
+; Copyright (c) 2010, iiyama Corporation
+;================================
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+CatalogFile=PLX2472HD.cat
+DriverVer=11/11/2010,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM6106
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+6106.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+PLX2472HD.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%iiyama%=iiyama, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama]
+%6106%=6106.Install, Monitor\IVM6106
+
+[iiyama.NTx86]
+%6106%=6106.Install, Monitor\IVM6106
+
+[iiyama.NTia64]
+%6106%=6106.Install, Monitor\IVM6106
+
+[iiyama.NTamd64]
+%6106%=6106.Install, Monitor\IVM6106
+
+; Install sections
+;-------------------------------------------------
+[6106.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=6106.AddReg,1920,DPMS
+CopyFiles=6106.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[6106.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLX2472HD.icm"
+
+;-------------------------------------------------------------------
+[6106.CopyFiles]
+PLX2472HD.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama"
+DiskName="iiyama Monitor Setup Disk"
+
+6106="iiyama PLX2472HD"  

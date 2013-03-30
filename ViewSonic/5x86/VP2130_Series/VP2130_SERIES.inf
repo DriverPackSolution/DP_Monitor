@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP2130.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=11/08/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP2130.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP2130_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VP2130%=VP2130.Install,Monitor\VSC141C                 ;VP2130
+
+[VP2130.Install]                                        ;VP2130
+DelReg=DEL_CURRENT_REG 
+AddReg=VP2130.AddReg,1600,DPMS
+Copyfiles=VP2130.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP2130.AddReg]                                           ;VP2130
+HKR,"MODES\1600,1200",Mode1,,"30-92,50-75,+,+"
+HKR,,ICMProfile,0,"VP2130.ICM"
+
+[VP2130.CopyFiles]                                       
+VP2130_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VP2130="ViewSonic VP2130 SERIES"

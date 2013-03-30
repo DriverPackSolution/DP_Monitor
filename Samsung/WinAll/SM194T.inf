@@ -1,0 +1,108 @@
+
+;==================================================
+; SM194T.inf 10/18/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM194T.cat
+DriverVer=10/18/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM017B
+ExcludeFromSelect.nt=Monitor\SAM017C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM194Ta.CopyFiles = 23
+SM194Td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM194T.icm=1
+SM194T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM194Ta%=SM194Ta.Install, Monitor\SAM017B
+%SM194Td%=SM194Td.Install, Monitor\SAM017C
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM194Ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM194Ta.AddReg, 1280, DPMS
+CopyFiles=SM194Ta.CopyFiles
+
+[SM194Td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM194Td.AddReg, 1280, DPMS
+CopyFiles=SM194Td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM194Ta.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM194T.icm"
+
+[SM194Td.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM194T.icm"
+;------------------------------------------------------
+
+[SM194Ta.CopyFiles]
+SM194T.icm
+
+[SM194Td.CopyFiles]
+SM194T.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM194Ta="SyncMaster 194T (Analog)"
+SM194Td="SyncMaster 194T (Digital)"

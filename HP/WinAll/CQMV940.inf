@@ -1,0 +1,107 @@
+;-------------------------------------------------
+; MV940.INF
+;
+; This is a Setup information file for Compaq
+; MV940 85Khz Consumer monitors. 
+;
+; Copyright (c) 1998-2000, Compaq Computer Corporation
+;
+;  Version 08.22.2000
+;  
+;-------------------------------------------------
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=Cqmv940.cat
+DriverVer=08/22/2000,
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CPQ3050
+;-------------------------------------------------
+; Monitor Class Install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MV940.CopyFiles=23
+
+[SourceDisksNames]
+1="Compaq Consumer Monitor Installation Disk",,,
+
+[SourceDisksFiles]
+CQMV940.icm=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[COMPAQ]
+%MV940% =MV940.Install, Monitor\CPQ3050
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+
+[MV940.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MV940.AddReg, 1600, DPMS
+CopyFiles=MV940.CopyFiles
+
+
+;-------------------------------------------------
+; Common AddReg/DelReg Sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------------
+; Model AddReg Sections
+;-------------------------------------------------
+
+
+[MV940.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-85,50-120,+,+"
+HKR,,ICMProfile,0,"CQMV940.icm"
+
+
+[MV940.CopyFiles]
+CQMV940.icm
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+Compaq="COMPAQ"
+MonitorClassName="Monitor"
+MV940="COMPAQ MV940 Color Monitor"

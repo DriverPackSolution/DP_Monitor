@@ -1,0 +1,120 @@
+
+;==================================================
+; SM820DXn.inf 11/20/2009 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM820DXn.cat
+DriverVer=11/20/2009,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM035B
+ExcludeFromSelect.nt=Monitor\SAM035C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM820DXna.CopyFiles = 23
+SM820DXnd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM820DXn.icm=1
+SM820DXn.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM820DXna%=SM820DXna.Install, Monitor\SAM035B
+%SM820DXnd%=SM820DXnd.Install, Monitor\SAM035C
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM820DXna%=SM820DXna.Install, Monitor\SAM035B
+%SM820DXnd%=SM820DXnd.Install, Monitor\SAM035C
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM820DXna%=SM820DXna.Install, Monitor\SAM035B
+%SM820DXnd%=SM820DXnd.Install, Monitor\SAM035C
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM820DXna.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM820DXna.AddReg, 1920, DPMS
+CopyFiles=SM820DXna.CopyFiles
+
+[SM820DXnd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM820DXnd.AddReg, 1920, DPMS
+CopyFiles=SM820DXnd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM820DXna.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM820DXn.icm"
+
+[SM820DXnd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM820DXn.icm"
+;------------------------------------------------------
+
+[SM820DXna.CopyFiles]
+SM820DXn.icm
+
+[SM820DXnd.CopyFiles]
+SM820DXn.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM820DXna="SyncMaster 820DXn/820DXn-2(Analog)"
+SM820DXnd="SyncMaster 820DXn/820DXn-2(Digital)"

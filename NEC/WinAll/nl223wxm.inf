@@ -1,0 +1,68 @@
+; nl223wxm.inf
+; Setup information file for NEC LCD223WXM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl223wxm.cat
+DriverVer=02/08/2007,1.07.0208.1306
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66F2
+
+[DestinationDirs]
+LCD223WXM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl223wxm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD223WXM%=LCD223WXM.Install, Monitor\NEC66F2
+
+[NECDS.ntamd64]
+%LCD223WXM%=LCD223WXM.Install.ntamd64, Monitor\NEC66F2
+
+[LCD223WXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD223WXM.AddReg, 1680, DPMS
+CopyFiles=LCD223WXM.CopyFiles
+
+[LCD223WXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD223WXM.AddReg, 1680, DPMS
+CopyFiles=LCD223WXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD223WXM.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl223wxm.icm"
+
+[LCD223WXM.CopyFiles]
+nl223wxm.icm
+
+[Strings]
+NECDS="NEC"
+LCD223WXM="NEC LCD223WXM"
+Disk1="NEC Monitor Installation Disk"

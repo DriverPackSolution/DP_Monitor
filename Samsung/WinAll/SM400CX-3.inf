@@ -1,0 +1,120 @@
+
+;==================================================
+; SM400CX-3.inf 08/18/2010 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM400CX-3.cat
+DriverVer=08/18/2010,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM074E
+ExcludeFromSelect.nt=Monitor\SAM074F
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM400CX-3a.CopyFiles = 23
+SM400CX-3d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM400CX-3.icm=1
+SM400CX-3.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM400CX-3a%=SM400CX-3a.Install, Monitor\SAM074E
+%SM400CX-3d%=SM400CX-3d.Install, Monitor\SAM074F
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM400CX-3a%=SM400CX-3a.Install, Monitor\SAM074E
+%SM400CX-3d%=SM400CX-3d.Install, Monitor\SAM074F
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM400CX-3a%=SM400CX-3a.Install, Monitor\SAM074E
+%SM400CX-3d%=SM400CX-3d.Install, Monitor\SAM074F
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM400CX-3a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM400CX-3a.AddReg, 1920, DPMS
+CopyFiles=SM400CX-3a.CopyFiles
+
+[SM400CX-3d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM400CX-3d.AddReg, 1920, DPMS
+CopyFiles=SM400CX-3d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM400CX-3a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM400CX-3.icm"
+
+[SM400CX-3d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM400CX-3.icm"
+;------------------------------------------------------
+
+[SM400CX-3a.CopyFiles]
+SM400CX-3.icm
+
+[SM400CX-3d.CopyFiles]
+SM400CX-3.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM400CX-3a="SyncMaster 400CX-3/400MX-3/400FP-3 (Analog)"
+SM400CX-3d="SyncMaster 400CX-3/400MX-3/400FP-3 (Digital)"

@@ -1,0 +1,69 @@
+;PLE431S.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor PLE431S 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PLE431.cat      
+DriverVer=06/20/2003,1.01
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46AC
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE431.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE431.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE431%=PLE431.Install, Monitor\IVM46AC
+
+[PLE431.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE431.AddReg, 1280, DPMS
+CopyFiles=PLE431.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE431.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24-83,60-76,+,+"
+HKR,,ICMProfile,0,"PLE431.ICM"
+
+[PLE431.CopyFiles]
+PLE431.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE431="IIYAMA ProLite E431S"

@@ -1,0 +1,65 @@
+; AOC INF File for Windows(R) 95/98/Me/2000/XP/Server 2003/XP/Vista x64 
+; Revision Date: May 08,2008
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC% 
+CatalogFile =2019Sw1.CAT
+DriverVer=05/08/2008,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\AOC2000
+
+[ClassInstall]
+AddReg=ClassAddReg32
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+[Manufacturer]
+%AOC%=AOC,NTx86,NTamd64,NTia64
+
+[AOC]
+%2019Sw1%=2019Sw1.Install,Monitor\AOC2000
+
+[AOC.NTx86]
+%2019Sw1%=2019Sw1.Install,Monitor\AOC2000
+
+[AOC.NTamd64]
+%2019Sw1%=2019Sw1.Install,Monitor\AOC2000
+
+[AOC.NTia64]
+%2019Sw1%=2019Sw1.Install,Monitor\AOC2000
+
+[2019Sw1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2019Sw1.AddReg,1680,DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2019Sw1.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,50.0-76.0,-,+"
+
+[Strings]
+MonitorClassName="Monitor"
+AOC="Envision Peripherals, Inc."
+
+2019Sw1="AOC 2019Sw1"

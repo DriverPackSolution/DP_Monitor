@@ -1,0 +1,40 @@
+; MONITOR.INF file for display monitors V1.02 (08/23/96)
+; DDC->unchanged, DPMS->on, ICM-Profile->9, several timings.
+; (C) 1995, 1996 DD
+
+[version]
+Class=Monitor
+Signature="$CHICAGO$"
+Provider=%Mfg%
+
+[Manufacturer]
+"%Mfg%"=Mfg
+
+[Mfg]
+%MONITOR%=MONITOR, Monitor\MONITOR1
+
+[MONITOR1]
+DelReg=DEL_CURRENT_REG
+AddReg=MEDION1.AddReg,DPMS,ICM9
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[DPMS]
+HKR,,DPMS,,1
+
+[ICM9]
+HKR,,ICMProfile,1,9
+
+[MEDION.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.5,50.0-100.5,+,+"
+HKR,,MaxResolution,,"1024,768"
+
+[Strings]
+FileName=MONITOR.INF
+Mfg="MEDION"
+
+MONITOR="MONITOR 1554"

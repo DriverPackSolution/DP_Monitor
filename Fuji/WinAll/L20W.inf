@@ -1,0 +1,72 @@
+; L20W.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor L20W
+;Copyright 2007 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUS%
+CatalogFile=L20W.cat
+DriverVer=04/23/2007, 1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS074C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+074C.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+L20W.ICM=1
+
+[Manufacturer]
+%FUS%=FUS,ntamd64
+
+[FUS]
+%074C%=074C.Install, Monitor\FUS074C
+
+[FUS.ntamd64]
+%074C%=074C.Install, Monitor\FUS074C
+
+[074C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=074C.AddReg, 1680, DPMS
+CopyFiles=074C.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[074C.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"L20W.ICM"
+
+[074C.CopyFiles]
+L20W.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor L20W"
+MonitorClassName="Monitor"
+FUS="Fujitsu Siemens Computers"
+074C="Fujitsu Siemens L20W"

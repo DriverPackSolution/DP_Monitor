@@ -1,0 +1,87 @@
+;========================================== 
+; BenQ_G955A.INF 08/19/2011 Ver. 1.3
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2011, BENQ Corporation
+; V001
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G955A.cat
+DriverVer=08/19/2011,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ78B4
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G955A_Analog.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G955A.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G955A_Analog%=G955A_Analog.Install, Monitor\BNQ78B4
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G955A_Analog%=G955A_Analog.Install, Monitor\BNQ78B4
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G955A_Analog%=G955A_Analog.Install, Monitor\BNQ78B4
+
+; Install Sections
+;-------------------------------------------------
+
+[G955A_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G955A_Analog.AddReg, 1440, DPMS
+CopyFiles=G955A_Analog.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[G955A_Analog.AddReg]
+
+HKR,"MODES\1440,900",Mode1,,"30-83.0,50.0-76.0,+,-"
+HKR,,ICMProfile,0,"G955A.icm"
+
+
+[G955A_Analog.CopyFiles]
+G955A.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G955A_Analog="BenQ G955A (Analog)"

@@ -1,0 +1,102 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2002 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=200P.cat
+DriverVer=04/01/2002,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL080C                
+ExcludeFromSelect.nt=Monitor\PHL080F          
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+080C.CopyFiles=23
+080F.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+PH_LCD20.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%080C%=080C.Install, Monitor\PHL080C
+%080F%=080F.Install, Monitor\PHL080F
+
+; Install sections
+;-------------------------------------------------
+[080C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=080C.AddReg,1600,DPMS
+CopyFiles=080C.CopyFiles
+
+[080F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=080F.AddReg,1600,DPMS
+CopyFiles=080F.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[080C.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-94.0,56.0-85.0,+,-"
+HKR,,ICMProfile,0,"PH_LCD20.icm"
+
+[080F.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,56.0-85.0,+,-"
+HKR,,ICMProfile,0,"PH_LCD20.icm"
+
+;-------------------------------------------------------------------
+[080C.CopyFiles]
+Ph_LCD20.icm
+
+[080F.CopyFiles]
+Ph_LCD20.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+080C="Philips Brilliance 200P (20inch LCD MONITOR 200P3)"
+080F="Philips Brilliance 200P (20inch LCD MONITOR 200P3)"

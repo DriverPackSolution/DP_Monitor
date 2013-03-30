@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA1912wSERIES.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/25/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1912w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1912wSERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA1912w%=VA1912w.Install,Monitor\VSC711C          ;VA1912w/VA1912wb
+
+[VA1912w.Install]                                  ;VA1912w/VA1912wb
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1912w.AddReg,1440,DPMS
+Copyfiles=VA1912w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1912w.AddReg]                                     ;VA1912w/VA1912wb
+HKR,"MODES\1440,900",Mode1,,"30-82,50-85,-,+" 
+HKR,,ICMProfile,0,"VA1912wSERIES.ICM"
+
+[VA1912w.CopyFiles]                                       
+VA1912wSERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA1912w="ViewSonic VA1912w SERIES"

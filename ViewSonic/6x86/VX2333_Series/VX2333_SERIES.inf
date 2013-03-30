@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]  
+CatalogFile=VX2333.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/21/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2333.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2333_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC8423
+
+[ViewSonic]   
+%VX2333%=VX2333.Install,Monitor\VSC8423  
+
+[ViewSonic.NTia64]   
+%VX2333%=VX2333.Install,Monitor\VSC8423
+
+[ViewSonic.NTamd64]   
+%VX2333%=VX2333.Install,Monitor\VSC8423 
+
+[VX2333.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2333.AddReg,1920,DPMS
+Copyfiles=VX2333.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2333.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VX2333_SERIES.ICM"
+
+[VX2333.CopyFiles]                                       
+VX2333_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2333 SERIES ViewSonic Wizard"
+VX2333="ViewSonic VX2333 SERIES"

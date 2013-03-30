@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VX1951_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/05/2010, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX1951_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX1951_Series.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCD627
+
+[ViewSonic]   
+%VX1951_Series%=VX1951_Series.Install,Monitor\VSCD627  
+
+[ViewSonic.NTia64]   
+%VX1951_Series%=VX1951_Series.Install,Monitor\VSCD627  
+
+[ViewSonic.NTamd64]   
+%VX1951_Series%=VX1951_Series.Install,Monitor\VSCD627  
+
+[VX1951_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX1951_Series.AddReg,1600,DPMS
+Copyfiles=VX1951_Series.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX1951_Series.AddReg]  
+HKR,"MODES\1600,900",Mode1,,"24-82,50-75,-,+"
+HKR,,ICMProfile,0,"VX1951_Series.icm"
+
+[VX1951_Series.CopyFiles]                                       
+VX1951_Series.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX1951 Series ViewSonic Wizard"
+VX1951_Series="ViewSonic VX1951 Series"

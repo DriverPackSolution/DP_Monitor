@@ -1,0 +1,68 @@
+; nl1940cx.inf
+; Setup information file for NEC 1940CX Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n1940cxv.cat
+DriverVer=12/20/2006,1.06.1220.1933
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66A9
+
+[DestinationDirs]
+DefaultDestDir = 11
+1940CX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n1940cxv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%1940CX%=1940CX.Install, Monitor\NEC66A9
+
+[NECDS.ntamd64]
+%1940CX%=1940CX.Install.ntamd64, Monitor\NEC66A9
+
+[1940CX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1940CX.AddReg, 1280, DPMS
+CopyFiles=1940CX.CopyFiles
+
+[1940CX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=1940CX.AddReg, 1280, DPMS
+CopyFiles=1940CX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1940CX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n1940cxv.icm"
+
+[1940CX.CopyFiles]
+n1940cxv.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+1940CX="NEC 1940CX"

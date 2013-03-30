@@ -1,0 +1,95 @@
+
+;==================================================
+; sm151s.inf 09/11/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm151s.cat
+DriverVer=09/11/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0017
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm151s.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm151s.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm151s%=sm151s.Install, Monitor\SAM0017
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm151s.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm151s.AddReg, 1024, DPMS
+CopyFiles=sm151s.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm151s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-61,50-75,+,+"
+HKR,,ICMProfile,0,"sm151s.icm"
+
+
+;------------------------------------------------------
+
+[sm151s.CopyFiles]
+sm151s.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm151s="SyncMaster 151S/155S/150S, MagicSyncMaster CX151S(M)"

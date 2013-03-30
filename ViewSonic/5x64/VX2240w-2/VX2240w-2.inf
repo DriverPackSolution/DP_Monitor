@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2240w-2.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/27/2007,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2240w-2.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2240w-2.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCDF20
+
+[ViewSonic]   
+%VX2240w-2%=VX2240w-2.Install,Monitor\VSCDF20  
+
+[ViewSonic.NTia64]   
+%VX2240w-2%=VX2240w-2.Install,Monitor\VSCDF20
+
+[ViewSonic.NTamd64]   
+%VX2240w-2%=VX2240w-2.Install,Monitor\VSCDF20 
+
+[VX2240w-2.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2240w-2.AddReg,1680,DPMS
+Copyfiles=VX2240w-2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2240w-2.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX2240w-2.ICM"
+
+[VX2240w-2.CopyFiles]                                       
+VX2240w-2.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2240w-2 ViewSonic Wizard"
+VX2240w-2="ViewSonic VX2240w-2"

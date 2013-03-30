@@ -1,0 +1,69 @@
+; Setup Information File for Acer LCD Monitors - V2.3
+; Copyright (c)  2000, Acer Comunications & Multimedia Inc.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+catalogfile=FP563.cat
+DriverVer=08/01/2001,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\API761E
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP563.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP563.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%FP563%=FP563.Install, Monitor\API761E
+
+[FP563.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP563.AddReg, 1024, DPMS
+CopyFiles=FP563.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP563.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FP563.icm"
+
+[FP563.CopyFiles]
+FP563.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Acer flat panel Monitor installation diskette"
+FP563="Acer FP563"
+Acer="Acer"

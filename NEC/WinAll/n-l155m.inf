@@ -1,0 +1,83 @@
+; N-L155M.INF
+; Setup information file for NEC MultiSync LCD1550M Monitor
+;
+; Copyright 2001, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=N-L155M.cat
+DriverVer=09/05/2002,2.09.0005.1104
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC65C7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-LCD1550M.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+n-l155m1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-LCD1550M%=NEC-LCD1550M.Install, Monitor\NEC65C7
+
+; Install Sections
+;-------------------------------------------------
+[NEC-LCD1550M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1550M.AddReg, 1024, DPMS
+CopyFiles=NEC-LCD1550M.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-LCD1550M.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"n-l155m1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-LCD1550M.CopyFiles]
+N-L155M1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-LCD1550M="NEC MultiSync LCD1550M"

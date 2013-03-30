@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [577LH.INF]
+;
+;      Revision 1.3   April-14-2005
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=577LH.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+577LH.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG577LH.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%577LH%=577LH, Monitor\GSM3B3D
+
+[LG.NTamd64]
+%577LH%=577LH, Monitor\GSM3B3D
+
+;------------------------------------; .Install
+
+[577LH] 
+AddReg=577LH.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=577LH.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[577LH.AddReg] 
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"LG577LH.ICM"
+
+;------------------------------------; .CopyFiles
+
+[577LH.CopyFiles]  
+LG577LH.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM3B3D
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+577LH="LG 577LH"

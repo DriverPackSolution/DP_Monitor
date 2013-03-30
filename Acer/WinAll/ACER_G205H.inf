@@ -1,0 +1,109 @@
+;================================ 
+; ACER_G205H.INF 08/06/09 Ver. 1.0 
+; INF File for Windows 7/Vista/XP/Me/9x/2000
+; Copyright (c) 2009, ACER Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ACER%
+catalogfile=G205H.cat
+DriverVer=08/06/2009,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACR010A
+ExcludeFromSelect.NT=Monitor\ACR010A
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G205H_Analog.copyfiles = 23
+G205H_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+ACER_G205H.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%ACER%=ACER,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[ACER] 
+%G205H_Analog%=G205H_Analog.Install, Monitor\ACR010A
+%G205H_Digital%=G205H_Digital.Install, Monitor\ACR010A
+
+;-------------------------------------------------
+ [ACER.NTAMD64] 
+%G205H_Analog%=G205H_Analog.Install, Monitor\ACR010A
+%G205H_Digital%=G205H_Digital.Install, Monitor\ACR010A
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G205H_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G205H_Analog.AddReg, 1600, DPMS
+CopyFiles=G205H_Analog.CopyFiles
+
+[G205H_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G205H_Digital.AddReg, 1600, DPMS
+CopyFiles=G205H_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[G205H_Analog.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"ACER_G205H.icm"
+
+[G205H_Digital.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"ACER_G205H.icm"
+
+
+
+[G205H_Analog.CopyFiles]
+ACER_G205H.ICM
+
+[G205H_Digital.CopyFiles]
+ACER_G205H.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+ACER="ACER"
+diskname="ACER LCD Monitor installation diskette"
+G205H_Analog="G205H (Analog)"
+G205H_Digital="G205H (Digital)"
+

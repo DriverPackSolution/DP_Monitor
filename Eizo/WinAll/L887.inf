@@ -1,0 +1,87 @@
+; [L887.INF]
+; Revision 1.10
+; Copyright(c) 2004 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L887.cat
+DriverVer=12/27/2004,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1759
+ExcludeFromSelect.nt = Monitor\ENC1760
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L887D.CopyFiles = 23
+L887.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L887D65.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L887D%=L887D.Install, Monitor\ENC1759
+%L887%=L887.Install, Monitor\ENC1760
+
+[L887D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L887D.AddReg, 1600, DPMS
+CopyFiles=L887D.CopyFiles
+
+[L887.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L887.AddReg, 1600, DPMS
+CopyFiles=L887.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L887D.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-76.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L887D65.icm"
+
+[L887.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.0-94.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"L887D65.icm"
+
+[L887D.CopyFiles]
+L887D65.icm
+
+[L887.CopyFiles]
+L887D65.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L887D="L887"
+L887="L887"

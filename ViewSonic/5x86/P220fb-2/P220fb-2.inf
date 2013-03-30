@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=P220fb-2.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/30/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS22074-5.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+P220fb-2.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS22074-5%=VCDTS22074-5.Install,Monitor\VSC430C             ;P220fb-2
+
+[VCDTS22074-5.Install]                                          ;P220fb-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS22074-5.AddReg,1920,DPMS
+Copyfiles=VCDTS22074-5.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS22074-5.AddReg]                                           ;P220fb-2
+HKR,"MODES\1920,1440",Mode1,,"30-110,50-180,+,+"
+HKR,,ICMProfile,0,"P220fb-2.ICM"
+
+[VCDTS22074-5.CopyFiles]                                       
+P220fb-2.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS22074-5="ViewSonic P220fb-2"

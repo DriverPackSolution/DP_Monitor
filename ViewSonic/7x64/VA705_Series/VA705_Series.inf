@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA705_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/14/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA705_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA705_Series.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC2825
+
+[ViewSonic]   
+%VA705_Series%=VA705_Series.Install,Monitor\VSC2825  
+
+[ViewSonic.NTia64]   
+%VA705_Series%=VA705_Series.Install,Monitor\VSC2825
+
+[ViewSonic.NTamd64]   
+%VA705_Series%=VA705_Series.Install,Monitor\VSC2825 
+
+[VA705_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA705_Series.AddReg,1280,DPMS
+Copyfiles=VA705_Series.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA705_Series.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA705_Series.ICM"
+
+[VA705_Series.CopyFiles]                                       
+VA705_Series.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA705 Series ViewSonic Wizard"
+VA705_Series="ViewSonic VA705 Series"

@@ -1,0 +1,70 @@
+; Monitor INF file of Gateway EV730 
+; Manufactured by Lite-On
+; Doc Number : 9086000018-0A
+; Issue date -- 08/09/2002
+; Revise date -- 08/09/2002
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon1B69.cat
+DriverVer=07/02/2001,08.09.1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY1B69
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+mon1B69.CopyFiles=23 
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon1B69.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon1B69%=mon1B69.Install, Monitor\GWY1B69
+
+[mon1B69.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon1B69.AddReg, 1280, DPMS
+CopyFiles=mon1B69.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon1B69.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"mon1B69.icm"
+
+[mon1B69.CopyFiles]
+mon1B69.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon1B69="Gateway EV730"

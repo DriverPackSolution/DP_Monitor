@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=A91f+.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/18/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+A91f+.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+A91f_p.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%A91f+%=A91f+.Install,Monitor\VSC9E19                 ;A91f+
+
+[A91f+.Install]                                       ;A91f+
+DelReg=DEL_CURRENT_REG 
+AddReg=A91f+.AddReg,1792,DPMS
+Copyfiles=A91f+.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[A91f+.AddReg]                                        ;A91f+
+HKR,"MODES\1792,1344",Mode1,,"30-86,50-180,+,+"
+HKR,,ICMProfile,0,"A91f_p.ICM"
+
+[A91f+.CopyFiles]                                       
+A91f_p.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+A91f+="ViewSonic A91f+"

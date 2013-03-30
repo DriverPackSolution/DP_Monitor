@@ -1,0 +1,82 @@
+================================ 
+;This is a setupfile for the AOC Flat Panel Monitors
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+CatalogFile=AOC1580.cat
+DriverVer=12/15/2006, 1.0
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC1580
+
+[DestinationDirs]
+DefaultDestDir=11
+AOC1580.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+AOC1580.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[AOC] 
+%AOC1580%=AOC1580.Install, Monitor\AOC1580
+;-------------------------------------------------
+[AOC.NTAMD64]
+%AOC1580%=AOC1580.Install, Monitor\AOC1580
+
+; Install Sections
+;-------------------------------------------------
+
+[AOC1580.Install]
+DelReg=DEL_CURRENT_REG 
+AddReg=AOC1580.AddReg, 1280, DPMS
+CopyFiles=AOC1580.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,800"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[AOC1580.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-63.0,55.0-60.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-63.0,55.0-60.0,+,+"
+HKR,"MODES\1280,800",Mode1,,"30.0-63.0,55.0-60.0,+,+"
+HKR,,ICMProfile,0,"AOC1580.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[AOC1580.CopyFiles]
+AOC1580.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="AOC Flat Panel Monitor Installation disk"
+AOC="AOC" 
+AOC1580="511Vw"

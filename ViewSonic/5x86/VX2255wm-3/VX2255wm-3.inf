@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VX2255wm-3.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/29/2007, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2255wm-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2255wm-3.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC991F
+
+[ViewSonic]   
+%VX2255wm-3%=VX2255wm-3.Install,Monitor\VSC991F  
+
+[ViewSonic.NTia64]   
+%VX2255wm-3%=VX2255wm-3.Install,Monitor\VSC991F
+
+[ViewSonic.NTamd64]   
+%VX2255wm-3%=VX2255wm-3.Install,Monitor\VSC991F 
+
+[VX2255wm-3.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2255wm-3.AddReg,1680,DPMS
+Copyfiles=VX2255wm-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2255wm-3.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX2255wm-3.ICM"
+
+[VX2255wm-3.CopyFiles]                                       
+VX2255wm-3.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2255wm-3 ViewSonic Wizard"
+VX2255wm-3="ViewSonic VX2255wm-3"

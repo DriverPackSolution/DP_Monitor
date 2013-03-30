@@ -1,0 +1,117 @@
+;========================================== 
+; BenQ_V920.INF 12/17/09 Ver. 1.3
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2009, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=V920.cat
+DriverVer=12/17/2009,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7B09
+ExcludeFromSelect.NT=Monitor\BNQ7B0A
+
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+V920_Analog.copyfiles = 23
+V920_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+V920DSUB.icm=1
+V920DVI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%V920_Analog%=V920_Analog.Install, Monitor\BNQ7B09
+%V920_Digital%=V920_Digital.Install, Monitor\BNQ7B0A
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%V920_Analog%=V920_Analog.Install, Monitor\BNQ7B09
+%V920_Digital%=V920_Digital.Install, Monitor\BNQ7B0A
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%V920_Analog%=V920_Analog.Install, Monitor\BNQ7B09
+%V920_Digital%=V920_Digital.Install, Monitor\BNQ7B0A
+
+
+; Install Sections
+;-------------------------------------------------
+
+[V920_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V920_Analog.AddReg, 1366, DPMS
+CopyFiles=V920_Analog.CopyFiles
+
+[V920_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V920_Digital.AddReg, 1366, DPMS
+CopyFiles=V920_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[V920_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\1366,768",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"V920DSUB.icm"
+
+[V920_Digital.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,"MODES\1366,768",Mode1,,"30-63.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"V920DVI.icm"
+
+
+[V920_Analog.CopyFiles]
+V920DSUB.ICM
+
+[V920_Digital.CopyFiles]
+V920DVI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+V920_Analog="BenQ V920 (Analog)"
+V920_Digital="BenQ V920 (Digital)"

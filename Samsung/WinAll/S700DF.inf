@@ -1,0 +1,95 @@
+
+;==================================================
+; S700DF.inf 02/10/2003 ver. 1.0
+;
+; Copyright 2003 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=S700DF.cat
+DriverVer=02/10/2003,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM00B3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+S700DF.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+S700DF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%S700DF%=S700DF.Install, Monitor\SAM00B3
+
+; Install Sections
+;-----------------------------------------------------
+
+[S700DF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S700DF.AddReg, 1280, DPMS
+CopyFiles=S700DF.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[S700DF.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-71,50-160,+,+"
+HKR,,ICMProfile,0,"S700DF.icm"
+
+
+;------------------------------------------------------
+
+[S700DF.CopyFiles]
+S700DF.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+S700DF="Samsung 700DF"
+

@@ -1,0 +1,105 @@
+; IIYAMA.INF FOR Windows(r)98
+;
+; Copyright 1996-97, Microsoft Corporation
+; 
+; This is a sample INF file for installing monitors. It
+; has been updated for PC97 to include installing ICC
+; profiles.
+;S902J IVM1910,TxA3612/22 Ivm3606 Txa 3812/22 Ivm 3810   Txa3833 Ivm3818
+;add for 99/06/30
+; 
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Iiyama%
+;****************************************************************************
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+; Destination Directory section 
+[DestinationDirs]
+DefaultDestDir = 11
+AQ5311.CopyFiles = 23
+
+[SourceDisksNames]
+1="IIYAMA Monitor INF DISK",,1
+
+[SourceDisksFiles]
+AQ5311.icm=1
+
+;
+[Manufacturer]
+%Iiyama%=Iiyama ; this is comment
+; Manufacturer sections
+[Iiyama] ; this is comment
+%AQ5311%=AQ5311.Install, Monitor\IVM5311
+
+;*****************************************************************************
+; Install Sections
+
+[AQ5311.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=AQ5311.AddReg, 2048, DPMS, ICM
+CopyFiles=AQ5311.CopyFiles
+
+
+
+; AddReg & DelReg sections
+;***************************************************************************
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1856]
+HKR,,MaxResolution,,"1856,1392"
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+
+
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AQ5311.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"31.4-96.0,60.0-76.0,+,+"
+HKR,,MaxResolution,,"2048,1536"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"AQ5311.icm"
+
+
+
+[AQ5311.CopyFiles]
+AQ5311.icm
+
+;*****************************************************************************
+
+[Strings]
+MonitorClassName="Monitor"      
+; Do not delete this line.
+Iiyama="Iiyama"
+
+AQ5311="Iiyama  AQ5311"
+

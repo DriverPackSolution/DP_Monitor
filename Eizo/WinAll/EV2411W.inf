@@ -1,0 +1,111 @@
+; [EV2411W.INF]
+; Revision 1.10
+; Copyright(c) 2008 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=EV2411W.cat
+DriverVer=07/25/2008,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1991
+ExcludeFromSelect.nt = Monitor\ENC1992
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+EV2411W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+EV2411W Custom 6500K G2.2.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%EV2411WD%=EV2411WD.Install, Monitor\ENC1991
+%EV2411W%=EV2411W.Install, Monitor\ENC1992
+
+[EIZONANAO.NTamd64]
+%EV2411WD%=EV2411WD.Installamd64, Monitor\ENC1991
+%EV2411W%=EV2411W.Installamd64, Monitor\ENC1992
+
+[EIZONANAO.NTia64]
+%EV2411WD%=EV2411WD.Installia64, Monitor\ENC1991
+%EV2411W%=EV2411W.Installia64, Monitor\ENC1992
+
+[EV2411WD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV2411WD.AddReg, 1920, DPMS
+CopyFiles=EV2411W.CopyFiles
+
+[EV2411W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV2411W.AddReg, 1920, DPMS
+CopyFiles=EV2411W.CopyFiles
+
+[EV2411WD.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EV2411WD.AddReg, 1920, DPMS
+CopyFiles=EV2411W.CopyFiles
+
+[EV2411W.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EV2411W.AddReg, 1920, DPMS
+CopyFiles=EV2411W.CopyFiles
+
+[EV2411WD.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=EV2411WD.AddReg, 1920, DPMS
+CopyFiles=EV2411W.CopyFiles
+
+[EV2411W.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=EV2411W.AddReg, 1920, DPMS
+CopyFiles=EV2411W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EV2411WD.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-76.0,59.0-61.0,+,-"
+HKR,,ICMProfile,0,"EV2411W Custom 6500K G2.2.icm"
+
+[EV2411W.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"EV2411W Custom 6500K G2.2.icm"
+
+[EV2411W.CopyFiles]
+EV2411W Custom 6500K G2.2.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+EV2411WD="EV2411W Digital"
+EV2411W="EV2411W Analog"

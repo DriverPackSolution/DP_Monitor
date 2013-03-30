@@ -1,0 +1,120 @@
+
+;==================================================
+; SM2043BW.inf 10/08/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2043BW.cat
+DriverVer=10/08/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0351
+ExcludeFromSelect.nt=Monitor\SAM0352
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2043BWa.CopyFiles = 23
+SM2043BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2043BW.icm=1
+SM2043BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2043BWa%=SM2043BWa.Install, Monitor\SAM0351
+%SM2043BWd%=SM2043BWd.Install, Monitor\SAM0352
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2043BWa%=SM2043BWa.Install, Monitor\SAM0351
+%SM2043BWd%=SM2043BWd.Install, Monitor\SAM0352
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2043BWa%=SM2043BWa.Install, Monitor\SAM0351
+%SM2043BWd%=SM2043BWd.Install, Monitor\SAM0352
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2043BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2043BWa.AddReg, 1680, DPMS
+CopyFiles=SM2043BWa.CopyFiles
+
+[SM2043BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2043BWd.AddReg, 1680, DPMS
+CopyFiles=SM2043BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2043BWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2043BW.icm"
+
+[SM2043BWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2043BW.icm"
+;------------------------------------------------------
+
+[SM2043BWa.CopyFiles]
+SM2043BW.icm
+
+[SM2043BWd.CopyFiles]
+SM2043BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2043BWa="SyncMaster 2043BW/2043BWX,SyncMaster Magic CX2043BW(Analog)"
+SM2043BWd="SyncMaster 2043BW/2043BWX,SyncMaster Magic CX2043BW(Digital)"

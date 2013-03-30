@@ -1,0 +1,62 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX700-2.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/12/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS23896-3W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX700-2.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS23896-3W%=VLCDS23896-3W.Install,Monitor\VSCEF08           ;VX700-2
+
+[VLCDS23896-3W.Install]                                         ;VX700-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23896-3W.AddReg,1280,DPMS
+Copyfiles=VLCDS23896-3W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS23896-3W.AddReg]                                         ;VX700-2
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VX700-2.ICM"
+
+[VLCDS23896-3W.CopyFiles]                                       
+VX700-2.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS23896-3W="ViewSonic VX700-2"
+
+

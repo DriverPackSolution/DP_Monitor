@@ -1,0 +1,61 @@
+;=============================================================== 
+; [700P.INF] 
+; Revision 1.4   August-02-2004
+; Copyright(c)1998~2004 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=700P.cat
+DriverVer=08/02/2004,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM43B9
+
+[DestinationDirs]
+DefaultDestDir = 11
+700P.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG700P.ICM=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%700P%=700P.Install,Monitor\GSM43B9
+
+[700P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=700P.AddReg,1600,DPMS
+CopyFiles=700P.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[700P.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LG700P.ICM"
+
+[700P.CopyFiles]
+LG700P.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+700P="LG FLATRON 700P"

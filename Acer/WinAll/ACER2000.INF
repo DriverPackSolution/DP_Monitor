@@ -1,0 +1,1111 @@
+; Acer INF File for Windows 2000
+; Copyright (c)  2000, Acer Peripherals, Inc.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+1455.CopyFiles = 23
+1555.CopyFiles = 23
+7111D.CopyFiles = 23
+7133D.CopyFiles = 23
+7133DL.CopyFiles = 23
+7133s.CopyFiles = 23
+7134T.CopyFiles = 23
+7134TL.CopyFiles = 23
+7134Ts.CopyFiles = 23
+7134e.CopyFiles = 23
+7135c.CopyFiles = 23
+7154e.CopyFiles = 23
+7154s.CopyFiles = 23
+7155.CopyFiles = 23
+7155L.CopyFiles = 23
+7156L.CopyFiles = 23
+7156e.CopyFiles = 23
+7156i.CopyFiles = 23
+7156is.CopyFiles = 23
+7156iso.CopyFiles = 23
+7156s.CopyFiles = 23
+7176N.CopyFiles = 23
+7176i.CopyFiles = 23
+7176ie.CopyFiles = 23
+7176ieo.CopyFiles = 23
+7176is.CopyFiles = 23
+7176iso.CopyFiles = 23
+7177is.CopyFiles = 23
+7178i.CopyFiles = 23
+7178ie.CopyFiles = 23
+7178ieo.CopyFiles = 23
+7198i.CopyFiles = 23
+72211c.CopyFiles = 23
+7234e.CopyFiles = 23
+7235c.CopyFiles = 23
+7254es.CopyFiles = 23
+7255c.CopyFiles = 23
+7255e.CopyFiles = 23
+7256c.CopyFiles = 23
+7256e.CopyFiles = 23
+7256i.CopyFiles = 23
+7256j.CopyFiles = 23
+7257c.CopyFiles = 23
+7257i.CopyFiles = 23
+7276c.CopyFiles = 23
+7276e.CopyFiles = 23
+7276j.CopyFiles = 23
+7276sl.CopyFiles = 23
+7277c.CopyFiles = 23
+7277e.CopyFiles = 23
+7278c.CopyFiles = 23
+7279g.CopyFiles = 23
+7299c.CopyFiles = 23
+7299sl.CopyFiles = 23
+7379xg.CopyFiles = 23
+Asp55s.CopyFiles = 23
+Asp77s.CopyFiles = 23
+7299g.CopyFiles = 23
+7378c.CopyFiles = 23
+7298e.CopyFiles = 23
+7257e.CopyFiles = 23
+7377xe.CopyFiles = 23
+7377xc.CopyFiles = 23
+73771c.CopyFiles = 23
+7258c.CopyFiles = 23
+G991.CopyFiles = 23
+
+[SourceDisksNames]
+1="Acer Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+1455.ICM=1
+1555.ICM=1
+7111D.ICM=1
+7133D.ICM=1
+7133DL.ICM=1
+7133s.ICM=1
+7134T.ICM=1
+7134TL.ICM=1
+7134Ts.ICM=1
+7134e.ICM=1
+7135c.ICM=1
+7154e.ICM=1
+7154s.ICM=1
+7155.ICM=1
+7155L.ICM=1
+7156L.ICM=1
+7156e.ICM=1
+7156i.ICM=1
+7156is.ICM=1
+7156iso.ICM=1
+7156s.ICM=1
+7176N.ICM=1
+7176i.ICM=1
+7176ie.ICM=1
+7176ieo.ICM=1
+7176is.ICM=1
+7176iso.ICM=1
+7177is.ICM=1
+7178i.ICM=1
+7178ie.ICM=1
+7178ieo.ICM=1
+7198i.ICM=1
+72211c.ICM=1
+7234e.ICM=1
+7235c.ICM=1
+7254es.ICM=1
+7255c.ICM=1
+7255e.ICM=1
+7256c.ICM=1
+7256e.ICM=1
+7256i.ICM=1
+7256j.ICM=1
+7257c.ICM=1
+7257i.ICM=1
+7276c.ICM=1
+7276e.ICM=1
+7276j.ICM=1
+7276sl.ICM=1
+7277c.ICM=1
+7277e.ICM=1
+7278c.ICM=1
+7279g.ICM=1
+7299c.ICM=1
+7299sl.ICM=1
+7379xg.ICM=1
+Asp55s.ICM=1
+Asp77s.ICM=1
+7299g.ICM=1
+7378c.ICM=1
+7298e.ICM=1
+7257e.ICM=1
+7377xe.ICM=1
+7377xc.ICM=1
+73771c.ICM=1
+7258c.ICM=1
+G991.ICM=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%1455%=1455.install,      Monitor\API5514
+%1555%=1555.install,      Monitor\API5515
+%7111D%=7111D.install,    Monitor\API440B
+%7133D%=7133D.install,    Monitor\API4421
+%7133DL%=7133DL.install,  Monitor\API4C21
+%7133s%=7133s.install,    Monitor\API5321
+%7134T%=7134T.install,    Monitor\API5422
+%7134TL%=7134TL.install,  Monitor\API4C22
+%7134Ts%=7134Ts.install,  Monitor\API5322
+%7134e%=7134e.install,    Monitor\API4522
+%7135c%=7135c.install,    Monitor\API9703
+%7154e%=7154e.install,    Monitor\API4536
+%7154s%=7154s.install,    Monitor\API5336
+%7155%=7155.install,      Monitor\API0037
+%7155L%=7155L.install,    Monitor\API4C37
+%7156L%=7156L.install,    Monitor\API4C38
+%7156e%=7156e.install,    Monitor\API4538
+%7156i%=7156i.install,    Monitor\API4938
+%7156is%=7156is.install,  Monitor\API0138
+%7156iso%=7156iso.install,Monitor\API4138
+%7156s%=7156s.install,    Monitor\API5338
+%7176N%=7176N.install,    Monitor\API4E4C
+%7176i%=7176i.install,    Monitor\API494C
+%7176ie%=7176ie.install,  Monitor\API454C
+%7176ieo%=7176ieo.install,Monitor\API424C
+%7176is%=7176is.install,  Monitor\API534C
+%7176iso%=7176iso.install,Monitor\API414C
+%7177is%=7177is.install,  Monitor\API9707
+%7178i%=7178i.install,    Monitor\API494E
+%7178ie%=7178ie.install,  Monitor\API454E
+%7178ieo%=7178ieo.install,Monitor\API424E
+%7198i%=7198i.install,    Monitor\API4962
+%72211c%=72211c.install,  Monitor\API9708
+%7234e%=7234e.install,    Monitor\API9709
+%7235c%=7235c.install,    Monitor\API970A
+%7254es%=7254es.install,  Monitor\API9715
+%7255c%=7255c.install,    Monitor\API9704
+%7255e%=7255e.install,    Monitor\API9701
+%7256c%=7256c.install,    Monitor\API9705
+%7256e%=7256e.install,    Monitor\API9710
+%7256i%=7256i.install,    Monitor\API9712
+%7256j%=7256j.install,    Monitor\API9713
+%7257c%=7257c.install,    Monitor\API971B
+%7257i%=7257i.install,    Monitor\API971B
+%7276c%=7276c.install,    Monitor\API9706
+%7276e%=7276e.install,    Monitor\API9702
+%7276j%=7276j.install,    Monitor\API9711
+%7276sl%=7276sl.install,  Monitor\API9717
+%7277c%=7277c.install,    Monitor\API9720
+%7277e%=7277e.install,    Monitor\API971C
+%7278c%=7278c.install,    Monitor\API9719
+%7279g%=7279g.install,    Monitor\API9716
+%7299c%=7299c.install,    Monitor\API9718
+%7299sl%=7299sl.install,  Monitor\API9721
+%7379xg%=7379xg.install,  Monitor\API971E
+%Asp55s%=Asp55s.install,  Monitor\API9802
+%Asp77s%=Asp77s.install,  Monitor\API9803
+%7299g%=7299g.install,    Monitor\API9804
+%7378c%=7378c.install,    Monitor\API9805
+%7298e%=7298e.install,    Monitor\API9806
+%7257e%=7257e.install,    Monitor\API9809
+%7377xe%=7377xe.install,  Monitor\API9808
+%7377xc%=7377xc.install,  Monitor\API980A
+%73771c%=73771c.install,  Monitor\API9902
+%7258c%=7258c.install,    Monitor\API9901
+%G991%=G991.install,      Monitor\API9903
+
+[1455.install]
+DelReg=DEL_CURRENT_REG
+AddReg=1455.AddReg, 1024, DPMS
+CopyFiles=1455.CopyFiles
+
+[1555.install]
+DelReg=DEL_CURRENT_REG
+AddReg=1555.AddReg, 1024, DPMS
+CopyFiles=1555.CopyFiles
+
+[7111D.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7111D.AddReg, 1024, DPMS
+CopyFiles=7111D.CopyFiles
+
+[7133D.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7133D.AddReg, 1024, DPMS
+CopyFiles=7133D.CopyFiles
+
+[7133DL.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7133DL.AddReg, 1024, DPMS
+CopyFiles=7133DL.CopyFiles
+
+[7133s.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7133s.AddReg, 1024, DPMS
+CopyFiles=7133s.CopyFiles
+
+[7134T.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7134T.AddReg, 1024, DPMS
+CopyFiles=7134T.CopyFiles
+
+[7134TL.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7134TL.AddReg, 1024, DPMS
+CopyFiles=7134TL.CopyFiles
+
+[7134Ts.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7134Ts.AddReg, 1024, DPMS
+CopyFiles=7134Ts.CopyFiles
+
+[7134e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7134e.AddReg, 1024, DPMS
+CopyFiles=7134e.CopyFiles
+
+[7135c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7135c.AddReg, 1024, DPMS
+CopyFiles=7135c.CopyFiles
+
+[7154e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7154e.AddReg, 1024, DPMS
+CopyFiles=7154e.CopyFiles
+
+[7154s.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7154s.AddReg, 1024, DPMS
+CopyFiles=7154s.CopyFiles
+
+[7155.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7155.AddReg, 1024, DPMS
+CopyFiles=7155.CopyFiles
+
+[7155L.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7155L.AddReg, 1024, DPMS
+CopyFiles=7155L.CopyFiles
+
+[7156L.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7156L.AddReg, 1024, DPMS
+CopyFiles=7156L.CopyFiles
+
+[7156e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7156e.AddReg, 1280, DPMS
+CopyFiles=7156e.CopyFiles
+
+[7156i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7156i.AddReg, 1280, DPMS
+CopyFiles=7156i.CopyFiles
+
+[7156is.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7156is.AddReg, 1280, DPMS
+CopyFiles=7156is.CopyFiles
+
+[7156iso.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7156iso.AddReg, 1280, DPMS
+CopyFiles=7156iso.CopyFiles
+
+[7156s.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7156s.AddReg, 1024, DPMS
+CopyFiles=7156s.CopyFiles
+
+[7176N.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7176N.AddReg, 1280, DPMS
+CopyFiles=7176N.CopyFiles
+
+[7176i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7176i.AddReg, 1280, DPMS
+CopyFiles=7176i.CopyFiles
+
+[7176ie.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7176ie.AddReg, 1280, DPMS
+CopyFiles=7176ie.CopyFiles
+
+[7176ieo.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7176ieo.AddReg, 1280, DPMS
+CopyFiles=7176ieo.CopyFiles
+
+[7176is.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7176is.AddReg, 1280, DPMS
+CopyFiles=7176is.CopyFiles
+
+[7176iso.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7176iso.AddReg, 1280, DPMS
+CopyFiles=7176iso.CopyFiles
+
+[7177is.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7177is.AddReg, 1280, DPMS
+CopyFiles=7177is.CopyFiles
+
+[7178i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7178i.AddReg, 1280, DPMS
+CopyFiles=7178i.CopyFiles
+
+[7178ie.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7178ie.AddReg, 1600, DPMS
+CopyFiles=7178ie.CopyFiles
+
+[7178ieo.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7178ieo.AddReg, 1600, DPMS
+CopyFiles=7178ieo.CopyFiles
+
+[7198i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7198i.AddReg, 1280, DPMS
+CopyFiles=7198i.CopyFiles
+
+[72211c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=72211c.AddReg, 1600, DPMS
+CopyFiles=72211c.CopyFiles
+
+[7234e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7234e.AddReg, 1024, DPMS
+CopyFiles=7234e.CopyFiles
+
+[7235c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7235c.AddReg, 1024, DPMS
+CopyFiles=7235c.CopyFiles
+
+[7254es.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7254es.AddReg, 1024, DPMS
+CopyFiles=7254es.CopyFiles
+
+[7255c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7255c.AddReg, 1024, DPMS
+CopyFiles=7255c.CopyFiles
+
+[7255e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7255e.AddReg, 1024, DPMS
+CopyFiles=7255e.CopyFiles
+
+[7256c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7256c.AddReg, 1280, DPMS
+CopyFiles=7256c.CopyFiles
+
+[7256e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7256e.AddReg, 1280, DPMS
+CopyFiles=7256e.CopyFiles
+
+[7256i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7256i.AddReg, 1280, DPMS
+CopyFiles=7256i.CopyFiles
+
+[7256j.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7256j.AddReg, 1280, DPMS
+CopyFiles=7256j.CopyFiles
+
+[7257c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7257c.AddReg, 1280, DPMS
+CopyFiles=7257c.CopyFiles
+
+[7257i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7257i.AddReg, 1280, DPMS
+CopyFiles=7257i.CopyFiles
+
+[7276c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7276c.AddReg, 1280, DPMS
+CopyFiles=7276c.CopyFiles
+
+[7276e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7276e.AddReg, 1280, DPMS
+CopyFiles=7276e.CopyFiles
+
+[7276j.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7276j.AddReg, 1280, DPMS
+CopyFiles=7276j.CopyFiles
+
+[7276sl.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7276sl.AddReg, 1280, DPMS
+CopyFiles=7276sl.CopyFiles
+
+[7277c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7277c.AddReg, 1280, DPMS
+CopyFiles=7277c.CopyFiles
+
+[7277e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7277e.AddReg, 1280, DPMS
+CopyFiles=7277e.CopyFiles
+
+[7278c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7278c.AddReg, 1600, DPMS
+CopyFiles=7278c.CopyFiles
+
+[7279g.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7279g.AddReg, 1600, DPMS
+CopyFiles=7279g.CopyFiles
+
+[7299c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7299c.AddReg, 1600, DPMS
+CopyFiles=7299c.CopyFiles
+
+[7299sl.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7299sl.AddReg, 1600, DPMS
+CopyFiles=7299sl.CopyFiles
+
+[7379xg.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7379xg.AddReg, 1600, DPMS
+CopyFiles=7379xg.CopyFiles
+
+[Asp55s.install]
+DelReg=DEL_CURRENT_REG
+AddReg=Asp55s.AddReg, 1024, DPMS
+CopyFiles=Asp55s.CopyFiles
+
+[Asp77s.install]
+DelReg=DEL_CURRENT_REG
+AddReg=Asp77s.AddReg, 1280, DPMS
+CopyFiles=Asp77s.CopyFiles
+
+[7299g.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7299g.AddReg, 1600, DPMS
+CopyFiles=7299g.CopyFiles
+
+[7378c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7378c.AddReg, 1280, DPMS
+CopyFiles=7378c.CopyFiles
+
+[7298e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7298e.AddReg, 1600, DPMS
+CopyFiles=7298e.CopyFiles
+
+[7257e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7257e.AddReg, 1280, DPMS
+CopyFiles=7257e.CopyFiles
+
+[7377xe.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7377xe.AddReg, 1280, DPMS
+CopyFiles=7377xe.CopyFiles
+
+[7377xc.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7377xc.AddReg, 1280, DPMS
+CopyFiles=7377xc.CopyFiles
+
+[73771c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=73771c.AddReg, 1280, DPMS
+CopyFiles=73771c.CopyFiles
+
+[7258c.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7258c.AddReg, 1280, DPMS
+CopyFiles=7258c.CopyFiles
+
+[G991.install]
+DelReg=DEL_CURRENT_REG
+AddReg=G991.AddReg, 1600, DPMS
+CopyFiles=G991.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1455.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"1455.ICM"
+
+[1555.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"1555.ICM"
+
+[7111D.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-35.5,50.0-90.0,+,+"
+HKR,,ICMprofile,0,"7111D.ICM"
+
+[7133D.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-35.5,50.0-100.0,+,+"
+HKR,,ICMprofile,0,"7133D.ICM"
+
+[7133DL.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-35.5,50.0-100.0,+,+"
+HKR,,ICMprofile,0,"7133DL.ICM"
+
+[7133s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-35.5,50.0-100.0,+,+"
+HKR,,ICMprofile,0,"7133s.ICM"
+
+[7134T.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-48.0,50.0-100.0,+,+"
+HKR,,ICMprofile,0,"7134T.ICM"
+
+[7134TL.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-48.0,50.0-100.0,+,+"
+HKR,,ICMprofile,0,"7134TL.ICM"
+
+[7134Ts.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-48.0,50.0-100.0,+,+"
+HKR,,ICMprofile,0,"7134Ts.ICM"
+
+[7134e.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7134e.ICM"
+
+[7135c.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7135c.ICM"
+
+[7154e.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7154e.ICM"
+
+[7154s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7154s.ICM"
+
+[7155.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-56.9,50.0-80.0,+,+"
+HKR,,ICMprofile,0,"7155.ICM"
+
+[7155L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-56.9,50.0-80.0,+,+"
+HKR,,ICMprofile,0,"7155L.ICM"
+
+[7156L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-64.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7156L.ICM"
+
+[7156e.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7156e.ICM"
+
+[7156i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7156i.ICM"
+
+[7156is.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7156is.ICM"
+
+[7156iso.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7156iso.ICM"
+
+[7156s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-66.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7156s.ICM"
+
+[7176N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7176N.ICM"
+
+[7176i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7176i.ICM"
+
+[7176ie.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7176ie.ICM"
+
+[7176ieo.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7176ieo.ICM"
+
+[7176is.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7176is.ICM"
+
+[7176iso.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7176iso.ICM"
+
+[7177is.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7177is.ICM"
+
+[7178i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7178i.ICM"
+
+[7178ie.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7178ie.ICM"
+
+[7178ieo.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7178ieo.ICM"
+
+[7198i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7198i.ICM"
+
+[72211c.AddReg]
+HKR,"MODES\1600.1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"72211c.ICM"
+
+[7234e.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7234e.ICM"
+
+[7235c.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7235c.ICM"
+
+[7254es.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7254es.ICM"
+
+[7255c.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7255c.ICM"
+
+[7255e.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7255e.ICM"
+
+[7256c.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7256c.ICM"
+
+[7256e.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7256e.ICM"
+
+[7256i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7256i.ICM"
+
+[7256j.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7256j.ICM"
+
+[7257c.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7257c.ICM"
+
+[7257i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7257i.ICM"
+
+[7276c.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7276c.ICM"
+
+[7276e.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7276e.ICM"
+
+[7276j.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7276j.ICM"
+
+[7276sl.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7276sl.ICM"
+
+[7277c.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7277c.ICM"
+
+[7277e.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7277e.ICM"
+
+[7278c.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7278c.ICM"
+
+[7279g.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"7279g.ICM"
+
+[7299c.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"7299c.ICM"
+
+[7299sl.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"7299sl.ICM"
+
+[7379xg.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"7379xg.ICM"
+
+[Asp55s.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"Asp55s.ICM"
+
+[Asp77s.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"Asp77s.ICM"
+
+[7299g.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"7299g.ICM"
+
+[7378c.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-86.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7378c.ICM"
+
+[7298e.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"7298e.ICM"
+
+[7257e.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7257e.ICM"
+
+[7377xe.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7377xe.ICM"
+
+[7377xc.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"7377xc.ICM"
+
+[73771c.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"73771c.ICM"
+
+[7258c.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-110.0,+,+"
+HKR,,ICMprofile,0,"7258c.ICM"
+
+[G991.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"G991.ICM"
+
+[1455.CopyFiles]
+1455.ICM
+
+[1555.CopyFiles]
+1555.ICM
+
+[7111D.CopyFiles]
+7111D.ICM
+
+[7133D.CopyFiles]
+7133D.ICM
+
+[7133DL.CopyFiles]
+7133DL.ICM
+
+[7133s.CopyFiles]
+7133s.ICM
+
+[7134T.CopyFiles]
+7134T.ICM
+
+[7134TL.CopyFiles]
+7134TL.ICM
+
+[7134Ts.CopyFiles]
+7134Ts.ICM
+
+[7134e.CopyFiles]
+7134e.ICM
+
+[7135c.CopyFiles]
+7135c.ICM
+
+[7154e.CopyFiles]
+7154e.ICM
+
+[7154s.CopyFiles]
+7154s.ICM
+
+[7155.CopyFiles]
+7155.ICM
+
+[7155L.CopyFiles]
+7155L.ICM
+
+[7156L.CopyFiles]
+7156L.ICM
+
+[7156e.CopyFiles]
+7156e.ICM
+
+[7156i.CopyFiles]
+7156i.ICM
+
+[7156is.CopyFiles]
+7156is.ICM
+
+[7156iso.CopyFiles]
+7156iso.ICM
+
+[7156s.CopyFiles]
+7156s.ICM
+
+[7176N.CopyFiles]
+7176N.ICM
+
+[7176i.CopyFiles]
+7176i.ICM
+
+[7176ie.CopyFiles]
+7176ie.ICM
+
+[7176ieo.CopyFiles]
+7176ieo.ICM
+
+[7176is.CopyFiles]
+7176is.ICM
+
+[7176iso.CopyFiles]
+7176iso.ICM
+
+[7177is.CopyFiles]
+7177is.ICM
+
+[7178i.CopyFiles]
+7178i.ICM
+
+[7178ie.CopyFiles]
+7178ie.ICM
+
+[7178ieo.CopyFiles]
+7178ieo.ICM
+
+[7198i.CopyFiles]
+7198i.ICM
+
+[72211c.CopyFiles]
+72211c.ICM
+
+[7234e.CopyFiles]
+7234e.ICM
+
+[7235c.CopyFiles]
+7235c.ICM
+
+[7254es.CopyFiles]
+7254es.ICM
+
+[7255c.CopyFiles]
+7255c.ICM
+
+[7255e.CopyFiles]
+7255e.ICM
+
+[7256c.CopyFiles]
+7256c.ICM
+
+[7256e.CopyFiles]
+7256e.ICM
+
+[7256i.CopyFiles]
+7256i.ICM
+
+[7256j.CopyFiles]
+7256j.ICM
+
+[7257c.CopyFiles]
+7257c.ICM
+
+[7257i.CopyFiles]
+7257i.ICM
+
+[7276c.CopyFiles]
+7276c.ICM
+
+[7276e.CopyFiles]
+7276e.ICM
+
+[7276j.CopyFiles]
+7276j.ICM
+
+[7276sl.CopyFiles]
+7276sl.ICM
+
+[7277c.CopyFiles]
+7277c.ICM
+
+[7277e.CopyFiles]
+7277e.ICM
+
+[7278c.CopyFiles]
+7278c.ICM
+
+[7279g.CopyFiles]
+7279g.ICM
+
+[7299c.CopyFiles]
+7299c.ICM
+
+[7299sl.CopyFiles]
+7299sl.ICM
+
+[7379xg.CopyFiles]
+7379xg.ICM
+
+[Asp55s.CopyFiles]
+Asp55s.ICM
+
+[Asp77s.CopyFiles]
+Asp77s.ICM
+
+[7299g.CopyFiles]
+7299g.ICM
+
+[7378c.CopyFiles]
+7378c.ICM
+
+[7298e.CopyFiles]
+7298e.ICM
+
+[7257e.CopyFiles]
+7257e.ICM
+
+[7377xe.CopyFiles]
+7377xe.ICM
+
+[7377xc.CopyFiles]
+7377xc.ICM
+
+[73771c.CopyFiles]
+73771c.ICM
+
+[7258c.CopyFiles]
+7258c.ICM
+
+[G991.CopyFiles]
+G991.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+
+Acer="Acer"
+
+1455=   "Acer 1455"
+1555=   "Acer 1555"
+7111D=  "Acer 11D"
+7133D=  "Acer 33D"
+7133DL= "Acer 33DL"
+7133s=  "Aspire 33s"
+7134T=  "Acer 34T"
+7134TL= "Acer 34TL"
+7134Ts= "Aspire 34Ts"
+7134e=  "Acer 34e"
+7135c=  "Acer 35c"
+7154e=  "Acer 54e"
+7154s=  "Aspire 54s"
+7155=   "Acer 55"
+7155L=  "Acer 55L"
+7156L=  "Acer 56L"
+7156e=  "Acer 56e"
+7156i=  "Acer 56i"
+7156is= "Acer 56is"
+7156iso="Acer 56is"
+7156s=  "Aspire 56s"
+7176N=  "Acer 76N"
+7176i=  "Acer 76i"
+7176ie= "Acer 76ie"
+7176ieo="Acer 76ie"
+7176is= "Aspire 76is"
+7176iso="Aspire 76is"
+7177is= "Aspire 77is"
+7178i=  "Acer 78i"
+7178ie= "Acer 78ie"
+7178ieo="Acer 78ie"
+7198i=  "Acer 98i"
+72211c= "Acer 211c"
+7234e=  "Acer 34e"
+7235c=  "Acer 35c"
+7254es= "Acer 54es"
+7255c=  "Acer 55c"
+7255e=  "Acer 55e"
+7256c=  "Acer 56c"
+7256e=  "Acer 56e"
+7256i=  "Acer 56i"
+7256j=  "Acer 56j"
+7257c=  "Acer 57c"
+7257i=  "Acer 57i"
+7276c=  "Acer 76c"
+7276e=  "Acer 76e"
+7276j=  "Acer 76j"
+7276sl= "Acer 76sl"
+7277c=  "Acer 77c"
+7277e=  "Acer 77e"
+7278c=  "Acer 78c"
+7279g=  "Acer 79g"
+7299c=  "Acer 99c"
+7299sl= "Acer 99sl"
+7379xg= "Acer P791"
+Asp55s= "Aspire 55s"
+Asp77s= "Aspire 77s"
+7299g=  "Acer P911"
+7378c=  "Acer G781"
+7298e=  "Acer V981"
+7257e=  "Acer 57e"
+7377xe= "Acer 77e"
+7377xc= "Acer 77c"
+73771c= "Acer G772"
+7258c=  "Acer 58c"
+G991=   "Acer G991"

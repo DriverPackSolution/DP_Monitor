@@ -1,0 +1,109 @@
+;L22W_1.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display L22W-1
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=L22W_1.cat
+DriverVer=01/21/2011,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07D8
+ExcludeFromSelect.nt=Monitor\FUS07D9
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSL22W_1a.CopyFiles=23
+FTSL22W_1d.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+L22W_1.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS_Mfg] 
+%L22W-1a%=FTSL22W_1a.Install, Monitor\FUS07D8
+%L22W-1d%=FTSL22W_1d.Install, Monitor\FUS07D9
+
+
+
+;-------------------------------------------------
+ [FTS_Mfg.NTAMD64] 
+%L22W-1a%=FTSL22W_1a.Install, Monitor\FUS07D8
+%L22W-1d%=FTSL22W_1d.Install, Monitor\FUS07D9
+
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSL22W_1a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL22W_1a.AddReg, 1920, DPMS
+CopyFiles=FTSL22W_1a.CopyFiles
+
+[FTSL22W_1d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL22W_1d.AddReg, 1920, DPMS
+CopyFiles=FTSL22W_1d.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSL22W_1a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"L22W_1.icm"
+
+[FTSL22W_1d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-82.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"L22W_1.icm"
+
+;---------------------------------------------------------- 
+
+[FTSL22W_1a.CopyFiles]
+L22W_1.icm
+
+[FTSL22W_1d.CopyFiles]
+L22W_1.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD L22W-1"
+FTS_Mfg="Fujitsu Technology Solutions"	
+L22W-1a="Fujitsu L22W-1 (analog)"
+L22W-1d="Fujitsu L22W-1 (digital)"
+
+

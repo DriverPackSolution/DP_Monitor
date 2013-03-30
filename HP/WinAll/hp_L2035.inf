@@ -1,0 +1,100 @@
+; #################################################
+;
+;   hp_L2035.inf        Ver. 2.20      8/18/2003
+;
+;   Copyright (c)2003, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the hp L2035 flat panel monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=hp_L2035.cat
+DriverVer=08/18/2003,2.20
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\HWP2612
+ExcludeFromSelect.nt = Monitor\HWP2613
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L2035.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+hp_L2035.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%L2035_A%=L2035_A.Install, Monitor\HWP2612
+%L2035_D%=L2035_D.Install, Monitor\HWP2613
+
+[L2035_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2035_A.AddReg, 1600, DPMS
+CopyFiles=L2035.CopyFiles
+
+[L2035_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2035_D.AddReg, 1600, DPMS
+CopyFiles=L2035.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L2035_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-94.0,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-94.0,48-85,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"hp_L2035.icm"
+
+[L2035_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-76.0,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-76.0,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-76.0,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-76.0,48-85,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-76.0,48-85,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"hp_L2035.icm"
+
+[L2035.CopyFiles]
+hp_L2035.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+L2035_A="hp L2035 flat panel monitor"
+L2035_D="hp L2035 flat panel monitor"
+Disk1="hp L2035 INF software"

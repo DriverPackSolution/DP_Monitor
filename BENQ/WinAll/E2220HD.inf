@@ -1,0 +1,127 @@
+;========================================== 
+; BenQ_E2220HD.INF 05/20/09 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2009, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=E2220HD.cat
+DriverVer=05/20/2009,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7912
+ExcludeFromSelect.NT=Monitor\BNQ7913
+ExcludeFromSelect.NT=Monitor\BNQ7913
+
+[DestinationDirs]
+DefaultDestDir  = 11
+E2220HD_Analog.copyfiles = 23
+E2220HD_Digital.copyfiles = 23
+E2220HD_HDMI.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+E2220HDDSUB.icm=1
+E2220HDDVI.icm=1
+E2220HDHDMI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%E2220HD_Analog%=E2220HD_Analog.Install, Monitor\BNQ7912
+%E2220HD_Digital%=E2220HD_Digital.Install, Monitor\BNQ7913
+%E2220HD_HDMI%=E2220HD_HDMI.Install, Monitor\BNQ7913
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%E2220HD_Analog%=E2220HD_Analog.Install, Monitor\BNQ7912
+%E2220HD_Digital%=E2220HD_Digital.Install, Monitor\BNQ7913
+%E2220HD_HDMI%=E2220HD_HDMI.Install, Monitor\BNQ7913
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%E2220HD_Analog%=E2220HD_Analog.Install, Monitor\BNQ7912
+%E2220HD_Digital%=E2220HD_Digital.Install, Monitor\BNQ7913
+%E2220HD_HDMI%=E2220HD_HDMI.Install, Monitor\BNQ7913
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E2220HD_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2220HD_Analog.AddReg, 1920, DPMS
+CopyFiles=E2220HD_Analog.CopyFiles
+
+[E2220HD_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2220HD_Digital.AddReg, 1920, DPMS
+CopyFiles=E2220HD_Digital.CopyFiles
+
+[E2220HD_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2220HD_HDMI.AddReg, 1920, DPMS
+CopyFiles=E2220HD_HDMI.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E2220HD_Analog.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"E2220HDDSUB.icm"
+
+[E2220HD_Digital.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"E2220HDDVI.icm"
+
+[E2220HD_HDMI.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"E2220HDHDMI.icm"
+
+
+[E2220HD_Analog.CopyFiles]
+E2220HDDSUB.ICM
+
+[E2220HD_Digital.CopyFiles]
+E2220HDDVI.ICM
+
+[E2220HD_HDMI.CopyFiles]
+E2220HDHDMI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+E2220HD_Analog="BenQ E2220HD (Analog)"
+E2220HD_Digital="BenQ E2220HD (Digital)"
+E2220HD_HDMI="BenQ E2220HD (HDMI)"

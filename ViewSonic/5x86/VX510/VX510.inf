@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX510.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/18/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX510.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX510.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX510%=VX510.Install,Monitor\VSC6419                  ;VX510
+
+[VX510.Install]                                        ;VX510
+DelReg=DEL_CURRENT_REG 
+AddReg=VX510.AddReg,1024,DPMS
+Copyfiles=VX510.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX510.AddReg]                                           ;VX510
+HKR,"MODES\1024,768",Mode1,,"30-60,50-80,-,-"
+HKR,,ICMProfile,0,"VX510.ICM"
+
+[VX510.CopyFiles]                                       
+VX510.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VX510="ViewSonic VX510"

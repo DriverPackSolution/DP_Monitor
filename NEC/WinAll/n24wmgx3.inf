@@ -1,0 +1,126 @@
+; n24wmgx3.inf
+; Setup information file for NEC MultiSync 24WMGX3 Monitor
+;
+; Copyright (C) 2008, NEC Display Solutions,Ltd
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n24wmgx3.cat
+DriverVer=05/23/2008,1.08.0523.2155
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6751
+ExcludeFromSelect.nt=Monitor\NEC6752
+ExcludeFromSelect.nt=Monitor\NEC6753
+ExcludeFromSelect.nt=Monitor\NEC6754
+
+[DestinationDirs]
+24WMGX3.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n24wmgx3.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%24WMGX3-A%=24WMGX3-A.Install, Monitor\NEC6751
+%24WMGX3-D%=24WMGX3-D.Install, Monitor\NEC6752
+%24WMGX3-AV%=24WMGX3-AV.Install, Monitor\NEC6753
+%24WMGX3-H%=24WMGX3-H.Install, Monitor\NEC6754
+
+[NECDS.ntamd64]
+%24WMGX3-A%=24WMGX3-A.Install.ntamd64, Monitor\NEC6751
+%24WMGX3-D%=24WMGX3-D.Install.ntamd64, Monitor\NEC6752
+%24WMGX3-AV%=24WMGX3-AV.Install.ntamd64, Monitor\NEC6753
+%24WMGX3-H%=24WMGX3-H.Install.ntamd64, Monitor\NEC6754
+
+[24WMGX3-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=24WMGX3-A.AddReg, 1920, DPMS
+CopyFiles=24WMGX3.CopyFiles
+
+[24WMGX3-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=24WMGX3-D.AddReg, 1920, DPMS
+CopyFiles=24WMGX3.CopyFiles
+
+[24WMGX3-AV.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=24WMGX3-AV.AddReg, 1920, DPMS
+CopyFiles=24WMGX3.CopyFiles
+
+[24WMGX3-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=24WMGX3-H.AddReg, 1920, DPMS
+CopyFiles=24WMGX3.CopyFiles
+
+
+[24WMGX3-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=24WMGX3-A.AddReg, 1920, DPMS
+CopyFiles=24WMGX3.CopyFiles
+
+[24WMGX3-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=24WMGX3-D.AddReg, 1920, DPMS
+CopyFiles=24WMGX3.CopyFiles
+
+[24WMGX3-AV.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=24WMGX3-AV.AddReg, 1920, DPMS
+CopyFiles=24WMGX3.CopyFiles
+
+[24WMGX3-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=24WMGX3-H.AddReg, 1920, DPMS
+CopyFiles=24WMGX3.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[24WMGX3-A.AddReg]
+;HKR,"MODES\1920,1200",Mode1,,"24.0-83.0,49.0-76.0,+,-"
+HKR,,ICMProfile,0,"n24wmgx3.icm"
+
+[24WMGX3-D.AddReg]
+;HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,49.0-76.0,+,-"
+HKR,,ICMProfile,0,"n24wmgx3.icm"
+
+[24WMGX3-AV.AddReg]
+;HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,49.0-76.0,+,-"
+HKR,,ICMProfile,0,"n24wmgx3.icm"
+
+[24WMGX3-H.AddReg]
+;HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,49.0-76.0,+,-"
+HKR,,ICMProfile,0,"n24wmgx3.icm"
+
+
+[24WMGX3.CopyFiles]
+n24wmgx3.icm
+
+[Strings]
+NECDS="NEC"
+24WMGX3-A="NEC MultiSync 24WMGX3(Analog)"
+24WMGX3-D="NEC MultiSync 24WMGX3(Digital DVI)"
+24WMGX3-AV="NEC MultiSync 24WMGX3(Digital DVI-AV)"
+24WMGX3-H="NEC MultiSync 24WMGX3(HDMI)"
+
+Disk1="NEC Monitor Installation Disk"

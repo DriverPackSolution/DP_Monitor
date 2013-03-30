@@ -1,0 +1,82 @@
+##############################################################
+; This is a setup information file for Belinea 2080 S2 monitor
+; Modified by MAXDATA Systeme GmbH (ABA)
+; Revision 1.0.0.0, April 18, 2007
+; Copyright 2000-2007 MAXDATA Systeme GmbH
+##############################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=112009.cat
+DriverVer=04/18/2007,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX07D9
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea 2080 S2 / Art. No. 112009" = 112009.Install, Monitor\MAX07D9
+
+[Belinea.NTx86]
+"Belinea 2080 S2 / Art. No. 112009" = 112009.Install, Monitor\MAX07D9
+
+[Belinea.NTia64]
+"Belinea 2080 S2 / Art. No. 112009" = 112009.Install, Monitor\MAX07D9
+
+[Belinea.NTamd64]
+"Belinea 2080 S2 / Art. No. 112009" = 112009.Install, Monitor\MAX07D9
+
+
+; Install sections
+;-------------------------------------------------
+[112009.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=112009.AddReg,1600,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[112009.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA Systeme GmbH"
+BELINEA="MAXDATA Systeme GmbH"
+

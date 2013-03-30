@@ -1,0 +1,65 @@
+;===============================================================
+; [L1919S.inf]
+; Revision 1.3   November-27-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1919S.cat
+DriverVer=11/22/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AF2
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1919S.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1919S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1919S%=L1919S.Install,Monitor\GSM4AF2
+
+[LG.NTamd64]
+%L1919S%=L1919S.Install,Monitor\GSM4AF2
+
+[L1919S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1919S.AddReg,1280,DPMS
+CopyFiles=L1919S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1919S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1919S.ICM"
+
+[L1919S.CopyFiles]
+L1919S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1919S="LG L1919S"

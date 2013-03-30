@@ -1,0 +1,119 @@
+;================================ 
+;IVMPLE2403WS.INF 05/30/07 Ver. 2.0 
+;; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2007, iiyama Corporation
+;================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+catalogfile=PLE2403WS.CAT
+DriverVer=05/30/2007,2.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IVM5604
+ExcludeFromSelect.NT=Monitor\IVM5604
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+PLE2403WS_Analog.copyfiles = 23
+PLE2403WS_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+PLE2403WS.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%iiyama%=iiyama,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama] 
+%PLE2403WS_Analog%=PLE2403WS_Analog.Install, Monitor\IVM5604
+%PLE2403WS_Digital%=PLE2403WS_Digital.Install, Monitor\IVM5604
+
+;-------------------------------------------------
+ [iiyama.NTAMD64] 
+%PLE2403WS_Analog%=PLE2403WS_Analog.Install, Monitor\IVM5604
+%PLE2403WS_Digital%=PLE2403WS_Digital.Install, Monitor\IVM5604
+
+
+; Install Sections
+;-------------------------------------------------
+
+[PLE2403WS_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE2403WS_Analog.AddReg, 1920, DPMS
+CopyFiles=PLE2403WS_Analog.CopyFiles
+
+[PLE2403WS_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE2403WS_Digital.AddReg, 1920, DPMS
+CopyFiles=PLE2403WS_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[PLE2403WS_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2403WS.ICM"
+
+[PLE2403WS_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2403WS.ICM"
+
+
+
+[PLE2403WS_Analog.CopyFiles]
+PLE2403WS.ICM
+
+[PLE2403WS_Digital.CopyFiles]
+PLE2403WS.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama"
+diskname="iiyama LCD Monitor installation diskette"
+PLE2403WS_Analog="PLE2403WS (Analog)"
+PLE2403WS_Digital="PLE2403WS (Digital)"
+

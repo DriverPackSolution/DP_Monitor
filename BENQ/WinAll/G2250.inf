@@ -1,0 +1,109 @@
+;========================================== 
+; BenQ_G2250.INF 06/13/2011 Ver. 1.3
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2011, BENQ Corporation
+; V002
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G2250.cat
+DriverVer=06/13/2011,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ789C
+ExcludeFromSelect.NT=Monitor\BNQ789D
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G2250_Analog.copyfiles = 23
+G2250_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G2250.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G2250_Analog%=G2250_Analog.Install, Monitor\BNQ789C
+%G2250_Digital%=G2250_Digital.Install, Monitor\BNQ789D
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G2250_Analog%=G2250_Analog.Install, Monitor\BNQ789C
+%G2250_Digital%=G2250_Digital.Install, Monitor\BNQ789D
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G2250_Analog%=G2250_Analog.Install, Monitor\BNQ789C
+%G2250_Digital%=G2250_Digital.Install, Monitor\BNQ789D
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G2250_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2250_Analog.AddReg, 1920, DPMS
+CopyFiles=G2250_Analog.CopyFiles
+
+[G2250_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2250_Digital.AddReg, 1920, DPMS
+CopyFiles=G2250_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[G2250_Analog.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"G2250.icm"
+
+[G2250_Digital.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"G2250.icm"
+
+
+[G2250_Analog.CopyFiles]
+G2250.ICM
+
+[G2250_Digital.CopyFiles]
+G2250.ICM
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G2250_Analog="BenQ G2250 (Analog)"
+G2250_Digital="BenQ G2250 (Digital)"

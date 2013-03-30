@@ -1,0 +1,64 @@
+;=============================================================== 
+; [772EF_PL.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=772EF_PL.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4345
+
+[DestinationDirs]
+DefaultDestDir=11
+772EF_PL.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+772EF_PL.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%772EF_PL%=772EF_PL.Install,Monitor\GSM4345
+
+[LG.NTamd64]
+%772EF_PL%=772EF_PL.Install,Monitor\GSM4345
+
+[772EF_PL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=772EF_PL.AddReg,1280,DPMS
+CopyFiles=772EF_PL.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[772EF_PL.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"772EF_PL.ICM"
+
+[772EF_PL.CopyFiles]
+772EF_PL.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+772EF_PL="LG 772EF PLUS"

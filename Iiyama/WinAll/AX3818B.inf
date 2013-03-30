@@ -1,0 +1,67 @@
+; INF File for Windows Me/9x/2000
+; Copyright (c) 2001, IIYAMA  
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;catalogfile=AX3818B.cat
+DriverVer=9/23/2002,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+AX3818B.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+AX3818B.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIyama]
+%AX3818B%=AX3818B.Install, Monitor\IVM384A
+
+[AX3818B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AX3818B.AddReg, 1024, DPMS
+CopyFiles=AX3818B.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AX3818B.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-76.0,-,-"
+HKR,,ICMProfile,0,"AX3818B.icm"
+
+[AX3818B.CopyFiles]
+AX3818B.ICM
+
+;[ControlFlags]
+;ExcludeFromSelect.NT=Monitor\IVM384A
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="IIYAMA flat panel Monitor installation diskette"
+AX3818B="IIYAMA AX3818UTC B"
+IIYAMA="IIYAMA CORPORATION"

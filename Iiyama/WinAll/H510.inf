@@ -1,0 +1,69 @@
+; PLH510.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor PLH510 
+;Copyright 2003 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=H510.cat      
+DriverVer=09/25/2003,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM5351
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+H510.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+H510.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%H510%=H510.Install, Monitor\IVM5351
+
+[H510.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=H510.AddReg, 1600, DPMS
+CopyFiles=H510.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[H510.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24-80,60-76,+,+"
+HKR,,ICMProfile,0,"H510.ICM"
+
+[H510.CopyFiles]
+H510.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+H510="IIYAMA ProLite H510"

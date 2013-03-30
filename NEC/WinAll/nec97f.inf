@@ -1,0 +1,82 @@
+; NEC97F.INF
+; Setup information file for NEC MultiSync 97F Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NEC97F.cat
+DriverVer=02/07/2002,2.02.0007.1722
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61D3
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-MS97F.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+nec97f1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-MS97F%=NEC-MS97F.Install, Monitor\NEC61D3
+
+; Install Sections
+;-------------------------------------------------
+[NEC-MS97F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-MS97F.AddReg, 1920, DPMS
+CopyFiles=NEC-MS97F.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-MS97F.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"nec97F1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-MS97F.CopyFiles]
+NEC97F1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-MS97F="NEC MultiSync 97F"

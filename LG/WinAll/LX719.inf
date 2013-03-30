@@ -1,0 +1,65 @@
+;=============================================================== 
+; [LX719.INF] 
+; Revision 1.4   August-28-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX719.cat
+DriverVer=08/28/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM445B
+
+[DestinationDirs]
+DefaultDestDir=11
+LX719.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX719.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX719%=LX719.Install,Monitor\GSM445B
+
+[LG.NTamd64]
+%LX719%=LX719.Install,Monitor\GSM445B
+
+[LX719.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX719.AddReg,1280,DPMS
+CopyFiles=LX719.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX719.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX719.ICM"
+
+[LX719.CopyFiles]
+LX719.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX719="LG LX719"

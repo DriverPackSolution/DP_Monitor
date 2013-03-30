@@ -1,0 +1,73 @@
+;Fujitsu Technology Solutions L20T-2 LED
+.INF Ver. 1.1
+;Monitor INF file for Fujitsu Technology Solutions L20T-2 LED
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS%
+CatalogFile=FTSL20T-2 LED.cat
+DriverVer=03/19/2010, 1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07E3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-L20T-2 LED.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSL20T-2 LED.ICM=1
+
+[Manufacturer]
+%FTS%=FTS,NTAMD64
+
+[FTS]
+%FUS-L20T-2 LED%=FUS-L20T-2 LED.Install, Monitor\FUS07E3
+
+[FTS.NTAMD64]
+%FUS-L20T-2 LED%=FUS-L20T-2 LED.Install, Monitor\FUS07E3
+
+[FUS-L20T-2 LED.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-L20T-2 LED.AddReg, 1600, DPMS
+CopyFiles=FUS-L20T-2 LED.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-L20T-2 LED.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-82.0,59.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSL20T-2 LED.ICM"
+
+[FUS-L20T-2 LED.CopyFiles]
+FTSL20T-2 LED.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Technology Solutions L20T-2 LED"
+MonitorClassName="Monitor"
+FTS="Fujitsu Technology Solutions"
+FUS-L20T-2 LED="Fujitsu Technology Solutions L20T-2 LED"

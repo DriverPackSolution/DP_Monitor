@@ -1,0 +1,61 @@
+;=============================================================== 
+; IBM_E50.INF 03/27/2003 
+; Revision 1.2   March-27-2003
+; Copyright(c) IBM,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_E50.cat
+DriverVer=03/27/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM1976
+
+[DestinationDirs]
+DefaultDestDir = 11
+IBM_E50.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+IBM_E50.ICM=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_E50%=IBM_E50.Install,Monitor\IBM1976
+
+[IBM_E50.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_E50.AddReg,1024,DPMS
+CopyFiles=IBM_E50.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_E50.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"IBM_E50.ICM"
+
+[IBM_E50.CopyFiles]
+IBM_E50.ICM
+
+[Strings]
+DiskName="IBM Monitor installtion disk"
+IBM="IBM"
+IBM_E50="IBM 6518 E50"

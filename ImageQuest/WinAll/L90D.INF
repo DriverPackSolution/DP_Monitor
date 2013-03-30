@@ -1,0 +1,91 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; Monitor INF file for ImageQuest L90D
+;
+; Copyright 2003, ImageQuest Co., Ltd.
+;
+; This is a INF file for installing monitors for Windows.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%ImageQuest%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L90DA.CopyFiles=23
+L90DD.CopyFiles=23
+
+[SourceDisksNames]
+1=%InsDisk%,,
+
+[SourceDisksFiles]
+L90D.icm=1
+L90D.icm=1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%L90DA%=L90DA.Install, Monitor\IQT90DA
+%L90DD%=L90DD.Install, Monitor\IQT90DD
+
+[L90DA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L90DA.AddReg, 1280, DPMS
+CopyFiles=L90DA.CopyFiles
+
+[L90DD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L90DD.AddReg, 1280, DPMS
+CopyFiles=L90DD.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280, 1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[L90DA.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"L90D.icm"
+
+[L90DD.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"L90D.icm"
+
+[L90DA.CopyFiles]
+L90D.icm
+
+[L90DD.CopyFiles]
+L90D.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+MonitorClassName="Monitor"
+InsDisk="ImageQuest Monitor Installation Disk"
+ImageQuest="ImageQuest Co., Ltd."
+L90DA="ImageQuest L90D Analog"
+L90DD="ImageQuest L90D Digital"

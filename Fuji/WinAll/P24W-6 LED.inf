@@ -1,0 +1,122 @@
+;P24W-6 LED.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display P24W-6 LED
+;Copyright 2011 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=P24W-6 LED.cat
+DriverVer=08/08/2012,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS080E
+ExcludeFromSelect.nt=Monitor\FUS080F
+ExcludeFromSelect.nt=Monitor\FUS0810
+
+[DestinationDirs]
+DefaultDestDir=11
+P24W-6 LEDa.CopyFiles=23
+P24W-6 LEDd.CopyFiles=23
+P24W-6 LEDdp.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+P24W-6 LED.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%P24W-6a%=P24W-6 LEDa.Install, Monitor\FUS080E
+%P24W-6d%=P24W-6 LEDd.Install, Monitor\FUS080F
+%P24W-6dp%=P24W-6 LEDdp.Install, Monitor\FUS0810
+
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%P24W-6a%=P24W-6 LEDa.Install, Monitor\FUS080E
+%P24W-6d%=P24W-6 LEDd.Install, Monitor\FUS080F
+%P24W-6dp%=P24W-6 LEDdp.Install, Monitor\FUS0810
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[P24W-6 LEDa.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=P24W-6 LEDa.AddReg, 1920, DPMS
+CopyFiles=P24W-6 LEDa.CopyFiles
+
+[P24W-6 LEDd.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=P24W-6 LEDd.AddReg, 1920, DPMS
+CopyFiles=P24W-6 LEDd.CopyFiles
+
+[P24W-6 LEDdp.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=P24W-6 LEDdp.AddReg, 1920, DPMS
+CopyFiles=P24W-6 LEDdp.CopyFiles
+
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FTS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[P24W-6 LEDa.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"P24W-6 LED.icm"
+
+[P24W-6 LEDd.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"P24W-6 LED.icm"
+
+[P24W-6 LEDdp.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"P24W-6 LED.icm"
+
+;---------------------------------------------------------- 
+
+[P24W-6 LEDa.CopyFiles]
+P24W-6 LED.icm
+
+[P24W-6 LEDd.CopyFiles]
+P24W-6 LED.icm
+
+[P24W-6 LEDdp.CopyFiles]
+P24W-6 LED.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD P24W-6 LED"
+FTS.Mfg="Fujitsu Technology Solutions"	
+P24W-6a="Fujitsu P24W-6 LED (analog)"
+P24W-6d="Fujitsu P24W-6 LED (digital)"
+P24W-6dp="Fujitsu P24W-6 LED (DP)"
+

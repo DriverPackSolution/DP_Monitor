@@ -1,0 +1,96 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2006 Philips Electronics Co.
+; vista
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=190WV.cat
+DriverVer=12/15/2006,2.01.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHLC014
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+C014.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+190WV.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%C014%=C014.Install, Monitor\PHLC014
+[Philips.NTx86]
+%C014%=C014.Install, Monitor\PHLC014
+
+[Philips.NTia64]
+%C014%=C014.Install, Monitor\PHLC014
+
+[Philips.NTamd64]
+%C014%=C014.Install, Monitor\PHLC014
+
+; Install sections
+;-------------------------------------------------
+[C014.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C014.AddReg,1440,DPMS
+CopyFiles=C014.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[C014.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"190WV.icm"
+
+;-------------------------------------------------------------------
+[C014.CopyFiles]
+190WV.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+C014="Philips 190WV (19inch LCD WIDE MONITOR 190WV7)"  

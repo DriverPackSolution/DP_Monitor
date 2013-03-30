@@ -1,0 +1,66 @@
+;
+; ctxex950.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Mar 28, 2002
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=03/28/2002,1.0.0
+CatalogFile=ctxex950.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX5377
+
+[DestinationDirs]
+DefaultDestDir=11
+
+EX950F.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTX19.ICM=1
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%EX950F%=EX950F.Install,Monitor\CTX5377
+
+[EX950F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EX950F.AddReg, 1600, DPMS
+CopyFiles=EX950F.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EX950F.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX19.ICM"
+
+[EX950F.CopyFiles]
+CTX19.ICM
+
+[Strings]
+Disk="CTX CRT Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+EX950F="CTX EX950F"

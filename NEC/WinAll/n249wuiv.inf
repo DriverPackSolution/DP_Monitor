@@ -1,0 +1,100 @@
+; n249wuiv.inf
+; Setup information file for NEC MultiSync LCD2490WUXi Monitor
+;
+; Copyright 2006, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n249wuiv.cat
+DriverVer=11/13/2006, 2.06.1113.1612
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66CE
+ExcludeFromSelect.nt=Monitor\NEC66CF
+
+[DestinationDirs]
+LCD2490WUXi.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n249wuiv.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD2490WUXi-D%=LCD2490WUXi-D.Install, Monitor\NEC66CE
+%LCD2490WUXi-A%=LCD2490WUXi-A.Install, Monitor\NEC66CF
+
+[NECDS.ntamd64]
+%LCD2490WUXi-D%=LCD2490WUXi-D.Install.ntamd64, Monitor\NEC66CE
+%LCD2490WUXi-A%=LCD2490WUXi-A.Install.ntamd64, Monitor\NEC66CF
+
+; Install Sections
+;-------------------------------------------------
+[LCD2490WUXi-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2490WUXi-D.AddReg, 1600, DPMS
+CopyFiles=LCD2490WUXi.CopyFiles
+
+[LCD2490WUXi-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2490WUXi-A.AddReg, 1600, DPMS
+CopyFiles=LCD2490WUXi.CopyFiles
+
+[LCD2490WUXi-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2490WUXi-D.AddReg, 1600, DPMS
+CopyFiles=LCD2490WUXi.CopyFiles
+
+[LCD2490WUXi-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2490WUXi-A.AddReg, 1600, DPMS
+CopyFiles=LCD2490WUXi.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD2490WUXi-D.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"n249wuiv.icm"
+
+[LCD2490WUXi-A.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"n249wuiv.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD2490WUXi.CopyFiles]
+n249wuiv.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD2490WUXi-D="NEC MultiSync LCD2490WUXi(Digital)"
+LCD2490WUXi-A="NEC MultiSync LCD2490WUXi(Analog)"
+Disk1="NEC Monitor Installation Disk"

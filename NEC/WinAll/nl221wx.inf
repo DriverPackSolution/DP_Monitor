@@ -1,0 +1,68 @@
+; LCD221WX.inf
+; Setup information file for NEC LCD Monitor LCD221WX
+;
+; Copyright 2008, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL221WX.cat
+DriverVer=07/08/2008,1.06.1110.1729
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6758
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD221WX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL221WX.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD221WX%=LCD221WX.Install, Monitor\NEC6758
+
+[NECDS.ntamd64]
+%LCD221WX%=LCD221WX.Install.ntamd64,Monitor\NEC6758
+
+[LCD221WX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD221WX.AddReg, 1680, DPMS
+CopyFiles=LCD221WX.CopyFiles
+
+[LCD221WX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD221WX.AddReg, 1680, DPMS
+CopyFiles=LCD221WX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,1680,1050
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD221WX.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"NL221WX.icm"
+
+[LCD221WX.CopyFiles]
+NL221WX.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD221WX="NEC LCD221WX"

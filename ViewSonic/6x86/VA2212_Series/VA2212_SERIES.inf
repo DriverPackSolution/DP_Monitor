@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2212.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/01/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2212.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2212_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCBD2B
+
+[ViewSonic]   
+%VA2212%=VA2212.Install,Monitor\VSCBD2B  
+
+[ViewSonic.NTia64]   
+%VA2212%=VA2212.Install,Monitor\VSCBD2B
+
+[ViewSonic.NTamd64]   
+%VA2212%=VA2212.Install,Monitor\VSCBD2B 
+
+[VA2212.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2212.AddReg,1920,DPMS
+Copyfiles=VA2212.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2212.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA2212_SERIES.ICM"
+
+[VA2212.CopyFiles]                                       
+VA2212_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA2212 SERIES ViewSonic Wizard"
+VA2212="ViewSonic VA2212 SERIES"

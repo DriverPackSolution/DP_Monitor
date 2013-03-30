@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [N2200P.INF]
+;
+;      Revision 1.0   April-14-2005
+       LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=N2200P.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+N2200P.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LGN2200P.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%N2200P%=N2200P, Monitor\GSM55F3
+
+[LG.NTamd64]
+%N2200P%=N2200P, Monitor\GSM55F3
+
+;------------------------------------; .Install
+
+[N2200P] 
+AddReg=N2200P.AddReg,2048,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=N2200P.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[N2200P.AddReg] 
+HKR,"MODES\2048,1536",Mode1,,"30.0-124.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LGN2200P.ICM"
+
+;------------------------------------; .CopyFiles
+
+[N2200P.CopyFiles]  
+LGN2200P.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM55F3
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+N2200P="LG N2200P"

@@ -1,0 +1,69 @@
+;HM204D/DT.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor HM204D/DT 
+;Copyright 2002 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA% 
+CatalogFile=HM204.cat     
+DriverVer=12/09/2002,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM216A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+HM204D.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+HM204D.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%HM204D%=HM204D.Install, Monitor\IVM216A
+
+[HM204D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HM204D.AddReg, 2048, DPMS
+CopyFiles=HM204D.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HM204D.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-142,50-200,+,+"
+HKR,,ICMProfile,0,"HM204D.ICM"
+
+[HM204D.CopyFiles]
+HM204D.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA CRT Monitor Installation Disk"
+
+HM204D="IIYAMA HM204D/DT"

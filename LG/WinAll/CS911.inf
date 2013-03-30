@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [CS911.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=CS911.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+CS911.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+CS911.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%CS911%=CS911, Monitor\GSM4A4E
+
+[LG.NTamd64]
+%CS911%=CS911, Monitor\GSM4A4E
+
+;------------------------------------; .Install
+
+[CS911] 
+AddReg=CS911.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS911.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[CS911.AddReg] 
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CS911.ICM"
+
+;------------------------------------; .CopyFiles
+
+[CS911.CopyFiles]  
+CS911.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4A4E
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+CS911="LG CS911"

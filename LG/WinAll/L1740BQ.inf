@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1740BQ.INF] 
+; Revision 1.4  April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1740BQ.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM43E5
+
+[DestinationDirs]
+DefaultDestDir=11
+L1740BQ.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1740BQ.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1740BQ%=L1740BQ.Install,Monitor\GSM43E5
+
+[LG.NTamd64]
+%L1740BQ%=L1740BQ.Install,Monitor\GSM43E5
+
+[L1740BQ.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1740BQ.AddReg,1280,DPMS
+CopyFiles=L1740BQ.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1740BQ.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1740BQ.ICM"
+
+[L1740BQ.CopyFiles]
+L1740BQ.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1740BQ="LG L1740BQ"

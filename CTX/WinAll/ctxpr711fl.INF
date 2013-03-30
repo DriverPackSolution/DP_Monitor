@@ -1,0 +1,66 @@
+;
+; ctxpr711fl.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Mar 28 2002
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=03/28/2002,1.0.0
+CatalogFile=ctxpr711fl.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX5374
+
+[DestinationDirs]
+DefaultDestDir=11
+
+PR711FL.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTXpfs.ICM=1
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%PR711FL%=PR711FL.Install,Monitor\CTX5374
+
+[PR711FL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PR711FL.AddReg, 1600, DPMS
+CopyFiles=PR711FL.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PR711FL.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.ICM"
+
+[PR711FL.CopyFiles]
+CTXpfs.ICM
+
+[Strings]
+Disk="CTX CRT Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+PR711FL="CTX PR711FL"

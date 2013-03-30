@@ -1,0 +1,97 @@
+;-------------------------------------------
+; Copyright (c) 2007 Dell Corporation
+; Issue date -- 03/25/08
+; revision 1
+;This is a setupfile for E1909W
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E1909W.cat
+DriverVer=03/25/2007,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+E1909W_Analog.copyfiles = 23
+E1909W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+E1909W.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%E1909W_Analog%=E1909W_Analog.Install, Monitor\DELF00D
+%E1909W_Digital%=E1909W_Digital.Install, Monitor\DELF00E
+
+[DELL.NTx86]
+%E1909W_Analog%=E1909W_Analog.Install, Monitor\DELF00D
+%E1909W_Digital%=E1909W_Digital.Install, Monitor\DELF00E
+
+[DELL.NTAMD64]
+%E1909W_Analog%=E1909W_Analog.Install, Monitor\DELF00D
+%E1909W_Digital%=E1909W_Digital.Install, Monitor\DELF00E
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DELF00D
+ExcludeFromSelect.NT=Monitor\DELF00E
+
+[E1909W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E1909W_Analog.AddReg, 1440, DPMS
+CopyFiles=E1909W_Analog.CopyFiles
+
+[E1909W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E1909W_Digital.AddReg, 1440, DPMS
+CopyFiles=E1909W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E1909W_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"E1909W.icm"
+
+[E1909W_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"E1909W.icm"
+
+
+[E1909W_Analog.CopyFiles]
+E1909W.ICM
+
+[E1909W_Digital.CopyFiles]
+E1909W.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+
+E1909W_Analog="Dell E1909W(Analog)"
+E1909W_Digital="Dell E1909W(Digital)"
+

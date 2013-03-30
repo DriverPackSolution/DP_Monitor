@@ -1,0 +1,1181 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/05/2006, 1.4.0.33
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS21388-1.CopyFiles=23
+VLCDS21389-1.CopyFiles=23
+VLCDS21407-1.CopyFiles=23
+VLCDS21391-2.CopyFiles=23
+VLCDS21434-1.CopyFiles=23
+VLCDS21391-5.CopyFiles=23
+VLCDS21457-1.CopyFiles=23
+VLCDS21457-2.CopyFiles=23
+VLCDS21458-1V.CopyFiles=23
+VLCDS21463-2.CopyFiles=23
+VSLCD101-1.CopyFiles=23
+VLCDS21538-1.CopyFiles=23
+VLCDS21553-1.CopyFiles=23
+VLCDS21587-1.CopyFiles=23
+VLCDS21561-3.CopyFiles=23
+VLCDS21553-1b.CopyFiles=23
+VLCDS21588-1.CopyFiles=23
+VLCDS21587-2.CopyFiles=23
+VLCDS21457-3.CopyFiles=23
+VLCDS22574-1.CopyFiles=23
+VLCDS22825-1.CopyFiles=23
+VLCDS22574-1R.CopyFiles=23
+VLCDS22825-2.CopyFiles=23
+VLCDS21587-3.CopyFiles=23
+VLCDS22574-1b.CopyFiles=23
+VLCDS23587-1M2.CopyFiles=23
+VLCDS23718-1W.CopyFiles=23
+VLCDS23585-2W.CopyFiles=23
+VLCDS23585-1W.CopyFiles=23
+VLCDS23722-1W.CopyFiles=23
+VLCDS23897-1W.CopyFiles=23
+VLCDS23585-3W.CopyFiles=23
+VLCDS23587-2W.CopyFiles=23
+VLCDS23587-3W.CopyFiles=23
+VLCDS23587-4W.CopyFiles=23
+VLCDS24349-1W.CopyFiles=23
+VSACC24670-1.CopyFiles=23
+VLCDS23897-3W.CopyFiles=23
+VLCDS23722-4W.CopyFiles=23
+VLCDS23722-5W.CopyFiles=23
+VSATV26324-1W.CopyFiles=23
+VLCDS23722-3.CopyFiles=23
+VLCDS23897-2W.CopyFiles=23
+VLCDS23585-2.CopyFiles=23
+VLCDS24349-2W.CopyFiles=23
+VLCDS27955-4W.CopyFiles=23
+VLCDS27955-3W.CopyFiles=23
+VLCDS27955-1W.CopyFiles=23
+VLCDS27955-2W.CopyFiles=23
+VA521.CopyFiles=23
+VX510.CopyFiles=23
+VE510b.CopyFiles=23
+VE510b-2.CopyFiles=23
+VE510s.CopyFiles=23
+VE510s-2.CopyFiles=23
+VA511.CopyFiles=23
+VE510.CopyFiles=23
+Q5.CopyFiles=23
+VA501b.CopyFiles=23
+VA503_Series.CopyFiles=23
+Q5b-2.CopyFiles=23
+VA502mb.CopyFiles=23
+VA503-2_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VPA145.ICM=1
+VPA138.ICM=1
+VPA150.ICM=1
+VPA150-2.ICM=1
+VP150.ICM=1
+VPD150.ICM=1
+VG150.ICM=1
+VG150b.ICM=1
+VE151.ICM=1
+VP140-2.ICM=1
+VP151.ICM=1
+VP140.ICM=1
+VE150.ICM=1
+VG151.ICM=1
+VP140-3.ICM=1
+VE150B.ICM=1
+VP150m.ICM=1
+VG151-2.ICM=1
+VA550.ICM=1
+VE150m.ICM=1
+VX500.ICM=1
+VA500.ICM=1
+VX500T.ICM=1
+VG151b.ICM=1
+VE150mb.ICM=1
+VA520.ICM=1
+VG500.ICM=1
+VA520-2.ICM=1
+VE155.ICM=1
+VE500.ICM=1
+VX500_p.ICM=1
+VE155b.ICM=1
+VE510_p.ICM=1
+VG150m.ICM=1
+VG150mb.ICM=1
+VG500b.ICM=1
+airpanel_V150.ICM=1
+VT550.ICM=1
+VG150m-2.ICM=1
+VG150mb-2.ICM=1
+N1500TV.ICM=1
+VA520-3.ICM=1
+VE500-2.ICM=1
+VX500-2.ICM=1
+VG500-2.ICM=1
+VG512s.ICM=1
+VG511s.ICM=1
+VG510s.ICM=1
+VG510b.ICM=1
+VA521.ICM=1
+VX510.ICM=1
+VE510b.ICM=1
+VE510b-2.ICM=1
+VE510s.ICM=1
+VE510s-2.ICM=1
+VA511.ICM=1
+VE510_SERIES.ICM=1
+Q5_SERIES.ICM=1
+VA501b.ICM=1
+VA503_Series.ICM=1
+Q5b-2.ICM=1
+VA502mb.ICM=1
+VA503-2_Series.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]  
+%VSLCD101-1%=VSLCD101-1.Install,Monitor\VSC3541  	        ;VP140
+%VLCDS21388-1%=VLCDS21388-1.Install,Monitor\VSC3941             ;VPA145
+%VLCDS21389-1%=VLCDS21389-1.Install,Monitor\VSC4141             ;VPA138
+%VLCDS21407-1%=VLCDS21407-1.Install,Monitor\VSC4345             ;VPA150
+%VLCDS21434-1%=VLCDS21434-1.Install,Monitor\VSC3845             ;VP150
+%VLCDS21391-5%=VLCDS21391-5.Install,Monitor\VSC4B47             ;VPD150
+%VLCDS21391-2%=VLCDS21391-2.Install,Monitor\VSC4B45             ;VPA150-2
+%VLCDS21457-1%=VLCDS21457-1.Install,Monitor\VSC5147             ;VG150
+%VLCDS21457-2%=VLCDS21457-2.Install,Monitor\VSC5149             ;VG150b
+%VLCDS21458-1V%=VLCDS21458-1V.Install,Monitor\VSC5345           ;VE151
+%VLCDS21463-2%=VLCDS21463-2.Install,Monitor\VSC4841             ;VP140-2
+%VLCDS21538-1%=VLCDS21538-1.Install,Monitor\VSC5945             ;VP151
+%VLCDS21553-1%=VLCDS21553-1.Install,Monitor\VSC5547             ;VE150
+%VLCDS21587-1%=VLCDS21587-1.Install,Monitor\VSC7E15             ;VG151
+%VLCDS21561-3%=VLCDS21561-3.Install,Monitor\VSC7D15             ;VP140-3
+%VLCDS21553-1b%=VLCDS21553-1b.Install,Monitor\VSC8115           ;VE150B
+%VLCDS21588-1%=VLCDS21588-1.Install,Monitor\VSC8215             ;VP150m
+%VLCDS21587-2%=VLCDS21587-2.Install,Monitor\VSCFB02             ;VG151-2
+%VLCDS21457-3%=VLCDS21457-3.Install,Monitor\VSCFA02             ;VA550
+%VLCDS22574-1%=VLCDS22574-1.Install,Monitor\VSCC203             ;VE150m
+%VLCDS22825-1%=VLCDS22825-1.Install,Monitor\VSCBD04             ;VX500
+%VLCDS22574-1R%=VLCDS22574-1R.Install,Monitor\VSCF605           ;VA500
+%VLCDS22825-2%=VLCDS22825-2.Install,Monitor\VSC2506             ;VX500T
+%VLCDS21587-3%=VLCDS21587-3.Install,Monitor\VSCDA06             ;VG151b
+%VLCDS22574-1b%=VLCDS22574-1b.Install,Monitor\VSCED05           ;VE150mb
+%VLCDS23587-1M2%=VLCDS23587-1M2.Install,Monitor\VSCBA07         ;VA520
+%VLCDS23718-1W%=VLCDS23718-1W.Install,Monitor\VSC3D08          ;VG500
+%VLCDS23585-2W%=VLCDS23585-2W.Install,Monitor\VSC6A01          ;VA520-2
+%VLCDS23585-1W%=VLCDS23585-1W.Install,Monitor\VSCB807          ;VE155
+%VLCDS23722-1W%=VLCDS23722-1W.Install,Monitor\VSC4108          ;VE500
+%VLCDS23897-1W%=VLCDS23897-1W.Install,Monitor\VSCF008          ;VX500+
+%VLCDS23585-3W%=VLCDS23585-3W.Install,Monitor\VSC260A          ;VE155b
+%VLCDS23587-2W%=VLCDS23587-2W.Install,Monitor\VSC6500          ;VE510+
+%VLCDS23587-3W%=VLCDS23587-3W.Install,Monitor\VSCFC09          ;VG150m
+%VLCDS23587-4W%=VLCDS23587-4W.Install,Monitor\VSCFD09          ;VG150mb
+%VLCDS24349-1W%=VLCDS24349-1W.Install,Monitor\VSCB40A          ;VG500b
+%VSACC24670-1%=VSACC24670-1.Install,Monitor\VSCF50B         ;airpanel_V150
+%VLCDS23897-3W%=VLCDS23897-3W.Install,Monitor\VSCB711           ;VT550
+%VLCDS23722-4W%=VLCDS23722-4W.Install,Monitor\VSC4811           ;VG150m-2
+%VLCDS23722-5W%=VLCDS23722-5W.Install,Monitor\VSC4911           ;VG150mb-2
+%VSATV26324-1W%=VSATV26324-1W.Install,Monitor\VSC6B12           ;N1500TV
+%VLCDS23722-3%=VLCDS23722-3.Install,Monitor\VSCF70C         ;VA520-3
+%VLCDS23585-2%=VLCDS23585-2.Install,Monitor\VSCBC17             ;VE500-2
+%VLCDS23897-2W%=VLCDS23897-2W.Install,Monitor\VSCCB0F           ;VX500-2
+%VLCDS24349-2W%=VLCDS24349-2W.Install,Monitor\VSCF118           ;VG500-2
+%VLCDS27955-4W%=VLCDS27955-4W.Install,Monitor\VSCEF18           ;VG512s
+%VLCDS27955-3W%=VLCDS27955-3W.Install,Monitor\VSCEE18           ;VG511s
+%VLCDS27955-1W%=VLCDS27955-1W.Install,Monitor\VSCCA18           ;VG510s
+%VLCDS27955-2W%=VLCDS27955-2W.Install,Monitor\VSCCB18           ;VG510b
+%VA521%=VA521.Install,Monitor\VSCF318
+%VX510%=VX510.Install,Monitor\VSC6419   
+%VE510b%=VE510b.Install,Monitor\VSC3319         
+%VE510b-2%=VE510b-2.Install,Monitor\VSCAE19    
+%VE510s%=VE510s.Install,Monitor\VSC3219  
+%VE510s-2%=VE510s-2.Install,Monitor\VSCAD19
+%VA511%=VA511.Install,Monitor\VSCEC1B
+%VE510%=VE510.Install,Monitor\VSC411C
+%Q5%=Q5.Install,Monitor\VSC451C
+%VA501b%=VA501b.Install,Monitor\VSCB91D
+%VA503_Series%=VA503_Series.Install,Monitor\VSCEF1D
+%Q5b-2%=Q5b-2.Install,Monitor\VSC261E
+%VA502mb%=VA502mb.Install,Monitor\VSC5C1E
+%VA503-2_Series%=VA503-2_Series.Install,Monitor\VSC611E
+
+[ViewSonic.NTia64]  
+%VSLCD101-1%=VSLCD101-1.Install,Monitor\VSC3541  	        ;VP140
+%VLCDS21388-1%=VLCDS21388-1.Install,Monitor\VSC3941             ;VPA145
+%VLCDS21389-1%=VLCDS21389-1.Install,Monitor\VSC4141             ;VPA138
+%VLCDS21407-1%=VLCDS21407-1.Install,Monitor\VSC4345             ;VPA150
+%VLCDS21434-1%=VLCDS21434-1.Install,Monitor\VSC3845             ;VP150
+%VLCDS21391-5%=VLCDS21391-5.Install,Monitor\VSC4B47             ;VPD150
+%VLCDS21391-2%=VLCDS21391-2.Install,Monitor\VSC4B45             ;VPA150-2
+%VLCDS21457-1%=VLCDS21457-1.Install,Monitor\VSC5147             ;VG150
+%VLCDS21457-2%=VLCDS21457-2.Install,Monitor\VSC5149             ;VG150b
+%VLCDS21458-1V%=VLCDS21458-1V.Install,Monitor\VSC5345           ;VE151
+%VLCDS21463-2%=VLCDS21463-2.Install,Monitor\VSC4841             ;VP140-2
+%VLCDS21538-1%=VLCDS21538-1.Install,Monitor\VSC5945             ;VP151
+%VLCDS21553-1%=VLCDS21553-1.Install,Monitor\VSC5547             ;VE150
+%VLCDS21587-1%=VLCDS21587-1.Install,Monitor\VSC7E15             ;VG151
+%VLCDS21561-3%=VLCDS21561-3.Install,Monitor\VSC7D15             ;VP140-3
+%VLCDS21553-1b%=VLCDS21553-1b.Install,Monitor\VSC8115           ;VE150B
+%VLCDS21588-1%=VLCDS21588-1.Install,Monitor\VSC8215             ;VP150m
+%VLCDS21587-2%=VLCDS21587-2.Install,Monitor\VSCFB02             ;VG151-2
+%VLCDS21457-3%=VLCDS21457-3.Install,Monitor\VSCFA02             ;VA550
+%VLCDS22574-1%=VLCDS22574-1.Install,Monitor\VSCC203             ;VE150m
+%VLCDS22825-1%=VLCDS22825-1.Install,Monitor\VSCBD04             ;VX500
+%VLCDS22574-1R%=VLCDS22574-1R.Install,Monitor\VSCF605           ;VA500
+%VLCDS22825-2%=VLCDS22825-2.Install,Monitor\VSC2506             ;VX500T
+%VLCDS21587-3%=VLCDS21587-3.Install,Monitor\VSCDA06             ;VG151b
+%VLCDS22574-1b%=VLCDS22574-1b.Install,Monitor\VSCED05           ;VE150mb
+%VLCDS23587-1M2%=VLCDS23587-1M2.Install,Monitor\VSCBA07         ;VA520
+%VLCDS23718-1W%=VLCDS23718-1W.Install,Monitor\VSC3D08          ;VG500
+%VLCDS23585-2W%=VLCDS23585-2W.Install,Monitor\VSC6A01          ;VA520-2
+%VLCDS23585-1W%=VLCDS23585-1W.Install,Monitor\VSCB807          ;VE155
+%VLCDS23722-1W%=VLCDS23722-1W.Install,Monitor\VSC4108          ;VE500
+%VLCDS23897-1W%=VLCDS23897-1W.Install,Monitor\VSCF008          ;VX500+
+%VLCDS23585-3W%=VLCDS23585-3W.Install,Monitor\VSC260A          ;VE155b
+%VLCDS23587-2W%=VLCDS23587-2W.Install,Monitor\VSC6500          ;VE510+
+%VLCDS23587-3W%=VLCDS23587-3W.Install,Monitor\VSCFC09          ;VG150m
+%VLCDS23587-4W%=VLCDS23587-4W.Install,Monitor\VSCFD09          ;VG150mb
+%VLCDS24349-1W%=VLCDS24349-1W.Install,Monitor\VSCB40A          ;VG500b
+%VSACC24670-1%=VSACC24670-1.Install,Monitor\VSCF50B         ;airpanel_V150
+%VLCDS23897-3W%=VLCDS23897-3W.Install,Monitor\VSCB711           ;VT550
+%VLCDS23722-4W%=VLCDS23722-4W.Install,Monitor\VSC4811           ;VG150m-2
+%VLCDS23722-5W%=VLCDS23722-5W.Install,Monitor\VSC4911           ;VG150mb-2
+%VSATV26324-1W%=VSATV26324-1W.Install,Monitor\VSC6B12           ;N1500TV
+%VLCDS23722-3%=VLCDS23722-3.Install,Monitor\VSCF70C         ;VA520-3
+%VLCDS23585-2%=VLCDS23585-2.Install,Monitor\VSCBC17             ;VE500-2
+%VLCDS23897-2W%=VLCDS23897-2W.Install,Monitor\VSCCB0F           ;VX500-2
+%VLCDS24349-2W%=VLCDS24349-2W.Install,Monitor\VSCF118           ;VG500-2
+%VLCDS27955-4W%=VLCDS27955-4W.Install,Monitor\VSCEF18           ;VG512s
+%VLCDS27955-3W%=VLCDS27955-3W.Install,Monitor\VSCEE18           ;VG511s
+%VLCDS27955-1W%=VLCDS27955-1W.Install,Monitor\VSCCA18           ;VG510s
+%VLCDS27955-2W%=VLCDS27955-2W.Install,Monitor\VSCCB18           ;VG510b
+%VA521%=VA521.Install,Monitor\VSCF318
+%VX510%=VX510.Install,Monitor\VSC6419   
+%VE510b%=VE510b.Install,Monitor\VSC3319         
+%VE510b-2%=VE510b-2.Install,Monitor\VSCAE19    
+%VE510s%=VE510s.Install,Monitor\VSC3219  
+%VE510s-2%=VE510s-2.Install,Monitor\VSCAD19
+%VA511%=VA511.Install,Monitor\VSCEC1B
+%VE510%=VE510.Install,Monitor\VSC411C
+%Q5%=Q5.Install,Monitor\VSC451C
+%VA501b%=VA501b.Install,Monitor\VSCB91D
+%VA503_Series%=VA503_Series.Install,Monitor\VSCEF1D
+%Q5b-2%=Q5b-2.Install,Monitor\VSC261E
+%VA502mb%=VA502mb.Install,Monitor\VSC5C1E
+%VA503-2_Series%=VA503-2_Series.Install,Monitor\VSC611E
+
+[ViewSonic.NTamd64]  
+%VSLCD101-1%=VSLCD101-1.Install,Monitor\VSC3541  	        ;VP140
+%VLCDS21388-1%=VLCDS21388-1.Install,Monitor\VSC3941             ;VPA145
+%VLCDS21389-1%=VLCDS21389-1.Install,Monitor\VSC4141             ;VPA138
+%VLCDS21407-1%=VLCDS21407-1.Install,Monitor\VSC4345             ;VPA150
+%VLCDS21434-1%=VLCDS21434-1.Install,Monitor\VSC3845             ;VP150
+%VLCDS21391-5%=VLCDS21391-5.Install,Monitor\VSC4B47             ;VPD150
+%VLCDS21391-2%=VLCDS21391-2.Install,Monitor\VSC4B45             ;VPA150-2
+%VLCDS21457-1%=VLCDS21457-1.Install,Monitor\VSC5147             ;VG150
+%VLCDS21457-2%=VLCDS21457-2.Install,Monitor\VSC5149             ;VG150b
+%VLCDS21458-1V%=VLCDS21458-1V.Install,Monitor\VSC5345           ;VE151
+%VLCDS21463-2%=VLCDS21463-2.Install,Monitor\VSC4841             ;VP140-2
+%VLCDS21538-1%=VLCDS21538-1.Install,Monitor\VSC5945             ;VP151
+%VLCDS21553-1%=VLCDS21553-1.Install,Monitor\VSC5547             ;VE150
+%VLCDS21587-1%=VLCDS21587-1.Install,Monitor\VSC7E15             ;VG151
+%VLCDS21561-3%=VLCDS21561-3.Install,Monitor\VSC7D15             ;VP140-3
+%VLCDS21553-1b%=VLCDS21553-1b.Install,Monitor\VSC8115           ;VE150B
+%VLCDS21588-1%=VLCDS21588-1.Install,Monitor\VSC8215             ;VP150m
+%VLCDS21587-2%=VLCDS21587-2.Install,Monitor\VSCFB02             ;VG151-2
+%VLCDS21457-3%=VLCDS21457-3.Install,Monitor\VSCFA02             ;VA550
+%VLCDS22574-1%=VLCDS22574-1.Install,Monitor\VSCC203             ;VE150m
+%VLCDS22825-1%=VLCDS22825-1.Install,Monitor\VSCBD04             ;VX500
+%VLCDS22574-1R%=VLCDS22574-1R.Install,Monitor\VSCF605           ;VA500
+%VLCDS22825-2%=VLCDS22825-2.Install,Monitor\VSC2506             ;VX500T
+%VLCDS21587-3%=VLCDS21587-3.Install,Monitor\VSCDA06             ;VG151b
+%VLCDS22574-1b%=VLCDS22574-1b.Install,Monitor\VSCED05           ;VE150mb
+%VLCDS23587-1M2%=VLCDS23587-1M2.Install,Monitor\VSCBA07         ;VA520
+%VLCDS23718-1W%=VLCDS23718-1W.Install,Monitor\VSC3D08          ;VG500
+%VLCDS23585-2W%=VLCDS23585-2W.Install,Monitor\VSC6A01          ;VA520-2
+%VLCDS23585-1W%=VLCDS23585-1W.Install,Monitor\VSCB807          ;VE155
+%VLCDS23722-1W%=VLCDS23722-1W.Install,Monitor\VSC4108          ;VE500
+%VLCDS23897-1W%=VLCDS23897-1W.Install,Monitor\VSCF008          ;VX500+
+%VLCDS23585-3W%=VLCDS23585-3W.Install,Monitor\VSC260A          ;VE155b
+%VLCDS23587-2W%=VLCDS23587-2W.Install,Monitor\VSC6500          ;VE510+
+%VLCDS23587-3W%=VLCDS23587-3W.Install,Monitor\VSCFC09          ;VG150m
+%VLCDS23587-4W%=VLCDS23587-4W.Install,Monitor\VSCFD09          ;VG150mb
+%VLCDS24349-1W%=VLCDS24349-1W.Install,Monitor\VSCB40A          ;VG500b
+%VSACC24670-1%=VSACC24670-1.Install,Monitor\VSCF50B         ;airpanel_V150
+%VLCDS23897-3W%=VLCDS23897-3W.Install,Monitor\VSCB711           ;VT550
+%VLCDS23722-4W%=VLCDS23722-4W.Install,Monitor\VSC4811           ;VG150m-2
+%VLCDS23722-5W%=VLCDS23722-5W.Install,Monitor\VSC4911           ;VG150mb-2
+%VSATV26324-1W%=VSATV26324-1W.Install,Monitor\VSC6B12           ;N1500TV
+%VLCDS23722-3%=VLCDS23722-3.Install,Monitor\VSCF70C         ;VA520-3
+%VLCDS23585-2%=VLCDS23585-2.Install,Monitor\VSCBC17             ;VE500-2
+%VLCDS23897-2W%=VLCDS23897-2W.Install,Monitor\VSCCB0F           ;VX500-2
+%VLCDS24349-2W%=VLCDS24349-2W.Install,Monitor\VSCF118           ;VG500-2
+%VLCDS27955-4W%=VLCDS27955-4W.Install,Monitor\VSCEF18           ;VG512s
+%VLCDS27955-3W%=VLCDS27955-3W.Install,Monitor\VSCEE18           ;VG511s
+%VLCDS27955-1W%=VLCDS27955-1W.Install,Monitor\VSCCA18           ;VG510s
+%VLCDS27955-2W%=VLCDS27955-2W.Install,Monitor\VSCCB18           ;VG510b
+%VA521%=VA521.Install,Monitor\VSCF318
+%VX510%=VX510.Install,Monitor\VSC6419   
+%VE510b%=VE510b.Install,Monitor\VSC3319         
+%VE510b-2%=VE510b-2.Install,Monitor\VSCAE19    
+%VE510s%=VE510s.Install,Monitor\VSC3219  
+%VE510s-2%=VE510s-2.Install,Monitor\VSCAD19
+%VA511%=VA511.Install,Monitor\VSCEC1B
+%VE510%=VE510.Install,Monitor\VSC411C
+%Q5%=Q5.Install,Monitor\VSC451C
+%VA501b%=VA501b.Install,Monitor\VSCB91D
+%VA503_Series%=VA503_Series.Install,Monitor\VSCEF1D
+%Q5b-2%=Q5b-2.Install,Monitor\VSC261E
+%VA502mb%=VA502mb.Install,Monitor\VSC5C1E
+%VA503-2_Series%=VA503-2_Series.Install,Monitor\VSC611E
+
+[VSLCD101-1.Install]                                            ;VP140
+DelReg=DEL_CURRENT_REG
+AddReg=VSLCD101-1.AddReg,1024,DPMS
+Copyfiles=VSLCD101-1.CopyFiles
+
+[VLCDS21388-1.Install]                                          ;VPA145
+DelReg=DEL_CURRENT_REG 	
+AddReg=VLCDS21388-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21388-1.CopyFiles
+
+[VLCDS21389-1.Install]                                          ;VPA138
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21389-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21389-1.CopyFiles
+
+[VLCDS21407-1.Install]                                          ;VPA150
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21407-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21407-1.CopyFiles
+
+[VLCDS21391-2.Install]                                          ;VPA150-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21391-2.AddReg,1024,DPMS
+Copyfiles=VLCDS21391-2.CopyFiles
+
+[VLCDS21434-1.Install]                                          ;VP150
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21434-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21434-1.CopyFiles
+
+[VLCDS21391-5.Install]                                          ;VPD150
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21391-5.AddReg,1024,DPMS 
+Copyfiles=VLCDS21391-5.CopyFiles
+
+[VLCDS21457-1.Install]                                          ;VG150
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21457-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21457-1.CopyFiles
+
+[VLCDS21457-2.Install]                                          ;VG150b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21457-2.AddReg,1024,DPMS
+Copyfiles=VLCDS21457-2.CopyFiles
+
+[VLCDS21458-1V.Install]                                         ;VE151
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21458-1V.AddReg,1024,DPMS
+Copyfiles=VLCDS21458-1V.CopyFiles
+
+[VLCDS21463-2.Install]                                          ;VP140-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21463-2.AddReg,1024,DPMS
+Copyfiles=VLCDS21463-2.CopyFiles
+
+[VLCDS21538-1.Install]                                          ;VP151
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21538-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21538-1.CopyFiles
+
+[VLCDS21553-1.Install]                                          ;VE150
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21553-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21553-1.CopyFiles
+
+[VLCDS21587-1.Install]                                          ;VG151
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21587-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21587-1.CopyFiles
+
+[VLCDS21561-3.Install]                                          ;VP140-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21561-3.AddReg,1024,DPMS
+Copyfiles=VLCDS21561-3.CopyFiles
+
+[VLCDS21553-1b.Install]                                         ;VE150B
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21553-1b.AddReg,1024,DPMS
+Copyfiles=VLCDS21553-1b.CopyFiles
+
+[VLCDS21588-1.Install]                                          ;VP150m
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21588-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21588-1.CopyFiles
+
+[VLCDS21587-2.Install]                                          ;VG151-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21587-2.AddReg,1024,DPMS
+Copyfiles=VLCDS21587-2.CopyFiles
+
+[VLCDS21457-3.Install]                                          ;VA550
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21457-3.AddReg,1024,DPMS
+Copyfiles=VLCDS21457-3.CopyFiles
+
+[VLCDS22574-1.Install]                                          ;VE150m
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS22574-1.AddReg,1024,DPMS
+Copyfiles=VLCDS22574-1.CopyFiles
+
+[VLCDS22825-1.Install]                                          ;VX500
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS22825-1.AddReg,1024,DPMS
+Copyfiles=VLCDS22825-1.CopyFiles
+
+[VLCDS22574-1R.Install]                                         ;VA500
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS22574-1R.AddReg,1024,DPMS
+Copyfiles=VLCDS22574-1R.CopyFiles
+
+[VLCDS22825-2.Install]                                          ;VX500T
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS22825-2.AddReg,1024,DPMS
+Copyfiles=VLCDS22825-2.CopyFiles
+
+[VLCDS21587-3.Install]                                          ;VG151b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21587-3.AddReg,1024,DPMS
+Copyfiles=VLCDS21587-3.CopyFiles
+
+[VLCDS22574-1b.Install]                                         ;VE150mb
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS22574-1b.AddReg,1024,DPMS
+Copyfiles=VLCDS22574-1b.CopyFiles
+
+[VLCDS23587-1M2.Install]                                          ;VA520
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23587-1M2.AddReg,1024,DPMS
+Copyfiles=VLCDS23587-1M2.CopyFiles
+
+[VLCDS23718-1W.Install]                                          ;VG500
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23718-1W.AddReg,1024,DPMS
+Copyfiles=VLCDS23718-1W.CopyFiles
+
+[VLCDS23585-2W.Install]                                          ;VA520-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23585-2W.AddReg,1024,DPMS
+Copyfiles=VLCDS23585-2W.CopyFiles
+
+[VLCDS23585-1W.Install]                                          ;VE155
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23585-1W.AddReg,1024,DPMS
+Copyfiles=VLCDS23585-1W.CopyFiles
+
+[VLCDS23722-1W.Install]                                          ;VE500
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23722-1W.AddReg,1024,DPMS
+Copyfiles=VLCDS23722-1W.CopyFiles
+
+[VLCDS23897-1W.Install]                                          ;VX500+
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23897-1W.AddReg,1024,DPMS
+Copyfiles=VLCDS23897-1W.CopyFiles
+
+[VLCDS23585-3W.Install]                                          ;VE155b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23585-3W.AddReg,1024,DPMS
+Copyfiles=VLCDS23585-3W.CopyFiles
+
+[VLCDS23587-2W.Install]                                          ;VE510+
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23587-2W.AddReg,1024,DPMS
+Copyfiles=VLCDS23587-2W.CopyFiles
+
+[VLCDS23587-3W.Install]                                          ;VG150m
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23587-3W.AddReg,1024,DPMS
+Copyfiles=VLCDS23587-3W.CopyFiles
+
+[VLCDS23587-4W.Install]                                          ;VG150mb
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23587-4W.AddReg,1024,DPMS
+Copyfiles=VLCDS23587-4W.CopyFiles
+
+[VLCDS24349-1W.Install]                                          ;VG500b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS24349-1W.AddReg,1024,DPMS
+Copyfiles=VLCDS24349-1W.CopyFiles
+
+[VSACC24670-1.Install]                                      ;airpanel_V150
+DelReg=DEL_CURRENT_REG 
+AddReg=VSACC24670-1.AddReg,1024,DPMS
+Copyfiles=VSACC24670-1.CopyFiles
+
+[VLCDS23897-3W.Install]                                         ;VT550
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23897-3W.AddReg,1024,DPMS
+Copyfiles=VLCDS23897-3W.CopyFiles
+
+[VLCDS23722-4W.Install]                                         ;VG150m-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23722-4W.AddReg,1024,DPMS
+Copyfiles=VLCDS23722-4W.CopyFiles
+
+[VLCDS23722-5W.Install]                                         ;VG150mb-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23722-5W.AddReg,1024,DPMS
+Copyfiles=VLCDS23722-5W.CopyFiles
+
+[VSATV26324-1W.Install]                                         ;N1500TV
+DelReg=DEL_CURRENT_REG 
+AddReg=VSATV26324-1W.AddReg,1024,DPMS
+Copyfiles=VSATV26324-1W.CopyFiles
+
+[VLCDS23722-3.Install]                                      ;VA520-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23722-3.AddReg,1024,DPMS
+Copyfiles=VLCDS23722-3.CopyFiles
+
+[VLCDS23585-2.Install]                                          ;VE500-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23585-2.AddReg,1024,DPMS
+Copyfiles=VLCDS23585-2.CopyFiles
+
+[VLCDS23897-2W.Install]                                         ;VX500-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23897-2W.AddReg,1024,DPMS
+Copyfiles=VLCDS23897-2W.CopyFiles
+
+[VLCDS24349-2W.Install]                                         ;VG500-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS24349-2W.AddReg,1024,DPMS
+Copyfiles=VLCDS24349-2W.CopyFiles
+
+[VLCDS27955-4W.Install]                                         ;VG512s
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS27955-4W.AddReg,1024,DPMS
+Copyfiles=VLCDS27955-4W.CopyFiles
+
+[VLCDS27955-3W.Install]                                         ;VG511s
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS27955-3W.AddReg,1024,DPMS
+Copyfiles=VLCDS27955-3W.CopyFiles
+
+[VLCDS27955-1W.Install]                                         ;VG510s
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS27955-1W.AddReg,1024,DPMS
+Copyfiles=VLCDS27955-1W.CopyFiles
+
+[VLCDS27955-2W.Install]                                         ;VG510b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS27955-2W.AddReg,1024,DPMS
+Copyfiles=VLCDS27955-2W.CopyFiles
+
+[VA521.Install]
+DelReg=DEL_CURRENT_REG 
+AddReg=VA521.AddReg,1024,DPMS
+Copyfiles=VA521.CopyFiles
+
+[VX510.Install]                                        
+DelReg=DEL_CURRENT_REG 
+AddReg=VX510.AddReg,1024,DPMS
+Copyfiles=VX510.CopyFiles
+
+[VE510b.Install]                                         
+DelReg=DEL_CURRENT_REG 
+AddReg=VE510b.AddReg,1024,DPMS
+Copyfiles=VE510b.CopyFiles
+
+[VE510b-2.Install]
+DelReg=DEL_CURRENT_REG 
+AddReg=VE510b-2.AddReg,1024,DPMS
+Copyfiles=VE510b-2.CopyFiles
+
+[VE510s.Install]  
+DelReg=DEL_CURRENT_REG 
+AddReg=VE510s.AddReg,1024,DPMS
+Copyfiles=VE510s.CopyFiles
+
+[VE510s-2.Install]                                   
+DelReg=DEL_CURRENT_REG 
+AddReg=VE510s-2.AddReg,1024,DPMS
+Copyfiles=VE510s-2.CopyFiles
+
+[VA511.Install]     
+DelReg=DEL_CURRENT_REG 
+AddReg=VA511.AddReg,1024,DPMS
+Copyfiles=VA511.CopyFiles
+
+[VE510.Install]         
+DelReg=DEL_CURRENT_REG 
+AddReg=VE510.AddReg,1024,DPMS
+Copyfiles=VE510.CopyFiles
+
+[Q5.Install]         
+DelReg=DEL_CURRENT_REG 
+AddReg=Q5.AddReg,1024,DPMS
+Copyfiles=Q5.CopyFiles
+
+[VA501b.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA501b.AddReg,1024,DPMS
+Copyfiles=VA501b.CopyFiles
+
+[VA503_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA503_Series.AddReg,1024,DPMS
+Copyfiles=VA503_Series.CopyFiles
+
+[Q5b-2.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=Q5b-2.AddReg,1024,DPMS
+Copyfiles=Q5b-2.CopyFiles
+
+[VA502mb.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA502mb.AddReg,1024,DPMS
+Copyfiles=VA502mb.CopyFiles
+
+[VA503-2_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA503-2_Series.AddReg,1024,DPMS
+Copyfiles=VA503-2_Series.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VSLCD101-1.AddReg]						;VP140
+HKR,"MODES\1024,768",Mode1,,"30-61,50-77,-,-"
+HKR,,ICMProfile,0,"VP140.ICM"
+
+[VLCDS21388-1.AddReg]						;VPA145
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VPA145.ICM"
+
+[VLCDS21389-1.AddReg]						;VPA138
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VPA138.ICM"
+
+[VLCDS21407-1.AddReg]						;VPA150
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VPA150.ICM"
+
+[VLCDS21391-2.AddReg]                                           ;VPA150-2
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VPA150-2.ICM"
+
+[VLCDS21434-1.AddReg]                                           ;VP150
+HKR,"MODES\1024,768",Mode1,,"30-61,50-77,+,+"
+HKR,,ICMProfile,0,"VP150.ICM"
+
+[VLCDS21391-5.AddReg]                                           ;VPD150
+HKR,"MODES\1024,768",Mode1,,"48,60,+,+"
+HKR,,ICMProfile,0,"VPD150.ICM"
+
+[VLCDS21457-1.AddReg]                                           ;VG150
+HKR,"MODES\1024,768",Mode1,,"30-62,50-60,+,+"
+HKR,,ICMProfile,0,"VG150.ICM"
+
+[VLCDS21457-2.AddReg]                                           ;VG150b
+HKR,"MODES\1024,768",Mode1,,"30-62,50-60,+,+"
+HKR,,ICMProfile,0,"VG150b.ICM"
+
+[VLCDS21458-1V.AddReg]                                          ;VE151
+HKR,"MODES\1024,768",Mode1,,"31-61,56-75,+,+"
+HKR,,ICMProfile,0,"VE151.ICM"
+
+[VLCDS21463-2.AddReg]                                           ;VP140-2
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,+,+"
+HKR,,ICMProfile,0,"VP140-2.ICM"
+
+[VLCDS21538-1.AddReg]                                           ;VP151
+HKR,"MODES\1024,768",Mode1,,"30-94,50-85,+,+"
+HKR,,ICMProfile,0,"VP151.ICM"
+
+[VLCDS21553-1.AddReg]                                           ;VE150
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,+,+"
+HKR,,ICMProfile,0,"VE150.ICM"
+
+[VLCDS21587-1.AddReg]                                           ;VG151
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VG151.ICM"
+
+[VLCDS21561-3.AddReg]                                           ;VP140-3
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VP140-3.ICM"
+
+[VLCDS21553-1b.AddReg]                                          ;VE150B
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,+,+"
+HKR,,ICMProfile,0,"VE150B.ICM"
+
+[VLCDS21588-1.AddReg]                                           ;VP150m
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VP150m.ICM"
+
+[VLCDS21587-2.AddReg]                                           ;VG151-2
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VG151-2.ICM"
+
+[VLCDS21457-3.AddReg]                                           ;VA550
+HKR,"MODES\1024,768",Mode1,,"30-62,50-60,+,+"
+HKR,,ICMProfile,0,"VA550.ICM"
+
+[VLCDS22574-1.AddReg]                                           ;VE150m
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,+,+"
+HKR,,ICMProfile,0,"VE150m.ICM"
+
+[VLCDS22825-1.AddReg]                                           ;VX500
+HKR,"MODES\1024,768",Mode1,,"30-60,56-75,+,+"
+HKR,,ICMProfile,0,"VX500.ICM"
+
+[VLCDS22574-1R.AddReg]                                          ;VA500
+HKR,"MODES\1024,768",Mode1,,"30-62,50-60,+,+"
+HKR,,ICMProfile,0,"VA500.ICM"
+
+[VLCDS22825-2.AddReg]                                           ;VX500T
+HKR,"MODES\1024,768",Mode1,,"30-60,56-75,-,-"
+HKR,,ICMProfile,0,"VX500T.ICM"
+
+[VLCDS21587-3.AddReg]                                           ;VG151b
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,+,+"
+HKR,,ICMProfile,0,"VG151b.ICM"
+
+[VLCDS22574-1b.AddReg]                                          ;VE150mb
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,+,+"
+HKR,,ICMProfile,0,"VE150mb.ICM"
+
+[VLCDS23587-1M2.AddReg]                                       ;VA520
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VA520.ICM"
+
+[VLCDS23718-1W.AddReg]                                       ;VG500
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG500.ICM"
+
+[VLCDS23585-2W.AddReg]                                       ;VA520-2
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VA520-2.ICM"
+
+[VLCDS23585-1W.AddReg]                                       ;VE155
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE155.ICM"
+
+[VLCDS23722-1W.AddReg]                                       ;VE500
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE500.ICM"
+
+[VLCDS23897-1W.AddReg]                                       ;VX500+
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VX500_p.ICM"
+
+[VLCDS23585-3W.AddReg]                                       ;VE155b
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE155b.ICM"
+
+[VLCDS23587-2W.AddReg]                                       ;VE510+
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE510_p.ICM"
+
+[VLCDS23587-3W.AddReg]                                       ;VG150m
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG150m.ICM"
+
+[VLCDS23587-4W.AddReg]                                       ;VG150mb
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG150mb.ICM"
+
+[VLCDS24349-1W.AddReg]                                       ;VG500b
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG500b.ICM"
+
+[VSACC24670-1.AddReg]                                       ;airpanel_V150
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"airpanel_V150.ICM"
+
+[VLCDS23897-3W.AddReg]                                           ;VT550
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VT550.ICM"
+
+[VLCDS23722-4W.AddReg]                                       ;VG150m-2
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG150m-2.ICM"
+
+[VLCDS23722-5W.AddReg]                                       ;VG150mb-2
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG150mb-2.ICM"
+
+[VSATV26324-1W.AddReg]                                          ;N1500TV
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,-,-"
+HKR,,ICMProfile,0,"N1500TV.ICM"
+
+[VLCDS23722-3.AddReg]                                       ;VA520-3
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VA520-3.ICM"
+
+[VLCDS23585-2.AddReg]                                         ;VE500-2
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE500-2.ICM"
+
+[VLCDS23897-2W.AddReg]                                          ;VX500-2
+HKR,"MODES\1024,768",Mode1,,"30-80,50-75,-,-"
+HKR,,ICMProfile,0,"VX500-2.ICM"
+
+[VLCDS24349-2W.AddReg]                                           ;VG500-2
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG500-2.ICM"
+
+[VLCDS27955-4W.AddReg]                                           ;VG512s
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG512s.ICM"
+
+[VLCDS27955-3W.AddReg]                                           ;VG511s
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG511s.ICM"
+
+[VLCDS27955-1W.AddReg]                                           ;VG510s
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG510s.ICM"
+
+[VLCDS27955-2W.AddReg]                                           ;VG510b
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VG510b.ICM"
+
+[VA521.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VA521.ICM"
+
+[VX510.AddReg]                                           
+HKR,"MODES\1024,768",Mode1,,"30-60,50-80,-,-"
+HKR,,ICMProfile,0,"VX510.ICM"
+
+[VE510b.AddReg]                                           
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE510b.ICM"
+
+[VE510b-2.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE510b-2.ICM"
+
+[VE510s.AddReg] 
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE510s.ICM"
+
+[VE510s-2.AddReg]                                        
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE510s-2.ICM"
+
+[VA511.AddReg]   
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VA511.ICM"
+
+[VE510.AddReg]           
+HKR,"MODES\1024,768",Mode1,,"30-62,50-75,-,-"
+HKR,,ICMProfile,0,"VE510_SERIES.ICM"
+
+[Q5.AddReg]     
+HKR,"MODES\1024,768",Mode1,,"30-62,56-75,-,-"
+HKR,,ICMProfile,0,"Q5_SERIES.ICM"
+
+[VA501b.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"30-62,55-75,-,-" 
+HKR,,ICMProfile,0,"VA501b.ICM"
+
+[VA503_Series.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,-,-" 
+HKR,,ICMProfile,0,"VA503_Series.ICM"
+
+[Q5b-2.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"31-60,55-75,-,-" 
+HKR,,ICMProfile,0,"Q5b-2.ICM"
+
+[VA502mb.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"30-60,55-75,-,-" 
+HKR,,ICMProfile,0,"VA502mb.ICM"
+
+[VA503-2_Series.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,-,-" 
+HKR,,ICMProfile,0,"VA503-2_Series.ICM"
+
+[VLCDS21388-1.CopyFiles]                                       
+VPA145.ICM
+
+[VLCDS21389-1.CopyFiles]                                       
+VPA138.ICM
+
+[VLCDS21407-1.CopyFiles]                                       
+VPA150.ICM
+
+[VLCDS21391-2.CopyFiles]                                       
+VPA150-2.ICM
+
+[VLCDS21434-1.CopyFiles]                                       
+VP150.ICM
+
+[VLCDS21391-5.CopyFiles]                                       
+VPD150.ICM
+
+[VLCDS21457-1.CopyFiles]                                       
+VG150.ICM
+
+[VLCDS21457-2.CopyFiles]                                       
+VG150b.ICM
+
+[VLCDS21458-1V.CopyFiles]                                       
+VE151.ICM
+
+[VLCDS21463-2.CopyFiles]                                       
+VP140-2.ICM
+
+[VSLCD101-1.CopyFiles]                                       
+VP140.ICM
+
+[VLCDS21538-1.CopyFiles]                                       
+VP151.ICM
+
+[VLCDS21553-1.CopyFiles]                                       
+VE150.ICM
+
+[VLCDS21587-1.CopyFiles]                                       
+VG151.ICM
+
+[VLCDS21561-3.CopyFiles]                                       
+VP140-3.ICM
+
+[VLCDS21553-1b.CopyFiles]                                       
+VE150B.ICM
+
+[VLCDS21588-1.CopyFiles]                                       
+VP150m.ICM
+
+[VLCDS21587-2.CopyFiles]                                       
+VG151-2.ICM
+
+[VLCDS21457-3.CopyFiles]                                       
+VA550.ICM
+
+[VLCDS22574-1.CopyFiles]                                       
+VE150m.ICM
+
+[VLCDS22825-1.CopyFiles]                                       
+VX500.ICM
+
+[VLCDS22574-1R.CopyFiles]                                       
+VA500.ICM
+
+[VLCDS22825-2.CopyFiles]                                       
+VX500T.ICM
+
+[VLCDS21587-3.CopyFiles]                                       
+VG151b.ICM
+
+[VLCDS22574-1b.CopyFiles]                                       
+VE150mb.ICM
+
+[VLCDS23587-1M2.CopyFiles]                                       
+VA520.ICM
+
+[VLCDS23718-1W.CopyFiles]                                       
+VG500.ICM
+
+[VLCDS23585-2W.CopyFiles]                                       
+VA520-2.ICM
+
+[VLCDS23585-1W.CopyFiles]                                       
+VE155.ICM
+
+[VLCDS23722-1W.CopyFiles]                                       
+VE500.ICM
+
+[VLCDS23897-1W.CopyFiles]                                       
+VX500_p.ICM
+
+[VLCDS23585-3W.CopyFiles]                                       
+VE155b.ICM
+
+[VLCDS23587-2W.CopyFiles]                                       
+VE510_p.ICM
+
+[VLCDS23587-3W.CopyFiles]                                       
+VG150m.ICM
+
+[VLCDS23587-4W.CopyFiles]                                       
+VG150mb.ICM
+
+[VLCDS24349-1W.CopyFiles]                                       
+VG500b.ICM
+
+[VSACC24670-1.CopyFiles]                                       
+airpanel_V150.ICM
+
+[VLCDS23897-3W.CopyFiles]                                       
+VT550.ICM
+
+[VLCDS23722-4W.CopyFiles]                                       
+VG150m-2.ICM
+
+[VLCDS23722-5W.CopyFiles]                                       
+VG150mb-2.ICM
+
+[VSATV26324-1W.CopyFiles]                                       
+N1500TV.ICM
+
+[VLCDS23722-3.CopyFiles]                                       
+VA520-3.ICM
+
+[VLCDS23585-2.CopyFiles]                                       
+VE500-2.ICM
+
+[VLCDS23897-2W.CopyFiles]                                       
+VX500-2.ICM
+
+[VLCDS24349-2W.CopyFiles]                                       
+VG500-2.ICM
+
+[VLCDS27955-4W.CopyFiles]                                       
+VG512s.ICM
+
+[VLCDS27955-3W.CopyFiles]                                       
+VG511s.ICM
+
+[VLCDS27955-1W.CopyFiles]                                       
+VG510s.ICM
+
+[VLCDS27955-2W.CopyFiles]                                       
+VG510b.ICM
+
+[VA521.CopyFiles]                                       
+VA521.ICM
+
+[VX510.CopyFiles]                                       
+VX510.ICM
+
+[VE510b.CopyFiles]                                       
+VE510b.ICM
+
+[VE510b-2.CopyFiles]                                       
+VE510b-2.ICM
+
+[VE510s.CopyFiles]                                       
+VE510s.ICM
+
+[VE510s-2.CopyFiles]                                       
+VE510s-2.ICM
+
+[VA511.CopyFiles]                                       
+VA511.ICM
+
+[VE510.CopyFiles]                                       
+VE510_SERIES.ICM
+
+[Q5.CopyFiles]                                       
+Q5_SERIES.ICM
+
+[VA501b.CopyFiles]                                       
+VA501b.ICM
+
+[VA503_Series.CopyFiles]                                       
+VA503_Series.ICM
+
+[Q5b-2.CopyFiles]                                       
+Q5b-2.ICM
+
+[VA502mb.CopyFiles]                                       
+VA502mb.ICM
+
+[VA503-2_Series.CopyFiles]                                       
+VA503-2_Series.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Wizard"
+
+VSLCD101-1="ViewSonic VP140"
+VLCDS21388-1="ViewSonic VPA145"         
+VLCDS21389-1="ViewSonic VPA138"         
+VLCDS21407-1="ViewSonic VPA150"
+VLCDS21391-2="ViewSonic VPA150-2"         
+VLCDS21434-1="ViewSonic VP150"                
+VLCDS21391-5="ViewSonic VPD150"         
+VLCDS21457-1="ViewSonic VG150"
+VLCDS21457-2="ViewSonic VG150b"
+VLCDS21458-1V="ViewSonic VE151"
+VLCDS21463-2="ViewSonic VP140-2" 
+VLCDS21538-1="ViewSonic VP151"
+VLCDS21553-1="ViewSonic VE150"
+VLCDS21587-1="ViewSonic VG151"
+VLCDS21561-3="ViewSonic VP140-3"
+VLCDS21553-1b="ViewSonic VE150B"
+VLCDS21588-1="ViewSonic VP150m"
+VLCDS21587-2="ViewSonic VG151-2"
+VLCDS21457-3="ViewSonic VA550"
+VLCDS22574-1="ViewSonic VE150m"
+VLCDS22825-1="ViewSonic VX500"
+VLCDS22574-1R="ViewSonic VA500"
+VLCDS22825-2="ViewSonic VX500T"
+VLCDS21587-3="ViewSonic VG151b"
+VLCDS22574-1b="ViewSonic VE150mb"
+VLCDS23587-1M2="ViewSonic VA520"
+VLCDS23718-1W="ViewSonic VG500"
+VLCDS23585-2W="ViewSonic VA520-2"
+VLCDS23585-1W="ViewSonic VE155"
+VLCDS23722-1W="ViewSonic VE500"
+VLCDS23897-1W="ViewSonic VX500+"
+VLCDS23585-3W="ViewSonic VE155b"
+VLCDS23587-2W="ViewSonic VE510+"
+VLCDS23587-3W="ViewSonic VG150m"
+VLCDS23587-4W="ViewSonic VG150mb"
+VLCDS24349-1W="ViewSonic VG500b"
+VSACC24670-1="ViewSonic airpanel V150"
+VLCDS23897-3W="ViewSonic VT550"
+VLCDS23722-4W="ViewSonic VG150m-2"
+VLCDS23722-5W="ViewSonic VG150mb-2"
+VSATV26324-1W="ViewSonic N1500TV"
+VLCDS23722-3="ViewSonic VA520-3"
+VLCDS23585-2="ViewSonic VE500-2"
+VLCDS23897-2W="ViewSonic VX500-2"
+VLCDS24349-2W="ViewSonic VG500-2"
+VLCDS27955-4W="ViewSonic VG512s"
+VLCDS27955-3W="ViewSonic VG511s"
+VLCDS27955-1W="ViewSonic VG510s"
+VLCDS27955-2W="ViewSonic VG510b"
+VA521="ViewSonic VA521"
+VX510="ViewSonic VX510"
+VE510b="ViewSonic VE510b"
+VE510b-2="ViewSonic VE510b-2"
+VE510s="ViewSonic VE510s"
+VE510s-2="ViewSonic VE510s-2"
+VA511="ViewSonic VA511"
+VE510="ViewSonic VE510 Series"
+Q5="ViewSonic Q5 Series"
+VA501b="ViewSonic VA501b"
+VA503_Series="ViewSonic VA503 Series"
+Q5b-2="ViewSonic Q5-2 Series"
+VA502mb="ViewSonic VA502mb"
+VA503-2_Series="ViewSonic VA503-2 Series"

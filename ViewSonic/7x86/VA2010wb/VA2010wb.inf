@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2010wb.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/27/2007,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2010wb.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2010wb.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCAD1E
+
+[ViewSonic]   
+%VA2010wb%=VA2010wb.Install,Monitor\VSCAD1E  
+
+[ViewSonic.NTia64]   
+%VA2010wb%=VA2010wb.Install,Monitor\VSCAD1E  
+
+[ViewSonic.NTamd64]   
+%VA2010wb%=VA2010wb.Install,Monitor\VSCAD1E  
+
+[VA2010wb.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2010wb.AddReg,1680,DPMS
+Copyfiles=VA2010wb.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2010wb.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VA2010wb.ICM"
+
+[VA2010wb.CopyFiles]                                       
+VA2010wb.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA2010wb="ViewSonic VA2010wb"

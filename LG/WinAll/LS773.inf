@@ -1,0 +1,87 @@
+; ^^^^^^^^^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [LS773.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=LS773.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LS773.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LS773.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LS773%=LS773, Monitor\GSM4318
+
+[LG.NTamd64]
+%LS773%=LS773, Monitor\GSM4318
+
+;------------------------------------; .Install
+
+[LS773] 
+AddReg=LS773.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=LS773.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[LS773.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LS773.ICM"
+
+;------------------------------------; .CopyFiles
+
+[LS773.CopyFiles]  
+LS773.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4318
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+LS773="LG LS773"

@@ -1,0 +1,71 @@
+; [PLE2202WS.INF]
+; Revision 1.00
+; Copyright(c) 2007 IIYAMA CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE2202WS.cat
+DriverVer=09/01/2007,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\IVM5603
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+PLE2202WS.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+PLE2202WS.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE2202WS%=PLE2202WS.Install, Monitor\IVM5603
+
+[PLE2202WS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE2202WS.AddReg, 1680, DPMS
+CopyFiles=PLE2202WS.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE2202WS.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-81.0,54.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2202WS.icm"
+
+[PLE2202WS.CopyFiles]
+PLE2202WS.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+PLE2202WS="iiyama ProLite E2202WS"

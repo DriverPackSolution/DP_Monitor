@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP955.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/26/2010, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP955.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP955_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC0526
+
+[ViewSonic]   
+%VP955%=VP955.Install,Monitor\VSC0526  
+
+[ViewSonic.NTia64]   
+%VP955%=VP955.Install,Monitor\VSC0526  
+
+[ViewSonic.NTamd64]   
+%VP955%=VP955.Install,Monitor\VSC0526  
+
+[VP955.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VP955.AddReg,1280,DPMS
+Copyfiles=VP955.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP955.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"24-82,50-85,+,+" 
+HKR,,ICMProfile,0,"VP955_SERIES.ICM"
+
+[VP955.CopyFiles]                                       
+VP955_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VP955 SERIES ViewSonic Wizard"
+VP955="ViewSonic VP955 SERIES"

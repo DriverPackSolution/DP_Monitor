@@ -1,0 +1,64 @@
+;=============================================================== 
+; [702S.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=702S.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4350
+
+[DestinationDirs]
+DefaultDestDir=11
+702S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG702S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%702S%=702S.Install,Monitor\GSM4350
+
+[LG.NTamd64]
+%702S%=702S.Install,Monitor\GSM4350
+
+[702S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=702S.AddReg,1280,DPMS
+CopyFiles=702S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[702S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LG702S.ICM"
+
+[702S.CopyFiles]
+LG702S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+702S="LG 702S"

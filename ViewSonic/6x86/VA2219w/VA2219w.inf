@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2219w.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/29/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2219w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2219w.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC6625
+
+[ViewSonic]   
+%VA2219w%=VA2219w.Install,Monitor\VSC6625  
+
+[ViewSonic.NTia64]   
+%VA2219w%=VA2219w.Install,Monitor\VSC6625  
+
+[ViewSonic.NTamd64]   
+%VA2219w%=VA2219w.Install,Monitor\VSC6625  
+
+[VA2219w.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2219w.AddReg,1680,DPMS
+Copyfiles=VA2219w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2219w.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"30-80,50-75,-,+" 
+HKR,,ICMProfile,0,"VA2219w.icm"
+
+[VA2219w.CopyFiles]                                       
+VA2219w.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA2219w ViewSonic Wizard"
+VA2219w="ViewSonic VA2219w"

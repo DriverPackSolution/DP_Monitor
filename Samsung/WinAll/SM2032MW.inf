@@ -1,0 +1,120 @@
+
+;==================================================
+; SM2032MW.inf 05/25/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2032MW.cat
+DriverVer=05/25/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM02FD
+ExcludeFromSelect.nt=Monitor\SAM02FE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2032MWa.CopyFiles = 23
+SM2032MWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2032MW.icm=1
+SM2032MW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2032MWa%=SM2032MWa.Install, Monitor\SAM02FD
+%SM2032MWd%=SM2032MWd.Install, Monitor\SAM02FE
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2032MWa%=SM2032MWa.Install, Monitor\SAM02FD
+%SM2032MWd%=SM2032MWd.Install, Monitor\SAM02FE
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2032MWa%=SM2032MWa.Install, Monitor\SAM02FD
+%SM2032MWd%=SM2032MWd.Install, Monitor\SAM02FE
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2032MWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2032MWa.AddReg, 1680, DPMS
+CopyFiles=SM2032MWa.CopyFiles
+
+[SM2032MWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2032MWd.AddReg, 1680, DPMS
+CopyFiles=SM2032MWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2032MWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2032MW.icm"
+
+[SM2032MWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2032MW.icm"
+;------------------------------------------------------
+
+[SM2032MWa.CopyFiles]
+SM2032MW.icm
+
+[SM2032MWd.CopyFiles]
+SM2032MW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2032MWa="SyncMaster 2032MW,SyncMaster Magic CX2032MW(Analog)"
+SM2032MWd="SyncMaster 2032MW,SyncMaster Magic CX2032MW(Digital)"

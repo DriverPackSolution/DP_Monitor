@@ -1,0 +1,288 @@
+
+; DiaView8.INF
+; Setup Information File for Diamond View Monitors - v8.0  130999
+; Copyright (c)  1999, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+
+;-------------------------------------------------
+;Monitor class install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir    = 11
+MEA1554.CopyFiles = 23
+MEA1554e.CopyFiles = 23
+MEA1566i.CopyFiles = 23
+MEA1569i.CopyFiles = 23
+MEA1768i.CopyFiles = 23
+MEA1772e.CopyFiles = 23
+MEA1570i.CopyFiles = 23
+MEA1773.CopyFiles = 23
+MEA1770.CopyFiles = 23
+MEA1795.CopyFiles = 23
+MEA1995.CopyFiles = 23
+MEA2107.CopyFiles = 23
+
+[SourceDisksNames]
+1="Mitsubishi Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+MEA1554.ICM=1
+MEA1554e.ICM=1
+MEA1566i.ICM=1
+MEA1569i.ICM=1
+MEA1768i.ICM=1
+MEA1772e.ICM=1
+MEA1570i.ICM=1
+MEA1795.ICM=1
+MEA1995.ICM=1
+MEA2107.ICM=1
+MEA1773.ICM=1
+MEA1770.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%MEA1554%=MEA1554.install,Monitor\MEA5415
+%MEA1554e%=MEA1554e.install,Monitor\MEA5515
+%MEA1566i%=MEA1566i.install,Monitor\MEA6615
+%MEA1569i%=MEA1569i.install,Monitor\MEA6915
+%MEA1768i%=MEA1768i.install,Monitor\MEA6817
+%MEA1772e%=MEA1772e.install,Monitor\MEA7217
+%MEA1570i%=MEA1570i.install,Monitor\MEA1570
+%MEA1773%=MEA1773.install,Monitor\MEA1773
+%MEA1770%=MEA1770.install,Monitor\MEA1770
+%MEA1795%=MEA1795.install,Monitor\MEA1795
+%MEA1995%=MEA1995.install,Monitor\MEA9A01
+%MEA2107%=MEA2107.install,Monitor\MEA2107
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+[MEA1554.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1554.AddReg, 1024, DPMS
+CopyFiles=MEA1554.CopyFiles
+
+[MEA1554e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1554e.AddReg, 1024, DPMS
+CopyFiles=MEA1554e.CopyFiles
+
+[MEA1566i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1566i.AddReg, 1280, DPMS
+CopyFiles=MEA1566i.CopyFiles
+
+[MEA1569i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1569i.AddReg, 1280, DPMS
+CopyFiles=MEA1569i.CopyFiles
+
+[MEA1768i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1768i.AddReg, 1280, DPMS
+CopyFiles=MEA1768i.CopyFiles
+
+[MEA1772e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1772e.AddReg, 1280, DPMS
+CopyFiles=MEA1772e.CopyFiles
+
+[MEA1570i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1570i.AddReg, 1280, DPMS
+CopyFiles=MEA1570i.CopyFiles
+
+[MEA1773.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1773.AddReg, 1280, DPMS
+CopyFiles=MEA1773.CopyFiles
+
+[MEA1770.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1770.AddReg, 1280, DPMS
+CopyFiles=MEA1770.CopyFiles
+
+[MEA1795.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1795.AddReg, 1600, DPMS
+CopyFiles=MEA1795.CopyFiles
+
+[MEA1995.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA1995.AddReg, 1600, DPMS
+CopyFiles=MEA1995.CopyFiles
+
+[MEA2107.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA2107.AddReg, 1600, DPMS
+CopyFiles=MEA2107.CopyFiles
+
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+     
+;-------------------------------------------
+
+[MEA1554.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1554.ICM"
+
+[MEA1554e.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1554e.ICM"
+
+[MEA1566i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1566i.ICM"
+
+[MEA1569i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1569i.ICM"
+
+[MEA1768i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1768i.ICM"
+
+[MEA1772e.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1772e.ICM"
+
+[MEA1570i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1570i.ICM"
+     
+[MEA1795.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1795.ICM"
+
+[MEA1995.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1995.ICM"
+
+[MEA2107.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-107.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA2107.ICM"
+
+[MEA1773.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1773.ICM"
+
+[MEA1770.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA1770.ICM"
+
+[MEA1554.CopyFiles]
+MEA1554.ICM
+
+[MEA1554e.CopyFiles]
+MEA1554e.ICM
+
+[MEA1566i.CopyFiles]
+MEA1566i.ICM
+
+[MEA1569i.CopyFiles]
+MEA1569i.ICM
+
+[MEA1768i.CopyFiles]
+MEA1768i.ICM
+
+[MEA1772e.CopyFiles]
+MEA1772e.ICM
+
+[MEA1570i.CopyFiles]
+MEA1570i.ICM
+
+[MEA1773.CopyFiles]
+MEA1773.ICM
+
+[MEA1770.CopyFiles]
+MEA1770.ICM
+
+[MEA1795.CopyFiles]
+MEA1795.ICM
+
+[MEA1995.CopyFiles]
+MEA1995.ICM
+
+[MEA2107.CopyFiles]
+MEA2107.ICM
+
+;--------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+MEA="Mitsubishi Electric Australia"
+
+MEA1554="Diamond View 1554"
+MEA1554e="Diamond View 1554e"
+MEA1566i="Diamond View 1566i"
+MEA1569i="Diamond View 1569i"
+MEA1768i="Diamond View 1768i"
+MEA1772e="Diamond View 1772e"
+MEA1570i="Diamond View 1570i"
+MEA1773="Diamond View 1772ie"
+MEA1770="Diamond View 1770e"
+MEA1795="Diamond View 1795DT"
+MEA1995="Diamond View 1995"
+MEA2107="Diamond View 2107"

@@ -1,0 +1,75 @@
+; FTS B22W-5 ECO.INF Ver. 1.0
+;Monitor INF file for B22W-5 ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSB2W5E.cat
+DriverVer=11/19/2009, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07C3
+ExcludeFromSelect.nt=Monitor\FUS07C4
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTS-B22W-5.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB2W5E.ICM=1
+
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+[FTS.Mfg]
+%FTS-B22W-5%=FTS-B22W-5.Install, Monitor\FUS07C3
+%FTS-B22W-5%=FTS-B22W-5.Install, Monitor\FUS07C4
+
+[FTS.Mfg.NTAMD64]
+%FTS-B22W-5%=FTS-B22W-5.Install, Monitor\FUS07C3
+%FTS-B22W-5%=FTS-B22W-5.Install, Monitor\FUS07C4
+
+[FTS-B22W-5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTS-B22W-5.AddReg, 1680, DPMS
+CopyFiles=FTS-B22W-5.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTS-B22W-5.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSB2W5E.ICM"
+
+[FTS-B22W-5.CopyFiles]
+FTSB2W5E.ICM
+
+[Strings]
+DISK="Driver & Utility CD B22W-5 ECO"
+MonitorClassName="Monitor"
+FTS.Mfg="Fujitsu Technology Solutions"
+FTS-B22W-5="Fujitsu B22W-5 ECO"

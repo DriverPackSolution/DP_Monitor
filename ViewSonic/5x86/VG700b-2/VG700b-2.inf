@@ -1,0 +1,62 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG700b-2.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/22/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS24606-1W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG700b-2.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS24606-1W%=VLCDS24606-1W.Install,Monitor\VSCB50B           ;VG700b-2
+
+[VLCDS24606-1W.Install]                                         ;VG700b-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS24606-1W.AddReg,1280,DPMS
+Copyfiles=VLCDS24606-1W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS24606-1W.AddReg]                                         ;VG700b-2
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG700b-2.ICM"
+
+[VLCDS24606-1W.CopyFiles]                                       
+VG700b-2.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS24606-1W="ViewSonic VG700b-2"
+
+

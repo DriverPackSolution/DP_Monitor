@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VX1940w.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/29/2007, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX1940w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX1940w.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC6A20
+
+[ViewSonic]   
+%VX1940w%=VX1940w.Install,Monitor\VSC6A20  
+
+[ViewSonic.NTia64]   
+%VX1940w%=VX1940w.Install,Monitor\VSC6A20
+
+[ViewSonic.NTamd64]   
+%VX1940w%=VX1940w.Install,Monitor\VSC6A20 
+
+[VX1940w.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX1940w.AddReg,1680,DPMS
+Copyfiles=VX1940w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX1940w.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX1940w.ICM"
+
+[VX1940w.CopyFiles]                                       
+VX1940w.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX1940w ViewSonic Wizard"
+VX1940w="ViewSonic VX1940w"

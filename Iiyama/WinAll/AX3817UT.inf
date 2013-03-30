@@ -1,0 +1,67 @@
+; AX3817UT.INF Ver. 1.0
+;Monitor INF file for IIYAMA Monitor AX3817UT 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%      
+DriverVer=10/05/2001,
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM384C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+IVM-3817UT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+AX3817UT.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%IVM-3817UT%=IVM-3817UT.Install, Monitor\IVM384C
+[IVM-3817UT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IVM-3817UT.AddReg, 1024, DPMS
+CopyFiles=IVM-3817UT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IVM-3817UT.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-60,55-76,+,+"
+HKR,,ICMProfile,0,"AX3817UT.ICM"
+
+[IVM-3817UT.CopyFiles]
+AX3817UT.ICM
+
+[Strings]
+DISK="IIYAMA Monitor AX3817UT Installation Disk"
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+IVM-3817UT="IIYAMA 15 inches AX3817UT LCD-monitor"

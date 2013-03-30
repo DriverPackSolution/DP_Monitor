@@ -1,0 +1,88 @@
+;================================ 
+;E156FP.INF 06/27/05 Ver. 1.1 CC
+;Copyright 1996-2005 Dell Inc.
+;
+;This is a setupfile for E156FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+Catalogfile=E156FP.cat
+DriverVer=06/27/2005,1.1
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA013
+
+[DestinationDirs]
+DefaultDestDir=11
+E156FP.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E156FP.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[DELL]
+%E156FP%=E156FP.Install, Monitor\DELA013
+;-------------------------------------------------
+[DELL.NTx86] 
+%E156FP%=E156FP.Install, Monitor\DELA013
+;-------------------------------------------------  
+[DELL.NTAMD64]  
+%E156FP%=E156FP.Install, Monitor\DELA013
+
+; Install Sections
+;-------------------------------------------------
+
+[E156FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E156FP.AddReg, 1024, DPMS
+CopyFiles=E156FP.CopyFiles
+
+; AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E156FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E156FP.icm"
+
+;------------------------------------------------------------------------------------------
+
+[E156FP.CopyFiles]
+E156FP.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E156FP="Dell E156FP"

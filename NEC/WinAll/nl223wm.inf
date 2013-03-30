@@ -1,0 +1,68 @@
+; nl223wm.inf
+; Setup information file for NEC LCD223WM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl223wm.cat
+DriverVer=02/08/2007,1.07.0208.1309
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66F3
+
+[DestinationDirs]
+LCD223WM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl223wm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD223WM%=LCD223WM.Install, Monitor\NEC66F3
+
+[NECDS.ntamd64]
+%LCD223WM%=LCD223WM.Install.ntamd64, Monitor\NEC66F3
+
+[LCD223WM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD223WM.AddReg, 1680, DPMS
+CopyFiles=LCD223WM.CopyFiles
+
+[LCD223WM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD223WM.AddReg, 1680, DPMS
+CopyFiles=LCD223WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD223WM.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl223wm.icm"
+
+[LCD223WM.CopyFiles]
+nl223wm.icm
+
+[Strings]
+NECDS="NEC"
+LCD223WM="NEC LCD223WM"
+Disk1="NEC Monitor Installation Disk"

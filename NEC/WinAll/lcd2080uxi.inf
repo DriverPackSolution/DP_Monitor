@@ -1,0 +1,74 @@
+; lcd2080uxi.inf
+; Setup information file for NEC MultiSync LCD2080UXi Monitor
+;
+; Copyright 2005, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=lcd2080uxi.cat
+DriverVer=06/01/2005, 1.05.0601.0904
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC669A
+
+[DestinationDirs]
+LCD2080UXi.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+lcd2080uxi.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD2080UXi%=LCD2080UXi.Install, Monitor\NEC669A
+
+; Install Sections
+;-------------------------------------------------
+[LCD2080UXi.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2080UXi.AddReg, 1600, DPMS
+CopyFiles=LCD2080UXi.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD2080UXi.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"lcd2080uxi.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[lcd2080uxi.CopyFiles]
+lcd2080uxi.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD2080UXi="NEC MultiSync LCD2080UXi"
+Disk1="NEC Monitor Installation Disk"

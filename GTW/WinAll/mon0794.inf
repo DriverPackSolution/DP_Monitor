@@ -1,0 +1,82 @@
+;=============================================================== 
+; Gateway FPD1940.inf
+; manufactured by LG Electronics
+; Revision 1.1 , January-05-2004
+; Copyright(c) Gateway,All Rights Reserved.
+;===============================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon0794.cat
+DriverVer=01/05/2004,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY0794
+ExcludeFromSelect.NT=Monitor\GWY0795
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[DestinationDirs]
+DefaultDestDir=11
+mon0794.CopyFiles=23
+mon0795.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon0794.ICM=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon0794%=mon0794.Install, Monitor\GWY0794
+%mon0795%=mon0795.Install, Monitor\GWY0795
+
+[mon0794.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon0794.AddReg, 1280, DPMS
+CopyFiles=mon0794.CopyFiles
+
+[mon0795.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon0795.AddReg, 1280, DPMS
+CopyFiles=mon0795.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon0794.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"mon0794.ICM"
+
+[mon0795.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"mon0794.ICM"
+
+[mon0794.CopyFiles]
+mon0794.ICM
+
+[mon0795.CopyFiles]
+mon0794.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon0794="Gateway FPD1940"
+mon0795="Gateway FPD1940"

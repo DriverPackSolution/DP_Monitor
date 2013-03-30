@@ -1,0 +1,68 @@
+; NL24WMCX.inf
+; Setup information file for NEC AccuSync LCD24WMCX Monitor
+;
+; Copyright 2007, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL24WMCX.cat
+DriverVer=07/13/2007,1.07.0713.0128
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6720
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD24WMCX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL24WMCX.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD24WMCX%=LCD24WMCX.Install, Monitor\NEC6720
+
+[NECDS.ntamd64]
+%LCD24WMCX%=LCD24WMCX.Install.ntamd64, Monitor\NEC6720
+
+[LCD24WMCX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD24WMCX.AddReg, 1920, DPMS
+CopyFiles=LCD24WMCX.CopyFiles
+
+[LCD24WMCX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD24WMCX.AddReg, 1920, DPMS
+CopyFiles=LCD24WMCX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,1920,1200
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD24WMCX.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-92.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"NL24WMCX.icm"
+
+[LCD24WMCX.CopyFiles]
+NL24WMCX.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD24WMCX="NEC AccuSync LCD24WMCX"

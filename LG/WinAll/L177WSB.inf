@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L177WSB.INF] 
+; Revision 1.4   June-06-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L177WSB.cat
+DriverVer=06/06/2007,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM448D
+
+[DestinationDirs]
+DefaultDestDir = 11
+L177WSB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L177WSB.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L177WSB%=L177WSB.Install,Monitor\GSM448D
+
+[LG.NTamd64]
+%L177WSB%=L177WSB.Install,Monitor\GSM448D
+
+[L177WSB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L177WSB.AddReg,1440,DPMS
+CopyFiles=L177WSB.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L177WSB.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMprofile,0,"L177WSB.ICM"
+
+[L177WSB.CopyFiles]
+L177WSB.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L177WSB="LG L177WSB"

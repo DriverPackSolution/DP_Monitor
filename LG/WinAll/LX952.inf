@@ -1,0 +1,65 @@
+;=============================================================== 
+; [LX952.INF] 
+; Revision 1.4   Feb-28-2006
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX952.cat
+DriverVer=02/28/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AF8
+
+[DestinationDirs]
+DefaultDestDir=11
+LX952.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX952.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX952%=LX952.Install,Monitor\GSM4AF8
+
+[LG.NTamd64]
+%LX952%=LX952.Install,Monitor\GSM4AF8
+
+[LX952.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX952.AddReg,1280,DPMS
+CopyFiles=LX952.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX952.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX952.ICM"
+
+[LX952.CopyFiles]
+LX952.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX952="LG LX952"

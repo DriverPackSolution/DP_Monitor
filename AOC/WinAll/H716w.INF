@@ -1,0 +1,88 @@
+; Copyright 2007 Envision International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+; vista
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ENV%
+Catalogfile=H716w.cat
+DriverVer=04/10/2007,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENV1716
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1716.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+H716w.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%ENV%=ENV,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[ENV]
+%1716%=1716.Install, Monitor\ENV1716
+
+[ENV.ntamd64]
+%1716%=1716.Install, Monitor\ENV1716
+
+; Install Sections
+;-------------------------------------------------
+[1716.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1716.AddReg, 1440, DPMS
+Copyfiles=1716.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[1716.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-71.0,60.0-77.0,+,+"
+HKR,,ICMProfile,0,"H716w.icm"
+
+
+[1716.CopyFiles]
+H716w.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Envision Monitor Installation Disk"
+MonitorClassName="Monitor"
+ENV="Envision International (Europe) GmbH"
+
+1716="Envision H716w"

@@ -1,0 +1,116 @@
+; [PL2710HD.INF]
+; Revision 1.00
+; Copyright(c) 2009 IIYAMA CORPORATION
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL2710HD.cat
+DriverVer=08/26/2009,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+PL2710HD_Analog.copyfiles = 23
+PL2710HD_Digital.copyfiles = 23
+PL2710HD_Hdmi.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%MonitorClassName%,,,
+
+[SourceDisksFiles]
+PL2710HD.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,NTx86,NTAMD64
+
+[IIYAMA]
+%PL2710HD_Analog%=PL2710HD_Analog.Install, Monitor\IVM6600
+%PL2710HD_Digital%=PL2710HD_Digital.Install, Monitor\IVM6600
+%PL2710HD_Hdmi%=PL2710HD_Hdmi.Install, Monitor\IVM6600
+
+[IIYAMA.NTx86]
+%PL2710HD_Analog%=PL2710HD_Analog.Install, Monitor\IVM6600
+%PL2710HD_Digital%=PL2710HD_Digital.Install, Monitor\IVM6600
+%PL2710HD_Hdmi%=PL2710HD_Hdmi.Install, Monitor\IVM6600
+
+[IIYAMA.NTAMD64]
+%PL2710HD_Analog%=PL2710HD_Analog.Install, Monitor\IVM6600
+%PL2710HD_Digital%=PL2710HD_Digital.Install, Monitor\IVM6600
+%PL2710HD_Hdmi%=PL2710HD_Hdmi.Install, Monitor\IVM6600
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IVM6600
+ExcludeFromSelect.NT=Monitor\IVM6600
+ExcludeFromSelect.NT=Monitor\IVM6600
+
+[PL2710HD_Analog.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2710HD_Analog.AddReg, 1920, DPMS
+CopyFiles=PL2710HD_Analog.CopyFiles
+
+[PL2710HD_Digital.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2710HD_Digital.AddReg, 1920, DPMS
+CopyFiles=PL2710HD_Digital.CopyFiles
+
+[PL2710HD_Hdmi.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2710HD_Hdmi.AddReg, 1920, DPMS
+CopyFiles=PL2710HD_Hdmi.CopyFiles
+
+[IVM_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL2710HD_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2710HD.icm"
+
+[PL2710HD_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2710HD.icm"
+
+[PL2710HD_Hdmi.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2710HD.icm"
+
+[PL2710HD_Analog.CopyFiles]
+PL2710HD.ICM
+
+[PL2710HD_Digital.CopyFiles]
+PL2710HD.ICM
+
+[PL2710HD_Hdmi.CopyFiles]
+PL2710HD.ICM
+
+
+[Strings]
+MonitorClassName="IIYAMA LCD Monitor Installation Disk"
+IIYAMA="IIYAMA CORPORATION"
+
+PL2710HD_Analog="IIYAMA ProLite PL2710HD(Analog)"
+PL2710HD_Digital="IIYAMA ProLite PL2710HD(Digital)"
+PL2710HD_Hdmi="IIYAMA ProLite PL2710HD(Hdmi)"
+
+

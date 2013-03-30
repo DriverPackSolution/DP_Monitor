@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP2030_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=11/07/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP2030.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP2030_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VP2030%=VP2030.Install,Monitor\VSC131C                 ;VP2030
+
+[ViewSonic.NTia64]   
+%VP2030%=VP2030.Install,Monitor\VSC131C
+
+[ViewSonic.NTamd64]   
+%VP2030%=VP2030.Install,Monitor\VSC131C
+
+[VP2030.Install]                                        ;VP2030
+DelReg=DEL_CURRENT_REG 
+AddReg=VP2030.AddReg,1600,DPMS
+Copyfiles=VP2030.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP2030.AddReg]                                           ;VP2030
+HKR,"MODES\1600,1200",Mode1,,"30-92,50-75,+,+"
+HKR,,ICMProfile,0,"VP2030_SERIES.ICM"
+
+[VP2030.CopyFiles]                                       
+VP2030_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VP2030="ViewSonic VP2030 SERIES"

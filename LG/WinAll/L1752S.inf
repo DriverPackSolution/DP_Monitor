@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1752S.INF] 
+; Revision 1.4   Nov-24-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1752S.cat
+DriverVer=11/24/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4432
+
+[DestinationDirs]
+DefaultDestDir=11
+L1752S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1752S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1752S%=L1752S.Install,Monitor\GSM4432
+
+[LG.NTamd64]
+%L1752S%=L1752S.Install,Monitor\GSM4432
+
+[L1752S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1752S.AddReg,1280,DPMS
+CopyFiles=L1752S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1752S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1752S.ICM"
+
+[L1752S.CopyFiles]
+L1752S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1752S="LG L1752S"

@@ -1,0 +1,73 @@
+; [PL2273HD.INF]
+; Revision 1.00
+; Copyright(c) 2011 IIYAMA CORPORATION
+; V001
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL2273HD.cat
+DriverVer=05/10/2011,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\IVM561A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+PL2273HD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+PL2273HD.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,ntamd64
+
+[IIYAMA]
+%PL2273HD%=PL2273HD.Install, Monitor\IVM561A
+
+[IIYAMA.ntamd64]
+%PL2273HD%=PL2273HD.Install, Monitor\IVM561A
+
+[PL2273HD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2273HD.AddReg, 1920, DPMS
+CopyFiles=PL2273HD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL2273HD.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2273HD.icm"
+
+[PL2273HD.CopyFiles]
+PL2273HD.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+PL2273HD="iiyama ProLite E2273HDS/B2273HDS"

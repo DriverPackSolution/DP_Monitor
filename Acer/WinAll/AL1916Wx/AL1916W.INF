@@ -1,0 +1,86 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for ACER
+;   Copyright, ACER Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the Acer Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%ACER%
+	CatalogFile=ACER19W.cat
+	DriverVer=10/20/2006,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	AL1916W.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	AL1916W.icm=1
+
+[Manufacturer]
+	%ACER%=ACER,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\ACRAD80
+	
+[ACER]
+	%AL1916W%=AL1916W.Install, Monitor\ACRAD80
+
+[ACER.NTx86]
+	%AL1916W%=AL1916W.Install, Monitor\ACRAD80
+
+[ACER.NTAMD64]
+	%AL1916W%=AL1916W.Install, Monitor\ACRAD80
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[AL1916W.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=AL1916W.AddReg, 1440, DPMS
+	CopyFiles=AL1916W.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1440]
+	HKR,,MaxResolution,,"1440,900"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[AL1916W.AddReg]
+	HKR,"MODES\1440,900",Mode1,,"31.5-84.0,56.0-76.0,+,-"
+	HKR,,ICMProfile,0,"AL1916W.icm"
+
+[AL1916W.CopyFiles]	
+	AL1916W.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="ACER Monitor Installation Disk"
+	DiskLabel="ACER INF and ICM Software"
+	ACER="ACER Corporation"
+
+	AL1916W="ACER AL1916W "

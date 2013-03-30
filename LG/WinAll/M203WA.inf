@@ -1,0 +1,83 @@
+;=============================================================== 
+; [M203WA.INF] 
+; Revision 1.4   Nov-21-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M203WA.cat
+DriverVer=11/21/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E3B
+ExcludeFromSelect.NT=Monitor\GSM4E3C
+
+[DestinationDirs]
+DefaultDestDir = 11
+M203WA_Analog.CopyFiles = 23
+M203WA_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M203WA.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M203WA_Analog%=M203WA_Analog.Install,Monitor\GSM4E3B
+%M203WA_Digital%=M203WA_Digital.Install,Monitor\GSM4E3C
+
+[LG.NTamd64]
+%M203WA_Analog%=M203WA_Analog.Install,Monitor\GSM4E3B
+%M203WA_Digital%=M203WA_Digital.Install,Monitor\GSM4E3C
+
+[M203WA_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M203WA_Analog.AddReg,1680,DPMS
+CopyFiles=M203WA_Analog.CopyFiles
+
+[M203WA_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M203WA_Digital.AddReg,1680,DPMS
+CopyFiles=M203WA_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M203WA_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,55.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMprofile,0,"M203WA.ICM"
+
+[M203WA_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,55.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMprofile,0,"M203WA.ICM"
+
+[M203WA_Analog.CopyFiles]
+M203WA.ICM
+
+[M203WA_Digital.CopyFiles]
+M203WA.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M203WA_Analog="LG M203WA(Analog)"
+M203WA_Digital="LG M203WA(Digital)"

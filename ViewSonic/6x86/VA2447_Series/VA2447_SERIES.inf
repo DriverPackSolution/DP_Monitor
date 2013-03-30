@@ -1,0 +1,75 @@
+;Monitor.Inf 
+;Copyright 2012, ViewSonic Corporation
+;v001
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VA2447_SERIES.cat
+DriverVer=07/30/2012, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2447.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VA2447_SERIES.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCDF2C  
+
+[ViewSonic]   
+%VA2447%=VA2447.Install,Monitor\VSCDF2C  
+
+[ViewSonic.NTia64]   
+%VA2447%=VA2447.Install,Monitor\VSCDF2C
+
+[ViewSonic.NTamd64]   
+%VA2447%=VA2447.Install,Monitor\VSCDF2C 
+
+[VA2447.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2447.AddReg
+Copyfiles=VA2447.CopyFiles
+
+[VA2447.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install; install monitor class function driver
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+
+[VA2447.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"VA2447_SERIES.ICM"
+
+[VA2447.CopyFiles]                                       
+VA2447_SERIES.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VA2447 SERIES ViewSonic Wizard"
+VA2447="ViewSonic VA2447 SERIES"

@@ -1,0 +1,136 @@
+; nlv422.inf
+; Setup information file for NEC MultiSync V422 Monitor
+;
+; Copyright (C) 2011, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlv422.cat
+DriverVer=04/12/2011, 1.11.0412.1902
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6830
+ExcludeFromSelect.nt=Monitor\NEC6831
+ExcludeFromSelect.nt=Monitor\NEC6832
+ExcludeFromSelect.nt=Monitor\NEC6833
+
+[DestinationDirs]
+V422.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlv422.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%V422-A%=V422-A.Install, Monitor\NEC6830
+%V422-D%=V422-D.Install, Monitor\NEC6831
+%V422-H%=V422-H.Install, Monitor\NEC6832
+%V422-P%=V422-P.Install, Monitor\NEC6833
+
+[NECDS.ntamd64]
+%V422-A%=V422-A.Install.ntamd64, Monitor\NEC6830
+%V422-D%=V422-D.Install.ntamd64, Monitor\NEC6831
+%V422-H%=V422-H.Install.ntamd64, Monitor\NEC6832
+%V422-P%=V422-P.Install.ntamd64, Monitor\NEC6833
+
+; Install Sections
+;-------------------------------------------------
+[V422-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V422-A.AddReg, 1920, DPMS
+CopyFiles=V422.CopyFiles
+
+[V422-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V422-D.AddReg, 1920, DPMS
+CopyFiles=V422.CopyFiles
+
+[V422-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V422-H.AddReg, 1920, DPMS
+CopyFiles=V422.CopyFiles
+
+[V422-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V422-P.AddReg, 1920, DPMS
+CopyFiles=V422.CopyFiles
+
+[V422-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V422-A.AddReg, 1920, DPMS
+CopyFiles=V422.CopyFiles
+
+[V422-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V422-D.AddReg, 1920, DPMS
+CopyFiles=V422.CopyFiles
+
+[V422-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V422-H.AddReg, 1920, DPMS
+CopyFiles=V422.CopyFiles
+
+[V422-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V422-P.AddReg, 1920, DPMS
+CopyFiles=V422.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[V422-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv422.icm"
+
+[V422-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv422.icm"
+
+[V422-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv422.icm"
+
+[V422-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv422.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[V422.CopyFiles]
+nlv422.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+V422-A="NEC MultiSync V422(Analog)"
+V422-D="NEC MultiSync V422(Digital)"
+V422-H="NEC MultiSync V422(HDMI)"
+V422-P="NEC MultiSync V422(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

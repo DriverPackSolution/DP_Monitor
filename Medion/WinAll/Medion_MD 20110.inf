@@ -1,0 +1,75 @@
+; Medion INF File for Windows(R) 95/98/Me/2000/XP/Server 2003/XP/Vista x64 
+; Revision Date: Aug 06,2009
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion% 
+CatalogFile =MD 20110.CAT
+DriverVer=08/06/2009,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED3603
+ExcludeFromSelect.NT=Monitor\MED3604
+ExcludeFromSelect.NT=Monitor\MED3605
+
+[ClassInstall]
+AddReg=ClassAddReg32
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+[Manufacturer]
+%Medion%=Medion,NTx86,NTamd64,NTia64
+
+[Medion]
+%MD 20110%=MD 20110.Install,Monitor\MED3603
+%MD 20110%=MD 20110.Install,Monitor\MED3604
+%MD 20110%=MD 20110.Install,Monitor\MED3605
+
+[Medion.NTx86]
+%MD 20110%=MD 20110.Install,Monitor\MED3603
+%MD 20110%=MD 20110.Install,Monitor\MED3604
+%MD 20110%=MD 20110.Install,Monitor\MED3605
+
+[Medion.NTamd64]
+%MD 20110%=MD 20110.Install,Monitor\MED3603
+%MD 20110%=MD 20110.Install,Monitor\MED3604
+%MD 20110%=MD 20110.Install,Monitor\MED3605
+
+[Medion.NTia64]
+%MD 20110%=MD 20110.Install,Monitor\MED3603
+%MD 20110%=MD 20110.Install,Monitor\MED3604
+%MD 20110%=MD 20110.Install,Monitor\MED3605
+
+[MD 20110.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD 20110.AddReg,1920,DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD 20110.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"29.0-81.0,55.0-76.0,+,-"
+
+[Strings]
+MonitorClassName="Monitor"
+Medion="Medion Co.,LTD."
+
+MD 20110="Medion MD 20110"

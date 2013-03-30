@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA912-4SERIES.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/26/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA912-4.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA912-4SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA912-4%=VA912-4.Install,Monitor\VSC721C          	;VA912-4SERIES
+
+[VA912-4.Install]                                       ;VA912-4SERIES
+DelReg=DEL_CURRENT_REG 
+AddReg=VA912-4.AddReg,1280,DPMS
+Copyfiles=VA912-4.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA912-4.AddReg]                                          ;VA912-4SERIES
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-85,+,+"
+HKR,,ICMProfile,0,"VA912-4SERIES.ICM"
+
+[VA912-4.CopyFiles]                                       
+VA912-4SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA912-4="ViewSonic VA912-4 Series"

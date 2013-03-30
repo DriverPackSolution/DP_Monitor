@@ -1,0 +1,102 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ G2220HDA.INF 09/19/2011 Ver. 1.00
+; Copyright (C) 2010 BenQ Corporation. reserves all rights.
+; This is a setup file for G2220HDA
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=G2220HDA.cat
+	DriverVer=09/19/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	G2220HDA D-SUB.CopyFiles=23
+        G2220HDA DVI.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	G2220HDA D-SUB.icm=1
+        G2220HDA DVI.icm=1
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ7859
+	ExcludeFromSelect.NT=Monitor\BNQ785A
+	
+[BenQ]
+	%G2220HDA D-SUB%=G2220HDA D-SUB.Install, Monitor\BNQ7859
+	%G2220HDA DVI%=G2220HDA DVI.Install, Monitor\BNQ785A
+
+[BenQ.NTx86]
+	%G2220HDA D-SUB%=G2220HDA D-SUB.Install, Monitor\BNQ7859
+	%G2220HDA DVI%=G2220HDA DVI.Install, Monitor\BNQ785A
+
+[BenQ.NTAMD64]
+	%G2220HDA D-SUB%=G2220HDA D-SUB.Install, Monitor\BNQ7859
+	%G2220HDA DVI%=G2220HDA DVI.Install, Monitor\BNQ785A
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G2220HDA D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G2220HDA D-SUB.AddReg, 1920, DPMS
+	CopyFiles=G2220HDA D-SUB.CopyFiles
+
+[G2220HDA DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G2220HDA DVI.AddReg, 1920, DPMS
+	CopyFiles=G2220HDA DVI.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1920]
+	HKR,,MaxResolution,,"1920,1080"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G2220HDA D-SUB.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"G2220HDA D-SUB.icm"
+
+[G2220HDA DVI.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"G2220HDA DVI.icm"
+
+[G2220HDA D-SUB.CopyFiles]	
+	G2220HDA D-SUB.icm
+
+[G2220HDA DVI.CopyFiles]	
+	G2220HDA DVI.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	G2220HDA D-SUB="BenQ G2220HDA D-SUB"
+        G2220HDA DVI="BenQ G2220HDA DVI"

@@ -1,0 +1,68 @@
+; nl171v.inf
+; Setup information file for NEC LCD171V Monitor
+;
+; Copyright 2008, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl171v.cat
+DriverVer=02/28/2008,1.08.0228.1313
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6740
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD171V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl171v.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD171V%=LCD171V.Install, Monitor\NEC6740
+
+[NECDS.ntamd64]
+%LCD171V%=LCD171V.Install.ntamd64, Monitor\NEC6740
+
+[LCD171V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD171V.AddReg, 1280, DPMS
+CopyFiles=LCD171V.CopyFiles
+
+[LCD171V.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD171V.AddReg, 1280, DPMS
+CopyFiles=LCD171V.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD171V.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl171v.icm"
+
+[LCD171V.CopyFiles]
+nl171v.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD171V="NEC LCD171V"

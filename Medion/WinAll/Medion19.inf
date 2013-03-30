@@ -1,0 +1,77 @@
+; #################################################
+;
+;   Medion.inf         Ver. 1.03      5/26/2003
+;
+;   Copyright (c)2003, Medion Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Medion Color Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=Medion19.cat
+DriverVer=02/26/2003,1.0.0.3
+
+[ControlFlags]
+ExcludeFromSelect.nt =*
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+Medion_19.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+Medion19.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%Medion_19%=Medion_19.Install, Monitor\MED9979
+%Medion_19%=Medion_19.Install, Monitor\MED9982
+
+[Medion_19.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Medion_19.AddReg, 1600, DPMS
+CopyFiles=Medion_19.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Medion_19.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"Medion19.icm"
+
+[Medion_19.CopyFiles]
+Medion19.icm
+
+[Strings]
+Medion="Medion AG"
+MonitorClassName="Monitor"
+Medion_19="Medion 19 inch TD/TG"
+DiskLabel="Medion INF and ICM Software"

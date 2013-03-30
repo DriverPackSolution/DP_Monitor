@@ -1,0 +1,86 @@
+; Copyright 2004 AOC International (Europe) GmbH
+; This is a Setup information file for monitors  with ICM  file
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+;Catalogfile=LM525A.cat
+DriverVer=07/26/2004,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC525A
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+525A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LM525A.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%525A%=525A.Install, Monitor\AOC525A
+
+; Install Sections
+;-------------------------------------------------
+[525A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=525A.AddReg, 1024 ,DPMS
+Copyfiles=525A.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[525A.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-63.0,55.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-63.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"LM525A.icm"
+
+[525A.CopyFiles]
+LM525A.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+525A="LM525A"
+

@@ -1,0 +1,96 @@
+;-------------------------------------------
+; Copyright (c) 2006 Dell Corporation
+; Issue date -- 08/23/2006
+; revision 1
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1708FP.cat
+DriverVer=08/23/2006,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+1708FP_Analog.copyfiles = 23
+1708FP_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+1708FP.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%1708FP_Analog%=1708FP_Analog.Install, Monitor\DEL4023
+%1708FP_Digital%=1708FP_Digital.Install, Monitor\DEL4024
+
+[DELL.NTx86]
+%1708FP_Analog%=1708FP_Analog.Install, Monitor\DEL4023
+%1708FP_Digital%=1708FP_Digital.Install, Monitor\DEL4024
+
+[DELL.NTAMD64]
+%1708FP_Analog%=1708FP_Analog.Install, Monitor\DEL4023
+%1708FP_Digital%=1708FP_Digital.Install, Monitor\DEL4024
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL4023
+ExcludeFromSelect.NT=Monitor\DEL4024
+
+[1708FP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1708FP_Analog.AddReg, 1280, DPMS
+CopyFiles=1708FP_Analog.CopyFiles
+
+[1708FP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1708FP_Digital.AddReg, 1280, DPMS
+CopyFiles=1708FP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1708FP_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1708FP.icm"
+
+[1708FP_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1708FP.icm"
+
+
+[1708FP_Analog.CopyFiles]
+1708FP.ICM
+
+[1708FP_Digital.CopyFiles]
+1708FP.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+
+1708FP_Analog="Dell 1708FP(Analog)"
+1708FP_Digital="Dell 1708FP(Digital)"
+

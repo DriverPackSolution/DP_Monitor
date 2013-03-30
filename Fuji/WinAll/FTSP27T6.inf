@@ -1,0 +1,133 @@
+;================================ 
+;FTSP27T6.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display P27T-6 IPS
+;Copyright 2010 Fujitsu Technology Solutions GmbH
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS-Mfg%
+CatalogFile=FTSP27T6.cat
+DriverVer=08/03/2010,1.0.0.0
+
+;-------------------------------------------------
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+FTSP27T6.CopyFiles = 23
+
+[SourceDisksNames]
+1="Fujitsu Driver & Utilities CD P27T-6 IPS",,,
+
+[SourceDisksFiles]
+FTSP27T6.icm=1
+
+[Manufacturer]
+%FTS-Mfg%=FTS-Mfg,NTx86,NTAMD64 
+
+[FTS-Mfg]  
+%FTSP27T6_a%=FTSP27T6_a.Install, Monitor\FUS07ED
+%FTSP27T6_d%=FTSP27T6_d.Install, Monitor\FUS07EE
+%FTSP27T6_dp%=FTSP27T6_dp.Install, Monitor\FUS07EF
+%FTSP27T6_h1%=FTSP27T6_h.Install, Monitor\FUS07F1
+%FTSP27T6_h2%=FTSP27T6_h.Install, Monitor\FUS07F0
+
+[FTS-Mfg.NTx86]
+%FTSP27T6_a%=FTSP27T6_a.Install, Monitor\FUS07ED
+%FTSP27T6_d%=FTSP27T6_d.Install, Monitor\FUS07EE
+%FTSP27T6_dp%=FTSP27T6_dp.Install, Monitor\FUS07EF
+%FTSP27T6_h1%=FTSP27T6_h.Install, Monitor\FUS07F1
+%FTSP27T6_h2%=FTSP27T6_h.Install, Monitor\FUS07F0
+
+[FTS-Mfg.NTAMD64]  
+%FTSP27T6_a%=FTSP27T6_a.Install, Monitor\FUS07ED
+%FTSP27T6_d%=FTSP27T6_d.Install, Monitor\FUS07EE
+%FTSP27T6_dp%=FTSP27T6_dp.Install, Monitor\FUS07EF
+%FTSP27T6_h1%=FTSP27T6_h.Install, Monitor\FUS07F1
+%FTSP27T6_h2%=FTSP27T6_h.Install, Monitor\FUS07F0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07ED
+ExcludeFromSelect.nt=Monitor\FUS07EE
+ExcludeFromSelect.nt=Monitor\FUS07EF
+ExcludeFromSelect.nt=Monitor\FUS07F1
+ExcludeFromSelect.nt=Monitor\FUS07F0
+
+[FTSP27T6_a.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=FTSP27T6_a.AddReg, 2048, DPMS
+CopyFiles=FTSP27T6.CopyFiles
+
+[FTSP27T6_d.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=FTSP27T6_d.AddReg, 2560, DPMS
+CopyFiles=FTSP27T6.CopyFiles
+					     
+[FTSP27T6_h.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=FTSP27T6_h.AddReg, 1920, DPMS
+CopyFiles=FTSP27T6.CopyFiles
+
+[FTSP27T6_dp.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=FTSP27T6_dp.AddReg, 2560, DPMS
+CopyFiles=FTSP27T6.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[2048]
+HKR,,MaxResolution,,"2048,1152"
+
+[2560]
+HKR,,MaxResolution,,"2560,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTSP27T6_a.AddReg]
+HKR,"MODES\2048,1152",Mode1,,"31.0-94.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSP27T6.icm"
+
+[FTSP27T6_d.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"27.0-100.0,49.0-75.0,+,-"
+HKR,,ICMProfile,0,"FTSP27T6.icm"
+
+[FTSP27T6_h.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"15.0-75.0,49.0-76.0,+,+"
+HKR,,ICMProfile,0,"FTSP27T6.icm"
+
+[FTSP27T6_dp.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"27.0-100.0,49.0-75.0,+,-"
+HKR,,ICMProfile,0,"FTSP27T6.icm"
+
+[FTSP27T6.CopyFiles]
+FTSP27T6.icm
+
+[Strings]
+MonitorClassName="Monitor"
+FTS-Mfg="Fujitsu Technology Solutions"	
+
+FTSP27T6_a="Fujitsu P27T-6 IPS (Analog)"
+FTSP27T6_d="Fujitsu P27T-6 IPS (Digital)"
+FTSP27T6_dp="Fujitsu P27T-6 IPS (DP)"
+FTSP27T6_h1="Fujitsu P27T-6 IPS (HDMI 1)"
+FTSP27T6_h2="Fujitsu P27T-6 IPS (HDMI 2)"

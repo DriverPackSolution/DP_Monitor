@@ -1,0 +1,66 @@
+;
+; ctxs760.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Oct 27, 2003
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=10/27/2003,1.0.0
+CatalogFile=ctxs760.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX2025
+
+[DestinationDirs]
+DefaultDestDir=11
+
+S760.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTXpfs.icm=1
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%S760%=S760.Install,Monitor\CTX2025
+
+[S760.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S760.AddReg, 1280, DPMS
+CopyFiles=S760.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[S760.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,59.0-75.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.icm"
+
+[S760.CopyFiles]
+CTXpfs.icm
+
+[Strings]
+Disk="CTX LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+S760="CTX S760,S761,S762"

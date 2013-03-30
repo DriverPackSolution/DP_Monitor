@@ -1,0 +1,68 @@
+; Monitor INF file of Gateway FPD1520
+; Issue date -- 09/07/2001
+; Revise date -- 09/07/2001
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=05F1.cat
+DriverVer=07/02/2001,09.07.1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+05F1.CopyFiles=23
+
+[SourceDisksNames]
+1="Gateway Monitor Profiles Installation Disk",,,
+
+[SourceDisksFiles]
+05F1.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%05F1%=05F1.Install, Monitor\GWY05F1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY05F1
+
+[05F1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=05F1.AddReg, 1024, DPMS
+CopyFiles=05F1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[05F1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"05F1.icm"
+
+[05F1.CopyFiles]
+05F1.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Gateway="Gateway"
+05F1="FPD1520"

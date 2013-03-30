@@ -1,0 +1,102 @@
+
+;==================================================
+; T190N.inf 07/03/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=T190N.cat
+DriverVer=07/03/2008,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0483
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+T190N.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+T190N.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%T190N%=T190N.Install, Monitor\SAM0483
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%T190N%=T190N.Install, Monitor\SAM0483
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%T190N%=T190N.Install, Monitor\SAM0483
+
+; Install Sections
+;-----------------------------------------------------
+
+[T190N.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T190N.AddReg, 1440, DPMS
+CopyFiles=T190N.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[T190N.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T190N.icm"
+
+;------------------------------------------------------
+
+[T190N.CopyFiles]
+T190N.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+T190N="SyncMaster T190N/T190GN"

@@ -1,0 +1,68 @@
+; Monitor INF file of Gateway FPD1530(GTW-GC150AT)
+; Doc Number : 9086000013-0A
+; Issue date -- 01/08/2002
+; Revise date -- 02/05/2002
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=05FA.cat
+DriverVer=07/02/2001,01.08.1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+05FA.CopyFiles=23
+
+[SourceDisksNames]
+1="Gateway System Restoration Kit",,,
+
+[SourceDisksFiles]
+05FA.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%05FA%=05FA.Install, Monitor\GWY05FA
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY05FA
+
+[05FA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=05FA.AddReg, 1024, DPMS
+CopyFiles=05FA.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[05FA.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"05FA.icm"
+
+[05FA.CopyFiles]
+05FA.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Gateway="Gateway"
+05FA="GateWay FPD1530"

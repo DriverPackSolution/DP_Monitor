@@ -1,0 +1,72 @@
+;19AC1.INF Ver. 1.00
+;Monitor INF file for IIYAMA WEB Dept. Monitor 19AC1
+;Copyright 2003 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=19AC1.cat
+DriverVer=09/22/2003,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM480C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+19AC1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+19AC1.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%19AC1%=19AC1.Install, Monitor\IVM480C
+
+[19AC1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=19AC1.AddReg, 1280, DPMS
+CopyFiles=19AC1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[19AC1.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,55-76,+,+"
+HKR,"MODES\800,600",Mode1,,"24-83,55-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,55-76,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,55-76,+,+"
+HKR,,ICMProfile,0,"19AC1.ICM"
+
+[19AC1.CopyFiles]
+19AC1.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+19AC1="e-yama 19AC1"

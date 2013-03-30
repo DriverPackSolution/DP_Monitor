@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG2027WM.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/13/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG2027WM.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG2027WM.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCF622
+
+[ViewSonic]   
+%VG2027WM%=VG2027WM.Install,Monitor\VSCF622  
+
+[ViewSonic.NTia64]   
+%VG2027WM%=VG2027WM.Install,Monitor\VSCF622
+
+[ViewSonic.NTamd64]   
+%VG2027WM%=VG2027WM.Install,Monitor\VSCF622 
+
+[VG2027WM.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2027WM.AddReg,1600,DPMS
+Copyfiles=VG2027WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG2027WM.AddReg]  
+HKR,"MODES\1600,900",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VG2027WM.ICM"
+
+[VG2027WM.CopyFiles]                                       
+VG2027WM.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VG2027WM ViewSonic Wizard"
+VG2027WM="ViewSonic VG2027WM"

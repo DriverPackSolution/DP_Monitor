@@ -1,0 +1,68 @@
+;PLC380T.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor PLC380T 
+;Copyright 2003 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=C380T.cat      
+DriverVer=01/30/2004,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM3898
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+C380T.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+C380T.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%C380T%=C380T.Install, Monitor\IVM3898
+[C380T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C380T.AddReg, 1024, DPMS
+CopyFiles=C380T.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[C380T.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-60,55-76,+,+"
+HKR,,ICMProfile,0,"C380T.ICM"
+
+[C380T.CopyFiles]
+C380T.ICM
+
+[Strings]
+DISK1="IIYAMA LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+C380T="IIYAMA ProLite C380T"

@@ -1,0 +1,102 @@
+
+;==================================================
+; SM732N.inf 02/07/2007 ver. 2.0HC
+;
+; Copyright 2006 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM732N.cat
+DriverVer=02/07/2007,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0272
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM732N.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM732N.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM732N%=SM732N.Install, Monitor\SAM0272
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM732N%=SM732N.Install, Monitor\SAM0272
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM732N%=SM732N.Install, Monitor\SAM0272
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM732N.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM732N.AddReg, 1280, DPMS
+CopyFiles=SM732N.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM732N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM732N.icm"
+
+;------------------------------------------------------
+
+[SM732N.CopyFiles]
+SM732N.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM732N="SyncMaster 732N/732Nplus,SyncMaster Magic CX731N/CX732N"

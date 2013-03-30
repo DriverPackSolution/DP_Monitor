@@ -1,0 +1,74 @@
+; P17-1A.INF Ver. 1.1 
+;Monitor INF file for Fujitsu Siemens Monitor P17-1A
+;Copyright 2004 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP17-1A.cat
+DriverVer=04/30/2004, 1.1.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0510
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-P17-1A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP171A.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FUS-P17-1A%=FUS-P17-1A.Install, Monitor\FUS0510
+
+[FUS-P17-1A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P17-1A.AddReg, 1280, DPMS
+CopyFiles=FUS-P17-1A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-P17-1A.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-38,55-76,-,-"
+HKR,"MODES\800,600",Mode1,,"35-49,55-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"48-63,55-76,-,-"
+HKR,"MODES\1280,1024",Mode1,,"30-83,55-76,+,+"
+
+HKR,,ICMProfile,0,"FSCP171A.ICM"
+
+[FUS-P17-1A.CopyFiles]
+FSCP171A.ICM
+
+[Strings]
+DISK="Driver & Utility for P17-1A"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-P17-1A="Fujitsu Siemens P17-1A"

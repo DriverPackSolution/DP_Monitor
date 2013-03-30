@@ -1,0 +1,80 @@
+;
+; This is a Setup information file for monitors  with ICM  file
+; Modified by AOC Top Victory (Fujian), Ltd. R&D.
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+A560.CopyFiles=23
+
+[SourceDisksNames]
+1="AOC Supersync Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+AOCA560.icm=1
+
+; Manufacturer List
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC
+
+[AOC]
+%A560%=A560.Install, Monitor\AOCA560
+
+[A560.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=A560.AddReg, 1024 ,DPMS
+Copyfiles=A560.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Model AddReg sections
+;-------------------------------------------------
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[A560.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"AOCA560.icm"
+
+[A560.CopyFiles]
+AOCA560.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+MonitorClassName="Monitor"
+AOC="AOC Top Victory Electronics(Fujian) Co.,Ltd."
+
+A560="AOC LCD MONITOR LM-500"
+
+Monitor\AOCA560.DeviceDesc="AOC LCD MONITOR LM-500"
+

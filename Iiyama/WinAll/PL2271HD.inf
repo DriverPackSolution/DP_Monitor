@@ -1,0 +1,73 @@
+; [PLPL2271HD.INF]
+; Revision 1.00
+; Copyright(c) 2010 IIYAMA CORPORATION
+; V001
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL2271HD.cat
+DriverVer=05/20/2010,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\IVM5617
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+PL2271HD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+PL2271HD.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,ntamd64
+
+[IIYAMA]
+%PL2271HD%=PL2271HD.Install, Monitor\IVM5617
+
+[IIYAMA.ntamd64]
+%PL2271HD%=PL2271HD.Install, Monitor\IVM5617
+
+[PL2271HD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2271HD.AddReg, 1920, DPMS
+CopyFiles=PL2271HD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL2271HD.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2271HD.icm"
+
+[PL2271HD.CopyFiles]
+PL2271HD.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+PL2271HD="iiyama ProLite PL2271HD"

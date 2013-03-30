@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1742.INF] 
+; Revision 1.4   March-10-2008
+; Copyright(c)1998~2008 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1742.cat
+DriverVer=03/10/2008,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM449B
+ExcludeFromSelect.NT=Monitor\GSM449C
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1742_Analog.CopyFiles = 23
+L1742_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1742.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1742_Analog%=L1742_Analog.Install,Monitor\GSM449B
+%L1742_Digital%=L1742_Digital.Install,Monitor\GSM449C
+
+[LG.NTamd64]
+%L1742_Analog%=L1742_Analog.Install,Monitor\GSM449B
+%L1742_Digital%=L1742_Digital.Install,Monitor\GSM449C
+
+[L1742_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1742_Analog.AddReg,1280,DPMS
+CopyFiles=L1742_Analog.CopyFiles
+
+[L1742_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1742_Digital.AddReg,1280,DPMS
+CopyFiles=L1742_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1742_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1742.ICM"
+
+[L1742_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1742.ICM"
+
+[L1742_Analog.CopyFiles]
+L1742.ICM
+
+[L1742_Digital.CopyFiles]
+L1742.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1742_Analog="LG L1742(Analog)"
+L1742_Digital="LG L1742(Digital)"

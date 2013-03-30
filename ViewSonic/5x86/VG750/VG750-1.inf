@@ -1,0 +1,62 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG750.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/30/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS23719-2W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG750-1.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS23719-2W%=VLCDS23719-2W.Install,Monitor\VSC3F08           ;VG750
+
+[VLCDS23719-2W.Install]                                         ;VG750
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23719-2W.AddReg,1280,DPMS
+Copyfiles=VLCDS23719-2W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS23719-2W.AddReg]                                          ;VG750
+HKR,"MODES\1280,1024",Mode1,,"24-82,56-85,+,+"
+HKR,,ICMProfile,0,"VG750-1.ICM"
+
+[VLCDS23719-2W.CopyFiles]                                       
+VG750-1.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS23719-2W="ViewSonic VG750"
+
+

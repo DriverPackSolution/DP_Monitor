@@ -1,0 +1,68 @@
+; nl175mp.inf
+; Setup information file for NEC MultiSync LCD175MP Monitor
+;
+; Copyright 2009, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl175mp.cat
+DriverVer=07/08/2009,1.09.0703.1611
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67CC
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD175MP.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl175mp.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD175MP%=LCD175MP.Install, Monitor\NEC67CC
+
+[NECDS.ntamd64]
+%LCD175MP%=LCD175MP.Install.ntamd64, Monitor\NEC67CC
+
+[LCD175MP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD175MP.AddReg, 1280, DPMS
+CopyFiles=LCD175MP.CopyFiles
+
+[LCD175MP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD175MP.AddReg, 1280, DPMS
+CopyFiles=LCD175MP.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD175MP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl175mp.icm"
+
+[LCD175MP.CopyFiles]
+nl175mp.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD175MP="NEC MultiSync LCD175MP"

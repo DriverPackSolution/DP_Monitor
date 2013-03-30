@@ -1,0 +1,142 @@
+;-------------------------------------------
+; Copyright (c) 2007 Dell Corporation
+; Issue date -- 07/17/2007
+; Revise date -- 07/17/2007
+; revision 1
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=3008WFP.cat
+DriverVer=07/17/2007,1.0.0.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+3008WFP_Analog.copyfiles = 23
+3008WFP_Digital.copyfiles = 23
+3008WFP_DP.copyfiles = 23
+3008WFP_HDMI.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+3008WFP_VGA.ICM=1
+3008WFP_DVI.ICM=1
+3008WFP_DP.ICM=1
+3008WFP_HDMI.ICM=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%3008WFP_Analog%=3008WFP_Analog.Install, Monitor\DEL4034
+%3008WFP_Digital%=3008WFP_Digital.Install, Monitor\DEL4035
+%3008WFP_DP%=3008WFP_DP.Install, Monitor\DEL4036
+%3008WFP_HDMI%=3008WFP_HDMI.Install, Monitor\DEL4037
+
+[DELL.NTx86]
+%3008WFP_Analog%=3008WFP_Analog.Install, Monitor\DEL4034
+%3008WFP_Digital%=3008WFP_Digital.Install, Monitor\DEL4035
+%3008WFP_DP%=3008WFP_DP.Install, Monitor\DEL4036
+%3008WFP_HDMI%=3008WFP_HDMI.Install, Monitor\DEL4037
+
+[DELL.NTAMD64]
+%3008WFP_Analog%=3008WFP_Analog.Install, Monitor\DEL4034
+%3008WFP_Digital%=3008WFP_Digital.Install, Monitor\DEL4035
+%3008WFP_DP%=3008WFP_DP.Install, Monitor\DEL4036
+%3008WFP_HDMI%=3008WFP_HDMI.Install, Monitor\DEL4037
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL4034
+ExcludeFromSelect.NT=Monitor\DEL4035
+ExcludeFromSelect.NT=Monitor\DEL4036
+ExcludeFromSelect.NT=Monitor\DEL4037
+
+[3008WFP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3008WFP_Analog.AddReg, 1920, DPMS
+CopyFiles=3008WFP_Analog.CopyFiles
+
+[3008WFP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3008WFP_Digital.AddReg, 2560, DPMS
+CopyFiles=3008WFP_Digital.CopyFiles
+
+[3008WFP_DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3008WFP_DP.AddReg, 2560, DPMS
+CopyFiles=3008WFP_DP.CopyFiles
+
+[3008WFP_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3008WFP_HDMI.AddReg, 1920, DPMS
+CopyFiles=3008WFP_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2560]
+HKR,,MaxResolution,,"2560,1600"
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[3008WFP_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"29.0-94.0,49.0-86.0,-,+"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0,"3008WFP_VGA.ICM"
+
+[3008WFP_Digital.AddReg]
+HKR,"MODES\2560,1600",Mode1,,"29.0-113.0,49.0-86.0,+,-"
+HKR,,PreferredMode,,"2560,1600,60"
+HKR,,ICMProfile,0,"3008WFP_DVI.ICM"
+
+[3008WFP_DP.AddReg]
+HKR,"MODES\2560,1600",Mode1,,"29.0-113.0,49.0-86.0,+,-"
+HKR,,PreferredMode,,"2560,1600,60"
+HKR,,ICMProfile,0,"3008WFP_DP.ICM"
+
+[3008WFP_HDMI.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"29.0-94.0,49.0-86.0,-,+"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0,"3008WFP_HDMI.ICM"
+
+
+[3008WFP_Analog.CopyFiles]
+3008WFP_VGA.ICM
+
+[3008WFP_Digital.CopyFiles]
+3008WFP_DVI.ICM
+
+[3008WFP_DP.CopyFiles]
+3008WFP_DP.ICM
+
+[3008WFP_HDMI.CopyFiles]
+3008WFP_HDMI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+diskname="Dell Monitor installtion disk"
+3008WFP_Analog="Dell 3008WFP(Analog)"
+3008WFP_Digital="Dell 3008WFP(Digital)"
+3008WFP_DP="Dell 3008WFP(DP)"
+3008WFP_HDMI="Dell 3008WFP(HDMI)"
+

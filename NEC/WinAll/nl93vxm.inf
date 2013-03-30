@@ -1,0 +1,68 @@
+; nl93vxm.inf
+; Setup information file for NEC LCD93VXM Monitor
+;
+; Copyright 2008, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl93vxm.cat
+DriverVer=01/18/2008,1.08.0118.1456
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6737
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD93VXM.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl93vxm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD93VXM%=LCD93VXM.Install, Monitor\NEC6737
+
+[NECDS.ntamd64]
+%LCD93VXM%=LCD93VXM.Install.ntamd64, Monitor\NEC6737
+
+[LCD93VXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD93VXM.AddReg, 1280, DPMS
+CopyFiles=LCD93VXM.CopyFiles
+
+[LCD93VXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD93VXM.AddReg, 1280, DPMS
+CopyFiles=LCD93VXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD93VXM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl93vxm.icm"
+
+[LCD93VXM.CopyFiles]
+nl93vxm.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD93VXM="NEC LCD93VXM"

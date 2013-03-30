@@ -1,0 +1,120 @@
+
+;==================================================
+; SM700TSN.inf 08/12/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM700TSN.cat
+DriverVer=08/12/2008,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM04BC
+ExcludeFromSelect.nt=Monitor\SAM04BD
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM700TSNa.CopyFiles = 23
+SM700TSNd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM700TSN.icm=1
+SM700TSN.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM700TSNa%=SM700TSNa.Install, Monitor\SAM04BC
+%SM700TSNd%=SM700TSNd.Install, Monitor\SAM04BD
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM700TSNa%=SM700TSNa.Install, Monitor\SAM04BC
+%SM700TSNd%=SM700TSNd.Install, Monitor\SAM04BD
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM700TSNa%=SM700TSNa.Install, Monitor\SAM04BC
+%SM700TSNd%=SM700TSNd.Install, Monitor\SAM04BD
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM700TSNa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM700TSNa.AddReg, 1920, DPMS
+CopyFiles=SM700TSNa.CopyFiles
+
+[SM700TSNd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM700TSNd.AddReg, 1920, DPMS
+CopyFiles=SM700TSNd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM700TSNa.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM700TSN.icm"
+
+[SM700TSNd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM700TSN.icm"
+;------------------------------------------------------
+
+[SM700TSNa.CopyFiles]
+SM700TSN.icm
+
+[SM700TSNd.CopyFiles]
+SM700TSN.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM700TSNa="SyncMaster 700TSN (Analog)"
+SM700TSNd="SyncMaster 700TSN (Digital)"

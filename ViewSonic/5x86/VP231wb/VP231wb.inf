@@ -1,0 +1,62 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP231wb.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/28/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP231wb.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP231wb.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VP231wb%=VP231wb.Install,Monitor\VSC6919                 ;VP231wb
+
+[VP231wb.Install]                                         ;VP231wb
+DelReg=DEL_CURRENT_REG 
+AddReg=VP231wb.AddReg,1920,DPMS
+Copyfiles=VP231wb.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP231wb.AddReg]                                          ;VP231wb
+HKR,"MODES\1920,1200",Mode1,,"30-92,24-85,-,+"
+HKR,,ICMProfile,0,"VP231wb.ICM"
+
+[VP231wb.CopyFiles]                                       
+VP231wb.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VP231wb="ViewSonic VP231wb"
+
+

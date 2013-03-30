@@ -1,0 +1,93 @@
+;================================ 
+;
+;   Medion.inf         Ver. 1.03      5/26/2003
+;
+;   Copyright (c)2003, Medion AG
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Medion Color Monitor.
+; 
+;================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD7223TH.cat
+DriverVer=05/26/2003,1.0.0.3
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MD7223TH
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD7223TH.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%
+
+[SourceDisksFiles]
+MD7223TH.icm=1
+;MD7223TH_9683.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Medion%=Medion
+
+; Manufacturer sections
+;-------------------------------------------------
+ [Medion] 
+%MD7223TH_9683%=MD7223TH_9683.Install, Monitor\MED9683  ;Analog
+
+
+; Install Sections
+;-------------------------------------------------
+[MD7223TH_9683.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=MD7223TH_9683.AddReg, 1024, DPMS
+CopyFiles=MD7223TH.CopyFiles
+					     
+				
+; AddReg & DelReg sections
+;-------------------------------------------------
+ [DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;------------------------------------------------------------------------------- 
+[MD7223TH_9683.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+;HKR,,ICMProfile,0,"MD7223TH.icm"
+
+;------------------------------------------------------------------------------- 
+[MD7223TH.CopyFiles]
+MD7223TH.icm
+
+;------------------------------------------------------------------------------- 
+[Strings]
+DISK="Medion Monitor Installation Disk"
+MonitorClassName="Monitor"
+Medion="Medion AG"	
+MD7223TH_9683="MD7223TH"
+

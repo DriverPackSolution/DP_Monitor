@@ -1,0 +1,260 @@
+;Installation File (.inf) for Web Camera
+
+[Version]
+Signature="$CHICAGO$"
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Class=Image
+ClassGUID={6bdd1fc6-810f-11d0-bec7-08002be2092f}
+Provider=%SoftMfg%
+DriverVer=09/22/2003, 4.2.0922.70 
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%HwMfg%=VM,NT
+
+[DestinationDirs]
+DefaultDestDir         = 11
+VM.APP.CopyFiles       = 10
+VM.XPAPP.CopyFiles     = 10
+VM.STI.CopyFiles       = 11
+VM.CustomPrp.CopyFiles = 11
+VM.TWAIN.CopyFiles     = 10, twain_32\WebCam
+VM.USBDCam.Files.Ext   = 10, System32\Drivers
+VM.Config.CopyFiles    = 10, inf
+
+[VM]
+%USB\VID_0AC8&PID_0302.DeviceDesc%=VM.USBDCam302,USB\VID_0AC8&PID_0302&MI_00
+[VM.NT]
+%USB\VID_0AC8&PID_0302.DeviceDesc%=VM.USBDCam302.XP,USB\VID_0AC8&PID_0302&MI_00
+
+;****************************************
+
+[VM.USBDCam302]
+Include=ks.inf, kscaptur.inf, ksfilter.inf, Config.set 
+Needs=KS.Registration,KSCAPTUR.Registration, VM.HWConfig  
+SubClass=StillImage
+DeviceType=2
+DeviceSubType=0x0302
+Capabilities=1 
+Events=VM.STI.Events
+DeviceData=VM.STI.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+AddReg=VM.USBDCam.AddReg, VM.CustomPrp.AddReg,  VM.STI.AddReg, VM.TWAIN.AddReg
+CopyFiles=VM.USBDCam.Files.Ext, VM.CustomPrp.CopyFiles, VM.STI.CopyFiles, VM.APP.CopyFiles, VM.TWAIN.CopyFiles, VM.Config.CopyFiles
+
+[VM.USBDCam302.NT]
+Include=ks.inf, kscaptur.inf, ksfilter.inf, Config.set   
+Needs=KS.Registration,KSCAPTUR.Registration.NT, VM.HWConfig   
+SubClass=StillImage
+DeviceType=2
+DeviceSubType=0x0302
+Capabilities=1  
+Events=VM.STI.Events
+DeviceData=VM.STI.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+AddReg=VM.USBDCam.AddReg, VM.CustomPrp.AddReg,  VM.STI.AddReg,  VM.TWAIN.AddReg
+CopyFiles=VM.USBDCam.Files.Ext, VM.CustomPrp.CopyFiles, VM.STI.CopyFiles, VM.APP.CopyFiles, VM.TWAIN.CopyFiles, VM.Config.CopyFiles
+
+[VM.USBDCam302.XP]
+Include=ks.inf, kscaptur.inf, Config.set
+Needs=KS.Registration,KSCAPTUR.Registration.NT, VM.HWConfig
+AddReg=VM.USBDCam.AddReg, VM.CustomPrp.AddReg, VM.WIA.AddReg,  VM.TWAIN.AddReg
+CopyFiles=VM.USBDCam.Files.Ext, VM.CustomPrp.CopyFiles, VM.STI.CopyFiles, VM.XPAPP.CopyFiles, VM.TWAIN.CopyFiles, VM.Config.CopyFiles
+SubClass=StillImage
+DeviceType=3
+DeviceSubType=0x0302
+Capabilities=0x00000031
+;Capabilities=0x00000001
+PortSelect=No
+;Events=VM.STI.Events
+DeviceData=VM.WIA.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+;LogConfig = VM.XP.NEEDDREBOOT
+;Reboot
+
+;**********************************************
+
+
+[VM.USBDCam.AddReg]
+HKR,,HardwareConfig,1,1
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbvm302.sys
+;HKR,,PageOutWhenUnopened,3,00
+;HKR,,PowerDownWhenUnopened,3,00
+
+[VM.CustomPrp.AddReg]
+HKCR,CLSID\%GUID_VMCustomPropertySets%,,,%VMCustomPropertySets%
+HKCR,CLSID\%GUID_VMCustomPropertySets%\InprocServer32,,,vm302prp.ax
+HKCR,CLSID\%GUID_VMCustomPropertySets%\InprocServer32,ThreadingModel,,Both
+
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\%GUID_VMCustomPropertySets%,,,%VMCustomPropertySets%
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\%GUID_VMCustomPropertySets%,IID,1,5A,7C,75,9C,95,8D,3c,45,82,84,90,6A,68,DC,53,FA
+
+HKCR,CLSID\%CLSID_VMCustomPropertyPage%,,,%VMCustomPropertyPage%
+HKCR,CLSID\%CLSID_VMCustomPropertyPage%\InprocServer32,,,vm302prp.ax
+HKCR,CLSID\%CLSID_VMCustomPropertyPage%\InprocServer32,ThreadingModel,,Both
+
+HKCR,CLSID\%CLSID_VMBackDoorPropertyPage%,,,%VMBackDoorPropertyPage%
+HKCR,CLSID\%CLSID_VMBackDoorPropertyPage%\InprocServer32,,,vm302prp.ax
+HKCR,CLSID\%CLSID_VMBackDoorPropertyPage%\InprocServer32,ThreadingModel,,Both
+
+HKLM,System\CurrentControlSet\Control\MediaSets\%GUID_VMCustomPropertySets%\PropertyPages\%CLSID_VMCustomPropertyPage%,,,%VMCustomPropertyPage%
+;Add or remove backdoor from the registry:
+;HKLM,System\CurrentControlSet\Control\MediaSets\%GUID_VMCustomPropertySets%\PropertyPages\%CLSID_VMBackDoorPropertyPage%,,,%VMBackDoorPropertyPage%
+
+[VM.STI.AddReg]
+HKR,,USDClass,,"{80989FCE-A58A-4902-B5C8-37410E34023F}"
+HKCR,CLSID\{80989FCE-A58A-4902-B5C8-37410E34023F} ,,,%STI_DEVICE_NAME%
+HKCR,CLSID\{80989FCE-A58A-4902-B5C8-37410E34023F}\InProcServer32,,,%11%\vm302sti.dll
+HKCR,CLSID\{80989FCE-A58A-4902-B5C8-37410E34023F}\InProcServer32,ThreadingModel,,"Both"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\StillImage\Registered Applications",%VIDEOAPP%,,"%10%\amcap.exe /StiDevice:%1 /StiEvent:%2"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\StillImage\Registered Applications",%STILLAPP%,,"%10%\stillcap.exe /StiDevice:%1 /StiEvent:%2"
+
+[VM.WIA.AddReg]
+HKR,,USDClass,,"{0527d1d0-88c2-11d2-82c7-00c04f8ec183}"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Run","BigDogPath",,"%10%\VM_STI.EXE %USB\VID_0AC8&PID_0302.DeviceDesc%"
+HKLM,"Software\ZSMC\USBCAMERA\BigDogPath",Snapshot1,,"%10%\amcap.exe"
+HKLM,"Software\ZSMC\USBCAMERA\BigDogPath",Snapshot2,,"%10%\vmcap.exe"
+
+[VM.STI.DeviceData]
+TwainDS=%USB\VID_0AC8&PID_0302.TWAINDSName%
+SpecialInfo="VM"
+
+[VM.WIA.DeviceData]
+Server=local
+UI DLL=sti.dll
+UI Class ID={5d8ef5a3-ac13-11d2-a093-00c04f72dc3c}
+TwainDS=%USB\VID_0AC8&PID_0302.TWAINDSName%
+SpecialInfo="VM"
+
+[VM.STI.Events]
+; These are events that the device issues to trigger application 
+; launching.
+Snapshot=%SNAPSHOT%,{E76F3027-CA52-468e-B06E-2F32E2F6B59E},*
+Snapshot2=%SNAPSHOT2%,{E76F3028-CA52-468e-B06E-2F32E2F6B59E},%STILLAPP%
+
+[VM.TWAIN.AddReg]
+HKLM,%TWAINSetting%,DeviceName,,%USB\VID_0AC8&PID_0302.DeviceDesc%
+HKLM,%TWAINSetting%,DSName,,%USB\VID_0AC8&PID_0302.TWAINDSName%
+HKLM,%TWAINSetting%,OEM,,%USB\VID_0AC8&PID_0302.TWAINOEMPath%
+
+[VM.XP.NEEDDREBOOT]
+ConfigPriority = REBOOT 
+
+
+;****************************************************
+[VM.USBDCam302.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,VM.USBDCam302.Interface
+
+[VM.USBDCam302.NT.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,VM.USBDCam302.Interface
+
+[VM.USBDCam302.XP.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,VM.USBDCam302.Interface
+
+[VM.USBDCam302.Interface]
+AddReg=VM.USBDCam302.Intf.AddReg
+         
+[VM.USBDCam302.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%USB\VID_0AC8&PID_0302.DeviceDesc%
+HKR,PageAliases,"{71F96464-78F3-11d0-A18C-00A0C9118956}",1,51,7C,75,9C, 95,8D, 3C,45, 0x82, 0x84, 0x90, 0x6A, 0x68, 0xDC, 0x53, 0xFA
+HKR,PinFactory\1\Interfaces\%GUID_VMCustomPropertySets%,,,
+HKR,,ExtensionDLL,,%VM.ExtensionDLL%
+
+[VM.USBDCam302.NT.Services]
+AddService = ZSMC302,0x00000002,VM.USBDCam302.ServiceInstall
+
+[VM.USBDCam302.XP.Services]
+AddService = ZSMC302,0x00000002,VM.USBDCam302.ServiceInstall
+
+[VM.USBDCam302.ServiceInstall]
+DisplayName   = %USB\VID_0AC8&PID_0302.DeviceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %10%\System32\Drivers\usbvm302.sys
+
+;******************************************************
+
+[VM.USBDCam.Files.Ext]
+usbvm302.sys
+
+[VM.CustomPrp.CopyFiles]
+vm302prp.ax
+
+[VM.APP.CopyFiles]
+amcap.exe
+stillcap.exe
+
+[VM.XPAPP.CopyFiles]
+amcap.exe
+VM_STI.EXE,,,COPYFLG_FORCE_FILE_IN_USE
+vmcap.exe
+
+[VM.STI.CopyFiles]
+vm302sti.dll
+
+[VM.TWAIN.CopyFiles]
+vm302twn.ds
+
+[VM.Config.CopyFiles]
+config.set
+
+[SourceDisksNames]
+1 = %SRCDISKNAME%,,,
+
+[SourceDisksFiles]
+usbvm302.sys = 1
+vm302prp.ax  = 1
+vm302sti.dll = 1 
+vm302twn.ds  = 1
+amcap.exe    = 1
+stillcap.exe = 1
+vmcap.exe    = 1
+VM_STI.EXE   = 1
+config.set   = 1
+
+[Strings]
+;----------------
+; Non-Localizable
+;----------------
+
+ProxyVCap.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+SERVICE_KERNEL_DRIVER=1
+SERVICE_DEMAND_START=3
+SERVICE_ERROR_NORMAL=1
+VM.ExtensionDLL = "vm302prp.ax"
+
+;----------------
+; Localizable
+;----------------
+SRCDISKNAME = "Web Camera Installation Disk"
+
+SoftMfg="BenQ"
+HwMfg="BenQ"
+
+USB\VID_0AC8&PID_0302.DeviceDesc = "Web Camera"
+
+VMCustomPropertySets="VM Custom Property Sets" 
+VMCustomPropertyPage="VM Custom Property Page"
+VMBackDoorPropertyPage="VM Back Door Property Page"
+
+
+TWAINSetting = "Software\ZSMC\USBCAMERA\ZC0302\TWAIN"
+USB\VID_0AC8&PID_0302.TWAINDSName = "Web Camera"
+USB\VID_0AC8&PID_0302.TWAINOEMPath = "WebCam"
+
+GUID_VMCustomPropertySets="{9C757C5A-8D95-453c-8284-906A68DC53FA}"
+CLSID_VMCustomPropertyPage="{9C757C51-8D95-453c-8284-906A68DC53FA}"
+CLSID_VMBackDoorPropertyPage="{9C757C52-8D95-453c-8284-906A68DC53FA}"
+
+SNAPSHOT  = "Startup Camera"
+SNAPSHOT2 = "Capture Image"
+
+VIDEOAPP = "MS Video Capture Application"
+STILLAPP = "VM Still Capture Application"
+STI_DEVICE_NAME = "VM STI USB"

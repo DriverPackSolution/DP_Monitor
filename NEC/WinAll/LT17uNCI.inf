@@ -1,0 +1,72 @@
+;*********************************************************************************
+; LT17uNCI.INF Ver. 2.0.0.2 for NEC LCD Monitor LT17u
+;
+; This is a INF file to install  monitor for Windows 98,Windows 2K,Windows ME,Windows XP.
+;
+;Copyright 2000,2005     NEC Computers International
+;Written by NEC CI Engineering 
+;*********************************************************************************
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECCI%
+CatalogFile=LT17uNCI.cat
+DriverVer=06/06/2002,2.0.0.2
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LT17uNCI.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+LT17uNCI.icm=1
+
+[Manufacturer]
+%NECCI%=NECCI
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\NCI4012
+
+[NECCI]
+%LT17uNCI%=LT17uNCI.Install,Monitor\NCI4012
+
+[LT17uNCI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LT17uNCI.AddReg, 1280, DPMS
+CopyFiles=LT17uNCI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LT17uNCI.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"LT17uNCI.icm"
+
+[LT17uNCI.CopyFiles]
+LT17uNCI.icm
+
+[Strings]
+MonitorClassName="Monitor"
+NECCI="NEC Computers International"
+LT17uNCI="Monitor LT17u NEC"
+DISK1="NEC CI Monitors Installation Disk"

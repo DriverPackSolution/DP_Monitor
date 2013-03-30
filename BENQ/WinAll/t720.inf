@@ -1,0 +1,74 @@
+;================================ 
+;t720.INF 3/10/03 Ver. 1.0 
+;; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2003, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=t720.cat
+DriverVer=03/10/2003,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+t720.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+t720.icm=1
+
+[Manufacturer]
+%BenQ%=BenQ
+
+[BenQ]
+%t720%=t720.Install, Monitor\BNQ7659
+
+[t720.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=t720.AddReg, 1280, DPMS
+CopyFiles=t720.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[t720.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-81.0,60.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5-81.0,60.0-75.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.5-81.0,60.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-81.0,60.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.5-83.0,60.0-76.0,+,+"
+HKR,,ICMProfile,0,"t720.icm"
+
+[t720.CopyFiles]
+t720.ICM
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7659
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BenQ flat panel Monitor installation diskette"
+t720="BenQ t720"
+BenQ="BenQ"

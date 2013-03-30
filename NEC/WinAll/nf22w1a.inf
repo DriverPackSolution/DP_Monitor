@@ -1,0 +1,68 @@
+; nf22w1a.inf
+; Setup information file for NEC F22W1A Monitor
+;
+; Copyright 2008, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nf22w1a.cat
+DriverVer=09/11/2008,1.08.0911.1713
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6767
+
+[DestinationDirs]
+F22W1A.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nf22w1a.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%F22W1A%=F22W1A.Install, Monitor\NEC6767
+
+[NECDS.ntamd64]
+%F22W1A%=F22W1A.Install.ntamd64, Monitor\NEC6767
+
+[F22W1A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F22W1A.AddReg, 1680, DPMS
+CopyFiles=F22W1A.CopyFiles
+
+[F22W1A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=F22W1A.AddReg, 1680, DPMS
+CopyFiles=F22W1A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F22W1A.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nf22w1a.icm"
+
+[F22W1A.CopyFiles]
+nf22w1a.icm
+
+[Strings]
+NECDS="NEC"
+F22W1A="NEC F22W1A"
+Disk1="NEC Display Solutions Installation Disk"

@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1951SQ.INF] 
+; Revision 1.3   July-20-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1951SQ.cat
+DriverVer=07/06/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AD6
+
+[DestinationDirs]
+DefaultDestDir=11
+L1951SQ.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1951SQ.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1951SQ%=L1951SQ.Install,Monitor\GSM4AD6
+
+[LG.NTamd64]
+%L1951SQ%=L1951SQ.Install,Monitor\GSM4AD6
+
+[L1951SQ.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1951SQ.AddReg,1280,DPMS
+CopyFiles=L1951SQ.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1951SQ.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1951SQ.ICM"
+
+[L1951SQ.CopyFiles]
+L1951SQ.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1951SQ="LG L1951SQ"

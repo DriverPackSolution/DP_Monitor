@@ -1,0 +1,118 @@
+; [L997.INF]
+; Revision 1.10
+; Copyright(c) 2004 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L997.cat
+DriverVer=12/22/2004,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1749
+ExcludeFromSelect.nt = Monitor\ENC1750
+ExcludeFromSelect.nt = Monitor\ENC1751
+ExcludeFromSelect.nt = Monitor\ENC1752
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L997D.CopyFiles = 23
+L997.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L997D65.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L997DL%=L997DL.Install, Monitor\ENC1749
+%L997DP%=L997DP.Install, Monitor\ENC1750
+%L997AL%=L997AL.Install, Monitor\ENC1751
+%L997AP%=L997AP.Install, Monitor\ENC1752
+
+[L997DL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L997DL.AddReg, 1600, DPMS
+CopyFiles=L997D.CopyFiles
+
+
+[L997DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L997DP.AddReg, 1200, DPMS
+CopyFiles=L997D.CopyFiles
+
+
+[L997AL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L997AL.AddReg, 1600, DPMS
+CopyFiles=L997.CopyFiles
+
+
+[L997AP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L997AP.AddReg, 1200, DPMS
+CopyFiles=L997.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[1200]
+HKR,,MaxResolution,,"1200,1600"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L997DL.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-100.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L997D65.icm"
+
+[L997DP.AddReg]
+HKR,"MODES\1200,1600",Mode1,,"31.0-100.0,59.0-61.0,-,+"
+HKR,,ICMProfile,0,"L997D65.icm"
+
+[L997AL.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.0-100.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"L997D65.icm"
+
+[L997AP.AddReg]
+HKR,"MODES\1200,1600",Mode1,,"24.0-100.0,49.0-86.0,-,+"
+HKR,,ICMProfile,0,"L997D65.icm"
+
+[L997D.CopyFiles]
+L997D65.icm
+
+[L997.CopyFiles]
+L997D65.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L997DL="L997 Digital Landscape"
+L997DP="L997 Digital Portrait"
+L997AL="L997 Analog Landscape"
+L997AP="L997 Analog Portrait"

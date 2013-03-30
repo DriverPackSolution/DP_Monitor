@@ -1,0 +1,95 @@
+
+;================================ 
+;f50s.INF 10/29/01 Ver. 1.0 SND
+;Copyright 1996-2001 Hewlett Packard
+;
+;This is a setupfile for HP Monitors
+;================================
+;
+;------------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+catalogfile=f50s.cat
+DriverVer=10/29/2001,1.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\HWP12d7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+f50s.copyfiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,
+
+[SourceDisksFiles]
+f50s.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%HP%=HP
+
+; Manufacturer sections
+;-------------------------------------------------
+[HP]
+%f50s%=f50s.Install, Monitor\HWP12d7
+
+; Install Sections
+;-------------------------------------------------
+
+[f50s.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=f50s.AddReg, 1024, DPMS
+CopyFiles=f50s.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[f50s.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"f50s.icm"
+
+;------------------------------------------------------------------------------------------
+
+[f50s.CopyFiles]
+f50s.ICM
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="HP Monitor Install Disk"
+MonitorClassName="Monitor"
+HP="Hewlett Packard"
+f50s="hp pavilion f50s"

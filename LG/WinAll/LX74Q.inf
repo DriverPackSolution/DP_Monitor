@@ -1,0 +1,65 @@
+;=============================================================== 
+; [LX74Q.INF] 
+; Revision 1.4   August-30-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX74Q.cat
+DriverVer=08/30/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM442A
+
+[DestinationDirs]
+DefaultDestDir=11
+LX74Q.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX74Q.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX74Q%=LX74Q.Install,Monitor\GSM442A
+
+[LG.NTamd64]
+%LX74Q%=LX74Q.Install,Monitor\GSM442A
+
+[LX74Q.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX74Q.AddReg,1280,DPMS
+CopyFiles=LX74Q.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX74Q.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX74Q.ICM"
+
+[LX74Q.CopyFiles]
+LX74Q.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX74Q="LG LX74Q"

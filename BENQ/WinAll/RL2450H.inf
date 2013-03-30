@@ -1,0 +1,112 @@
+;========================================= 
+; BenQ_RL2450H.INF 09/15/11 Ver. 1.0 
+; INF File for Windows Win7/Vista
+; Copyright (c) 2011, BENQ Corporation
+;=========================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+CatalogFile=RL2450H.cat
+DriverVer=09/15/2011,1.0.0.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+RL2450H_Analog.CopyFiles = 23
+RL2450H_Digital.CopyFiles = 23
+RL2450H_HDMI.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+RL2450H.icm=1
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+[BenQ]
+%RL2450H_Analog%=RL2450H_Analog.Install, Monitor\BNQ7F0D
+%RL2450H_Digital%=RL2450H_Digital.Install, Monitor\BNQ7F0E
+%RL2450H_HDMI%=RL2450H_HDMI.Install, Monitor\BNQ7F0E
+
+[BenQ.NTx86]
+%RL2450H_Analog%=RL2450H_Analog.Install, Monitor\BNQ7F0D
+%RL2450H_Digital%=RL2450H_Digital.Install, Monitor\BNQ7F0E
+%RL2450H_HDMI%=RL2450H_HDMI.Install, Monitor\BNQ7F0E
+
+[BenQ.NTAMD64]
+%RL2450H_Analog%=RL2450H_Analog.Install, Monitor\BNQ7F0D
+%RL2450H_Digital%=RL2450H_Digital.Install, Monitor\BNQ7F0E
+%RL2450H_HDMI%=RL2450H_HDMI.Install, Monitor\BNQ7F0E
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7F0D
+ExcludeFromSelect.NT=Monitor\BNQ7F0E
+ExcludeFromSelect.NT=Monitor\BNQ7F0E
+
+[RL2450H_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=RL2450H_Analog.AddReg, 1920, DPMS
+CopyFiles=RL2450H_Analog.CopyFiles
+
+[RL2450H_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=RL2450H_Digital.AddReg, 1920, DPMS
+CopyFiles=RL2450H_Digital.CopyFiles
+
+[RL2450H_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=RL2450H_HDMI.AddReg, 1920, DPMS
+CopyFiles=RL2450H_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[RL2450H_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"RL2450H.icm"
+
+[RL2450H_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"RL2450H.icm"
+
+[RL2450H_HDMI.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"RL2450H.icm"
+
+[RL2450H_Analog.CopyFiles]
+RL2450H.icm
+
+[RL2450H_Digital.CopyFiles]
+RL2450H.icm
+
+[RL2450H_HDMI.CopyFiles]
+RL2450H.icm
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+DiskName="BenQ LCD Monitor installation diskette"
+RL2450H_Analog="BenQ RL2450H"
+RL2450H_Digital="BenQ RL2450H"
+RL2450H_HDMI="BenQ RL2450H"
+

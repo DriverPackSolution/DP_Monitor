@@ -1,0 +1,86 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [561A.INF]
+;
+;      Revision 1.0   APRIL-15-2002
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=04/15/2002,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+561A.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG561A.icm=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%561A%=561A.Install, Monitor\GSM3B21
+
+;------------------------------------; .Install
+
+[561A.Install]
+AddReg=561A.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=561A.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;------------------------------------; .AddReg
+
+
+[561A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"LG561A.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[561A.CopyFiles]
+LG561A.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3B21
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+561A="StudioWorks 561A"

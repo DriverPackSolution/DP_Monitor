@@ -1,0 +1,79 @@
+;------------------------------------------------
+; Copyright (c) 2006 Lenovo Corporation
+; Issue date -- 06/24/2005
+; Revise date -- 08/10/2006
+; revision 1
+;------------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=L151.cat
+DriverVer=08/10/2006,
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+L151.copyfiles = 23
+
+[SourceDisksNames]
+1="Lenovo Monitor installtion disk",,,
+
+[SourceDisksFiles]
+L151.icm=1
+
+
+[Manufacturer]
+%LEN%=LEN,NTx86,NTAMD64
+
+[LEN]
+%L151%=L151.Install, Monitor\LEN23CD
+
+[LEN.NTx86]
+%L151%=L151.Install, Monitor\LEN23CD
+
+[LEN.NTAMD64]
+%L151%=L151.Install, Monitor\LEN23CD
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\LEN23CD
+
+[L151.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L151.AddReg, 1024, DPMS
+CopyFiles=L151.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L151.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-77.0,+,+"
+HKR,,ICMProfile,0,"L151.icm"
+
+
+[L151.CopyFiles]
+L151.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+LEN="Lenovo"
+L151="Lenovo L151"
+

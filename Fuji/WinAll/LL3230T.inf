@@ -1,0 +1,81 @@
+;Monitor INF file for Fujitsu Siemens Monitor AMILO LL 3230T
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=LL3230T.cat
+DriverVer=12/12/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07BD
+
+[DestinationDirs]
+DefaultDestDir=11
+LL3230T.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LL3230T.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%LL_3230T%=LL3230T.Install, Monitor\FUS07BD
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%LL_3230T%=LL3230T.Install, Monitor\FUS07BD
+
+; Install Sections
+;-------------------------------------------------
+
+[LL3230T.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LL3230T.AddReg, 1920, DPMS
+CopyFiles=LL3230T.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[LL3230T.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-82.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"LL3230T.icm"
+
+;---------------------------------------------------------- 
+
+[LL3230T.CopyFiles]
+LL3230T.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD AMILO LL 3230T"
+FUJSIE="Fujitsu Siemens Computers"	
+LL_3230T="AMILO LL 3230T"

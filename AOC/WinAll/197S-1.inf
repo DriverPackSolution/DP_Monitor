@@ -1,0 +1,65 @@
+; AOC INF File for Windows 9x/ME/2000/XP/Vista 
+; Revision Date: Dec 05,2006
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC% 
+CatalogFile =197S-1.CAT
+DriverVer=12/05/2006,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\AOCC943
+
+[ClassInstall]
+AddReg=ClassAddReg32
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+[Manufacturer]
+%AOC%=AOC,NTx86,NTamd64,NTia64
+
+[AOC]
+%197S-1%=197S-1.Install,Monitor\AOCC943
+
+[AOC.NTx86]
+%197S-1%=197S-1.Install,Monitor\AOCC943
+
+[AOC.NTamd64]
+%197S-1%=197S-1.Install,Monitor\AOCC943
+
+[AOC.NTia64]
+%197S-1%=197S-1.Install,Monitor\AOCC943
+
+[197S-1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=197S-1.AddReg,1280,DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[197S-1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+
+[Strings]
+MonitorClassName="Monitor"
+AOC="Envision Peripherals, Inc."
+
+197S-1="AOC 197S-1"

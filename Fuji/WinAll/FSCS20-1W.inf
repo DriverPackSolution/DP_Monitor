@@ -1,0 +1,70 @@
+;SCALEOVIEW S20-1W.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor SCALEOVIEW S20-1W
+;Copyright 2005 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSC20-1W.cat
+DriverVer=11/07/2005, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0600
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-S20-1W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSC20-1W.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FUS-S20-1W%=FUS-S20-1W.Install, Monitor\FUS0600
+
+[FUS-S20-1W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-S20-1W.AddReg, 1280, DPMS
+CopyFiles=FUS-S20-1W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-S20-1W.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-82,56-76,-,+"
+HKR,,ICMProfile,0,"FSC20-1W.ICM"
+
+[FUS-S20-1W.CopyFiles]
+FSC20-1W.ICM
+
+[Strings]
+DISK="Driver & Utility for SCALEOVIEW S20-1W"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-S20-1W="Fujitsu Siemens SCALEOVIEW S20-1W"

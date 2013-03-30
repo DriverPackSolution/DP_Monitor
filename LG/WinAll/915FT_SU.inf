@@ -1,0 +1,84 @@
+;=============================================================== 
+; 915FT_SU.INF 04/14/05 Ver. 1.0 SND
+; Revision 1.0   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=915FT_SU.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4A63
+ExcludeFromSelect.NT=Monitor\GSM4A65
+
+[DestinationDirs]
+DefaultDestDir = 11
+915FT_SU_Analog.CopyFiles = 23
+915FT_SU_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+915FTSU.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%915FT_SU_Analog%=915FT_SU_Analog.Install,Monitor\GSM4A63
+%915FT_SU_Digital%=915FT_SU_Digital.Install,Monitor\GSM4A65
+
+[LG.NTamd64]
+%915FT_SU_Analog%=915FT_SU_Analog.Install,Monitor\GSM4A63
+%915FT_SU_Digital%=915FT_SU_Digital.Install,Monitor\GSM4A65
+
+[915FT_SU_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=915FT_SU_Analog.AddReg,1920,DPMS
+CopyFiles=915FT_SU_Analog.CopyFiles
+
+[915FT_SU_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=915FT_SU_Digital.AddReg,1280,DPMS
+CopyFiles=915FT_SU_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[915FT_SU_Analog.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-200.0,+,+"
+HKR,,ICMprofile,0,"915FTSU.ICM"
+
+[915FT_SU_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-92.0,50.0-87.0,+,+"
+HKR,,ICMprofile,0,"915FTSU.ICM"
+
+[915FT_SU_Analog.CopyFiles]
+915FTSU.ICM
+
+[915FT_SU_Digital.CopyFiles]
+915FTSU.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+915FT_SU_Analog="LG 915FT SUPER(Analog)"
+915FT_SU_Digital="LG 915FT SUPER(Digital)"

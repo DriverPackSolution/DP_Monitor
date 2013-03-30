@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1719C.INF] 
+; Revision 1.4   April-10-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1719C.cat
+DriverVer=04/10/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM444E
+
+[DestinationDirs]
+DefaultDestDir=11
+L1719C.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL1719C.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1719C%=L1719C.Install,Monitor\GSM444E
+
+[LG.NTamd64]
+%L1719C%=L1719C.Install,Monitor\GSM444E
+
+[L1719C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1719C.AddReg,1280,DPMS
+CopyFiles=L1719C.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1719C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL1719C.ICM"
+
+[L1719C.CopyFiles]
+LGL1719C.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1719C="LG L1719C"

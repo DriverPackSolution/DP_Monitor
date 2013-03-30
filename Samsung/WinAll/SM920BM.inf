@@ -1,0 +1,119 @@
+
+;==================================================
+; SM920BM.inf 06/20/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM920BM.cat
+DriverVer=06/20/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0309
+ExcludeFromSelect.nt=Monitor\SAM030A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM920BMa.CopyFiles = 23
+SM920BMd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM920BM.icm=1
+sm740BF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM920BMa%=SM920BMa.Install, Monitor\SAM0309
+%SM920BMd%=SM920BMd.Install, Monitor\SAM030A
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM920BMa%=SM920BMa.Install, Monitor\SAM0309
+%SM920BMd%=SM920BMd.Install, Monitor\SAM030A
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM920BMa%=SM920BMa.Install, Monitor\SAM0309
+%SM920BMd%=SM920BMd.Install, Monitor\SAM030A
+; Install Sections
+;-----------------------------------------------------
+
+[SM920BMa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM920BMa.AddReg, 1280, DPMS
+CopyFiles=SM920BMa.CopyFiles
+
+[SM920BMd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM920BMd.AddReg, 1280, DPMS
+CopyFiles=SM920BMd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM920BMa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM920BM.icm"
+
+[SM920BMd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM920BM.icm"
+;------------------------------------------------------
+
+[SM920BMa.CopyFiles]
+SM920BM.icm
+
+[SM920BMd.CopyFiles]
+SM920BM.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM920BMa="SyncMaster 920BM (Analog)"
+SM920BMd="SyncMaster 920BM (Digital)"

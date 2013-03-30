@@ -1,0 +1,120 @@
+
+;==================================================
+; SM520DX.inf 09/05/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM520DX.cat
+DriverVer=09/05/2008,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM04D8
+ExcludeFromSelect.nt=Monitor\SAM04D9
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM520DXa.CopyFiles = 23
+SM520DXd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM520DX.icm=1
+SM520DX.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM520DXa%=SM520DXa.Install, Monitor\SAM04D8
+%SM520DXd%=SM520DXd.Install, Monitor\SAM04D9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM520DXa%=SM520DXa.Install, Monitor\SAM04D8
+%SM520DXd%=SM520DXd.Install, Monitor\SAM04D9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM520DXa%=SM520DXa.Install, Monitor\SAM04D8
+%SM520DXd%=SM520DXd.Install, Monitor\SAM04D9
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM520DXa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM520DXa.AddReg, 1920, DPMS
+CopyFiles=SM520DXa.CopyFiles
+
+[SM520DXd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM520DXd.AddReg, 1920, DPMS
+CopyFiles=SM520DXd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM520DXa.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM520DX.icm"
+
+[SM520DXd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM520DX.icm"
+;------------------------------------------------------
+
+[SM520DXa.CopyFiles]
+SM520DX.icm
+
+[SM520DXd.CopyFiles]
+SM520DX.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM520DXa="SyncMaster 520DX/520DXN (Analog)"
+SM520DXd="SyncMaster 520DX/520DXN (Digital)"

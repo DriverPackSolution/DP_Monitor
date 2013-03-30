@@ -1,0 +1,81 @@
+;=============================================================== 
+; [LX178QD.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX178QD.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM43EE
+ExcludeFromSelect.NT=Monitor\GSM43EF
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX178QD_Analog.CopyFiles = 23
+LX178QD_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX178QD.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX178QD_Analog%=LX178QD_Analog.Install,Monitor\GSM43EE
+%LX178QD_Digital%=LX178QD_Digital.Install,Monitor\GSM43EF
+
+[LG.NTamd64]
+%LX178QD_Analog%=LX178QD_Analog.Install,Monitor\GSM43EE
+%LX178QD_Digital%=LX178QD_Digital.Install,Monitor\GSM43EF
+
+[LX178QD_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX178QD_Analog.AddReg,1280,DPMS
+CopyFiles=LX178QD_Analog.CopyFiles
+
+[LX178QD_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX178QD_Digital.AddReg,1280,DPMS
+CopyFiles=LX178QD_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX178QD_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"LX178QD.ICM"
+
+[LX178QD_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"LX178QD.ICM"
+
+[LX178QD_Analog.CopyFiles]
+LX178QD.ICM
+
+[LX178QD_Digital.CopyFiles]
+LX178QD.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX178QD_Analog="LG LX178QD(Analog)"
+LX178QD_Digital="LG LX178QD(Digital)"

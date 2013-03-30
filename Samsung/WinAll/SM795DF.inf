@@ -1,0 +1,95 @@
+
+;==================================================
+; sm795DF.inf 01/13/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm795DF.cat
+DriverVer=01/13/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0108
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm795DF.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm795DF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm795DF%=sm795DF.Install, Monitor\SAM0108
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm795DF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm795DF.AddReg, 1792, DPMS
+CopyFiles=sm795DF.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm795DF.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30-85,50-160,+,+"
+HKR,,ICMProfile,0,"sm795DF.icm"
+
+
+;------------------------------------------------------
+
+[sm795DF.CopyFiles]
+sm795DF.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm795DF="SyncMaster 795DF/795MB , SyncMaster Magic CD175GP"
+

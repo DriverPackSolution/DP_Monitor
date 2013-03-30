@@ -1,0 +1,77 @@
+;=============================================================== 
+; [L3020AL.INF] 
+; Revision 1.4   August-19-2003
+; Copyright(c)1998~2003 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L3020AL.cat
+DriverVer=08/19/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM7533
+ExcludeFromSelect.NT=Monitor\GSM7534
+
+[DestinationDirs]
+DefaultDestDir = 11
+L3020AL_Analog.CopyFiles = 23
+L3020AL_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL3020A.ICM=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%L3020AL_Analog%=L3020AL_Analog.Install,Monitor\GSM7533
+%L3020AL_Digital%=L3020AL_Digital.Install,Monitor\GSM7534
+
+[L3020AL_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L3020AL_Analog.AddReg,1280,DPMS
+CopyFiles=L3020AL_Analog.CopyFiles
+
+[L3020AL_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L3020AL_Digital.AddReg,1280,DPMS
+CopyFiles=L3020AL_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L3020AL_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"LGL3020A.ICM"
+
+[L3020AL_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"LGL3020A.ICM"
+
+[L3020AL_Analog.CopyFiles]
+LGL3020A.ICM
+
+[L3020AL_Digital.CopyFiles]
+LGL3020A.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L3020AL_Analog="LG FLATRON L3020AL(Analog)"
+L3020AL_Digital="LG FLATRON L3020AL(Digital)"

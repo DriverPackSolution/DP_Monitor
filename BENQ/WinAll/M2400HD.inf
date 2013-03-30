@@ -1,0 +1,127 @@
+;========================================== 
+; BenQ_M2400HD.INF 06/04/08 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2007, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=M2400HD.cat
+DriverVer=06/04/2008,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7C01
+ExcludeFromSelect.NT=Monitor\BNQ7C02
+ExcludeFromSelect.NT=Monitor\BNQ7C02
+
+[DestinationDirs]
+DefaultDestDir  = 11
+M2400HD_Analog.copyfiles = 23
+M2400HD_Digital.copyfiles = 23
+M2400HD_HDMI.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+M2400HDDSUB.icm=1
+M2400HDDVI.icm=1
+M2400HDHDMI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%M2400HD_Analog%=M2400HD_Analog.Install, Monitor\BNQ7C01
+%M2400HD_Digital%=M2400HD_Digital.Install, Monitor\BNQ7C02
+%M2400HD_HDMI%=M2400HD_HDMI.Install, Monitor\BNQ7C02
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%M2400HD_Analog%=M2400HD_Analog.Install, Monitor\BNQ7C01
+%M2400HD_Digital%=M2400HD_Digital.Install, Monitor\BNQ7C02
+%M2400HD_HDMI%=M2400HD_HDMI.Install, Monitor\BNQ7C02
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%M2400HD_Analog%=M2400HD_Analog.Install, Monitor\BNQ7C01
+%M2400HD_Digital%=M2400HD_Digital.Install, Monitor\BNQ7C02
+%M2400HD_HDMI%=M2400HD_HDMI.Install, Monitor\BNQ7C02
+
+
+; Install Sections
+;-------------------------------------------------
+
+[M2400HD_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2400HD_Analog.AddReg, 1920, DPMS
+CopyFiles=M2400HD_Analog.CopyFiles
+
+[M2400HD_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2400HD_Digital.AddReg, 1920, DPMS
+CopyFiles=M2400HD_Digital.CopyFiles
+
+[M2400HD_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2400HD_HDMI.AddReg, 1920, DPMS
+CopyFiles=M2400HD_HDMI.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[M2400HD_Analog.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,55.0-85.0,+,+"
+HKR,,ICMProfile,0,"M2400HDDSUB.icm"
+
+[M2400HD_Digital.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,55.0-85.0,+,+"
+HKR,,ICMProfile,0,"M2400HDDVI.icm"
+
+[M2400HD_HDMI.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,55.0-85.0,+,+"
+HKR,,ICMProfile,0,"M2400HDHDMI.icm"
+
+
+[M2400HD_Analog.CopyFiles]
+M2400HDDSUB.ICM
+
+[M2400HD_Digital.CopyFiles]
+M2400HDDVI.ICM
+
+[M2400HD_HDMI.CopyFiles]
+M2400HDHDMI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+M2400HD_Analog="BenQ M2400HD (Analog)"
+M2400HD_Digital="BenQ M2400HD (Digital)"
+M2400HD_HDMI="BenQ M2400HD (HDMI)"

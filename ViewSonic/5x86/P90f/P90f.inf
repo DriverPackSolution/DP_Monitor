@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=P90f.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/06/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VCDTS23483-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+P90f.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS23483-1%=VCDTS23483-1.Install,Monitor\VSC5207	          ;P90f
+
+[VCDTS23483-1.Install]                                            ;P90f
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23483-1.AddReg,1920,DPMS
+Copyfiles=VCDTS23483-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS23483-1.AddReg]                                             ;P90f
+HKR,"MODES\1920,1440",Mode1,,"30-110,50-180,+,+"
+HKR,,ICMProfile,0,"P90f.ICM"
+
+[VCDTS23483-1.CopyFiles]                                       
+P90f.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS23483-1="ViewSonic P90f"

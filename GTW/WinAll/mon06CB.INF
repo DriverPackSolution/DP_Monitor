@@ -1,0 +1,115 @@
+;=============================================================== 
+; Gateway FPD1730
+; manufactured by LG Electronics
+; mon06CB.inf
+; Revision 1.1, June-19-2003
+; Copyright(c) Gateway,All Rights Reserved.
+;===============================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon06CB.cat
+DriverVer=06/19/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY06C2
+ExcludeFromSelect.NT=Monitor\GWY06CA
+ExcludeFromSelect.NT=Monitor\GWY06CB
+ExcludeFromSelect.NT=Monitor\GWY06CC
+
+[DestinationDirs]
+DefaultDestDir=11
+06C2.CopyFiles=23
+mon06CA.CopyFiles=23
+mon06CB.CopyFiles=23
+mon06CC.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+06C2.icm=1
+mon06CA.icm=1
+mon06CB.icm=1
+mon06CC.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%06C2%=06C2.Install, Monitor\GWY06C2
+%mon06CA%=mon06CA.Install, Monitor\GWY06CA
+%mon06CB%=mon06CB.Install, Monitor\GWY06CB
+%mon06CC%=mon06CC.Install, Monitor\GWY06CC
+
+[06C2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=06C2.AddReg, 1280, DPMS
+CopyFiles=06C2.CopyFiles
+
+[mon06CA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06CA.AddReg, 1280, DPMS
+CopyFiles=mon06CA.CopyFiles
+
+[mon06CB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06CB.AddReg, 1280, DPMS
+CopyFiles=mon06CB.CopyFiles
+
+[mon06CC.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06CC.AddReg, 1280, DPMS
+CopyFiles=mon06CC.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[06C2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"06C2.icm"
+
+[mon06CA.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06CA.icm"
+
+[mon06CB.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06CB.icm"
+
+[mon06CC.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06CC.icm"
+
+[06C2.CopyFiles]
+06C2.icm
+
+[mon06CA.CopyFiles]
+mon06CA.icm
+
+[mon06CB.CopyFiles]
+mon06CB.icm
+
+[mon06CC.CopyFiles]
+mon06CC.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+06C2="Gateway FPD1730"
+mon06CA="Gateway FPD1730"
+mon06CB="Gateway FPD1730"
+mon06CC="Gateway FPD1730"

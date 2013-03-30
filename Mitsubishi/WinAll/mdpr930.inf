@@ -1,0 +1,83 @@
+; MDPR930.INF
+; Setup information file for Mitsubishi Diamond Pro 930SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=mdpr930.cat
+DriverVer=09/24/2002,2.09.0024.0827
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL463D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+Mits-DPro930SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+mdpr930.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%Mits-DPro930SB%=Mits-DPro930SB.Install, Monitor\MEL463D
+
+; Install Sections
+;-------------------------------------------------
+[Mits-DPro930SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Mits-DPro930SB.AddReg, 1920, DPMS
+CopyFiles=Mits-DPro930SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[Mits-DPro930SB.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"mdpr930.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[Mits-DPro930SB.CopyFiles]
+MDPR930.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+Mits-DPro930SB="Mitsubishi Diamond Pro 930SB"

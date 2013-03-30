@@ -1,0 +1,68 @@
+;MF_5517AJ.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor MF_5517AJ 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=MF5517.cat      
+DriverVer=08/04/2004,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM5517
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MF5517.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+MF5517.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%MF5517%=MF5517.Install, Monitor\IVM5517
+[MF5517.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MF5517.AddReg, 1024, DPMS
+CopyFiles=MF5517.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MF5517.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-57.0,50.0-71.0,+,+"
+HKR,,ICMProfile,0,"MF5517.ICM"
+
+[MF5517.CopyFiles]
+MF5517.ICM
+
+[Strings]
+DISK1="IIYAMA CRT Monitor Installation Disk"
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+MF5517="IIYAMA MF_5517AJ"

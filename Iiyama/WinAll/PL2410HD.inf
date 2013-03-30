@@ -1,0 +1,116 @@
+; [PL2410HD.INF]
+; Revision 1.00
+; Copyright(c) 2010 IIYAMA CORPORATION
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL2410HD.cat
+DriverVer=05/20/2010,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+PL2410HD_Analog.copyfiles = 23
+PL2410HD_Digital.copyfiles = 23
+PL2410HD_Hdmi.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%MonitorClassName%,,,
+
+[SourceDisksFiles]
+PL2410HD.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,NTx86,NTAMD64
+
+[IIYAMA]
+%PL2410HD_Analog%=PL2410HD_Analog.Install, Monitor\IVM6100
+%PL2410HD_Digital%=PL2410HD_Digital.Install, Monitor\IVM6100
+%PL2410HD_Hdmi%=PL2410HD_Hdmi.Install, Monitor\IVM6100
+
+[IIYAMA.NTx86]
+%PL2410HD_Analog%=PL2410HD_Analog.Install, Monitor\IVM6100
+%PL2410HD_Digital%=PL2410HD_Digital.Install, Monitor\IVM6100
+%PL2410HD_Hdmi%=PL2410HD_Hdmi.Install, Monitor\IVM6100
+
+[IIYAMA.NTAMD64]
+%PL2410HD_Analog%=PL2410HD_Analog.Install, Monitor\IVM6100
+%PL2410HD_Digital%=PL2410HD_Digital.Install, Monitor\IVM6100
+%PL2410HD_Hdmi%=PL2410HD_Hdmi.Install, Monitor\IVM6100
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IVM6100
+ExcludeFromSelect.NT=Monitor\IVM6100
+ExcludeFromSelect.NT=Monitor\IVM6100
+
+[PL2410HD_Analog.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2410HD_Analog.AddReg, 1920, DPMS
+CopyFiles=PL2410HD_Analog.CopyFiles
+
+[PL2410HD_Digital.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2410HD_Digital.AddReg, 1920, DPMS
+CopyFiles=PL2410HD_Digital.CopyFiles
+
+[PL2410HD_Hdmi.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2410HD_Hdmi.AddReg, 1920, DPMS
+CopyFiles=PL2410HD_Hdmi.CopyFiles
+
+[IVM_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL2410HD_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2410HD.icm"
+
+[PL2410HD_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2410HD.icm"
+
+[PL2410HD_Hdmi.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2410HD.icm"
+
+[PL2410HD_Analog.CopyFiles]
+PL2410HD.ICM
+
+[PL2410HD_Digital.CopyFiles]
+PL2410HD.ICM
+
+[PL2410HD_Hdmi.CopyFiles]
+PL2410HD.ICM
+
+
+[Strings]
+MonitorClassName="IIYAMA LCD Monitor Installation Disk"
+IIYAMA="IIYAMA CORPORATION"
+
+PL2410HD_Analog="IIYAMA ProLite PL2410HD(Analog)"
+PL2410HD_Digital="IIYAMA ProLite PL2410HD(Digital)"
+PL2410HD_Hdmi="IIYAMA ProLite PL2410HD(Hdmi)"
+
+

@@ -1,0 +1,99 @@
+;FTSB24W5.INF Ver. 2.0
+;Monitor INF file for Fujitsu Display B24W-5
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSB24W5.cat
+DriverVer=06/30/2009, 2.0.0.0
+
+;-------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS06B0
+ExcludeFromSelect.nt=Monitor\FUS06B1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSB24W5.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB24W5.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+[FTS.Mfg]
+%B24W-5%=FTSB24W5a.Install, Monitor\FUS06B0
+%B24W-5%=FTSB24W5d.Install, Monitor\FUS06B1
+
+[FTS.Mfg.NTAMD64]
+%B24W-5%=FTSB24W5a.Install, Monitor\FUS06B0
+%B24W-5%=FTSB24W5d.Install, Monitor\FUS06B1
+
+; Install Sections
+;-------------------------------------------------
+[FTSB24W5a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSB24W5a.AddReg, 1920, DPMS
+CopyFiles=FTSB24W5.CopyFiles
+
+[FTSB24W5d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSB24W5d.AddReg, 1920, DPMS
+CopyFiles=FTSB24W5.CopyFiles
+
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;--------------------------------------------------
+
+[FTSB24W5a.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"FTSB24W5.ICM"
+
+[FTSB24W5d.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"FTSB24W5.ICM"
+
+;--------------------------------------------------
+
+[FTSB24W5.CopyFiles]
+FTSB24W5.ICM
+
+;--------------------------------------------------
+
+[Strings]
+DISK="Fujitsu Display Installation Disk B24W-5"
+MonitorClassName="Monitor"
+FTS.Mfg="Fujitsu Technology Solutions"
+B24W-5="Fujitsu B24W-5"

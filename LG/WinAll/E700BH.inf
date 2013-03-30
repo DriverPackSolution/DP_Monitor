@@ -1,0 +1,64 @@
+;=============================================================== 
+; [E700BH.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=E700BH.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4389
+
+[DestinationDirs]
+DefaultDestDir=11
+E700BH.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGE700BH.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%E700BH%=E700BH.Install,Monitor\GSM4389
+
+[LG.NTamd64]
+%E700BH%=E700BH.Install,Monitor\GSM4389
+
+[E700BH.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E700BH.AddReg,1280,DPMS
+CopyFiles=E700BH.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E700BH.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LGE700BH.ICM"
+
+[E700BH.CopyFiles]
+LGE700BH.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+E700BH="LG FLATRON E700BH"

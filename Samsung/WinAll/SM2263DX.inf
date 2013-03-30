@@ -1,0 +1,120 @@
+
+;==================================================
+; SM2263DX.inf 01/29/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2263DX.cat
+DriverVer=01/29/2008,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0404
+ExcludeFromSelect.nt=Monitor\SAM0405
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2263DXa.CopyFiles = 23
+SM2263DXd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2263DX.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2263DXa%=SM2263DXa.Install, Monitor\SAM0404
+%SM2263DXd%=SM2263DXd.Install, Monitor\SAM0405
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2263DXa%=SM2263DXa.Install, Monitor\SAM0404
+%SM2263DXd%=SM2263DXd.Install, Monitor\SAM0405
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2263DXa%=SM2263DXa.Install, Monitor\SAM0404
+%SM2263DXd%=SM2263DXd.Install, Monitor\SAM0405
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2263DXa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2263DXa.AddReg, 1680, DPMS
+CopyFiles=SM2263DXa.CopyFiles
+
+[SM2263DXd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2263DXd.AddReg, 1680, DPMS
+CopyFiles=SM2263DXd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2263DXa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2263DX.icm"
+
+[SM2263DXd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2263DX.icm"
+;------------------------------------------------------
+
+[SM2263DXa.CopyFiles]
+SM2263DX.icm
+
+[SM2263DXd.CopyFiles]
+SM2263DX.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2263DXa="SyncMaster 2263DX(Analog)"
+SM2263DXd="SyncMaster 2263DX(Digital)"

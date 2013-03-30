@@ -1,0 +1,68 @@
+; nas171m.inf
+; Setup information file for NEC AS171M Monitor
+;
+; Copyright 2009, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nas171m.cat
+DriverVer=07/08/2009,1.09.0625.2259
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67C6
+
+[DestinationDirs]
+DefaultDestDir = 11
+AS171M.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nas171m.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%AS171M%=AS171M.Install, Monitor\NEC67C6
+
+[NECDS.ntamd64]
+%AS171M%=AS171M.Install.ntamd64, Monitor\NEC67C6
+
+[AS171M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS171M.AddReg, 1280, DPMS
+CopyFiles=AS171M.CopyFiles
+
+[AS171M.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS171M.AddReg, 1280, DPMS
+CopyFiles=AS171M.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS171M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nas171m.icm"
+
+[AS171M.CopyFiles]
+nas171m.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+AS171M="NEC AS171M"

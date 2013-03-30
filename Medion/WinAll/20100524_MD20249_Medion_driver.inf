@@ -1,0 +1,70 @@
+; Medion INF File for Windows 9x/ME/2000/XP 
+; Revision Date: May 24,2010
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion% 
+CatalogFile =MD 20249.CAT
+DriverVer=05/24/2010,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED3919
+ExcludeFromSelect.NT=Monitor\MED3920
+
+[ClassInstall]
+AddReg=ClassAddReg32
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+[Manufacturer]
+%Medion%=Medion,NTx86,NTamd64,NTia64
+
+[Medion]
+%MD20249%=MD20249.Install,Monitor\MED3919
+%MD20249%=MD20249.Install,Monitor\MED3920
+
+[Medion.NTx86]
+%MD20249%=MD20249.Install,Monitor\MED3919
+%MD20249%=MD20249.Install,Monitor\MED3920
+
+[Medion.NTamd64]
+%MD20249%=MD20249.Install,Monitor\MED3919
+%MD20249%=MD20249.Install,Monitor\MED3920
+
+[Medion.NTia64]
+%MD20249%=MD20249.Install,Monitor\MED3919
+%MD20249%=MD20249.Install,Monitor\MED3920
+
+[MD20249.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD20249.AddReg,1440,DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD20249.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,50.0-76.0,-,+"
+
+[Strings]
+MonitorClassName="Monitor"
+Medion="Medion Co.,LTD."
+
+MD20249="Medion MD20249"

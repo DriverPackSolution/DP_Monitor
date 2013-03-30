@@ -1,0 +1,82 @@
+##############################################################
+; This is a setup information file for Belinea 1905 G1 monitor
+; Modified by MAXDATA Systeme GmbH (ABA)
+; Revision 1.0.0.0, December 20, 2006
+; Copyright 2000-2006 MAXDATA Systeme GmbH
+##############################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=111933.cat
+DriverVer=12/20/2006,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX078D
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea 1905 G1 / Art. No. 111933" = 111933.Install, Monitor\MAX078D
+
+[Belinea.NTx86]
+"Belinea 1905 G1 / Art. No. 111933" = 111933.Install, Monitor\MAX078D
+
+[Belinea.NTia64]
+"Belinea 1905 G1 / Art. No. 111933" = 111933.Install, Monitor\MAX078D
+
+[Belinea.NTamd64]
+"Belinea 1905 G1 / Art. No. 111933" = 111933.Install, Monitor\MAX078D
+
+
+; Install sections
+;-------------------------------------------------
+[111933.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=111933.AddReg,1280,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[111933.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA Systeme GmbH"
+BELINEA="MAXDATA Systeme GmbH"
+

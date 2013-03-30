@@ -1,0 +1,88 @@
+; Copyright 2006 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=912Vwa.cat
+DriverVer=09/23/2006,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC1912
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1912.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+912Vwa.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%1912%=1912.Install, Monitor\AOC1912
+
+[AOC.ntamd64]
+%1912%=1912.Install, Monitor\AOC1912
+
+; Install Sections
+;-------------------------------------------------
+[1912.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1912.AddReg, 1440 ,DPMS
+Copyfiles=1912.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[1912.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"912Vwa.icm"
+
+
+[1912.CopyFiles]
+912Vwa.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+1912="AOC 912Vwa"

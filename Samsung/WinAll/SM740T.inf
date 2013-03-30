@@ -1,0 +1,120 @@
+
+;==================================================
+; sm740T.inf 02/15/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm740T.cat
+DriverVer=02/15/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM01B8
+ExcludeFromSelect.nt=Monitor\SAM01B9
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm740Ta.CopyFiles = 23
+sm740Td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm740T.icm=1
+sm740T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm740Ta%=sm740Ta.Install, Monitor\SAM01B8
+%sm740Td%=sm740Td.Install, Monitor\SAM01B9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%sm740Ta%=sm740Ta.Install, Monitor\SAM01B8
+%sm740Td%=sm740Td.Install, Monitor\SAM01B9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%sm740Ta%=sm740Ta.Install, Monitor\SAM01B8
+%sm740Td%=sm740Td.Install, Monitor\SAM01B9
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm740Ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm740Ta.AddReg, 1280, DPMS
+CopyFiles=sm740Ta.CopyFiles
+
+[sm740Td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm740Td.AddReg, 1280, DPMS
+CopyFiles=sm740Td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm740Ta.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm740T.icm"
+
+[sm740Td.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm740T.icm"
+;------------------------------------------------------
+
+[sm740Ta.CopyFiles]
+sm740T.icm
+
+[sm740Td.CopyFiles]
+sm740T.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm740Ta="SyncMaster 740T/740B/179B,SyncMaster Magic CX721B(Analog)"
+sm740Td="SyncMaster 740T/740B/179B,SyncMaster Magic CX721B(Digital)"

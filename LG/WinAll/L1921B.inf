@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1921B.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1921B.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AAD
+
+[DestinationDirs]
+DefaultDestDir=11
+L1921B.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL1921B.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1921B%=L1921B.Install,Monitor\GSM4AAD
+
+[LG.NTamd64]
+%L1921B%=L1921B.Install,Monitor\GSM4AAD
+
+[L1921B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1921B.AddReg,1280,DPMS
+CopyFiles=L1921B.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1921B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL1921B.ICM"
+
+[L1921B.CopyFiles]
+LGL1921B.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1921B="LG L1921B"

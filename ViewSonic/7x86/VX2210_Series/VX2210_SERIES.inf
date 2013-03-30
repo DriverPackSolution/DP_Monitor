@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2011, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2210.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=12/06/2011, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2210.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2210_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC172B
+
+[ViewSonic]   
+%VX2210%=VX2210.Install,Monitor\VSC172B  
+
+[ViewSonic.NTia64]   
+%VX2210%=VX2210.Install,Monitor\VSC172B
+
+[ViewSonic.NTamd64]   
+%VX2210%=VX2210.Install,Monitor\VSC172B 
+
+[VX2210.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2210.AddReg,1920,DPMS
+Copyfiles=VX2210.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2210.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"15-83,50-76,+,+" 
+HKR,,ICMProfile,0,"VX2210_SERIES.ICM"
+
+[VX2210.CopyFiles]                                       
+VX2210_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2210 SERIES ViewSonic Wizard"
+VX2210="ViewSonic VX2210 SERIES"

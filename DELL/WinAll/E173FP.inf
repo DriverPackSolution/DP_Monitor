@@ -1,0 +1,95 @@
+
+;================================ 
+;E173FP.INF 01/23/04 Ver. 1.0 JUV
+;Copyright 1996-2004 Dell Inc.
+;
+;This is a setupfile for E173FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E173FP.cat
+DriverVer=01/23/2004, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA00B
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E173FP.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E173FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E173FP%=E173FP.Install, Monitor\DELA00B
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E173FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E173FP.AddReg, 1280, DPMS
+CopyFiles=E173FP.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E173FP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E173FP.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E173FP.CopyFiles]
+E173FP.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E173FP="Dell E173FP"
+

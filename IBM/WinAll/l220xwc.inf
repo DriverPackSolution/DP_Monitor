@@ -1,0 +1,99 @@
+;=====================================================
+;
+;   L220xwC.inf         Ver. 1.0      07/03/2007
+;
+;   Copyright (c) Lenovo 2007, all rights reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Lenovo Color Monitor.
+; 
+;=====================================================
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Lenovo%
+CatalogFile=L220xwC.cat
+DriverVer=07/03/2007,1.0.0.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+L220xwC_Analog.copyfiles = 23
+L220xwC_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+L220xwC.ICM=1
+
+[Manufacturer]
+%Lenovo%=Lenovo,NTx86,NTAMD64
+
+[Lenovo]
+%L220xwC_Analog%=L220xwC_Analog.Install, Monitor\LEN4433
+%L220xwC_Digital%=L220xwC_Digital.Install, Monitor\LEN4433
+
+[Lenovo.NTx86]
+%L220xwC_Analog%=L220xwC_Analog.Install, Monitor\LEN4433
+%L220xwC_Digital%=L220xwC_Digital.Install, Monitor\LEN4433
+
+[Lenovo.NTAMD64]
+%L220xwC_Analog%=L220xwC_Analog.Install, Monitor\LEN4433
+%L220xwC_Digital%=L220xwC_Digital.Install, Monitor\LEN4433
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\LEN4433
+
+[L220xwC_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L220xwC_Analog.AddReg, 1920, DPMS
+CopyFiles=L220xwC_Analog.CopyFiles
+
+[L220xwC_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L220xwC_Digital.AddReg, 1920, DPMS
+CopyFiles=L220xwC_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L220xwC_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-94.0,50.0-75.0,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0,"L220xwC.ICM"
+
+[L220xwC_Digital.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-75.0,50.0-75.0,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0,"L220xwC.ICM"
+
+[L220xwC_Analog.CopyFiles]
+L220xwC.ICM
+
+[L220xwC_Digital.CopyFiles]
+L220xwC.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Lenovo="Lenovo Inc."
+diskname="Lenovo Inc. Monitor L220xwC Installation Disk"
+L220xwC_Analog="Lenovo L220xwC(Analog)"
+L220xwC_Digital="Lenovo L220xwC(Digital)"

@@ -1,0 +1,97 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+; vista
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=170C8.cat
+DriverVer=03/30/2007,2.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHLC016
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+C016.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+170C8.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%C016%=C016.Install, Monitor\PHLC016
+
+[Philips.NTx86]
+%C016%=C016.Install, Monitor\PHLC016
+
+[Philips.NTia64]
+%C016%=C016.Install, Monitor\PHLC016
+
+[Philips.NTamd64]
+%C016%=C016.Install, Monitor\PHLC016
+
+; Install sections
+;-------------------------------------------------
+[C016.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C016.AddReg,1280,DPMS
+CopyFiles=C016.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[C016.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"170C8.icm"
+
+;-------------------------------------------------------------------
+[C016.CopyFiles]
+170C8.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+C016="Philips 170C (17inch LCD MONITOR 170C8)"  

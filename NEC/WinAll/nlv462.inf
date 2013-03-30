@@ -1,0 +1,136 @@
+; nlv462.inf
+; Setup information file for NEC MultiSync V462 Monitor
+;
+; Copyright (C) 2011, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlv462.cat
+DriverVer=04/01/2011, 1.11.0401.2300
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6834
+ExcludeFromSelect.nt=Monitor\NEC6835
+ExcludeFromSelect.nt=Monitor\NEC6836
+ExcludeFromSelect.nt=Monitor\NEC6837
+
+[DestinationDirs]
+V462.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlv462.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%V462-A%=V462-A.Install, Monitor\NEC6834
+%V462-D%=V462-D.Install, Monitor\NEC6835
+%V462-H%=V462-H.Install, Monitor\NEC6836
+%V462-P%=V462-P.Install, Monitor\NEC6837
+
+[NECDS.ntamd64]
+%V462-A%=V462-A.Install.ntamd64, Monitor\NEC6834
+%V462-D%=V462-D.Install.ntamd64, Monitor\NEC6835
+%V462-H%=V462-H.Install.ntamd64, Monitor\NEC6836
+%V462-P%=V462-P.Install.ntamd64, Monitor\NEC6837
+
+; Install Sections
+;-------------------------------------------------
+[V462-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V462-A.AddReg, 1920, DPMS
+CopyFiles=V462.CopyFiles
+
+[V462-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V462-D.AddReg, 1920, DPMS
+CopyFiles=V462.CopyFiles
+
+[V462-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V462-H.AddReg, 1920, DPMS
+CopyFiles=V462.CopyFiles
+
+[V462-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V462-P.AddReg, 1920, DPMS
+CopyFiles=V462.CopyFiles
+
+[V462-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V462-A.AddReg, 1920, DPMS
+CopyFiles=V462.CopyFiles
+
+[V462-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V462-D.AddReg, 1920, DPMS
+CopyFiles=V462.CopyFiles
+
+[V462-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V462-H.AddReg, 1920, DPMS
+CopyFiles=V462.CopyFiles
+
+[V462-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V462-P.AddReg, 1920, DPMS
+CopyFiles=V462.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[V462-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv462.icm"
+
+[V462-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv462.icm"
+
+[V462-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv462.icm"
+
+[V462-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv462.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[V462.CopyFiles]
+nlv462.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+V462-A="NEC MultiSync V462(Analog)"
+V462-D="NEC MultiSync V462(Digital)"
+V462-H="NEC MultiSync V462(HDMI)"
+V462-P="NEC MultiSync V462(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

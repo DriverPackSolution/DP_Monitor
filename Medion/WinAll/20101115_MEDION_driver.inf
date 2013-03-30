@@ -1,0 +1,75 @@
+; MEDION INF File for Windows(R) 95/98/Me/2000/XP/Server 2003/XP/Vista x64 
+; Revision Date: Nov 15,2010
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEDION% 
+CatalogFile =MD 20230.CAT
+DriverVer=11/15/2010,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED3652
+ExcludeFromSelect.NT=Monitor\MED3653
+ExcludeFromSelect.NT=Monitor\MED3654
+
+[ClassInstall]
+AddReg=ClassAddReg32
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+[Manufacturer]
+%MEDION%=MEDION,NTx86,NTamd64,NTia64
+
+[MEDION]
+%MD 20230%=MD 20230.Install,Monitor\MED3652
+%MD 20230%=MD 20230.Install,Monitor\MED3653
+%MD 20230%=MD 20230.Install,Monitor\MED3654
+
+[MEDION.NTx86]
+%MD 20230%=MD 20230.Install,Monitor\MED3652
+%MD 20230%=MD 20230.Install,Monitor\MED3653
+%MD 20230%=MD 20230.Install,Monitor\MED3654
+
+[MEDION.NTamd64]
+%MD 20230%=MD 20230.Install,Monitor\MED3652
+%MD 20230%=MD 20230.Install,Monitor\MED3653
+%MD 20230%=MD 20230.Install,Monitor\MED3654
+
+[MEDION.NTia64]
+%MD 20230%=MD 20230.Install,Monitor\MED3652
+%MD 20230%=MD 20230.Install,Monitor\MED3653
+%MD 20230%=MD 20230.Install,Monitor\MED3654
+
+[MD 20230.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD 20230.AddReg,1920,DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD 20230.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,55.0-76.0,+,+"
+
+[Strings]
+MonitorClassName="Monitor"
+MEDION="MEDION Co.,LTD."
+
+MD 20230="MEDION MD 20230"

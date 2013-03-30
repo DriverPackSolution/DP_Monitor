@@ -1,0 +1,110 @@
+;FSCP20W3.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor P20W-3
+;Copyright 2007 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP20W3.cat
+DriverVer=05/05/2007,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS073A
+ExcludeFromSelect.nt=Monitor\FUS073B
+ExcludeFromSelect.nt=Monitor\FUS073C
+
+[DestinationDirs]
+DefaultDestDir=11
+FSCP20W3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP20W3.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%P20W-3a%=FSCP20W3a.Install, Monitor\FUS0737
+%P20W-3d%=FSCP20W3d.Install, Monitor\FUS0738
+%P20W-3h%=FSCP20W3h.Install, Monitor\FUS0739
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%P20W-3a%=FSCP20W3a.Install, Monitor\FUS0737
+%P20W-3d%=FSCP20W3d.Install, Monitor\FUS0738
+%P20W-3h%=FSCP20W3h.Install, Monitor\FUS0739
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FSCP20W3a.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP20W3a.AddReg, 1680, DPMS
+CopyFiles=FSCP20W3.CopyFiles
+
+[FSCP20W3d.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP20W3d.AddReg, 1680, DPMS
+CopyFiles=FSCP20W3.CopyFiles
+
+[FSCP20W3h.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP20W3h.AddReg, 1680, DPMS
+CopyFiles=FSCP20W3.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FSCP20W3a.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP20W3.icm"
+
+[FSCP20W3d.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP20W3.icm"
+
+[FSCP20W3h.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP20W3.icm"
+
+;---------------------------------------------------------- 
+
+[FSCP20W3.CopyFiles]
+FSCP20W3.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="FUJSIE Siemens Computers Monitor Installation Disk"
+FUJSIE="Fujitsu Siemens Computers"	
+P20W-3a="SCENICVIEW P20W-3"
+P20W-3d="SCENICVIEW P20W-3"
+P20W-3h="SCENICVIEW P20W-3"

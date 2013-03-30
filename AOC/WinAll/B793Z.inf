@@ -1,0 +1,67 @@
+; B793Z.INF 12/10/03 Ver. 1.0
+; Copyright (c) 2003 AOC International (Europe) GmbH 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+CatalogFile=B793Z.cat
+DriverVer=12/10/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOCB800
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+B793Z.copyfiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+B793Z.icm=1
+
+[Manufacturer]
+%AOC%=AOC
+
+[AOC]
+%B793Z%=B793Z.Install,Monitor\AOCB800
+
+[B793Z.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=B793Z.AddReg,1600,DPMS
+CopyFiles=B793Z.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HkR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[B793Z.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,IcmProfile,0,"B793Z.icm"
+
+[B793Z.CopyFiles]
+B793Z.icm
+
+[strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+B793Z="AOC HT7x1 Series"

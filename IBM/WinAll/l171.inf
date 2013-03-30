@@ -1,0 +1,93 @@
+;================================ 
+;L171.INF 06/30/05 Ver. 1.0 CC
+;Revise Date 08/25/2006
+;Copyright 1996-2005 LEN Inc.
+;
+;This is a setupfile for L171 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+Catalogfile=L171.cat
+DriverVer=08/25/2006
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN240B
+ExcludeFromSelect.nt=Monitor\LEN24C9
+
+[DestinationDirs]
+DefaultDestDir=11
+L171.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+L171.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%LEN%=LEN,NTx86,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[LEN]
+%L171%=L171.Install, Monitor\LEN240B
+%L171%=L171.Install, Monitor\LEN24C9
+;-------------------------------------------------
+[LEN.NTx86] 
+%L171%=L171.Install, Monitor\LEN240B
+%L171%=L171.Install, Monitor\LEN24C9
+;-------------------------------------------------  
+[LEN.NTAMD64]  
+%L171%=L171.Install, Monitor\LEN240B
+%L171%=L171.Install, Monitor\LEN24C9
+
+; Install Sections
+;-------------------------------------------------
+
+[L171.Install]
+DelReg=LEN_CURRENT_REG    
+AddReg=L171.AddReg, 1280, DPMS
+CopyFiles=L171.CopyFiles
+
+; AddReg/DelReg sections
+;-------------------------------------------------
+[LEN_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[L171.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"L171.icm"
+
+;------------------------------------------------------------------------------------------
+
+[L171.CopyFiles]
+L171.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="LEN Inc. Monitor Installation Disk"
+LEN="LEN Inc."	
+L171="LEN L171"

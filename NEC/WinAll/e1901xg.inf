@@ -1,0 +1,69 @@
+; E1901XG.inf
+; Setup information file for NEC E1901XG Monitor
+;
+; Copyright 2011, NEC Display Solutions,Ltd.
+; V001
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=E1901XG.cat
+DriverVer=07/04/2011,1.11.0704.0930
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6878
+
+[DestinationDirs]
+DefaultDestDir = 11
+E1901XG.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+E1901XG.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%E1901XG%=E1901XG.Install, Monitor\NEC6878
+
+[NECDS.ntamd64]
+%E1901XG%=E1901XG.Install.ntamd64, Monitor\NEC6878
+
+[E1901XG.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E1901XG.AddReg, 1440, DPMS
+CopyFiles=E1901XG.CopyFiles
+
+[E1901XG.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=E1901XG.AddReg, 1440, DPMS
+CopyFiles=E1901XG.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,1440,900
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E1901XG.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"E1901XG.icm"
+
+[E1901XG.CopyFiles]
+E1901XG.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+E1901XG="NEC E1901XG"

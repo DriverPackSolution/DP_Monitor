@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP201s.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/11/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS26064-4W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP201s.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS26064-4W%=VLCDS26064-4W.Install,Monitor\VSC0C18            ;VP201s
+
+[VLCDS26064-4W.Install]                                          ;VP201s
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS26064-4W.AddReg,1600,DPMS
+Copyfiles=VLCDS26064-4W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS26064-4W.AddReg]                                           ;VP201s
+HKR,"MODES\1600,1200",Mode1,,"30-95,50-85,+,+"
+HKR,,ICMProfile,0,"VP201s.ICM"
+
+[VLCDS26064-4W.CopyFiles]                                       
+VP201s.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS26064-4W="ViewSonic VP201s"

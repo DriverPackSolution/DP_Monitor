@@ -1,0 +1,96 @@
+; Gateway FPD2200.inf, February-25-2002
+; manufactured by LG Electronics
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Gateway%
+CatalogFile=0898.cat
+DriverVer=02/25/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0898.CopyFiles=23
+0899.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+0898.icm=1
+0898.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%0898%=0898.Install, Monitor\GWY0898
+%0899%=0899.Install, Monitor\GWY0899
+
+;------------------------------------; .Install
+
+[0898.Install]
+AddReg=0898.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=0898.CopyFiles
+
+[0899.Install]
+AddReg=0899.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=0899.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[0898.AddReg]
+HKR,"MODES\1600,1024",Mode1,,"30.0-70.0,56.0-61.0,+,+"
+HKR,,ICMProfile,0,"0898.icm"
+
+[0899.AddReg]
+HKR,"MODES\1600,1024",Mode1,,"30.0-70.0,56.0-61.0,+,+"
+HKR,,ICMProfile,0,"0898.icm"
+
+;------------------------------------; .CopyFiles
+
+[0898.CopyFiles]
+0898.icm
+
+[0899.CopyFiles]
+0898.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY0898
+ExcludeFromSelect.NT=Monitor\GWY0899
+
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+Gateway="Gateway System Restoration Kit"
+0898="Gateway FPD2200"
+0899="Gateway FPD2200"

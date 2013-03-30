@@ -1,0 +1,77 @@
+; AL1912.INF      Ver.1.00     11/06/2003
+;
+; Copyright 2002-2004, Acer Incorporated
+; All Rights Reserved
+;  
+; This is a Microsoft Windows setup information file 
+; for the Acer AL1912 LCD Color Monitor.
+;
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$" 
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=AL1912.cat 
+DriverVer=11/06/2003,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ACR5990
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AL1912.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+AL1912de.icm=1
+AL191293.icm=1
+AL191265.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AL1912%=AL1912.Install,Monitor\ACR5990
+
+[AL1912.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL1912.AddReg, 1280, DPMS
+CopyFiles=AL1912.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL1912.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,49.0-75.0,+,+"
+HKR,,ICMProfile,0,"AL1912de.icm"
+
+[AL1912.CopyFiles]
+AL1912de.icm
+AL191293.icm
+AL191265.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer Incorporated"
+AL1912="Acer AL1912"
+Disk1="Acer Monitor INF Disk"

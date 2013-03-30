@@ -1,0 +1,68 @@
+; ve1901g.inf
+; Setup information file for NEC VE1901G Monitor
+;
+; Copyright 2011, NEC Display Solutions, Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ve1901g.cat
+DriverVer=01/15/2010,1.09.1126.1945
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6855
+
+[DestinationDirs]
+DefaultDestDir = 11
+ve1901g.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ve1901g.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%ve1901g%=ve1901g.Install, Monitor\NEC6855
+
+[NECDS.ntamd64]
+%ve1901g%=ve1901g.Install.ntamd64, Monitor\NEC6855
+
+[ve1901g.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ve1901g.AddReg, 1366, DPMS
+CopyFiles=ve1901g.CopyFiles
+
+[ve1901g.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=ve1901g.AddReg, 1366, DPMS
+CopyFiles=ve1901g.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,1366,768
+
+[DPMS]
+HKR,,DPMS,,1
+
+[ve1901g.AddReg]
+HKR,"MODES\1366,768",Mode1,,"30.0-81.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"ve1901g.icm"
+
+[ve1901g.CopyFiles]
+ve1901g.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+VE1901G="NEC VE1901G"

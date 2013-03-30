@@ -1,0 +1,1467 @@
+; IIYAMA.INF FOR Windows(r)98
+;
+; Copyright 1996-97, Microsoft Corporation
+; 
+; This is a sample INF file for installing monitors. It
+; has been updated for PC97 to include installing ICC
+; profiles.
+;
+;update 99/06/30 A703J model name only add 
+;S902J IVM1910,TxA3612/22 Ivm3606 Txa 3812/22 Ivm 3810   Txa3833 Ivm3818
+;add for 99/06/30
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Iiyama-J%
+;****************************************************************************
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+; Destination Directory section 
+[DestinationDirs]
+DefaultDestDir = 11
+Monitor1.CopyFiles = 23
+Monitor2.CopyFiles = 23
+Monitor3.CopyFiles = 23
+Monitor4.CopyFiles = 23
+Monitor5.CopyFiles = 23
+Monitor6.CopyFiles = 23
+Monitor7.CopyFiles = 23
+Monitor8.CopyFiles = 23
+Monitor9.CopyFiles = 23
+Monitor10.CopyFiles = 23
+Monitor11.CopyFiles = 23
+Monitor12.CopyFiles = 23
+Monitor13.CopyFiles = 23
+Monitor14.CopyFiles = 23
+Monitor15.CopyFiles = 23
+Monitor16.CopyFiles = 23
+Monitor17.CopyFiles = 23
+Monitor18.CopyFiles = 23
+Monitor19.CopyFiles = 23
+Monitor20.CopyFiles = 23
+Monitor21.CopyFiles = 23
+Monitor22.CopyFiles = 23
+a702h.CopyFiles = 23
+a3832h.CopyFiles = 23
+a201h.CopyFiles = 23
+s703h.CopyFiles = 23
+s902j.CopyFiles = 23
+a612j.CopyFiles = 23
+a812j.CopyFiles = 23
+a833j.CopyFiles = 23
+a4633j.CopyFiles = 23
+s700j.CopyFiles = 23
+s702u.CopyFiles = 23
+a4634j.CopyFiles = 23
+a3813m.CopyFiles = 23
+a705m.CopyFiles = 23
+s705m.CopyFiles = 23
+s500m.CopyFiles = 23
+s104m.CopyFiles = 23
+a902m.CopyFiles = 23
+a901u.CopyFiles = 23
+f901u.CopyFiles = 23
+a3921u.CopyFiles = 23
+s900m.CopyFiles = 23
+a4635u.CopyFiles = 23
+a201d.CopyFiles = 23
+s101d.CopyFiles = 23
+a4311u.CopyFiles = 23
+a4011u.CopyFiles = 23
+a4431d.CopyFiles = 23
+AX3815U.copyfiles = 23
+AX3834U.copyfiles = 23
+LM702U.CopyFiles = 23
+LA702U.CopyFiles = 23
+LF702U.CopyFiles = 23
+LS501U.CopyFiles = 23
+AX3816U.CopyFiles = 23
+AS4312U.copyfiles = 23
+AS4636D.copyfiles = 23
+HA202D.copyfiles = 23
+AU4831D.copyfiles = 23
+LS902U.CopyFiles = 23
+HM703U.CopyFiles = 23
+HM704U.CopyFiles = 23
+HA703U.CopyFiles = 23
+HM903D.CopyFiles = 23
+AX3843.CopyFiles = 23
+AX3844.CopyFiles = 23
+AX3818.CopyFiles = 23
+AS4314.CopyFiles = 23
+AS4611.CopyFiles = 23
+AS4316.CopyFiles = 23
+AX3835.CopyFiles = 23
+AX3819.CopyFiles = 23
+AS4315.CopyFiles = 23
+AS4637.CopyFiles = 23
+AS4332.CopyFiles = 23
+AS4341.CopyFiles = 23
+AS4641.CopyFiles = 23
+LM704U.CopyFiles = 23
+LS704U.CopyFiles = 23
+MS102D.CopyFiles = 23
+
+
+[SourceDisksNames]
+1="IIYAMA Monitor INF DISK",,1
+
+[SourceDisksFiles]
+s101gd93.icm=1
+a101gd93.icm=1
+mf21ed93.icm=1
+mt21ed93.icm=1
+mf17ed93.icm=1
+mt17ed93.icm=1
+s701gd93.icm=1
+a701gd93.icm=1
+s901gd93.icm=1
+a701gd93.icm=1
+mf15gd93.icm=1
+a601nn.icm=1
+a602nn.icm=1
+a381hd65.icm=1
+a901hd93.icm=1
+a632hd65.icm=1
+a931hd65.icm=1
+a702hd93.icm=1
+a32hnn.icm=1
+a201hd93.icm=1
+s703hd93.icm=1
+s902jd93.icm=1
+a612jnn.icm =1
+a812jnn.icm =1
+a3833jnn.icm =1
+a4633jnn.icm =1
+s700jd93.icm =1
+s702ud93.icm =1
+a4634jnn.icm =1
+a3813mnn.icm =1
+a705md93.icm =1
+s705md93.icm =1
+s500md93.icm = 1
+s104md93.icm = 1
+a902md93.icm = 1
+a901ud93.icm = 1
+f901ud93.icm = 1
+a3921unn.icm =1
+s900md93.icm = 1
+a4635dnn.icm = 1
+ma201d93.icm = 1
+ms101d93.icm = 1
+a4311unn.icm = 1
+a4011unn.icm = 1
+a4431dnn.icm = 1
+AX3815U.icm=1
+AX3834U.icm=1
+LM702U.icm=1
+LA702U.icm=1
+LF702U.icm=1
+LS501U.icm=1
+AX3816U.icm=1
+AS4312U.icm=1
+AS4636D.icm=1
+HA202D.icm=1
+AU4831D.icm=1
+LS902U.icm=1
+HM703U.icm=1
+HM704U.icm=1
+HA703U.icm=1
+HM903D.icm=1
+AX3843.icm=1
+AX3844.icm=1
+AX3818.icm=1
+AS4314.icm=1
+AS4611.icm=1
+AS4316.icm=1
+
+AX3835.icm=1
+AX3819.icm=1
+AS4315.icm=1
+AS4637.icm=1
+AS4332.icm=1
+AS4341.icm=1
+AS4641.icm=1
+LM704U.icm=1
+LS704U.icm=1
+MS102D.icm=1
+
+;
+[Manufacturer]
+%Iiyama-J%=Iiyama-J ; this is comment
+; Manufacturer sections
+[Iiyama-J] ; this is comment
+%Monitor1%=Monitor1.Install, Monitor\IVM1501
+%Monitor2%=Monitor2.Install, Monitor\IVM1700
+%Monitor3%=Monitor3.Install, Monitor\IVM1701
+%Monitor4%=Monitor4.Install, Monitor\IVM1730
+%Monitor5%=Monitor5.Install, Monitor\IVM2100
+%Monitor6%=Monitor6.Install, Monitor\IVM2130
+%Monitor7%=Monitor7.Install, Monitor\IVM2101
+%Monitor8%=Monitor8.Install, Monitor\IVM2110
+%Monitor9%=Monitor9.Install, Monitor\IVM2120
+%s103m%=Monitor9.Install, Monitor\IVM2138
+%Monitor10%=Monitor10.Install, Monitor\IVM2102
+%Monitor11%=Monitor11.Install, Monitor\IVM2118
+%Monitor12%=Monitor12.Install, Monitor\IVM2128
+%Monitor13%=Monitor13.Install, Monitor\IVM1900
+%Monitor14%=Monitor14.Install, Monitor\IVM1702
+%Monitor15%=Monitor15.Install, Monitor\IVM1703
+%Monitor16%=Monitor16.Install, Monitor\IVM1711
+%Monitor17%=Monitor17.Install, Monitor\IVM3601
+%Monitor18%=Monitor18.Install, Monitor\IVM3602
+%Monitor19%=Monitor19.Install, Monitor\IVM3801
+%Monitor20%=Monitor20.Install, Monitor\IVM1901
+%Monitor21%=Monitor21.Install, Monitor\IVM4600
+%Monitor22%=Monitor22.Install, Monitor\IVM3900
+%a702h%=a702h.Install, Monitor\IVM1740
+%a3832h%=a3832h.Install, Monitor\IVM3808
+%a201h%=a201h.Install, Monitor\IVM2140
+%s703h%=s703h.Install, Monitor\IVM1742
+%s902j%=s902j.Install, Monitor\IVM1910
+%a612j%=a612j.Install, Monitor\IVM3606
+%a812j%=a812j.Install, Monitor\IVM3810
+%a833j%=a833j.Install, Monitor\IVM3818
+%a4633j%=a4633j.Install, Monitor\IVM4610
+%s700j%=s700j.Install, Monitor\IVM17A0
+%s702u%=s702u.Install, Monitor\IVM1756
+%a4634j%=a4634j.Install, Monitor\IVM4618
+%a3813m%=a3813m.Install, Monitor\IVM3820
+%a705m%=a705m.Install, Monitor\IVM174A
+%s705m%=s705m.Install, Monitor\IVM1748
+%s104m%=s104m.Install, Monitor\IVM2148
+
+%s500m%=s500m.install, Monitor\IVM0815
+%a902m%=a902m.install, Monitor\IVM1918
+%H901d%=a902m.install, Monitor\IVM1930
+%a901u%=a901u.install, Monitor\IVM1928
+%f901u%=f901u.install, Monitor\IVM1920
+%a3921u%=a3921u.Install, Monitor\IVM3908
+%a4635u%=a4635u.Install, Monitor\IVM4620
+%s900m%=s900m.install, Monitor\IVM1980
+%a201d%=a201d.install, Monitor\IVM2150
+%s101d%=s101d.install, Monitor\IVM2154
+%a4311u%=a4311u.Install, Monitor\IVM4628
+%a4011u%=a4011u.Install, Monitor\IVM4011
+%a4431d%=a4431d.Install, Monitor\IVM4630
+%AX3815U%=AX3815U.Install, Monitor\IVM3830
+%AX3834U%=AX3834U.Install, Monitor\IVM3828
+%LM702U%=LM702U.Install, Monitor\IVM1758
+%LA702U%=LA702U.Install, Monitor\IVM1752
+%LF702U%=LF702U.Install, Monitor\IVM1754
+%LS501U%=LS501U.Install, Monitor\IVM150C
+%AX3816U%=AX3816U.Install, Monitor\IVM3838
+%AX3817U%=AX3816U.Install, Monitor\IVM384C
+%AS4312U%=AS4312U.Install, Monitor\IVM4640
+%AS4636D%=AS4636D.Install, Monitor\IVM4638
+%HA202D%=HA202D.Install, Monitor\IVM2160
+%AU4831D%=AU4831D.Install, Monitor\IVM4800
+%LS902U%=LS902U.Install, Monitor\IVM1938
+%HM703U%=HM703U.Install, Monitor\IVM175A
+%HM704U%=HM704U.Install, Monitor\IVM175C
+%HA703U%=HA703U.Install, Monitor\IVM174E
+%HM903D%=HM903D.Install, Monitor\IVM1940
+%AX3843%=AX3843.Install, Monitor\IVM4F04
+%AX3844%=AX3844.Install, Monitor\IVM4F08
+%AX3818%=AX3818.Install, Monitor\IVM3848
+%AS4314%=AS4314.Install, Monitor\IVM4648
+%AS4611%=AS4611.Install, Monitor\IVM4678
+%AS4316%=AS4316.Install, Monitor\IVM4658
+%AX3835%=AX3835.Install, Monitor\IVM3840
+%AX3819%=AX3819.Install, Monitor\IVM3844
+%AS4315%=AS4315.Install, Monitor\IVM4650
+%AS4637%=AS4637.Install, Monitor\IVM4668
+%AS4332%=AS4332.Install, Monitor\IVM4670
+%AS4341%=AS4341.Install, Monitor\IVM4690
+;%LM704U%=LM704U.Install, Monitor\IVM1764
+%LS704U%=LS704U.Install, Monitor\IVM1760
+;%MS102D%=MS102D.Install, Monitor\IVM2158
+%AS4641%=AS4641.Install, Monitor\IVM4688
+
+
+
+
+;*****************************************************************************
+; Install Sections
+
+[Monitor1.Install]
+DelReg=DEL_CURRENT_REG     ; Deletes previous registry data for this monitor.
+AddReg=Monitor1.AddReg, 1280, DPMS, ICM
+CopyFiles=Monitor1.CopyFiles
+
+[Monitor2.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor2.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor2.CopyFiles
+
+[Monitor3.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor3.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor3.CopyFiles
+
+[Monitor4.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor4.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor4.CopyFiles
+
+
+[Monitor5.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor5.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor5.CopyFiles
+
+[Monitor6.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor6.AddReg,1600, DPMS, ICM
+CopyFiles=Monitor6.CopyFiles
+
+[Monitor7.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor7.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor7.CopyFiles
+
+[Monitor8.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor8.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor8.CopyFiles
+
+[Monitor9.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor9.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor9.CopyFiles
+
+[Monitor10.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor10.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor10.CopyFiles
+
+[Monitor11.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor11.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor11.CopyFiles
+
+[Monitor12.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor12.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor12.CopyFiles
+
+
+[Monitor13.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor13.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor13.CopyFiles
+
+[Monitor14.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor14.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor14.CopyFiles
+
+[Monitor15.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor15.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor15.CopyFiles
+
+[Monitor16.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor16.AddReg, 1600, DPMS, ICM
+CopyFiles=Monitor16.CopyFiles
+
+[Monitor17.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor17.AddReg, 1024, DPMS, ICM
+CopyFiles=Monitor17.CopyFiles
+
+[Monitor18.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor18.AddReg, 1024, DPMS, ICM
+CopyFiles=Monitor18.CopyFiles
+
+[Monitor19.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor19.AddReg, 1024, DPMS, ICM
+CopyFiles=Monitor19.CopyFiles
+[Monitor20.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor20.AddReg, 1920, DPMS, ICM
+CopyFiles=Monitor20.CopyFiles
+
+[Monitor21.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor21.AddReg, 1280, DPMS, ICM
+CopyFiles=Monitor21.CopyFiles
+
+[Monitor22.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=Monitor22.AddReg, 1280, DPMS, ICM
+CopyFiles=Monitor22.CopyFiles
+
+[a702h.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a702h.AddReg, 1600, DPMS, ICM
+CopyFiles=a702h.CopyFiles
+
+[a3832h.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a3832h.AddReg, 1024, DPMS, ICM
+CopyFiles=a3832h.CopyFiles
+
+[a201h.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a201h.AddReg, 2048, DPMS, ICM
+CopyFiles=a201h.CopyFiles
+
+[s703h.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s703h.AddReg, 1600, DPMS, ICM
+CopyFiles=s703h.CopyFiles
+[s902j.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s902j.AddReg, 1920, DPMS, ICM
+CopyFiles=s902j.CopyFiles
+
+[a612j.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a612j.AddReg, 1024, DPMS, ICM
+CopyFiles=a612j.CopyFiles
+[a812j.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a812j.AddReg, 1024, DPMS, ICM
+CopyFiles=a812j.CopyFiles
+[a833j.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a833j.AddReg, 1024, DPMS, ICM
+CopyFiles=a833j.CopyFiles
+[a4633j.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a4633j.AddReg, 1280, DPMS, ICM
+CopyFiles=a4633j.CopyFiles
+[s700j.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s700j.AddReg, 1280, DPMS, ICM
+CopyFiles=s700j.CopyFiles
+[s702u.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s702u.AddReg, 1280, DPMS, ICM
+CopyFiles=s702u.CopyFiles
+
+[a4634j.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a4634j.AddReg, 1280, DPMS, ICM
+CopyFiles=a4634j.CopyFiles
+[a3813m.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a3813m.AddReg, 1024, DPMS, ICM
+CopyFiles=a3813m.CopyFiles
+
+[a705m.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a705m.AddReg, 1600, DPMS, ICM
+CopyFiles=a705m.CopyFiles
+[s705m.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s705m.AddReg, 1600, DPMS, ICM
+CopyFiles=s705m.CopyFiles
+
+[s500m.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s500m.AddReg, 1280, DPMS, ICM
+CopyFiles=s500m.CopyFiles
+
+[s104m.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s104m.AddReg, 1600, DPMS, ICM
+CopyFiles=s104m.CopyFiles
+[a902m.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a902m.AddReg, 1920, DPMS, ICM
+CopyFiles=a902m.CopyFiles
+[a901u.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a901u.AddReg, 1920, DPMS, ICM
+CopyFiles=a901u.CopyFiles
+[f901u.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=f901u.AddReg, 1920, DPMS, ICM
+CopyFiles=f901u.CopyFiles
+
+[a3921u.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a3921u.AddReg, 1280, DPMS, ICM
+CopyFiles=a3921u.CopyFiles
+
+[a4635u.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a4635u.AddReg, 1280, DPMS, ICM
+CopyFiles=a4635u.CopyFiles
+
+[s900m.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s900m.AddReg, 1600, DPMS, ICM
+CopyFiles=s900m.CopyFiles
+[a201d.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a201d.AddReg, 1920, DPMS, ICM
+CopyFiles=a201d.CopyFiles
+[s101d.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=s101d.AddReg, 1920, DPMS, ICM
+CopyFiles=s101d.CopyFiles
+
+[a4311u.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a4311u.AddReg, 1280, DPMS, ICM
+CopyFiles=a4311u.CopyFiles
+[a4011u.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a4011u.AddReg, 1280, DPMS, ICM
+CopyFiles=a4011u.CopyFiles
+[a4431d.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=a4431d.AddReg, 1280, DPMS, ICM
+CopyFiles=a4431d.CopyFiles
+[AX3815U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AX3815U.AddReg, 1024, DPMS
+CopyFiles=AX3815U.CopyFiles
+[AX3834U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AX3834U.AddReg, 1024, DPMS
+CopyFiles=AX3834U.CopyFiles
+[LM702U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LM702U.AddReg, 1280, DPMS
+CopyFiles=LM702U.CopyFiles
+[LA702U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LA702U.AddReg, 1280, DPMS
+CopyFiles=LA702U.CopyFiles
+[LF702U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LF702U.AddReg, 1280, DPMS
+CopyFiles=LF702U.CopyFiles
+[LS501U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LS501U.AddReg, 1280, DPMS
+CopyFiles=LS501U.CopyFiles
+
+[AX3816U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AX3816U.AddReg, 1024 ,DPMS
+Copyfiles=AX3816U.CopyFiles
+
+[AS4312U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4312U.AddReg, 1280, DPMS
+CopyFiles=AS4312U.CopyFiles
+[AS4636D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4636D.AddReg, 1280, DPMS
+CopyFiles=AS4636D.CopyFiles
+[HA202D.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=HA202D.AddReg, 2048, DPMS, ICM
+CopyFiles=HA202D.CopyFiles
+[AU4831D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AU4831D.AddReg, 1600, DPMS
+CopyFiles=AU4831D.CopyFiles
+[LS902U.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=LS902U.AddReg, 1600, DPMS, ICM
+CopyFiles=LS902U.CopyFiles
+[HM703U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HM703U.AddReg, 1600, DPMS
+CopyFiles=HM703U.CopyFiles
+[HM704U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HM704U.AddReg, 1600, DPMS
+CopyFiles=HM704U.CopyFiles
+[HA703U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HA703U.AddReg, 1600, DPMS
+CopyFiles=HA703U.CopyFiles
+[HM903D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HM903D.AddReg, 2048, DPMS
+CopyFiles=HM903D.CopyFiles
+[AX3843.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=AX3843.AddReg, 1024, DPMS, ICM
+CopyFiles=AX3843.CopyFiles
+[AX3844.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=AX3844.AddReg, 1024, DPMS, ICM
+CopyFiles=AX3844.CopyFiles
+[AX3818.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=AX3818.AddReg, 1024, DPMS, ICM
+CopyFiles=AX3818.CopyFiles
+[AS4314.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4314.AddReg, 1280, DPMS, ICM
+CopyFiles=AS4314.CopyFiles
+
+[AS4611.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4611.AddReg, 1280, DPMS, ICM
+CopyFiles=AS4611.CopyFiles
+
+[AS4316.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4316.AddReg, 1280, DPMS, ICM
+CopyFiles=AS4316.CopyFiles
+[AX3835.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AX3835.AddReg, 1024, DPMS
+CopyFiles=AX3835.CopyFiles
+
+[AX3819.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AX3819.AddReg, 1024, DPMS
+CopyFiles=AX3819.CopyFiles
+
+[AS4315.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4315.AddReg, 1280, DPMS
+CopyFiles=AS4315.CopyFiles
+
+[AS4637.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4637.AddReg, 1280, DPMS
+CopyFiles=AS4637.CopyFiles
+
+[AS4332.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4332.AddReg, 1280, DPMS
+CopyFiles=AS4332.CopyFiles
+
+[AS4341.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4341.AddReg, 1280, DPMS
+CopyFiles=AS4341.CopyFiles
+
+[AS4641.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4641.AddReg, 1280, DPMS
+CopyFiles=AS4641.CopyFiles
+
+[LM704U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LM704U.AddReg, 1280, DPMS
+CopyFiles=LM704U.CopyFiles
+[LS704U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LS704U.AddReg, 1280, DPMS
+CopyFiles=LS704U.CopyFiles
+
+[MS102D.Install]
+DelReg=DEL_CURRENT_REG    ; Deletes previous registry data for this monitor.
+AddReg=MS102D.AddReg, 1920, DPMS, ICM
+CopyFiles=MS102D.CopyFiles
+
+
+
+
+; AddReg & DelReg sections
+;***************************************************************************
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1856]
+HKR,,MaxResolution,,"1856,1392"
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+
+
+
+ ; MF8615G
+[Monitor1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27-69,50-160,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"mf15gd93.icm"
+
+			;MF-8617E
+[Monitor2.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27-86,50-160,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"mf17ed93.icm"
+
+			;Mf-8617Es
+[Monitor3.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27-86,50-160,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"mf17ed93.icm"
+			;MT-9017E/T
+[Monitor4.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27-92,50-160,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"mt17ed93.icm"
+
+			;MF-8221E
+[Monitor5.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24-94,50-160,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"mf21ed93.icm"
+
+			;MT-9021E
+[Monitor6.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24-94,50-160,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"mt21ed93.icm"
+
+
+
+			;MF-8721E
+[Monitor7.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-110.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s101gd93.icm"
+
+			;s101gt
+[Monitor8.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s101gd93.icm"
+
+			;S102G
+[Monitor9.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-110.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s101gd93.icm"
+
+			;MT9221
+[Monitor10.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-110.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a101gd93.icm"
+
+[Monitor11.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a101gd93.icm"
+
+[Monitor12.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-110.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a101gd93.icm"
+
+[Monitor13.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-102.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s901gd93.icm"
+
+[Monitor14.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s701gd93.icm"
+
+[Monitor15.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s701gd93.icm"
+
+[Monitor16.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a701gd93.icm"
+
+[Monitor17.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-60.0,56-75.0,++"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a601nn.icm"
+
+
+[Monitor18.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-60.0,56-75.0,++"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a602nn.icm"
+
+[Monitor19.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-60.0,56-75.0,++"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a381hd65.icm"
+
+[Monitor20.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"27.0-115.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a901hd93.icm"
+
+[Monitor21.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a632hd65.icm"
+
+[Monitor22.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a931hd65.icm"
+
+[a702h.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a702hd93.icm"
+
+[a3832h.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-68.7,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a32hnn.icm"
+
+[a201h.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-130.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"2048,1536"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a201hd93.icm"
+
+[s703h.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s703hd93.icm"
+
+[s902j.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"27.0-115.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s902jd93.icm"
+
+[a612j.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a612jnn.icm"
+
+[a812j.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a812jnn.icm"
+
+[a833j.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a3833jnn.icm"
+
+[a4633j.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a4633jnn.icm"
+
+[s700j.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s700jd93.icm"
+[s702u.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s702ud93.icm"
+
+[a4634j.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a4634jnn.icm"
+
+
+[a3813m.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-61.0,55.0-76.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a3813mnn.icm"
+
+[a705m.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-180.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a705md93.icm"
+[s705m.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-180.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s705md93.icm"
+
+
+
+[s500m.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s500md93.icm"
+
+[s104m.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"27.0-110.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s104md93.icm"
+
+[a902m.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-115.0,50.0-180.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a902md93.icm"
+[a901u.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-96.0,50.0-180.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a901ud93.icm"
+[f901u.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-96.0,50.0-180.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"f901ud93.icm"
+
+[a3921u.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a3921unn.icm"
+
+
+[a4635u.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a4635dnn.icm"
+
+[s900m.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"s900md93.icm"
+[a201d.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-180.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"ma201d93.icm"
+[s101d.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-180.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"ms101d93.icm"
+
+[a4311u.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a4311unn.icm"
+[a4011u.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a4011unn.icm"
+[a4431d.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"a4431dnn.icm"
+[AX3815U.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"AX3815U.icm"
+[AX3834U.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.8-61.0,56.0-76.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"AX3834U.icm"
+[LM702U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"LM702U.icm"
+[LA702U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"LA702U.icm"
+[LF702U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"LF702U.icm"
+[LS501U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"LS501U.icm"
+
+[AX3816U.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"AX3816U.icm"
+[AS4312U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-81.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"AS4312U.icm"
+[AS4636D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"AS4636D.icm"
+[HA202D.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-140.0,50.0-200.0,+,+"
+HKR,,MaxResolution,,"2048,1536"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"HA202D.icm"
+[AU4831D.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.0-80.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"AU48316D.icm"
+[LS902U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"LS902U.icm"
+[HM703U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"HM703U.icm"
+[HM704U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"HM704U.icm"
+[HA703U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"HA703U.icm"
+[HM903D.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-130.0,50.0-200.0,+,+"
+HKR,,MaxResolution,,"2048,1536"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"HM903D.icm"
+[AX3843.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,55.0-76.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"AX3843.icm"
+[AX3844.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,55.0-76.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"AX3844.icm"
+
+[AX3818.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,55.0-76.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AX3818.icm"
+
+[AS4314.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,55.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AS4314.icm"
+
+[AS4611.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,55.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AS4611.icm"
+
+[AS4316.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-81.2,56.0-76.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AS4316.icm"
+
+[AX3835.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AX3835.icm"
+
+[AX3819.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AX3819.icm"
+
+[AS4637.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AS4637.icm"
+
+[AS4315.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AS4315.icm"
+
+[AS4332.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AS4332.icm"
+
+[AS4341.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AS4341.icm"
+
+[AS4641.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.8-80.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1                                 
+HKR,,ICMProfile,0,"AS4641.icm"
+
+[LM704U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"LM704U.icm"
+
+[LS704U.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"LS704U.icm"
+
+[MS102D.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-180.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"MS102D.icm"
+
+
+[Monitor1.CopyFiles]
+mf15gd93.icm
+[Monitor2.CopyFiles]
+mf17ed93.icm
+[Monitor3.CopyFiles]
+mf17ed93.icm
+[Monitor4.CopyFiles]
+mt17ed93.icm
+[Monitor5.CopyFiles]
+mf21ed93.icm
+[Monitor6.CopyFiles]
+mt21ed93.icm
+[Monitor7.CopyFiles]
+s101gd93.icm
+[Monitor8.CopyFiles]
+s101gd93.icm
+[Monitor9.CopyFiles]
+s101gd93.icm
+[Monitor10.CopyFiles]
+a101gd93.icm
+[Monitor11.CopyFiles]
+a101gd93.icm
+[Monitor12.CopyFiles]
+a101gd93.icm
+[Monitor13.CopyFiles]
+s901gd93.icm
+[Monitor14.CopyFiles]
+s701gd93.icm
+[Monitor15.CopyFiles]
+s701gd93.icm
+[Monitor16.CopyFiles]
+a701gd93.icm
+[Monitor17.CopyFiles]
+a601nn.icm
+[Monitor18.CopyFiles]
+a602nn.icm
+[Monitor19.CopyFiles]
+a381hd65.icm
+[Monitor20.CopyFiles]
+a901hd93.icm
+[Monitor21.CopyFiles]
+A632hd65.ICM
+
+[Monitor22.CopyFiles]
+A931hd65.ICM
+
+[a702h.CopyFiles]
+A702hd93.ICM
+
+[a3832h.CopyFiles]
+A32hnn.ICM
+
+[a201h.CopyFiles]
+A201hd93.ICM
+
+
+[s703h.CopyFiles]
+s703hd93.ICM
+[s902j.CopyFiles]
+s902jd93.ICM
+
+[a612j.CopyFiles]
+A612jnn.ICM
+[a812j.CopyFiles]
+A812jnn.ICM
+[a833j.CopyFiles]
+A3833jnn.ICM
+
+[a4633j.CopyFiles]
+A4633jnn.ICM
+
+[s700j.CopyFiles]
+s700jd93.ICM
+[s702u.CopyFiles]
+s702ud93.ICM
+
+[a4634j.CopyFiles]
+A4634jnn.ICM
+
+[a3813m.CopyFiles]
+A3813mnn.ICM
+[a705m.CopyFiles]
+A705md93.ICM
+[s705m.CopyFiles]
+S705md93.ICM
+
+[s500m.CopyFiles]
+s500md93.ICM
+[s104m.CopyFiles]
+s104md93.icm
+[a902m.CopyFiles]
+a902md93.icm
+[a901u.CopyFiles]
+a901ud93.icm
+[f901u.CopyFiles]
+f901ud93.icm
+
+[a3921u.CopyFiles]
+A3921unn.ICM
+
+[s900m.CopyFiles]
+s900md93.ICM
+[a4635u.CopyFiles]
+a4635dnn.ICM
+[a201d.CopyFiles]
+ma201d93.ICM
+[s101d.CopyFiles]
+ms101d93.ICM
+
+[a4311u.CopyFiles]
+a4311unn.ICM
+[a4011u.CopyFiles]
+a4011unn.ICM
+[a4431d.CopyFiles]
+a4431dnn.ICM
+[AX3815U.CopyFiles]
+AX3815U.ICM
+[AX3834U.CopyFiles]
+AX3834U.ICM
+[LM702U.CopyFiles]
+LM702U.ICM
+[LA702U.CopyFiles]
+LA702U.ICM
+[LF702U.CopyFiles]
+LF702U.ICM
+[LS501U.CopyFiles]
+LS501U.ICM
+
+[AX3816U.CopyFiles]
+AX3816U.icm
+[AS4312U.CopyFiles]
+AS4312U.ICM
+[AS4636D.CopyFiles]
+AS4636D.ICM
+[HA202D.CopyFiles]
+HA202D.ICM
+[AU4831D.CopyFiles]
+AU4831D.ICM
+[LS902U.CopyFiles]
+LS902U.ICM
+[HM703U.CopyFiles]
+HM703U.ICM
+[HM704U.CopyFiles]
+HM704U.ICM
+[HA703U.CopyFiles]
+HA703U.ICM
+[HM903D.CopyFiles]
+HM903D.ICM
+[AX3843.CopyFiles]
+AX3843.icm
+[AX3844.CopyFiles]
+AX3844.icm
+[AX3818.CopyFiles]
+AX3818.icm
+[AS4314.CopyFiles]
+AS4314.ICM
+
+[AS4611.CopyFiles]
+AS4611.ICM
+
+[AS4316.CopyFiles]
+AS4316.ICM
+[AX3835.CopyFiles]
+AX3835.icm
+[AX3819.CopyFiles]
+AX3819.icm
+[AS4315.CopyFiles]
+AS4315.icm
+[AS4637.CopyFiles]
+AS4637.icm
+[AS4332.CopyFiles]
+AS4332.icm
+[AS4341.CopyFiles]
+AS4341.icm
+[LM704U.CopyFiles]
+LM704U.ICM
+[LS704U.CopyFiles]
+LS704U.ICM
+
+[MS102D.CopyFiles]
+MS102D.ICM
+
+[AS4641.CopyFiles]
+AS4641.icm
+
+
+;*****************************************************************************
+
+[Strings]
+MonitorClassName="Monitor"      
+; Do not delete this line.
+Iiyama-J="株式会社　イーヤマ"
+
+Monitor1="飯山電機     MF-8515G      "
+Monitor2="飯山電機     MF-8617E/8517E"
+Monitor3="飯山電機     MF-8617ES     "
+Monitor4="飯山電機     MT-8617E/ES/E2"
+Monitor5="飯山電機     MF-8221E      "
+Monitor6="飯山電機     MT-8521E      "
+Monitor7="飯山電機     MF-8621E      "
+Monitor8="飯山電機     S101G         "
+Monitor9="飯山電機     S102G         "
+Monitor10="飯山電機    MT-8621E      "
+Monitor11="飯山電機    A101G         "
+Monitor12="飯山電機    A102G         "
+Monitor13="飯山電機    S901G         "
+Monitor14="飯山電機    S701G         "
+Monitor15="飯山電機    S702G         "
+Monitor16="飯山電機    A701G/G2      "
+Monitor17="飯山電機    TXA3601GT"
+Monitor18="飯山電機    TXA3602GT     "
+Monitor19="飯山電機    TXA3811/3821HT"
+Monitor20="飯山電機    A901H         "
+Monitor21="飯山電機    TSA4632HT"
+Monitor22="飯山電機    TSA3931HT"
+a702h= "飯山電機  A702H / A703J"
+a3832h="飯山電機  TXA3832HT"
+a201h="飯山電機  A201H"
+s703h= "飯山電機  S703H"
+s902j= "飯山電機  S902J"
+a612j="飯山電機  TXA3612JT/3622J"
+a812j="飯山電機  TXA3812JT/3822JT"
+a833j="飯山電機  TXA3833JT"
+a4633j="飯山電機  TSA4633JT"
+s700j="飯山電機  S700J"
+s702u="飯山電機  LS702U"
+a4634j="飯山電機  TSA4634JT"
+s500m="飯山電機  S500M1"
+a705m= "飯山電機  A705M/MF701U"
+s705m= "飯山電機  S705M"
+a3813m="飯山電機  TXA3813MT/3823JT"
+s103m="飯山電機     S103M         "
+s104m="飯山電機     S104M         "
+a902m="飯山電機     A902M         "
+H901d="飯山電機     MA901U         "
+a901u="飯山電機     MA901U         "
+f901u="飯山電機     MF901U         "
+a3921u="飯山電機  AS3921U "
+a4635u="飯山電機  AS4635U"
+s900m="飯山電機  S900M1"
+a201d="飯山電機  MA201D"
+s101d="飯山電機  MS101D"
+a4311u="飯山電機  AS4311U"
+a4011u="イーヤマ AS4011U/AS4021D"
+a4431d="飯山電機  AS4431D"
+AX3815U="イーヤマ AX3815U"
+AX3834U="イーヤマ TXA3834MT"
+LM702U="イーヤマ LM702U"
+LA702U="イーヤマ LA702U"
+LF702U="イーヤマ LF702U"
+LS501U="イーヤマ LS501U"
+AX3816U="イーヤマ AX3816U"
+AX3817U="イーヤマ AX3817U"
+AS4312U="イーヤマ AS4312U"
+AS4636D="イーヤマ AS4636D"
+HA202D="イーヤマ HA202D"
+AU4831D="イーヤマ AU4831D"
+LS902U="イーヤマ LS902U"
+HM703U="イーヤマ HM703U"
+HM704U="イーヤマ HM704UC"
+HA703U="イーヤマ HA703U"
+HM903D="イーヤマ HM903D"
+AX3843="イーヤマ AX3843D"
+AX3844="イーヤマ AX3844D"
+AX3818="イーヤマ AX3818UTC"
+AS4314="イーヤマ AS4314UT"
+AS4611="イーヤマ AS4611UT"
+AS4316="イーヤマ AS4316UTC"
+
+AX3819="イーヤマ  AX3819UT/AX3819UT BK"
+AX3835="イーヤマ  AX3835UT/AX3835UT BK"
+AS4315="イーヤマ  AS4315UT/AS4315UT BK"
+AS4637="イーヤマ  AS4637UT/AS4637UT BK"
+AS4332="イーヤマ  AS4332UT/AS4332UT BK"
+AS4341="イーヤマ  AS4341D"
+AS4641="イーヤマ  AS4641D"
+
+LS704U="イーヤマ  LS704U"
+
+
+
+
+

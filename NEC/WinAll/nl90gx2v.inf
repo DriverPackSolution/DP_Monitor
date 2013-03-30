@@ -1,0 +1,68 @@
+; nl90gx2v.inf
+; Setup information file for NEC MultiSync 90GX2 Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl90gx2v.cat
+DriverVer=01/24/2007,1.07.0124.1037
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6692
+
+[DestinationDirs]
+90GX2.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl90gx2v.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%90GX2%=90GX2.Install, Monitor\NEC6692
+
+[NECDS.ntamd64]
+%90GX2%=90GX2.Install.ntamd64, Monitor\NEC6692
+
+[90GX2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=90GX2.AddReg, 1280, DPMS
+CopyFiles=90GX2.CopyFiles
+
+[90GX2.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=90GX2.AddReg, 1280, DPMS
+CopyFiles=90GX2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[90GX2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl90gx2v.icm"
+
+[90GX2.CopyFiles]
+nl90gx2v.icm
+
+[Strings]
+NECDS="NEC"
+90GX2="NEC MultiSync 90GX2"
+Disk1="NEC Monitor Installation Disk"

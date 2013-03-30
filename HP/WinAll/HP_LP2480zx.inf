@@ -1,0 +1,186 @@
+; ###########################################################
+;
+;   HP_LP2480zx.inf        Ver. 1.00        4/15/2008
+;
+;   Copyright (c)2008, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP LP2480zx Wide LCD Monitor.
+; 
+; ###########################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_LP2480zx.cat
+DriverVer=04/15/2008,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP26F2
+ExcludeFromSelect.nt = MONITOR\HWP26F3
+ExcludeFromSelect.nt = MONITOR\HWP26F4
+ExcludeFromSelect.nt = MONITOR\HWP26F5
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LP2480zx.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_LP2480zx Full Color Preset.icm=1
+Adobe RGB 1998.icm=1
+SMPTE-C.icm=1
+REC-709.icm=1
+DCI-P3 Emulation.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%LP2480zx_VGA%=LP2480zx_VGA.Install, Monitor\HWP26F2
+%LP2480zx_DVI%=LP2480zx_DVI.Install, Monitor\HWP26F3
+%LP2480zx_HDMI%=LP2480zx_HDMI.Install, Monitor\HWP26F4
+%LP2480zx_DP%=LP2480zx_DP.Install, Monitor\HWP26F5
+
+[HP.NTamd64]
+%LP2480zx_VGA%=LP2480zx_VGA.Install, Monitor\HWP26F2
+%LP2480zx_DVI%=LP2480zx_DVI.Install, Monitor\HWP26F3
+%LP2480zx_HDMI%=LP2480zx_HDMI.Install, Monitor\HWP26F4
+%LP2480zx_DP%=LP2480zx_DP.Install, Monitor\HWP26F5
+
+[LP2480zx_VGA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP2480zx_VGA.AddReg, 1920, DPMS
+CopyFiles=LP2480zx.CopyFiles
+
+[LP2480zx_DVI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP2480zx_DVI.AddReg, 1920, DPMS
+CopyFiles=LP2480zx.CopyFiles
+
+[LP2480zx_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP2480zx_HDMI.AddReg, 1920, DPMS
+CopyFiles=LP2480zx.CopyFiles
+
+[LP2480zx_DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP2480zx_DP.AddReg, 1920, DPMS
+CopyFiles=LP2480zx.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LP2480zx_VGA.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-80,47-61,-,-"
+HKR,"MODES\800,600",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1280,960",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1600,1000",Mode1,,"24-80,47-61,+,-"
+HKR,"MODES\1600,1200",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24-80,47-61,-,+"
+HKR,"MODES\1920,1080",Mode1,,"24-80,47-61,-,+"
+HKR,"MODES\1920,1200",Mode1,,"24-80,47-61,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"Adobe RGB 1998.icm"
+HKR,,ICMProfile,0x00010008,"SMPTE-C.icm"
+HKR,,ICMProfile,0x00010008,"REC-709.icm"
+HKR,,ICMProfile,0x00010008,"DCI-P3 Emulation.icm"
+HKR,,ICMProfile,0x00010008,"HP_LP2480zx Full Color Preset.icm"
+
+[LP2480zx_DVI.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-80,47-61,-,-"
+HKR,"MODES\800,600",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1280,960",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1600,1000",Mode1,,"24-80,47-61,+,-"
+HKR,"MODES\1600,1200",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24-80,47-61,-,+"
+HKR,"MODES\1920,1080",Mode1,,"24-80,47-61,-,+"
+HKR,"MODES\1920,1200",Mode1,,"24-80,47-61,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"Adobe RGB 1998.icm"
+HKR,,ICMProfile,0x00010008,"SMPTE-C.icm"
+HKR,,ICMProfile,0x00010008,"REC-709.icm"
+HKR,,ICMProfile,0x00010008,"DCI-P3 Emulation.icm"
+HKR,,ICMProfile,0x00010008,"HP_LP2480zx Full Color Preset.icm"
+
+[LP2480zx_HDMI.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-80,47-61,-,-"
+HKR,"MODES\800,600",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1280,960",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1600,1000",Mode1,,"24-80,47-61,+,-"
+HKR,"MODES\1600,1200",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24-80,47-61,-,+"
+HKR,"MODES\1920,1080",Mode1,,"24-80,47-61,-,+"
+HKR,"MODES\1920,1200",Mode1,,"24-80,47-61,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"Adobe RGB 1998.icm"
+HKR,,ICMProfile,0x00010008,"SMPTE-C.icm"
+HKR,,ICMProfile,0x00010008,"REC-709.icm"
+HKR,,ICMProfile,0x00010008,"DCI-P3 Emulation.icm"
+HKR,,ICMProfile,0x00010008,"HP_LP2480zx Full Color Preset.icm"
+
+[LP2480zx_DP.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-80,47-61,-,-"
+HKR,"MODES\800,600",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1280,960",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1600,1000",Mode1,,"24-80,47-61,+,-"
+HKR,"MODES\1600,1200",Mode1,,"24-80,47-61,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24-80,47-61,-,+"
+HKR,"MODES\1920,1080",Mode1,,"24-80,47-61,-,+"
+HKR,"MODES\1920,1200",Mode1,,"24-80,47-61,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"Adobe RGB 1998.icm"
+HKR,,ICMProfile,0x00010008,"SMPTE-C.icm"
+HKR,,ICMProfile,0x00010008,"REC-709.icm"
+HKR,,ICMProfile,0x00010008,"DCI-P3 Emulation.icm"
+HKR,,ICMProfile,0x00010008,"HP_LP2480zx Full Color Preset.icm"
+
+[LP2480zx.CopyFiles]
+HP_LP2480zx Full Color Preset.icm
+Adobe RGB 1998.icm
+SMPTE-C.icm
+REC-709.icm
+DCI-P3 Emulation.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+LP2480zx_VGA="HP LP2480zx Wide LCD Monitor"
+LP2480zx_DVI="HP LP2480zx Wide LCD Monitor"
+LP2480zx_HDMI="HP LP2480zx Wide LCD Monitor"
+LP2480zx_DP="HP LP2480zx Wide LCD Monitor"
+Disk1="HP LP2480zx Driver Software"

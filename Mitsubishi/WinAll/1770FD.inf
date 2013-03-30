@@ -1,0 +1,67 @@
+; INF File for Windows 9x/Me/2000
+; Copyright (c)  2003 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+;CatalogFile=DV1770FD.cat
+DriverVer=05/06/2003,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA34A1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DV1770FD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+DV1770FD.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%DV1770FD%=DV1770FD.Install,Monitor\MEA34A1
+
+[DV1770FD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DV1770FD.AddReg, 1280, DPMS
+CopyFiles=DV1770FD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[DV1770FD.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"DV1770FD.ICM"
+
+[DV1770FD.CopyFiles]
+DV1770FD.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="MEA Monitor Installation Disk"
+MEA="MEA"
+DV1770FD="MEA 1770FD"

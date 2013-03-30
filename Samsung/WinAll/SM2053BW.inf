@@ -1,0 +1,120 @@
+
+;==================================================
+; SM2053BW.inf 12/20/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2053BW.cat
+DriverVer=12/20/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0379
+ExcludeFromSelect.nt=Monitor\SAM037A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2053BWa.CopyFiles = 23
+SM2053BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2053BW.icm=1
+SM2053BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2053BWa%=SM2053BWa.Install, Monitor\SAM0379
+%SM2053BWd%=SM2053BWd.Install, Monitor\SAM037A
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2053BWa%=SM2053BWa.Install, Monitor\SAM0379
+%SM2053BWd%=SM2053BWd.Install, Monitor\SAM037A
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2053BWa%=SM2053BWa.Install, Monitor\SAM0379
+%SM2053BWd%=SM2053BWd.Install, Monitor\SAM037A
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2053BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2053BWa.AddReg, 1680, DPMS
+CopyFiles=SM2053BWa.CopyFiles
+
+[SM2053BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2053BWd.AddReg, 1680, DPMS
+CopyFiles=SM2053BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2053BWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2053BW.icm"
+
+[SM2053BWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2053BW.icm"
+;------------------------------------------------------
+
+[SM2053BWa.CopyFiles]
+SM2053BW.icm
+
+[SM2053BWd.CopyFiles]
+SM2053BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2053BWa="SyncMaster 2053BW/2053GW,SyncMaster Magic CX2053BW(Analog)"
+SM2053BWd="SyncMaster 2053BW/2053GW,SyncMaster Magic CX2053BW(Digital)"

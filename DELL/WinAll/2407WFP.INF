@@ -1,0 +1,108 @@
+;================================ 
+;2407WFP.INF 08/22/06 Ver. 2.0 PCC
+;Copyright 1996-2006 Dell Inc.
+;
+;This is a setupfile for 2407WFP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2407WFP.cat
+DriverVer=08/22/2006, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA016
+ExcludeFromSelect.nt=Monitor\DELA017
+
+[DestinationDirs]
+DefaultDestDir=11
+2407WFP_Analog.CopyFiles=23
+2407WFP_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+2407WFP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%2407WFP_Analog%=2407WFP_Analog.Install, Monitor\DELA016
+%2407WFP_Digital%=2407WFP_Digital.Install, Monitor\DELA017
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%2407WFP_Analog%=2407WFP_Analog.Install, Monitor\DELA016
+%2407WFP_Digital%=2407WFP_Digital.Install, Monitor\DELA017
+
+
+; Install Sections
+;-------------------------------------------------
+
+[2407WFP_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2407WFP_Analog.AddReg, 1920, DPMS
+CopyFiles=2407WFP_Analog.CopyFiles
+
+[2407WFP_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2407WFP_Digital.AddReg, 1920, DPMS
+CopyFiles=2407WFP_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[2407WFP_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2407WFP.icm"
+
+[2407WFP_Digital.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2407WFP.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[2407WFP_Analog.CopyFiles]
+2407WFP.icm
+
+[2407WFP_Digital.CopyFiles]
+2407WFP.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+2407WFP_Analog="Dell 2407WFP (Analog)"
+2407WFP_Digital="Dell 2407WFP (Digital)"

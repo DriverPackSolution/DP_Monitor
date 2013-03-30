@@ -1,0 +1,83 @@
+;=============================================================== 
+; [E2211.INF] 
+; Revision 1.0   December-15-2010
+; Copyright(c)1998~2010 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=E2211.cat
+DriverVer=12/15/2010,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM5838
+ExcludeFromSelect.NT=Monitor\GSM5839
+
+[DestinationDirs]
+DefaultDestDir = 11
+E2211_Analog.CopyFiles = 23
+E2211_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+E2211.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%E2211_Analog%=E2211_Analog.Install,Monitor\GSM5838
+%E2211_Digital%=E2211_Digital.Install,Monitor\GSM5839
+
+[LG.NTamd64]
+%E2211_Analog%=E2211_Analog.Install,Monitor\GSM5838
+%E2211_Digital%=E2211_Digital.Install,Monitor\GSM5839
+
+[E2211_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2211_Analog.AddReg,1920,DPMS
+CopyFiles=E2211_Analog.CopyFiles
+
+[E2211_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2211_Digital.AddReg,1920,DPMS
+CopyFiles=E2211_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E2211_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"E2211.ICM"
+
+[E2211_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"E2211.ICM"
+
+[E2211_Analog.CopyFiles]
+E2211.ICM
+
+[E2211_Digital.CopyFiles]
+E2211.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+E2211_Analog="LG E2211(Analog)"
+E2211_Digital="LG E2211(Digital)"

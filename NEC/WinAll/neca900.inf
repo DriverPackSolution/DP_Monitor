@@ -1,0 +1,74 @@
+; NECA900.INF
+; Setup information file for NEC AccuSync 900 Monitor
+;
+; Copyright 1995-2003, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NECA900.cat
+DriverVer=10/28/2003,3.10.0028.1413
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61E3
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-AS900.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+NECA900.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-AS900%=NEC-AS900.Install, Monitor\NEC61E3
+
+; Install Sections
+;-------------------------------------------------
+[NEC-AS900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS900.AddReg, 1600, DPMS
+CopyFiles=NEC-AS900.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-AS900.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"NECA900.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-AS900.CopyFiles]
+NECA900.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-AS900="NEC AccuSync 900"

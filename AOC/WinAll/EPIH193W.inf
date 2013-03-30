@@ -1,0 +1,83 @@
+; Copyright 2005 EPI International (Europe) GmbH
+; This is a Setup information file for monitors  with ICM  file
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EPI%
+DriverVer=02/22/2005,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\EPI1980
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1980.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+EPIH193FW.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%EPI%=EPI
+
+; Manufacturer Sections
+;-------------------------------------------------
+[EPI]
+%1980%=1980.Install, Monitor\EPI1980
+
+; Install Sections
+;-------------------------------------------------
+[1980.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1980.AddReg, 1440 ,DPMS
+Copyfiles=1980.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[1980.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"EPIH193W.icm"
+
+[1980.CopyFiles]
+EPIH193W.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Aigo Monitor Installation Disk"
+MonitorClassName="Monitor"
+EPI="EPI"
+1980="EPI H193W"

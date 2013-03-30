@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=E70f+-3.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/28/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+E70f+-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+E70f_p-3.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%E70f+-3%=E70f+-3.Install,Monitor\VSC2F19	            ;E70f+-3
+
+[E70f+-3.Install]                                           ;E70f+-3
+DelReg=DEL_CURRENT_REG 
+AddReg=E70f+-3.AddReg,1280,DPMS
+Copyfiles=E70f+-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E70f+-3.AddReg]                                            ;E70f+-3
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"E70f_p-3.ICM"
+
+[E70f+-3.CopyFiles]                                       
+E70f_p-3.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+E70f+-3="ViewSonic E70f+-3"
+

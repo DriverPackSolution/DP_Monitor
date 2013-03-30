@@ -1,0 +1,104 @@
+; LCD4215(R).inf
+; Setup information file for NEC LCD Monitor LCD4215(R)
+;
+; Copyright (C) 2009 NEC Electric Corporation
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NEC%
+CatalogFile=LCD4215(R).cat
+DriverVer=09/14/2009,1.00.0000.0000
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67B5
+ExcludeFromSelect.nt=Monitor\NEC67B6
+ExcludeFromSelect.nt=Monitor\NEC67B7
+
+[DestinationDirs]
+LCD4215(R).CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+LCD4215(R).icm=1
+
+[Manufacturer]
+%NEC%=NEC,ntamd64
+
+[NEC]
+%LCD4215(R)-A%=LCD4215(R)-A.Install, Monitor\NEC67B5
+%LCD4215(R)-D%=LCD4215(R)-D.Install, Monitor\NEC67B6
+%LCD4215(R)-H%=LCD4215(R)-D.Install, Monitor\NEC67B7
+
+[NEC.ntamd64]
+%LCD4215(R)-A%=LCD4215(R)-A.Install, Monitor\NEC67B5
+%LCD4215(R)-D%=LCD4215(R)-D.Install, Monitor\NEC67B6
+%LCD4215(R)-H%=LCD4215(R)-D.Install, Monitor\NEC67B7
+
+[LCD4215(R)-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4215(R)-A.AddReg, 1920, DPMS
+CopyFiles=LCD4215(R).CopyFiles
+
+[LCD4215(R)-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4215(R)-D.AddReg, 1920, DPMS
+CopyFiles=LCD4215(R).CopyFiles
+
+[LCD4215(R)-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4215(R)-H.AddReg, 1920, DPMS
+CopyFiles=LCD4215(R).CopyFiles
+
+[LCD4215(R)-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4215(R)-A.AddReg, 1920, DPMS
+CopyFiles=LCD4215(R).CopyFiles
+
+[LCD4215(R)-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4215(R)-D.AddReg, 1920, DPMS
+CopyFiles=LCD4215(R).CopyFiles
+
+[LCD4215(R)-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4215(R)-H.AddReg, 1920, DPMS
+CopyFiles=LCD4215(R).CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD4215(R)-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"LCD4215(R).icm"
+
+[LCD4215(R)-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"LCD4215(R).icm"
+
+[LCD4215(R)-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"LCD4215(R).icm"
+
+[LCD4215(R).CopyFiles]
+LCD4215(R).icm
+
+[Strings]
+NEC="NEC"
+LCD4215(R)-A="NEC LCD4215(R) (Analog)"
+LCD4215(R)-D="NEC LCD4215(R) (Digital)"
+LCD4215(R)-H="NEC LCD4215(R) (Hdmi)"
+Disk1="NEC Display Monitor Installation Disk"

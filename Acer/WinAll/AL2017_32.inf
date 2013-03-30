@@ -1,0 +1,72 @@
+
+;  AL2017.INF
+;
+; This is Setup information file for monitors 
+;
+; Copyright (c) 2006, WayTech
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%	
+CatalogFile=AL2017.cat
+DriverVer=12/11/2006,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ACRAD69
+
+;[ClassInstall32]
+;AddReg=ClassAddReg32
+
+;[ClassAddReg32]
+;HKR,,,,%MonitorClassName%
+;HKR,,Icon,,"-1"
+;HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+AL2017.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+AL2017.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AL2017%=AL2017.Install, Monitor\ACRAD69
+
+[AL2017.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=AL2017.AddReg, 1400, DPMS
+CopyFiles=AL2017.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1400]
+HKR,,MaxResolution,,"1400,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL2017.AddReg]
+HKR,"MODES\1400,1050",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"AL2017.icm"
+
+[AL2017.CopyFiles]
+AL2017.icm
+
+[Strings]
+;MonitorClassName="Monitor"
+Acer="Acer"
+Disk1="Acer LCD Utility Disk"
+AL2017="Acer AL2017"

@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=E55-3.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/27/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS21914-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+E55-3.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS21914-3%=VCDTS21914-3.Install,Monitor\VSC5E13            ;E55-3
+
+[VCDTS21914-3.Install]                                         ;E55-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS21914-3.AddReg,1280,DPMS
+Copyfiles=VCDTS21914-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS21914-3.AddReg]                                          ;E55-3
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"E55-3.ICM"
+
+[VCDTS21914-3.CopyFiles]                                       
+E55-3.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS21914-3="ViewSonic E55-3"

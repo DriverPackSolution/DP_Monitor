@@ -1,0 +1,75 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; Monitor INF file for ImageQuest L17T
+;
+; Copyright 2003, ImageQuest Co., Ltd.
+;
+; This is a INF file for installing monitors for Windows.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%ImageQuest%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L17T.CopyFiles=23
+
+[SourceDisksNames]
+1=%InsDisk%,,
+
+[SourceDisksFiles]
+L17T.icm=1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%L17T%=L17T.Install, Monitor\IQT0175
+
+[L17T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L17T.AddReg, 1280, DPMS
+CopyFiles=L17T.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280, 1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[L17T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"L17T.icm"
+
+[L17T.CopyFiles]
+L17T.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+MonitorClassName="Monitor"
+InsDisk="ImageQuest Monitor Installation Disk"
+ImageQuest="ImageQuest Co., Ltd."
+L17T="ImageQuest L17T"

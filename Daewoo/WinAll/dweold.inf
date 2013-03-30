@@ -1,0 +1,446 @@
+;Moniotr INF file for Daewoo monitors
+;Copyright 1995, Daewoo Electronics Co., Ltd.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Daewoo%
+
+
+[Manufacturer]
+%Daewoo%=Daewoo
+
+
+[Daewoo]
+%CMC-1427X1%=CMC-1427X1, Monitor\DWE1427
+%CMC-1507X1%=CMC-1507X1, Monitor\DWE1507
+%CMC-1505X%=CMC-1505X, Monitor\DWE1505
+%CMC-1423B1%=CMC-1423B1, Monitor\DWE1423
+%CMC-1502B1%=CMC-1502B1, Monitor\DWE1502
+%CMC-1703B%=CMC-1703B, Monitor\DWE1703
+%CMC-1423B%=CMC-1423B, Monitor\DWE4233
+%CMC-1424S%=CMC-1424S, Monitor\DWE4241
+%CMC-1424X%=CMC-1424X, Monitor\DWE4242
+%CMC-1427S%=CMC-1427S, Monitor\DWE4271
+%CMC-1427X%=CMC-1427X, Monitor\DWE4272
+%CMC-1502B%=CMC-1502B, Monitor\DWE5023
+%DT-1503B/MPR%=DT-1503B/MPR, Monitor\DWE503A
+%CMC-1418AD/MPR%=CMC-1418AD/MPR, Monitor\DWE418A
+%CMC-1414BA%=CMC-1414BA, Monitor\DWE4143
+%CMC-1420AV%=CMC-1420AV, Monitor\DWE4202
+%CMC-1420AVG%=CMC-1420AVG, Monitor\DWE420A
+%CMC-1422BA%=CMC-1422BA, Monitor\DWE4223
+%CMC-1500TF%=CMC-1500TF, Monitor\DWE5001
+%CMC-1500BA%=CMC-1500BA, Monitor\DWE5003
+%CMC-1501BA%=CMC-1501BA, Monitor\DWE5013
+%CMC-1501BA1%=CMC-1501BA1, Monitor\DWE501A
+%CMC-1511B%=CMC-1511B, Monitor\DWE5113
+%CMC-1700M%=CMC-1700M, Monitor\DWE7000
+%CMC-1700MD/MPR%=CMC-1700MD/MPR, Monitor\DWE700B
+%CMC-1701M%=CMC-1701M, Monitor\DWE7010
+%CMC-1701M2%=CMC-1701M2, Monitor\DWE701B
+%CMC-1704C%=CMC-1704C, Monitor\DWE7044
+%CMC-1707B%=CMC-1707B, Monitor\DWE7073
+%CMC-2000M%=CMC-2000M, Monitor\DWE0000
+%CMC-2102M/MPR%=CMC-2102M/MPR, Monitor\DWE102A
+%CMC-2100M%=CMC-2100M, Monitor\DWE1000
+
+[CMC-1427X1]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1427X1.AddReg
+
+[CMC-1507X1]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1507X1.AddReg
+
+[CMC-1505X]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1505X.AddReg
+
+[CMC-1423B1]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1423B1.AddReg
+
+[CMC-1502B1]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1502B1.AddReg
+
+[CMC-1703B]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1703B.AddReg
+
+[CMC-1423B]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1423B.AddReg
+
+[CMC-1424S]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1424S.AddReg
+
+[CMC-1424X]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1424X.AddReg
+
+[CMC-1427S]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1427S.AddReg
+
+[CMC-1427X]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1427X.AddReg
+
+[CMC-1502B]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1502B.AddReg
+
+[DT-1503B/MPR]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1503B.AddReg
+
+[CMC-1418AD/MPR]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1418AD/MPR.AddReg
+
+[CMC-1414BA]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1414BA.AddReg
+
+[CMC-1420AV]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1420AV.AddReg
+
+[CMC-1420AVG]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1420AVG.AddReg 
+
+[CMC-1422BA]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1422BA.AddReg
+
+[CMC-1500TF]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1500TF.AddReg
+
+[CMC-1500BA]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1500BA.AddReg 
+
+[CMC-1501BA]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1501BA.AddReg 
+
+[CMC-1501BA1]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1501BA1.AddReg
+
+[CMC-1511B]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1511B.AddReg
+
+[CMC-1700M]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1700M.AddReg
+
+[CMC-1700MD/MPR]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1700MD/MPR.AddReg
+
+[CMC-1701M]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1701M.AddReg
+
+[CMC-1701M2]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1701M2.AddReg
+
+[CMC-1704C]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1704C.AddReg
+
+[CMC-1707B]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-1707B.AddReg
+
+[CMC-2000M]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-2000M.AddReg
+
+[CMC-2102M/MPR]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-2102M/MPR.AddReg
+
+[CMC-2100M]
+DelReg=ClearPrev.DelReg
+AddReg=CMC-2100M.AddReg
+
+[ClearPrev.DelReg]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[CMC-1427X1.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-48.0,50.0-100.0,+,-"
+HKR,"MODES\640,480",Mode1,,"30.0-48.0,50.0-75.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1507X1.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-48.0,50.0-100.0,+,-"
+HKR,"MODES\640,480",Mode1,,"30.0-48.0,50.0-75.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1505X.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-100.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1423B1.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1502B1.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1703B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1423B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1424S.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.0,50.0-100.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1424X.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-100.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1427S.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.0,50.0-100.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1427X.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-100.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1502B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[DT-1503B/MPR.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1418AD/MPR.Addreg]
+HKR,"MODES\640,480",Mode1,,"30.0-38.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"800,600"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1414BA.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1420AV.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-48.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1420AVG.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-48.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1422BA.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1500TF.Addreg]
+HKR,"MODES\640,480",Mode1,,"30.0-38.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"640,480"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1500BA.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1501BA.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-58.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1501BA1.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1511B.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1700M.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1700MD/MPR.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1701M.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-1701M2.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1704C.Addreg]
+HKR,"MODES\1600,1200",Mode1,,"24.0-86.0,50.0-150.0,+,-"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-1707B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-2000M.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[CMC-2102M/MPR.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+[CMC-2100M.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-90.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,0
+HKR,,ICMProfile,1,7
+
+
+[Strings]
+MonitorClassName="Monitor"
+Daewoo="Daewoo"
+
+CMC-1427X1="Daewoo CMC-1427X1"
+CMC-1507X1="Daewoo CMC-1507X1"
+CMC-1505X="Daewoo CMC-1505X"
+CMC-1423B1="Daewoo CMC-1423B1"
+CMC-1502B1="Daewoo CMC-1502B1"
+CMC-1703B="Daewoo CMC-1703B"
+CMC-1423B="Daewoo CMC-1423B"
+CMC-1424S="Daewoo CMC-1424S"
+CMC-1424X="Daewoo CMC-1424X"
+CMC-1427S="Daewoo CMC-1427S"
+CMC-1427X="Daewoo CMC-1427X"
+CMC-1502B="Daewoo CMC-1502B"
+DT-1503B/MPR="Daewoo DT-1503B/MPR"
+CMC-1418AD/MPR="Daewoo CMC-1418AD/MPR"
+CMC-1414BA="Daewoo CMC-1414BA"
+CMC-1420AV="Daewoo CMC-1420AV"
+CMC-1420AVG="Daewoo CMC-1420AVG"
+CMC-1422BA="Daewoo CMC-1422BA"
+CMC-1500TF="Daewoo CMC-1500TF"
+CMC-1500BA="Daewoo CMC-1500BA"
+CMC-1501BA="Daewoo CMC-1501BA"
+CMC-1501BA1="Daewoo CMC-1501BA1"
+CMC-1511B="Daewoo CMC-1511B"
+CMC-1700M="Daewoo CMC-1700M"
+CMC-1700MD/MPR="Daewoo CMC-1700MD/MPR"
+CMC-1701M="Daewoo CMC-1701M"
+CMC-1701M2="Daewoo CMC-1701M2"
+CMC-1704C="Daewoo CMC-1704C"
+CMC-1707B="Daewoo CMC-1707B"
+CMC-2000M="Daewoo CMC-2000M"
+CMC-2102M/MPR="Daewoo CMC-2102M/MPR"
+CMC-2100M="Daewoo CMC-2100M"
+
+Monitor\MON1427.DeviceDesc="CMC-1427X1"
+Monitor\MON1507.DeviceDesc="CMC-1507X1"
+Monitor\MON1505.DeviceDesc="CMC-1505X"
+Monitor\MON1423.DeviceDesc="CMC-1423B1"
+Monitor\MON1502.DeviceDesc="CMC-1502B1"
+Monitor\MON1703.DeviceDesc="CMC-1703B"
+Monitor\MON4233.DeviceDesc="CMC-1423B"
+Monitor\MON4241.DeviceDesc="CMC-1424S"
+Monitor\MON4242.DeviceDesc="CMC-1424X"
+Monitor\MON4271.DeviceDesc="CMC-1427S"
+Monitor\MON4272.DeviceDesc="CMC-1427X"
+Monitor\MON5023.DeviceDesc="CMC-1502B"
+Monitor\MON503A.DeviceDesc="DT-1503B/MPR"
+Monitor\MON418A.DeviceDesc="CMC-1418AD/MPR"
+Monitor\MON4143.DeviceDesc="CMC-1414BA"
+Monitor\MON4202.DeviceDesc="CMC-1420AV"
+Monitor\MON420A.DeviceDesc="CMC-1420AVG"
+Monitor\MON4223.DeviceDesc="CMC-1422BA"
+Monitor\MON5001.DeviceDesc="CMC-1500TF"
+Monitor\MON5003.DeviceDesc="CMC-1500BA"
+Monitor\MON5013.DeviceDesc="CMC-1501BA"
+Monitor\MON501A.DeviceDesc="CMC-1501BA1"
+Monitor\MON5113.DeviceDesc="CMC-1511B"
+Monitor\MON7000.DeviceDesc="CMC-1700M"
+Monitor\MON700B.DeviceDesc="CMC-1700MD/MPR"
+Monitor\MON7010.DeviceDesc="CMC-1701M"
+Monitor\MON701B.DeviceDesc="CMC-1701M2"
+Monitor\MON7044.DeviceDesc="CMC-1704C"
+Monitor\MON7073.DeviceDesc="CMC-1707B"
+Monitor\MON0000.DeviceDesc="CMC-2000M"
+Monitor\MON102A.DeviceDesc="CMC-2102M/MPR"
+Monitor\MON1000.DeviceDesc="CMC-2100M"
+

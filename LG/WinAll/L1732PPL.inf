@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1732PPL.INF] 
+; Revision 1.4   June-08-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1732PPL.cat
+DriverVer=06/08/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4459
+ExcludeFromSelect.NT=Monitor\GSM445A
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1732PPL_Analog.CopyFiles = 23
+L1732PPL_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1732PPL.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1732PPL_Analog%=L1732PPL_Analog.Install,Monitor\GSM4459
+%L1732PPL_Digital%=L1732PPL_Digital.Install,Monitor\GSM445A
+
+[LG.NTamd64]
+%L1732PPL_Analog%=L1732PPL_Analog.Install,Monitor\GSM4459
+%L1732PPL_Digital%=L1732PPL_Digital.Install,Monitor\GSM445A
+
+[L1732PPL_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1732PPL_Analog.AddReg,1280,DPMS
+CopyFiles=L1732PPL_Analog.CopyFiles
+
+[L1732PPL_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1732PPL_Digital.AddReg,1280,DPMS
+CopyFiles=L1732PPL_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1732PPL_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1732PPL.ICM"
+
+[L1732PPL_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1732PPL.ICM"
+
+[L1732PPL_Analog.CopyFiles]
+L1732PPL.ICM
+
+[L1732PPL_Digital.CopyFiles]
+L1732PPL.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1732PPL_Analog="LG L1732P Plus(Analog)"
+L1732PPL_Digital="LG L1732P Plus(Digital)"

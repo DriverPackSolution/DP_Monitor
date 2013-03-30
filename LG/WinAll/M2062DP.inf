@@ -1,0 +1,65 @@
+;===============================================================
+; [M2062DP.inf]
+; Revision 1.0   July-13-2010
+; Copyright(c)1998~2010 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M2062DP.cat
+DriverVer=07/13/2010,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4EC5
+
+[DestinationDirs]
+DefaultDestDir = 11
+M2062DP_Analog.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M2062DP.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M2062DP_Analog%=M2062DP_Analog.Install,Monitor\GSM4EC5
+
+[LG.NTamd64]
+%M2062DP_Analog%=M2062DP_Analog.Install,Monitor\GSM4EC5
+
+[M2062DP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2062DP_Analog.AddReg,1600,DPMS
+CopyFiles=M2062DP_Analog.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M2062DP_Analog.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-65.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1600,900,60"
+HKR,,ICMprofile,0,"M2062DP.ICM"
+
+[M2062DP_Analog.CopyFiles]
+M2062DP.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M2062DP_Analog="LG M2062DP"

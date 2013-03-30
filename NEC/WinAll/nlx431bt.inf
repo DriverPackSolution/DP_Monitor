@@ -1,0 +1,118 @@
+; nlx431bt.inf
+; Setup information file for NEC MultiSync X431BT Monitor
+;
+; Copyright (C) 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlx431bt.cat
+DriverVer=12/21/2009, 1.09.1221.1830
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67D6
+ExcludeFromSelect.nt=Monitor\NEC67D7
+ExcludeFromSelect.nt=Monitor\NEC67D9
+
+[DestinationDirs]
+X431BT.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlx431bt.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%X431BT-A%=X431BT-A.Install, Monitor\NEC67D6
+%X431BT-D%=X431BT-D.Install, Monitor\NEC67D7
+%X431BT-P%=X431BT-P.Install, Monitor\NEC67D9
+
+[NECDS.ntamd64]
+%X431BT-A%=X431BT-A.Install.ntamd64, Monitor\NEC67D6
+%X431BT-D%=X431BT-D.Install.ntamd64, Monitor\NEC67D7
+%X431BT-P%=X431BT-P.Install.ntamd64, Monitor\NEC67D9
+
+; Install Sections
+;-------------------------------------------------
+[X431BT-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X431BT-A.AddReg, 1920, DPMS
+CopyFiles=X431BT.CopyFiles
+
+[X431BT-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X431BT-D.AddReg, 1920, DPMS
+CopyFiles=X431BT.CopyFiles
+
+[X431BT-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X431BT-P.AddReg, 1920, DPMS
+CopyFiles=X431BT.CopyFiles
+
+[X431BT-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X431BT-A.AddReg, 1920, DPMS
+CopyFiles=X431BT.CopyFiles
+
+[X431BT-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X431BT-D.AddReg, 1920, DPMS
+CopyFiles=X431BT.CopyFiles
+
+[X431BT-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X431BT-P.AddReg, 1920, DPMS
+CopyFiles=X431BT.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[X431BT-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx431bt.icm"
+
+[X431BT-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx431bt.icm"
+
+[X431BT-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx431bt.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[X431BT.CopyFiles]
+nlx431bt.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+X431BT-A="NEC MultiSync X431BT(Analog)"
+X431BT-D="NEC MultiSync X431BT(Digital)"
+X431BT-P="NEC MultiSync X431BT(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

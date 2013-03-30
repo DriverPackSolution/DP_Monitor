@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2640w.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/20/2007, 1.6.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2640w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2640w.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC8420 
+
+[ViewSonic]   
+%VX2640w%=VX2640w.Install,Monitor\VSC8420  
+
+[ViewSonic.NTia64]   
+%VX2640w%=VX2640w.Install,Monitor\VSC8420  
+
+[ViewSonic.NTamd64]   
+%VX2640w%=VX2640w.Install,Monitor\VSC8420  
+
+[VX2640w.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2640w.AddReg,1920,DPMS
+Copyfiles=VX2640w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2640w.AddReg]  
+HKR,"MODES\1920,1200",Mode1,,"24-82,50-75,+,-" 
+HKR,,ICMProfile,0,"VX2640w.ICM"
+
+[VX2640w.CopyFiles]                                       
+VX2640w.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2640w ViewSonic Wizard"
+VX2640w="ViewSonic VX2640w"

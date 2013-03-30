@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2268wm.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/10/2009, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2268wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2268wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC0E23  
+
+[ViewSonic]   
+%VX2268wm%=VX2268wm.Install,Monitor\VSC0E23  
+
+[ViewSonic.NTia64]   
+%VX2268wm%=VX2268wm.Install,Monitor\VSC0E23 
+
+[ViewSonic.NTamd64]   
+%VX2268wm%=VX2268wm.Install,Monitor\VSC0E23  
+
+[VX2268wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2268wm.AddReg,1680,DPMS
+Copyfiles=VX2268wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2268wm.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX2268wm.ICM"
+
+[VX2268wm.CopyFiles]                                       
+VX2268wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2268wm ViewSonic Wizard"
+VX2268wm="ViewSonic VX2268wm"

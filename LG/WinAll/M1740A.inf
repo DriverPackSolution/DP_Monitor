@@ -1,0 +1,83 @@
+;=============================================================== 
+; [M1740A.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M1740A.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM43E3
+ExcludeFromSelect.NT=Monitor\GSM43E4
+
+[DestinationDirs]
+DefaultDestDir = 11
+M1740A_Analog.CopyFiles = 23
+M1740A_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M1740A.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M1740A_Analog%=M1740A_Analog.Install,Monitor\GSM43E3
+%M1740A_Digital%=M1740A_Digital.Install,Monitor\GSM43E4
+
+[LG.NTamd64]
+%M1740A_Analog%=M1740A_Analog.Install,Monitor\GSM43E3
+%M1740A_Digital%=M1740A_Digital.Install,Monitor\GSM43E4
+
+[M1740A_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1740A_Analog.AddReg,1280,DPMS
+CopyFiles=M1740A_Analog.CopyFiles
+
+[M1740A_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1740A_Digital.AddReg,1280,DPMS
+CopyFiles=M1740A_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1740A_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1740A.ICM"
+
+[M1740A_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1740A.ICM"
+
+[M1740A_Analog.CopyFiles]
+M1740A.ICM
+
+[M1740A_Digital.CopyFiles]
+M1740A.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M1740A_Analog="LG M1740A(Analog)"
+M1740A_Digital="LG M1740A(Digital)"

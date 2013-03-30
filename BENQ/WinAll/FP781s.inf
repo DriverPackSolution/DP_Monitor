@@ -1,0 +1,93 @@
+; INF File for Windows Me/9x/2000/XP
+; Copyright (c) 2002, BENQ Corporation.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BENQ%
+catalogfile=FP781s.cat
+DriverVer=03/01/2002,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP781s.copyfiles = 23
+FP781sD.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP781s.icm=1
+
+[Manufacturer]
+%BENQ%=BENQ
+
+[BENQ]
+%FP781s%=FP781s.Install, Monitor\BNQ7652
+%FP781sD%=FP781sD.Install, Monitor\BNQ7653
+
+[FP781s.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP781s.AddReg, 1280, DPMS
+CopyFiles=FP781s.CopyFiles
+
+
+[FP781sD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP781sD.AddReg, 1280, DPMS
+CopyFiles=FP781sD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP781s.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP781s.icm"
+
+[FP781sD.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-73.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-73.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-73.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-73.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-73.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP781s.icm"
+
+
+[FP781s.CopyFiles]
+FP781s.ICM
+
+[FP781sD.CopyFiles]
+FP781s.ICM
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7652
+ExcludeFromSelect.NT=Monitor\BNQ7653
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BENQ LCD Monitor installation diskette"
+FP781s="BENQ FP781s [ANALOG]"
+FP781sD="BENQ FP781s [DIGITAL]"
+BENQ="BENQ"

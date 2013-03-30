@@ -1,0 +1,88 @@
+;================================ 
+;IBM4945.INF 09/19/2005 Ver. 1.0 
+;Copyright 1996-2003 IBM Computer Corporation
+;
+;This is a setupfile for the IBM Flat Panel Monitors
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM4945.cat
+DriverVer=09/19/2005, 1.0
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM4945
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM4945.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM4945.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%IBM%=IBM,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[IBM] 
+%IBM4945%=IBM4945.Install, Monitor\IBM4945
+
+;-------------------------------------------------
+[IBM.NTAMD64] 
+%IBM4945%=IBM4945.Install, Monitor\IBM4945
+
+; Install Sections
+;-------------------------------------------------
+
+[IBM4945.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM4945.AddReg, 1600, DPMS
+CopyFiles=IBM4945.CopyFiles
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[IBM4945.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"IBM4945.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[IBM4945.CopyFiles]
+IBM4945.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="IBM Flat Panel Monitor Installation disk"
+IBM="IBM"	
+IBM4945="IBM T120 Monitor "

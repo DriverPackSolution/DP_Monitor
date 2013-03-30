@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA1930wm.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/26/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1930wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1930wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA1930wm%=VA1930wm.Install,Monitor\VSC171F 
+
+[ViewSonic.NTia64]   
+%VA1930wm%=VA1930wm.Install,Monitor\VSC171F
+
+[ViewSonic.NTamd64]   
+%VA1930wm%=VA1930wm.Install,Monitor\VSC171F
+
+[VA1930wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1930wm.AddReg,1440,DPMS
+Copyfiles=VA1930wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1930wm.AddReg]  
+HKR,"MODES\1440,900",Mode1,,"30-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VA1930wm.ICM"
+
+[VA1930wm.CopyFiles]                                       
+VA1930wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA1930wm="ViewSonic VA1930wm"

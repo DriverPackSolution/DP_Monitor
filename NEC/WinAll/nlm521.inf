@@ -1,0 +1,118 @@
+; nlm521.inf
+; Setup information file for NEC Multeos M521 Monitor
+;
+; Copyright (C) 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlm521.cat
+DriverVer=02/16/2010, 1.10.0216.2236
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67A2
+ExcludeFromSelect.nt=Monitor\NEC67A3
+ExcludeFromSelect.nt=Monitor\NEC67A5
+
+[DestinationDirs]
+M521.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlm521.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%M521-A%=M521-A.Install, Monitor\NEC67A2
+%M521-D%=M521-D.Install, Monitor\NEC67A3
+%M521-P%=M521-P.Install, Monitor\NEC67A5
+
+[NECDS.ntamd64]
+%M521-A%=M521-A.Install.ntamd64, Monitor\NEC67A2
+%M521-D%=M521-D.Install.ntamd64, Monitor\NEC67A3
+%M521-P%=M521-P.Install.ntamd64, Monitor\NEC67A5
+
+; Install Sections
+;-------------------------------------------------
+[M521-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M521-A.AddReg, 1920, DPMS
+CopyFiles=M521.CopyFiles
+
+[M521-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M521-D.AddReg, 1920, DPMS
+CopyFiles=M521.CopyFiles
+
+[M521-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M521-P.AddReg, 1920, DPMS
+CopyFiles=M521.CopyFiles
+
+[M521-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M521-A.AddReg, 1920, DPMS
+CopyFiles=M521.CopyFiles
+
+[M521-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M521-D.AddReg, 1920, DPMS
+CopyFiles=M521.CopyFiles
+
+[M521-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M521-P.AddReg, 1920, DPMS
+CopyFiles=M521.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[M521-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlm521.icm"
+
+[M521-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlm521.icm"
+
+[M521-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlm521.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[M521.CopyFiles]
+nlm521.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+M521-A="NEC Multeos M521(Analog)"
+M521-D="NEC Multeos M521(Digital)"
+M521-P="NEC Multeos M521(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

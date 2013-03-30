@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA503_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=04/26/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA503.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA503_Series.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA503%=VA503.Install,Monitor\VSCEF1D 
+
+[ViewSonic.NTia64]   
+%VA503%=VA503.Install,Monitor\VSCEF1D
+
+[ViewSonic.NTamd64]   
+%VA503%=VA503.Install,Monitor\VSCEF1D 
+
+[VA503.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA503.AddReg,1024,DPMS
+Copyfiles=VA503.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA503.AddReg]  
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,-,-" 
+HKR,,ICMProfile,0,"VA503_Series.ICM"
+
+[VA503.CopyFiles]                                       
+VA503_Series.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+VA503="ViewSonic VA503 Series"

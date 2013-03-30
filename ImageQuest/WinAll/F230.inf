@@ -1,0 +1,83 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; Monitor INF file for ImageQuest F230
+;
+; Copyright 1997-2003, ImageQuest Co., Ltd.
+;
+; This is a INF file for installing monitors for Windows.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%ImageQuest%
+CatalogFile=F230.cat
+DriverVer=10/07/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+F230.CopyFiles=23
+
+[SourceDisksNames]
+1=%InsDisk%,,
+
+[SourceDisksFiles]
+F230.icm=1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%F230%=F230.Install, Monitor\IQTF230
+
+[F230.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F230.AddReg, 2048, DPMS
+CopyFiles=F230.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048, 1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[F230.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-125.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F230.icm"
+
+[F230.CopyFiles]
+F230.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IQTF230
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+MonitorClassName="Monitor"
+InsDisk="ImageQuest Monitor Installation Disk"
+ImageQuest="ImageQuest Co., Ltd."
+F230="ImageQuest F230"
+

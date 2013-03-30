@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]  
+CatalogFile=VX2770.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/11/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2770.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2770_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC3A2C
+
+[ViewSonic]   
+%VX2770%=VX2770.Install,Monitor\VSC3A2C  
+
+[ViewSonic.NTia64]   
+%VX2770%=VX2770.Install,Monitor\VSC3A2C
+
+[ViewSonic.NTamd64]   
+%VX2770%=VX2770.Install,Monitor\VSC3A2C 
+
+[VX2770.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2770.AddReg,1920,DPMS
+Copyfiles=VX2770.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2770.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"15-83,50-76,+,+" 
+HKR,,ICMProfile,0,"VX2770_SERIES.ICM"
+
+[VX2770.CopyFiles]                                       
+VX2770_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2770 SERIES ViewSonic Wizard"
+VX2770="ViewSonic VX2770 SERIES"

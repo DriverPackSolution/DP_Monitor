@@ -1,0 +1,65 @@
+; SCENICVIEW P20-2.INF Ver. 1.1.0.2
+;Monitor INF file for Fujitsu Siemens Monitor SCENICVIEW P20-2
+;Copyright 2005 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP20-2.cat
+DriverVer=01/10/2007, 1.2.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0554
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+[FUJSIE]
+%FUS-P20-2%=FUS-P20-2.Install, Monitor\FUS0554
+
+[FUJSIE.NTAMD64]
+%FUS-P20-2%=FUS-P20-2.Install, Monitor\FUS0554
+
+[FUS-P20-2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P20-2.AddReg, 1600, DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-P20-2.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-82,51-75,+,+"
+HKR,,ICMProfile,0,"wsRGB.cdmp"
+
+[Strings]
+DISK="Manuals, Driver & Utility for SCENICVIEW P17-2/P19-2/P20-2"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-P20-2="Fujitsu Siemens SCENICVIEW P20-2"

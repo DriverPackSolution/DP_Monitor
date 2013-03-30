@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/win7
+
+;Copyright 2009, iiyama Corporation
+
+[Version]   
+CatalogFile=PLPB1704.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+DriverVer=09/16/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+PLPB1704.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+PLPB1704.ICM=1
+
+[Manufacturer]
+%iiyama%=iiyama,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM46E8
+
+[iiyama]   
+%PLPB1704%=PLPB1704.Install,Monitor\IVM46E8  
+
+[iiyama.NTia64]   
+%PLPB1704%=PLPB1704.Install,Monitor\IVM46E8
+
+[iiyama.NTamd64]   
+%PLPB1704%=PLPB1704.Install,Monitor\IVM46E8 
+
+[PLPB1704.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=PLPB1704.AddReg,1280,DPMS
+Copyfiles=PLPB1704.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLPB1704.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"30-82,55-76,+,+" 
+HKR,,ICMProfile,0,"PLPB1704.ICM"
+
+[PLPB1704.CopyFiles]                                       
+PLPB1704.ICM
+
+[Strings]
+iiyama="iiyama"
+DiskLabel="PLPB1704 iiyama Wizard"
+PLPB1704="iiyama PLPB1704"

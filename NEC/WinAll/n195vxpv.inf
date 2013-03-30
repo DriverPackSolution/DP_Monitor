@@ -1,0 +1,68 @@
+; n195vxpv.inf
+; Setup information file for NEC MultiSync LCD195VX+ Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n195vxpv.cat
+DriverVer=02/09/2007,1.07.0209.1018
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66F7
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD195VX+.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n195vxpv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD195VX+%=LCD195VX+.Install, Monitor\NEC66F7
+
+[NECDS.ntamd64]
+%LCD195VX+%=LCD195VX+.Install.ntamd64, Monitor\NEC66F7
+
+[LCD195VX+.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD195VX+.AddReg, 1280, DPMS
+CopyFiles=LCD195VX+.CopyFiles
+
+[LCD195VX+.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD195VX+.AddReg, 1280, DPMS
+CopyFiles=LCD195VX+.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD195VX+.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n195vxpv.icm"
+
+[LCD195VX+.CopyFiles]
+n195vxpv.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD195VX+="NEC MultiSync LCD195VX+"

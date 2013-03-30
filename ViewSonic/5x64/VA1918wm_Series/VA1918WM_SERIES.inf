@@ -1,0 +1,74 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VA1918WM.cat
+DriverVer=03/17/2008, 1.5.1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1918WM.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1918WM_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCC821
+
+[ViewSonic]   
+%VA1918WM%=VA1918WM.Install,Monitor\VSCC821  
+
+[ViewSonic.NTx86]   
+%VA1918WM%=VA1918WM.Install,Monitor\VSCC821
+
+[ViewSonic.NTAMD64]   
+%VA1918WM%=VA1918WM.Install,Monitor\VSCC821 
+
+[VA1918WM.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1918WM.AddReg,1440,DPMS
+Copyfiles=VA1918WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1918WM.AddReg]  
+HKR,"MODES\1440,900",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VA1918WM_SERIES.ICM"
+
+[VA1918WM.CopyFiles]                                       
+VA1918WM_SERIES.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+ViewSonic="ViewSonic"
+DiskLabel="VA1918WM SERIES ViewSonic Wizard"
+VA1918WM="ViewSonic VA1918WM SERIES"

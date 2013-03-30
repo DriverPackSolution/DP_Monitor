@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG2230wm.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/23/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG2230wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG2230wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VG2230wm%=VG2230wm.Install,Monitor\VSCA21E  
+
+[ViewSonic.NTia64]   
+%VG2230wm%=VG2230wm.Install,Monitor\VSCA21E  
+
+[ViewSonic.NTamd64]   
+%VG2230wm%=VG2230wm.Install,Monitor\VSCA21E  
+
+[VG2230wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2230wm.AddReg,1680,DPMS
+Copyfiles=VG2230wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG2230wm.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"30-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VG2230wm.ICM"
+
+[VG2230wm.CopyFiles]                                       
+VG2230wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VG2230wm="ViewSonic VG2230wm SERIES"

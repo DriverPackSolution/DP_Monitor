@@ -1,0 +1,120 @@
+
+;==================================================
+; SM943B.inf 10/08/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM943B.cat
+DriverVer=10/08/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM034D
+ExcludeFromSelect.nt=Monitor\SAM034E
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM943Ba.CopyFiles = 23
+SM943Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM943B.icm=1
+SM943B.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM943Ba%=SM943Ba.Install, Monitor\SAM034D
+%SM943Bd%=SM943Bd.Install, Monitor\SAM034E
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM943Ba%=SM943Ba.Install, Monitor\SAM034D
+%SM943Bd%=SM943Bd.Install, Monitor\SAM034E
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM943Ba%=SM943Ba.Install, Monitor\SAM034D
+%SM943Bd%=SM943Bd.Install, Monitor\SAM034E
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM943Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM943Ba.AddReg, 1280, DPMS
+CopyFiles=SM943Ba.CopyFiles
+
+[SM943Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM943Bd.AddReg, 1280, DPMS
+CopyFiles=SM943Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM943Ba.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM943B.icm"
+
+[SM943Bd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM943B.icm"
+;------------------------------------------------------
+
+[SM943Ba.CopyFiles]
+SM943B.icm
+
+[SM943Bd.CopyFiles]
+SM943B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM943Ba="SyncMaster 943B/943BM/943T/943BX(Analog)"
+SM943Bd="SyncMaster 943B/943BM/943T/943BX(Digital)"

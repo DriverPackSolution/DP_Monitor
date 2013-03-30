@@ -1,0 +1,118 @@
+;============================================== 
+;X2200W.INF 09/17/07 Ver. 1.0 
+;; INF File for Windows
+; Copyright (c) 2007, BENQ Corporation. reserves all rights. 
+;==============================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=X2200W.cat
+DriverVer=09/17/2007,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7A07
+ExcludeFromSelect.NT=Monitor\BNQ7A08
+
+[DestinationDirs]
+DefaultDestDir = 11
+X2200W_Analog.copyfiles = 23
+X2200W_Digital.copyfiles = 23
+X2200W_HDMI.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+X2200W_DSUB.icm=1
+X2200W_DVI.icm=1
+X2200W_HDMI.icm=1
+
+; Manufacturers
+;---------------------------------------------------------------------------------------
+[Manufacturer]
+%BenQ%=BenQ,NTAMD64
+;---------------------------------------------------------------------------------------
+
+; Manufacturer sections
+;---------------------------------------------------------------------------------------
+[BenQ] 
+%X2200W_Analog%=X2200W_Analog.Install, Monitor\BNQ7A07
+%X2200W_Digital%=X2200W_Digital.Install, Monitor\BNQ7A08
+%X2200W_HDMI%=X2200W_HDMI.Install, Monitor\BNQ7A08
+
+[BenQ.NTAMD64] 
+%X2200W_Analog%=X2200W_Analog.Install, Monitor\BNQ7A07
+%X2200W_Digital%=X2200W_Digital.Install, Monitor\BNQ7A08
+%X2200W_HDMI%=X2200W_HDMI.Install, Monitor\BNQ7A08
+;---------------------------------------------------------------------------------------
+
+; Install Sections
+;---------------------------------------------------------------------------------------
+[X2200W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X2200W_Analog.AddReg, 1680, DPMS
+CopyFiles=X2200W_Analog.CopyFiles
+
+[X2200W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X2200W_Digital.AddReg, 1680, DPMS
+CopyFiles=X2200W_Digital.CopyFiles
+
+[X2200W_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X2200W_HDMI.AddReg, 1680, DPMS
+CopyFiles=X2200W_HDMI.CopyFiles
+;---------------------------------------------------------------------------------------
+
+;  DelReg sections
+;---------------------------------------------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+;---------------------------------------------------------------------------------------
+
+; AddReg sections
+;---------------------------------------------------------------------------------------
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[X2200W_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,55.0-76.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"X2200W_DSUB.icm"
+
+[X2200W_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,55.0-76.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"X2200W_DVI.icm"
+
+[X2200W_HDMI.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,55.0-76.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"X2200W_HDMI.icm"
+;---------------------------------------------------------------------------------------
+
+[X2200W_Analog.CopyFiles]
+X2200W_DSUB.ICM
+
+[X2200W_Digital.CopyFiles]
+X2200W_DVI.ICM
+
+[X2200W_HDMI.CopyFiles]
+X2200W_HDMI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+X2200W_Analog="BenQ X2200W (Analog)"
+X2200W_Digital="BenQ X2200W (Digital)"
+X2200W_HDMI="BenQ X2200W (HDMI)"

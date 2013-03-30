@@ -1,0 +1,80 @@
+; EV910C, August-12-2001
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Gateway%
+CatalogFile=EV910C.cat
+DriverVer=08/12/2001,1.2
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+
+[DestinationDirs]
+DefaultDestDir=11
+EV910C.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+EV910C.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%EV910C%=EV910C.Install, Monitor\GWY232C
+
+;------------------------------------; .Install
+
+[EV910C.Install]
+AddReg=EV910C.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=EV910C.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[EV910C.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"EV910C.icm"
+
+;------------------------------------; .CopyFiles
+
+[EV910C.CopyFiles]
+EV910C.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY232C
+
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+Gateway="Gateway"
+EV910C="Gateway EV910C"

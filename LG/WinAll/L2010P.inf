@@ -1,0 +1,83 @@
+;=============================================================== 
+; L2010P.INF 04/14/2005 
+; Revision 1.0   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L2010P.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E27
+ExcludeFromSelect.NT=Monitor\GSM4E28
+
+[DestinationDirs]
+DefaultDestDir = 11
+L2010P_Analog.CopyFiles = 23
+L2010P_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL2010P.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L2010P_Analog%=L2010P_Analog.Install,Monitor\GSM4E27
+%L2010P_Digital%=L2010P_Digital.Install,Monitor\GSM4E28
+
+[LG.NTamd64]
+%L2010P_Analog%=L2010P_Analog.Install,Monitor\GSM4E27
+%L2010P_Digital%=L2010P_Digital.Install,Monitor\GSM4E28
+
+[L2010P_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2010P_Analog.AddReg,1600,DPMS
+CopyFiles=L2010P_Analog.CopyFiles
+
+[L2010P_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2010P_Digital.AddReg,1600,DPMS
+CopyFiles=L2010P_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L2010P_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-92.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"LGL2010P.ICM"
+
+[L2010P_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-80.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"LGL2010P.ICM"
+
+[L2010P_Analog.CopyFiles]
+LGL2010P.ICM
+
+[L2010P_Digital.CopyFiles]
+LGL2010P.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L2010P_Analog="LG L2010P(Analog)"
+L2010P_Digital="LG L2010P(Digital)"

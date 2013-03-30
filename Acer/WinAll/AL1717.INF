@@ -1,0 +1,71 @@
+;--------------------------------------
+; AL1717.INF  12/12/2006   Ver.1.00
+; Copyright 2006-2008 Acer Incorporated
+; This is a setupfile for AL1717 
+;--------------------------------------
+;
+[Version]
+signature="$CHICAGO$" 
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=AL1717.cat  
+DriverVer=12/12/2006,1.00
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACRAD60
+
+[DestinationDirs]
+DefaultDestDir=11
+AL1717.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+AL171765.icm=1
+AL171793.icm=1
+AL1717de.icm=1
+
+[Manufacturer]
+%Acer%=Acer,NTx86,NTAMD64
+
+[Acer]
+%AL1717%=AL1717.Install, Monitor\ACRAD60
+
+[Acer.NTX86]
+%AL1717%=AL1717.Install, Monitor\ACRAD60
+
+[Acer.NTAMD64]
+%AL1717%=AL1717.Install, Monitor\ACRAD60
+
+[AL1717.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL1717.AddReg, 1280, DPMS
+CopyFiles=AL1717.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL1717.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,49.0-75.0,+,+"
+HKR,,ICMProfile,0,"AL171765.icm"
+
+[AL1717.CopyFiles]
+AL171765.icm
+AL171793.icm
+AL1717de.icm
+
+[Strings]
+Disk="Acer Incorporated Monitor Installation Disk"
+Acer="Acer Incorporated"
+AL1717="Acer AL1717"

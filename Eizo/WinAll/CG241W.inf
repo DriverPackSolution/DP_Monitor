@@ -1,0 +1,111 @@
+; [CG241W.INF]
+; Revision 1.00
+; Copyright(c) 2007 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=CG241W.cat
+DriverVer=04/17/2007,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1909
+;ExcludeFromSelect.nt = Monitor\ENC1911
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+CG241W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CG241WD6.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%CG241WD%=CG241WD.Install, Monitor\ENC1909
+%CG241W%=CG241W.Install, Monitor\ENC1911
+
+[EIZONANAO.NTamd64]
+%CG241WD%=CG241WD.Installamd64, Monitor\ENC1909
+%CG241W%=CG241W.Installamd64, Monitor\ENC1911
+
+[EIZONANAO.NTia64]
+%CG241WD%=CG241WD.Installia64, Monitor\ENC1909
+%CG241W%=CG241W.Installia64, Monitor\ENC1911
+
+[CG241WD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG241WD.AddReg, 1920, DPMS
+CopyFiles=CG241W.CopyFiles
+
+[CG241W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG241W.AddReg, 1920, DPMS
+CopyFiles=CG241W.CopyFiles
+
+[CG241WD.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG241WD.AddReg, 1920, DPMS
+CopyFiles=CG241W.CopyFiles
+
+[CG241W.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG241W.AddReg, 1920, DPMS
+CopyFiles=CG241W.CopyFiles
+
+[CG241WD.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG241WD.AddReg, 1920, DPMS
+CopyFiles=CG241W.CopyFiles
+
+[CG241W.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG241W.AddReg, 1920, DPMS
+CopyFiles=CG241W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CG241WD.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-76.0,59.0-61.0,+,-"
+HKR,,ICMProfile,0,"CG241WD6.icm"
+
+[CG241W.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"24.0-94.0,49.0-86.0,-,+"
+HKR,,ICMProfile,0,"CG241WD6.icm"
+
+[CG241W.CopyFiles]
+CG241WD6.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+CG241WD="CG241W Digital"
+CG241W="CG241W Analog"

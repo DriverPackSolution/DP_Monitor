@@ -1,0 +1,68 @@
+
+; Setup Information File for MEDION Monitors
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEDION%
+DriverVer=01/20/2003,1.00.00.00
+catalogfile=0815.cat
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+MD1998JD.CopyFiles = 23
+
+[SourceDisksNames]
+1="MEDION Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+
+[Manufacturer]
+%MEDION%=MEDION
+
+[MEDION]
+%MD1998JD%=MD1998JD.install,Monitor\MED3926
+
+[MD1998JD.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD1998JD.AddReg, 1600, DPMS
+CopyFiles=MD1998JD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD1998JD.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+
+
+[Strings]
+MonitorClassName="Monitor"
+
+MEDION="MEDION"
+
+MD1998JD= "MEDION MD1998JD"

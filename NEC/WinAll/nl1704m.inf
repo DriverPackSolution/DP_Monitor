@@ -1,0 +1,68 @@
+; nl1704m.inf
+; Setup information file for NEC LCD1704M Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl1704m.cat
+DriverVer=09/08/2005,3.05.0908.1806
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6679
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD1704M.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl1704m.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD1704M%=LCD1704M.Install, Monitor\NEC6679
+
+[NECDS.ntamd64]
+%LCD1704M%=LCD1704M.Install.ntamd64, Monitor\NEC6679
+
+[LCD1704M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1704M.AddReg, 1280, DPMS
+CopyFiles=LCD1704M.CopyFiles
+
+[LCD1704M.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1704m.AddReg, 1280, DPMS
+CopyFiles=LCD1704M.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD1704M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl1704m.icm"
+
+[LCD1704M.CopyFiles]
+nl1704m.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Display Solutions Installation Disk"
+LCD1704M="NEC LCD1704M"

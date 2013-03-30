@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1951H.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1951H.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AAB
+ExcludeFromSelect.NT=Monitor\GSM4AAC
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1951H_Analog.CopyFiles = 23
+L1951H_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL1951H.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1951H_Analog%=L1951H_Analog.Install,Monitor\GSM4AAB
+%L1951H_Digital%=L1951H_Digital.Install,Monitor\GSM4AAC
+
+[LG.NTamd64]
+%L1951H_Analog%=L1951H_Analog.Install,Monitor\GSM4AAB
+%L1951H_Digital%=L1951H_Digital.Install,Monitor\GSM4AAC
+
+[L1951H_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1951H_Analog.AddReg,1280,DPMS
+CopyFiles=L1951H_Analog.CopyFiles
+
+[L1951H_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1951H_Digital.AddReg,1280,DPMS
+CopyFiles=L1951H_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1951H_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL1951H.ICM"
+
+[L1951H_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL1951H.ICM"
+
+[L1951H_Analog.CopyFiles]
+LGL1951H.ICM
+
+[L1951H_Digital.CopyFiles]
+LGL1951H.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1951H_Analog="LG L1951H(Analog)"
+L1951H_Digital="LG L1951H(Digital)"

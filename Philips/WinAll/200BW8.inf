@@ -1,0 +1,98 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=200BW8.cat
+DriverVer=07/06/2007,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL0865          
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0865.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+200BW8.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64 
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%0865%=0865.Install, Monitor\PHL0865
+
+
+[Philips.NTx86]
+%0865%=0865.Install, Monitor\PHL0865
+
+[Philips.NTia64]
+%0865%=0865.Install, Monitor\PHL0865
+
+
+[Philips.NTamd64]
+%0865%=0865.Install, Monitor\PHL0865
+
+
+; Install sections
+;-------------------------------------------------
+[0865.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0865.AddReg,1680,DPMS
+CopyFiles=0865.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[0865.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"200BW8.icm"
+
+;-------------------------------------------------------------------
+[0865.CopyFiles]
+200BW8.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+0865="Philips 200BW (20inch Wide LCD MONITOR 200BW8)"

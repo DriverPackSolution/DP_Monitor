@@ -1,0 +1,120 @@
+
+;==================================================
+; sm950B.inf 06/27/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm950B.cat
+DriverVer=06/27/2005,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM01C4
+ExcludeFromSelect.nt=Monitor\SAM01C5
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm950Ba.CopyFiles = 23
+sm950Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm950B.icm=1
+sm950B.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm950Ba%=sm950Ba.Install, Monitor\SAM01C4
+%sm950Bd%=sm950Bd.Install, Monitor\SAM01C5
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%sm950Ba%=sm950Ba.Install, Monitor\SAM01C4
+%sm950Bd%=sm950Bd.Install, Monitor\SAM01C5
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%sm950Ba%=sm950Ba.Install, Monitor\SAM01C4
+%sm950Bd%=sm950Bd.Install, Monitor\SAM01C5
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm950Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm950Ba.AddReg, 1280, DPMS
+CopyFiles=sm950Ba.CopyFiles
+
+[sm950Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm950Bd.AddReg, 1280, DPMS
+CopyFiles=sm950Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm950Ba.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm950B.icm"
+
+[sm950Bd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm950B.icm"
+;------------------------------------------------------
+
+[sm950Ba.CopyFiles]
+sm950B.icm
+
+[sm950Bd.CopyFiles]
+sm950B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm950Ba="SyncMaster 950B,SyncMaster Magic CX913T(Analog)"
+sm950Bd="SyncMaster 950B,SyncMaster Magic CX913T(Digital)"

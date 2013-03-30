@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=Q7.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/17/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+Q7.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+Q7.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%Q7%=Q7.Install,Monitor\VSC361C                   ;Q7
+
+[Q7.Install]                                      ;Q7
+DelReg=DEL_CURRENT_REG 
+AddReg=Q7.AddReg,1280,DPMS
+Copyfiles=Q7.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Q7.AddReg]                                         ;Q7
+HKR,"MODES\1280,1024",Mode1,,"24-82,55-77,+,+"
+HKR,,ICMProfile,0,"Q7.ICM"
+
+[Q7.CopyFiles]                                       
+Q7.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+Q7="ViewSonic Q7"

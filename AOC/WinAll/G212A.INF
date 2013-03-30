@@ -1,0 +1,88 @@
+; Copyright 2006 EPI International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+; vista
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EPI%
+Catalogfile=G212A.cat
+DriverVer=11/23/2006,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\EPI2212
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+2212.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+G212A.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%EPI%=EPI,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[EPI]
+%2212%=2212.Install, Monitor\EPI2212
+
+[EPI.ntamd64]
+%2212%=2212.Install, Monitor\EPI2212
+
+; Install Sections
+;-------------------------------------------------
+[2212.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2212.AddReg, 1680, DPMS
+Copyfiles=2212.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[2212.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"G212A.icm"
+
+
+[2212.CopyFiles]
+G212A.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="EPI Monitor Installation Disk"
+MonitorClassName="Monitor"
+EPI="EPI International (Europe) GmbH"
+
+2212="EPI G212A"

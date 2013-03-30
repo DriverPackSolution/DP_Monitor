@@ -1,0 +1,120 @@
+
+;==================================================
+; SMS27A550H.inf 11/24/2010 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SMS27A550H.cat
+DriverVer=11/24/2010 ,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM07CB
+ExcludeFromSelect.nt=Monitor\SAM07CC
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SMS27A550Ha.CopyFiles = 23
+SMS27A550Hd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SMS27A550H.icm=1
+SMS27A550H.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SMS27A550Ha%=SMS27A550Ha.Install, Monitor\SAM07CB
+%SMS27A550Hd%=SMS27A550Hd.Install, Monitor\SAM07CC
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SMS27A550Ha%=SMS27A550Ha.Install, Monitor\SAM07CB
+%SMS27A550Hd%=SMS27A550Hd.Install, Monitor\SAM07CC
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SMS27A550Ha%=SMS27A550Ha.Install, Monitor\SAM07CB
+%SMS27A550Hd%=SMS27A550Hd.Install, Monitor\SAM07CC
+
+; Install Sections
+;-----------------------------------------------------
+
+[SMS27A550Ha.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMS27A550Ha.AddReg, 1920, DPMS
+CopyFiles=SMS27A550Ha.CopyFiles
+
+[SMS27A550Hd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMS27A550Hd.AddReg, 1920, DPMS
+CopyFiles=SMS27A550Hd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SMS27A550Ha.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SMS27A550H.icm"
+
+[SMS27A550Hd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SMS27A550H.icm"
+;------------------------------------------------------
+
+[SMS27A550Ha.CopyFiles]
+SMS27A550H.icm
+
+[SMS27A550Hd.CopyFiles]
+SMS27A550H.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SMS27A550Ha="SyncMaster S27A550H (Analog)"
+SMS27A550Hd="SyncMaster S27A550H (Digital)"

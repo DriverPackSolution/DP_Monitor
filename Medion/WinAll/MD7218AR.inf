@@ -1,0 +1,85 @@
+; Monitor INF file of Medion MD7218AR
+; Issue date -- 01/28/2003
+; Revise date --									
+									
+[Version]											
+signature="$CHICAGO$"											
+Class=Monitor											
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}											
+Provider=%Medion%											
+CatalogFile=MD7218.cat
+DriverVer=01/28/2003
+;-------------------------------------------------											
+[ClassInstall32]											
+AddReg=ClassAddReg32											
+											
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED4869
+
+[ClassAddReg32]											
+HKR,,,,%MonitorClassName%											
+HKR,,Icon,,"-1"											
+HKR,,NoInstallClass,,1											
+											
+[DestinationDirs]											
+DefaultDestDir=11											
+MD7218AR.CopyFiles=23								
+										
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+MD7218AR.icm=1
+
+; Manufacturers											
+;-------------------------------------------------											
+[Manufacturer]											
+%Medion%=Medion										
+; Manufacturer sections											
+;-------------------------------------------------											
+[Medion]											
+%MD7218AR%=MD7218AR.Install, Monitor\MED4869										
+											
+; Install Sections											
+;-------------------------------------------------											
+[MD7218AR.Install]											
+DelReg=DEL_CURRENT_REG											
+AddReg=MD7218AR.AddReg, 1280, DPMS											
+CopyFiles=MD7218AR.CopyFiles
+
+; AddReg & DelReg Sections											
+;-------------------------------------------------											
+[DEL_CURRENT_REG]											
+HKR,MODES											
+HKR,,MaxResolution											
+HKR,,DPMS											
+HKR,,ICMProfile											
+; Pre-defined AddReg sections											
+[640]											
+HKR,,MaxResolution,,"640,480"											
+[800]											
+HKR,,MaxResolution,,"800,600"											
+[1024]											
+HKR,,MaxResolution,,"1024,768"											
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+					
+[DPMS]											
+HKR,,DPMS,,1											
+											
+; Model AddReg sections											
+[MD7218AR.AddReg]											
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"MD7218AR.icm"
+
+[MD7218AR.CopyFiles]
+MD7218AR.icm
+
+									
+; User visible strings											
+;-------------------------------------------------											
+[Strings]											
+MonitorClassName="Monitor"											
+diskname="Medion System Restoration CD"											
+Medion="Medion"
+MD7218AR="Medion MD7218AR"

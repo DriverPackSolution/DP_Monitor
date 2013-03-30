@@ -1,0 +1,62 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VP2000s.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/17/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP2000s.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP2000s.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VP2000s%=VP2000s.Install,Monitor\VSC231A                   ;VP2000s
+
+[VP2000s.Install]                                           ;VP2000s
+DelReg=DEL_CURRENT_REG 
+AddReg=VP2000s.AddReg,1600,DPMS
+Copyfiles=VP2000s.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP2000s.AddReg]                                         ;VP2000s
+HKR,"MODES\1600,1200",Mode1,,"30-95,50-85,+,+"
+HKR,,ICMProfile,0,"VP2000s.ICM"
+
+[VP2000s.CopyFiles]                                       
+VP2000s.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VP2000s="ViewSonic VP2000s"
+
+

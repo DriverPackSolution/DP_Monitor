@@ -1,0 +1,120 @@
+
+;==================================================
+; SM910TM.inf 08/03/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM910TM.cat
+DriverVer=08/03/2005,2.0
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0169
+ExcludeFromSelect.nt=Monitor\SAM016A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM910TMa.CopyFiles = 23
+SM910TMd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM910TM.icm=1
+SM910TM.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM910TMa%=SM910TMa.Install, Monitor\SAM0169
+%SM910TMd%=SM910TMd.Install, Monitor\SAM016A
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM910TMa%=SM910TMa.Install, Monitor\SAM0169
+%SM910TMd%=SM910TMd.Install, Monitor\SAM016A
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM910TMa%=SM910TMa.Install, Monitor\SAM0169
+%SM910TMd%=SM910TMd.Install, Monitor\SAM016A
+
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM910TMa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM910TMa.AddReg, 1280, DPMS
+CopyFiles=SM910TMa.CopyFiles
+
+[SM910TMd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM910TMd.AddReg, 1280, DPMS
+CopyFiles=SM910TMd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM910TMa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM910TM.icm"
+
+[SM910TMd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM910TM.icm"
+;------------------------------------------------------
+
+[SM910TMa.CopyFiles]
+SM910TM.icm
+
+[SM910TMd.CopyFiles]
+SM910TM.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM910TMa="SyncMaster 910TM/913TM/913BM(Analog)"
+SM910TMd="SyncMaster 910TM/913TM/913BM(Digital)"

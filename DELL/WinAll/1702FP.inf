@@ -1,0 +1,103 @@
+
+;================================ 
+;1702FP.INF 08/01/01 Ver. 2.0 PCC
+;Copyright 1996-2001 Dell Computer Corporation
+;
+;This is a setupfile for 1702FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1702FP.cat
+DriverVer=08/01/2001, 2.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL3006
+ExcludeFromSelect.nt=Monitor\DEL3007
+
+[DestinationDirs]
+DefaultDestDir=11
+1702FP_Analog.CopyFiles=23
+1702FP_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+1702FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%1702FP_Analog%=1702FP_Analog.Install, Monitor\DEL3007
+%1702FP_Digital%=1702FP_Digital.Install, Monitor\DEL3006
+
+; Install Sections
+;-------------------------------------------------
+
+[1702FP_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1702FP_Analog.AddReg, 1280, DPMS
+CopyFiles=1702FP_Analog.CopyFiles
+
+[1702FP_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1702FP_Digital.AddReg, 1280, DPMS
+CopyFiles=1702FP_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[1702FP_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1702FP.icm"
+
+[1702FP_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1702FP.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[1702FP_Analog.CopyFiles]
+1702FP.icm
+
+[1702FP_Digital.CopyFiles]
+1702FP.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+1702FP_Analog="Dell 1702FP (Analog)"
+1702FP_Digital="Dell 1702FP (Digital)"

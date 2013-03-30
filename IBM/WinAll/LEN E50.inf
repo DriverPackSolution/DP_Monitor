@@ -1,0 +1,74 @@
+;LEN E50.INF Ver. 1.0
+;Monitor INF file for LEN E50
+;Copyright 1996-2006 Lenovo (Singapore) Pte. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Lenovo%
+Catalogfile=E50.cat
+DriverVer=09/19/2006,2.00.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN1976
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+E50.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E50.ICM=1
+
+[Manufacturer]
+%Lenovo%=Lenovo,NTX86,NTAMD64
+
+[Lenovo]
+%E50%=E50.Install, Monitor\LEN1976
+
+[Lenovo.NTX86]
+%E50%=E50.Install, Monitor\LEN1976
+
+[Lenovo.NTAMD64]
+%E50%=E50.Install, Monitor\LEN1976
+
+[E50.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E50.AddReg, 1024, DPMS
+CopyFiles=E50.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E50.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-58,50-120,+,+"
+HKR,,ICMProfile,0,"E50.ICM"
+
+[E50.CopyFiles]
+E50.ICM
+
+[Strings]
+DISK="Lenovo  Pte. Ltd. Monitor Installation Disk"
+MonitorClassName="Monitor"
+Lenovo="Lenovo (Singapore) Pte. Ltd."
+E50="LEN E50"

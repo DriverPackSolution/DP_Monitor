@@ -1,0 +1,83 @@
+;=============================================================== 
+; [MX94D.INF] 
+; Revision 1.4   March-03-2006
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=MX94D.cat
+DriverVer=03/03/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AF6
+ExcludeFromSelect.NT=Monitor\GSM4AF7
+
+[DestinationDirs]
+DefaultDestDir = 11
+MX94D_Analog.CopyFiles = 23
+MX94D_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+MX94D.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%MX94D_Analog%=MX94D_Analog.Install,Monitor\GSM4AF6
+%MX94D_Digital%=MX94D_Digital.Install,Monitor\GSM4AF7
+
+[LG.NTamd64]
+%MX94D_Analog%=MX94D_Analog.Install,Monitor\GSM4AF6
+%MX94D_Digital%=MX94D_Digital.Install,Monitor\GSM4AF7
+
+[MX94D_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MX94D_Analog.AddReg,1280,DPMS
+CopyFiles=MX94D_Analog.CopyFiles
+
+[MX94D_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MX94D_Digital.AddReg,1280,DPMS
+CopyFiles=MX94D_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MX94D_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"MX94D.ICM"
+
+[MX94D_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"MX94D.ICM"
+
+[MX94D_Analog.CopyFiles]
+MX94D.ICM
+
+[MX94D_Digital.CopyFiles]
+MX94D.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+MX94D_Analog="LG MX94D(Analog)"
+MX94D_Digital="LG MX94D(Digital)"

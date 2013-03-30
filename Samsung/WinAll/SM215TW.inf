@@ -1,0 +1,120 @@
+
+;==================================================
+; SM215TW.inf 12/27/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM215TW.cat
+DriverVer=12/27/2005,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0213
+ExcludeFromSelect.nt=Monitor\SAM0214
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM215TWa.CopyFiles = 23
+SM215TWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM215TW.icm=1
+SM215TW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM215TWa%=SM215TWa.Install, Monitor\SAM0213
+%SM215TWd%=SM215TWd.Install, Monitor\SAM0214
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM215TWa%=SM215TWa.Install, Monitor\SAM0213
+%SM215TWd%=SM215TWd.Install, Monitor\SAM0214
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM215TWa%=SM215TWa.Install, Monitor\SAM0213
+%SM215TWd%=SM215TWd.Install, Monitor\SAM0214
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM215TWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM215TWa.AddReg, 1680, DPMS
+CopyFiles=SM215TWa.CopyFiles
+
+[SM215TWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM215TWd.AddReg, 1680, DPMS
+CopyFiles=SM215TWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM215TWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM215TW.icm"
+
+[SM215TWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM215TW.icm"
+;------------------------------------------------------
+
+[SM215TWa.CopyFiles]
+SM215TW.icm
+
+[SM215TWd.CopyFiles]
+SM215TW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM215TWa="SyncMaster 215TW(Analog)"
+SM215TWd="SyncMaster 215TW(Digital)"

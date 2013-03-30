@@ -1,0 +1,100 @@
+; np50xc10.inf
+; Setup information file for NEC PlasmaSync 50XC10 Monitor
+;
+; Copyright (C) 2007 NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=np50xc10.cat
+DriverVer=11/01/2007, 1.07.1101.1840
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6701
+ExcludeFromSelect.nt=Monitor\NEC6700
+
+[DestinationDirs]
+P50XC10.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+np50xc10.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%P50XC10-D%=P50XC10-D.Install, Monitor\NEC6701
+%P50XC10-A%=P50XC10-A.Install, Monitor\NEC6700
+
+[NECDS.ntamd64]
+%P50XC10-D%=P50XC10-D.Install.ntamd64, Monitor\NEC6701
+%P50XC10-A%=P50XC10-A.Install.ntamd64, Monitor\NEC6700
+
+; Install Sections
+;-------------------------------------------------
+[P50XC10-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P50XC10-D.AddReg, 1920, DPMS
+CopyFiles=P50XC10.CopyFiles
+
+[P50XC10-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P50XC10-A.AddReg, 1920, DPMS
+CopyFiles=P50XC10.CopyFiles
+
+[P50XC10-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P50XC10-D.AddReg, 1920, DPMS
+CopyFiles=P50XC10.CopyFiles
+
+[P50XC10-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P50XC10-A.AddReg, 1920, DPMS
+CopyFiles=P50XC10.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[P50XC10-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-91.0,23.0-120.0,+,+"
+HKR,,ICMProfile,0,"np50xc10.icm"
+
+[P50XC10-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-109.0,23.0-120.0,+,+"
+HKR,,ICMProfile,0,"np50xc10.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[P50XC10.CopyFiles]
+np50xc10.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+P50XC10-D="NEC PlasmaSync 50XC10(Digital)"
+P50XC10-A="NEC PlasmaSync 50XC10(Analog)"
+Disk1="NEC Monitor Installation Disk"

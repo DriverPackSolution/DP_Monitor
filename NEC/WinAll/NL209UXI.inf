@@ -1,0 +1,100 @@
+; nl209uxi.inf
+; Setup information file for NEC MultiSync LCD2090UXi Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl209uxi.cat
+DriverVer=01/11/2007, 2.07.0111.1042
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66B0
+ExcludeFromSelect.nt=Monitor\NEC66B1
+
+[DestinationDirs]
+LCD2090UXi.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl209uxi.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD2090UXi-D%=LCD2090UXi-D.Install, Monitor\NEC66B0
+%LCD2090UXi-A%=LCD2090UXi-A.Install, Monitor\NEC66B1
+
+[NECDS.ntamd64]
+%LCD2090UXi-D%=LCD2090UXi-D.Install.ntamd64, Monitor\NEC66B0
+%LCD2090UXi-A%=LCD2090UXi-A.Install.ntamd64, Monitor\NEC66B1
+
+; Install Sections
+;-------------------------------------------------
+[LCD2090UXi-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2090UXi-D.AddReg, 1600, DPMS
+CopyFiles=LCD2090UXi.CopyFiles
+
+[LCD2090UXi-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2090UXi-A.AddReg, 1600, DPMS
+CopyFiles=LCD2090UXi.CopyFiles
+
+[LCD2090UXi-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2090UXi-D.AddReg, 1600, DPMS
+CopyFiles=LCD2090UXi.CopyFiles
+
+[LCD2090UXi-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2090UXi-A.AddReg, 1600, DPMS
+CopyFiles=LCD2090UXi.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD2090UXi-D.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl209uxi.icm"
+
+[LCD2090UXi-A.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl209uxi.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[lcd2090uxi.CopyFiles]
+nl209uxi.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD2090UXi-D="NEC MultiSync LCD2090UXi (Digital)"
+LCD2090UXi-A="NEC MultiSync LCD2090UXi (Analog)"
+Disk1="NEC Monitor Installation Disk"

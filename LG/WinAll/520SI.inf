@@ -1,0 +1,86 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [520SI.INF]
+;
+;      Revision 1.0   OCTOBER-25-2001
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=10/25/2000,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+520SI.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG520SI.icm=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%520SI%=520SI.Install, Monitor\GSM3AEB
+
+;------------------------------------; .Install
+
+[520SI.Install]
+AddReg=520SI.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=520SI.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;------------------------------------; .AddReg
+
+
+[520SI.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"LG520SI.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[520SI.CopyFiles]
+LG520SI.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3AEB
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+520SI="StudioWorks 520SI"

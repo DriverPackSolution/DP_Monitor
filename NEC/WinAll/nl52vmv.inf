@@ -1,0 +1,68 @@
+; nl52vmv.inf
+; Setup information file for NEC LCD Monitor LCD52VM-V
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl52vmv.cat
+DriverVer=10/27/2006,1.06.1027.2218
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6657
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD52VM-V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl52vmv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD52VM-V%=LCD52VM-V.Install, Monitor\NEC6657
+
+[NECDS.ntamd64]
+%LCD52VM-V%=LCD52VM-V.Install.ntamd64,Monitor\NEC6657
+
+[LCD52VM-V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD52VM-V.AddReg, 1024, DPMS
+CopyFiles=LCD52VM-V.CopyFiles
+
+[LCD52VM-V.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD52VM-V.AddReg, 1024, DPMS
+CopyFiles=LCD52VM-V.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,1024,768
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD52VM-V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl52vmv.icm"
+
+[LCD52VM-V.CopyFiles]
+nl52vmv.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD52VM-V="NEC LCD52VM-V"

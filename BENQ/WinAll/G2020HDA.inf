@@ -1,0 +1,89 @@
+;========================================== 
+; BenQ_G2020HDA.INF 06/24/09 Ver. 1.1 
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2009, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G2020HDA.cat
+DriverVer=06/24/2009,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ781E
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G2020HDA_Analog.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G2020HDA.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G2020HDA_Analog%=G2020HDA_Analog.Install, Monitor\BNQ781E
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G2020HDA_Analog%=G2020HDA_Analog.Install, Monitor\BNQ781E
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G2020HDA_Analog%=G2020HDA_Analog.Install, Monitor\BNQ781E
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G2020HDA_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2020HDA_Analog.AddReg, 1600, DPMS
+CopyFiles=G2020HDA_Analog.CopyFiles
+
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[G2020HDA_Analog.AddReg]
+
+HKR,"MODES\1600,900",Mode1,,"24-83.0,50.0-76.0,+,-"
+HKR,,ICMProfile,0,"G2020HDA.icm"
+
+
+[G2020HDA_Analog.CopyFiles]
+G2020HDA.ICM
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G2020HDA_Analog="BenQ G2020HDA (Analog)"

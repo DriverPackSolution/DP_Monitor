@@ -1,0 +1,107 @@
+;FTSP23T6.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display P23T-6 IPS
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=FTSP23T6.cat
+DriverVer=10/07/2010,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07E7
+ExcludeFromSelect.nt=Monitor\FUS07E8
+ExcludeFromSelect.nt=Monitor\FUS07E9
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSP23T6.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSP23T6.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS_Mfg] 
+%P23T-6a%=FTSP23T6a.Install, Monitor\FUS07E7
+%P23T-6d%=FTSP23T6d.Install, Monitor\FUS07E8
+%P23T-6dp%=FTSP23T6dp.Install, Monitor\FUS07E9
+
+;-------------------------------------------------
+ [FTS_Mfg.NTAMD64] 
+%P23T-6a%=FTSP23T6a.Install, Monitor\FUS07E7
+%P23T-6d%=FTSP23T6d.Install, Monitor\FUS07E8
+%P23T-6dp%=FTSP23T6dp.Install, Monitor\FUS07E9
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSP23T6a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSP23T6a.AddReg, 1920, DPMS
+CopyFiles=FTSP23T6.CopyFiles
+
+[FTSP23T6d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSP23T6d.AddReg, 1920, DPMS
+CopyFiles=FTSP23T6.CopyFiles
+
+[FTSP23T6dp.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSP23T6dp.AddReg, 1920, DPMS
+CopyFiles=FTSP23T6.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSP23T6a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP23T6.icm"
+
+[FTSP23T6d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-82.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP23T6.icm"
+
+[FTSP23T6dp.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-82.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP23T6.icm"
+
+;---------------------------------------------------------- 
+
+[FTSP23T6.CopyFiles]
+FTSP23T6.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD P23T-6 IPS"
+FTS_Mfg="Fujitsu Technology Solutions"	
+P23T-6a="Fujitsu P23T-6 IPS (analog)"
+P23T-6d="Fujitsu P23T-6 IPS (digital)"
+P23T-6dp="Fujitsu P23T-6 IPS (DP)"

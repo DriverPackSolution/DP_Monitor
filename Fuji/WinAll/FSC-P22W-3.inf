@@ -1,0 +1,120 @@
+;FSC-P22W-3.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor P22W-3
+;Copyright 2007 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSC-P22W-3.cat
+DriverVer=05/08/2007,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS073A
+ExcludeFromSelect.nt=Monitor\FUS073B
+ExcludeFromSelect.nt=Monitor\FUS073C
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FSC-P22W-3.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSC-P22W-3.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%P22W-3%=FSC-P22W-3a.Install, Monitor\FUS073A
+%P22W-3%=FSC-P22W-3d.Install, Monitor\FUS073B
+%P22W-3%=FSC-P22W-3h.Install, Monitor\FUS073C
+
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%P22W-3%=FSC-P22W-3a.Install, Monitor\FUS073A
+%P22W-3%=FSC-P22W-3d.Install, Monitor\FUS073B
+%P22W-3%=FSC-P22W-3h.Install, Monitor\FUS073C
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FSC-P22W-3a.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSC-P22W-3a.AddReg, 1680, DPMS
+CopyFiles=FSC-P22W-3.CopyFiles
+
+[FSC-P22W-3d.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSC-P22W-3d.AddReg, 1680, DPMS
+CopyFiles=FSC-P22W-3.CopyFiles
+
+[FSC-P22W-3h.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSC-P22W-3h.AddReg, 1680, DPMS
+CopyFiles=FSC-P22W-3.CopyFiles
+
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+
+[FSC-P22W-3a.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-94.0,55.0-75.0,-,+"
+HKR,,ICMProfile,0,"FSC-P22W-3.icm"
+
+[FSC-P22W-3d.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"FSC-P22W-3.icm"
+
+[FSC-P22W-3h.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"FSC-P22W-3.icm"
+
+
+;---------------------------------------------------------- 
+
+
+
+[FSC-P22W-3.CopyFiles]
+FSC-P22W-3.icm
+
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="FUJSIE Inc. Monitor Installation Disk"
+FUJSIE="Fujitsu Siemens Computers"	
+P22W-3="Fujitsu Siemens Computers P22W-3"

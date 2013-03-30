@@ -1,0 +1,86 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [1505S.INF]
+;
+;      Revision 1.0   January-28-2002
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=01/28/2002,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+1505S.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG1505S.icm=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%1505S%=1505S.Install, Monitor\GSM3AA0
+
+;------------------------------------; .Install
+
+[1505S.Install]
+AddReg=1505S.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1505S.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;------------------------------------; .AddReg
+
+
+[1505S.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-90.0,+,+"
+HKR,,ICMProfile,0,"LG1505S.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[1505S.CopyFiles]
+LG1505S.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3AA0
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+1505S="1505S"

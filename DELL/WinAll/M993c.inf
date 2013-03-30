@@ -1,0 +1,90 @@
+
+;================================ 
+;M993c.INF 01/10/04 Ver. 1.0 VS
+;Copyright 1996-2004 Dell Inc.
+;
+;This is a setupfile for  the DELL 
+;M993c Monitor.  This file supports
+;Windows 2000 & XP
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=M993c.cat
+DriverVer=01/10/2004, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELD006
+
+[DestinationDirs]
+DefaultDestDir=11
+M993c.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+M993c.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%M993c%=M993c.Install, Monitor\DELD006
+
+; Install Sections
+;-------------------------------------------------
+
+[M993c.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M993c.AddReg, 1600, DPMS
+CopyFiles=M993c.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[M993c.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M993c.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[M993c.CopyFiles]
+M993c.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+M993c="Dell M993c"

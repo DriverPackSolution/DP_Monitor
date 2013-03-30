@@ -1,0 +1,81 @@
+;=============================================================== 
+; [1710TFT.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2002 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LGIBM%
+CatalogFile=1710TFT.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4360
+ExcludeFromSelect.NT=Monitor\GSM4364
+
+[DestinationDirs]
+DefaultDestDir = 11
+1710TFT_Analog.CopyFiles = 23
+1710TFT_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1710TFT.ICM=1
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTAMD64
+
+[LGIBM]
+%1710TFT_Analog%=1710TFT_Analog.Install,Monitor\GSM4360
+%1710TFT_Digital%=1710TFT_Digital.Install,Monitor\GSM4364
+
+[LGIBM.NTAMD64]
+%1710TFT_Analog%=1710TFT_Analog.Install,Monitor\GSM4360
+%1710TFT_Digital%=1710TFT_Digital.Install,Monitor\GSM4364
+
+[1710TFT_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1710TFT_Analog.AddReg,1280,DPMS
+CopyFiles=1710TFT_Analog.CopyFiles
+
+[1710TFT_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1710TFT_Digital.AddReg,1280,DPMS
+CopyFiles=1710TFT_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1710TFT_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1710TFT.ICM"
+
+[1710TFT_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1710TFT.ICM"
+
+[1710TFT_Analog.CopyFiles]
+1710TFT.ICM
+
+[1710TFT_Digital.CopyFiles]
+1710TFT.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1710TFT_Analog="1710TFT(Analog)"
+1710TFT_Digital="1710TFT(Digital)"

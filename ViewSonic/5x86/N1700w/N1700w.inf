@@ -1,0 +1,62 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=N1700w.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/30/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS24517-1W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+N1700w.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS24517-1W%=VLCDS24517-1W.Install,Monitor\VSC5C0B           ;N1700w
+
+[VLCDS24517-1W.Install]                                         ;N1700w
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS24517-1W.AddReg,1280,DPMS
+Copyfiles=VLCDS24517-1W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS24517-1W.AddReg]                                          ;N1700w
+HKR,"MODES\1280,1024",Mode1,,"24-82,60-75,-,+"
+HKR,,ICMProfile,0,"N1700w.ICM"
+
+[VLCDS24517-1W.CopyFiles]                                       
+N1700w.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS24517-1W="ViewSonic N1700w"
+
+

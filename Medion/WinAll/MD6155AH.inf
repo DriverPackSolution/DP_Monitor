@@ -1,0 +1,85 @@
+; Monitor INF file of Medion MD6155AH
+; Issue date -- 08/13/2003
+; Revise date --									
+									
+[Version]											
+signature="$CHICAGO$"											
+Class=Monitor											
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}											
+Provider=%Medion%											
+CatalogFile=MD6155AH.cat
+DriverVer=08/13/2003
+;-------------------------------------------------											
+[ClassInstall32]											
+AddReg=ClassAddReg32											
+											
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED471A
+
+[ClassAddReg32]											
+HKR,,,,%MonitorClassName%											
+HKR,,Icon,,"-1"											
+HKR,,NoInstallClass,,1											
+											
+[DestinationDirs]											
+DefaultDestDir=11											
+MD6155AH.CopyFiles=23								
+										
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+MD6155AH.icm=1
+
+; Manufacturers											
+;-------------------------------------------------											
+[Manufacturer]											
+%Medion%=Medion										
+; Manufacturer sections											
+;-------------------------------------------------											
+[Medion]											
+%MD6155AH%=MD6155AH.Install, Monitor\MED471A										
+											
+; Install Sections											
+;-------------------------------------------------											
+[MD6155AH.Install]											
+DelReg=DEL_CURRENT_REG											
+AddReg=MD6155AH.AddReg, 1280, DPMS											
+CopyFiles=MD6155AH.CopyFiles
+
+; AddReg & DelReg Sections											
+;-------------------------------------------------											
+[DEL_CURRENT_REG]											
+HKR,MODES											
+HKR,,MaxResolution											
+HKR,,DPMS											
+HKR,,ICMProfile											
+; Pre-defined AddReg sections											
+[640]											
+HKR,,MaxResolution,,"640,480"											
+[800]											
+HKR,,MaxResolution,,"800,600"											
+[1024]											
+HKR,,MaxResolution,,"1024,768"											
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+					
+[DPMS]											
+HKR,,DPMS,,1											
+											
+; Model AddReg sections											
+[MD6155AH.AddReg]											
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"MD6155AH.icm"
+
+[MD6155AH.CopyFiles]
+MD6155AH.icm
+
+									
+; User visible strings											
+;-------------------------------------------------											
+[Strings]											
+MonitorClassName="Monitor"											
+diskname="Medion System Restoration CD"											
+Medion="Medion"
+MD6155AH="Medion MD6155AH"

@@ -1,0 +1,115 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2004-2005 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=230WP7.cat
+DriverVer=11/01/2005,1.01.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL0836          
+ExcludeFromSelect.nt=Monitor\PHL0837     
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0836.CopyFiles=23
+0837.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+230WP7.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64 
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%0836%=0836.Install, Monitor\PHL0836
+%0837%=0837.Install, Monitor\PHL0837
+
+[Philips.NTx86]
+%0836%=0836.Install, Monitor\PHL0836
+%0837%=0837.Install, Monitor\PHL0837
+
+[Philips.NTia64]
+%0836%=0836.Install, Monitor\PHL0836
+%0837%=0837.Install, Monitor\PHL0837
+
+[Philips.NTamd64]
+%0836%=0836.Install, Monitor\PHL0836
+%0837%=0837.Install, Monitor\PHL0837
+
+; Install sections
+;-------------------------------------------------
+[0836.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0836.AddReg,1920,DPMS
+CopyFiles=0836.CopyFiles
+
+[0837.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0837.AddReg,1920,DPMS
+CopyFiles=0837.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;Model AddReg sections
+;-------------------------------------------------
+[0836.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-98.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"230WP7.icm"
+
+[0837.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-75.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"230WP7.icm"
+
+
+;-------------------------------------------------------------------
+[0836.CopyFiles]
+230WP7.icm
+
+[0837.CopyFiles]
+230WP7.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+0836="Philips  230W (23 inch LCD MONITOR 230WP7)"
+0837="Philips  230W (23 inch LCD MONITOR 230WP7)"

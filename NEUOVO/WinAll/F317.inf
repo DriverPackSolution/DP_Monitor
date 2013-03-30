@@ -1,0 +1,103 @@
+;============================================
+;This is setup information file for monitors
+;Revision 1.4   12 26, 2002
+;Date: 2002-08-07
+;============================================
+; 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AIC%
+CatalogFile=F317.cat
+DriverVer=12/09/2002, 1.4
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\AIC7350
+
+;ExcludeFromSelect=*
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]  
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+7350.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+[SourceDisksFiles]
+LCD_165.icm=1
+LCD_193.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%AIC%=AIC
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[AIC]
+%7350%=7350.Install, Monitor\AIC7350
+
+;-------------------------------------------------
+
+
+[7350.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7350.AddReg,1280,DPMS
+CopyFiles=7350.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+;--------------------------------
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+
+[7350.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD_193.icm"
+
+;-------------------------------------------------------
+
+[7350.CopyFiles]
+LCD_165.icm
+LCD_193.icm
+
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+DiskName="AGNeovo Driver Disk"
+AIC="AGNeovo"
+
+7350="F-317"
+
+

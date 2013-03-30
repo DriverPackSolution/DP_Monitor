@@ -1,0 +1,118 @@
+
+;==================================================
+; sm760B.inf 07/21/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm760B.cat
+DriverVer=07/21/2005,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM01E2
+ExcludeFromSelect.nt=Monitor\SAM01E3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm760Ba.CopyFiles = 23
+sm760Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm760B.icm=1
+sm760B.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm760Ba%=sm760Ba.Install, Monitor\SAM01E2
+%sm760Bd%=sm760Bd.Install, Monitor\SAM01E3
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%sm760Ba%=sm760Ba.Install, Monitor\SAM01E2
+%sm760Bd%=sm760Bd.Install, Monitor\SAM01E3
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%sm760Ba%=sm760Ba.Install, Monitor\SAM01E2
+%sm760Bd%=sm760Bd.Install, Monitor\SAM01E3
+; Install Sections
+;-----------------------------------------------------
+
+[sm760Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm760Ba.AddReg, 1280, DPMS
+CopyFiles=sm760Ba.CopyFiles
+
+[sm760Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm760Bd.AddReg, 1280, DPMS
+CopyFiles=sm760Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+[sm760Ba.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm760B.icm"
+
+[sm760Bd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm760B.icm"
+;------------------------------------------------------
+
+[sm760Ba.CopyFiles]
+sm760B.icm
+
+[sm760Bd.CopyFiles]
+sm760B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm760Ba="SyncMaster 760B/760BF,SyncMaster Magic CX718T(Analog)"
+sm760Bd="SyncMaster 760B/760BF,SyncMaster Magic CX718T(Digital)"

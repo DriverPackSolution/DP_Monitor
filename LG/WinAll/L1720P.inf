@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1720P.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1720P.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM437F
+ExcludeFromSelect.NT=Monitor\GSM4383
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1720P_Analog.CopyFiles = 23
+L1720P_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL1720P.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1720P_Analog%=L1720P_Analog.Install,Monitor\GSM437F
+%L1720P_Digital%=L1720P_Digital.Install,Monitor\GSM4383
+
+[LG.NTamd64]
+%L1720P_Analog%=L1720P_Analog.Install,Monitor\GSM437F
+%L1720P_Digital%=L1720P_Digital.Install,Monitor\GSM4383
+
+[L1720P_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1720P_Analog.AddReg,1280,DPMS
+CopyFiles=L1720P_Analog.CopyFiles
+
+[L1720P_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1720P_Digital.AddReg,1280,DPMS
+CopyFiles=L1720P_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1720P_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL1720P.ICM"
+
+[L1720P_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL1720P.ICM"
+
+[L1720P_Analog.CopyFiles]
+LGL1720P.ICM
+
+[L1720P_Digital.CopyFiles]
+LGL1720P.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1720P_Analog="LG L1720P(Analog)"
+L1720P_Digital="LG L1720P(Digital)"

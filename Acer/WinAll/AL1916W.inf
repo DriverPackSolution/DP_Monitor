@@ -1,0 +1,71 @@
+;--------------------------------------
+; AL1916W.inf  12/12/2006   Ver.1.00
+; Copyright 2006-2008 Acer Incorporated
+; This is a setupfile for AL1916W 
+;--------------------------------------
+;
+[Version]
+signature="$CHICAGO$" 
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=AL1916W.cat  
+DriverVer=12/12/2006,1.00
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACRAD76
+
+[DestinationDirs]
+DefaultDestDir=11
+AL1916W.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+AL191665.icm=1
+AL191693.icm=1
+AL1916de.icm=1
+
+[Manufacturer]
+%Acer%=Acer,NTx86,NTAMD64
+
+[Acer]
+%AL1916W%=AL1916W.Install, Monitor\ACRAD76
+
+[Acer.NTX86]
+%AL1916W%=AL1916W.Install, Monitor\ACRAD76
+
+[Acer.NTAMD64]
+%AL1916W%=AL1916W.Install, Monitor\ACRAD76
+
+[AL1916W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL1916W.AddReg, 1440, DPMS
+CopyFiles=AL1916W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL1916W.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"AL191665.icm"
+
+[AL1916W.CopyFiles]
+AL191665.icm
+AL191693.icm
+AL1916de.icm
+
+[Strings]
+Disk="Acer Incorporated Monitor Installation Disk"
+Acer="Acer Incorporated"
+AL1916W="Acer AL1916W"

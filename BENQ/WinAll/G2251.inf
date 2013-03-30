@@ -1,0 +1,109 @@
+;========================================== 
+; BenQ_G2251.INF 06/09/2011 Ver. 1.3
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2011, BENQ Corporation
+; V001
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G2251.cat
+DriverVer=06/09/2011,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ789E
+ExcludeFromSelect.NT=Monitor\BNQ789F
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G2251_Analog.copyfiles = 23
+G2251_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G2251.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G2251_Analog%=G2251_Analog.Install, Monitor\BNQ789E
+%G2251_Digital%=G2251_Digital.Install, Monitor\BNQ789F
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G2251_Analog%=G2251_Analog.Install, Monitor\BNQ789E
+%G2251_Digital%=G2251_Digital.Install, Monitor\BNQ789F
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G2251_Analog%=G2251_Analog.Install, Monitor\BNQ789E
+%G2251_Digital%=G2251_Digital.Install, Monitor\BNQ789F
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G2251_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2251_Analog.AddReg, 1680, DPMS
+CopyFiles=G2251_Analog.CopyFiles
+
+[G2251_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2251_Digital.AddReg, 1680, DPMS
+CopyFiles=G2251_Digital.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[G2251_Analog.AddReg]
+
+HKR,"MODES\1680,1050",Mode1,,"30-83.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"G2251.icm"
+
+[G2251_Digital.AddReg]
+
+HKR,"MODES\1680,1050",Mode1,,"30-83.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"G2251.icm"
+
+
+[G2251_Analog.CopyFiles]
+G2251.ICM
+
+[G2251_Digital.CopyFiles]
+G2251.ICM
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G2251_Analog="BenQ G2251 (Analog)"
+G2251_Digital="BenQ G2251 (Digital)"

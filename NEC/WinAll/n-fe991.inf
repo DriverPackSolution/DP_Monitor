@@ -1,0 +1,83 @@
+; N-FE991.INF
+; Setup information file for NEC MultiSync FE991SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=N-FE991.cat
+DriverVer=02/27/2002,2.02.0027.1527
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61D8
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-FE991SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+n-fe9911.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-FE991SB%=NEC-FE991SB.Install, Monitor\NEC61D8
+
+; Install Sections
+;-------------------------------------------------
+[NEC-FE991SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE991SB.AddReg, 1792, DPMS
+CopyFiles=NEC-FE991SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-FE991SB.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"n-fe9911.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-FE991SB.CopyFiles]
+N-FE9911.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-FE991SB="NEC MultiSync FE991SB"

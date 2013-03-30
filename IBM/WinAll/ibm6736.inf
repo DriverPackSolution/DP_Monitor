@@ -1,0 +1,77 @@
+;=============================================================== 
+; IBM_6736.INF 04/06/2004 
+; Revision 1.0   April-06-2004
+; Copyright(c) IBM,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_6736.cat
+DriverVer=04/06/2004,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM1A50
+ExcludeFromSelect.NT=Monitor\IBM4160
+
+[DestinationDirs]
+DefaultDestDir = 11
+IBM_6736_Analog.CopyFiles = 23
+IBM_6736_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+IBM_6736.ICM=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_6736_Analog%=IBM_6736_Analog.Install,Monitor\IBM1A50
+%IBM_6736_Digital%=IBM_6736_Digital.Install,Monitor\IBM4160
+
+[IBM_6736_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_6736_Analog.AddReg,1600,DPMS
+CopyFiles=IBM_6736_Analog.CopyFiles
+
+[IBM_6736_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_6736_Digital.AddReg,1600,DPMS
+CopyFiles=IBM_6736_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_6736_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-92.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"IBM_6736.ICM"
+
+[IBM_6736_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-80.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"IBM_6736.ICM"
+
+[IBM_6736_Analog.CopyFiles]
+IBM_6736.ICM
+
+[IBM_6736_Digital.CopyFiles]
+IBM_6736.ICM
+
+[Strings]
+DiskName="Monitor Profiles Installation Disk"
+IBM="IBM"
+IBM_6736_Analog="IBM_6736 L200p(Analog)"
+IBM_6736_Digital="IBM_6736 L200p(Digital)"

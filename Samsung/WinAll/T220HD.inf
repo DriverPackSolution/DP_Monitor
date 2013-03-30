@@ -1,0 +1,120 @@
+
+;==================================================
+; T220HD.inf 03/03/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=T220HD.cat
+DriverVer=03/03/2008,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM03EF
+ExcludeFromSelect.nt=Monitor\SAM03F0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+T220HDa.CopyFiles = 23
+T220HDd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+T220HD.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%T220HDa%=T220HDa.Install, Monitor\SAM03EF
+%T220HDd%=T220HDd.Install, Monitor\SAM03F0
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%T220HDa%=T220HDa.Install, Monitor\SAM03EF
+%T220HDd%=T220HDd.Install, Monitor\SAM03F0
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%T220HDa%=T220HDa.Install, Monitor\SAM03EF
+%T220HDd%=T220HDd.Install, Monitor\SAM03F0
+
+; Install Sections
+;-----------------------------------------------------
+
+[T220HDa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T220HDa.AddReg, 1680, DPMS
+CopyFiles=T220HDa.CopyFiles
+
+[T220HDd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T220HDd.AddReg, 1680, DPMS
+CopyFiles=T220HDd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[T220HDa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T220HD.icm"
+
+[T220HDd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T220HD.icm"
+;------------------------------------------------------
+
+[T220HDa.CopyFiles]
+T220HD.icm
+
+[T220HDd.CopyFiles]
+T220HD.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+T220HDa="SyncMaster T220HD(Analog)"
+T220HDd="SyncMaster T220HD(Digital)"

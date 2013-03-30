@@ -1,0 +1,87 @@
+
+;==========================================================
+;IBM_L171P.INF 02/25/2005 Ver. 1.0 
+;Copyright 1996-2005 IBM Computer Corporation
+;
+;This is a setupfile for the IBM Computer Monitors
+;
+;==========================================================
+;
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_L171P.cat
+DriverVer=02/25/2005, 1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM4BD9
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_L171P.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM_L171P.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%IBM%=IBM
+
+; Manufacturer sections
+;-------------------------------------------------
+[IBM] 
+%IBM_L171P%=IBM_L171P.Install, Monitor\IBM4BD9
+
+; Install Sections
+;-------------------------------------------------
+
+[IBM_L171P.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_L171P.AddReg, 1280, DPMS
+CopyFiles=IBM_L171P.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[IBM_L171P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"IBM_L171P.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[IBM_L171P.CopyFiles]
+IBM_L171P.icm
+
+;------------------------------------------------------------------------------------------
+
+[Strings]
+DISK="IBM Flat Panel Monitor Installation disk"
+IBM="IBM"	
+IBM_L171P="IBM L171P TFT Monitor"

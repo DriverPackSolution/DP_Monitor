@@ -1,0 +1,95 @@
+
+;==================================================
+; st76df.inf 11/10,2000 ver. 1.0
+;
+; Copyright 2000 Samsung Electronics Corporation
+;
+; This is a Setup information file for SAMTRON Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%SAMTRON%
+CatalogFile=st76df.cat
+DriverVer=11/10/2000,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\STN0006
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+st76df.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+st76df.icm=1
+
+[Manufacturer]
+%SAMTRON%=SAMTRON
+
+; Manufacturer sections
+;-----------------------------------------------------
+[SAMTRON]
+%st76df%=st76df.Install, Monitor\STN0006
+
+; Install Sections
+;-----------------------------------------------------
+
+[st76df.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=st76df.AddReg, 1280, DPMS
+CopyFiles=st76df.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[st76df.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"st76df.icm"
+
+
+;------------------------------------------------------
+
+[st76df.CopyFiles]
+st76df.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="SAMTRON Monitor Installation Disk"
+MonitorClassName="Monitor"
+SAMTRON="SAMTRON"
+st76df="SAMTRON 76DF/77DF"
+

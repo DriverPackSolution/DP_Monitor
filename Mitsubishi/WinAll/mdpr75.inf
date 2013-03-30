@@ -1,0 +1,83 @@
+; MDPR75.INF
+; Setup information file for Mitsubishi Diamond Pro 750SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=mdpr75.cat
+DriverVer=03/11/2002,2.03.0011.1656
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4624
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DPro750SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+mdpr75.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%DPro750SB%=DPro750SB.Install, Monitor\MEL4624
+
+; Install Sections
+;-------------------------------------------------
+[DPro750SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPro750SB.AddReg, 1600, DPMS
+CopyFiles=DPro750SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[DPro750SB.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"mdpr75.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[DPro750SB.CopyFiles]
+MDPR75.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+DPro750SB="Mitsubishi Diamond Pro 750SB"

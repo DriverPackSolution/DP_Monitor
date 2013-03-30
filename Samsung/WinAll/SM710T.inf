@@ -1,0 +1,108 @@
+
+;==================================================
+; SM710T.inf 08/16/2004 ver. 1.1
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM710T.cat
+DriverVer=08/16/2004,1.1
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM010C
+ExcludeFromSelect.nt=Monitor\SAM010D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM710Ta.CopyFiles = 23
+SM710Td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM710T.icm=1
+SM710T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM710Ta%=SM710Ta.Install, Monitor\SAM010C
+%SM710Td%=SM710Td.Install, Monitor\SAM010D
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM710Ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM710Ta.AddReg, 1280, DPMS
+CopyFiles=SM710Ta.CopyFiles
+
+[SM710Td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM710Td.AddReg, 1280, DPMS
+CopyFiles=SM710Td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM710Ta.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM710T.icm"
+
+[SM710Td.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM710T.icm"
+;------------------------------------------------------
+
+[SM710Ta.CopyFiles]
+SM710T.icm
+
+[SM710Td.CopyFiles]
+SM710T.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM710Ta="SyncMaster 710T/701T,SyncMaster Magic CX713T (Analog)"
+SM710Td="SyncMaster 710T/701T,SyncMaster Magic CX713T (Digital)"

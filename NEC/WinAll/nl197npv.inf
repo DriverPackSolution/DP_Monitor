@@ -1,0 +1,82 @@
+; nl197npv.inf
+; Setup information file for NEC MultiSync LCD1970NXp Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl197npv.cat
+DriverVer=02/28/2007,3.07.0228.1132
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC668E
+
+[DestinationDirs]
+LCD1970NXp.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl197npv.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD1970NXp%=LCD1970NXp.Install, Monitor\NEC668E
+
+[NECDS.ntamd64]
+%LCD1970NXp%=LCD1970NXp.Install,ntamd64, Monitor\NEC668E
+
+; Install Sections
+;-------------------------------------------------
+[LCD1970NXp.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1970NXp.AddReg, 1280, DPMS
+CopyFiles=LCD1970NXp.CopyFiles
+
+[LCD1970NXp.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1970NXp.AddReg, 1280, DPMS
+CopyFiles=LCD1970NXp.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD1970NXp.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl197npv.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD1970NXp.CopyFiles]
+nl197npv.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD1970NXp="NEC MultiSync LCD1970NXp"
+Disk1="NEC Display Solutions Installation Disk"

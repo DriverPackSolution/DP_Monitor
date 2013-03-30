@@ -1,0 +1,86 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2002 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=150S4.cat
+DriverVer=09/26/2002,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL0812
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0812.CopyFiles=23
+
+[SourceDisksNames]
+1=%sourcedisk%,,,
+
+[SourceDisksFiles]
+Ph_LCD15.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%0812%=0812.Install, Monitor\PHL0812
+
+; Install sections
+;-------------------------------------------------
+[0812.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0812.AddReg,1024,DPMS
+CopyFiles=0812.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[0812.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"Ph_LCD15.icm"
+
+;-------------------------------------------------------------------
+[0812.CopyFiles]
+Ph_LCD15.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+sourcedisk="Philips Monitor Setup Disk"
+
+0812="Philips 150S (15inch LCD MONITOR 150S4)"

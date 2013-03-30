@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L197W.INF] 
+; Revision 1.4   January-31-2008
+; Copyright(c)1998~2008 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L197W.cat
+DriverVer=01/31/2008,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B6C
+ExcludeFromSelect.NT=Monitor\GSM4B6D
+
+[DestinationDirs]
+DefaultDestDir = 11
+L197W_Analog.CopyFiles = 23
+L197W_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L197W.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L197W_Analog%=L197W_Analog.Install,Monitor\GSM4B6C
+%L197W_Digital%=L197W_Digital.Install,Monitor\GSM4B6D
+
+[LG.NTamd64]
+%L197W_Analog%=L197W_Analog.Install,Monitor\GSM4B6C
+%L197W_Digital%=L197W_Digital.Install,Monitor\GSM4B6D
+
+[L197W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L197W_Analog.AddReg,1440,DPMS
+CopyFiles=L197W_Analog.CopyFiles
+
+[L197W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L197W_Digital.AddReg,1440,DPMS
+CopyFiles=L197W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L197W_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMprofile,0,"L197W.ICM"
+
+[L197W_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMprofile,0,"L197W.ICM"
+
+[L197W_Analog.CopyFiles]
+L197W.ICM
+
+[L197W_Digital.CopyFiles]
+L197W.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L197W_Analog="LG L197W(Analog)"
+L197W_Digital="LG L197W(Digital)"

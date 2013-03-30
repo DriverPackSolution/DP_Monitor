@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VP2655wb.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/11/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VP2655wb.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VP2655wb.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC4623
+
+[ViewSonic]   
+%VP2655wb%=VP2655wb.Install,Monitor\VSC4623  
+
+[ViewSonic.NTia64]   
+%VP2655wb%=VP2655wb.Install,Monitor\VSC4623  
+
+[ViewSonic.NTamd64]   
+%VP2655wb%=VP2655wb.Install,Monitor\VSC4623  
+
+[VP2655wb.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VP2655wb.AddReg,1920,DPMS
+Copyfiles=VP2655wb.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VP2655wb.AddReg]  
+HKR,"MODES\1920,1200",Mode1,,"24-92,50-85,+,-" 
+HKR,,ICMProfile,0,"VP2655wb.ICM"
+
+[VP2655wb.CopyFiles]                                       
+VP2655wb.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VP2655wb ViewSonic Wizard"
+VP2655wb="ViewSonic VP2655wb"

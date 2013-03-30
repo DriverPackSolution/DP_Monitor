@@ -1,0 +1,105 @@
+; ex231w.inf
+; Setup information file for NEC MultiSync EX231W Monitor
+;
+; Copyright 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ex231w.cat
+DriverVer=07/23/2010,1.10.0723.2323
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6809
+ExcludeFromSelect.nt=Monitor\NEC680A
+ExcludeFromSelect.nt=Monitor\NEC680B
+
+[DestinationDirs]
+EX231W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ex231w.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EX231W-A%=EX231W-A.Install, Monitor\NEC6809
+%EX231W-D%=EX231W-D.Install, Monitor\NEC680A
+%EX231W-DP%=EX231W-DP.Install, Monitor\NEC680B
+
+[NECDS.ntamd64]
+%EX231W-A%=EX231W-A.Install.ntamd64, Monitor\NEC6809
+%EX231W-D%=EX231W-D.Install.ntamd64, Monitor\NEC680A
+%EX231W-DP%=EX231W-DP.Install.ntamd64, Monitor\NEC680B
+
+[EX231W-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EX231W-A.AddReg, 1920, DPMS
+CopyFiles=EX231W.CopyFiles
+
+[EX231W-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EX231W-D.AddReg, 1920, DPMS
+CopyFiles=EX231W.CopyFiles
+
+[EX231W-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EX231W-DP.AddReg, 1920, DPMS
+CopyFiles=EX231W.CopyFiles
+
+[EX231W-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EX231W-A.AddReg, 1920, DPMS
+CopyFiles=EX231W.CopyFiles
+
+[EX231W-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EX231W-D.AddReg, 1920, DPMS
+CopyFiles=EX231W.CopyFiles
+
+[EX231W-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EX231W-DP.AddReg, 1920, DPMS
+CopyFiles=EX231W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EX231W-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"ex231w.icm"
+
+[EX231W-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"ex231w.icm"
+
+[EX231W-DP.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"ex231w.icm"
+
+
+[EX231W.CopyFiles]
+ex231w.icm
+
+[Strings]
+NECDS="NEC"
+EX231W-A="NEC MultiSync EX231W(Analog)"
+EX231W-D="NEC MultiSync EX231W(Digital)"
+EX231W-DP="NEC MultiSync EX231W(DisplayPort)"
+Disk1="NEC Display Solutions Installation Disk"

@@ -1,0 +1,69 @@
+;PLE433.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor PLE433
+;Copyright 2004 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE433.cat      
+DriverVer=09/01/2004,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46D1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE433.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE433.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE433%=PLE433.Install, Monitor\IVM46D1
+
+[PLE433.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE433.AddReg, 1280, DPMS
+CopyFiles=PLE433.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE433.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-83,55-76,+,+"
+HKR,,ICMProfile,0,"PLE433.ICM"
+
+[PLE433.CopyFiles]
+PLE433.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE433="iiyama ProLite E433"

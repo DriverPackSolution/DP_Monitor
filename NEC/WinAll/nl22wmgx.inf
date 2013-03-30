@@ -1,0 +1,68 @@
+; NL22WMGX.inf
+; Setup information file for NEC LCD22WMGX Monitor
+;
+; Copyright 2007, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL22WMGX.cat
+DriverVer=02/13/2008,1.08.0213.1028
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC671F
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD22WMGX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL22WMGX.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD22WMGX%=LCD22WMGX.Install, Monitor\NEC671F
+
+[NECDS.ntamd64]
+%LCD22WMGX%=LCD22WMGX.Install.ntamd64, Monitor\NEC671F
+
+[LCD22WMGX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD22WMGX.AddReg, 1680, DPMS
+CopyFiles=LCD22WMGX.CopyFiles
+
+[LCD22WMGX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD22WMGX.AddReg, 1680, DPMS
+CopyFiles=LCD22WMGX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,1680,1050
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD22WMGX.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"NL22WMGX.icm"
+
+[LCD22WMGX.CopyFiles]
+NL22WMGX.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD22WMGX="NEC LCD22WMGX"

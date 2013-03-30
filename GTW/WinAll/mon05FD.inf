@@ -1,0 +1,70 @@
+; Gateway FPD1530
+; manufactured by Quanta
+; mon05FD.inf
+; April-10-2003
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Gateway%
+CatalogFile=mon05FD.cat
+DriverVer=04/10/2003,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY05FD
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+mon05FD.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon05FD.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon05FD%=mon05FD.Install, Monitor\GWY05FD
+
+[mon05FD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon05FD.AddReg, 1024, DPMS
+CopyFiles=mon05FD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon05FD.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-66,50-75,+,+"
+HKR,,ICMProfile,0,"mon05FD.icm"
+
+[mon05FD.CopyFiles]
+mon05FD.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon05FD="Gateway FPD1530"

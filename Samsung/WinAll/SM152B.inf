@@ -1,0 +1,97 @@
+
+;==================================================
+; sm152b.inf 07/22/2002 ver. 1.0
+;
+; Copyright 2002 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm152B.cat
+DriverVer=07/22/2002,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0057
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm152b.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm152b.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm152b%=sm152b.Install, Monitor\SAM0057
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm152b.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm152b.AddReg, 1024, DPMS
+CopyFiles=sm152b.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm152b.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-61,50-75,+,+"
+HKR,,ICMProfile,0,"sm152b.icm"
+
+
+;------------------------------------------------------
+
+[sm152b.CopyFiles]
+sm152b.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm152b="SyncMaster152B(M)/155B(M)/156B(M)/152K(M), SyncMaster Magic CX156B(M)/MX154B(M)/CX154B/LX154B"
+
+        

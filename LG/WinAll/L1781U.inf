@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1781U.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1781U.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM43DC
+ExcludeFromSelect.NT=Monitor\GSM43DD
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1781U_Analog.CopyFiles = 23
+L1781U_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL1781U.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1781U_Analog%=L1781U_Analog.Install,Monitor\GSM43DC
+%L1781U_Digital%=L1781U_Digital.Install,Monitor\GSM43DD
+
+[LG.NTamd64]
+%L1781U_Analog%=L1781U_Analog.Install,Monitor\GSM43DC
+%L1781U_Digital%=L1781U_Digital.Install,Monitor\GSM43DD
+
+[L1781U_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1781U_Analog.AddReg,1280,DPMS
+CopyFiles=L1781U_Analog.CopyFiles
+
+[L1781U_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1781U_Digital.AddReg,1280,DPMS
+CopyFiles=L1781U_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1781U_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL1781U.ICM"
+
+[L1781U_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL1781U.ICM"
+
+[L1781U_Analog.CopyFiles]
+LGL1781U.ICM
+
+[L1781U_Digital.CopyFiles]
+LGL1781U.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1781U_Analog="LG L1781U(Analog)"
+L1781U_Digital="LG L1781U(Digital)"

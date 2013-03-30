@@ -1,0 +1,69 @@
+;HF703U_E.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor HF703U_E
+;Copyright 2004 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=HF703U_E.cat      
+DriverVer=05/01/2004,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM1774
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+HF703U_E.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+HF703U_E.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%HF703U_E%=HF703U_E.Install, Monitor\IVM1774
+
+[HF703U_E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HF703U_E.AddReg, 1600, DPMS
+CopyFiles=HF703U_E.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HF703U_E.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-96,50-160,+,+"
+HKR,,ICMProfile,0,"HF703U_E.ICM"
+
+[HF703U_E.CopyFiles]
+HF703U_E.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA CRT Monitor Installation Disk"
+
+HF703U_E="IIYAMA HF703U E"

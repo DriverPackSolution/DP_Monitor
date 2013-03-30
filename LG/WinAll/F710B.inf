@@ -1,0 +1,64 @@
+;=============================================================== 
+; [F710B.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=F710B.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM436E
+
+[DestinationDirs]
+DefaultDestDir=11
+F710B.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGF710B.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%F710B%=F710B.Install,Monitor\GSM436E
+
+[LG.NTamd64]
+%F710B%=F710B.Install,Monitor\GSM436E
+
+[F710B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F710B.AddReg,1280,DPMS
+CopyFiles=F710B.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F710B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LGF710B.ICM"
+
+[F710B.CopyFiles]
+LGF710B.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+F710B="LG FLATRON F710B"

@@ -1,0 +1,65 @@
+;===============================================================
+; [M1721SM.inf]
+; Revision 1.3   February-20-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M1721SM.cat
+DriverVer=02/20/2007,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4487
+
+[DestinationDirs]
+DefaultDestDir = 11
+M1721SM.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M1721SM.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M1721SM%=M1721SM.Install,Monitor\GSM4487
+
+[LG.NTamd64]
+%M1721SM%=M1721SM.Install,Monitor\GSM4487
+
+[M1721SM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1721SM.AddReg,1280,DPMS
+CopyFiles=M1721SM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1721SM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"M1721SM.ICM"
+
+[M1721SM.CopyFiles]
+M1721SM.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M1721SM="LG M1721SM"

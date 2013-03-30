@@ -1,0 +1,81 @@
+;Monitor INF file for Fujitsu Siemens Monitor AMILO LSL 3220W
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=LSL3220W.cat
+DriverVer=09/25/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07AA
+
+[DestinationDirs]
+DefaultDestDir=11
+LSL3220W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LSL3220W.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%LSL_3220W%=LSL3220W.Install, Monitor\FUS07AA
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%LSL_3220W%=LSL3220W.Install, Monitor\FUS07AA
+
+; Install Sections
+;-------------------------------------------------
+
+[LSL3220W.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LSL3220W.AddReg, 1680, DPMS
+CopyFiles=LSL3220W.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[LSL3220W.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"LSL3220W.icm"
+
+;---------------------------------------------------------- 
+
+[LSL3220W.CopyFiles]
+LSL3220W.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD AMILO LSL 3220W"
+FUJSIE="Fujitsu Siemens Computers"	
+LSL_3220W="AMILO LSL 3220W"

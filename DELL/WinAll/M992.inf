@@ -1,0 +1,89 @@
+
+;================================ 
+;M992.INF 03/27/02 Ver. 1.0 PCC
+;Copyright 1996-2002 Dell Computer Corporation
+;
+;This is a setupfile for M992 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=M992.cat
+DriverVer=03/27/2002, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL300E
+
+[DestinationDirs]
+DefaultDestDir=11
+M992.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+M992.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%M992%=M992.Install, Monitor\DEL300E
+
+; Install Sections
+;-------------------------------------------------
+
+[M992.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M992.AddReg, 1600, DPMS
+CopyFiles=M992.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[M992.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M992.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[M992.CopyFiles]
+M992.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+M992="Dell M992"

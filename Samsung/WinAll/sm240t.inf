@@ -1,0 +1,109 @@
+
+;==================================================
+; sm240t.inf 09/19/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm240t.cat
+DriverVer=09/19/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM4254
+ExcludeFromSelect.nt=Monitor\SAM4255
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm240ta.CopyFiles = 23
+sm240td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm240t.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm240ta%=sm240ta.Install, Monitor\SAM4254
+%sm240td%=sm240td.Install, Monitor\SAM4255
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm240ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm240ta.AddReg, 1920, DPMS
+CopyFiles=sm240ta.CopyFiles
+
+[sm240td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm240td.AddReg, 1280, DPMS
+CopyFiles=sm240td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm240ta.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30-93,50-85,+,+"
+HKR,,ICMProfile,0,"sm240t.icm"
+
+[sm240td.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,50-85,+,+"
+HKR,,ICMProfile,0,"sm240t.icm"
+
+;------------------------------------------------------
+
+[sm240ta.CopyFiles]
+sm240t.icm
+
+[sm240td.CopyFiles]
+sm240t.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm240ta="Samsung SyncMaster 240T(Analog)/240MP"
+sm240td="Samsung SyncMaster 240T(Digital)"

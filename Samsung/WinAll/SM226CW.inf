@@ -1,0 +1,120 @@
+
+;==================================================
+; SM226CW.inf 03/28/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM226CW.cat
+DriverVer=03/28/2007,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM030E
+ExcludeFromSelect.nt=Monitor\SAM030F
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM226CWa.CopyFiles = 23
+SM226CWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM226CW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM226CWa%=SM226CWa.Install, Monitor\SAM030E
+%SM226CWd%=SM226CWd.Install, Monitor\SAM030F
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM226CWa%=SM226CWa.Install, Monitor\SAM030E
+%SM226CWd%=SM226CWd.Install, Monitor\SAM030F
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM226CWa%=SM226CWa.Install, Monitor\SAM030E
+%SM226CWd%=SM226CWd.Install, Monitor\SAM030F
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM226CWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM226CWa.AddReg, 1680, DPMS
+CopyFiles=SM226CWa.CopyFiles
+
+[SM226CWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM226CWd.AddReg, 1680, DPMS
+CopyFiles=SM226CWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM226CWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM226CW.icm"
+
+[SM226CWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM226CW.icm"
+;------------------------------------------------------
+
+[SM226CWa.CopyFiles]
+SM226CW.icm
+
+[SM226CWd.CopyFiles]
+SM226CW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM226CWa="SyncMaster 226CW(Analog)"
+SM226CWd="SyncMaster 226CW(Digital)"

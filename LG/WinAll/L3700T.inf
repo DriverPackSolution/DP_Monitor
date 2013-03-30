@@ -1,0 +1,86 @@
+;=============================================================== 
+; [L3700T.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L3700T.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM7547
+ExcludeFromSelect.NT=Monitor\GSM7548
+
+[DestinationDirs]
+DefaultDestDir = 11
+L3700T_Analog.CopyFiles = 23
+L3700T_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL3700T.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L3700T_Analog%=L3700T_Analog.Install,Monitor\GSM7547
+%L3700T_Digital%=L3700T_Digital.Install,Monitor\GSM7548
+
+[LG.NTamd64]
+%L3700T_Analog%=L3700T_Analog.Install,Monitor\GSM7547
+%L3700T_Digital%=L3700T_Digital.Install,Monitor\GSM7548
+
+[L3700T_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L3700T_Analog.AddReg,1600,DPMS
+CopyFiles=L3700T_Analog.CopyFiles
+
+[L3700T_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L3700T_Digital.AddReg,1360,DPMS
+CopyFiles=L3700T_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[1360]
+HKR,,MaxResolution,,"1360,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L3700T_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1360,768,60"
+HKR,,ICMprofile,0,"LGL3700T.ICM"
+
+[L3700T_Digital.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30.0-72.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1360,768,60"
+HKR,,ICMprofile,0,"LGL3700T.ICM"
+
+[L3700T_Analog.CopyFiles]
+LGL3700T.ICM
+
+[L3700T_Digital.CopyFiles]
+LGL3700T.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L3700T_Analog="LG L3700T(Analog)"
+L3700T_Digital="LG L3700T(Digital)"                                                

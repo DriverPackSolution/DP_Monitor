@@ -1,0 +1,116 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ E2420HD.INF 05/12/09 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for E2420HD
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=E2420HD.cat
+	DriverVer=05/12/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	E2420HD D-SUB.CopyFiles=23
+        	E2420HD DVI.CopyFiles=23
+	E2420HD HDMI.CopyFiles=23
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	E2420HD D-SUB.icm=1
+        	E2420HD DVI.icm=1
+	E2420HD HDMI.icm=1
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ7916
+	ExcludeFromSelect.NT=Monitor\BNQ7917
+	ExcludeFromSelect.NT=Monitor\BNQ7917
+[BenQ]
+	%E2420HD D-SUB%=E2420HD D-SUB.Install, Monitor\BNQ7916
+	%E2420HD DVI%=E2420HD DVI.Install, Monitor\BNQ7917
+	%E2420HD HDMI%=E2420HD HDMI.Install, Monitor\BNQ7917
+[BenQ.NTx86]
+	%E2420HD D-SUB%=E2420HD D-SUB.Install, Monitor\BNQ7916
+	%E2420HD DVI%=E2420HD DVI.Install, Monitor\BNQ7917
+	%E2420HD HDMI%=E2420HD HDMI.Install, Monitor\BNQ7917
+
+[BenQ.NTAMD64]
+	%E2420HD D-SUB%=E2420HD D-SUB.Install, Monitor\BNQ7916
+	%E2420HD DVI%=E2420HD DVI.Install, Monitor\BNQ7917
+	%E2420HD HDMI%=E2420HD HDMI.Install, Monitor\BNQ7917
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[E2420HD D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=E2420HD D-SUB.AddReg, 1920, DPMS
+	CopyFiles=E2420HD D-SUB.CopyFiles
+
+[E2420HD DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=E2420HD DVI.AddReg, 1920, DPMS
+	CopyFiles=E2420HD DVI.CopyFiles
+
+[E2420HD HDMI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=E2420HD HDMI.AddReg, 1920, DPMS
+	CopyFiles=E2420HD HDMI.CopyFiles
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1920]
+	HKR,,MaxResolution,,"1920,1080"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[E2420HD D-SUB.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"E2420HD D-SUB.icm"
+
+[E2420HD DVI.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"E2420HD DVI.icm"
+
+[E2420HD HDMI.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"E2420HD HDMI.icm"
+
+[E2420HD D-SUB.CopyFiles]	
+	E2420HD D-SUB.icm
+
+[E2420HD DVI.CopyFiles]	
+	E2420HD DVI.icm
+
+[E2420HD HDMI.CopyFiles]	
+	E2420HD HDMI.icm
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	E2420HD D-SUB="BenQ E2420HD D-SUB"
+        	E2420HD DVI="BenQ E2420HD DVI"
+   	E2420HD HDMI="BenQ E2420HD HDMI"

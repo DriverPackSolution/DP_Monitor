@@ -1,0 +1,98 @@
+;================================ 
+; PL2008HD.INF 01/12/11 Ver. 1.0 
+; INF File for Windows 7/Vista/XP/Me/9x/2000
+; Copyright (c) 2011, iiyama Corporation
+;================================
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+CatalogFile=PL2008HD.cat
+DriverVer=01/12/2011,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM539E
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+539E.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+PL2008HD.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%iiyama%=iiyama, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama]
+%539E%=539E.Install, Monitor\IVM539E
+
+[iiyama.NTx86]
+%539E%=539E.Install, Monitor\IVM539E
+
+[iiyama.NTia64]
+%539E%=539E.Install, Monitor\IVM539E
+
+[iiyama.NTamd64]
+%539E%=539E.Install, Monitor\IVM539E
+
+; Install sections
+;-------------------------------------------------
+[539E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=539E.AddReg,1600,DPMS
+CopyFiles=539E.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[539E.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2008HD.icm"
+
+;-------------------------------------------------------------------
+[539E.CopyFiles]
+PL2008HD.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama"
+DiskName="iiyama Monitor Setup Disk"
+
+539E="iiyama PL2008HD"  

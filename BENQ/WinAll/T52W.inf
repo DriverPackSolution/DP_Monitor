@@ -1,0 +1,100 @@
+;========================================== 
+; BenQ_T52W.INF 2007/12/25 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2007, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=T52W.cat
+DriverVer=12/25/2007,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ771F
+
+[DestinationDirs]
+DefaultDestDir  = 11
+T52W_Analog.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+T52W.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%T52W_Analog%=T52W_Analog.Install, Monitor\BNQ771F
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%T52W_Analog%=T52W_Analog.Install, Monitor\BNQ771F
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%T52W_Analog%=T52W_Analog.Install, Monitor\BNQ771F
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[T52W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T52W_Analog.AddReg, 1280, DPMS
+CopyFiles=T52W_Analog.CopyFiles
+
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,720"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[T52W_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31.0-64.0,59.0-75.0,+,+"
+HKR,"MODES\720,400",Mode1,,"31.0-64.0,59.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.0-64.0,59.0-75.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-64.0,59.0-75.0,+,+"
+HKR,"MODES\1280,720",Mode1,,"31.0-64.0,59.0-75.0,+,+"
+
+
+
+HKR,,ICMProfile,0,"T52WDSUB.icm"
+
+
+[T52W_Analog.CopyFiles]
+T52W.icm
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+T52W_Analog="BenQ T52W"

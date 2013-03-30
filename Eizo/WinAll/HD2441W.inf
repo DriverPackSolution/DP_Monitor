@@ -1,0 +1,111 @@
+; [HD2441W.INF]
+; Revision 1.10
+; Copyright(c) 2007 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=HD2441W.cat
+DriverVer=04/20/2007,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1904
+ExcludeFromSelect.nt = Monitor\ENC1903
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+HD2441W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HD2441D6.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%HD2441WD%=HD2441WD.Install, Monitor\ENC1904
+%HD2441W%=HD2441W.Install, Monitor\ENC1903
+
+[EIZONANAO.NTamd64]
+%HD2441WD%=HD2441WD.Installamd64, Monitor\ENC1904
+%HD2441W%=HD2441W.Installamd64, Monitor\ENC1903
+
+[EIZONANAO.NTia64]
+%HD2441WD%=HD2441WD.Installia64, Monitor\ENC1904
+%HD2441W%=HD2441W.Installia64, Monitor\ENC1903
+
+[HD2441WD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2441WD.AddReg, 1920, DPMS
+CopyFiles=HD2441W.CopyFiles
+
+[HD2441W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2441W.AddReg, 1920, DPMS
+CopyFiles=HD2441W.CopyFiles
+
+[HD2441WD.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2441WD.AddReg, 1920, DPMS
+CopyFiles=HD2441W.CopyFiles
+
+[HD2441W.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2441W.AddReg, 1920, DPMS
+CopyFiles=HD2441W.CopyFiles
+
+[HD2441WD.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2441WD.AddReg, 1920, DPMS
+CopyFiles=HD2441W.CopyFiles
+
+[HD2441W.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=HD2441W.AddReg, 1920, DPMS
+CopyFiles=HD2441W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HD2441WD.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-76.0,59.0-61.0,+,-"
+HKR,,ICMProfile,0,"HD2441D6.icm"
+
+[HD2441W.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-80.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"HD2441D6.icm"
+
+[HD2441W.CopyFiles]
+HD2441D6.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+HD2441WD="HD2441W Digital"
+HD2441W="HD2441W Analog"

@@ -1,0 +1,99 @@
+;=====================================================
+;
+;   L193pC.inf         Ver. 1.0      08/15/2007
+;
+;   Copyright (C) 1995-2007 Lenovo Inc. 
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Lenovo Color Monitor.
+; 
+;=====================================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Lenovo%
+CatalogFile=L193pC.cat   
+DriverVer=08/15/2007, 1.0  
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L193pC_Analog.copyfiles=23
+L193pC_Digital.copyfiles=23
+
+[SourceDisksNames]
+1="Lenovo Monitor installtion disk",,,
+
+[SourceDisksFiles]
+L193pC.ICM=1
+
+[Manufacturer]
+%Lenovo%=Lenovo,NTx86,NTAMD64
+
+[Lenovo]
+%L193pC_Analog%=L193pC_Analog.Install, Monitor\LEN114F
+%L193pC_Digital%=L193pC_Digital.Install, Monitor\LEN114F
+
+[Lenovo.NTx86]
+%L193pC_Analog%=L193pC_Analog.Install, Monitor\LEN114F
+%L193pC_Digital%=L193pC_Digital.Install, Monitor\LEN114F
+
+[Lenovo.NTAMD64] 
+%L193pC_Analog%=L193pC_Analog.Install, Monitor\LEN114F
+%L193pC_Digital%=L193pC_Digital.Install, Monitor\LEN114F
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\LEN114F
+
+[L193pC_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L193pC_Analog.AddReg, 1280 ,DPMS
+Copyfiles=L193pC_Analog.CopyFiles
+
+[L193pC_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L193pC_Digital.AddReg, 1280 ,DPMS
+Copyfiles=L193pC_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L193pC_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"L193pC.icm"
+
+[L193pC_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMProfile,0,"L193pC.icm"
+
+[L193pC_Analog.CopyFiles]
+L193pC.icm
+
+[L193pC_Digital.CopyFiles]
+L193pC.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Lenovo="Lenovo Inc."
+L193pC_Analog="Lenovo L193pC (Analog)"
+L193pC_Digital="Lenovo L193pC (Digital)"
+DISK="Lenovo Inc. Monitor L193pC Installation Disk"

@@ -1,0 +1,77 @@
+;================================ 
+;FP783.INF 12/19/03 Ver. 1.0 
+;; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2003, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=FP783.cat
+DriverVer=12/19/2003,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP783.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP783.icm=1
+
+[Manufacturer]
+%BenQ%=BenQ
+
+[BenQ]
+%FP783%=FP783.Install, Monitor\BNQ7667
+%FP783%=FP783.Install, Monitor\BNQ7668
+
+[FP783.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP783.AddReg, 1280, DPMS
+CopyFiles=FP783.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP783.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP783.icm"
+
+[FP783.CopyFiles]
+FP783.ICM
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7667
+ExcludeFromSelect.NT=Monitor\BNQ7668
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BenQ flat panel Monitor installation diskette"
+FP783="BenQ FP783"
+BenQ="BenQ"

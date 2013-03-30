@@ -1,0 +1,72 @@
+;PLE430S_431S.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH ProLite E430S/E431S/H431S
+;Copyright 2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE431S.cat      
+DriverVer=4/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46D6
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE431S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE431S.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE431S%=PLE431S.Install, Monitor\IVM46D6
+
+[PLE431S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE431S.AddReg, 1280, DPMS
+CopyFiles=PLE431S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE431S.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE431S_3.ICM"
+
+[PLE431S.CopyFiles]
+PLE431S_3.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE431S="iiyama ProLite E430S/E431S/H431S"

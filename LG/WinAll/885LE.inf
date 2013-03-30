@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [885LE.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=885LE.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FLATRONLCD885LE.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+885LE.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%FLATRONLCD885LE%=FLATRONLCD885LE, Monitor\GSM4655
+
+[LG.NTamd64]
+%FLATRONLCD885LE%=FLATRONLCD885LE, Monitor\GSM4655
+
+;------------------------------------; .Install
+
+[FLATRONLCD885LE] 
+AddReg=FLATRONLCD885LE.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRONLCD885LE.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[FLATRONLCD885LE.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"885LE.ICM"
+
+;------------------------------------; .CopyFiles
+
+[FLATRONLCD885LE.CopyFiles]  
+885LE.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4655
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+FLATRONLCD885LE="LG 885LE"

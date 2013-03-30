@@ -1,0 +1,65 @@
+;===============================================================
+; [M2262DP.inf]
+; Revision 1.0   July-13-2010
+; Copyright(c)1998~2010 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M2262DP.cat
+DriverVer=07/13/2010,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM5803
+
+[DestinationDirs]
+DefaultDestDir = 11
+M2262DP_Analog.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M2262DP.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M2262DP_Analog%=M2262DP_Analog.Install,Monitor\GSM5803
+
+[LG.NTamd64]
+%M2262DP_Analog%=M2262DP_Analog.Install,Monitor\GSM5803
+
+[M2262DP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2262DP_Analog.AddReg,1920,DPMS
+CopyFiles=M2262DP_Analog.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M2262DP_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"M2262DP.ICM"
+
+[M2262DP_Analog.CopyFiles]
+M2262DP.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M2262DP_Analog="LG M2262DP"

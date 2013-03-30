@@ -1,0 +1,119 @@
+;================================ 
+;BenQFP241W.INF 08/30/06 Ver. 2.0 
+;; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2006, BENQ Corporation
+;================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=FP241W.cat
+DriverVer=08/30/2006,2.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ76DA
+ExcludeFromSelect.NT=Monitor\BNQ76DB
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP241W_Analog.copyfiles = 23
+FP241W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+BenQFP241W.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%FP241W_Analog%=FP241W_Analog.Install, Monitor\BNQ76DA
+%FP241W_Digital%=FP241W_Digital.Install, Monitor\BNQ76DB
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%FP241W_Analog%=FP241W_Analog.Install, Monitor\BNQ76DA
+%FP241W_Digital%=FP241W_Digital.Install, Monitor\BNQ76DB
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FP241W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP241W_Analog.AddReg, 1920, DPMS
+CopyFiles=FP241W_Analog.CopyFiles
+
+[FP241W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP241W_Digital.AddReg, 1920, DPMS
+CopyFiles=FP241W_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[FP241W_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"BenQFP241W.icm"
+
+[FP241W_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\1024,768",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"BenQFP241W.icm"
+
+
+
+[FP241W_Analog.CopyFiles]
+BenQFP241W.ICM
+
+[FP241W_Digital.CopyFiles]
+BenQFP241W.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+FP241W_Analog="BenQ FP241W (Analog)"
+FP241W_Digital="BenQ FP241W (Digital)"
+

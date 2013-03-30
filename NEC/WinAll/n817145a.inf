@@ -1,0 +1,68 @@
+; n817145a.inf
+; Setup information file for NEC LCD Monitor N8171-45A
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n817145a.cat
+DriverVer=12/25/2006,1.06.1225.1645
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66F4
+
+[DestinationDirs]
+DefaultDestDir = 11
+N8171-45A.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n817145a.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%N8171-45A%=N8171-45A.Install, Monitor\NEC66F4
+
+[NECDS.ntamd64]
+%N8171-45A%=N8171-45A.Install.ntamd64,Monitor\NEC66F4
+
+[N8171-45A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=N8171-45A.AddReg, 1024, DPMS
+CopyFiles=N8171-45A.CopyFiles
+
+[N8171-45A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=N8171-45A.AddReg, 1024, DPMS
+CopyFiles=N8171-45A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,1024,768
+
+[DPMS]
+HKR,,DPMS,,1
+
+[N8171-45A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n817145a.icm"
+
+[N8171-45A.CopyFiles]
+n817145a.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+N8171-45A="NEC N8171-45A"

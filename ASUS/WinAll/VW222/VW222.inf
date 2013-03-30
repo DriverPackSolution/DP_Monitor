@@ -1,0 +1,144 @@
+;================================ 
+; ASUS_VW202.INF 03/09/07 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2007, ASUS Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ASUS%
+catalogfile=VW222.cat
+DriverVer=03/09/2007,1.0
+
+
+
+[ClassInstall32]
+
+AddReg=ClassAddReg32
+
+ 
+
+[ClassAddReg32]
+
+HKR,,,,%MonitorClassName%
+
+HKR,,Icon,,"-1"
+
+HKR,,NoInstallClass,,1
+
+
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACI22A2
+ExcludeFromSelect.NT=Monitor\ACI22A2
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+VW222_Analog.copyfiles = 23
+VW222_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VW222.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%ASUS%=ASUS,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[ASUS] 
+%VW222_Analog%=VW222_Analog.Install, Monitor\ACI22A2
+%VW222_Digital%=VW222_Digital.Install, Monitor\ACI22A2
+
+;-------------------------------------------------
+ [ASUS.NTx86] 
+%VW222_Analog%=VW222_Analog.Install, Monitor\ACI22A2
+%VW222_Digital%=VW222_Digital.Install, Monitor\ACI22A2
+
+;-------------------------------------------------
+ [ASUS.NTAMD64] 
+%VW222_Analog%=VW222_Analog.Install, Monitor\ACI22A2
+%VW222_Digital%=VW222_Digital.Install, Monitor\ACI22A2
+
+
+; Install Sections
+;-------------------------------------------------
+
+[VW222_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VW222_Analog.AddReg, 1680, DPMS
+CopyFiles=VW222_Analog.CopyFiles
+
+[VW222_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VW222_Digital.AddReg, 1680, DPMS
+CopyFiles=VW222_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[VW222_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"VW222.icm"
+
+[VW222_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"VW222.icm"
+
+
+
+[VW222_Analog.CopyFiles]
+VW222.ICM
+
+[VW222_Digital.CopyFiles]
+VW222.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+ASUS="ASUS"
+diskname="ASUS LCD Monitor installation diskette"
+VW222_Analog="ASUS VW222 (Analog)"
+VW222_Digital="ASUS VW222 (Digital)"
+

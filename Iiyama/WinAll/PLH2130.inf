@@ -1,0 +1,68 @@
+;PLH2130.INF Ver. 1.00
+;Monitor INF file for IIYAMA Technical No2 Dept. Monitor PLH2130
+;Copyright 2001-2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLH2130.cat      
+DriverVer=05/10/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM5361
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLH2130.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLH2130.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLH2130%=PLH2130.Install, Monitor\IVM5361
+[PLH2130.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLH2130.AddReg, 1600, DPMS
+CopyFiles=PLH2130.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLH2130.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24-82,50-85,+,+"
+HKR,,ICMProfile,0,"PLH2130.ICM"
+
+[PLH2130.CopyFiles]
+PLH2130.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLH2130="IIYAMA ProLiteH2130"

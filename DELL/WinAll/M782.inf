@@ -1,0 +1,89 @@
+
+;================================ 
+;M782.INF 08/02/01 Ver. 1.0 JUV
+;Copyright 1996-2001 Dell Computer Corporation
+;
+;This is a setupfile for M782 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=M782.cat
+DriverVer=08/02/2001, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL3008
+
+[DestinationDirs]
+DefaultDestDir=11
+M782.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+M782.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%M782%=M782.Install, Monitor\DEL3008
+
+; Install Sections
+;-------------------------------------------------
+
+[M782.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=M782.AddReg, 1280, DPMS
+CopyFiles=M782.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[M782.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"M782.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[M782.CopyFiles]
+M782.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+M782="Dell M782"

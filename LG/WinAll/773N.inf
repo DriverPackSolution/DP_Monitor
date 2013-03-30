@@ -1,0 +1,64 @@
+;=============================================================== 
+; [773N.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=773N.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM42ED
+
+[DestinationDirs]
+DefaultDestDir=11
+773N.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG773N.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%773N%=773N.Install,Monitor\GSM42ED
+
+[LG.NTamd64]
+%773N%=773N.Install,Monitor\GSM42ED
+
+[773N.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=773N.AddReg,1280,DPMS
+CopyFiles=773N.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[773N.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LG773N.ICM"
+
+[773N.CopyFiles]
+LG773N.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+773N="LG 773N"

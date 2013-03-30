@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=G71f+.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/16/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS24085-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+G71f_p.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS24085-1%=VCDTS24085-1.Install,Monitor\VSCAC09             ;G71f+
+
+[VCDTS24085-1.Install]                                          ;G71f+
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS24085-1.AddReg,1280,DPMS
+Copyfiles=VCDTS24085-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS24085-1.AddReg]                                           ;G71f+
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-180,+,+"
+HKR,,ICMProfile,0,"G71f_p.ICM"
+
+[VCDTS24085-1.CopyFiles]                                       
+G71f_p.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS24085-1="ViewSonic G71f+"

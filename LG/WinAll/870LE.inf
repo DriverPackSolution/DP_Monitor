@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [870LE.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=870LE.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FLATRONLCD870LE.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG870LE.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%FLATRONLCD870LE%=FLATRONLCD870LE, Monitor\GSM4657
+
+[LG.NTamd64]
+%FLATRONLCD870LE%=FLATRONLCD870LE, Monitor\GSM4657
+
+;------------------------------------; .Install
+
+[FLATRONLCD870LE] 
+AddReg=FLATRONLCD870LE.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRONLCD870LE.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[FLATRONLCD870LE.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"LG870LE.ICM"
+
+;------------------------------------; .CopyFiles
+
+[FLATRONLCD870LE.CopyFiles]  
+LG870LE.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4657
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+FLATRONLCD870LE="LG 870LE"

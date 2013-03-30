@@ -1,0 +1,77 @@
+; IBM_6517, OCTOBER-26-2001
+
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%IBM%
+CatalogFile=IBM_6517.cat
+DriverVer=10/26/2001,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_6517.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+IBM_6517.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_6517%=IBM_6517, Monitor\IBM1975
+
+;------------------------------------; .Install
+[IBM_6517]
+AddReg=IBM_6517.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=IBM_6517.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+[IBM_6517.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"IBM_6517.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[IBM_6517.CopyFiles]
+IBM_6517.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM1975
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+IBM="IBM"
+IBM_6517="IBM 6517 E74M"

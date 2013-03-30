@@ -1,0 +1,90 @@
+;-------------------------------------------
+; Copyright (c) 2009 Dell Corporation
+; Issue date -- 05/18/2009
+; Revise date -- 05/18/2009
+; revision 1.0
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=G2410.cat
+DriverVer=05/18/2009,1.0
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G2410_Analog.copyfiles = 23
+G2410_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G2410_VGA.icm=1
+G2410_DVI.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%G2410_Analog%=G2410_Analog.Install, Monitor\DEL404A
+%G2410_Digital%=G2410_Digital.Install, Monitor\DEL404B
+
+[DELL.NTx86]
+%G2410_Analog%=G2410_Analog.Install, Monitor\DEL404A
+%G2410_Digital%=G2410_Digital.Install, Monitor\DEL404B
+
+[DELL.NTAMD64]
+%G2410_Analog%=G2410_Analog.Install, Monitor\DEL404A
+%G2410_Digital%=G2410_Digital.Install, Monitor\DEL404B
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL404A
+ExcludeFromSelect.NT=Monitor\DEL404B
+
+[G2410_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2410_Analog.AddReg, 1920, DPMS
+CopyFiles=G2410_Analog.CopyFiles
+
+[G2410_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2410_Digital.AddReg, 1920, DPMS
+CopyFiles=G2410_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[G2410_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-76.0,+,-"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMProfile,0,"G2410_VGA.icm"
+
+[G2410_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-76.0,+,-"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMProfile,0,"G2410_DVI.icm"
+
+[G2410_Analog.CopyFiles]
+G2410_VGA.ICM
+
+[G2410_Digital.CopyFiles]
+G2410_DVI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+diskname="Dell Monitor installtion disk"
+G2410_Analog="Dell G2410 (Analog)"
+G2410_Digital="Dell G2410 (Digital)"
+

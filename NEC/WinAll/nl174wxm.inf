@@ -1,0 +1,68 @@
+; nl174wxm.inf
+; Setup information file for NEC LCD174WXM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl174wxm.cat
+DriverVer=10/15/2007,1.07.1015.1130
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6730
+
+[DestinationDirs]
+LCD174WXM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl174wxm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD174WXM%=LCD174WXM.Install, Monitor\NEC6730
+
+[NECDS.ntamd64]
+%LCD174WXM%=LCD174WXM.Install.ntamd64, Monitor\NEC6730
+
+[LCD174WXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD174WXM.AddReg, 1440, DPMS
+CopyFiles=LCD174WXM.CopyFiles
+
+[LCD174WXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD174WXM.AddReg, 1440, DPMS
+CopyFiles=LCD174WXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD174WXM.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"nl174wxm.icm"
+
+[LCD174WXM.CopyFiles]
+nl174wxm.icm
+
+[Strings]
+NECDS="NEC"
+LCD174WXM="NEC LCD174WXM"
+Disk1="NEC Monitor Installation Disk"

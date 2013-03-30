@@ -1,0 +1,66 @@
+; EIZO.INF
+;
+; Copyright(c) 1999-2000 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=EIZO.cat
+DriverVer=02/28/2000,
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+L661.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L661__M1.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L661%=L661.Install, Monitor\ENC1606
+
+[L661.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L661.AddReg, 1280, DPMS
+CopyFiles=L661.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L661.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L661__M1.ICM"
+
+[L661.CopyFiles]
+L661__M1.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+L661="L661"
+Disk1="EIZO LCD Utility Disk"

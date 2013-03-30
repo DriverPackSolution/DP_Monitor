@@ -1,0 +1,99 @@
+;-------------------------------------------
+; Copyright 1999-2008 Dell Inc.
+; Issue date -- 04/16/2008
+; Revise date -- 04/16/2008
+; revision 1.0.0.0
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E2009W.cat
+DriverVer=04/16/2008,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+E2009W_Analog.copyfiles = 23
+E2009W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+E2009W_VGA.ICM=1
+E2009W_DVI.ICM=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%E2009W_Analog%=E2009W_Analog.Install, Monitor\DEL4043
+%E2009W_Digital%=E2009W_Digital.Install, Monitor\DEL4044
+
+[DELL.NTx86]
+%E2009W_Analog%=E2009W_Analog.Install, Monitor\DEL4043
+%E2009W_Digital%=E2009W_Digital.Install, Monitor\DEL4044
+
+[DELL.NTAMD64]
+%E2009W_Analog%=E2009W_Analog.Install, Monitor\DEL4043
+%E2009W_Digital%=E2009W_Digital.Install, Monitor\DEL4044
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL4043
+ExcludeFromSelect.NT=Monitor\DEL4044
+
+[E2009W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2009W_Analog.AddReg, 1680, DPMS
+CopyFiles=E2009W_Analog.CopyFiles
+
+[E2009W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2009W_Digital.AddReg, 1680, DPMS
+CopyFiles=E2009W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E2009W_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"E2009W_VGA.ICM"
+
+[E2009W_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"E2009W_DVI.ICM"
+
+[E2009W_Analog.CopyFiles]
+E2009W_VGA.ICM
+
+[E2009W_Digital.CopyFiles]
+E2009W_DVI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+diskname="Dell Monitor installtion disk"
+E2009W_Analog="Dell E2009W(Analog)"
+E2009W_Digital="Dell E2009W(Digital)"
+

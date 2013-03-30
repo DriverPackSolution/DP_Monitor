@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [575LC.INF]
+;
+;      Revision 1.1   November-07-2001
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=11/07/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+575LC.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG575LC.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%575LC%=575LC, Monitor\GSM3B44
+
+;------------------------------------; .Install
+
+[575LC] 
+AddReg=575LC.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=575LC.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[575LC.AddReg] 
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"LG575LC.ICM"
+
+;------------------------------------; .CopyFiles
+
+[575LC.CopyFiles]  
+LG575LC.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM3B44
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+575LC="FLATRON LCD 575LC"

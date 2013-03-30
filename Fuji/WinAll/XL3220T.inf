@@ -1,0 +1,99 @@
+;XL3220T.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display XL3220T
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=XL3220T.cat
+DriverVer=09/18/2009,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07B2
+ExcludeFromSelect.nt=Monitor\FUS07B3
+ExcludeFromSelect.nt=Monitor\FUS07B4
+
+[DestinationDirs]
+DefaultDestDir=11
+XL3220T.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+XL3220T.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%XL_3220Ta%=XL3220Ta.Install, Monitor\FUS07B2
+%XL_3220Th%=XL3220Th.Install, Monitor\FUS07B3
+%XL_3220Th%=XL3220Th.Install, Monitor\FUS07B4
+
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%XL_3220Ta%=XL3220Ta.Install, Monitor\FUS07B2
+%XL_3220Th%=XL3220Th.Install, Monitor\FUS07B3
+%XL_3220Th%=XL3220Th.Install, Monitor\FUS07B4
+
+; Install Sections
+;-------------------------------------------------
+
+[XL3220Ta.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=XL3220Ta.AddReg, 1920, DPMS
+CopyFiles=XL3220T.CopyFiles
+
+[XL3220Th.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=XL3220Th.AddReg, 1920, DPMS
+CopyFiles=XL3220T.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[XL3220Ta.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-82.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"XL3220T.icm"
+
+[XL3220Th.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"15.0-82.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"XL3220T.icm"
+
+;---------------------------------------------------------- 
+
+[XL3220T.CopyFiles]
+XL3220T.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD XL3220T"
+FTS.Mfg="Fujitsu Technology Solutions"	
+XL_3220Ta="FUJITSU XL3220T"
+XL_3220Th="FUJITSU XL3220T"

@@ -1,0 +1,68 @@
+; NL222WG.inf
+; Setup information file for NEC LCD222WG Monitor
+;
+; Copyright 2010, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL222WG.cat
+DriverVer=03/24/2010,1.07.0707.0127
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67EE
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD222WG.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL222WG.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD222WG%=LCD222WG.Install, Monitor\NEC67EE
+
+[NECDS.ntamd64]
+%LCD222WG%=LCD222WG.Install.ntamd64, Monitor\NEC67EE
+
+[LCD222WG.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD222WG.AddReg, 1680, DPMS
+CopyFiles=LCD222WG.CopyFiles
+
+[LCD222WG.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD222WG.AddReg, 1680, DPMS
+CopyFiles=LCD222WG.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,1680,1050
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD222WG.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,55.0-75.0,+,-"
+HKR,,ICMProfile,0,"NL222WG.icm"
+
+[LCD222WG.CopyFiles]
+NL222WG.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD222WG="NEC LCD222WG"

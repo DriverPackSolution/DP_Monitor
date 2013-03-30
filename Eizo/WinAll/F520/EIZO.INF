@@ -1,0 +1,79 @@
+; EIZO.INF
+;
+; Copyright 1999, EIZO NANAO CORPORATION
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=EIZO.cat
+DriverVer=07/09/1999, 
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+F520.CopyFiles = 23
+
+[SourceDisksNames]
+1="EIZO CRT Utility Disk",,1
+
+[SourceDisksFiles]
+F520__65.ICM=1
+F520__93.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%F520%=F520.Install, Monitor\ENC1602
+
+[F520.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F520.AddReg, 1280, DPMS
+CopyFiles=F520.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+
+[800]
+HKR,,MaxResolution,,"800,600"
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F520.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F520__93.ICM"
+
+[F520.CopyFiles]
+F520__93.ICM
+F520__65.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+F520="F520"

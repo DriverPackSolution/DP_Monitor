@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2001, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA550.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=11/28/2001,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VLCDS21457-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA550.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS21457-3%=VLCDS21457-3.Install,Monitor\VSCFA02                ;VA550
+
+[VLCDS21457-3.Install]                                             ;VA550
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21457-3.AddReg,1024,DPMS
+Copyfiles=VLCDS21457-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS21457-3.AddReg]                                              ;VA550
+HKR,"MODES\1024,768",Mode1,,"30-62,50-60,+,+"
+HKR,,ICMProfile,0,"VA550.ICM"
+
+[VLCDS21457-3.CopyFiles]                                       
+VA550.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS21457-3="ViewSonic VA550"

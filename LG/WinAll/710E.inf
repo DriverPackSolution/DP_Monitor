@@ -1,0 +1,64 @@
+;=============================================================== 
+; [710E.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=710E.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM437C
+
+[DestinationDirs]
+DefaultDestDir = 11
+710E.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG710E.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%710E%=710E.Install,Monitor\GSM437C
+
+[LG.NTamd64]
+%710E%=710E.Install,Monitor\GSM437C
+
+[710E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=710E.AddReg,1920,DPMS
+CopyFiles=710E.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[710E.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LG710E.ICM"
+
+[710E.CopyFiles]
+LG710E.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+710E="LG 710E"

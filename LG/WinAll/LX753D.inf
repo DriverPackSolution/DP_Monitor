@@ -1,0 +1,83 @@
+;=============================================================== 
+; [LX753D.INF] 
+; Revision 1.3   November-14-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX753D.cat
+DriverVer=11/14/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM446A
+ExcludeFromSelect.NT=Monitor\GSM446B
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX753D_Analog.CopyFiles = 23
+LX753D_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX753D.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX753D_Analog%=LX753D_Analog.Install,Monitor\GSM446A
+%LX753D_Digital%=LX753D_Digital.Install,Monitor\GSM446B
+
+[LG.NTamd64]
+%LX753D_Analog%=LX753D_Analog.Install,Monitor\GSM446A
+%LX753D_Digital%=LX753D_Digital.Install,Monitor\GSM446B
+
+[LX753D_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX753D_Analog.AddReg,1280,DPMS
+CopyFiles=LX753D_Analog.CopyFiles
+
+[LX753D_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX753D_Digital.AddReg,1280,DPMS
+CopyFiles=LX753D_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX753D_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX753D.ICM"
+
+[LX753D_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX753D.ICM"
+
+[LX753D_Analog.CopyFiles]
+LX753D.ICM
+
+[LX753D_Digital.CopyFiles]
+LX753D.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX753D_Analog="LG LX753D(Analog)"
+LX753D_Digital="LG LX753D(Digital)"

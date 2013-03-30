@@ -1,0 +1,114 @@
+;B20T_6.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display B20T-6 LED
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=B20T_6.cat
+DriverVer=05/09/2011,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0805
+ExcludeFromSelect.nt=Monitor\FUS0806
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSB20T_6a.CopyFiles=23
+FTSB20T_6d.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+B20T_6.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS_Mfg] 
+%B20T_6a%=FTSB20T_6a.Install, Monitor\FUS0805
+%B20T_6d%=FTSB20T_6d.Install, Monitor\FUS0806
+
+
+;-------------------------------------------------
+[FTS_Mfg.NTx86]
+%B20T_6a%=FTSB20T_6a.Install, Monitor\FUS0805
+%B20T_6d%=FTSB20T_6d.Install, Monitor\FUS0806
+
+
+;-------------------------------------------------
+ [FTS_Mfg.NTAMD64] 
+%B20T_6a%=FTSB20T_6a.Install, Monitor\FUS0805
+%B20T_6d%=FTSB20T_6d.Install, Monitor\FUS0806
+
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSB20T_6a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB20T_6a.AddReg, 1600, DPMS
+CopyFiles=FTSB20T_6a.CopyFiles
+
+[FTSB20T_6d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB20T_6d.AddReg, 1600, DPMS
+CopyFiles=FTSB20T_6d.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSB20T_6a.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-82.0,59.0-75.0,+,+"
+HKR,,ICMProfile,0,"B20T_6.icm"
+
+[FTSB20T_6d.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-82.0,23.0-75.0,+,+"
+HKR,,ICMProfile,0,"B20T_6.icm"
+
+;---------------------------------------------------------- 
+
+[FTSB20T_6a.CopyFiles]
+B20T_6.icm
+
+[FTSB20T_6d.CopyFiles]
+B20T_6.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD B20T-6 LED"
+FTS_Mfg="Fujitsu Technology Solutions"	
+B20T_6a="Fujitsu B20T-6 LED (analog)"
+B20T_6d="Fujitsu B20T-6 LED (digital)"
+
+

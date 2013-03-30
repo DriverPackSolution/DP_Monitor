@@ -1,0 +1,88 @@
+; nf23w2a.inf
+; Setup information file for NEC F23W2A Monitor
+;
+; Copyright (C) 2010, NEC Display Solutions,Ltd
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nf23w2a.cat
+DriverVer=04/07/2010,1.10.0407.2009
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67EF
+ExcludeFromSelect.nt=Monitor\NEC67F0
+
+[DestinationDirs]
+F23W2A.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nf23w2a.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%F23W2A-D%=F23W2A-D.Install, Monitor\NEC67EF
+%F23W2A-H%=F23W2A-H.Install, Monitor\NEC67F0
+
+[NECDS.ntamd64]
+%F23W2A-D%=F23W2A-D.Install.ntamd64, Monitor\NEC67EF
+%F23W2A-H%=F23W2A-H.Install.ntamd64, Monitor\NEC67F0
+
+[F23W2A-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W2A-D.AddReg, 1920, DPMS
+CopyFiles=F23W2A.CopyFiles
+
+[F23W2A-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W2A-H.AddReg, 1920, DPMS
+CopyFiles=F23W2A.CopyFiles
+
+[F23W2A-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W2A-D.AddReg, 1920, DPMS
+CopyFiles=F23W2A.CopyFiles
+
+[F23W2A-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=F23W2A-H.AddReg, 1920, DPMS
+CopyFiles=F23W2A.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F23W2A-D.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-140.0,55.0-122.0,+,-"
+HKR,,ICMProfile,0,"nf23w2a.icm"
+
+[F23W2A-H.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"nf23w2a.icm"
+
+
+[F23W2A.CopyFiles]
+nf23w2a.icm
+
+[Strings]
+NECDS="NEC"
+F23W2A-D="NEC F23W2A(Digital)"
+F23W2A-H="NEC F23W2A(HDMI)"
+Disk1="NEC Monitor Installation Disk"

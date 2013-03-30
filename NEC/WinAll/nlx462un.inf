@@ -1,0 +1,136 @@
+; nlx462un.inf
+; Setup information file for NEC MultiSync X462UN Monitor
+;
+; Copyright (C) 2011, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlx462un.cat
+DriverVer=03/09/2011, 1.11.0309.1856
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6801
+ExcludeFromSelect.nt=Monitor\NEC6802
+ExcludeFromSelect.nt=Monitor\NEC6803
+ExcludeFromSelect.nt=Monitor\NEC6804
+
+[DestinationDirs]
+X462UN.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlx462un.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%X462UN-A%=X462UN-A.Install, Monitor\NEC6801
+%X462UN-D%=X462UN-D.Install, Monitor\NEC6802
+%X462UN-H%=X462UN-H.Install, Monitor\NEC6803
+%X462UN-P%=X462UN-P.Install, Monitor\NEC6804
+
+[NECDS.ntamd64]
+%X462UN-A%=X462UN-A.Install.ntamd64, Monitor\NEC6801
+%X462UN-D%=X462UN-D.Install.ntamd64, Monitor\NEC6802
+%X462UN-H%=X462UN-H.Install.ntamd64, Monitor\NEC6803
+%X462UN-P%=X462UN-P.Install.ntamd64, Monitor\NEC6804
+
+; Install Sections
+;-------------------------------------------------
+[X462UN-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X462UN-A.AddReg, 1920, DPMS
+CopyFiles=X462UN.CopyFiles
+
+[X462UN-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X462UN-D.AddReg, 1920, DPMS
+CopyFiles=X462UN.CopyFiles
+
+[X462UN-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X462UN-H.AddReg, 1920, DPMS
+CopyFiles=X462UN.CopyFiles
+
+[X462UN-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X462UN-P.AddReg, 1920, DPMS
+CopyFiles=X462UN.CopyFiles
+
+[X462UN-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X462UN-A.AddReg, 1920, DPMS
+CopyFiles=X462UN.CopyFiles
+
+[X462UN-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X462UN-D.AddReg, 1920, DPMS
+CopyFiles=X462UN.CopyFiles
+
+[X462UN-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X462UN-H.AddReg, 1920, DPMS
+CopyFiles=X462UN.CopyFiles
+
+[X462UN-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X462UN-P.AddReg, 1920, DPMS
+CopyFiles=X462UN.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[X462UN-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx462un.icm"
+
+[X462UN-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx462un.icm"
+
+[X462UN-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx462un.icm"
+
+[X462UN-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx462un.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[X462UN.CopyFiles]
+nlx462un.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+X462UN-A="NEC MultiSync X462UN(Analog)"
+X462UN-D="NEC MultiSync X462UN(Digital)"
+X462UN-H="NEC MultiSync X462UN(HDMI)"
+X462UN-P="NEC MultiSync X462UN(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

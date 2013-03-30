@@ -1,0 +1,100 @@
+;=====================================================
+;
+;    AL1917.inf         Ver. 1.0      11/02/2006
+;
+;   Copyright 2006 Acer International Electronic AG 
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Acer Color Monitor.
+; 
+;=====================================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=AL1917.cat   
+DriverVer=08/21/2006, 2.0  
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AL1917_Analog.copyfiles=23
+AL1917_Digital.copyfiles=23
+
+[SourceDisksNames]
+1="Acer Monitor installtion disk",,,
+
+[SourceDisksFiles]
+AL1917.ICM=1
+
+[Manufacturer]
+%Acer%=Acer,NTx86,NTAMD64
+
+[Acer]
+%AL1917_Analog%=AL1917_Analog.Install, Monitor\ACR57AD
+%AL1917_Digital%=AL1917_Digital.Install, Monitor\ACR57AD
+
+[Acer.NTx86]
+%AL1917_Analog%=AL1917_Analog.Install, Monitor\ACR57AD
+%AL1917_Digital%=AL1917_Digital.Install, Monitor\ACR57AD
+
+[Acer.NTAMD64] 
+%AL1917_Analog%=AL1917_Analog.Install, Monitor\ACR57AD
+%AL1917_Digital%=AL1917_Digital.Install, Monitor\ACR57AD
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACR57AD
+
+[AL1917_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL1917_Analog.AddReg, 1280 ,DPMS
+Copyfiles=AL1917_Analog.CopyFiles
+
+[AL1917_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL1917_Digital.AddReg, 1280 ,DPMS
+Copyfiles=AL1917_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL1917_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"AL1917.icm"
+
+[AL1917_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"AL1917.icm"
+
+[AL1917_Analog.CopyFiles]
+AL1917.icm
+
+[AL1917_Digital.CopyFiles]
+AL1917.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer Inc."
+
+AL1917_Analog="Acer AL1917"
+AL1917_Digital="Acer AL1917 (Digital)"
+
+DISK="Acer Inc. Monitor AL1917 Installation Disk"

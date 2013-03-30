@@ -1,0 +1,67 @@
+; Copyright (c) 2000 IBM Corporation
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_6634.cat
+DriverVer=08/01/2000,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+IBM_6634.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+IBM_6634.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_6634%=IBM_6634.Install, Monitor\IBM19EA
+
+[IBM_6634.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_6634.AddReg, 1600, DPMS
+CopyFiles=IBM_6634.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_6634.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"IBM_6634.icm"
+
+
+[IBM_6634.CopyFiles]
+IBM_6634.ICM
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM19EA
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="IBM Monitor installtion disk"
+IBM_6634="IBM 6634 E94"
+IBM="IBM"

@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1511S.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1511S.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3B59
+
+[DestinationDirs]
+DefaultDestDir=11
+L1511S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL1511S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1511S%=L1511S.Install,Monitor\GSM3B59
+
+[LG.NTamd64]
+%L1511S%=L1511S.Install,Monitor\GSM3B59
+
+[L1511S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1511S.AddReg,1024,DPMS
+CopyFiles=L1511S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1511S.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1024,768,60"
+HKR,,ICMprofile,0,"LGL1511S.ICM"
+
+[L1511S.CopyFiles]
+LGL1511S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1511S="LG L1511S"

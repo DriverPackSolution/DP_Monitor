@@ -1,0 +1,118 @@
+; ###########################################################
+;
+;   HP_w1907.inf        Ver. 2.00      11/16/2006
+;
+;   Copyright (c)2006, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP w1907 Wide LCD Monitor.
+; 
+; ###########################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_w1907.cat
+DriverVer=11/16/2006,2.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP26A2
+ExcludeFromSelect.nt = MONITOR\HWP26A3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+w1907.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_w1907.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%w1907_A%=w1907_A.Install, Monitor\HWP26A2
+%w1907_D%=w1907_D.Install, Monitor\HWP26A3
+
+[HP.NTamd64]
+%w1907_A%=w1907_A.Install.NTamd64, Monitor\HWP26A2
+%w1907_D%=w1907_D.Install.NTamd64, Monitor\HWP26A3
+
+[w1907_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w1907_A.AddReg, 1440, DPMS
+CopyFiles=w1907.CopyFiles
+
+[w1907_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w1907_D.AddReg, 1440, DPMS
+CopyFiles=w1907.CopyFiles
+
+[w1907_A.Install.NTamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=w1907_A.AddReg, 1440, DPMS
+CopyFiles=w1907.CopyFiles
+
+[w1907_D.Install.NTamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=w1907_D.AddReg, 1440, DPMS
+CopyFiles=w1907.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[w1907_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,50.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1152,720",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,"MODES\1280,960",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1440,900",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w1907.icm"
+
+[w1907_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,50.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1152,720",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,"MODES\1280,960",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1440,900",Mode1,,"24.0-83.0,50.0-76.0,-,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w1907.icm"
+
+[w1907.CopyFiles]
+HP_w1907.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+w1907_A="HP w1907 Wide LCD Monitor"
+w1907_D="HP w1907 Wide LCD Monitor"
+Disk1="HP w1907 Driver Software"

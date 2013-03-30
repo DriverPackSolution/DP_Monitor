@@ -1,0 +1,83 @@
+;===============================================================
+; [L206WD.inf]
+; Revision 1.3   February-11-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L206WD.cat
+DriverVer=02/11/2007,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E71
+ExcludeFromSelect.NT=Monitor\GSM4E72
+
+[DestinationDirs]
+DefaultDestDir = 11
+L206WD_Analog.CopyFiles = 23
+L206WD_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L206WD.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L206WD_Analog%=L206WD_Analog.Install,Monitor\GSM4E71
+%L206WD_Digital%=L206WD_Digital.Install,Monitor\GSM4E72
+
+[LG.NTamd64]
+%L206WD_Analog%=L206WD_Analog.Install,Monitor\GSM4E71
+%L206WD_Digital%=L206WD_Digital.Install,Monitor\GSM4E72
+
+[L206WD_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L206WD_Analog.AddReg,1680,DPMS
+CopyFiles=L206WD_Analog.CopyFiles
+
+[L206WD_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L206WD_Digital.AddReg,1680,DPMS
+CopyFiles=L206WD_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L206WD_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"L206WD.ICM"
+
+[L206WD_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"L206WD.ICM"
+
+[L206WD_Analog.CopyFiles]
+L206WD.ICM
+
+[L206WD_Digital.CopyFiles]
+L206WD.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L206WD_Analog="LG L206WD(Analog)"
+L206WD_Digital="LG L206WD(Digital)"

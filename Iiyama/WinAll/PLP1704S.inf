@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/win7
+
+;Copyright 2009, iiyama Corporation
+
+[Version]   
+CatalogFile=PLP1704S.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+DriverVer=09/16/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+PLP1704S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+PLP1704S.ICM=1
+
+[Manufacturer]
+%iiyama%=iiyama,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM46E3
+
+[iiyama]   
+%PLP1704S%=PLP1704S.Install,Monitor\IVM46E3  
+
+[iiyama.NTia64]   
+%PLP1704S%=PLP1704S.Install,Monitor\IVM46E3
+
+[iiyama.NTamd64]   
+%PLP1704S%=PLP1704S.Install,Monitor\IVM46E3 
+
+[PLP1704S.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=PLP1704S.AddReg,1280,DPMS
+Copyfiles=PLP1704S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLP1704S.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"30-82,55-76,+,+" 
+HKR,,ICMProfile,0,"PLP1704S.ICM"
+
+[PLP1704S.CopyFiles]                                       
+PLP1704S.ICM
+
+[Strings]
+iiyama="iiyama"
+DiskLabel="PLP1704S iiyama Wizard"
+PLP1704S="iiyama PLP1704S"

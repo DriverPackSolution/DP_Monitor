@@ -1,0 +1,69 @@
+;PLH430.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor PLH430 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=H430.cat      
+DriverVer=08/06/2003,1.01
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46B0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+H430.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+H430.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%H430%=H430.Install, Monitor\IVM46B0
+
+[H430.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=H430.AddReg, 1280, DPMS
+CopyFiles=H430.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[H430.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24-83,60-76,+,+"
+HKR,,ICMProfile,0,"H430.ICM"
+
+[H430.CopyFiles]
+H430.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+H430="IIYAMA ProLite H430"

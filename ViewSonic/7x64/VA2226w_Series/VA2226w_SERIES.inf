@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2226w_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/03/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2226w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2226w_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC5120
+
+[ViewSonic]   
+%VA2226w%=VA2226w.Install,Monitor\VSC5120  
+
+[ViewSonic.NTia64]   
+%VA2226w%=VA2226w.Install,Monitor\VSC5120
+
+[ViewSonic.NTAMD64]   
+%VA2226w%=VA2226w.Install,Monitor\VSC5120 
+
+[VA2226w.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2226w.AddReg,1680,DPMS
+Copyfiles=VA2226w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2226w.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"30-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VA2226w_SERIES.ICM"
+
+[VA2226w.CopyFiles]                                       
+VA2226w_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA2226w Series ViewSonic Wizard"
+VA2226w="ViewSonic VA2226w Series"

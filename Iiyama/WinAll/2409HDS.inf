@@ -1,0 +1,73 @@
+; [PL2409HDS.INF]
+; Revision 1.00
+; Copyright(c) 2009 IIYAMA CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=2409HDS.cat
+DriverVer=07/10/2009,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\IVM560C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+2409HDS.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+2409HDS.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,ntamd64
+
+[IIYAMA]
+%2409HDS%=2409HDS.Install, Monitor\IVM560C
+
+[IIYAMA.ntamd64]
+%2409HDS%=2409HDS.Install, Monitor\IVM560C
+
+[2409HDS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2409HDS.AddReg, 1920, DPMS
+CopyFiles=2409HDS.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2409HDS.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2409HDS.icm"
+
+[2409HDS.CopyFiles]
+2409HDS.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+2409HDS="iiyama ProLite B2409HDS"

@@ -1,0 +1,101 @@
+;=============================================================== 
+; [W2753.INF] 
+; Revision 1.0   November-18-2008
+; Copyright(c)1998~2008 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=W2753.cat
+DriverVer=11/18/2008,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM56F6
+ExcludeFromSelect.NT=Monitor\GSM56F7
+ExcludeFromSelect.NT=Monitor\GSM56F8
+
+[DestinationDirs]
+DefaultDestDir = 11
+W2753_Analog.CopyFiles = 23
+W2753_Digital.CopyFiles = 23
+W2753_HDMI.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+W2753.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%W2753_Analog%=W2753_Analog.Install,Monitor\GSM56F6
+%W2753_Digital%=W2753_Digital.Install,Monitor\GSM56F7
+%W2753_HDMI%=W2753_HDMI.Install,Monitor\GSM56F8
+
+[LG.NTamd64]
+%W2753_Analog%=W2753_Analog.Install,Monitor\GSM56F6
+%W2753_Digital%=W2753_Digital.Install,Monitor\GSM56F7
+%W2753_HDMI%=W2753_HDMI.Install,Monitor\GSM56F8
+
+[W2753_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W2753_Analog.AddReg,1920,DPMS
+CopyFiles=W2753_Analog.CopyFiles
+
+[W2753_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W2753_Digital.AddReg,1920,DPMS
+CopyFiles=W2753_Digital.CopyFiles
+
+[W2753_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W2753_HDMI.AddReg,1920,DPMS
+CopyFiles=W2753_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[W2753_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"W2753.ICM"
+
+[W2753_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"W2753.ICM"
+
+[W2753_HDMI.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-61.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"W2753.ICM"
+
+[W2753_Analog.CopyFiles]
+W2753.ICM
+
+[W2753_Digital.CopyFiles]
+W2753.ICM
+
+[W2753_HDMI.CopyFiles]
+W2753.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+W2753_Analog="LG W2753(Analog)"
+W2753_Digital="LG W2753(Digital)"
+W2753_HDMI="LG W2753(HDMI)"

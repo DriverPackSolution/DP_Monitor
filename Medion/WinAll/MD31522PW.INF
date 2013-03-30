@@ -1,0 +1,83 @@
+;MD31522PW.INF Ver. 1.0
+;Monitor INF file for Medion MD31522PW
+;Copyright 2001,2007 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD31522PW.cat
+DriverVer=09/28/2007, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED862F
+ExcludeFromSelect.nt=Monitor\MED8630
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD31522PW.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+P04.ICM=1
+
+[Manufacturer]
+%Medion%=Medion,NTX86,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[Medion]
+%MD31522PW%=MD31522PW.Install, Monitor\MED862F
+%MD31522PW%=MD31522PW.Install, Monitor\MED8630
+
+[Medion.NTX86]
+%MD31522PW%=MD31522PW.Install, Monitor\MED862F
+%MD31522PW%=MD31522PW.Install, Monitor\MED8630
+
+[Medion.NTAMD64]
+%MD31522PW%=MD31522PW.Install, Monitor\MED862F
+%MD31522PW%=MD31522PW.Install, Monitor\MED8630
+
+; Install Sections
+;-------------------------------------------------
+
+[MD31522PW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD31522PW.AddReg, 1680, DPMS
+CopyFiles=MD31522PW.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD31522PW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31-80,55-75,+,+"
+HKR,,ICMProfile,0,"P04.ICM"
+
+[MD31522PW.CopyFiles]
+P04.ICM
+
+[Strings]
+DISK="Medion Manual and Driver CD"
+MonitorClassName="Monitor"
+Medion="Medion AG"
+MD31522PW="Medion MD31522PW"

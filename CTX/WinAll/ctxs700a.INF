@@ -1,0 +1,66 @@
+;
+; ctxs700a.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Apr 25, 2003
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=04/25/2003,1.0.0
+CatalogFile=ctxs700a.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX2013
+
+[DestinationDirs]
+DefaultDestDir=11
+
+S700A.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTXpfs.icm=1
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%S700A%=S700A.Install,Monitor\CTX2013
+
+[S700A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S700A.AddReg, 1280, DPMS
+CopyFiles=S700A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[S700A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,59.0-75.0,+,+"
+HKR,,ICMProfile,0,"CTXpfs.icm"
+
+[S700A.CopyFiles]
+CTXpfs.icm
+
+[Strings]
+Disk="CTX LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+S700A="CTX S700,S700A"

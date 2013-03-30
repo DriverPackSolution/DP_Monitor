@@ -1,0 +1,87 @@
+; [EIZOL461.INF]
+; Revision 1.01
+; Copyright(c) 2001 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=EIZOL461.cat
+DriverVer=01/16/2001,1.01
+
+;[ControlFlags]
+;ExcludeFromSelect = .nt=Monitor\ENC1628
+;ExcludeFromSelect = .nt=Monitor\ENC1629
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L461D.CopyFiles = 23
+L461.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L461__M1.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L461D%=L461D.Install, Monitor\ENC1628
+%L461%=L461.Install, Monitor\ENC1629
+
+[L461D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L461D.AddReg, 1280, DPMS
+CopyFiles=L461D.CopyFiles
+
+[L461.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L461.AddReg, 1280, DPMS
+CopyFiles=L461.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L461D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L461__M1.ICM"
+
+[L461.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L461__M1.ICM"
+
+[L461D.CopyFiles]
+L461__M1.ICM
+
+[L461.CopyFiles]
+L461__M1.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L461D="L461"
+L461="L461"

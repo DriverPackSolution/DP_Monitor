@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG800b-2.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/18/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS26105-4W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG800b-2.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS26105-4W%=VLCDS26105-4W.Install,Monitor\VSCF411          ;VG800b-2
+
+[VLCDS26105-4W.Install]                                        ;VG800b-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS26105-4W.AddReg,1280,DPMS
+Copyfiles=VLCDS26105-4W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS26105-4W.AddReg]                                          ;VG800b-2
+HKR,"MODES\1280,1024",Mode1,,"30-83,50-75,+,+" 
+HKR,,ICMProfile,0,"VG800b-2.ICM"
+
+[VLCDS26105-4W.CopyFiles]                                       
+VG800b-2.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS26105-4W="ViewSonic VG800b-2"

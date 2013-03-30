@@ -1,0 +1,107 @@
+; nas230wg.inf
+; Setup information file for NEC AS230WG Monitor
+;
+; Copyright (C) 2011, NEC Display Solutions,Ltd
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nas230wg.cat
+DriverVer=03/16/2011,1.11.0316.1524
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6857
+ExcludeFromSelect.nt=Monitor\NEC6858
+ExcludeFromSelect.nt=Monitor\NEC6859
+
+[DestinationDirs]
+AS230WG.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nas230wg.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%AS230WG-A%=AS230WG-A.Install, Monitor\NEC6857
+%AS230WG-D%=AS230WG-D.Install, Monitor\NEC6858
+%AS230WG-H%=AS230WG-H.Install, Monitor\NEC6859
+
+[NECDS.ntamd64]
+%AS230WG-A%=AS230WG-A.Install.ntamd64, Monitor\NEC6857
+%AS230WG-D%=AS230WG-D.Install.ntamd64, Monitor\NEC6858
+%AS230WG-H%=AS230WG-H.Install.ntamd64, Monitor\NEC6859
+
+[AS230WG-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS230WG-A.AddReg, 1920, DPMS
+CopyFiles=AS230WG.CopyFiles
+
+[AS230WG-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS230WG-D.AddReg, 1920, DPMS
+CopyFiles=AS230WG.CopyFiles
+
+[AS230WG-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS230WG-H.AddReg, 1920, DPMS
+CopyFiles=AS230WG.CopyFiles
+
+
+[AS230WG-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS230WG-A.AddReg, 1920, DPMS
+CopyFiles=AS230WG.CopyFiles
+
+[AS230WG-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS230WG-D.AddReg, 1920, DPMS
+CopyFiles=AS230WG.CopyFiles
+
+[AS230WG-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS230WG-H.AddReg, 1920, DPMS
+CopyFiles=AS230WG.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS230WG-A.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"nas230wg.icm"
+
+[AS230WG-D.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"nas230wg.icm"
+
+[AS230WG-H.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"nas230wg.icm"
+
+
+[AS230WG.CopyFiles]
+nas230wg.icm
+
+[Strings]
+NECDS="NEC"
+AS230WG-A="NEC AS230WG(Analog)"
+AS230WG-D="NEC AS230WG(Digital)"
+AS230WG-H="NEC AS230WG(HDMI)"
+Disk1="NEC Monitor Installation Disk"

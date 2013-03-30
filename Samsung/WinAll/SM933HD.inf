@@ -1,0 +1,120 @@
+
+;==================================================
+; SM933HD.inf 06/26/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM933HD.cat
+DriverVer=06/26/2008,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0456
+ExcludeFromSelect.nt=Monitor\SAM0457
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM933HDa.CopyFiles = 23
+SM933HDd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM933HD.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM933HDa%=SM933HDa.Install, Monitor\SAM0456
+%SM933HDd%=SM933HDd.Install, Monitor\SAM0457
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM933HDa%=SM933HDa.Install, Monitor\SAM0456
+%SM933HDd%=SM933HDd.Install, Monitor\SAM0457
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM933HDa%=SM933HDa.Install, Monitor\SAM0456
+%SM933HDd%=SM933HDd.Install, Monitor\SAM0457
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM933HDa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM933HDa.AddReg, 1360, DPMS
+CopyFiles=SM933HDa.CopyFiles
+
+[SM933HDd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM933HDd.AddReg, 1360, DPMS
+CopyFiles=SM933HDd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1360]
+HKR,,MaxResolution,,"1360,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM933HDa.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"SM933HD.icm"
+
+[SM933HDd.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"SM933HD.icm"
+;------------------------------------------------------
+
+[SM933HDa.CopyFiles]
+SM933HD.icm
+
+[SM933HDd.CopyFiles]
+SM933HD.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM933HDa="SyncMaster 933HD(Analog)"
+SM933HDd="SyncMaster 933HD(Digital)"

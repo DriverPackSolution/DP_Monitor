@@ -1,0 +1,119 @@
+;==================================================
+; SM460UTN-2.inf 04/19/2010 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM460UTN-2.cat
+DriverVer=04/19/2010,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM06CB
+ExcludeFromSelect.nt=Monitor\SAM06CC
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM460UTN-2a.CopyFiles = 23
+SM460UTN-2d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM460UTN-2.icm=1
+SM460UTN-2.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM460UTN-2a%=SM460UTN-2a.Install, Monitor\SAM06CB
+%SM460UTN-2d%=SM460UTN-2d.Install, Monitor\SAM06CC
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM460UTN-2a%=SM460UTN-2a.Install, Monitor\SAM06CB
+%SM460UTN-2d%=SM460UTN-2d.Install, Monitor\SAM06CC
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM460UTN-2a%=SM460UTN-2a.Install, Monitor\SAM06CB
+%SM460UTN-2d%=SM460UTN-2d.Install, Monitor\SAM06CC
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM460UTN-2a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM460UTN-2a.AddReg, 1366, DPMS
+CopyFiles=SM460UTN-2a.CopyFiles
+
+[SM460UTN-2d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM460UTN-2d.AddReg, 1366, DPMS
+CopyFiles=SM460UTN-2d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM460UTN-2a.AddReg]
+HKR,"MODES\1366,768",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM460UTN-2.icm"
+
+[SM460UTN-2d.AddReg]
+HKR,"MODES\1366,768",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM460UTN-2.icm"
+;------------------------------------------------------
+
+[SM460UTN-2a.CopyFiles]
+SM460UTN-2.icm
+
+[SM460UTN-2d.CopyFiles]
+SM460UTN-2.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM460UTN-2a="SyncMaster 460UT-2/460UTN-2/460UT-B/460UTN-B(Analog)"
+SM460UTN-2d="SyncMaster 460UT-2/460UTN-2/460UT-B/460UTN-B(Digital)"

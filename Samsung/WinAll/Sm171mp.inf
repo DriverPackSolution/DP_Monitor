@@ -1,0 +1,95 @@
+
+;==================================================
+; sm171mp.inf 09/18/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm171mp.cat
+DriverVer=09/18/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM000A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm171mp.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm171mp.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm171mp%=sm171mp.Install, Monitor\SAM000A
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm171mp.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm171mp.AddReg, 1280, DPMS
+CopyFiles=sm171mp.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm171mp.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-80,50-85,+,+"
+HKR,,ICMProfile,0,"sm171mp.icm"
+
+
+;------------------------------------------------------
+
+[sm171mp.CopyFiles]
+sm171mp.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm171mp="SyncMaster 171MP/175MP,MagicSyncMaster CX175A(P)"

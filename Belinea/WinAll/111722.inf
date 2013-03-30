@@ -1,0 +1,72 @@
+#############################################################
+; This is a setup information file for Belinea 101710 monitor
+; Modified by MAXDATA Systeme GmbH (MW)
+; Revision 1.0.0.0, April 03, 2004
+; Copyright 2000-2004 MAXDATA Systeme GmbH
+#############################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=111722.cat
+DriverVer=04/03/2004,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX06BA
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea 10 17 10 / Art. No. 111722" = 111722.Install, Monitor\MAX06BA
+
+; Install sections
+;-------------------------------------------------
+[111722.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=111722.AddReg,1280,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[111722.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-75.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA Systeme GmbH"
+BELINEA="MAXDATA Systeme GmbH"
+

@@ -1,0 +1,83 @@
+;===============================================================
+; [L200WJ.inf]
+; Revision 1.3   January-10-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L200WJ.cat
+DriverVer=01/10/2007,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E6D
+ExcludeFromSelect.NT=Monitor\GSM4E6E
+
+[DestinationDirs]
+DefaultDestDir = 11
+L200WJ_Analog.CopyFiles = 23
+L200WJ_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L200WJ.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L200WJ_Analog%=L200WJ_Analog.Install,Monitor\GSM4E6D
+%L200WJ_Digital%=L200WJ_Digital.Install,Monitor\GSM4E6E
+
+[LG.NTamd64]
+%L200WJ_Analog%=L200WJ_Analog.Install,Monitor\GSM4E6D
+%L200WJ_Digital%=L200WJ_Digital.Install,Monitor\GSM4E6E
+
+[L200WJ_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L200WJ_Analog.AddReg,1680,DPMS
+CopyFiles=L200WJ_Analog.CopyFiles
+
+[L200WJ_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L200WJ_Digital.AddReg,1680,DPMS
+CopyFiles=L200WJ_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L200WJ_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"L200WJ.ICM"
+
+[L200WJ_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"L200WJ.ICM"
+
+[L200WJ_Analog.CopyFiles]
+L200WJ.ICM
+
+[L200WJ_Digital.CopyFiles]
+L200WJ.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L200WJ_Analog="LG L200WJ(Analog)"
+L200WJ_Digital="LG L200WJ(Digital)"

@@ -1,0 +1,68 @@
+;E75.INF Ver. 1.0
+;Monitor INF file for LEN E75
+;Copyright 1996-2006 Lenovo (Singapore) Pte. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Lenovo%
+Catalogfile=E75.cat
+DriverVer=09/10/2003,1.00.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN1975
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+E75.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E75.ICM=1
+
+[Manufacturer]
+%Lenovo%=Lenovo
+
+[Lenovo]
+%E75%=E75.Install, Monitor\LEN1975
+
+[E75.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E75.AddReg, 1280, DPMS
+CopyFiles=E75.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E75.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"E75.ICM"
+
+[E75.CopyFiles]
+E75.ICM
+
+[Strings]
+DISK="Lenovo  Pte. Ltd. Monitor Installation Disk"
+MonitorClassName="Monitor"
+Lenovo="Lenovo (Singapore) Pte. Ltd."
+E75="LEN E75"

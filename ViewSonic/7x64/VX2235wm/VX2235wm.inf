@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2235wm.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=11/01/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2235wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2235wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX2235wm%=VX2235wm.Install,Monitor\VSC591E  
+
+[ViewSonic.NTia64]   
+%VX2235wm%=VX2235wm.Install,Monitor\VSC591E  
+
+[ViewSonic.NTamd64]   
+%VX2235wm%=VX2235wm.Install,Monitor\VSC591E  
+
+[VX2235wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2235wm.AddReg,1680,DPMS
+Copyfiles=VX2235wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2235wm.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"30-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX2235wm.ICM"
+
+[VX2235wm.CopyFiles]                                       
+VX2235wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VX2235wm="ViewSonic VX2235wm"

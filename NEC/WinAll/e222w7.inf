@@ -1,0 +1,68 @@
+; e222w7.inf
+; Setup information file for NEC MultiSync E222W Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=e222w7.cat
+DriverVer=09/15/2009,1.09.0915.1413
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6777
+
+[DestinationDirs]
+E222W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+e222w7.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%E222W%=E222W.Install, Monitor\NEC6777
+
+[NECDS.ntamd64]
+%E222W%=E222W.Install.ntamd64, Monitor\NEC6777
+
+[E222W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E222W.AddReg, 1680, DPMS
+CopyFiles=E222W.CopyFiles
+
+[E222W.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=E222W.AddReg, 1680, DPMS
+CopyFiles=E222W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E222W.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"e222w7.icm"
+
+[E222W.CopyFiles]
+e222w7.icm
+
+[Strings]
+NECDS="NEC"
+E222W="NEC MultiSync E222W"
+Disk1="NEC Display Solutions Installation Disk"

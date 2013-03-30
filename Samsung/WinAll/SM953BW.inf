@@ -1,0 +1,120 @@
+
+;==================================================
+; SM953BW.inf 12/20/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM953BW.cat
+DriverVer=12/20/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0377
+ExcludeFromSelect.nt=Monitor\SAM0378
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM953BWa.CopyFiles = 23
+SM953BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM953BW.icm=1
+SM953BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM953BWa%=SM953BWa.Install, Monitor\SAM0377
+%SM953BWd%=SM953BWd.Install, Monitor\SAM0378
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM953BWa%=SM953BWa.Install, Monitor\SAM0377
+%SM953BWd%=SM953BWd.Install, Monitor\SAM0378
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM953BWa%=SM953BWa.Install, Monitor\SAM0377
+%SM953BWd%=SM953BWd.Install, Monitor\SAM0378
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM953BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM953BWa.AddReg, 1440, DPMS
+CopyFiles=SM953BWa.CopyFiles
+
+[SM953BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM953BWd.AddReg, 1440, DPMS
+CopyFiles=SM953BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM953BWa.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM953BW.icm"
+
+[SM953BWd.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM953BW.icm"
+;------------------------------------------------------
+
+[SM953BWa.CopyFiles]
+SM953BW.icm
+
+[SM953BWd.CopyFiles]
+SM953BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM953BWa="SyncMaster 953BW/953GW,SyncMaster Magic CX953BW(Analog)"
+SM953BWd="SyncMaster 953BW/953GW,SyncMaster Magic CX953BW(Digital)"

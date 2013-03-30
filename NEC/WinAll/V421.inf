@@ -1,0 +1,104 @@
+; V421.inf
+; Setup information file for NEC LCD Monitor V421
+;
+; Copyright (C) 2010 NEC Electric Corporation
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NEC%
+CatalogFile=V421.cat
+DriverVer=03/12/2010,1.00.0000.0000
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67E6
+ExcludeFromSelect.nt=Monitor\NEC67E7
+ExcludeFromSelect.nt=Monitor\NEC67E8
+
+[DestinationDirs]
+V421.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+V421.icm=1
+
+[Manufacturer]
+%NEC%=NEC,ntamd64
+
+[NEC]
+%V421-A%=V421-A.Install, Monitor\NEC67E6
+%V421-D%=V421-D.Install, Monitor\NEC67E7
+%V421-H%=V421-D.Install, Monitor\NEC67E8
+
+[NEC.ntamd64]
+%V421-A%=V421-A.Install, Monitor\NEC67E6
+%V421-D%=V421-D.Install, Monitor\NEC67E7
+%V421-H%=V421-D.Install, Monitor\NEC67E8
+
+[V421-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V421-A.AddReg, 1920, DPMS
+CopyFiles=V421.CopyFiles
+
+[V421-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V421-D.AddReg, 1920, DPMS
+CopyFiles=V421.CopyFiles
+
+[V421-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V421-H.AddReg, 1920, DPMS
+CopyFiles=V421.CopyFiles
+
+[V421-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V421-A.AddReg, 1920, DPMS
+CopyFiles=V421.CopyFiles
+
+[V421-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V421-D.AddReg, 1920, DPMS
+CopyFiles=V421.CopyFiles
+
+[V421-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V421-H.AddReg, 1920, DPMS
+CopyFiles=V421.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V421-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"V421.icm"
+
+[V421-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-92.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"V421.icm"
+
+[V421-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"26.0-68.0,49.0-61.0,+,+"
+HKR,,ICMProfile,0,"V421.icm"
+
+[V421.CopyFiles]
+V421.icm
+
+[Strings]
+NEC="NEC"
+V421-A="NEC V421 (Analog)"
+V421-D="NEC V421 (Digital)"
+V421-H="NEC V421 (Hdmi)"
+Disk1="NEC Display Monitor Installation Disk"

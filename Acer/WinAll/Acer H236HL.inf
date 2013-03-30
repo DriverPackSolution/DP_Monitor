@@ -1,0 +1,81 @@
+; This is a Setup information file for monitors  with ICM  file; 
+; Copyright 2012 Acer International Electronic AG 
+; V001
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ACER%
+CatalogFile=Acer H236HL.cat
+DriverVer=07/25/2012,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACR0318
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+Acer H236HL.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,,
+
+[SourceDisksFiles]
+Acer H236HL.icm=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+
+[Manufacturer]
+%ACER%=ACER,NTx86,NTAMD64
+
+[ACER]
+%Acer H236HL%=Acer H236HL.Install, Monitor\ACR0318
+
+[ACER.NTx86]
+%Acer H236HL%=Acer H236HL.Install, Monitor\ACR0318
+
+[ACER.NTAMD64]
+%Acer H236HL%=Acer H236HL.Install, Monitor\ACR0318
+
+
+[Acer H236HL.Install]
+ACRReg=ACR_CURRENT_REG
+AddReg=Acer H236HL.AddReg
+CopyFiles=Acer H236HL.CopyFiles
+
+[Acer H236HL.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[ACR_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[Acer H236HL.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-80.0,50.0-76.0,+,+"
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"Acer H236HL.icm"
+
+
+[Acer H236HL.CopyFiles]
+Acer H236HL.ICM
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ACER="Acer Incorporated"
+diskname="Acer Monitor Acer H236HL Installation Disk"
+
+Acer H236HL="Acer H236HL"
+

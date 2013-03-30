@@ -1,0 +1,95 @@
+
+;==================================================
+; sm765mb.inf 01/14/2002 ver. 1.0
+;
+; Copyright 2002 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm765mb.cat
+DriverVer=01/14/2002,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0048
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm765mb.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm765mb.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm765mb%=sm765mb.Install, Monitor\SAM0048
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm765mb.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm765mb.AddReg, 1792, DPMS
+CopyFiles=sm765mb.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm765mb.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30-85,50-160,+,+"
+HKR,,ICMProfile,0,"sm765mb.icm"
+
+
+;------------------------------------------------------
+
+[sm765mb.CopyFiles]
+sm765mb.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm765mb="SyncMaster 765MB/715MB, SyncMaster Magic CD175D(P)"
+

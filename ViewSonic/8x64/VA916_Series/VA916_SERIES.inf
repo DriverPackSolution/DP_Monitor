@@ -1,0 +1,76 @@
+;Monitor.Inf Windows 7/Windows 7 x64/Windows 8/Windows 8 x64
+;Copyright 2012, ViewSonic Corporation
+;v002
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VA916_SERIES.cat
+DriverVer=08/24/2012, 2.5.1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\VSC0D2D 
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA916_SERIES.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VA916_SERIES.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ViewSonic]   
+%VA916_SERIES%=VA916_SERIES.Install,Monitor\VSC0D2D  
+
+[ViewSonic.NTx86]   
+%VA916_SERIES%=VA916_SERIES.Install,Monitor\VSC0D2D
+
+[ViewSonic.NTAMD64]   
+%VA916_SERIES%=VA916_SERIES.Install,Monitor\VSC0D2D 
+
+
+[VA916_SERIES.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA916_SERIES.AddReg
+Copyfiles=VA916_SERIES.CopyFiles
+
+[VA916_SERIES.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install; install monitor class function driver
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[VA916_SERIES.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"24-82,50-75,+,+" 
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"VA916_SERIES.ICM"
+
+[VA916_SERIES.CopyFiles]                                       
+VA916_SERIES.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VA916 SERIES ViewSonic Wizard"
+
+VA916_SERIES="ViewSonic VA916 SERIES"

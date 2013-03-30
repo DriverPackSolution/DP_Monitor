@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2001, ViewSonic Corporation
+
+[Version]   
+CatalogFile=G70fm.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=12/03/2001,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VCDTS23104-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+G70fm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS23104-1%=VCDTS23104-1.Install,Monitor\VSCD405	              ;G70fm
+
+[VCDTS23104-1.Install]                                                ;G70fm
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23104-1.AddReg,1280,DPMS
+Copyfiles=VCDTS23104-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS23104-1.AddReg]                                                ;G70fm
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"G70fm.ICM"
+
+[VCDTS23104-1.CopyFiles]                                       
+G70fm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS23104-1="ViewSonic G70fm"

@@ -1,0 +1,80 @@
+; EV700C, AUGUST-12-2001
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Gateway%
+CatalogFile=EV700C.cat
+DriverVer=08/12/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+
+[DestinationDirs]
+DefaultDestDir=11
+EV700C.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+EV700C.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%EV700C%=EV700C.Install, Monitor\GWY1B66
+
+;------------------------------------; .Install
+
+[EV700C.Install]
+AddReg=EV700C.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=EV700C.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[EV700C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"EV700C.icm"
+
+;------------------------------------; .CopyFiles
+
+[EV700C.CopyFiles]
+EV700C.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY1B66
+
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+Gateway="Gateway"
+EV700C="Gateway EV700C"

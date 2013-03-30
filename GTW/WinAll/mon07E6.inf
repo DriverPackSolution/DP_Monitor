@@ -1,0 +1,112 @@
+;=============================================================== 
+; Gateway FPD2020.inf
+; manufactured by LG Electronics
+; Revision 1.1 , February-11-2003
+; Copyright(c) Gateway,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon07E6.cat
+DriverVer=02/11/2003,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY07E4
+ExcludeFromSelect.NT=Monitor\GWY07E5
+ExcludeFromSelect.NT=Monitor\GWY07E6
+ExcludeFromSelect.NT=Monitor\GWY07E7
+
+[DestinationDirs]
+DefaultDestDir = 11
+mon07E4.CopyFiles = 23
+mon07E5.CopyFiles = 23
+mon07E6.CopyFiles = 23
+mon07E7.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon07E4.icm=1
+mon07E6.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon07E4%=mon07E4.Install, Monitor\GWY07E4
+%mon07E5%=mon07E5.Install, Monitor\GWY07E5
+%mon07E6%=mon07E6.Install, Monitor\GWY07E6
+%mon07E7%=mon07E7.Install, Monitor\GWY07E7
+
+[mon07E4.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon07E4.AddReg, 1600, DPMS
+CopyFiles=mon07E4.CopyFiles
+
+[mon07E5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon07E5.AddReg, 1600, DPMS
+CopyFiles=mon07E5.CopyFiles
+
+[mon07E6.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon07E6.AddReg, 1600, DPMS
+CopyFiles=mon07E6.CopyFiles
+
+[mon07E7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon07E7.AddReg, 1600, DPMS
+CopyFiles=mon07E7.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon07E4.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"mon07E4.icm"
+
+[mon07E5.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"mon07E4.icm"
+
+[mon07E6.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"mon07E6.icm"
+
+[mon07E7.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"mon07E6.icm"
+
+[mon07E4.CopyFiles]
+mon07E4.icm
+
+[mon07E5.CopyFiles]
+mon07E4.icm
+
+[mon07E6.CopyFiles]
+mon07E6.icm
+
+[mon07E7.CopyFiles]
+mon07E6.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon07E4="Gateway FPD2020"
+mon07E5="Gateway FPD2020"
+mon07E6="Gateway FPD2020"
+mon07E7="Gateway FPD2020"

@@ -1,0 +1,78 @@
+; #################################################
+;
+;   MD41977FES01.inf         Ver. 1.1      7/01/2004
+;
+;   Copyright (c)2004, Medion Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Medion Color Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD41977FES01.cat
+DriverVer=02/26/2003,1.0.0.3
+
+[ControlFlags]
+ExcludeFromSelect.nt =*
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+Medion_17.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+MD41977FES01.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%Medion_17%=Medion_17.Install, Monitor\MEDD78E
+
+
+
+[Medion_17.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Medion_17.AddReg, 1280, DPMS
+CopyFiles=Medion_17.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Medion_17.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"MD41977FES01.icm"
+
+[Medion_17.CopyFiles]
+MD41977FES01.icm
+
+[Strings]
+Medion="Medion AG"
+MonitorClassName="Monitor"
+Medion_17="Medion 17 inch FE"
+DiskLabel="Medion INF and ICM Software"

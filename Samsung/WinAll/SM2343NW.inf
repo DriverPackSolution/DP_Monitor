@@ -1,0 +1,102 @@
+
+;==================================================
+; SM2343NW.inf 07/15/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2343NW.cat
+DriverVer=07/15/2008,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0473
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2343NW.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2343NW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2343NW%=SM2343NW.Install, Monitor\SAM0473
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2343NW%=SM2343NW.Install, Monitor\SAM0473
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2343NW%=SM2343NW.Install, Monitor\SAM0473
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2343NW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2343NW.AddReg, 2048, DPMS
+CopyFiles=SM2343NW.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[2048]
+HKR,,MaxResolution,,"2048,1152"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2343NW.AddReg]
+HKR,"MODES\2048,1152",Mode1,,"30-81,56-60,+,+"
+HKR,,ICMProfile,0,"SM2343NW.icm"
+
+;------------------------------------------------------
+
+[SM2343NW.CopyFiles]
+SM2343NW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2343NW="SyncMaster 2343NW,SyncMaster Magic CX2343NW"

@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [1771FT.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LGIBM
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LGIBM%
+CatalogFile=1771FT.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1771FT.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+1771FT.icm=1 
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTamd64
+
+[LGIBM]
+%1771FT%=1771FT, Monitor\GSM42D3
+
+[LGIBM.NTamd64]
+%1771FT%=1771FT, Monitor\GSM42D3
+
+;------------------------------------; .Install
+
+[1771FT] 
+AddReg=1771FT.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1771FT.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[1771FT.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"1771FT.ICM"
+
+;------------------------------------; .CopyFiles
+
+[1771FT.CopyFiles]  
+1771FT.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM42D3
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1771FT="LGIBM 1771FT"

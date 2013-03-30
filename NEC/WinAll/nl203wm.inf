@@ -1,0 +1,68 @@
+; nl203wm.inf
+; Setup information file for NEC LCD203WM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl203wm.cat
+DriverVer=02/08/2007,1.07.0208.1204
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66F1
+
+[DestinationDirs]
+LCD203WM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl203wm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD203WM%=LCD203WM.Install, Monitor\NEC66F1
+
+[NECDS.ntamd64]
+%LCD203WM%=LCD203WM.Install.ntamd64, Monitor\NEC66F1
+
+[LCD203WM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD203WM.AddReg, 1680, DPMS
+CopyFiles=LCD203WM.CopyFiles
+
+[LCD203WM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD203WM.AddReg, 1680, DPMS
+CopyFiles=LCD203WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD203WM.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl203wm.icm"
+
+[LCD203WM.CopyFiles]
+nl203wm.icm
+
+[Strings]
+NECDS="NEC"
+LCD203WM="NEC LCD203WM"
+Disk1="NEC Monitor Installation Disk"

@@ -1,0 +1,99 @@
+
+;-------------------------------------------------
+; Version section
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CYBERCOM%
+
+;-------------------------------------------------
+;Monitor class install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+CYB1570i.CopyFiles = 23
+
+[SourceDisksNames]
+1="CYBERCOM Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+CYB1570i.ICM=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%CYBERCOM%=CYBERCOM
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[CYBERCOM]
+%CYB1570i%=CYB1570i.install,Monitor\CYB9807
+
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+[CYB1570i.install]
+DelReg=DEL_CURRENT_REG
+AddReg=CYB1570i.AddReg, 1280, DPMS
+CopyFiles=CYB1570i.CopyFiles
+
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------
+
+[CYB1570i.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"CYB1570i.ICM"
+
+[CYB1570i.CopyFiles]
+CYB1570i.ICM
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+
+CYBERCOM="CYBERCOM"
+
+CYB1570i= "CYBERCOM 1570i"

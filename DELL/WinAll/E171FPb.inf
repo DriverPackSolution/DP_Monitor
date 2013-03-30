@@ -1,0 +1,95 @@
+
+;================================ 
+;E171FPb.INF 08/29/02 Ver. 1.0 JG
+;Copyright 1996-2002 Dell Computer Corporation
+;
+;This is a setupfile for E171FPb 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E171FPb.cat
+DriverVer=08/29/2002, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA006
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E171FPb.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E171FPb.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E171FPb%=E171FPb.Install, Monitor\DELA006
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E171FPb.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E171FPb.AddReg, 1280, DPMS
+CopyFiles=E171FPb.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E171FPb.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E171FPb.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E171FPb.CopyFiles]
+E171FPb.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E171FPb="Dell E171FPb"
+

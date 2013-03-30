@@ -1,0 +1,135 @@
+; ###########################################################
+;
+;   HP_w2216.inf        Ver. 1.00      3/12/2008
+;
+;   Copyright (c)2008, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP w2216 Wide LCD Monitor.
+; 
+; ###########################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_w2216.cat
+DriverVer=03/12/2008,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP280B
+ExcludeFromSelect.nt = MONITOR\HWP280C
+ExcludeFromSelect.nt = MONITOR\HWP2819
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+w2216.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_w2216.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%w2216_A%=w2216_A.Install, Monitor\HWP280B
+%w2216_D%=w2216_D.Install, Monitor\HWP280C
+%w2216_H%=w2216_H.Install, Monitor\HWP2819
+
+[HP.NTamd64]
+%w2216_A%=w2216_A.Install, Monitor\HWP280B
+%w2216_D%=w2216_D.Install, Monitor\HWP280C
+%w2216_H%=w2216_H.Install, Monitor\HWP2819
+
+[w2216_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w2216_A.AddReg, 1680, DPMS
+CopyFiles=w2216.CopyFiles
+
+[w2216_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w2216_D.AddReg, 1680, DPMS
+CopyFiles=w2216.CopyFiles
+
+[w2216_H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w2216_H.AddReg, 1680, DPMS
+CopyFiles=w2216.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[w2216_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,48-76,-,-"
+HKR,"MODES\800,600",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1152,720",Mode1,,"24-83,48-76,-,+"
+HKR,"MODES\1280,960",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1440,900",Mode1,,"24-83,48-76,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24-83,48-76,+,-"
+HKR,"MODES\1680,1050",Mode1,,"24-83,48-76,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w2216.icm"
+
+[w2216_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,48-76,-,-"
+HKR,"MODES\800,600",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1152,720",Mode1,,"24-83,48-76,-,+"
+HKR,"MODES\1280,960",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1440,900",Mode1,,"24-83,48-76,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24-83,48-76,+,-"
+HKR,"MODES\1680,1050",Mode1,,"24-83,48-76,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w2216.icm"
+
+[w2216_H.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,48-76,-,-"
+HKR,"MODES\800,600",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1152,720",Mode1,,"24-83,48-76,-,+"
+HKR,"MODES\1280,960",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,48-76,+,+"
+HKR,"MODES\1440,900",Mode1,,"24-83,48-76,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24-83,48-76,+,-"
+HKR,"MODES\1680,1050",Mode1,,"24-83,48-76,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w2216.icm"
+
+[w2216.CopyFiles]
+HP_w2216.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+w2216_A="HP w2216 Wide LCD Monitor"
+w2216_D="HP w2216 Wide LCD Monitor"
+w2216_H="HP w2216 Wide LCD Monitor"
+Disk1="HP w2216 Driver Software"

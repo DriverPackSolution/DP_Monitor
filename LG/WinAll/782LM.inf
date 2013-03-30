@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [782LM.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=782LM.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+782LM.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG782LM.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%782LM%=782LM, Monitor\GSM4341
+
+[LG.NTamd64]
+%782LM%=782LM, Monitor\GSM4341
+
+;------------------------------------; .Install
+
+[782LM] 
+AddReg=782LM.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=782LM.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[782LM.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"LG782LM.ICM"
+
+;------------------------------------; .CopyFiles
+
+[782LM.CopyFiles]  
+LG782LM.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4341
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+782LM="LG 782LM"

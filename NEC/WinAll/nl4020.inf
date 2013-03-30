@@ -1,0 +1,100 @@
+; nl4020.inf
+; Setup information file for NEC MultiSync LCD4020 Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl4020.cat
+DriverVer=03/15/2007, 1.07.0315.2112
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66E9
+ExcludeFromSelect.nt=Monitor\NEC66E8
+
+[DestinationDirs]
+LCD4020.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl4020.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD4020-D%=LCD4020-D.Install, Monitor\NEC66E9
+%LCD4020-A%=LCD4020-A.Install, Monitor\NEC66E8
+
+[NECDS.ntamd64]
+%LCD4020-D%=LCD4020-D.Install.ntamd64, Monitor\NEC66E9
+%LCD4020-A%=LCD4020-A.Install.ntamd64, Monitor\NEC66E8
+
+; Install Sections
+;-------------------------------------------------
+[LCD4020-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4020-D.AddReg, 1920, DPMS
+CopyFiles=LCD4020.CopyFiles
+
+[LCD4020-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4020-A.AddReg, 1920, DPMS
+CopyFiles=LCD4020.CopyFiles
+
+[LCD4020-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4020-D.AddReg, 1920, DPMS
+CopyFiles=LCD4020.CopyFiles
+
+[LCD4020-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4020-A.AddReg, 1920, DPMS
+CopyFiles=LCD4020.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD4020-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl4020.icm"
+
+[LCD4020-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl4020.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD4020.CopyFiles]
+nl4020.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD4020-D="NEC MultiSync LCD4020(Digital)"
+LCD4020-A="NEC MultiSync LCD4020(Analog)"
+Disk1="NEC Monitor Installation Disk"

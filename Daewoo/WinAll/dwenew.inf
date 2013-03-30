@@ -1,0 +1,209 @@
+;Moniotr INF file for Daewoo monitors
+;Copyright 1996-97, Daewoo Electronics Co., Ltd.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Daewoo%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[Manufacturer]
+%Daewoo%=Daewoo
+
+[Daewoo]
+%431X%=431X, Monitor\DWE4312
+%1509B%=1509B, Monitor\DWE5093
+%511B%=511B, Monitor\DWE5113
+%512B%=512B, Monitor\DWE5123
+%518B%=518B, Monitor\DWE5183
+%518X%=518X, Monitor\DWE5182
+%519B%=519B, Monitor\DWE5193
+%1705B%=1705B, Monitor\DWE7053
+%707B%=707B, Monitor\DWE7073
+%710B%=710B, Monitor\DWE7103
+%710C%=710C, Monitor\DWE7104
+%901D%=901D, Monitor\DWE9015
+
+
+[431X]
+DelReg=DEL_CURRENT_REG 
+AddReg=431X.AddReg
+
+[1509B]
+DelReg=DEL_CURRENT_REG
+AddReg=1509B.AddReg
+
+[511B]
+DelReg=DEL_CURRENT_REG
+AddReg=511B.AddReg
+
+[512B]
+DelReg=DEL_CURRENT_REG
+AddReg=512B.AddReg
+
+[518B]
+DelReg=DEL_CURRENT_REG
+AddReg=518B.AddReg
+
+[518X]
+DelReg=DEL_CURRENT_REG
+AddReg=518X.AddReg
+
+[519B]
+DelReg=DEL_CURRENT_REG
+AddReg=519B.AddReg
+
+[1705B]
+DelReg=DEL_CURRENT_REG
+AddReg=1705B.AddReg
+
+[707B]
+DelReg=DEL_CURRENT_REG
+AddReg=707B.AddReg
+
+[710B]
+DelReg=DEL_CURRENT_REG
+AddReg=710B.AddReg
+
+[710C]
+DelReg=DEL_CURRENT_REG
+AddReg=710C.AddReg
+
+[901D]
+DelReg=DEL_CURRENT_REG
+AddReg=901D.AddReg
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[431X.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[1509B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[511B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[512B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[518B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[518X.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[519B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[1705B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[707B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[710B.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-160.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[710C.Addreg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,50.0-160.0,+,-"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+[901D.Addreg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,-"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,1,7
+
+;Pre-defined AddReg sections
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Strings]
+MonitorClassName="Monitor"
+Daewoo="Daewoo Electronics Co., Ltd."
+
+431X="Daewoo 431X"
+1509B="Daewoo 1509B"
+511B="Daewoo 511B"
+512B="Daewoo 512B"
+518B="Daewoo 518B" 
+518X="Daewoo 518X"
+519B="Daewoo 519B"
+1705B="Daewoo 1705B"
+707B="Daewoo 707B"
+710B="Daewoo 710B"
+710C="Daewoo 710C"
+901D="Daewoo 901D"
+
+Monitor\MON4312.DeviceDesc="431X"
+Monitor\MON5093.DeviceDesc="1509B"
+Monitor\MON5113.DeviceDesc="511B"
+Monitor\MON5123.DeviceDesc="512B"
+Monitor\MON5183.DeviceDesc="518B"
+Monitor\MON5182.DeviceDesc="518X"
+Monitor\MON5193.DeviceDesc="519B"
+Monitor\MON7053.DeviceDesc="1705B"
+Monitor\MON7073.DeviceDesc="707B"
+Monitor\MON7103.DeviceDesc="710B"
+Monitor\MON7104.DeviceDesc="710C"
+Monitor\MON9015.DeviceDesc="901D"
+

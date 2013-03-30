@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [CS990DC.INF]
+;
+;      Revision 1.0   March-21-2002
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=03/21/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+CS990DC.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LGCS990D.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%CS990DC%=CS990DC, Monitor\GSM4A50
+
+;------------------------------------; .Install
+
+[CS990DC] 
+AddReg=CS990DC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CS990DC.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[CS990DC.AddReg] 
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LGCS990D.ICM"
+
+;------------------------------------; .CopyFiles
+
+[CS990DC.CopyFiles]  
+LGCS990D.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4A50
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+CS990DC="CS990DC"

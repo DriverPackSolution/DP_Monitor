@@ -1,0 +1,105 @@
+;-------------------------------------------------
+; CQFP745A.INF
+;
+; This is a Setup information file for Compaq
+; FP745A Consumer monitors. 
+;
+; Copyright (c) 1998-2000, Compaq Computer Corporation
+;
+;  Version 08.18.2000
+;-------------------------------------------------
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=Cqfp745a.cat
+DriverVer=08/18/2000,
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CPQ3059
+;-------------------------------------------------
+; Monitor Class Install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FP745A.CopyFiles=23
+
+[SourceDisksNames]
+1="Compaq Consumer Monitor Installation Disk",,,
+
+[SourceDisksFiles]
+CQFP745A.icm=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[COMPAQ]
+%FP745A% =FP745A.Install, Monitor\CPQ3059
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+
+[FP745A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP745A.AddReg, 1024, DPMS
+CopyFiles=FP745A.CopyFiles
+
+
+;-------------------------------------------------
+; Common AddReg/DelReg Sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;-------------------------------------------------
+; Model AddReg Sections
+;-------------------------------------------------
+
+[FP745A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-60,56-75,+,+"
+HKR,,ICMProfile,0,"CQFP745A.icm"
+
+[FP745A.CopyFiles]
+CQFP745A.icm
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+Compaq="COMPAQ"
+MonitorClassName="Monitor"
+FP745A="COMPAQ FP745A Analog Flat Panel Monitor"

@@ -1,0 +1,68 @@
+; NL192WG.inf
+; Setup information file for NEC LCD192WG Monitor
+;
+; Copyright 2010, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL192WG.cat
+DriverVer=03/24/2010,1.07.0707.0127
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67ED
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD192WG.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL192WG.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD192WG%=LCD192WG.Install, Monitor\NEC67ED
+
+[NECDS.ntamd64]
+%LCD192WG%=LCD192WG.Install.ntamd64, Monitor\NEC67ED
+
+[LCD192WG.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD192WG.AddReg, 1440, DPMS
+CopyFiles=LCD192WG.CopyFiles
+
+[LCD192WG.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD192WG.AddReg, 1440, DPMS
+CopyFiles=LCD192WG.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,1440,900
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD192WG.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-75.0,+,-"
+HKR,,ICMProfile,0,"NL192WG.icm"
+
+[LCD192WG.CopyFiles]
+NL192WG.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD192WG="NEC LCD192WG"

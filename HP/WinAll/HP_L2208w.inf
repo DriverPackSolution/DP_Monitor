@@ -1,0 +1,88 @@
+; ###########################################################
+;
+;   HP_L2208w.inf        Ver. 1.00        11/12/2007
+;
+;   Copyright (c)2007, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP L2208w Wide LCD Monitor.
+; 
+; ###########################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_L2208w.cat
+DriverVer=11/12/2007,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP26FA
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L2208w.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_L2208w.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%L2208w%=L2208w.Install, Monitor\HWP26FA
+
+[HP.NTamd64]
+%L2208w%=L2208w.Install, Monitor\HWP26FA
+
+[L2208w.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2208w.AddReg, 1680, DPMS
+CopyFiles=L2208w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L2208w.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,50-76,-,-"
+HKR,"MODES\800,600",Mode1,,"24-83,50-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,50-76,+,+"
+HKR,"MODES\1280,960",Mode1,,"24-83,50-76,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,50-76,+,+"
+HKR,"MODES\1440,900",Mode1,,"24-83,50-76,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24-83,50-76,+,-"
+HKR,"MODES\1680,1050",Mode1,,"24-83,50-76,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_L2208w.icm"
+
+[L2208w.CopyFiles]
+HP_L2208w.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+L2208w="HP L2208w Wide LCD Monitor"
+Disk1="HP L2208w Driver Software"

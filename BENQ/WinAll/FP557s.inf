@@ -1,0 +1,69 @@
+; Setup Information File for Windows Me/9x/2000/XP
+; Copyright (c)  2002, Benq Corporation.
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BENQ%
+catalogfile=FP557s.cat
+DriverVer=12/12/2002,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7650
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP557s.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP557s.icm=1
+
+[Manufacturer]
+%BENQ%=BENQ
+
+[BENQ]
+%FP557s%=FP557s.Install, Monitor\BNQ7650
+
+[FP557s.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP557s.AddReg, 1024, DPMS
+CopyFiles=FP557s.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP557s.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-63.0,56.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FP557s.icm"
+
+[FP557s.CopyFiles]
+FP557s.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BENQ LCD Monitor installation diskette"
+FP557s="BENQ FP557s"
+BENQ="BENQ"

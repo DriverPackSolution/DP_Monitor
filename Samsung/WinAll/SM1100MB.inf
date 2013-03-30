@@ -1,0 +1,102 @@
+
+;==================================================
+; SM1100MB.inf 09/08/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM1100MB.cat
+DriverVer=09/08/2005,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM01EE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM1100MB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM1100MB.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM1100MB%=SM1100MB.Install, Monitor\SAM01EE
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM1100MB%=SM1100MB.Install, Monitor\SAM01EE
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM1100MB%=SM1100MB.Install, Monitor\SAM01EE
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM1100MB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM1100MB.AddReg, 2048, DPMS
+CopyFiles=SM1100MB.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM1100MB.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-130,50-160,+,+"
+HKR,,ICMProfile,0,"SM1100MB.icm"
+
+;------------------------------------------------------
+
+[SM1100MB.CopyFiles]
+SM1100MB.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM1100MB="SyncMaster 1100MB"

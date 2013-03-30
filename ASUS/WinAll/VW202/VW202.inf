@@ -1,0 +1,121 @@
+;================================ 
+; ASUS_VW202.INF 03/09/07 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2007, ASUS Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ASUS%
+catalogfile=VW202.cat
+DriverVer=03/09/2007,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACI20A2
+ExcludeFromSelect.NT=Monitor\ACI20A2
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+VW202_Analog.copyfiles = 23
+VW202_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VW202.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%ASUS%=ASUS,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[ASUS] 
+%VW202_Analog%=VW202_Analog.Install, Monitor\ACI20A2
+%VW202_Digital%=VW202_Digital.Install, Monitor\ACI20A2
+
+;-------------------------------------------------
+ [ASUS.NTAMD64] 
+%VW202_Analog%=VW202_Analog.Install, Monitor\ACI20A2
+%VW202_Digital%=VW202_Digital.Install, Monitor\ACI20A2
+
+
+; Install Sections
+;-------------------------------------------------
+
+[VW202_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VW202_Analog.AddReg, 1680, DPMS
+CopyFiles=VW202_Analog.CopyFiles
+
+[VW202_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VW202_Digital.AddReg, 1680, DPMS
+CopyFiles=VW202_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[VW202_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"VW202.icm"
+
+[VW202_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"VW202.icm"
+
+
+
+[VW202_Analog.CopyFiles]
+VW202.ICM
+
+[VW202_Digital.CopyFiles]
+VW202.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+ASUS="ASUS"
+diskname="ASUS LCD Monitor installation diskette"
+VW202_Analog="ASUS VW202 (Analog)"
+VW202_Digital="ASUS VW202 (Digital)"
+

@@ -1,0 +1,64 @@
+;=============================================================== 
+; [910S.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=910S.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4A7A
+
+[DestinationDirs]
+DefaultDestDir=11
+910S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG910S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%910S%=910S.Install,Monitor\GSM4A7A
+
+[LG.NTamd64]
+%910S%=910S.Install,Monitor\GSM4A7A
+
+[910S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=910S.AddReg,1600,DPMS
+CopyFiles=910S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[910S.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LG910S.ICM"
+
+[910S.CopyFiles]
+LG910S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+910S="LG 910S"

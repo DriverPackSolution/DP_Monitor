@@ -1,0 +1,120 @@
+;============================================
+;This is setup information file for monitors
+;Revision 1.4   12 26, 2002
+;Date: 2004-07-23
+;============================================
+; 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AIC%
+CatalogFile=M-17.cat
+DriverVer=07/23/2004, 1.4
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\AIC1760
+ExcludeFromSelect.NT=Monitor\AIC1765
+
+;ExcludeFromSelect=*
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]  
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+1760.CopyFiles=23
+1765.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+[SourceDisksFiles]
+LCD_165.icm=1
+LCD_193.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%AIC%=AIC
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[AIC]
+%1760%=1760.Install, Monitor\AIC1760
+%1765%=1765.Install, Monitor\AIC1765
+
+;-------------------------------------------------
+
+
+[1760.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1760.AddReg,1280,DPMS
+CopyFiles=1760.CopyFiles
+
+[1765.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1765.AddReg,1280,DPMS
+CopyFiles=1765.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+;--------------------------------
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+
+[1760.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD165.icm"
+
+[1765.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD165.icm"
+
+;-------------------------------------------------------
+
+[1760.CopyFiles]
+LCD_165.icm
+LCD_193.icm
+
+[1765.CopyFiles]
+LCD_165.icm
+LCD_193.icm
+
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+DiskName="AGNeovo Driver Disk"
+AIC="AGNeovo"
+
+1765="M-17 DVI"
+
+1760="M-17"
+

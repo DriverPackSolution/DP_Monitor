@@ -1,0 +1,63 @@
+; Copyright (c) 1998 IBM Corporation Revision 1.2
+;inf file for digital monitor single mode 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+IBM_9519D.copyfiles = 23
+
+
+[SourceDisksNames]
+1="IBM Flat Panel Monitor installation disk",,1
+
+[SourceDisksFiles]
+IBM_9519.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_9519D%=IBM_9519D.Install, Monitor\IBM4C3F
+
+[IBM_9519D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_9519D.AddReg, 1280, DPMS
+CopyFiles=IBM_9519D.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_9519D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"63.9,60.0,+,+"
+HKR,,ICMProfile,0,"IBM_9519.icm"
+
+[IBM_9519D.CopyFiles]
+ibm_9519.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IBM_9519D="IBM 9519 T85D"
+IBM="IBM"
+

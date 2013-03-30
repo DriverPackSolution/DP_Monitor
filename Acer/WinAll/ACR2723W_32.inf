@@ -1,0 +1,71 @@
+; ACER 2723W.INF
+;
+; This is Setup information file for monitors 
+;
+; Copyright (c) 2006, Acer
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%	
+CatalogFile=2723W.cat
+DriverVer=12/08/2006,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ACR0002
+
+[ClassInstall32]
+;AddReg=ClassAddReg32
+
+[ClassAddReg32]
+;HKR,,,,%MonitorClassName%
+;HKR,,Icon,,"-1"
+;HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+2723W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+2723W.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%2723W%=2723W.Install, Monitor\ACR0002
+
+[2723W.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=2723W.AddReg, 1920, DPMS
+CopyFiles=2723W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2723W.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-81.0,56.0-75.0,+,-"
+HKR,,ICMProfile,0,"2723W.icm"
+
+[2723W.CopyFiles]
+2723W.icm
+
+[Strings]
+;MonitorClassName="Monitor"
+Acer="Acer"
+Disk1="Acer LCD Utility Disk"
+2723W="Acer AL2723W"

@@ -1,0 +1,64 @@
+;=============================================================== 
+; [1711TFT.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LGIBM%
+CatalogFile=1711TFT.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4376
+
+[DestinationDirs]
+DefaultDestDir=11
+1711TFT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1711TFT.ICM=1
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTAMD64
+
+[LGIBM]
+%1711TFT%=1711TFT.Install,Monitor\GSM4376
+
+[LGIBM.NTAMD64]
+%1711TFT%=1711TFT.Install,Monitor\GSM4376
+
+[1711TFT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1711TFT.AddReg,1280,DPMS
+CopyFiles=1711TFT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1711TFT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1711TFT.ICM"
+
+[1711TFT.CopyFiles]
+1711TFT.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1711TFT="LGIBM 1711TFT"

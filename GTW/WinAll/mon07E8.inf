@@ -1,0 +1,88 @@
+;=============================================================== 
+; Gateway FPD2020 mon07E8.inf
+; Manufactured by LG Electronics
+; Revision 1.3, March-31-2004
+; Copyright(c) Gateway, All Rights Reserved
+;===============================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon07E8.cat
+DriverVer=03/31/2004, 1.3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY07E8
+ExcludeFromSelect.NT=Monitor\GWY07E9
+
+[DestinationDirs]
+DefaultDestDir=11
+mon07E8.CopyFiles=23
+mon07E9.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon07E8.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon07E8%=mon07E8.Install, Monitor\GWY07E8
+%mon07E9%=mon07E9.Install, Monitor\GWY07E9
+
+[mon07E8.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon07E8.AddReg, 1600, DPMS
+CopyFiles=mon07E8.CopyFiles
+
+[mon07E9.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon07E9.AddReg, 1600, DPMS
+CopyFiles=mon07E9.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon07E8.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"mon07E8.icm"
+
+[mon07E9.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-80.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"mon07E8.icm"
+
+[mon07E8.CopyFiles]
+mon07E8.icm
+
+[mon07E9.CopyFiles]
+mon07E8.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon07E8="Gateway FPD2020"
+mon07E9="Gateway FPD2020"
+

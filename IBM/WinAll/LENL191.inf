@@ -1,0 +1,91 @@
+; Copyright 2006 Lenovo International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+Catalogfile=LENL191.cat
+DriverVer=02/24/2006,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN17F7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+17F7.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LENL191.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%LEN%=LEN,NTAMD64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[LEN]
+%17F7%=17F7.Install, Monitor\LEN17F7
+;-------------------------------------------------
+[LEN.NTAMD64]
+%17F7%=17F7.Install, Monitor\LEN17F7
+
+; Install Sections
+;-------------------------------------------------
+[17F7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=17F7.AddReg, 1280 ,DPMS
+Copyfiles=17F7.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[17F7.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-81.0,55.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-81.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-81.0,55.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"LENL191.icm"
+
+
+[17F7.CopyFiles]
+LENL191.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="LEN Monitor Installation Disk"
+MonitorClassName="Monitor"
+LEN="LEN International (Europe) GmbH"
+
+17F7="LEN L191"

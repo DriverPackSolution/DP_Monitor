@@ -1,0 +1,87 @@
+; [L465.INF]
+; Revision 1.01
+; Copyright(c) 2001 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%	
+CatalogFile=L465.cat
+DriverVer=09/27/2001,1.01
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1642
+;ExcludeFromSelect.nt = Monitor\ENC1643
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L465D.CopyFiles = 23
+L465.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L465__M1.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L465D%=L465D.Install, Monitor\ENC1642
+%L465%=L465.Install, Monitor\ENC1643
+
+[L465D.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=L465D.AddReg, 1280, DPMS	
+CopyFiles=L465D.CopyFiles
+
+[L465.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=L465.AddReg, 1280, DPMS
+CopyFiles=L465.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L465D.AddReg]	
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L465__M1.ICM"
+
+[L465.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-81.0,49.0-76.0,+,+"
+HKR,,ICMProfile,0,"L465__M1.ICM"
+
+[L465D.CopyFiles]
+L465__M1.ICM
+
+[L465.CopyFiles]
+L465__M1.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L465D="L465"
+L465="L465"

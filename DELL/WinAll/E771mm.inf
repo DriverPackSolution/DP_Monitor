@@ -1,0 +1,93 @@
+
+;================================
+;E771mm.INF 08/02/01 Ver. 2.0 SND
+;Copyright 1996-2001 Dell Computer Corporation
+;
+;This is a setupfile for the DELL E771mm
+;Monitor. Supports Windows 98, 2000 & Millennium
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E771mm.cat
+DriverVer=08/02/2001, 2.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL7003
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E771mm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E771mm.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+[DELL]
+%E771mm%=E771mm.Install, Monitor\DEL7003
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E771mm.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E771mm.AddReg, 1280, DPMS
+CopyFiles=E771mm.CopyFiles
+
+
+					
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E771mm.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E771mm.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E771mm.CopyFiles]
+E771mm.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E771mm="Dell E771mm"
+

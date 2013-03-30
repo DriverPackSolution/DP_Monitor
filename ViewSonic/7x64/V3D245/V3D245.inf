@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2011, ViewSonic Corporation
+
+[Version]
+CatalogFile=V3D245.cat    
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/15/2011, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+V3D245.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+V3D245.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCE527
+
+[ViewSonic]   
+%V3D245%=V3D245.Install,Monitor\VSCE527  
+
+[ViewSonic.NTia64]   
+%V3D245%=V3D245.Install,Monitor\VSCE527  
+
+[ViewSonic.NTamd64]   
+%V3D245%=V3D245.Install,Monitor\VSCE527  
+
+[V3D245.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=V3D245.AddReg,1920,DPMS
+Copyfiles=V3D245.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V3D245.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-186,50-120,+,+" 
+HKR,,ICMProfile,0,"V3D245.ICM"
+
+[V3D245.CopyFiles]                                       
+V3D245.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="V3D245 ViewSonic Wizard"
+V3D245="ViewSonic V3D245"

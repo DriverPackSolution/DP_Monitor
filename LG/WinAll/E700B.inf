@@ -1,0 +1,87 @@
+; ^^^^^^^^^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [E700B.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=E700B.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+E700B.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LGE700B.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%E700B%=E700B, Monitor\GSM4313
+
+[LG.NTamd64]
+%E700B%=E700B, Monitor\GSM4313
+
+;------------------------------------; .Install
+
+[E700B] 
+AddReg=E700B.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=E700B.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[E700B.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"LGE700B.ICM"
+
+;------------------------------------; .CopyFiles
+
+[E700B.CopyFiles]  
+LGE700B.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4313
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+E700B="LG E700B"

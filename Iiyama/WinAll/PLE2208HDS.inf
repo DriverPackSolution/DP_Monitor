@@ -1,0 +1,98 @@
+;================================ 
+; PLE2208HDS.INF 07/17/08 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2008, iiyama Corporation
+;================================
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+CatalogFile=PLE2208HDS.cat
+DriverVer=08/08/2008,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM560A
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+560A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+PLE2208HDS.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%iiyama%=iiyama, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama]
+%560A%=560A.Install, Monitor\IVM560A
+
+[iiyama.NTx86]
+%560A%=560A.Install, Monitor\IVM560A
+
+[iiyama.NTia64]
+%560A%=560A.Install, Monitor\IVM560A
+
+[iiyama.NTamd64]
+%560A%=560A.Install, Monitor\IVM560A
+
+; Install sections
+;-------------------------------------------------
+[560A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=560A.AddReg,1920,DPMS
+CopyFiles=560A.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[560A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2208HDS.icm"
+
+;-------------------------------------------------------------------
+[560A.CopyFiles]
+PLE2208HDS.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama"
+DiskName="iiyama Monitor Setup Disk"
+
+560A="iiyama PLE2208HDS"  

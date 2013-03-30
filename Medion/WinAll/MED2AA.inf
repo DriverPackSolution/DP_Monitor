@@ -1,0 +1,72 @@
+
+; MED2AA.INF
+;
+; This is Setup information file for monitors 
+;
+; Copyright (c) 2005, MED
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MED%	
+CatalogFile=MD30004vb_a.cat
+DriverVer=08/31/2005,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\MEDF915
+
+;[ClassInstall32]
+;AddReg=ClassAddReg32
+
+;[ClassAddReg32]
+;HKR,,,,%MonitorClassName%
+;HKR,,Icon,,"-1"
+;HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+MED2AA.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+MD30004VB.icm=1
+
+[Manufacturer]
+%MED%=MED
+
+[MED]
+%MED2AA%=MED2AA.Install, Monitor\MEDF915
+
+[MED2AA.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=MED2AA.AddReg, 1680, DPMS
+CopyFiles=MED2AA.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MED2AA.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"MD30004VB.icm"
+
+[MED2AA.CopyFiles]
+MD30004VB.icm
+
+[Strings]
+;MonitorClassName="Monitor"
+MED="MED"
+Disk1="MED LCD Utility Disk"
+MED2AA="MED MED2AA"

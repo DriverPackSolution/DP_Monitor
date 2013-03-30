@@ -1,0 +1,120 @@
+
+;==================================================
+; SM932GW.inf 03/04/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM932GW.cat
+DriverVer=03/04/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM02E1
+ExcludeFromSelect.nt=Monitor\SAM02E2
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM932GWa.CopyFiles = 23
+SM932GWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM932GW.icm=1
+SM932GW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM932GWa%=SM932GWa.Install, Monitor\SAM02E1
+%SM932GWd%=SM932GWd.Install, Monitor\SAM02E2
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM932GWa%=SM932GWa.Install, Monitor\SAM02E1
+%SM932GWd%=SM932GWd.Install, Monitor\SAM02E2
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM932GWa%=SM932GWa.Install, Monitor\SAM02E1
+%SM932GWd%=SM932GWd.Install, Monitor\SAM02E2
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM932GWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM932GWa.AddReg, 1440, DPMS
+CopyFiles=SM932GWa.CopyFiles
+
+[SM932GWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM932GWd.AddReg, 1440, DPMS
+CopyFiles=SM932GWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM932GWa.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM932GW.icm"
+
+[SM932GWd.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM932GW.icm"
+;------------------------------------------------------
+
+[SM932GWa.CopyFiles]
+SM932GW.icm
+
+[SM932GWd.CopyFiles]
+SM932GW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM932GWa="SyncMaster 932GW(Analog)"
+SM932GWd="SyncMaster 932GW(Digital)"

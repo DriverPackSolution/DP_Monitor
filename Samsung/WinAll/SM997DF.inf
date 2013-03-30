@@ -1,0 +1,95 @@
+
+;==================================================
+; SM997DF.inf 01/13/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM997DF.cat
+DriverVer=01/13/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0109
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM997DF.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM997DF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM997DF%=SM997DF.Install, Monitor\SAM0109
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM997DF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM997DF.AddReg, 2048, DPMS
+CopyFiles=SM997DF.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM997DF.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-96,50-160,+,+"
+HKR,,ICMProfile,0,"SM997DF.icm"
+
+
+;------------------------------------------------------
+
+[SM997DF.CopyFiles]
+SM997DF.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM997DF="SyncMaster 997DF/927DF/997MB/927MB/927DFI"
+

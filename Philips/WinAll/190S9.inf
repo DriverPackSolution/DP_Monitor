@@ -1,0 +1,97 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=190S9.cat
+DriverVer=03/03/2008,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL086B
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+086B.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+190S9.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%086B%=086B.Install, Monitor\PHL086B
+
+[Philips.NTx86]
+%086B%=086B.Install, Monitor\PHL086B
+
+[Philips.NTia64]
+%086B%=086B.Install, Monitor\PHL086B
+
+[Philips.NTamd64]
+%086B%=086B.Install, Monitor\PHL086B
+
+; Install sections
+;-------------------------------------------------
+[086B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=086B.AddReg,1280,DPMS
+CopyFiles=086B.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[086B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"190S9.icm"
+
+;-------------------------------------------------------------------
+[086B.CopyFiles]
+190S9.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+086B="Philips 190S (19inch WIDE LCD MONITOR 190S9)"  

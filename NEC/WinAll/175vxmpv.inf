@@ -1,0 +1,68 @@
+; 175vxmpv.inf
+; Setup information file for NEC MultiSync LCD175VXM+ Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=175vxmpv.cat
+DriverVer=12/19/2006,1.06.1219.2030
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66C0
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD175VXM+.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+175vxmpv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD175VXM+%=LCD175VXM+.Install, Monitor\NEC66C0
+
+[NECDS.ntamd64]
+%LCD175VXM+%=LCD175VXM+.Install.ntamd64, Monitor\NEC66C0
+
+[LCD175VXM+.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD175VXM+.AddReg, 1280, DPMS
+CopyFiles=LCD175VXM+.CopyFiles
+
+[LCD175VXM+.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD175VXM+.AddReg, 1280, DPMS
+CopyFiles=LCD175VXM+.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD175VXM+.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"175vxmpv.icm"
+
+[LCD175VXM+.CopyFiles]
+175vxmpv.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD175VXM+="NEC MultiSync LCD175VXM+"

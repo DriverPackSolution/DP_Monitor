@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=E92f+.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/16/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS27284-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+E92f_p.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS27284-1%=VCDTS27284-1.Install,Monitor\VSC9417            ;E92f+
+
+[VCDTS27284-1.Install]                                         ;E92f+
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS27284-1.AddReg,1920,DPMS
+Copyfiles=VCDTS27284-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS27284-1.AddReg]                                          ;E92f+
+HKR,"MODES\1920,1440",Mode1,,"30-97,50-180,+,+"
+HKR,,ICMProfile,0,"E92f_p.ICM"
+
+[VCDTS27284-1.CopyFiles]                                       
+E92f_p.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS27284-1="ViewSonic E92f+"

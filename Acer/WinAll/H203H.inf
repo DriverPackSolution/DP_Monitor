@@ -1,0 +1,92 @@
+;=====================================================
+;
+;   H203H.inf         Ver. 1.0      07/28/2009
+;
+;   Copyright (C) 1999-2009 Acer Inc. 
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Acer Color Monitor.
+; 
+;=====================================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=H203H.cat   
+DriverVer=07/28/2009, 1.0  
+
+[DestinationDirs]
+DefaultDestDir=11
+H203H_Analog.copyfiles=23
+H203H_Digital.copyfiles=23
+
+[SourceDisksNames]
+1="Acer Monitor installtion disk",,,
+
+[SourceDisksFiles]
+H203H.ICM=1
+
+[Manufacturer]
+%Acer%=Acer,NTx86,NTAMD64
+
+[Acer]
+%H203H_Analog%=H203H_Analog.Install, Monitor\ACR0103
+%H203H_Digital%=H203H_Digital.Install, Monitor\ACR0103
+
+[Acer.NTx86]
+%H203H_Analog%=H203H_Analog.Install, Monitor\ACR0103
+%H203H_Digital%=H203H_Digital.Install, Monitor\ACR0103
+
+[Acer.NTAMD64] 
+%H203H_Analog%=H203H_Analog.Install, Monitor\ACR0103
+%H203H_Digital%=H203H_Digital.Install, Monitor\ACR0103
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACR0103
+
+[H203H_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=H203H_Analog.AddReg, 1600 ,DPMS
+Copyfiles=H203H_Analog.CopyFiles
+
+[H203H_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=H203H_Digital.AddReg, 1600 ,DPMS
+Copyfiles=H203H_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[H203H_Analog.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"H203H.icm"
+
+[H203H_Digital.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"H203H.icm"
+
+
+[H203H_Analog.CopyFiles]
+H203H.icm
+
+[H203H_Digital.CopyFiles]
+H203H.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer Inc."
+
+H203H_Analog="Acer H203H"
+H203H_Digital="Acer H203H (Digital)"
+
+DISK="Acer Inc. Monitor H203H Installation Disk"

@@ -1,0 +1,64 @@
+;=============================================================== 
+; [787LE.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=787LE.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM437E
+
+[DestinationDirs]
+DefaultDestDir=11
+787LE.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG787LE.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTAMD64
+
+[LG]
+%787LE%=787LE.Install,Monitor\GSM437E
+
+[LG.NTAMD64]
+%787LE%=787LE.Install,Monitor\GSM437E
+
+[787LE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=787LE.AddReg,1280,DPMS
+CopyFiles=787LE.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[787LE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-75.0,+,+"
+HKR,,ICMprofile,0,"LG787LE.ICM"
+
+[787LE.CopyFiles]
+LG787LE.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+787LE="LG FLATRON 787LE"

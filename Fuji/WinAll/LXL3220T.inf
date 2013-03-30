@@ -1,0 +1,98 @@
+;Monitor INF file for Fujitsu Siemens Monitor AMILO LXL 3220T
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=LXL3220T.cat
+DriverVer=10/30/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07B2
+ExcludeFromSelect.nt=Monitor\FUS07B3
+ExcludeFromSelect.nt=Monitor\FUS07B4
+
+[DestinationDirs]
+DefaultDestDir=11
+LXL3220T.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LXL3220T.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%LXL_3220Ta%=LXL3220Ta.Install, Monitor\FUS07B2
+%LXL_3220Th%=LXL3220Th.Install, Monitor\FUS07B3
+%LXL_3220Th%=LXL3220Th.Install, Monitor\FUS07B4
+
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%LXL_3220Ta%=LXL3220Ta.Install, Monitor\FUS07B2
+%LXL_3220Th%=LXL3220Th.Install, Monitor\FUS07B3
+%LXL_3220Th%=LXL3220Th.Install, Monitor\FUS07B4
+
+; Install Sections
+;-------------------------------------------------
+
+[LXL3220Ta.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LXL3220Ta.AddReg, 1920, DPMS
+CopyFiles=LXL3220T.CopyFiles
+
+[LXL3220Th.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LXL3220Th.AddReg, 1920, DPMS
+CopyFiles=LXL3220T.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[LXL3220Ta.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-82.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"LXL3220T.icm"
+
+[LXL3220Th.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"15.0-82.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"LXL3220T.icm"
+
+;---------------------------------------------------------- 
+
+[LXL3220T.CopyFiles]
+LXL3220T.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD AMILO LXL 3220T"
+FUJSIE="Fujitsu Siemens Computers"	
+LXL_3220Ta="AMILO LXL 3220T"
+LXL_3220Th="AMILO LXL 3220T"

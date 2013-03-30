@@ -1,0 +1,123 @@
+;================================ 
+;G2200W.INF 04/04/07 Ver. 1.0 
+;; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2007, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G2200W.cat
+DriverVer=04/04/2007,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ780D
+ExcludeFromSelect.NT=Monitor\BNQ780E
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G2200W_Analog.copyfiles = 23
+G2200W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G2200W_DSUB.icm=1
+G2200W_DVI.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G2200W_Analog%=G2200W_Analog.Install, Monitor\BNQ780D
+%G2200W_Digital%=G2200W_Digital.Install, Monitor\BNQ780E
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G2200W_Analog%=G2200W_Analog.Install, Monitor\BNQ780D
+%G2200W_Digital%=G2200W_Digital.Install, Monitor\BNQ780E
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G2200W_Analog%=G2200W_Analog.Install, Monitor\BNQ780D
+%G2200W_Digital%=G2200W_Digital.Install, Monitor\BNQ780E
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G2200W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2200W_Analog.AddReg, 1680, DPMS
+CopyFiles=G2200W_Analog.CopyFiles
+
+[G2200W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2200W_Digital.AddReg, 1680, DPMS
+CopyFiles=G2200W_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[G2200W_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"31-83.0,55.0-60.0,+,+"
+
+HKR,,ICMProfile,0,"G2000W_DSUB.icm"
+
+[G2200W_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"31-83.0,55.0-60.0,+,+"
+HKR,,ICMProfile,0,"G2200W_DVI.icm"
+
+[G2200W_Analog.CopyFiles]
+G2200W_DSUB.ICM
+
+[G2200W_Digital.CopyFiles]
+G2200W_DVI.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G2200W_Analog="BenQ G2200W (Analog)"
+G2200W_Digital="BenQ G2200W (Digital)"
+

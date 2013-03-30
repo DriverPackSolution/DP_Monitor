@@ -1,0 +1,83 @@
+;===============================================================
+; [M227WD.inf]
+; Revision 1.0   October-15-2009
+; Copyright(c)1998~2009 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M227WD.cat
+DriverVer=10/15/2009,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM56D3
+ExcludeFromSelect.NT=Monitor\GSM56D4
+
+[DestinationDirs]
+DefaultDestDir = 11
+M227WD_Analog.CopyFiles = 23
+M227WD_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M227WD.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M227WD_Analog%=M227WD_Analog.Install,Monitor\GSM56D3
+%M227WD_Digital%=M227WD_Digital.Install,Monitor\GSM56D4
+
+[LG.NTamd64]
+%M227WD_Analog%=M227WD_Analog.Install,Monitor\GSM56D3
+%M227WD_Digital%=M227WD_Digital.Install,Monitor\GSM56D4
+
+[M227WD_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M227WD_Analog.AddReg,1920,DPMS
+CopyFiles=M227WD_Analog.CopyFiles
+
+[M227WD_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M227WD_Digital.AddReg,1920,DPMS
+CopyFiles=M227WD_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M227WD_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"M227WD.ICM"
+
+[M227WD_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"M227WD.ICM"
+
+[M227WD_Analog.CopyFiles]
+M227WD.ICM
+
+[M227WD_Digital.CopyFiles]
+M227WD.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M227WD_Analog="LG M227WD(Analog)"
+M227WD_Digital="LG M227WD(Digital)"

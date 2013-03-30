@@ -1,0 +1,89 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for Fujitsu
+;   Copyright, Fujitsu Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the Fujitsu Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%Fujitsu%
+	CatalogFile=SL22W-1 LED.cat
+	DriverVer=08/09/2010,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	SL22W-1 LED.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	SL22W-1 LED.icm=1
+
+[Manufacturer]
+	%Fujitsu%=Fujitsu,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\FUS07E0
+	ExcludeFromSelect.NT=Monitor\FUS07E1
+
+[Fujitsu]
+	%SL22W-1 LED%=SL22W-1 LED.Install, Monitor\FUS07E0
+	%SL22W-1 LED%=SL22W-1 LED.Install, Monitor\FUS07E1
+
+[Fujitsu.NTx86]
+	%SL22W-1 LED%=SL22W-1 LED.Install, Monitor\FUS07E0
+	%SL22W-1 LED%=SL22W-1 LED.Install, Monitor\FUS07E1
+
+[Fujitsu.NTAMD64]
+	%SL22W-1 LED%=SL22W-1 LED.Install, Monitor\FUS07E0
+	%SL22W-1 LED%=SL22W-1 LED.Install, Monitor\FUS07E1
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[SL22W-1 LED.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=SL22W-1 LED.AddReg, 1680, DPMS
+	CopyFiles=SL22W-1 LED.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1680]
+	HKR,,MaxResolution,,"1680,1050"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[SL22W-1 LED.AddReg]
+	HKR,"MODES\1680,1050",Mode1,,"24.0-83.0,55.0-75.0,-,+"
+	HKR,,ICMProfile,0,"SL22W-1 LED.icm"
+
+[SL22W-1 LED.CopyFiles]	
+	SL22W-1 LED.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="Fujitsu Monitor Installation Disk"
+	DiskLabel="Fujitsu INF and ICM Software"
+	Fujitsu="Fujitsu Corporation"
+	SL22W-1 LED="Fujitsu SL22W-1 LED "

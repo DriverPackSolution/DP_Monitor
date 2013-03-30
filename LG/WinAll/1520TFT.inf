@@ -1,0 +1,64 @@
+;=============================================================== 
+; [1520TFT.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2004 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LGIBM%
+CatalogFile=1520TFT.cat
+DriverVer=04/14/2005,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3B9C
+
+[DestinationDirs]
+DefaultDestDir=11
+1520TFT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1520TFT.ICM=1
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTamd64
+
+[LGIBM]
+%1520TFT%=1520TFT.Install,Monitor\GSM3B9C
+
+[LGIBM.NTamd64]
+%1520TFT%=1520TFT.Install,Monitor\GSM3B9C
+
+[1520TFT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1520TFT.AddReg,1024,DPMS
+CopyFiles=1520TFT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1520TFT.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1520TFT.ICM"
+
+[1520TFT.CopyFiles]
+1520TFT.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1520TFT="LGIBM FLATRON LCD 1520TFT"

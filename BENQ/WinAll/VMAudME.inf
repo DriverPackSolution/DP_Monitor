@@ -1,0 +1,99 @@
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%MSFT%
+LayoutFile=layout.inf, layout1.inf, layout2.inf
+DriverVer=06/08/2000, 5.50.5080.1
+[Manufacturer]
+%MfgName%=Microsoft
+
+[ControlFlags]
+ExcludeFromSelect = *
+[Microsoft]
+%USB\CLASS_01.DeviceDesc%=USBAudio, USB\VID_0AC8&PID_0302&MI_01
+
+[DestinationDirs]
+USBAudio.CopyList     = 10,system32\drivers 
+
+[USBAudio]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=USBAudio.CopyList
+AddReg=USBAudio.AddReg
+KnownFiles = USBAudio.KnownFiles
+DriverVer=06/08/2000
+
+[USBAudio.NoCurve]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=USBAudio.CopyList
+AddReg=USBAudio.AddReg
+KnownFiles = USBAudio.KnownFiles
+
+[USBAudio.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,"GLOBAL",USBAudio.Interface.Curve,
+AddInterface=%KSCATEGORY_RENDER%,"GLOBAL",USBAudio.Interface.Curve,
+AddInterface=%KSCATEGORY_CAPTURE%,"GLOBAL",USBAudio.Interface.Curve,
+[USBAudio.NoCurve.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,"GLOBAL",USBAudio.Interface.NoCurve,
+AddInterface=%KSCATEGORY_RENDER%,"GLOBAL",USBAudio.Interface.NoCurve,
+AddInterface=%KSCATEGORY_CAPTURE%,"GLOBAL",USBAudio.Interface.NoCurve,
+
+[USBAudio.Interface.Curve]
+AddReg=USBAudio.Interface.Addreg.Curve
+[USBAudio.Interface.AddReg.Curve]
+HKR,,FriendlyName,,%USBGenericDesc%
+HKR,,CurveType,1,01,00,00,00
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,Mixer\0\Controls\1,Channel0,0x10001,51914
+
+[USBAudio.Interface.NoCurve]
+AddReg=USBAudio.Interface.Addreg.NoCurve
+[USBAudio.Interface.AddReg.NoCurve]
+HKR,,FriendlyName,,%USBGenericDesc%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[USBAudio.AddReg]
+HKR,,SetupPreferredAudioDevices,3,01,00,00,00
+HKR,,AssociatedFilters,,"wdmaud,redbook"
+HKR,,Driver,,USBAUDIO.sys
+HKR,,NTMPDriver,,"USBAUDIO.sys,sbemul.sys"
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,Drivers,SubClasses,,"wave,midi,mixer,aux"
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\aux\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\wave\wdmaud.drv,Description,,%USBGenericDesc%
+HKR,Drivers\midi\wdmaud.drv,Description,,%WDM_MIDI%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%USBGenericDesc%
+HKR,Drivers\aux\wdmaud.drv,Description,,%USBGenericDesc%
+HKLM,%MediaCategories%\%USBGUID.BassBoost%,Name,,%USBNode.BassBoost%
+HKLM,%MediaCategories%\%USBGUID.BassBoost%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%USBGUID.StereoExtend%,Name,,%USBNode.StereoExtend%
+HKLM,%MediaCategories%\%USBGUID.StereoExtend%,Display,1,00,00,00,00
+
+[USBAudio.CopyList]
+USBAUDIO.sys
+[USBAudio.KnownFiles]
+usbaudio.sys.4.10.0 = safe
+
+[Strings]
+MSFT="Microsoft"
+MfgName="(Generic USB Audio)"
+USB\CLASS_01.DeviceDesc="Web Camera Microphone"
+USBGenericDesc="Web Camera Microphone"
+USBGenericMicDesc="USB Audio Microphone"
+USBGenericMIDIDesc="USB MIDI Device"
+WDM_MIDI="WDM MIDI Device"
+MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
+USBGUID.BassBoost    = "{1A71EBE0-959E-11D1-B448-00A0C9255AC1}"
+USBGUID.StereoExtend = "{FD4F0300-9632-11D1-B448-00A0C9255AC1}"
+USBNode.BassBoost    = "Bass Boost"
+USBNode.StereoExtend = "Stereo Extender"
+USBAudio.SvcDesc="USB Audio Driver (WDM)"
+Proxy.CLSID = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO="{6994ad04-93ef-11d0-a3cc-00a0c9223196}"
+KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"

@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2001, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA800.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/17/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VLCDS21833-1R.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA800.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS21833-1R%=VLCDS21833-1R.Install,Monitor\VSCDE00           ;VA800
+
+[VLCDS21833-1R.Install]                                         ;VA800
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21833-1R.AddReg,1280,DPMS
+Copyfiles=VLCDS21833-1R.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS21833-1R.AddReg]                                          ;VA800
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VA800.ICM"
+
+[VLCDS21833-1R.CopyFiles]                                       
+VA800.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS21833-1R="ViewSonic VA800" 

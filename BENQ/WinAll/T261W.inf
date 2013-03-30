@@ -1,0 +1,92 @@
+;T261W.INF Ver. 1.0
+;Monitor INF file for BenQ T261W
+;Copyright 2001,2008 BenQ Co., Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+CatalogFile=T261W.cat
+DriverVer=01/10/2008, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\BEQ2377
+ExcludeFromSelect.nt=Monitor\BEQ2477
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+T261WA.CopyFiles=23
+T261WD.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+T261W.ICM=1
+
+
+[Manufacturer]
+%BenQ%=BenQ,NTX86,NTAMD64
+
+[BenQ]
+%T261WA%=T261WA.Install, Monitor\BEQ2377
+%T261WD%=T261WD.Install, Monitor\BEQ2477
+
+[BenQ.NTX86]
+%T261WA%=T261WA.Install, Monitor\BEQ2377
+%T261WD%=T261WD.Install, Monitor\BEQ2477
+
+[BenQ.NTAMD64]
+%T261WA%=T261WA.Install, Monitor\BEQ2377
+%T261WD%=T261WD.Install, Monitor\BEQ2477
+
+[T261WA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T261WA.AddReg, 1920, DPMS
+CopyFiles=T261WA.CopyFiles
+
+[T261WD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T261WD.AddReg, 1920, DPMS
+CopyFiles=T261WD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[T261WA.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30-81,40-63,+,+"
+HKR,,ICMProfile,0,"T261W.ICM"
+[T261WD.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30-81,40-63,+,+"
+HKR,,ICMProfile,0,"T261W.ICM"
+
+
+[T261WA.CopyFiles]
+T261W.ICM
+[T261WD.CopyFiles]
+T261W.ICM
+
+[Strings]
+DISK="BenQ Manual and Driver CD"
+MonitorClassName="Monitor"
+BenQ="BenQ Co., Ltd."
+T261WA="BenQ T261W D-SUB"
+T261WD="BenQ T261W DVI"

@@ -1,0 +1,88 @@
+; Copyright 2006 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=193P.cat
+DriverVer=01/12/2006,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC1980
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1980.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+193P.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%1980%=1980.Install, Monitor\AOC1980
+
+; Install Sections
+;-------------------------------------------------
+[1980.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1980.AddReg, 1280 ,DPMS
+Copyfiles=1980.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[1980.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"193P.icm"
+
+
+[1980.CopyFiles]
+193P.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+1980="AOC 193P"

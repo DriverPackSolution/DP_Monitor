@@ -1,0 +1,74 @@
+;Copyright (c) 2005 IBM Corporation
+;This is a setupfile for the IBM_C117 
+;IBM_C117 Monitor(64 bits) 
+
+
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_C117.cat
+DriverVer=08/26/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM134A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+IBM_C117.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,,
+
+[SourceDisksFiles]
+IBM_C117.icm=1
+
+[Manufacturer]
+%IBM%=IBM,NTAMD64
+
+[IBM]
+%IBM_C117%=IBM_C117.Install, Monitor\IBM134A
+
+[IBM.NTAMD64] 
+%IBM_C117%=IBM_C117.Install, Monitor\IBM134A
+
+[IBM_C117.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_C117.AddReg, 1280, DPMS
+CopyFiles=IBM_C117.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_C117.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"IBM_C117.icm"
+
+
+[IBM_C117.CopyFiles]
+IBM_C117.ICM
+
+[Strings]
+diskname="IBM Monitor installtion disk"
+MonitorClassName="Monitor"
+IBM_C117="IBM C117 CRT"
+IBM="IBM"

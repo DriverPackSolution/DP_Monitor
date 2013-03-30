@@ -1,0 +1,83 @@
+;=============================================================== 
+; [E2411.INF] 
+; Revision 1.0   January-08-2011
+; Copyright(c)1998~2011 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=E2411.cat
+DriverVer=01/08/2011,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM583A
+ExcludeFromSelect.NT=Monitor\GSM583B
+
+[DestinationDirs]
+DefaultDestDir = 11
+E2411_Analog.CopyFiles = 23
+E2411_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+E2411.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%E2411_Analog%=E2411_Analog.Install,Monitor\GSM583A
+%E2411_Digital%=E2411_Digital.Install,Monitor\GSM583B
+
+[LG.NTamd64]
+%E2411_Analog%=E2411_Analog.Install,Monitor\GSM583A
+%E2411_Digital%=E2411_Digital.Install,Monitor\GSM583B
+
+[E2411_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2411_Analog.AddReg,1920,DPMS
+CopyFiles=E2411_Analog.CopyFiles
+
+[E2411_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2411_Digital.AddReg,1920,DPMS
+CopyFiles=E2411_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E2411_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"E2411.ICM"
+
+[E2411_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"E2411.ICM"
+
+[E2411_Analog.CopyFiles]
+E2411.ICM
+
+[E2411_Digital.CopyFiles]
+E2411.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+E2411_Analog="LG E2411(Analog)"
+E2411_Digital="LG E2411(Digital)"

@@ -1,0 +1,81 @@
+;=============================================================== 
+; [L1810TS.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1810TS.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM466F
+ExcludeFromSelect.NT=Monitor\GSM4670
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1810TS_Analog.CopyFiles = 23
+L1810TS_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1810TS.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1810TS_Analog%=L1810TS_Analog.Install,Monitor\GSM466F
+%L1810TS_Digital%=L1810TS_Digital.Install,Monitor\GSM4670
+
+[LG.NTamd64]
+%L1810TS_Analog%=L1810TS_Analog.Install,Monitor\GSM466F
+%L1810TS_Digital%=L1810TS_Digital.Install,Monitor\GSM4670
+
+[L1810TS_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1810TS_Analog.AddReg,1280,DPMS
+CopyFiles=L1810TS_Analog.CopyFiles
+
+[L1810TS_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1810TS_Digital.AddReg,1280,DPMS
+CopyFiles=L1810TS_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1810TS_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"L1810TS.ICM"
+
+[L1810TS_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"L1810TS.ICM"
+
+[L1810TS_Analog.CopyFiles]
+L1810TS.ICM
+
+[L1810TS_Digital.CopyFiles]
+L1810TS.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1810TS_Analog="LG FLATRON L1810TS(Analog)"
+L1810TS_Digital="LG FLATRON L1810TS(Digital)"

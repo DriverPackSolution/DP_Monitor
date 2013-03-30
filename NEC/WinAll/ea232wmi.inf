@@ -1,0 +1,108 @@
+; ea232wmi.inf
+; Setup information file for NEC MultiSync EA232WMi Monitor
+;
+; Copyright (C) 2010, NEC Display Solutions,Ltd
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea232wmi.cat
+DriverVer=08/26/2010,1.10.0826.1031
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6814
+ExcludeFromSelect.nt=Monitor\NEC6815
+ExcludeFromSelect.nt=Monitor\NEC6816
+
+[DestinationDirs]
+EA232WMi.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea232wmi.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA232WMi-A%=EA232WMi-A.Install, Monitor\NEC6814
+%EA232WMi-D%=EA232WMi-D.Install, Monitor\NEC6815
+%EA232WMi-DP%=EA232WMi-DP.Install, Monitor\NEC6816
+
+[NECDS.ntamd64]
+%EA232WMi-A%=EA232WMi-A.Install.ntamd64, Monitor\NEC6814
+%EA232WMi-D%=EA232WMi-D.Install.ntamd64, Monitor\NEC6815
+%EA232WMi-DP%=EA232WMi-DP.Install.ntamd64, Monitor\NEC6816
+
+
+[EA232WMi-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA232WMi-A.AddReg, 1920, DPMS
+CopyFiles=EA232WMi.CopyFiles
+
+[EA232WMi-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA232WMi-D.AddReg, 1920, DPMS
+CopyFiles=EA232WMi.CopyFiles
+
+[EA232WMi-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA232WMi-DP.AddReg, 1920, DPMS
+CopyFiles=EA232WMi.CopyFiles
+
+
+[EA232WMi-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA232WMi-A.AddReg, 1920, DPMS
+CopyFiles=EA232WMi.CopyFiles
+
+[EA232WMi-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA232WMi-D.AddReg, 1920, DPMS
+CopyFiles=EA232WMi.CopyFiles
+
+[EA232WMi-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA232WMi-DP.AddReg, 1920, DPMS
+CopyFiles=EA232WMi.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA232WMi-A.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"ea232wmi.icm"
+
+[EA232WMi-D.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"ea232wmi.icm"
+
+[EA232WMi-DP.AddReg]
+;HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,-"
+HKR,,ICMProfile,0,"ea232wmi.icm"
+
+
+[EA232WMi.CopyFiles]
+ea232wmi.icm
+
+[Strings]
+NECDS="NEC"
+EA232WMi-A="NEC MultiSync EA232WMi(Analog)"
+EA232WMi-D="NEC MultiSync EA232WMi(Digital)"
+EA232WMi-DP="NEC MultiSync EA232WMi(DisplayPort)"
+Disk1="NEC Display Solutions Installation Disk"

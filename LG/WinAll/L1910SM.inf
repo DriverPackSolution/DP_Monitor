@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1910SM.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1910SM.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4A8A
+
+[DestinationDirs]
+DefaultDestDir=11
+L1910SM.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1910SM.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1910SM%=L1910SM.Install,Monitor\GSM4A8A
+
+[LG.NTamd64]
+%L1910SM%=L1910SM.Install,Monitor\GSM4A8A
+
+[L1910SM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1910SM.AddReg,1280,DPMS
+CopyFiles=L1910SM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1910SM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1910SM.ICM"
+
+[L1910SM.CopyFiles]
+L1910SM.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1910SM="LG L1910SM"

@@ -1,0 +1,95 @@
+
+;==================================================
+; IBM_6518.inf 03/20/2003 ver. 1.1
+;
+; Copyright 2003 IBM Corporation
+;
+; This is a Setup information file for IBM Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_6518.cat
+DriverVer=03/20/2003,1.1
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM1976
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+IBM_6518.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM_6518.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+; Manufacturer sections
+;-----------------------------------------------------
+[IBM]
+%IBM_6518%=IBM_6518.Install, Monitor\IBM1976
+
+; Install Sections
+;-----------------------------------------------------
+
+[IBM_6518.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_6518.AddReg, 1024, DPMS
+CopyFiles=IBM_6518.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[IBM_6518.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-54,50-120,+,+"
+HKR,,ICMProfile,0,"IBM_6518.icm"
+
+
+;------------------------------------------------------
+
+[IBM_6518.CopyFiles]
+IBM_6518.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="IBM Monitor Installation Disk"
+MonitorClassName="Monitor"
+IBM="IBM"
+IBM_6518="IBM E50"
+

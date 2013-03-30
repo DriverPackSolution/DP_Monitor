@@ -1,0 +1,68 @@
+; ea191m7.inf
+; Setup information file for NEC MultiSync EA191M Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea191m7.cat
+DriverVer=09/15/2009,2.09.0915.1756
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC673E
+
+[DestinationDirs]
+EA191M.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea191m7.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA191M%=EA191M.Install, Monitor\NEC673E
+
+[NECDS.ntamd64]
+%EA191M%=EA191M.Install.ntamd64, Monitor\NEC673E
+
+[EA191M.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA191M.AddReg, 1280, DPMS
+CopyFiles=EA191M.CopyFiles
+
+[EA191M.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA191M.AddReg, 1280, DPMS
+CopyFiles=EA191M.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA191M.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"ea191m7.icm"
+
+[EA191M.CopyFiles]
+ea191m7.icm
+
+[Strings]
+NECDS="NEC"
+EA191M="NEC MultiSync EA191M"
+Disk1="NEC Monitor Installation Disk"

@@ -1,0 +1,97 @@
+;-------------------------------------------
+; Copyright (c) 2007 Dell Corporation
+; Issue date -- 08/15/08
+; revision 1
+;This is a setupfile for 2209WA
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2209WA.cat
+DriverVer=08/15/2008,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+2209WA_Analog.copyfiles = 23
+2209WA_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+2209WA.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%2209WA_Analog%=2209WA_Analog.Install, Monitor\DELF010
+%2209WA_Digital%=2209WA_Digital.Install, Monitor\DELF011
+
+[DELL.NTx86]
+%2209WA_Analog%=2209WA_Analog.Install, Monitor\DELF010
+%2209WA_Digital%=2209WA_Digital.Install, Monitor\DELF011
+
+[DELL.NTAMD64]
+%2209WA_Analog%=2209WA_Analog.Install, Monitor\DELF010
+%2209WA_Digital%=2209WA_Digital.Install, Monitor\DELF011
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DELF010
+ExcludeFromSelect.NT=Monitor\DELF011
+
+[2209WA_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2209WA_Analog.AddReg, 1680, DPMS
+CopyFiles=2209WA_Analog.CopyFiles
+
+[2209WA_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2209WA_Digital.AddReg, 1680, DPMS
+CopyFiles=2209WA_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2209WA_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"2209WA.icm"
+
+[2209WA_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"2209WA.icm"
+
+
+[2209WA_Analog.CopyFiles]
+2209WA.ICM
+
+[2209WA_Digital.CopyFiles]
+2209WA.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+
+2209WA_Analog="Dell 2209WA(Analog)"
+2209WA_Digital="Dell 2209WA(Digital)"
+

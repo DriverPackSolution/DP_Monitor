@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG900b.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/31/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS24020-2W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG900b.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS24020-2W%=VLCDS24020-2W.Install,Monitor\VSC240E           ;VG900b
+
+[VLCDS24020-2W.Install]                                         ;VG900b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS24020-2W.AddReg,1280,DPMS
+Copyfiles=VLCDS24020-2W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS24020-2W.AddReg]                                          ;VG900b
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG900b.ICM"
+
+[VLCDS24020-2W.CopyFiles]                                       
+VG900b.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS24020-2W="ViewSonic VG900b"

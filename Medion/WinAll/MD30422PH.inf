@@ -1,0 +1,83 @@
+;MD30422PH.INF Ver. 1.0
+;Monitor INF file for Medion MD30422PH
+;Copyright 2001,2007 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD30422PH.cat
+DriverVer=09/14/2007, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED8607
+ExcludeFromSelect.nt=Monitor\MED8608
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD30422PH.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+R09.ICM=1
+
+[Manufacturer]
+%Medion%=Medion,NTX86,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[Medion]
+%MD30422PH%=MD30422PH.Install, Monitor\MED8607
+%MD30422PH%=MD30422PH.Install, Monitor\MED8608
+
+[Medion.NTX86]
+%MD30422PH%=MD30422PH.Install, Monitor\MED8607
+%MD30422PH%=MD30422PH.Install, Monitor\MED8608
+
+[Medion.NTAMD64]
+%MD30422PH%=MD30422PH.Install, Monitor\MED8607
+%MD30422PH%=MD30422PH.Install, Monitor\MED8608
+
+; Install Sections
+;-------------------------------------------------
+
+[MD30422PH.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD30422PH.AddReg, 1680, DPMS
+CopyFiles=MD30422PH.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD30422PH.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31-80,56-76,+,+"
+HKR,,ICMProfile,0,"R09.ICM"
+
+[MD30422PH.CopyFiles]
+R09.ICM
+
+[Strings]
+DISK="Medion Manual and Driver CD"
+MonitorClassName="Monitor"
+Medion="Medion AG"
+MD30422PH="Medion MD30422PH"

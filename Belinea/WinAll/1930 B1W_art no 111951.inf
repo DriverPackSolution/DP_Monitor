@@ -1,0 +1,82 @@
+################################################################
+; This is a setup information file for Belinea 1930B1W monitor ;
+; Modified by MAXDATA International GmbH (ABA)                 ;
+; Revision 1.0.0.0, June 09, 2008                              ;
+; Copyright 2000-2008 MAXDATA International GmbH               ;
+################################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=111951.cat
+DriverVer=06/09/2008,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX079F
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea 19 30 B1W / Art. No. 111951" = 111951.Install, Monitor\MAX079F
+
+[Belinea.NTx86]
+"Belinea 19 30 B1W / Art. No. 111951" = 111951.Install, Monitor\MAX079F
+
+[Belinea.NTia64]
+"Belinea 19 30 B1W / Art. No. 111951" = 111951.Install, Monitor\MAX079F
+
+[Belinea.NTamd64]
+"Belinea 19 30 B1W / Art. No. 111951" = 111951.Install, Monitor\MAX079F
+
+
+; Install sections
+;-------------------------------------------------
+[111951.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=111951.AddReg,1440,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[111951.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA International GmbH"
+BELINEA="MAXDATA International GmbH"
+

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG2227WM.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/13/2009, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG2227WM.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG2227WM.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCF422
+
+[ViewSonic]   
+%VG2227WM%=VG2227WM.Install,Monitor\VSCF422  
+
+[ViewSonic.NTia64]   
+%VG2227WM%=VG2227WM.Install,Monitor\VSCF422
+
+[ViewSonic.NTamd64]   
+%VG2227WM%=VG2227WM.Install,Monitor\VSCF422 
+
+[VG2227WM.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2227WM.AddReg,1920,DPMS
+Copyfiles=VG2227WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG2227WM.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VG2227WM.ICM"
+
+[VG2227WM.CopyFiles]                                       
+VG2227WM.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VG2227WM ViewSonic Wizard"
+VG2227WM="ViewSonic VG2227WM"

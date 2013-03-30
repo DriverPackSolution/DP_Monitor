@@ -1,0 +1,111 @@
+; [CG222W.INF]
+; Revision 1.00
+; Copyright(c) 2008 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=CG222W.cat
+DriverVer=01/10/2008,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1964
+;ExcludeFromSelect.nt = Monitor\ENC1965
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+CG222W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CG222W Custom 5000K G2.2.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%CG222WD%=CG222WD.Install, Monitor\ENC1964
+%CG222W%=CG222W.Install, Monitor\ENC1965
+
+[EIZONANAO.NTamd64]
+%CG222WD%=CG222WD.Installamd64, Monitor\ENC1964
+%CG222W%=CG222W.Installamd64, Monitor\ENC1965
+
+[EIZONANAO.NTia64]
+%CG222WD%=CG222WD.Installia64, Monitor\ENC1964
+%CG222W%=CG222W.Installia64, Monitor\ENC1965
+
+[CG222WD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG222WD.AddReg, 1680, DPMS
+CopyFiles=CG222W.CopyFiles
+
+[CG222W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG222W.AddReg, 1680, DPMS
+CopyFiles=CG222W.CopyFiles
+
+[CG222WD.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG222WD.AddReg, 1680, DPMS
+CopyFiles=CG222W.CopyFiles
+
+[CG222W.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG222W.AddReg, 1680, DPMS
+CopyFiles=CG222W.CopyFiles
+
+[CG222WD.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG222WD.AddReg, 1680, DPMS
+CopyFiles=CG222W.CopyFiles
+
+[CG222W.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG222W.AddReg, 1680, DPMS
+CopyFiles=CG222W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CG222WD.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"26.0-65.0,47.0-61.0,+,-"
+HKR,,ICMProfile,0,"CG222W Custom 5000K G2.2.icm"
+
+[CG222W.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"24.0-82.0,47.0-86.0,-,+"
+HKR,,ICMProfile,0,"CG222W Custom 5000K G2.2.icm"
+
+[CG222W.CopyFiles]
+CG222W Custom 5000K G2.2.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+CG222WD="CG222W Digital"
+CG222W="CG222W Analog"

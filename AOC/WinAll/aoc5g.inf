@@ -1,0 +1,91 @@
+;================================ 
+;AOC5G.INF 10/13/00 Ver. 1.0 
+;Copyright (C) By TOP Victory Electronics Co.,Ltd.
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+CatalogFile=AOC5G.cat
+DriverVer=11/10/2000,  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC569E
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+5G.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+AOC5G.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC
+
+; Manufacturer sections
+;-------------------------------------------------
+ [AOC] 
+%5G%=5G.Install, Monitor\AOC569E
+
+; Install Sections
+;-------------------------------------------------
+
+[5G.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=5G.AddReg, 1280, DPMS
+CopyFiles=5G.CopyFiles
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[5G.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"AOC5G.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[5G.CopyFiles]
+AOC5G.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) Gmbh"	
+5G="AOC Spectrum 5Glr,5GlrA,5Glr+ & 5GlrA+"
+

@@ -1,0 +1,69 @@
+;17JN1.INF Ver. 1.00
+;Monitor INF file for IIYAMA WEB Dept. Monitor 17JN1
+;Copyright 2003 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=17JN1.cat      
+DriverVer=09/01/2003,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46BA
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+17JN1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+17JN1.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%17JN1%=17JN1.Install, Monitor\IVM46BA
+
+[17JN1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=17JN1.AddReg, 1280, DPMS
+CopyFiles=17JN1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[17JN1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24-83,50-76,+,+"
+HKR,,ICMProfile,0,"17JN1.ICM"
+
+[17JN1.CopyFiles]
+17JN1.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+17JN1="e-yama 17JN1"

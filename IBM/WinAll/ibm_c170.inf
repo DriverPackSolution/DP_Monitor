@@ -1,0 +1,61 @@
+;=============================================================== 
+; IBM_C170.INF 02/25/2003 
+; Revision 1.2   February-25-2003
+; Copyright(c) IBM,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_C170.cat
+DriverVer=02/25/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM1A51
+
+[DestinationDirs]
+DefaultDestDir = 11
+IBM_C170.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+IBM_C170.ICM=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_C170%=IBM_C170.Install,Monitor\IBM1A51
+
+[IBM_C170.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_C170.AddReg,1280,DPMS
+CopyFiles=IBM_C170.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_C170.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"IBM_C170.ICM"
+
+[IBM_C170.CopyFiles]
+IBM_C170.ICM
+
+[Strings]
+DiskName="IBM Monitor installtion disk"
+IBM="IBM"
+IBM_C170="IBM 6737 C170"

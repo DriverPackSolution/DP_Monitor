@@ -1,0 +1,248 @@
+; [EIZOLCD.INF]
+; Revision 1.01
+; Copyright(c) 2001 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZO%
+Provider=%NANAO%
+Provider=%EIZONANAO%
+DriverVer=01/12/2001,1.01
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+E141L.CopyFiles = 23
+E151L.CopyFiles = 23
+L23.CopyFiles = 23
+L34.CopyFiles = 23
+L66.CopyFiles = 23
+L360.CopyFiles = 23
+L351.CopyFiles=23
+L371D.CopyFiles = 23
+L371.CopyFiles = 23
+L771.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+E141L_M1.ICM=1
+E151L_M1.ICM=1
+L23___M1.ICM=1
+L34___M1.ICM=1
+L66___M1.ICM=1
+L360__M1.ICM=1
+L351__M1.ICM=1
+L371__M1.ICM=1
+L771__M1.ICM=1
+
+[Manufacturer]
+%EIZO%=EIZO
+%NANAO%=NANAO
+%EIZONANAO%=EIZONANAO
+
+[EIZO]
+%L23%=L23.Install, Monitor\EIZ1009
+%L23A%=L23.Install, Monitor\EIZ1409
+%L34%=L34.Install, Monitor\EIZ1012
+%L34A%=L34.Install, Monotor\EIZ1412
+%L66%=L66.Install, Monitor\EIZ1019
+%L66B%=L66.Install, Monitor\EIZ1419
+%L360%=L360.Install, Monitor\EIZ1021
+%L360B%=L360.Install, Monitor\EIZ1421
+
+[NANAO]
+%E141L%=E141L.Install, Monitor\NAN1209
+%E151L%=E151L.Install, Monitor\NAN1212
+%L66A%=L66.Install, Monitor\NAN1219
+%L360A%=L360.Install, Monitor\NAN1221
+
+[EIZONANAO]
+%L351%=L351.Install, Monitor\ENC1616
+%L371D%=L371D.Install, Monitor\ENC1617
+%L371%=L371.Install, Monitor\ENC1618
+%L771%=L771.Install, Monitor\ENC1622
+
+[L23.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L23.AddReg, 1024, DPMS
+CopyFiles=L23.CopyFiles
+
+[L34.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L34.AddReg, 1024, DPMS
+CopyFiles=L34.CopyFiles
+
+[L66.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L66.AddReg, 1280, DPMS
+CopyFiles=L66.CopyFiles
+
+[E141L.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E141L.AddReg, 1024, DPMS
+CopyFiles=E141L.CopyFiles
+
+[E151L.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E151L.AddReg, 1024, DPMS
+CopyFiles=E151L.CopyFiles
+
+[L360.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L360.AddReg, 1024, DPMS
+CopyFiles=L360.CopyFiles
+
+[L351.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L351.AddReg, 1024, DPMS
+CopyFiles=L351.CopyFiles
+
+[L371D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L371D.AddReg, 1024, DPMS
+CopyFiles=L371D.CopyFiles
+
+[L371.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L371.AddReg, 1024, DPMS
+CopyFiles=L371.CopyFiles
+
+[L771.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L771.AddReg, 1600, DPMS
+CopyFiles=L771.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L23.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-50.0,50.0-60.0,+,+"
+HKR,,ICMProfile,0,"L23___M1.ICM"
+
+[L34.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-61.0,55.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"24.0-61.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-61.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L34___M1.ICM"
+
+[L66.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L66___M1.ICM"
+
+[E141L.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-50.0,50.0-60.0,+,+"
+HKR,,ICMProfile,0,"E141L_M1.ICM"
+
+[E151L.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-61.0,55.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"24.0-61.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-61.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"E151L_M1.ICM"
+
+[L360.AddReg]
+HKR,"MODES\640,480",Mode1,,"27.0-61.0,55.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"27.0-61.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"27.0-61.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L360__M1.ICM"
+
+[L351.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L351__M1.ICM"
+
+[L371D.AddReg]
+HKR,"MODES\1024,768",Mode1,,"27.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L371__M1.ICM"
+
+[L371.AddReg]
+HKR,"MODES\1024,768",Mode1,,"27.0-61.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L371__M1.ICM"
+
+[L771.AddReg]
+HKR,"MODES\640,480",Mode1,,"27.0-81.0,50.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"27.0-81.0,50.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"27.0-81.0,50.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"27.0-81.0,50.0-75.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"27.0-76.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L771__M1.ICM"
+
+[L23.CopyFiles]
+L23___M1.ICM
+
+[L34.CopyFiles]
+L34___M1.ICM
+
+[L66.CopyFiles]
+L66___M1.ICM
+
+[E141L.CopyFiles]
+E141L_M1.ICM
+
+[E151L.CopyFiles]
+E151L_M1.ICM
+
+[L360.CopyFiles]
+L360__M1.ICM
+
+[L351.CopyFiles]
+L351__M1.ICM
+
+[L371D.CopyFiles]
+L371__M1.ICM
+
+[L371.CopyFiles]
+L371__M1.ICM
+
+[L771.CopyFiles]
+L771__M1.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZO="EIZO"
+NANAO="NANAO"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L23="EIZO L23"
+L23A="EIZO L23"
+L34="EIZO L34"
+L34A="EIZO L34"
+L66="EIZO L66"
+E141L="EIZO E141L"
+E151L="EIZO E151L"
+L66A="EIZO L66"
+L66B="EIZO L66"
+L360="EIZO L360"
+L360A="EIZO L360"
+L360B="EIZO L360"
+L351="L351"
+L371D="L371"
+L371="L371"
+L771="L771"

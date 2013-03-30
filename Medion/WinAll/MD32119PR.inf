@@ -1,0 +1,70 @@
+;MD32119PR.INF Ver. 1.0
+;Monitor INF file for Medion MD32119PR
+;Copyright 2001,2002 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD32119PR.cat
+DriverVer=11/07/2005, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED89C2
+ExcludeFromSelect.nt=Monitor\MED89C1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+S13.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+S13.ICM=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%S13%=S13.Install, Monitor\MED89C2
+%S13%=S13.Install, Monitor\MED89C1
+
+[S13.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S13.AddReg, 1280, DPMS
+CopyFiles=S13.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[S13.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,50-75,+,+"
+HKR,,ICMProfile,0,"S13.ICM"
+
+[S13.CopyFiles]
+S13.ICM
+
+[Strings]
+DISK="Medion Manual and Driver CD"
+MonitorClassName="Monitor"
+Medion="Medion AG"
+S13="Medion MD32119PR"

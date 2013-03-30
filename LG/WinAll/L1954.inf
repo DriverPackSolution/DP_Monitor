@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1954.INF] 
+; Revision 1.4   April-10-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1954.cat
+DriverVer=04/20/2007,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B64
+ExcludeFromSelect.NT=Monitor\GSM4B65
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1954_Analog.CopyFiles = 23
+L1954_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1954.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1954_Analog%=L1954_Analog.Install,Monitor\GSM4B64
+%L1954_Digital%=L1954_Digital.Install,Monitor\GSM4B65
+
+[LG.NTamd64]
+%L1954_Analog%=L1954_Analog.Install,Monitor\GSM4B64
+%L1954_Digital%=L1954_Digital.Install,Monitor\GSM4B65
+
+[L1954_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1954_Analog.AddReg,1280,DPMS
+CopyFiles=L1954_Analog.CopyFiles
+
+[L1954_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1954_Digital.AddReg,1280,DPMS
+CopyFiles=L1954_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1954_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1954.ICM"
+
+[L1954_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1954.ICM"
+
+[L1954_Analog.CopyFiles]
+L1954.ICM
+
+[L1954_Digital.CopyFiles]
+L1954.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1954_Analog="LG L1954(Analog)"
+L1954_Digital="LG L1954(Digital)"

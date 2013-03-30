@@ -1,0 +1,82 @@
+; NAL9V.INF
+; Setup information file for NEC AccuSync LCD9V Monitor
+;
+; Copyright 2003, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=nal9v.cat
+DriverVer=03/07/2003,3.03.0007.1548
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6619
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-ASLCD9V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+nal9v.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-ASLCD9V%=NEC-ASLCD9V.Install, Monitor\NEC6619
+
+; Install Sections
+;-------------------------------------------------
+[NEC-ASLCD9V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-ASLCD9V.AddReg, 1280, DPMS
+CopyFiles=NEC-ASLCD9V.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-ASLCD9V.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nal9v.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-ASLCD9V.CopyFiles]
+nal9v.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-ASLCD9V="NEC AccuSync LCD9V"

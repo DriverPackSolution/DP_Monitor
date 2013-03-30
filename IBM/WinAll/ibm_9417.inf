@@ -1,0 +1,61 @@
+;=============================================================== 
+; IBM_9417.INF 03/05/2005 
+; Revision 1.3   03-05-2005
+; Copyright(c) IBM,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_9417.cat
+DriverVer=03/05/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM24C9
+
+[DestinationDirs]
+DefaultDestDir = 11
+IBM_9417.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+IBM_9417.ICM=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_9417%=IBM_9417.Install,Monitor\IBM24C9
+
+[IBM_9417.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_9417.AddReg,1280,DPMS
+CopyFiles=IBM_9417.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_9417.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMprofile,0,"IBM_9417.ICM"
+
+[IBM_9417.CopyFiles]
+IBM_9417.ICM
+
+[Strings]
+DiskName="IBM Monitor installtion disk"
+IBM="IBM"
+IBM_9417="IBM 9417 L171"

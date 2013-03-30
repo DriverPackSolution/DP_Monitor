@@ -1,0 +1,68 @@
+; NV221WX.inf
+; Setup information file for NEC V221WX Monitor
+;
+; Copyright 2009, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NV221WX.cat
+DriverVer=10/22/2009,1.09.1022.2027
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67D5
+
+[DestinationDirs]
+DefaultDestDir = 11
+V221WX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NV221WX.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%V221WX%=V221WX.Install, Monitor\NEC67D5
+
+[NECDS.ntamd64]
+%V221WX%=V221WX.Install.ntamd64, Monitor\NEC67D5
+
+[V221WX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V221WX.AddReg, 1920, DPMS
+CopyFiles=V221WX.CopyFiles
+
+[V221WX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V221WX.AddReg, 1920, DPMS
+CopyFiles=V221WX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,1920,1080
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V221WX.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"NV221WX.icm"
+
+[V221WX.CopyFiles]
+NV221WX.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+V221WX="NEC V221WX"

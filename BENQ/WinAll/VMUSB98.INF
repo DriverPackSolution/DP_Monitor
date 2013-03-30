@@ -1,0 +1,51 @@
+;
+;VMUSB98.INF
+;
+
+[Version]
+signature="$CHICAGO$"a
+;CatalogFile=usb.cat
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%VM%
+
+[DestinationDirs]
+USBUI.CopyFiles=11
+USB.DelFiles=11
+USBMON.DelFiles=11
+USBINF.DelFiles=17
+DefaultDestDir=10,system32\drivers
+
+[Manufacturer]
+%VM%=ZSMC
+[ZSMC]
+%USB\COMPOSITE.DeviceDesc%=Composite.Dev,USB\VID_0AC8&PID_0302
+
+[Composite.Dev]
+AddReg=Hub.AddReg
+DelReg=Composite.DelReg
+
+; =================== Global ==================================
+[HUB.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,usbhub.sys
+
+[Composite.DelReg]
+HKR,,EnumPropPages
+
+[HUB.CopyFiles]
+;copied during host controller install, don't need to copy during hub install
+;usbhub.sys
+
+[HUB.DelFiles]
+
+[ControlFlags]
+;ExcludeFromSelect=*
+
+;[DestinationDirs]
+;DefaultDestDir = 11                     ; System directory
+
+[Strings]
+VM="Maxell"
+USB\COMPOSITE.DeviceDesc="USB Composite Device"

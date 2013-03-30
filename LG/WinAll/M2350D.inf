@@ -1,0 +1,65 @@
+;===============================================================
+; [M2350D.inf]
+; Revision 1.0   October-17-2010
+; Copyright(c)1998~2010 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M2350D.cat
+DriverVer=10/17/2010,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM57F2
+
+[DestinationDirs]
+DefaultDestDir = 11
+M2350D_Analog.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M2350D.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M2350D_Analog%=M2350D_Analog.Install,Monitor\GSM57F2
+
+[LG.NTamd64]
+%M2350D_Analog%=M2350D_Analog.Install,Monitor\GSM57F2
+
+[M2350D_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M2350D_Analog.AddReg,1920,DPMS
+CopyFiles=M2350D_Analog.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M2350D_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMprofile,0,"M2350D.ICM"
+
+[M2350D_Analog.CopyFiles]
+M2350D.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M2350D_Analog="LG M2350D"

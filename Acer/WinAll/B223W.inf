@@ -1,0 +1,87 @@
+; This is a Setup information file for monitors  with ICM  file; 
+; Copyright 2008 Acer International Electronic AG 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ACR%
+CatalogFile=B223W.cat   
+DriverVer=03/05/2008,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ACR0020
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0020.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+B223W.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%ACR%=ACR,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[ACR]
+%0020%=0020.Install, Monitor\ACR0020
+
+[ACR.ntamd64]
+%0020%=0020.Install, Monitor\ACR0020
+
+; Install Sections
+;-------------------------------------------------
+[0020.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0020.AddReg, 1680 ,DPMS
+Copyfiles=0020.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[0020.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"B223W.icm"
+
+[0020.CopyFiles]
+B223W.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Acer Monitor B223W Installation Disk"
+MonitorClassName="Monitor"
+ACR="Acer Incorporated"
+0020="Acer LCD Monitor B223W"

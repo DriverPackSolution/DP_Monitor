@@ -1,0 +1,87 @@
+; [L557.INF]
+; Revision 1.11
+; Copyright(c) 2003 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L557.cat
+DriverVer=09/26/2003,1.11
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1689
+ExcludeFromSelect.nt = Monitor\ENC1690
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L557D.CopyFiles = 23
+L557.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L557D65.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L557D%=L557D.Install, Monitor\ENC1689
+%L557%=L557.Install, Monitor\ENC1690
+
+[L557D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L557D.AddReg, 1280, DPMS
+CopyFiles=L557D.CopyFiles
+
+[L557.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L557.AddReg, 1280, DPMS
+CopyFiles=L557.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L557D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-64.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L557D65.icm"
+
+[L557.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L557D65.icm"
+
+[L557D.CopyFiles]
+L557D65.icm
+
+[L557.CopyFiles]
+L557D65.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L557D="L557"
+L557="L557"

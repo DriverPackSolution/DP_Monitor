@@ -1,0 +1,110 @@
+;FTSP26W5.INF Ver. 2.0
+;Monitor INF file for Fujitsu Display P26W-5 ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSP26W5.cat
+DriverVer=09/18/2009,2.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0770
+ExcludeFromSelect.nt=Monitor\FUS0771
+ExcludeFromSelect.nt=Monitor\FUS0772
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSP26W5.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSP26W5.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%P26W-5a%=FTSP26W5a.Install, Monitor\FUS0770
+%P26W-5d%=FTSP26W5d.Install, Monitor\FUS0771
+%P26W-5h%=FTSP26W5h.Install, Monitor\FUS0772
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%P26W-5a%=FTSP26W5a.Install, Monitor\FUS0770
+%P26W-5d%=FTSP26W5d.Install, Monitor\FUS0771
+%P26W-5h%=FTSP26W5h.Install, Monitor\FUS0772
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSP26W5a.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=FTSP26W5a.AddReg, 1920, DPMS
+CopyFiles=FTSP26W5.CopyFiles
+
+[FTSP26W5d.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=FTSP26W5d.AddReg, 1920, DPMS
+CopyFiles=FTSP26W5.CopyFiles
+
+[FTSP26W5h.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=FTSP26W5h.AddReg, 1920, DPMS
+CopyFiles=FTSP26W5.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FTS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSP26W5a.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP26W5.icm"
+
+[FTSP26W5d.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP26W5.icm"
+
+[FTSP26W5h.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP26W5.icm"
+
+;---------------------------------------------------------- 
+
+[FTSP26W5.CopyFiles]
+FTSP26W5.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD P26W-5 ECO"
+FTS.Mfg="Fujitsu Technology Solutions"	
+P26W-5a="FUJITSU P26W-5 ECO"
+P26W-5d="FUJITSU P26W-5 ECO"
+P26W-5h="FUJITSU P26W-5 ECO"

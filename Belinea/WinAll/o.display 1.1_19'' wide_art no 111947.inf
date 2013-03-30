@@ -1,0 +1,82 @@
+##############################################################
+; This is a setup information file for Belinea o.display 1.1_19'' wide monitor
+; Modified by MAXDATA Systeme GmbH (ABA)
+; Revision 1.0.0.0, September 13, 2007
+; Copyright 2000-2007 MAXDATA Systeme GmbH
+##############################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=111947.cat
+DriverVer=09/13/2007,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX079B
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea o.display 1.1_19'' wide / Art. No. 111947" = 111947.Install, Monitor\MAX079B
+
+[Belinea.NTx86]
+"Belinea o.display 1.1_19'' wide / Art. No. 111947" = 111947.Install, Monitor\MAX079B
+
+[Belinea.NTia64]
+"Belinea o.display 1.1_19'' wide / Art. No. 111947" = 111947.Install, Monitor\MAX079B
+
+[Belinea.NTamd64]
+"Belinea o.display 1.1_19'' wide / Art. No. 111947" = 111947.Install, Monitor\MAX079B
+
+
+; Install sections
+;-------------------------------------------------
+[111947.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=111947.AddReg,1440,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[111947.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA Systeme GmbH"
+BELINEA="MAXDATA Systeme GmbH"
+

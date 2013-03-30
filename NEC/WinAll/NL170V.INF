@@ -1,0 +1,68 @@
+; nl170v.inf
+; Setup information file for NEC LCD170V Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl170v.cat
+DriverVer=07/03/2006,1.06.0703.1334
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66D4
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD170V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl170v.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD170V%=LCD170V.Install, Monitor\NEC66D4
+
+[NECDS.ntamd64]
+%LCD170V%=LCD170V.Install.ntamd64, Monitor\NEC66D4
+
+[LCD170V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD170V.AddReg, 1280, DPMS
+CopyFiles=LCD170V.CopyFiles
+
+[LCD170V.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD170V.AddReg, 1280, DPMS
+CopyFiles=LCD170V.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD170V.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl170v.icm"
+
+[LCD170V.CopyFiles]
+nl170v.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD170V="NEC LCD170V"

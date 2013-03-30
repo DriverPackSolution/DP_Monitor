@@ -1,0 +1,72 @@
+
+; Copyright (c) 2002   MEDION AG
+; Monitor INF file of Medion MD 1998 OF
+; Issue date -- 07/03/2002
+; Revision 1.0
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEDION%
+CatalogFile=1998OF.cat
+DriverVer= 07/03/2002,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED5939
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+1998OF.copyfiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+1998OF.icm=1
+
+[Manufacturer]
+%MEDION%=MEDION
+
+[MEDION]
+%1998OF%=1998OF.Install,Monitor\MED5939
+
+[1998OF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1998OF.AddReg,1600,DPMS
+CopyFiles=1998OF.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HkR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+[1998OF.AddReg]
+HKR,"MODES\1600,1200",Model,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,IcmProfile,0,"1998OF.icm"
+
+[1998OF.CopyFiles]
+1998OF.icm
+
+[strings]
+DISK="MEDION Monitor Installation Disk"
+MonitorClassName="Monitor"
+MEDION="Medion AG"
+1998OF="MD 1998 OF"

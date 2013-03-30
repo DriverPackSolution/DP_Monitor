@@ -1,0 +1,95 @@
+; Copyright 2008 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=932W.cat
+DriverVer=03/14/2008,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LCD077F
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+932W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+932W.icm=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%932W%=932W.Install, Monitor\LCD077F
+
+[AOC.NTx86]
+%932W%=932W.Install, Monitor\LCD077F
+
+[AOC.NTia64]
+%932W%=932W.Install, Monitor\LCD077F
+
+[AOC.NTamd64]
+%932W%=932W.Install, Monitor\LCD077F
+
+; Install Sections
+;-------------------------------------------------
+[932W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=932W.AddReg, 1440 ,DPMS
+Copyfiles=932W.CopyFiles
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[932W.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-75.0,-,+"
+HKR,,ICMProfile,0,"932W.icm"
+
+
+[932W.CopyFiles]
+932W.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+932W="AOC 932W"

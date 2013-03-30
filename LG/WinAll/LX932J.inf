@@ -1,0 +1,65 @@
+;=============================================================== 
+; [LX932J.INF] 
+; Revision 1.4   Jan-24-2006
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX932J.cat
+DriverVer=01/24/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4AF3
+
+[DestinationDirs]
+DefaultDestDir=11
+LX932J.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX932J.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX932J%=LX932J.Install,Monitor\GSM4AF3
+
+[LG.NTamd64]
+%LX932J%=LX932J.Install,Monitor\GSM4AF3
+
+[LX932J.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX932J.AddReg,1280,DPMS
+CopyFiles=LX932J.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX932J.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX932J.ICM"
+
+[LX932J.CopyFiles]
+LX932J.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX932J="LG LX932J"

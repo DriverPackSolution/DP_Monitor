@@ -1,0 +1,175 @@
+;
+;VMMicFl.inf
+;
+[Version]
+Signature="$CHICAGO$"
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%ZSMCsft%
+DriverVer=02/26/2002, 4.2.226.19
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%ZsmcMfg%=Vimicro,NT
+
+[Vimicro]
+%Z302.Mic.DeviceDesc%=Z302.Mic,USB\VID_0AC8&PID_0302&MI_01
+
+[Vimicro.NT]
+%Z302.Mic.DeviceDesc%=Z302.Mic.XP,USB\VID_0AC8&PID_0302&MI_01
+
+[DestinationDirs]
+Z302.CopySys=10,system32\drivers
+Z302.CopyDriver=10,system32\drivers ; %SystemRoot%\system32\drivers
+
+; This section used by 98, 98SE, and Millennium.
+
+[Z302.Mic]
+Include=ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs=KS.Registration, WDMAUDIO.Registration, USBMic
+CopyFiles=Z302.CopyDriver
+AddReg=Z302.AddReg
+UpdateInis=Z302.Win.Ini
+
+[Z302.Mic.HW]
+AddReg=Z302.AddReg.AddFilter
+
+[Z302.Win.Ini]
+win.ini,wavein,,"Channels=1"
+win.ini,wavein,,"Frequency=48000"
+win.ini,wavein,,"BitsPerSample=16"
+
+; These sections used by Win2K.
+[Z302.Mic.NT]
+Include=ks.inf, wdma_usb.inf
+Needs=KS.Registration, USBMic.NT
+CopyFiles=Z302.CopyDriver
+AddReg=Z302.AddReg
+DelService=Z302Mic,SPSVCINST_STOPSERVICE
+
+[Z302.Mic.NT.HW]
+AddReg=Z302.AddReg.AddFilter.NT
+
+; This section used by WinXP/2002.
+
+[Z302.Mic.XP]
+Include=ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs=KS.Registration, WDMAUDIO.Registration.NT, USBMic.NT
+CopyFiles=Z302.CopyDriver
+AddReg=Z302.AddReg
+
+[Z302.Mic.XP.HW]
+AddReg=Z302.AddReg.AddFilter.NT
+
+;
+; Define NT services.
+;
+
+[Z302.Mic.NT.Services]
+Include=wdma_usb.inf
+Needs=USBMic.NT.Services
+AddService=Z302Mic,,Z302fil_Service_Inst
+
+[Z302.Mic.XP.Services]
+Include=wdma_usb.inf
+Needs=USBMic.NT.Services
+AddService=Z302Mic,,Z302fil_Service_Inst
+
+[Z302fil_Service_Inst]
+DisplayName=%Z302fil.SvcDesc%
+ServiceType=1                   ; SERVICE_KERNEL_DRIVER
+StartType=3                     ; SERVICE_SYSTEM_START
+ErrorControl=1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary=%10%\system32\drivers\UsbMicfilt.sys
+
+; 
+; Define registry entries.
+;
+[Z302.AddReg]
+HKR,,AssociatedFilters,,"wdmaud"
+HKR,,Driver,,"usbaudio.sys"
+HKR,,NTMPDriver,,"usbaudio.sys"
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,IgnoreHwString,0x10001,1
+
+HKR,Mixer\0\Controls\1,Channel0,0x10001,caca
+
+HKR,Drivers,SubClasses,,"wave,mixer"
+
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv,Description,,%Z302.Mic.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%Z302.Mic.DeviceDesc%
+
+HKCU,%MediaPrefered%,"Record",,%MediaPreferedValue%
+HKCU,%MediaPrefered%,"UserRecord",,%MediaPreferedValue%
+HKCU,%MediaPrefered%,"PreferredOnly",1,01,00,00,00
+
+[Z302.AddReg.AddFilter.NT]
+HKR,,LowerFilters,0x00010000,"Z302Mic"
+
+[Z302.AddReg.AddFilter]
+HKR,,LowerFilters,0x00010000,"UsbCamfilt.sys"
+
+;
+; Define files to be copied.
+;
+
+[Z302.CopyDriver]
+UsbMicfilt.sys
+
+[Z302.CopySys]
+usbaudio.sys
+
+[SourceDisksNames]
+1 = %SRCDISKNAME%,,,
+
+[SourceDisksFiles]
+UsbMicfilt.sys=1
+
+;
+; Define Driver interfaces.
+;
+
+[Z302.Mic.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,"GLOBAL",Z302.Interface
+
+[Z302.Mic.NT.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,"GLOBAL",Z302.Interface
+
+[Z302.Mic.XP.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,"GLOBAL",Z302.Interface
+
+[Z302.Interface]
+AddReg=Z302.Interface.AddReg
+
+[Z302.Interface.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Z302.Mic.DeviceDesc%
+HKR,Mixer\0\Controls\1,Channel0,0x10001,51914
+
+[Strings]
+# Localizable.
+ZSMCsft="BenQ"
+ZsmcMfg="BenQ"
+
+SRCDISKNAME = "Web Camera Installation Disk"
+
+Z302.Mic.DeviceDesc = "Web Camera Microphone"
+Z302fil.SvcDesc="Web Camera Mic Audio Filter Driver"
+
+KSCATEGORY_CAPTURE
+
+MediaPreferedValue="Web Camera Microphone Input"
+
+# Non-localizable.
+MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
+MediaPrefered="Software\Microsoft\Multimedia\Sound Mapper"
+KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+Proxy.CLSID= "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"

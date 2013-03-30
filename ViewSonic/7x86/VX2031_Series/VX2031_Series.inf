@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2031_Series.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/15/2010, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2031_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2031_Series.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC8E26
+
+[ViewSonic]   
+%VX2031_Series%=VX2031_Series.Install,Monitor\VSC8E26  
+
+[ViewSonic.NTia64]   
+%VX2031_Series%=VX2031_Series.Install,Monitor\VSC8E26  
+
+[ViewSonic.NTamd64]   
+%VX2031_Series%=VX2031_Series.Install,Monitor\VSC8E26  
+
+[VX2031_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2031_Series.AddReg,1600,DPMS
+Copyfiles=VX2031_Series.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2031_Series.AddReg]  
+HKR,"MODES\1600,900",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VX2031_Series.ICM"
+
+[VX2031_Series.CopyFiles]                                       
+VX2031_Series.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2031 Series ViewSonic Wizard"
+VX2031_Series="ViewSonic VX2031 Series"

@@ -1,0 +1,113 @@
+;FTSB20T6.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display B20T-6 LED
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=FTSB20T6.cat
+DriverVer=08/22/2012,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0805
+ExcludeFromSelect.nt=Monitor\FUS0806
+
+[DestinationDirs]
+DefaultDestDir=12
+FTSB20T-6.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB20T6.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTx86,NTAMD64
+
+ [FTS_Mfg] 
+%B20T_6a%=FTSB20T-6a.Install, Monitor\FUS0805
+%B20T_6d%=FTSB20T-6d.Install, Monitor\FUS0806
+
+[FTS_Mfg.NTx86]
+%B20T_6a%=FTSB20T-6a.Install, Monitor\FUS0805
+%B20T_6d%=FTSB20T-6d.Install, Monitor\FUS0806
+
+ [FTS_Mfg.NTAMD64] 
+%B20T_6a%=FTSB20T-6a.Install, Monitor\FUS0805
+%B20T_6d%=FTSB20T-6d.Install, Monitor\FUS0806
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSB20T-6a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB20T-6a.AddReg, 1600, DPMS
+CopyFiles=FTSB20T-6.CopyFiles
+
+[FTSB20T-6d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB20T-6d.AddReg, 1600, DPMS
+CopyFiles=FTSB20T-6.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSB20T-6a.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-82.0,59.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSB20T6.icm"
+
+[FTSB20T-6d.AddReg]
+HKR,"MODES\1600,900",Mode1,,"31.0-82.0,23.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSB20T6.icm"
+
+;---------------------------------------------------------- 
+
+[FTSB20T-6.CopyFiles]
+FTSB20T6.icm
+
+;---------------------------------------------------------- 
+
+[FTSB20T-6a.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[FTSB20T-6d.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Monitor Class Function Driver Service"
+
+DISK="Fujitsu Drivers, Manuals & Utilities Display"
+FTS_Mfg="Fujitsu Technology Solutions"	
+B20T_6a="Fujitsu B20T-6 LED (analog)"
+B20T_6d="Fujitsu B20T-6 LED (digital)"
+

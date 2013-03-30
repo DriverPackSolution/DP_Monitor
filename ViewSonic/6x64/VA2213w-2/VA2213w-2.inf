@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2213w-2.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/13/2008, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2213w-2.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2213w-2.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC1E22
+
+[ViewSonic]   
+%VA2213w-2%=VA2213w-2.Install,Monitor\VSC1E22  
+
+[ViewSonic.NTia64]   
+%VA2213w-2%=VA2213w-2.Install,Monitor\VSC1E22  
+
+[ViewSonic.NTamd64]   
+%VA2213w-2%=VA2213w-2.Install,Monitor\VSC1E22  
+
+[VA2213w-2.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2213w-2.AddReg,1920,DPMS
+Copyfiles=VA2213w-2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2213w-2.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA2213w-2.ICM"
+
+[VA2213w-2.CopyFiles]                                       
+VA2213w-2.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA2213w-2 ViewSonic Monitor Installation Disk"
+VA2213w-2="ViewSonic VA2213w-2"

@@ -1,0 +1,91 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ G920WAL.INF 08/24/09 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for G920WAL
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=G920WAL.cat
+	DriverVer=08/24/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	G920WAL.CopyFiles=23
+
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	G920WAL.icm=1
+
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ7855
+	
+[BenQ]
+	%G920WAL%=G920WAL.Install, Monitor\BNQ7855
+
+
+[BenQ.NTx86]
+	%G920WAL%=G920WAL.Install, Monitor\BNQ7855
+
+[BenQ.NTAMD64]
+	%G920WAL%=G920WAL.Install, Monitor\BNQ7855
+
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G920WAL.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G920WAL.AddReg, 1440, DPMS
+	CopyFiles=G920WAL.CopyFiles
+
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1440]
+	HKR,,MaxResolution,,"1440,900"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G920WAL.AddReg]
+	HKR,"MODES\1440,900",Mode1,,"24.0-63.0,50.0-75.0,+,+"
+	HKR,,ICMProfile,0,"G920WAL.icm"
+
+
+[G920WAL.CopyFiles]	
+	G920WAL.icm
+
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	G920WAL="BenQ G920WAL"
+

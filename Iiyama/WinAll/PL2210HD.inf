@@ -1,0 +1,116 @@
+; [PL2210HD.INF]
+; Revision 1.00
+; Copyright(c) 2009 IIYAMA CORPORATION
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL2210HD.cat
+DriverVer=08/20/2009,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+PL2210HD_Analog.copyfiles = 23
+PL2210HD_Digital.copyfiles = 23
+PL2210HD_Hdmi.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%MonitorClassName%,,,
+
+[SourceDisksFiles]
+PL2210HD.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,NTx86,NTAMD64
+
+[IIYAMA]
+%PL2210HD_Analog%=PL2210HD_Analog.Install, Monitor\IVM5612
+%PL2210HD_Digital%=PL2210HD_Digital.Install, Monitor\IVM5612
+%PL2210HD_Hdmi%=PL2210HD_Hdmi.Install, Monitor\IVM5612
+
+[IIYAMA.NTx86]
+%PL2210HD_Analog%=PL2210HD_Analog.Install, Monitor\IVM5612
+%PL2210HD_Digital%=PL2210HD_Digital.Install, Monitor\IVM5612
+%PL2210HD_Hdmi%=PL2210HD_Hdmi.Install, Monitor\IVM5612
+
+[IIYAMA.NTAMD64]
+%PL2210HD_Analog%=PL2210HD_Analog.Install, Monitor\IVM5612
+%PL2210HD_Digital%=PL2210HD_Digital.Install, Monitor\IVM5612
+%PL2210HD_Hdmi%=PL2210HD_Hdmi.Install, Monitor\IVM5612
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IVM5612
+ExcludeFromSelect.NT=Monitor\IVM5612
+ExcludeFromSelect.NT=Monitor\IVM5612
+
+[PL2210HD_Analog.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2210HD_Analog.AddReg, 1920, DPMS
+CopyFiles=PL2210HD_Analog.CopyFiles
+
+[PL2210HD_Digital.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2210HD_Digital.AddReg, 1920, DPMS
+CopyFiles=PL2210HD_Digital.CopyFiles
+
+[PL2210HD_Hdmi.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2210HD_Hdmi.AddReg, 1920, DPMS
+CopyFiles=PL2210HD_Hdmi.CopyFiles
+
+[IVM_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL2210HD_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2210HD.icm"
+
+[PL2210HD_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2210HD.icm"
+
+[PL2210HD_Hdmi.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2210HD.icm"
+
+[PL2210HD_Analog.CopyFiles]
+PL2210HD.ICM
+
+[PL2210HD_Digital.CopyFiles]
+PL2210HD.ICM
+
+[PL2210HD_Hdmi.CopyFiles]
+PL2210HD.ICM
+
+
+[Strings]
+MonitorClassName="IIYAMA LCD Monitor Installation Disk"
+IIYAMA="IIYAMA CORPORATION"
+
+PL2210HD_Analog="IIYAMA ProLite PL2210HD(Analog)"
+PL2210HD_Digital="IIYAMA ProLite PL2210HD(Digital)"
+PL2210HD_Hdmi="IIYAMA ProLite PL2210HD(Hdmi)"
+
+

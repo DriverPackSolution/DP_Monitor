@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1752HQ.INF] 
+; Revision 1.4   May-17-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1752HQ.cat
+DriverVer=05/17/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4457
+ExcludeFromSelect.NT=Monitor\GSM4458
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1752HQ_Analog.CopyFiles = 23
+L1752HQ_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1752HQ.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1752HQ_Analog%=L1752HQ_Analog.Install,Monitor\GSM4457
+%L1752HQ_Digital%=L1752HQ_Digital.Install,Monitor\GSM4458
+
+[LG.NTamd64]
+%L1752HQ_Analog%=L1752HQ_Analog.Install,Monitor\GSM4457
+%L1752HQ_Digital%=L1752HQ_Digital.Install,Monitor\GSM4458
+
+[L1752HQ_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1752HQ_Analog.AddReg,1280,DPMS
+CopyFiles=L1752HQ_Analog.CopyFiles
+
+[L1752HQ_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1752HQ_Digital.AddReg,1280,DPMS
+CopyFiles=L1752HQ_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1752HQ_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1752HQ.ICM"
+
+[L1752HQ_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1752HQ.ICM"
+
+[L1752HQ_Analog.CopyFiles]
+L1752HQ.ICM
+
+[L1752HQ_Digital.CopyFiles]
+L1752HQ.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1752HQ_Analog="LG L1752HQ(Analog)"
+L1752HQ_Digital="LG L1752HQ(Digital)"

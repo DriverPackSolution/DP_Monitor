@@ -1,0 +1,81 @@
+; P19-1S.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor P19-1S
+;Copyright 2004 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=P19-1S.cat
+DriverVer=04/21/2004, 1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0493
+ExcludeFromSelect.nt=Monitor\FUS0494
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-P19-1S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+P19-1S.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FUS-P19-1S%=FUS-P19-1Sa.Install, Monitor\FUS0493
+%FUS-P19-1S%=FUS-P19-1Sd.Install, Monitor\FUS0494
+
+[FUS-P19-1Sa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P19-1Sa.AddReg, 1280, DPMS
+CopyFiles=FUS-P19-1S.CopyFiles
+
+[FUS-P19-1Sd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P19-1Sd.AddReg, 1280, DPMS
+CopyFiles=FUS-P19-1S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-P19-1Sa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,56-76,+,+"
+HKR,,ICMProfile,0,"P19-1S.ICM"
+
+[FUS-P19-1Sd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,56-76,+,+"
+HKR,,ICMProfile,0,"P19-1S.ICM"
+
+[FUS-P19-1S.CopyFiles]
+P19-1S.ICM
+
+[Strings]
+DISK="Driver & Utility for P19-1S"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-P19-1S="Fujitsu Siemens P19-1S"

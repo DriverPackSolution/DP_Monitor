@@ -1,0 +1,120 @@
+
+;==================================================
+; SMS20A300B.inf 10/07/2010 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SMS20A300B.cat
+DriverVer=10/07/2010 ,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM078B
+ExcludeFromSelect.nt=Monitor\SAM078C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SMS20A300Ba.CopyFiles = 23
+SMS20A300Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SMS20A300B.icm=1
+SMS20A300B.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SMS20A300Ba%=SMS20A300Ba.Install, Monitor\SAM078B
+%SMS20A300Bd%=SMS20A300Bd.Install, Monitor\SAM078C
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SMS20A300Ba%=SMS20A300Ba.Install, Monitor\SAM078B
+%SMS20A300Bd%=SMS20A300Bd.Install, Monitor\SAM078C
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SMS20A300Ba%=SMS20A300Ba.Install, Monitor\SAM078B
+%SMS20A300Bd%=SMS20A300Bd.Install, Monitor\SAM078C
+
+; Install Sections
+;-----------------------------------------------------
+
+[SMS20A300Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMS20A300Ba.AddReg, 1600, DPMS
+CopyFiles=SMS20A300Ba.CopyFiles
+
+[SMS20A300Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMS20A300Bd.AddReg, 1600, DPMS
+CopyFiles=SMS20A300Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SMS20A300Ba.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SMS20A300B.icm"
+
+[SMS20A300Bd.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SMS20A300B.icm"
+;------------------------------------------------------
+
+[SMS20A300Ba.CopyFiles]
+SMS20A300B.icm
+
+[SMS20A300Bd.CopyFiles]
+SMS20A300B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SMS20A300Ba="SyncMaster S20A300B /S20A350B (Analog)"
+SMS20A300Bd="SyncMaster S20A300B /S20A350B (Digital)"

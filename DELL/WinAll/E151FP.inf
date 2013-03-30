@@ -1,0 +1,95 @@
+
+;================================ 
+;E151FP.INF 08/01/01 Ver. 1.0 PCC
+;Copyright 1996-2001 Dell Computer Corporation
+;
+;This is a setupfile for E151FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E151FP.cat
+DriverVer=08/01/2001, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA004
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E151FP.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E151FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E151FP%=E151FP.Install, Monitor\DELA004
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E151FP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E151FP.AddReg, 1024, DPMS
+CopyFiles=E151FP.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E151FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"E151FP.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E151FP.CopyFiles]
+E151FP.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E151FP="Dell E151FP"
+

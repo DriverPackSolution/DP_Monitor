@@ -1,0 +1,102 @@
+;================================== 
+;2405FPW.INF 12/20/04 Ver. 1.0 FRA
+;Copyright 1996-2005 Dell Inc.
+;
+;This is a setupfile for 2405FPW 
+;
+;==================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2405FPW.cat
+DriverVer=12/20/2004, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA00F
+ExcludeFromSelect.nt=Monitor\DELA010
+
+[DestinationDirs]
+DefaultDestDir=11
+2405FPW_Analog.CopyFiles=23
+2405FPW_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+2405FPW.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%2405FPW_Analog%=2405FPW_Analog.Install, Monitor\DELA00F
+%2405FPW_Digital%=2405FPW_Digital.Install, Monitor\DELA010
+
+; Install Sections
+;-------------------------------------------------
+
+[2405FPW_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2405FPW_Analog.AddReg, 1920, DPMS
+CopyFiles=2405FPW_Analog.CopyFiles
+
+[2405FPW_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2405FPW_Digital.AddReg, 1920, DPMS
+CopyFiles=2405FPW_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[2405FPW_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2405FPW.icm"
+
+[2405FPW_Digital.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2405FPW.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[2405FPW_Analog.CopyFiles]
+2405FPW.icm
+
+[2405FPW_Digital.CopyFiles]
+2405FPW.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."
+2405FPW_Analog="Dell 2405FPW (Analog)"
+2405FPW_Digital="Dell 2405FPW (Digital)"

@@ -1,0 +1,77 @@
+;=============================================================== 
+; IBM_9180.INF 12/11/2003 
+; Revision 1.0   December-11-2003
+; Copyright(c) IBM,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_9180.cat
+DriverVer=12/11/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM23DC
+ExcludeFromSelect.NT=Monitor\IBM4AEC
+
+[DestinationDirs]
+DefaultDestDir = 11
+IBM_9180_Analog.CopyFiles = 23
+IBM_9180_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+IBM_9180.ICM=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_9180_Analog%=IBM_9180_Analog.Install,Monitor\IBM23DC
+%IBM_9180_Digital%=IBM_9180_Digital.Install,Monitor\IBM4AEC
+
+[IBM_9180_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_9180_Analog.AddReg,1280,DPMS
+CopyFiles=IBM_9180_Analog.CopyFiles
+
+[IBM_9180_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_9180_Digital.AddReg,1280,DPMS
+CopyFiles=IBM_9180_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_9180_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.0,55.0-75.0,+,+"
+HKR,,ICMprofile,0,"IBM_9180.ICM"
+
+[IBM_9180_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-68.0,55.0-75.0,+,+"
+HKR,,ICMprofile,0,"IBM_9180.ICM"
+
+[IBM_9180_Analog.CopyFiles]
+IBM_9180.ICM
+
+[IBM_9180_Digital.CopyFiles]
+IBM_9180.ICM
+
+[Strings]
+DiskName="Monitor Profiles Installation Disk"
+IBM="IBM"
+IBM_9180_Analog="IBM_9180 L180p(Analog)"
+IBM_9180_Digital="IBM_9180 L180p(Digital)"

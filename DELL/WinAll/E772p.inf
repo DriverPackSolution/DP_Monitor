@@ -1,0 +1,95 @@
+
+;================================================
+;E772p.INF 01/30/02 Ver. 3.0 SND
+;Copyright 1996-2002 Dell Computer Corporation
+;
+;This is a setupfile for  the DELL 
+;E772p Monitor.  This file supports
+;Windows 95, 98, Millennium, 2000 & XP
+;================================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E772p.cat
+DriverVer=01/30/2002, 3.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL7005
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E772p.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E772p.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E772p%=E772p.Install, Monitor\DEL7005
+
+; Install Sections
+;-------------------------------------------------
+
+[E772p.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E772p.AddReg, 1280, DPMS
+CopyFiles=E772p.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E772p.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E772p.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E772p.CopyFiles]
+E772p.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E772p="Dell E772p"
+

@@ -1,0 +1,72 @@
+;VL-194SSWL.INF Ver. 1.0
+;Monitor INF file for FUJITSU VL-194SSWL 
+;Copyright (c) 2009 Fujitsu Limited 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Fujitsu%
+CatalogFile=VL194SSWL.cat
+DriverVer=08/21/2009, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07CE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+VL194SSWL.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+VL194SSWL.ICM=1
+
+[Manufacturer]
+%Fujitsu%=Fujitsu,NTAMD64
+
+[Fujitsu]
+%VL194SSWL%=VL194SSWL.Install, Monitor\FUS07CE
+
+[Fujitsu.NTAMD64]
+%VL194SSWL%=VL194SSWL.Install, Monitor\FUS07CE
+
+[VL194SSWL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VL194SSWL.AddReg, 1440, DPMS
+CopyFiles=VL194SSWL.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VL194SSWL.AddReg]
+HKR,"MODES\1440,900",Mode1,,"28.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"VL194SSWL.ICM"
+
+[VL194SSWL.CopyFiles]
+VL194SSWL.ICM
+
+[Strings]
+DISK="DISPLAY INSTALL DISK"
+MonitorClassName="Monitor"
+Fujitsu="FUJITSU"
+VL194SSWL="FUJITSU VL-194SSWL"

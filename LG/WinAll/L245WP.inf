@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L245WP.INF] 
+; Revision 1.3   December-05-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L245WP.cat
+DriverVer=12/05/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM5623
+ExcludeFromSelect.NT=Monitor\GSM5624
+
+[DestinationDirs]
+DefaultDestDir = 11
+L245WP_Analog.CopyFiles = 23
+L245WP_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L245WP.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L245WP_Analog%=L245WP_Analog.Install,Monitor\GSM5623
+%L245WP_Digital%=L245WP_Digital.Install,Monitor\GSM5624
+
+[LG.NTamd64]
+%L245WP_Analog%=L245WP_Analog.Install,Monitor\GSM5623
+%L245WP_Digital%=L245WP_Digital.Install,Monitor\GSM5624
+
+[L245WP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L245WP_Analog.AddReg,1920,DPMS
+CopyFiles=L245WP_Analog.CopyFiles
+
+[L245WP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L245WP_Digital.AddReg,1920,DPMS
+CopyFiles=L245WP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L245WP_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMprofile,0,"L245WP.ICM"
+
+[L245WP_Digital.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMprofile,0,"L245WP.ICM"
+
+[L245WP_Analog.CopyFiles]
+L245WP.ICM
+
+[L245WP_Digital.CopyFiles]
+L245WP.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L245WP_Analog="LG L245WP(Analog)"
+L245WP_Digital="LG L245WP(Digital)"

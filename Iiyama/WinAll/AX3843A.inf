@@ -1,0 +1,68 @@
+;AX3843A.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor AX3843DA_DAX 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=AX3843A.cat      
+DriverVer=10/01/2002,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM3866
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AX3843A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+AX3843A.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%AX3843A%=AX3843A.Install, Monitor\IVM3866
+[AX3843A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AX3843A.AddReg, 1024, DPMS
+CopyFiles=AX3843A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AX3843A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-60,55-76,+,+"
+HKR,,ICMProfile,0,"AX3843A.ICM"
+
+[AX3843A.CopyFiles]
+AX3843A.ICM
+
+[Strings]
+DISK1="IIYAMA LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+AX3843A="IIYAMA AX3843DA_DAX"

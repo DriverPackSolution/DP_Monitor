@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2011, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VX2336.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/15/2011, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2336.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2336_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC402A
+
+[ViewSonic]   
+%VX2336%=VX2336.Install,Monitor\VSC402A  
+
+[ViewSonic.NTia64]   
+%VX2336%=VX2336.Install,Monitor\VSC402A
+
+[ViewSonic.NTamd64]   
+%VX2336%=VX2336.Install,Monitor\VSC402A 
+
+[VX2336.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2336.AddReg,1920,DPMS
+Copyfiles=VX2336.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2336.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-83,50-76,+,+" 
+HKR,,ICMProfile,0,"VX2336_SERIES.ICM"
+
+[VX2336.CopyFiles]                                       
+VX2336_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2336 SERIES ViewSonic Wizard"
+VX2336="ViewSonic VX2336 SERIES"

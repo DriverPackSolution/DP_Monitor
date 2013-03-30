@@ -1,0 +1,91 @@
+; ***************************************************************
+;     [MEDION MONITOR].INF        
+;     MEDION MONITOR PLUG & PLAY *.INF FILE FOR WINDOWS 98/ME/2000/XP or LATER VERSIONS.
+;     COPYRIGHT(C), PROVIEW ELECTRONICS CO.,LTD.
+; ***************************************************************
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEDION%
+DriverVer=03/29/2007,1.00.1
+
+[ControlFlags]
+
+ExcludeFromSelect.nt=Monitor\PTS0899
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+BP2219AFW.Copyfiles=23
+
+[SourceDisksNames]
+1="MEDION Monitor Information Installation Disk",,1
+
+[SourceDisksFiles]
+
+2219AFW.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%MEDION%=MEDION,NTX86,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[PROVIEW]
+%BP2219AFW%=BP2219AFW.Install, Monitor\PTS0899
+
+[PROVIEW.NTX86]
+%BP2219AFW%=BP2219AFW.Install, Monitor\PTS0899
+
+[PROVIEW.NTAMD64]
+%BP2219AFW%=BP2219AFW.Install, Monitor\PTS0899
+
+; Install sections
+;-------------------------------------------------
+
+[BP2219AFW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP2219AFW.AddReg, 1680, DPMS,  
+CopyFiles=BP2219AFW.Copyfiles
+;-------------------------------------------------			     
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+;-------------------------------------------------
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------------
+
+[BP2219AFW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"60.0-75.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2219AFW.icm"
+;-------------------------------------------------------------------
+
+[BP2219AFW.Copyfiles]
+2219AFW.icm
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+MEDION="MEDION AG"
+BP2219AFW="MEDION 22-inch BP2219AFW"

@@ -1,0 +1,73 @@
+; P17-2.INF Ver. 1.0 
+;Monitor INF file for Fujitsu Siemens Monitor P17-2
+;Copyright 2005 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP17-2.cat
+DriverVer=12/06/2006, 1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0550
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-P17-2.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP17-2.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+[FUJSIE]
+%FUS-P17-2%=FUS-P17-2.Install, Monitor\FUS0550
+
+[FUJSIE.NTAMD64]
+%FUS-P17-2%=FUS-P17-2.Install, Monitor\FUS0550
+
+[FUS-P17-2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P17-2.AddReg, 1280, DPMS
+CopyFiles=FUS-P17-2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-P17-2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,56-76,+,+"
+HKR,,ICMProfile,0,"FSCP17-2.ICM"
+
+[FUS-P17-2.CopyFiles]
+FSCP17-2.ICM
+
+[Strings]
+DISK="Driver & Utility for P17-2"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-P17-2="Fujitsu Siemens SCENICVIEW P17-2"

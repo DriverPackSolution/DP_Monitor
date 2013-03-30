@@ -1,0 +1,68 @@
+; nF17R6AV.inf
+; Setup information file for NEC F17R6A Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nF17R6AV.cat
+DriverVer=11/14/2006,1.06.1114.1734
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66AA
+
+[DestinationDirs]
+DefaultDestDir = 11
+F17R6A.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nF17R6AV.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%F17R6A%=F17R6A.Install, Monitor\NEC66AA
+
+[NECDS.ntamd64]
+%F17R6A%=F17R6A.Install.ntamd64, Monitor\NEC66AA
+
+[F17R6A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F17R6A.AddReg, 1280, DPMS
+CopyFiles=F17R6A.CopyFiles
+
+[F17R6A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=F17R6A.AddReg, 1280, DPMS
+CopyFiles=F17R6A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F17R6A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nF17R6AV.icm"
+
+[F17R6A.CopyFiles]
+nF17R6AV.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+F17R6A="NEC F17R6A"

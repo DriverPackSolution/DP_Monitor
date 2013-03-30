@@ -1,0 +1,75 @@
+; [EIZOT962.INF]
+; Revision 1.00
+; Copyright(c) 2001 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=EIZOT962.cat
+DriverVer=03/07/2001,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\ENC1614
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+T962.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+T962__50.ICM=1
+T962__65.ICM=1
+T962__93.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%T962%=T962.Install, Monitor\ENC1614
+
+[T962.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T962.AddReg, 2048, DPMS
+CopyFiles=T962.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[T962.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-130.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T962__93.ICM"
+
+[T962.CopyFiles]
+T962__50.ICM
+T962__65.ICM
+T962__93.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO CRT Utility Disk"
+
+T962="T962"

@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1950G.INF] 
+; Revision 1.4  April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1950G.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4ABE
+
+[DestinationDirs]
+DefaultDestDir=11
+L1950G.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1950G.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1950G%=L1950G.Install,Monitor\GSM4ABE
+
+[LG.NTamd64]
+%L1950G%=L1950G.Install,Monitor\GSM4ABE
+
+[L1950G.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1950G.AddReg,1280,DPMS
+CopyFiles=L1950G.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1950G.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1950G.ICM"
+
+[L1950G.CopyFiles]
+L1950G.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1950G="LG L1950G"

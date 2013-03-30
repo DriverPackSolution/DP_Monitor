@@ -1,0 +1,109 @@
+;FTSL22_2.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display L22T-2 LED
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=FTSL22_2.cat
+DriverVer=12/29/2010,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0800
+ExcludeFromSelect.nt=Monitor\FUS0801
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSL22_2a.CopyFiles=23
+FTSL22_2d.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+L22T2.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS_Mfg] 
+%L22T_2a%=FTSL22_2a.Install, Monitor\FUS0800
+%L22T_2d%=FTSL22_2d.Install, Monitor\FUS0801
+
+
+
+;-------------------------------------------------
+ [FTS_Mfg.NTAMD64] 
+%L22T_2a%=FTSL22_2a.Install, Monitor\FUS0800
+%L22T_2d%=FTSL22_2d.Install, Monitor\FUS0801
+
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSL22_2a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL22_2a.AddReg, 1920, DPMS
+CopyFiles=FTSL22_2a.CopyFiles
+
+[FTSL22_2d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL22_2d.AddReg, 1920, DPMS
+CopyFiles=FTSL22_2d.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSL22_2a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"L22T2.icm"
+
+[FTSL22_2d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"L22T2.icm"
+
+;---------------------------------------------------------- 
+
+[FTSL22_2a.CopyFiles]
+L22T2.icm
+
+[FTSL22_2d.CopyFiles]
+L22T2.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD L22T-2 LED"
+FTS_Mfg="Fujitsu Technology Solutions"	
+L22T_2a="Fujitsu L22T-2 LED (analog)"
+L22T_2d="Fujitsu L22T-2 LED (digital)"
+
+

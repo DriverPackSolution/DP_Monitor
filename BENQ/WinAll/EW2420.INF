@@ -1,0 +1,116 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ EW2420.INF 04/08/10 Ver. 1.00
+; Copyright (C) 2010 BenQ Corporation. reserves all rights.
+; This is a setup file for EW2420
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=EW2420.cat
+	DriverVer=04/08/2010,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	EW2420 D-SUB.CopyFiles=23
+        EW2420 DVI.CopyFiles=23
+	EW2420 HDMI.CopyFiles=23
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	EW2420 D-SUB.icm=1
+        EW2420 DVI.icm=1
+	EW2420 HDMI.icm=1
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ7922
+	ExcludeFromSelect.NT=Monitor\BNQ7923
+	ExcludeFromSelect.NT=Monitor\BNQ7923
+[BenQ]
+	%EW2420 D-SUB%=EW2420 D-SUB.Install, Monitor\BNQ7922
+	%EW2420 DVI%=EW2420 DVI.Install, Monitor\BNQ7923
+	%EW2420 HDMI%=EW2420 HDMI.Install, Monitor\BNQ7923
+[BenQ.NTx86]
+	%EW2420 D-SUB%=EW2420 D-SUB.Install, Monitor\BNQ7922
+	%EW2420 DVI%=EW2420 DVI.Install, Monitor\BNQ7923
+	%EW2420 HDMI%=EW2420 HDMI.Install, Monitor\BNQ7923
+
+[BenQ.NTAMD64]
+	%EW2420 D-SUB%=EW2420 D-SUB.Install, Monitor\BNQ7922
+	%EW2420 DVI%=EW2420 DVI.Install, Monitor\BNQ7923
+	%EW2420 HDMI%=EW2420 HDMI.Install, Monitor\BNQ7923
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[EW2420 D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=EW2420 D-SUB.AddReg, 1920, DPMS
+	CopyFiles=EW2420 D-SUB.CopyFiles
+
+[EW2420 DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=EW2420 DVI.AddReg, 1920, DPMS
+	CopyFiles=EW2420 DVI.CopyFiles
+
+[EW2420 HDMI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=EW2420 HDMI.AddReg, 1920, DPMS
+	CopyFiles=EW2420 HDMI.CopyFiles
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1920]
+	HKR,,MaxResolution,,"1920,1080"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[EW2420 D-SUB.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"EW2420 D-SUB.icm"
+
+[EW2420 DVI.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"EW2420 DVI.icm"
+
+[EW2420 HDMI.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"EW2420 HDMI.icm"
+
+[EW2420 D-SUB.CopyFiles]	
+	EW2420 D-SUB.icm
+
+[EW2420 DVI.CopyFiles]	
+	EW2420 DVI.icm
+
+[EW2420 HDMI.CopyFiles]	
+	EW2420 HDMI.icm
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	EW2420 D-SUB="BenQ EW2420 D-SUB"
+        EW2420 DVI="BenQ EW2420 DVI"
+   	EW2420 HDMI="BenQ EW2420 HDMI"

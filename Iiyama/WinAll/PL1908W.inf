@@ -1,0 +1,73 @@
+; [PL1908W.INF]
+; Revision 1.00
+; Copyright(c) 2009 IIYAMA CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL1908W.cat
+DriverVer=06/04/2009,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\IVM483D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+PL1908W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+PL1908W.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,ntamd64
+
+[IIYAMA]
+%PL1908W%=PL1908W.Install, Monitor\IVM483D
+
+[IIYAMA.ntamd64]
+%PL1908W%=PL1908W.Install, Monitor\IVM483D
+
+[PL1908W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL1908W.AddReg, 1680, DPMS
+CopyFiles=PL1908W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL1908W.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL1908W.icm"
+
+[PL1908W.CopyFiles]
+PL1908W.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+PL1908W="iiyama ProLite PL1908W"

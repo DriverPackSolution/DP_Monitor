@@ -1,0 +1,79 @@
+; AL712.INF      Ver.1.00     11/05/2002
+;
+; Copyright 2002-2004, Acer Incorporated
+; All Rights Reserved
+;  
+; This is a Microsoft Windows setup information file 
+; for the Acer AL712 Color Monitor.
+;
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$" 
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=AL712.cat     
+DriverVer=11/05/2002,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ABO7772
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AL712.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+AL712_93.icm=1
+AL712_75.icm=1
+AL712_65.icm=1
+AL712_DE.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AL712%=AL712.Install,Monitor\ABO7772
+
+[AL712.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL712.AddReg, 1280, DPMS
+CopyFiles=AL712.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL712.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"AL712_93.icm"
+
+[AL712.CopyFiles]
+AL712_93.icm
+AL712_75.icm
+AL712_65.icm
+AL712_DE.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer Incorporated"
+AL712="Acer AL712"
+Disk1="Acer Monitor INF Disk"

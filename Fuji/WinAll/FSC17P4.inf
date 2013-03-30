@@ -1,0 +1,82 @@
+; FSC17P4.INF 
+;Monitor INF file for Fujitsu Siemens Monitor 17P4
+;Copyright 2000 Fujitsu Siemens Computers
+
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%FUJSIE%
+CatalogFile=FSC17P4.cat
+DriverVer=01/18/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FSC17P4.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FSC17P4.icm=1 
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FSC17P4%=FSC17P4, Monitor\FUS0400
+
+;------------------------------------; .Install
+
+[FSC17P4] 
+AddReg=FSC17P4.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FSC17P4.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[FSC17P4.AddReg] 
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FSC17P4.ICM"
+
+;------------------------------------; .CopyFiles
+
+[FSC17P4.CopyFiles]  
+FSC17P4.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\FUS0400
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Fujitsu Siemens Monitor 17P4 Installation Disk"
+FUJSIE="Fujitsu Siemens Computers"
+FSC17P4="Fujitsu Siemens 17P4"

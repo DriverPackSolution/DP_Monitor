@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [CB910C.INF]
+;
+;      Revision 1.0   September-20-2001
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=09/20/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+CB910C.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LGCB910C.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%CB910C%=CB910C, Monitor\GSM4A40
+
+;------------------------------------; .Install
+
+[CB910C] 
+AddReg=CB910C.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=CB910C.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[CB910C.AddReg] 
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"LGCB910C.ICM"
+
+;------------------------------------; .CopyFiles
+
+[CB910C.CopyFiles]  
+LGCB910C.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4A40
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+CB910C="CB910C"

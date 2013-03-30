@@ -1,0 +1,108 @@
+;================================ 
+;BenQ_G702AD.INF 06/16/09 Ver. 1.0 
+;; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2009, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G702AD.cat
+DriverVer=06/16/2009,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7846
+
+
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G702AD.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G702AD.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G702AD%=G702AD.Install, Monitor\BNQ7846
+
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G702AD%=G702AD.Install, Monitor\BNQ7846
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+
+%G702AD%=G702AD.Install, Monitor\BNQ7846
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G702AD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G702AD.AddReg, 1280, DPMS
+CopyFiles=G702AD.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[G702AD.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"G702AD.icm"
+
+
+
+
+[G702AD.CopyFiles]
+G702AD.ICM
+
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G702AD="BenQ G702AD" 
+

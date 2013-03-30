@@ -1,0 +1,113 @@
+;=============================================================== 
+; Gateway FPD1830
+; manufactured by LG Electronics
+; mon072E.inf
+;  Revision 1.1 , June-20-2003
+; Copyright(c) Gateway,All Rights Reserved.
+;===============================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon072E.cat
+DriverVer=06/20/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY0726
+ExcludeFromSelect.NT=Monitor\GWY0727
+ExcludeFromSelect.NT=Monitor\GWY072E
+ExcludeFromSelect.NT=Monitor\GWY072F
+
+[DestinationDirs]
+DefaultDestDir = 11
+mon0726.CopyFiles = 23
+mon0727.CopyFiles = 23
+mon072E.CopyFiles = 23
+mon072F.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+0726.icm=1
+mon072E.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon0726%=mon0726.Install, Monitor\GWY0726
+%mon0727%=mon0727.Install, Monitor\GWY0727
+%mon072E%=mon072E.Install, Monitor\GWY072E
+%mon072F%=mon072F.Install, Monitor\GWY072F
+
+[mon0726.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon0726.AddReg, 1280, DPMS
+CopyFiles=mon0726.CopyFiles
+
+[mon0727.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon0727.AddReg, 1280, DPMS
+CopyFiles=mon0727.CopyFiles
+
+[mon072E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon072E.AddReg, 1280, DPMS
+CopyFiles=mon072E.CopyFiles
+
+[mon072F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon072F.AddReg, 1280, DPMS
+CopyFiles=mon072F.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon0726.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"0726.icm"
+
+[mon0727.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"0726.icm"
+
+[mon072E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon072E.icm"
+
+[mon072F.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-68.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon072E.icm"
+
+[mon0726.CopyFiles]
+0726.icm
+
+[mon0727.CopyFiles]
+0726.icm
+
+[mon072E.CopyFiles]
+mon072E.icm
+
+[mon072F.CopyFiles]
+mon072E.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon0726="Gateway FPD1830"
+mon0727="Gateway FPD1830"
+mon072E="Gateway FPD1830"
+mon072F="Gateway FPD1830"

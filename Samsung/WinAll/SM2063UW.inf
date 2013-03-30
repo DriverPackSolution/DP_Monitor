@@ -1,0 +1,120 @@
+
+;==================================================
+; SM2063UW.inf 01/22/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2063UW.cat
+DriverVer=01/22/2008,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM03DA
+ExcludeFromSelect.nt=Monitor\SAM03DB
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2063UWa.CopyFiles = 23
+SM2063UWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2063UW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2063UWa%=SM2063UWa.Install, Monitor\SAM03DA
+%SM2063UWd%=SM2063UWd.Install, Monitor\SAM03DB
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2063UWa%=SM2063UWa.Install, Monitor\SAM03DA
+%SM2063UWd%=SM2063UWd.Install, Monitor\SAM03DB
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2063UWa%=SM2063UWa.Install, Monitor\SAM03DA
+%SM2063UWd%=SM2063UWd.Install, Monitor\SAM03DB
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2063UWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2063UWa.AddReg, 1680, DPMS
+CopyFiles=SM2063UWa.CopyFiles
+
+[SM2063UWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2063UWd.AddReg, 1680, DPMS
+CopyFiles=SM2063UWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2063UWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2063UW.icm"
+
+[SM2063UWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2063UW.icm"
+;------------------------------------------------------
+
+[SM2063UWa.CopyFiles]
+SM2063UW.icm
+
+[SM2063UWd.CopyFiles]
+SM2063UW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2063UWa="SyncMaster 2063UW,SyncMaster Magic CX2063UW(Analog)"
+SM2063UWd="SyncMaster 2063UW,SyncMaster Magic CX2063UW(Digital)"

@@ -1,0 +1,108 @@
+
+;==================================================
+; sm193P.inf 09/19/2003 ver. 1.1
+;
+; Copyright 2003 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm193P.cat
+DriverVer=09/19/2003,1.1
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM00EC
+ExcludeFromSelect.nt=Monitor\SAM00ED
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm193Pa.CopyFiles = 23
+sm193Pd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm193P.icm=1
+sm193P.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm193Pa%=sm193Pa.Install, Monitor\SAM00EC
+%sm193Pd%=sm193Pd.Install, Monitor\SAM00ED
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm193Pa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm193Pa.AddReg, 1280, DPMS
+CopyFiles=sm193Pa.CopyFiles
+
+[sm193Pd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm193Pd.AddReg, 1280, DPMS
+CopyFiles=sm193Pd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm193Pa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm193P.icm"
+
+[sm193Pd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm193P.icm"
+;------------------------------------------------------
+
+[sm193Pa.CopyFiles]
+sm193P.icm
+
+[sm193Pd.CopyFiles]
+sm193P.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm193Pa="SyncMaster 193P,SyncMaster Magic CX910P (Analog)"
+sm193Pd="SyncMaster 193P,SyncMaster Magic CX910P (Digital)"

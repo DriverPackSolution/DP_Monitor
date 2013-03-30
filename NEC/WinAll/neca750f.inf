@@ -1,0 +1,74 @@
+; NECA750F.INF
+; Setup information file for NEC AccuSync 750F Monitor
+;
+; Copyright 1995-2003, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NECA750F.cat
+DriverVer=10/28/2003,3.10.0028.1412
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61E2
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-AS750F.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+NECA750F.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-AS750F%=NEC-AS750F.Install, Monitor\NEC61E2
+
+; Install Sections
+;-------------------------------------------------
+[NEC-AS750F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS750F.AddReg, 1280, DPMS
+CopyFiles=NEC-AS750F.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-AS750F.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"NECA750F.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-AS750F.CopyFiles]
+NECA750F.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-AS750F="NEC AccuSync 750F"

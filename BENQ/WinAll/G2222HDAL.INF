@@ -1,0 +1,84 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ G2222HDAL.INF 09/23/2009 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for G2222HDAL
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=G2222HDAL.cat
+	DriverVer=09/23/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	G2222HDAL.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	G2222HDAL.icm=1
+        
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ7858	
+	
+[BenQ]
+	%G2222HDAL%=G2222HDAL.Install, Monitor\BNQ7858	
+
+[BenQ.NTx86]
+	%G2222HDAL%=G2222HDAL.Install, Monitor\BNQ7858	
+
+[BenQ.NTAMD64]
+	%G2222HDAL%=G2222HDAL.Install, Monitor\BNQ7858	
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G2222HDAL.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G2222HDAL.AddReg, 1920, DPMS
+	CopyFiles=G2222HDAL.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1920]
+	HKR,,MaxResolution,,"1920,1080"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G2222HDAL.AddReg]
+	HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"G2222HDAL.icm"
+
+[G2222HDAL.CopyFiles]	
+	G2222HDAL.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	G2222HDAL="BenQ G2222HDAL"

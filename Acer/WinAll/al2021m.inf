@@ -1,0 +1,68 @@
+;AL2021m.INF Ver. 2.0
+;Monitor INF file for Acer Incorporated Monitor AL2021m
+;Copyright 2003 Acer Incorporated
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=Acer.cat
+DriverVer=12/08/2003, 2.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ACR02DC
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AL2021m.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+776.ICM=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AL2021m%=AL2021m.Install, Monitor\ACR02DC
+
+[AL2021m.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL2021m.AddReg, 1280, DPMS
+CopyFiles=AL2021m.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL2021m.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31-81,56-75,+,+"
+HKR,,ICMProfile,0,"776.ICM"
+
+[AL2021m.CopyFiles]
+776.ICM
+
+[Strings]
+DISK="Driver & Utility for Acer AL2021m"
+MonitorClassName="Monitor"
+Acer="Acer Incorporated"
+AL2021m="Acer AL2021m"

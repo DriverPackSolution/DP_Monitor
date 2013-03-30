@@ -1,0 +1,68 @@
+; nl217nxv.inf
+; Setup information file for NEC MultiSync LCD2170NX Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl217nxv.cat
+DriverVer=01/13/2007,1.07.0113.1716
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6695
+
+[DestinationDirs]
+LCD2170NX.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl217nxv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD2170NX%=LCD2170NX.Install, Monitor\NEC6695
+
+[NECDS.ntamd64]
+%LCD2170NX%=LCD2170NX.Install.ntamd64, Monitor\NEC6695
+
+[LCD2170NX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2170NX.AddReg, 1600, DPMS
+CopyFiles=LCD2170NX.CopyFiles
+
+[LCD2170NX.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD2170NX.AddReg, 1600, DPMS
+CopyFiles=LCD2170NX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD2170NX.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-95.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl217nxv.icm"
+
+[LCD2170NX.CopyFiles]
+nl217nxv.icm
+
+[Strings]
+NECDS="NEC"
+LCD2170NX="NEC MultiSync LCD2170NX"
+Disk1="NEC Monitor Installation Disk"

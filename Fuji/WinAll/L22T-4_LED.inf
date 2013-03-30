@@ -1,0 +1,80 @@
+;Monitor INF file for Fujitsu Display L22T-4_LED
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=L22T-4_LED.cat
+DriverVer=01/16/2013,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS082E
+ExcludeFromSelect.nt=Monitor\FUS082F
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSL22T-4.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L22T-4_LED.icm=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTx86,NTAMD64
+
+[FTS_Mfg] 
+%L22T-4a%=FTSL22T-4.Install, Monitor\FUS082E
+%L22T-4d%=FTSL22T-4.Install, Monitor\FUS082F
+
+[FTS_Mfg.NTx86] 
+%L22T-4a%=FTSL22T-4.Install, Monitor\FUS082E
+%L22T-4d%=FTSL22T-4.Install, Monitor\FUS082F
+
+[FTS_Mfg.NTAMD64] 
+%L22T-4a%=FTSL22T-4.Install, Monitor\FUS082E
+%L22T-4d%=FTSL22T-4.Install, Monitor\FUS082F
+
+[FTSL22T-4.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL22T-4.AddReg
+CopyFiles=FTSL22T-4.CopyFiles
+
+[FTSL22T-4.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[FTSL22T-4.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"L22T-4_LED.icm"
+
+[FTSL22T-4.CopyFiles]
+L22T-4_LED.icm
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+DiskName="Fujitsu Driver & Utilities CD L22T-4 LED"
+FTS_Mfg="Fujitsu Technology Solutions"	
+
+L22T-4a="Fujitsu L22T-4 LED (Analog)"
+L22T-4d="Fujitsu L22T-4 LED (Digital)"
+

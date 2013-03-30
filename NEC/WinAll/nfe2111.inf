@@ -1,0 +1,83 @@
+; NFE2111.INF
+; Setup information file for NEC MultiSync FE2111SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NFE2111.cat
+DriverVer=04/16/2002,2.04.0016.1443
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC61DA
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-FE2111SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+nfe21111.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-FE2111SB%=NEC-FE2111SB.Install, Monitor\NEC61DA
+
+; Install Sections
+;-------------------------------------------------
+[NEC-FE2111SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-FE2111SB.AddReg, 1920, DPMS
+CopyFiles=NEC-FE2111SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-FE2111SB.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"nfe21111.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-FE2111SB.CopyFiles]
+NFE21111.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-FE2111SB="NEC MultiSync FE2111SB"

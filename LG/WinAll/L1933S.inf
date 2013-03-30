@@ -1,0 +1,65 @@
+;=============================================================== 
+; [L1933S.INF] 
+; Revision 1.4   June-01-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1933S.cat
+DriverVer=06/01/2007,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B6E
+
+[DestinationDirs]
+DefaultDestDir=11
+L1933S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1933S.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1933S%=L1933S.Install,Monitor\GSM4B6E
+
+[LG.NTamd64]
+%L1933S%=L1933S.Install,Monitor\GSM4B6E
+
+[L1933S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1933S.AddReg,1280,DPMS
+CopyFiles=L1933S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1933S.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1933S.ICM"
+
+[L1933S.CopyFiles]
+L1933S.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1933S="LG L1933S"

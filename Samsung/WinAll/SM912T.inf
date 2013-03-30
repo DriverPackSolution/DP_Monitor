@@ -1,0 +1,108 @@
+
+;==================================================
+; SM912T.inf 07/23/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM912T.cat
+DriverVer=07/23/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM016B
+ExcludeFromSelect.nt=Monitor\SAM016C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM912Ta.CopyFiles = 23
+SM912Td.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM912T.icm=1
+SM912T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM912Ta%=SM912Ta.Install, Monitor\SAM016B
+%SM912Td%=SM912Td.Install, Monitor\SAM016C
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM912Ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM912Ta.AddReg, 1280, DPMS
+CopyFiles=SM912Ta.CopyFiles
+
+[SM912Td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM912Td.AddReg, 1280, DPMS
+CopyFiles=SM912Td.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM912Ta.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM912T.icm"
+
+[SM912Td.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM912T.icm"
+;------------------------------------------------------
+
+[SM912Ta.CopyFiles]
+SM912T.icm
+
+[SM912Td.CopyFiles]
+SM912T.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM912Ta="SyncMaster 912T (Analog)"
+SM912Td="SyncMaster 912T (Digital)"

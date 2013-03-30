@@ -1,0 +1,95 @@
+; mdptnx85.INF
+; Setup information file for Mitsubishi DiamondPoint NX85 LCD Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=mdptnx85.cat
+DriverVer=06/24/2002,2.06.0025.0937
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4638
+ExcludeFromSelect.nt=Monitor\MEL4639
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DPoint-NX85-LCD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+mdptnx85.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%DPoint-NX85-LCD-A%=DPoint-NX85-LCD-A.Install, Monitor\MEL4638
+%DPoint-NX85-LCD-D%=DPoint-NX85-LCD-D.Install, Monitor\MEL4639
+
+; Install Sections
+;-------------------------------------------------
+[DPoint-NX85-LCD-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPoint-NX85-LCD-A.AddReg, 1280, DPMS
+CopyFiles=DPoint-NX85-LCD.CopyFiles
+
+[DPoint-NX85-LCD-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPoint-NX85-LCD-D.AddReg, 1280, DPMS
+CopyFiles=DPoint-NX85-LCD.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[DPoint-NX85-LCD-A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mdptnx85.icm"
+
+[DPoint-NX85-LCD-D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-67.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mdptnx85.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[DPoint-NX85-LCD.CopyFiles]
+MDPTNX85.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+DPoint-NX85-LCD-A="Mitsubishi DiamondPoint NX85 LCD (Analog)"
+DPoint-NX85-LCD-D="Mitsubishi DiamondPoint NX85 LCD (Digital)"

@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L203WTX.INF] 
+; Revision 1.4   Dec-28-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L203WTX.cat
+DriverVer=12/28/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E3F
+ExcludeFromSelect.NT=Monitor\GSM4E40
+
+[DestinationDirs]
+DefaultDestDir = 11
+L203WTX_Analog.CopyFiles = 23
+L203WTX_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L203WTX.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L203WTX_Analog%=L203WTX_Analog.Install,Monitor\GSM4E3F
+%L203WTX_Digital%=L203WTX_Digital.Install,Monitor\GSM4E40
+
+[LG.NTamd64]
+%L203WTX_Analog%=L203WTX_Analog.Install,Monitor\GSM4E3F
+%L203WTX_Digital%=L203WTX_Digital.Install,Monitor\GSM4E40
+
+[L203WTX_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L203WTX_Analog.AddReg,1680,DPMS
+CopyFiles=L203WTX_Analog.CopyFiles
+
+[L203WTX_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L203WTX_Digital.AddReg,1680,DPMS
+CopyFiles=L203WTX_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L203WTX_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMprofile,0,"L203WTX.ICM"
+
+[L203WTX_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMprofile,0,"L203WTX.ICM"
+
+[L203WTX_Analog.CopyFiles]
+L203WTX.ICM
+
+[L203WTX_Digital.CopyFiles]
+L203WTX.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L203WTX_Analog="LG L203WTX(Analog)"
+L203WTX_Digital="LG L203WTX(Digital)"

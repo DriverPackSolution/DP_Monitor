@@ -1,0 +1,111 @@
+; [CE240W.INF]
+; Revision 1.00
+; Copyright(c) 2005 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=CE240W.cat
+DriverVer=12/05/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1814
+;ExcludeFromSelect.nt = Monitor\ENC1815
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+CE240W.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CE240WD6.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%CE240WD%=CE240WD.Install, Monitor\ENC1814
+%CE240W%=CE240W.Install, Monitor\ENC1815
+
+[EIZONANAO.NTamd64]
+%CE240WD%=CE240WD.Installamd64, Monitor\ENC1814
+%CE240W%=CE240W.Installamd64, Monitor\ENC1815
+
+[EIZONANAO.NTia64]
+%CE240WD%=CE240WD.Installia64, Monitor\ENC1814
+%CE240W%=CE240W.Installia64, Monitor\ENC1815
+
+[CE240WD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CE240WD.AddReg, 1920, DPMS
+CopyFiles=CE240W.CopyFiles
+
+[CE240W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CE240W.AddReg, 1920, DPMS
+CopyFiles=CE240W.CopyFiles
+
+[CE240WD.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CE240WD.AddReg, 1920, DPMS
+CopyFiles=CE240W.CopyFiles
+
+[CE240W.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CE240W.AddReg, 1920, DPMS
+CopyFiles=CE240W.CopyFiles
+
+[CE240WD.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CE240WD.AddReg, 1920, DPMS
+CopyFiles=CE240W.CopyFiles
+
+[CE240W.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CE240W.AddReg, 1920, DPMS
+CopyFiles=CE240W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CE240WD.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-76.0,59.0-61.0,+,-"
+HKR,,ICMProfile,0,"CE240WD6.icm"
+
+[CE240W.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"24.0-94.0,49.0-86.0,-,+"
+HKR,,ICMProfile,0,"CE240WD6.icm"
+
+[CE240W.CopyFiles]
+CE240WD6.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+CE240WD="CE240W Digital"
+CE240W="CE240W Analog"

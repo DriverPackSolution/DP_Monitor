@@ -1,0 +1,70 @@
+; FSCP996-1.INF Ver. 1.0
+;Monitor INF File for Fujitsu Siemens Monitor P996-1
+;Copyright 2004 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=P996-1.cat                                  
+DriverVer=04/26/2004, 1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0535
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-P996-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+P996-1.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FUS-P996-1%=FUS-P996-1.Install, Monitor\FUS0535
+
+[FUS-P996-1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P996-1.AddReg, 1600, DPMS
+CopyFiles=FUS-P996-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-P996-1.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-98,50-160,+,+"
+HKR,,ICMProfile,0,"P996-1.ICM"
+
+[FUS-P996-1.CopyFiles]
+P996-1.ICM
+
+[Strings]
+DISK="Fujitsu Siemens Monitor P996-1 Installation Disk"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-P996-1="Fujitsu Siemens P996-1"

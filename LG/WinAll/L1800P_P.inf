@@ -1,0 +1,81 @@
+;=============================================================== 
+; [L1800P_P.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1800P_P.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM466A
+ExcludeFromSelect.NT=Monitor\GSM466B
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1800P_P_Analog.CopyFiles = 23
+L1800P_P_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1800P_P.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1800P_P_Analog%=L1800P_P_Analog.Install,Monitor\GSM466A
+%L1800P_P_Digital%=L1800P_P_Digital.Install,Monitor\GSM466B
+
+[LG.NTamd64]
+%L1800P_P_Analog%=L1800P_P_Analog.Install,Monitor\GSM466A
+%L1800P_P_Digital%=L1800P_P_Digital.Install,Monitor\GSM466B
+
+[L1800P_P_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1800P_P_Analog.AddReg,1280,DPMS
+CopyFiles=L1800P_P_Analog.CopyFiles
+
+[L1800P_P_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1800P_P_Digital.AddReg,1280,DPMS
+CopyFiles=L1800P_P_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1800P_P_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"L1800P_P.ICM"
+
+[L1800P_P_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"L1800P_P.ICM"
+
+[L1800P_P_Analog.CopyFiles]
+L1800P_P.ICM
+
+[L1800P_P_Digital.CopyFiles]
+L1800P_P.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1800P_P_Analog="LG FLATRON L1800P Plus(Analog)"
+L1800P_P_Digital="LG FLATRON L1800P Plus(Digital)"

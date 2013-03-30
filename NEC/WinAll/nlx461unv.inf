@@ -1,0 +1,118 @@
+; nlx461unv.inf
+; Setup information file for NEC MultiSync X461UNV Monitor
+;
+; Copyright (C) 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlx461unv.cat
+DriverVer=09/14/2010, 1.10.0914.1632
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6805
+ExcludeFromSelect.nt=Monitor\NEC6806
+ExcludeFromSelect.nt=Monitor\NEC6808
+
+[DestinationDirs]
+X461UNV.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlx461unv.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%X461UNV-A%=X461UNV-A.Install, Monitor\NEC6805
+%X461UNV-D%=X461UNV-D.Install, Monitor\NEC6806
+%X461UNV-P%=X461UNV-P.Install, Monitor\NEC6808
+
+[NECDS.ntamd64]
+%X461UNV-A%=X461UNV-A.Install.ntamd64, Monitor\NEC6805
+%X461UNV-D%=X461UNV-D.Install.ntamd64, Monitor\NEC6806
+%X461UNV-P%=X461UNV-P.Install.ntamd64, Monitor\NEC6808
+
+; Install Sections
+;-------------------------------------------------
+[X461UNV-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UNV-A.AddReg, 1920, DPMS
+CopyFiles=X461UNV.CopyFiles
+
+[X461UNV-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UNV-D.AddReg, 1920, DPMS
+CopyFiles=X461UNV.CopyFiles
+
+[X461UNV-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UNV-P.AddReg, 1920, DPMS
+CopyFiles=X461UNV.CopyFiles
+
+[X461UNV-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UNV-A.AddReg, 1920, DPMS
+CopyFiles=X461UNV.CopyFiles
+
+[X461UNV-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UNV-D.AddReg, 1920, DPMS
+CopyFiles=X461UNV.CopyFiles
+
+[X461UNV-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=X461UNV-P.AddReg, 1920, DPMS
+CopyFiles=X461UNV.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[X461UNV-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx461unv.icm"
+
+[X461UNV-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx461unv.icm"
+
+[X461UNV-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlx461unv.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[X461UNV.CopyFiles]
+nlx461unv.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+X461UNV-A="NEC MultiSync X461UNV(Analog)"
+X461UNV-D="NEC MultiSync X461UNV(Digital)"
+X461UNV-P="NEC MultiSync X461UNV(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

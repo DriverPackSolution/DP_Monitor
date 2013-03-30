@@ -1,0 +1,83 @@
+;===============================================================
+; [M198WDP.inf]
+; Revision 1.3   March-03-2008
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M198WDP.cat
+DriverVer=03/03/2008,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B87
+ExcludeFromSelect.NT=Monitor\GSM4B88
+
+[DestinationDirs]
+DefaultDestDir = 11
+M198WDP_Analog.CopyFiles = 23
+M198WDP_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M198WDP.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M198WDP_Analog%=M198WDP_Analog.Install,Monitor\GSM4B87
+%M198WDP_Digital%=M198WDP_Digital.Install,Monitor\GSM4B88
+
+[LG.NTamd64]
+%M198WDP_Analog%=M198WDP_Analog.Install,Monitor\GSM4B87
+%M198WDP_Digital%=M198WDP_Digital.Install,Monitor\GSM4B88
+
+[M198WDP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M198WDP_Analog.AddReg,1440,DPMS
+CopyFiles=M198WDP_Analog.CopyFiles
+
+[M198WDP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M198WDP_Digital.AddReg,1440,DPMS
+CopyFiles=M198WDP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M198WDP_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,59"
+HKR,,ICMprofile,0,"M198WDP.ICM"
+
+[M198WDP_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,59"
+HKR,,ICMprofile,0,"M198WDP.ICM"
+
+[M198WDP_Analog.CopyFiles]
+M198WDP.ICM
+
+[M198WDP_Digital.CopyFiles]
+M198WDP.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M198WDP_Analog="LG M198WDP(Analog)"
+M198WDP_Digital="LG M198WDP(Digital)"

@@ -1,0 +1,74 @@
+; F790D.INF
+;
+; Copyright 2000, ImageQuest Co., Ltd.
+; 
+; This is a INF file for installing monitors for Windows.
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ImageQuest%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+F790.CopyFiles=23
+
+[SourceDisksNames]
+1="ImageQuest Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+F790.icm=1
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%F790%=F790.Install, Monitor\IQTF790
+
+[F790.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F790.AddReg, 1600, DPMS
+CopyFiles=F790.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F790.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"F790.icm"
+
+[F790.CopyFiles]
+F790.icm
+
+[Strings]
+MonitorClassName="Monitor"
+
+ImageQuest="ImageQuest Co., Ltd."
+F790="ImageQuest F790D"

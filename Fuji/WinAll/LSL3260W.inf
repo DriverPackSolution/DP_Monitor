@@ -1,0 +1,108 @@
+;Monitor INF file for Fujitsu Siemens Monitor AMILO LSL 3260W
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=LSL3260W.cat
+DriverVer=09/25/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07AC
+ExcludeFromSelect.nt=Monitor\FUS07AD
+ExcludeFromSelect.nt=Monitor\FUS07AE
+
+[DestinationDirs]
+DefaultDestDir=11
+LSL3260W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LSL3260W.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%LSL_3260Wa%=LSL3260Wa.Install, Monitor\FUS07AC
+%LSL_3260Wd%=LSL3260Wd.Install, Monitor\FUS07AD
+%LSL_3260Wh%=LSL3260Wh.Install, Monitor\FUS07AE
+
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%LSL_3260Wa%=LSL3260Wa.Install, Monitor\FUS07AC
+%LSL_3260Wd%=LSL3260Wd.Install, Monitor\FUS07AD
+%LSL_3260Wh%=LSL3260Wh.Install, Monitor\FUS07AE
+
+; Install Sections
+;-------------------------------------------------
+
+[LSL3260Wa.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LSL3260Wa.AddReg, 1920, DPMS
+CopyFiles=LSL3260W.CopyFiles
+
+[LSL3260Wd.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LSL3260Wd.AddReg, 1920, DPMS
+CopyFiles=LSL3260W.CopyFiles
+
+[LSL3260Wh.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LSL3260Wh.AddReg, 1920, DPMS
+CopyFiles=LSL3260W.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[LSL3260Wa.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"LSL3260W.icm"
+
+[LSL3260Wd.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"LSL3260W.icm"
+
+[LSL3260Wh.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"LSL3260W.icm"
+
+;---------------------------------------------------------- 
+
+[LSL3260W.CopyFiles]
+LSL3260W.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD AMILO LSL 3260W"
+FUJSIE="Fujitsu Siemens Computers"	
+LSL_3260Wa="AMILO LSL 3260W"
+LSL_3260Wd="AMILO LSL 3260W"
+LSL_3260Wh="AMILO LSL 3260W"

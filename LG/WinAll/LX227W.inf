@@ -1,0 +1,83 @@
+;=============================================================== 
+; [LX227W.INF] 
+; Revision 1.4   August-16-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX227W.cat
+DriverVer=08/16/2007,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM567F
+ExcludeFromSelect.NT=Monitor\GSM5680
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX227W_Analog.CopyFiles = 23
+LX227W_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX227W.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX227W_Analog%=LX227W_Analog.Install,Monitor\GSM567F
+%LX227W_Digital%=LX227W_Digital.Install,Monitor\GSM5680
+
+[LG.NTamd64]
+%LX227W_Analog%=LX227W_Analog.Install,Monitor\GSM567F
+%LX227W_Digital%=LX227W_Digital.Install,Monitor\GSM5680
+
+[LX227W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX227W_Analog.AddReg,1680,DPMS
+CopyFiles=LX227W_Analog.CopyFiles
+
+[LX227W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX227W_Digital.AddReg,1680,DPMS
+CopyFiles=LX227W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX227W_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"LX227W.ICM"
+
+[LX227W_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"LX227W.ICM"
+
+[LX227W_Analog.CopyFiles]
+LX227W.ICM
+
+[LX227W_Digital.CopyFiles]
+LX227W.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX227W_Analog="LG LX227W(Analog)"
+LX227W_Digital="LG LX227W(Digital)"

@@ -1,0 +1,102 @@
+; ###################################################
+;
+;   HP_L1950.inf        Ver. 1.00       6/18/2007
+;
+;   Copyright (c)2007, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP L1950 LCD Monitor.
+; 
+; ###################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_L1950.cat
+DriverVer=02/20/2007,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP26E7
+ExcludeFromSelect.nt = MONITOR\HWP26E8
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L1950.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_L1950.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%L1950_A%=L1950_A.Install, Monitor\HWP26E7
+%L1950_D%=L1950_D.Install, Monitor\HWP26E8
+
+[HP.NTamd64]
+%L1950_A%=L1950_A.Install, Monitor\HWP26E7
+%L1950_D%=L1950_D.Install, Monitor\HWP26E8
+
+[L1950_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1950_A.AddReg, 1280, DPMS
+CopyFiles=L1950.CopyFiles
+
+[L1950_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1950_D.AddReg, 1280, DPMS
+CopyFiles=L1950.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1950_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,50-77,-,-"
+HKR,"MODES\800,600",Mode1,,"24-83,50-77,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,50-77,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,50-77,+,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_L1950.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[L1950_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,50-77,-,-"
+HKR,"MODES\800,600",Mode1,,"24-83,50-77,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,50-77,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,50-77,+,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_L1950.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[L1950.CopyFiles]
+HP_L1950.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+L1950_A="HP L1950 LCD Monitor"
+L1950_D="HP L1950 LCD Monitor"
+Disk1="HP L1950 Driver Software"

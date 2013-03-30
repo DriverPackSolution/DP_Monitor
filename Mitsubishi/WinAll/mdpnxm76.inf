@@ -1,0 +1,95 @@
+; MDPNXM76.INF
+; Setup information file for Mitsubishi DiamondPoint NXM76LCD Monitor
+;
+; Copyright 2003, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=MDPNXM76.cat
+DriverVer=01/02/2003,3.01.0002.1108
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL464F
+ExcludeFromSelect.nt=Monitor\MEL4650
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DPoint-NXM76LCD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+MDPNXM76.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%DPoint-NXM76LCD-A%=DPoint-NXM76LCD-A.Install, Monitor\MEL464F
+%DPoint-NXM76LCD-D%=DPoint-NXM76LCD-D.Install, Monitor\MEL4650
+
+; Install Sections
+;-------------------------------------------------
+[DPoint-NXM76LCD-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPoint-NXM76LCD-A.AddReg, 1024, DPMS
+CopyFiles=DPoint-NXM76LCD.CopyFiles
+
+[DPoint-NXM76LCD-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPoint-NXM76LCD-D.AddReg, 1024, DPMS
+CopyFiles=DPoint-NXM76LCD.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[DPoint-NXM76LCD-A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"MDPNXM76.icm"
+
+[DPoint-NXM76LCD-D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"MDPNXM76.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[DPoint-NXM76LCD.CopyFiles]
+MDPNXM76.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+DPoint-NXM76LCD-A="Mitsubishi DiamondPoint NXM76LCD (Analog)"
+DPoint-NXM76LCD-D="Mitsubishi DiamondPoint NXM76LCD (Digital)"

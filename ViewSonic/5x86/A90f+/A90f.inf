@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=A90f+.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/26/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS23307-2.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+A90f_p.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS23307-2%=VCDTS23307-2.Install,Monitor\VSC200D          ;A90f+
+
+[VCDTS23307-2.Install]                                       ;A90f+
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23307-2.AddReg,1600,DPMS
+Copyfiles=VCDTS23307-2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS23307-2.AddReg]                                        ;A90f+
+HKR,"MODES\1600,1200",Mode1,,"30-86,50-150,+,+"
+HKR,,ICMProfile,0,"A90f_p.ICM"
+
+[VCDTS23307-2.CopyFiles]                                       
+A90f_p.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS23307-2="ViewSonic A90f+"

@@ -1,0 +1,82 @@
+#####################################################################
+; This is a setup information file for Belinea 2485 S1W monitor
+; Modified by MAXDATA Systeme GmbH (ABA)                            
+; Revision 1.0.0.0, August 16, 2007
+; Copyright 2000-2007 MAXDATA Systeme GmbH
+#####################################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=112401.cat
+DriverVer=08/16/2007,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX0961
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea 2485 S1W / Art. No. 112401" = 112401.Install, Monitor\MAX0961
+
+[Belinea.NTx86]
+"Belinea 2485 S1W / Art. No. 112401" = 112401.Install, Monitor\MAX0961
+
+[Belinea.NTia64]
+"Belinea 2485 S1W / Art. No. 112401" = 112401.Install, Monitor\MAX0961
+
+[Belinea.NTamd64]
+"Belinea 2485 S1W / Art. No. 112401" = 112401.Install, Monitor\MAX0961
+
+
+; Install sections
+;-------------------------------------------------
+[112401.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=112401.AddReg,1920,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[112401.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-94.0,55.0-75.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA Systeme GmbH"
+BELINEA="MAXDATA Systeme GmbH"
+

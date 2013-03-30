@@ -1,0 +1,72 @@
+;*********************************************************************************
+; HR17MNCI.INF Ver. 2.0.0.1 for NEC Monitor HR17 Multisync
+;
+; This is a INF file to install monitor for Windows 98,Windows 2K,Windows ME,Windows XP.
+;
+;Copyright 2000,2005     NEC Computers International
+;Written by NEC CI Monitor Engineering 
+;*********************************************************************************
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECCI%
+CatalogFile=HR17MNCI.cat
+DriverVer=09/25/2001,2.0.0.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+HR17MNCI.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+HR17MNCI.icm=1
+
+[Manufacturer]
+%NECCI%=NECCI
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\NCI4008
+
+[NECCI]
+%HR17MNCI%=HR17MNCI.Install,Monitor\NCI4008
+
+[HR17MNCI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HR17MNCI.AddReg, 1920, DPMS
+CopyFiles=HR17MNCI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HR17MNCI.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"HR17MNCI.ICM"
+
+[HR17MNCI.CopyFiles]
+HR17MNCI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+NECCI="NEC Computers International"
+HR17MNCI="Monitor HR17 Multisync NEC"
+DISK1="NEC CI Monitors Installation Disk"

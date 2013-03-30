@@ -1,0 +1,77 @@
+; #################################################
+;
+;   9500.inf           Ver. 1.10      11/01/2001
+;
+;   Copyright (c)2001, Compaq Computer Corporation
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq 9500 Color Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=9500.cat
+DriverVer=11/01/2001,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ1447
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+9500.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQ9500.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%9500%=9500.Install, Monitor\CPQ1447
+
+[9500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=9500.AddReg, 1600, DPMS
+CopyFiles=9500.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[9500.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CPQ9500.icm"
+
+[9500.CopyFiles]
+CPQ9500.ICM
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+Disk1="COMPAQ 9500 Monitor Software CD"
+9500="COMPAQ 9500 Color Monitor"
+

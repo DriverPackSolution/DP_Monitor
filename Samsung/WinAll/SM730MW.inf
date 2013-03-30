@@ -1,0 +1,108 @@
+
+;==================================================
+; sm730MW.inf 07/06/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm730MW.cat
+DriverVer=07/06/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0163
+ExcludeFromSelect.nt=Monitor\SAM0164
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm730MWa.CopyFiles = 23
+sm730MWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm730MW.icm=1
+sm730MW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm730MWa%=sm730MWa.Install, Monitor\SAM0163
+%sm730MWd%=sm730MWd.Install, Monitor\SAM0164
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm730MWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm730MWa.AddReg, 1280, DPMS
+CopyFiles=sm730MWa.CopyFiles
+
+[sm730MWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm730MWd.AddReg, 1280, DPMS
+CopyFiles=sm730MWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm730MWa.AddReg]
+HKR,"MODES\1280,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"sm730MW.icm"
+
+[sm730MWd.AddReg]
+HKR,"MODES\1280,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"sm730MW.icm"
+;------------------------------------------------------
+
+[sm730MWa.CopyFiles]
+sm730MW.icm
+
+[sm730MWd.CopyFiles]
+sm730MW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm730MWa="SyncMaster 730MW(Analog)"
+sm730MWd="SyncMaster 730MW(Digital)"

@@ -1,0 +1,117 @@
+;================================ 
+;2709W.INF 02/26/08 Ver. 2.0
+;Copyright 1996-2009 Dell Inc.
+;
+;This is a setupfile for 2709W
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2709W.cat
+DriverVer=02/26/2008, 1.0  
+
+;-------------------------------------------------
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+2709W_Analog.CopyFiles = 23
+2709W_Digital.CopyFiles = 23
+2709W_HDMI.CopyFiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+2709W.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64 
+
+[DELL]  
+%2709W_Analog%=2709W_Analog.Install, Monitor\DELA02F
+%2709W_Digital%=2709W_Digital.Install, Monitor\DELA030
+%2709W_HDMI%=2709W_HDMI.Install, Monitor\DELA032
+
+[DELL.NTx86]
+%2709W_Analog%=2709W_Analog.Install, Monitor\DELA02F
+%2709W_Digital%=2709W_Digital.Install, Monitor\DELA030
+%2709W_HDMI%=2709W_HDMI.Install, Monitor\DELA032
+
+[DELL.NTAMD64]  
+%2709W_Analog%=2709W_Analog.Install, Monitor\DELA02F
+%2709W_Digital%=2709W_Digital.Install, Monitor\DELA030
+%2709W_HDMI%=2709W_HDMI.Install, Monitor\DELA032
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA02F
+ExcludeFromSelect.nt=Monitor\DELA030
+ExcludeFromSelect.nt=Monitor\DELA032
+
+[2709W_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2709W_Analog.AddReg, 1920, DPMS
+CopyFiles=2709W_Analog.CopyFiles
+
+[2709W_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2709W_Digital.AddReg, 1920, DPMS
+CopyFiles=2709W_Digital.CopyFiles
+					     
+[2709W_HDMI.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2709W_HDMI.AddReg, 1920, DPMS
+CopyFiles=2709W_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2709W_Analog.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-83.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"2709W.icm"
+
+[2709W_Digital.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-83.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"2709W.icm"
+
+[2709W_HDMI.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-83.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"2709W.icm"
+
+[2709W_Analog.CopyFiles]
+2709W.icm
+
+[2709W_Digital.CopyFiles]
+2709W.icm
+
+[2709W_HDMI.CopyFiles]
+2709W.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."	
+
+2709W_Analog="Dell 2709W(Analog)"
+2709W_Digital="Dell 2709W(Digital)"
+2709W_HDMI="Dell 2709W(HDMI)"

@@ -1,0 +1,68 @@
+; nas231wm.inf
+; Setup information file for NEC AS231WM Monitor
+;
+; Copyright(C) 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nas231wm.cat
+DriverVer=01/26/2010,1.10.0126.1638
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67E0
+
+[DestinationDirs]
+DefaultDestDir=11
+AS231WM.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nas231wm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%AS231WM%=AS231WM.Install, Monitor\NEC67E0
+
+[NECDS.ntamd64]
+%AS231WM%=AS231WM.Install.ntamd64, Monitor\NEC67E0
+
+[AS231WM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS231WM.AddReg, 1920, DPMS
+CopyFiles=AS231WM.CopyFiles
+
+[AS231WM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS231WM.AddReg, 1920, DPMS
+CopyFiles=AS231WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS231WM.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-85.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"nas231wm.icm"
+
+[AS231WM.CopyFiles]
+nas231wm.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+AS231WM="NEC AS231WM"

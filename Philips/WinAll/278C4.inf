@@ -1,0 +1,85 @@
+; This is a Setup information file for monitors  with ICM  file
+; CopyRight 2012 Philips Electronics Co.
+; V002
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=278C4.cat
+DriverVer=07/25/2012,2.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHLC0B8
+
+[DestinationDirs]
+DefaultDestDir=11
+C0B8.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+278C4.icm=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+[Philips]
+%C0B8%=C0B8.Install, Monitor\PHLC0B8
+
+[Philips.NTx86]
+%C0B8%=C0B8.Install, Monitor\PHLC0B8
+
+[Philips.NTia64]
+%C0B8%=C0B8.Install, Monitor\PHLC0B8
+
+[Philips.NTamd64]
+%C0B8%=C0B8.Install, Monitor\PHLC0B8
+
+
+[C0B8.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C0B8.AddReg
+CopyFiles=C0B8.CopyFiles
+
+[C0B8.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[C0B8.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"278C4.icm"
+
+
+[C0B8.CopyFiles]
+278C4.icm
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+C0B8="Philips 278C (27inch Wide LCD MONITOR 278C4)"  

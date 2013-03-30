@@ -1,0 +1,142 @@
+;B24W-6_LED.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display B24W-6_LED
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$Windows NT$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=B24W-6_LED.cat
+DriverVer=08/06/2012,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0811
+ExcludeFromSelect.nt=Monitor\FUS0812
+ExcludeFromSelect.nt=Monitor\FUS0813
+
+[DestinationDirs]
+DefaultDestDir=12
+B24W-6_LED.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+B24W-6_LED.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg% = FTS.Mfg, NTx86, NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%B24W-6a%=B24W-6_LEDa.Install, Monitor\FUS0811
+%B24W-6d%=B24W-6_LEDd.Install, Monitor\FUS0812
+%B24W-6dp%=B24W-6_LEDdp.Install, Monitor\FUS0813
+
+[FTS.Mfg.NTx86]
+%B24W-6a%=B24W-6_LEDa.Install, Monitor\FUS0811
+%B24W-6d%=B24W-6_LEDd.Install, Monitor\FUS0812
+%B24W-6dp%=B24W-6_LEDdp.Install, Monitor\FUS0813
+
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%B24W-6a%=B24W-6_LEDa.Install, Monitor\FUS0811
+%B24W-6d%=B24W-6_LEDd.Install, Monitor\FUS0812
+%B24W-6dp%=B24W-6_LEDdp.Install, Monitor\FUS0813
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[B24W-6_LEDa.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=B24W-6_LEDa.AddReg, 1920, DPMS
+CopyFiles=B24W-6_LED.CopyFiles
+
+[B24W-6_LEDd.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=B24W-6_LEDd.AddReg, 1920, DPMS
+CopyFiles=B24W-6_LED.CopyFiles
+
+[B24W-6_LEDdp.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=B24W-6_LEDdp.AddReg, 1920, DPMS
+CopyFiles=B24W-6_LED.CopyFiles
+
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FTS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[B24W-6_LEDa.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"B24W-6_LED.icm"
+
+[B24W-6_LEDd.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"B24W-6_LED.icm"
+
+[B24W-6_LEDdp.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"B24W-6_LED.icm"
+
+;---------------------------------------------------------- 
+
+[B24W-6_LED.CopyFiles]
+B24W-6_LED.icm
+
+;-new------------------------------------------------------ 
+
+[B24W-6_LEDa.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[B24W-6_LEDd.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[B24W-6_LEDdp.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+;-end new--------------------------------------------------
+
+[Strings]
+;-new------------------------------------------------------ 
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Monitor Class Function Driver Service"
+;-end new--------------------------------------------------
+
+DISK="Fujitsu Driver & Utilities CD B24W-6 LED"
+FTS.Mfg="Fujitsu Technology Solutions"	
+B24W-6a="Fujitsu B24W-6 LED (analog)"
+B24W-6d="Fujitsu B24W-6 LED (digital)"
+B24W-6dp="Fujitsu B24W-6 LED (DP)"
+

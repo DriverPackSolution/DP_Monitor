@@ -1,0 +1,92 @@
+; Copyright 2007 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=203w.cat
+DriverVer=09/10/2007,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC2003
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+2003.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+203w.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%2003%=2003.Install, Monitor\AOC2003
+
+[AOC.ntamd64]
+%2003%=2003.Install, Monitor\AOC2003
+
+; Install Sections
+;-------------------------------------------------
+[2003.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2003.AddReg, 1680,DPMS
+Copyfiles=2003.CopyFiles
+
+[2003.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=2003.AddReg, 1680,DPMS
+Copyfiles=2003.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[2003.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-82.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"203w.icm"
+
+
+[2003.CopyFiles]
+203w.icm
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+2003="203w"

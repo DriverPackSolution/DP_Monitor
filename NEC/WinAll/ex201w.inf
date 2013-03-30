@@ -1,0 +1,105 @@
+; ex201w.inf
+; Setup information file for NEC MultiSync EX201W Monitor
+;
+; Copyright 2011, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ex201w.cat
+DriverVer=04/13/2011,1.10.0413.0945
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6850
+ExcludeFromSelect.nt=Monitor\NEC6851
+ExcludeFromSelect.nt=Monitor\NEC6852
+
+[DestinationDirs]
+EX201W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ex201w.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EX201W-A%=EX201W-A.Install, Monitor\NEC6850
+%EX201W-D%=EX201W-D.Install, Monitor\NEC6851
+%EX201W-DP%=EX201W-DP.Install, Monitor\NEC6852
+
+[NECDS.ntamd64]
+%EX201W-A%=EX201W-A.Install.ntamd64, Monitor\NEC6850
+%EX201W-D%=EX201W-D.Install.ntamd64, Monitor\NEC6851
+%EX201W-DP%=EX201W-DP.Install.ntamd64, Monitor\NEC6852
+
+[EX201W-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EX201W-A.AddReg, 1600, DPMS
+CopyFiles=EX201W.CopyFiles
+
+[EX201W-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EX201W-D.AddReg, 1600, DPMS
+CopyFiles=EX201W.CopyFiles
+
+[EX201W-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EX201W-DP.AddReg, 1600, DPMS
+CopyFiles=EX201W.CopyFiles
+
+[EX201W-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EX201W-A.AddReg, 1600, DPMS
+CopyFiles=EX201W.CopyFiles
+
+[EX201W-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EX201W-D.AddReg, 1600, DPMS
+CopyFiles=EX201W.CopyFiles
+
+[EX201W-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EX201W-DP.AddReg, 1600, DPMS
+CopyFiles=EX201W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EX201W-A.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"ex201w.icm"
+
+[EX201W-D.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"ex201w.icm"
+
+[EX201W-DP.AddReg]
+HKR,"MODES\1600,900",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"ex201w.icm"
+
+
+[EX201W.CopyFiles]
+ex201w.icm
+
+[Strings]
+NECDS="NEC"
+EX201W-A="NEC MultiSync EX201W(Analog)"
+EX201W-D="NEC MultiSync EX201W(Digital)"
+EX201W-DP="NEC MultiSync EX201W(DisplayPort)"
+Disk1="NEC Display Solutions Installation Disk"

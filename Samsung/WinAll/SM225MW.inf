@@ -1,0 +1,120 @@
+
+;==================================================
+; SM225MW.inf 03/11/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM225MW.cat
+DriverVer=03/11/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0287
+ExcludeFromSelect.nt=Monitor\SAM0288
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM225MWa.CopyFiles = 23
+SM225MWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM225MW.icm=1
+SM225MW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM225MWa%=SM225MWa.Install, Monitor\SAM0287
+%SM225MWd%=SM225MWd.Install, Monitor\SAM0288
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM225MWa%=SM225MWa.Install, Monitor\SAM0287
+%SM225MWd%=SM225MWd.Install, Monitor\SAM0288
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM225MWa%=SM225MWa.Install, Monitor\SAM0287
+%SM225MWd%=SM225MWd.Install, Monitor\SAM0288
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM225MWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM225MWa.AddReg, 1680, DPMS
+CopyFiles=SM225MWa.CopyFiles
+
+[SM225MWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM225MWd.AddReg, 1680, DPMS
+CopyFiles=SM225MWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM225MWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM225MW.icm"
+
+[SM225MWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM225MW.icm"
+;------------------------------------------------------
+
+[SM225MWa.CopyFiles]
+SM225MW.icm
+
+[SM225MWd.CopyFiles]
+SM225MW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM225MWa="SyncMaster 225MW(Analog)"
+SM225MWd="SyncMaster 225MW(Digital)"

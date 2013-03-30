@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2010, ViewSonic Corporation
+
+[Version]  
+CatalogFile=VG932.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/06/2010, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG932.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG932_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCD427
+
+[ViewSonic]   
+%VG932%=VG932.Install,Monitor\VSCD427  
+
+[ViewSonic.NTia64]   
+%VG932%=VG932.Install,Monitor\VSCD427
+
+[ViewSonic.NTamd64]   
+%VG932%=VG932.Install,Monitor\VSCD427 
+
+[VG932.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG932.AddReg,1280,DPMS
+Copyfiles=VG932.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG932.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"24-92,50-85,+,+" 
+HKR,,ICMProfile,0,"VG932_SERIES.ICM"
+
+[VG932.CopyFiles]                                       
+VG932_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VG932 SERIES ViewSonic Wizard"
+VG932="ViewSonic VG932 SERIES"

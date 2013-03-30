@@ -1,0 +1,87 @@
+; [CG18.INF]
+; Revision 1.00
+; Copyright(c) 2003 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=CG18.cat
+DriverVer=03/28/2003,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1691
+;ExcludeFromSelect.nt = Monitor\ENC1692
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+CG18D.CopyFiles = 23
+CG18.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CG18D65.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%CG18D%=CG18D.Install, Monitor\ENC1691
+%CG18%=CG18.Install, Monitor\ENC1692
+
+[CG18D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG18D.AddReg, 1280, DPMS
+CopyFiles=CG18D.CopyFiles
+
+[CG18.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG18.AddReg, 1280, DPMS
+CopyFiles=CG18.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CG18D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"CG18D65.icm"
+
+[CG18.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"CG18D65.icm"
+
+[CG18D.CopyFiles]
+CG18D65.icm
+
+[CG18.CopyFiles]
+CG18D65.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+CG18D="CG18"
+CG18="CG18"

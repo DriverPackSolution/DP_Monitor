@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG2021m.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=04/07/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG2021m.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG2021m.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VG2021m%=VG2021m.Install,Monitor\VSCE11D  
+
+[ViewSonic.NTia64]   
+%VG2021m%=VG2021m.Install,Monitor\VSCE11D  
+
+[ViewSonic.NTamd64]   
+%VG2021m%=VG2021m.Install,Monitor\VSCE11D  
+
+[VG2021m.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2021m.AddReg,1400,DPMS
+Copyfiles=VG2021m.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1400]
+HKR,,MaxResolution,,"1400,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG2021m.AddReg]  
+HKR,"MODES\1400,1050",Mode1,,"30-82,56-76,-,+" 
+HKR,,ICMProfile,0,"VG2021m.ICM"
+
+[VG2021m.CopyFiles]                                       
+VG2021m.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VG2021m="ViewSonic VG2021m"

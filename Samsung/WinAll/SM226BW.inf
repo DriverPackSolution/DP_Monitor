@@ -1,0 +1,120 @@
+
+;==================================================
+; SM226BW.inf 12/01/2006 ver. 3.0HC
+;
+; Copyright 2006 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM226BW.cat
+DriverVer=12/01/2006,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM027E
+ExcludeFromSelect.nt=Monitor\SAM027F
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM226BWa.CopyFiles = 23
+SM226BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM226BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM226BWa%=SM226BWa.Install, Monitor\SAM027E
+%SM226BWd%=SM226BWd.Install, Monitor\SAM027F
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM226BWa%=SM226BWa.Install, Monitor\SAM027E
+%SM226BWd%=SM226BWd.Install, Monitor\SAM027F
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM226BWa%=SM226BWa.Install, Monitor\SAM027E
+%SM226BWd%=SM226BWd.Install, Monitor\SAM027F
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM226BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM226BWa.AddReg, 1680, DPMS
+CopyFiles=SM226BWa.CopyFiles
+
+[SM226BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM226BWd.AddReg, 1680, DPMS
+CopyFiles=SM226BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM226BWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM226BW.icm"
+
+[SM226BWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM226BW.icm"
+;------------------------------------------------------
+
+[SM226BWa.CopyFiles]
+SM226BW.icm
+
+[SM226BWd.CopyFiles]
+SM226BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM226BWa="SyncMaster 226BW,SyncMaster Magic CX226BW(Analog)"
+SM226BWd="SyncMaster 226BW,SyncMaster Magic CX226BW(Digital)"

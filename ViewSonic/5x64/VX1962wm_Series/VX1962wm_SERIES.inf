@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX1962wm.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/21/2007, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX1962wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX1962wm_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX1962wm%=VX1962wm.Install,Monitor\VSCD920  
+
+[ViewSonic.NTia64]   
+%VX1962wm%=VX1962wm.Install,Monitor\VSCD920
+
+[ViewSonic.NTamd64]   
+%VX1962wm%=VX1962wm.Install,Monitor\VSCD920 
+
+[VX1962wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX1962wm.AddReg,1680,DPMS
+Copyfiles=VX1962wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX1962wm.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"30-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX1962wm_SERIES.ICM"
+
+[VX1962wm.CopyFiles]                                       
+VX1962wm_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX1962wm SERIES ViewSonic Wizard"
+VX1962wm="ViewSonic VX1962wm SERIES"

@@ -1,0 +1,81 @@
+;=============================================================== 
+; Gateway EV730.inf
+; manufactured by LG Electronics
+; mon1B6B.inf
+; Revision 1.1 , May-29-2003
+; Copyright(c) Gateway,All Rights Reserved.
+;===============================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon1B6B.cat
+DriverVer=05/29/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY1B6B
+ExcludeFromSelect.NT=Monitor\GWY1B6A
+
+[DestinationDirs]
+DefaultDestDir=11
+mon1B6B.CopyFiles=23
+1B6A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon1B6B.icm=1
+1B6A.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon1B6B%=mon1B6B.Install, Monitor\GWY1B6B
+%1B6A%=1B6A.Install, Monitor\GWY1B6A
+
+[mon1B6B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon1B6B.AddReg, 1280, DPMS
+CopyFiles=mon1B6B.CopyFiles
+
+[1B6A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1B6A.AddReg, 1280, DPMS
+CopyFiles=1B6A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon1B6B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"mon1B6B.icm"
+
+[1B6A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"1B6A.icm"
+
+[mon1B6B.CopyFiles]
+mon1B6B.icm
+
+[1B6A.CopyFiles]
+1B6A.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon1B6B="Gateway EV730"
+1B6A="Gateway EV730"

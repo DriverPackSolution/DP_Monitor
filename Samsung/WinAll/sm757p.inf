@@ -1,0 +1,88 @@
+
+;==================================================
+; sm757p.inf 08/08/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm757p.cat
+DriverVer=08/08/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0028
+
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm757p.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm757p.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm757p%=sm757p.Install, Monitor\SAM0028
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm757p.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm757p.AddReg, 2048, DPMS
+CopyFiles=sm757p.CopyFiles
+
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm757p.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30-96,50-160,+,+"
+HKR,,ICMProfile,0,"sm757p.icm"
+
+
+;------------------------------------------------------
+
+[sm757p.CopyFiles]
+sm757p.icm
+
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm757p=" SyncMaster 757p(T)/707p/750p,MagicSyncMaster CM177A(P)"
+

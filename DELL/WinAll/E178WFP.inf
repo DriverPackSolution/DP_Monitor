@@ -1,0 +1,101 @@
+
+;================================ 
+;E178WFP.INF 04/16/07 Ver. 2.0 PCC
+;Copyright 1996-2007 Dell Inc.
+;
+;This is a setupfile for E178WFP 
+
+;vista
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E178WFP.cat
+DriverVer=04/16/2007, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELD016
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E178WFP.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E178WFP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E178WFP%=E178WFP.Install, Monitor\DELD016
+
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%E178WFP%=E178WFP.Install, Monitor\DELD016
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E178WFP.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E178WFP.AddReg, 1440, DPMS
+CopyFiles=E178WFP.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E178WFP.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,50.0-77.0,+,+"
+HKR,,ICMProfile,0,"E178WFP.icm"
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E178WFP.CopyFiles]
+E178WFP.icm
+
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E178WFP="Dell E178WFP"

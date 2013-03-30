@@ -1,0 +1,83 @@
+;===============================================================
+; [M228WD-BZ.inf]
+; Revision 1.3   September-03-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M228WD-BZ.cat
+DriverVer=09/03/2007,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM5670
+ExcludeFromSelect.NT=Monitor\GSM5671
+
+[DestinationDirs]
+DefaultDestDir = 11
+M228WD-BZ_Analog.CopyFiles = 23
+M228WD-BZ_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M228WD-BZ.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M228WD-BZ_Analog%=M228WD-BZ_Analog.Install,Monitor\GSM5670
+%M228WD-BZ_Digital%=M228WD-BZ_Digital.Install,Monitor\GSM5671
+
+[LG.NTamd64]
+%M228WD-BZ_Analog%=M228WD-BZ_Analog.Install,Monitor\GSM5670
+%M228WD-BZ_Digital%=M228WD-BZ_Digital.Install,Monitor\GSM5671
+
+[M228WD-BZ_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M228WD-BZ_Analog.AddReg,1680,DPMS
+CopyFiles=M228WD-BZ_Analog.CopyFiles
+
+[M228WD-BZ_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M228WD-BZ_Digital.AddReg,1680,DPMS
+CopyFiles=M228WD-BZ_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M228WD-BZ_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"M228WD-BZ.ICM"
+
+[M228WD-BZ_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"M228WD-BZ.ICM"
+
+[M228WD-BZ_Analog.CopyFiles]
+M228WD-BZ.ICM
+
+[M228WD-BZ_Digital.CopyFiles]
+M228WD-BZ.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M228WD-BZ_Analog="LG M228WD-BZ(Analog)"
+M228WD-BZ_Digital="LG M228WD-BZ(Digital)"

@@ -1,0 +1,72 @@
+;*********************************************************************************
+; LS15MNCI.INF Ver. 2.0.0.1 for NEC Monitor LS15 Multisync
+;
+; This is a INF file to install monitor for Windows 98,Windows 2K,Windows ME,Windows XP.
+;
+;Copyright 2000,2005     NEC Computers International
+;Written by NEC CI Monitor Engineering
+;*********************************************************************************
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECCI%
+CatalogFile=LS15MNCI.cat
+DriverVer=09/25/2001,2.0.0.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+LS15MNCI.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+LS15MNCI.icm=1
+
+[Manufacturer]
+%NECCI%=NECCI
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\NEC65C5
+
+[NECCI]
+%LS15MNCI%=LS15MNCI.Install,Monitor\NEC65C5
+
+[LS15MNCI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LS15MNCI.AddReg, 1024, DPMS
+CopyFiles=LS15MNCI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LS15MNCI.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"LS15MNCI.icm"
+
+[LS15MNCI.CopyFiles]
+LS15MNCI.icm
+
+[Strings]
+MonitorClassName="Monitor"
+NECCI="NEC Computers International"
+LS15MNCI="Monitor LS15 Multisync NEC"
+DISK1="NEC CI Monitors Installation Disk"

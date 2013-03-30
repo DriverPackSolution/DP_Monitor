@@ -1,0 +1,120 @@
+
+;==================================================
+; SM2232BW.inf 04/16/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2232BW.cat
+DriverVer=04/16/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0303
+ExcludeFromSelect.nt=Monitor\SAM0304
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2232BWa.CopyFiles = 23
+SM2232BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2232BW.icm=1
+SM2232BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2232BWa%=SM2232BWa.Install, Monitor\SAM0303
+%SM2232BWd%=SM2232BWd.Install, Monitor\SAM0304
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2232BWa%=SM2232BWa.Install, Monitor\SAM0303
+%SM2232BWd%=SM2232BWd.Install, Monitor\SAM0304
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2232BWa%=SM2232BWa.Install, Monitor\SAM0303
+%SM2232BWd%=SM2232BWd.Install, Monitor\SAM0304
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2232BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2232BWa.AddReg, 1680, DPMS
+CopyFiles=SM2232BWa.CopyFiles
+
+[SM2232BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2232BWd.AddReg, 1680, DPMS
+CopyFiles=SM2232BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2232BWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2232BW.icm"
+
+[SM2232BWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2232BW.icm"
+;------------------------------------------------------
+
+[SM2232BWa.CopyFiles]
+SM2232BW.icm
+
+[SM2232BWd.CopyFiles]
+SM2232BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2232BWa="SyncMaster 2232BW/2232GW,SyncMaster Magic CX2232GW(Analog)"
+SM2232BWd="SyncMaster 2232BW/2232GW,SyncMaster Magic CX2232GW(Digital)"

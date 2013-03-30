@@ -1,0 +1,120 @@
+;LXL3220W.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor AMILO LXL 3220W
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=LXL3220W.cat
+DriverVer=07/10/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07AF
+ExcludeFromSelect.nt=Monitor\FUS07B0
+ExcludeFromSelect.nt=Monitor\FUS07B1
+
+
+[DestinationDirs]
+DefaultDestDir=11
+LXL3220W.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LXL3220W.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%LXL3220W%=LXL3220Wa.Install, Monitor\FUS07AF
+%LXL3220W%=LXL3220Wd.Install, Monitor\FUS07B0
+%LXL3220W%=LXL3220Wh.Install, Monitor\FUS07B1
+
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%LXL3220W%=LXL3220Wa.Install, Monitor\FUS07AF
+%LXL3220W%=LXL3220Wd.Install, Monitor\FUS07B0
+%LXL3220W%=LXL3220Wh.Install, Monitor\FUS07B1
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[LXL3220Wa.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LXL3220Wa.AddReg, 1680, DPMS
+CopyFiles=LXL3220W.CopyFiles
+
+[LXL3220Wd.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LXL3220Wd.AddReg, 1680, DPMS
+CopyFiles=LXL3220W.CopyFiles
+
+[LXL3220Wh.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LXL3220Wh.AddReg, 1680, DPMS
+CopyFiles=LXL3220W.CopyFiles
+
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+
+[LXL3220Wa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-94.0,55.0-75.0,-,+"
+HKR,,ICMProfile,0,"LXL3220W.icm"
+
+[LXL3220Wd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"LXL3220W.icm"
+
+[LXL3220Wh.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"LXL3220W.icm"
+
+
+;---------------------------------------------------------- 
+
+
+
+[LXL3220W.CopyFiles]
+LXL3220W.icm
+
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="FUJSIE Inc. Monitor Installation Disk"
+FUJSIE="Fujitsu Siemens Computers"	
+LXL3220W="Fujitsu Siemens Computers AMILO LXL 3220W"

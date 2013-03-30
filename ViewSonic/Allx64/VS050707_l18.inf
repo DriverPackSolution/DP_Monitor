@@ -1,0 +1,518 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/07/2005, 1.4.0.28
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS21441-1.CopyFiles=23
+VLCDS21460-1.CopyFiles=23
+VLCDS21520-2.CopyFiles=23
+VLCDS21594-1.CopyFiles=23
+VLCDS21544-1.CopyFiles=23
+VLCDS21833-1R.CopyFiles=23
+VLCDS22637-1.CopyFiles=23
+AT181H1.CopyFiles=23
+VLCDS21594-2.CopyFiles=23
+VLCDS23245-1.CopyFiles=23
+VLCDS23245-1b.CopyFiles=23
+VLCDS23412-1.CopyFiles=23
+VLCDS21594-3W.CopyFiles=23
+VLCDS23768-1W.CopyFiles=23
+VLCDS23895-2W.CopyFiles=23
+VLCDS23896-2W.CopyFiles=23
+VLCDS23896-5W.CopyFiles=23
+VLCDS26105-1W.CopyFiles=23
+VLCDS26105-3W.CopyFiles=23
+VLCDS26105-4W.CopyFiles=23
+VSATV26325-1W.CopyFiles=23
+VLCDS26063-3W.CopyFiles=23
+VLCDS26063-2W.CopyFiles=23
+VLCDS27944-2W.CopyFiles=23
+VLCDS27944-1W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG180.ICM=1
+VPD180.ICM=1
+VP181.ICM=1
+VG180-2.ICM=1
+VG181.ICM=1
+VA800.ICM=1
+VP180m.ICM=1
+VE180.ICM=1
+VG181b.ICM=1
+VE180m.ICM=1
+VE180mb.ICM=1
+VX800.ICM=1
+VG181-3.ICM=1
+VG800.ICM=1
+VE800.ICM=1
+VX800-2.ICM=1
+VG800b.ICM=1
+VX800-3.ICM=1
+VG800-2.ICM=1
+VG800b-2.ICM=1
+VG180m.ICM=1
+N1800TV.ICM=1
+VP181s.ICM=1
+VP181b-2.ICM=1
+VG810b.ICM=1
+VG810s.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS21441-1%=VLCDS21441-1.Install,Monitor\VSC464D             ;VG180
+%VLCDS21460-1%=VLCDS21460-1.Install,Monitor\VSC4B49             ;VPD180
+%VLCDS21544-1%=VLCDS21544-1.Install,Monitor\VSC574D             ;VP181
+%VLCDS21520-2%=VLCDS21520-2.Install,Monitor\VSC464E             ;VG180-2
+%VLCDS21594-1%=VLCDS21594-1.Install,Monitor\VSC7517             ;VG181
+%VLCDS21833-1R%=VLCDS21833-1R.Install,Monitor\VSCDE00           ;VA800
+%VLCDS22637-1%=VLCDS22637-1.Install,Monitor\VSC0104             ;VP180m        
+%AT181H1%=AT181H1.Install,Monitor\VSCF805	                ;VE180
+%VLCDS21594-2%=VLCDS21594-2.Install,Monitor\VSCD806             ;VG181b
+%VLCDS23245-1%=VLCDS23245-1.Install,Monitor\VSC6406             ;VE180m
+%VLCDS23245-1b%=VLCDS23245-1b.Install,Monitor\VSC6506           ;VE180mb
+%VLCDS23412-1%=VLCDS23412-1.Install,Monitor\VSC0B07             ;VX800
+%VLCDS21594-3W%=VLCDS21594-3W.Install,Monitor\VSC4008          ;VG181-3
+%VLCDS23768-1W%=VLCDS23768-1W.Install,Monitor\VSC6F08          ;VG800
+%VLCDS23895-2W%=VLCDS23895-2W.Install,Monitor\VSC3A08          ;VE800
+%VLCDS23896-2W%=VLCDS23896-2W.Install,Monitor\VSC8209          ;VX800-2
+%VLCDS23896-5W%=VLCDS23896-5W.Install,Monitor\VSC230E           ;VG800b
+%VLCDS26105-1W%=VLCDS26105-1W.Install,Monitor\VSCF511          ;VX800-3
+%VLCDS26105-3W%=VLCDS26105-3W.Install,Monitor\VSCF311          ;VG800-2
+%VLCDS26105-4W%=VLCDS26105-4W.Install,Monitor\VSCF411          ;VG800b-2
+%VLCDS23895-5W%=VLCDS23895-5W.Install,Monitor\VSCCC0F          ;VG180m
+%VSATV26325-1W%=VSATV26325-1W.Install,Monitor\VSC6C12           ;N1800TV
+%VLCDS26063-3W%=VLCDS26063-3W.Install,Monitor\VSCB816           ;VP181s
+%VLCDS26063-2W%=VLCDS26063-2W.Install,Monitor\VSC6711           ;VP181b-2
+%VLCDS27944-2W%=VLCDS27944-2W.Install,Monitor\VSCC018           ;VG810b
+%VLCDS27944-1W%=VLCDS27944-1W.Install,Monitor\VSCBF18           ;VG810s
+
+[ViewSonic.NTia64]   
+%VLCDS21441-1%=VLCDS21441-1.Install,Monitor\VSC464D             ;VG180
+%VLCDS21460-1%=VLCDS21460-1.Install,Monitor\VSC4B49             ;VPD180
+%VLCDS21544-1%=VLCDS21544-1.Install,Monitor\VSC574D             ;VP181
+%VLCDS21520-2%=VLCDS21520-2.Install,Monitor\VSC464E             ;VG180-2
+%VLCDS21594-1%=VLCDS21594-1.Install,Monitor\VSC7517             ;VG181
+%VLCDS21833-1R%=VLCDS21833-1R.Install,Monitor\VSCDE00           ;VA800
+%VLCDS22637-1%=VLCDS22637-1.Install,Monitor\VSC0104             ;VP180m        
+%AT181H1%=AT181H1.Install,Monitor\VSCF805	                ;VE180
+%VLCDS21594-2%=VLCDS21594-2.Install,Monitor\VSCD806             ;VG181b
+%VLCDS23245-1%=VLCDS23245-1.Install,Monitor\VSC6406             ;VE180m
+%VLCDS23245-1b%=VLCDS23245-1b.Install,Monitor\VSC6506           ;VE180mb
+%VLCDS23412-1%=VLCDS23412-1.Install,Monitor\VSC0B07             ;VX800
+%VLCDS21594-3W%=VLCDS21594-3W.Install,Monitor\VSC4008          ;VG181-3
+%VLCDS23768-1W%=VLCDS23768-1W.Install,Monitor\VSC6F08          ;VG800
+%VLCDS23895-2W%=VLCDS23895-2W.Install,Monitor\VSC3A08          ;VE800
+%VLCDS23896-2W%=VLCDS23896-2W.Install,Monitor\VSC8209          ;VX800-2
+%VLCDS23896-5W%=VLCDS23896-5W.Install,Monitor\VSC230E           ;VG800b
+%VLCDS26105-1W%=VLCDS26105-1W.Install,Monitor\VSCF511          ;VX800-3
+%VLCDS26105-3W%=VLCDS26105-3W.Install,Monitor\VSCF311          ;VG800-2
+%VLCDS26105-4W%=VLCDS26105-4W.Install,Monitor\VSCF411          ;VG800b-2
+%VLCDS23895-5W%=VLCDS23895-5W.Install,Monitor\VSCCC0F          ;VG180m
+%VSATV26325-1W%=VSATV26325-1W.Install,Monitor\VSC6C12           ;N1800TV
+%VLCDS26063-3W%=VLCDS26063-3W.Install,Monitor\VSCB816           ;VP181s
+%VLCDS26063-2W%=VLCDS26063-2W.Install,Monitor\VSC6711           ;VP181b-2
+%VLCDS27944-2W%=VLCDS27944-2W.Install,Monitor\VSCC018           ;VG810b
+%VLCDS27944-1W%=VLCDS27944-1W.Install,Monitor\VSCBF18           ;VG810s
+
+[ViewSonic.NTamd64]   
+%VLCDS21441-1%=VLCDS21441-1.Install,Monitor\VSC464D             ;VG180
+%VLCDS21460-1%=VLCDS21460-1.Install,Monitor\VSC4B49             ;VPD180
+%VLCDS21544-1%=VLCDS21544-1.Install,Monitor\VSC574D             ;VP181
+%VLCDS21520-2%=VLCDS21520-2.Install,Monitor\VSC464E             ;VG180-2
+%VLCDS21594-1%=VLCDS21594-1.Install,Monitor\VSC7517             ;VG181
+%VLCDS21833-1R%=VLCDS21833-1R.Install,Monitor\VSCDE00           ;VA800
+%VLCDS22637-1%=VLCDS22637-1.Install,Monitor\VSC0104             ;VP180m        
+%AT181H1%=AT181H1.Install,Monitor\VSCF805	                ;VE180
+%VLCDS21594-2%=VLCDS21594-2.Install,Monitor\VSCD806             ;VG181b
+%VLCDS23245-1%=VLCDS23245-1.Install,Monitor\VSC6406             ;VE180m
+%VLCDS23245-1b%=VLCDS23245-1b.Install,Monitor\VSC6506           ;VE180mb
+%VLCDS23412-1%=VLCDS23412-1.Install,Monitor\VSC0B07             ;VX800
+%VLCDS21594-3W%=VLCDS21594-3W.Install,Monitor\VSC4008          ;VG181-3
+%VLCDS23768-1W%=VLCDS23768-1W.Install,Monitor\VSC6F08          ;VG800
+%VLCDS23895-2W%=VLCDS23895-2W.Install,Monitor\VSC3A08          ;VE800
+%VLCDS23896-2W%=VLCDS23896-2W.Install,Monitor\VSC8209          ;VX800-2
+%VLCDS23896-5W%=VLCDS23896-5W.Install,Monitor\VSC230E           ;VG800b
+%VLCDS26105-1W%=VLCDS26105-1W.Install,Monitor\VSCF511          ;VX800-3
+%VLCDS26105-3W%=VLCDS26105-3W.Install,Monitor\VSCF311          ;VG800-2
+%VLCDS26105-4W%=VLCDS26105-4W.Install,Monitor\VSCF411          ;VG800b-2
+%VLCDS23895-5W%=VLCDS23895-5W.Install,Monitor\VSCCC0F          ;VG180m
+%VSATV26325-1W%=VSATV26325-1W.Install,Monitor\VSC6C12           ;N1800TV
+%VLCDS26063-3W%=VLCDS26063-3W.Install,Monitor\VSCB816           ;VP181s
+%VLCDS26063-2W%=VLCDS26063-2W.Install,Monitor\VSC6711           ;VP181b-2
+%VLCDS27944-2W%=VLCDS27944-2W.Install,Monitor\VSCC018           ;VG810b
+%VLCDS27944-1W%=VLCDS27944-1W.Install,Monitor\VSCBF18           ;VG810s
+
+[VLCDS21441-1.Install]                                          ;VG180
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21441-1.AddReg,1280,DPMS
+Copyfiles=VLCDS21441-1.CopyFiles
+
+[VLCDS21460-1.Install]                                          ;VPD180
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21460-1.AddReg,1280,DPMS
+Copyfiles=VLCDS21460-1.CopyFiles
+
+[VLCDS21544-1.Install]                                          ;VP181
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21544-1.AddReg,1600,DPMS
+Copyfiles=VLCDS21544-1.CopyFiles
+
+[VLCDS21520-2.Install]                                          ;VG180-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21520-2.AddReg,1280,DPMS
+Copyfiles=VLCDS21520-2.CopyFiles
+
+[VLCDS21594-1.Install]                                          ;VG181
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21594-1.AddReg,1280,DPMS
+Copyfiles=VLCDS21594-1.CopyFiles
+
+[VLCDS21833-1R.Install]                                         ;VA800
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21833-1R.AddReg,1280,DPMS
+Copyfiles=VLCDS21833-1R.CopyFiles
+
+[VLCDS22637-1.Install]                                          ;VP180m
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS22637-1.AddReg,1280,DPMS
+Copyfiles=VLCDS22637-1.CopyFiles
+
+[AT181H1.Install]                                               ;VE180
+DelReg=DEL_CURRENT_REG   
+AddReg=AT181H1.AddReg,1280
+Copyfiles=AT181H1.CopyFiles
+
+[VLCDS21594-2.Install]                                          ;VG181b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21594-2.AddReg,1280,DPMS
+Copyfiles=VLCDS21594-2.CopyFiles
+
+[VLCDS23245-1.Install]                                          ;VE180m
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23245-1.AddReg,1280,DPMS
+Copyfiles=VLCDS23245-1.CopyFiles
+
+[VLCDS23245-1b.Install]                                         ;VE180mb
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23245-1b.AddReg,1280,DPMS
+Copyfiles=VLCDS23245-1b.CopyFiles
+
+[VLCDS23412-1.Install]                                          ;VX800
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23412-1.AddReg,1280,DPMS
+Copyfiles=VLCDS23412-1.CopyFiles
+
+[VLCDS21594-3W.Install]                                          ;VG181-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21594-3W.AddReg,1280,DPMS
+Copyfiles=VLCDS21594-3W.CopyFiles
+
+[VLCDS23768-1W.Install]                                          ;VG800
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23768-1W.AddReg,1280,DPMS
+Copyfiles=VLCDS23768-1W.CopyFiles
+
+[VLCDS23895-2W.Install]                                          ;VE800
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23895-2W.AddReg,1280,DPMS
+Copyfiles=VLCDS23895-2W.CopyFiles
+
+[VLCDS23896-2W.Install]                                          ;VX800-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23896-2W.AddReg,1280,DPMS
+Copyfiles=VLCDS23896-2W.CopyFiles
+
+[VLCDS23896-5W.Install]                                         ;VG800b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23896-5W.AddReg,1280,DPMS
+Copyfiles=VLCDS23896-5W.CopyFiles
+
+[VLCDS26105-1W.Install]                                        ;VX800-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS26105-1W.AddReg,1280,DPMS
+Copyfiles=VLCDS26105-1W.CopyFiles
+
+[VLCDS26105-3W.Install]                                        ;VG800-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS26105-3W.AddReg,1280,DPMS
+Copyfiles=VLCDS26105-3W.CopyFiles
+
+[VLCDS26105-4W.Install]                                        ;VG800b-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS26105-4W.AddReg,1280,DPMS
+Copyfiles=VLCDS26105-4W.CopyFiles
+
+[VLCDS23895-5W.Install]                                        ;VG180m
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23895-5W.AddReg,1280,DPMS
+Copyfiles=VLCDS23895-5W.CopyFiles
+
+[VSATV26325-1W.Install]                                         ;N1800TV
+DelReg=DEL_CURRENT_REG 
+AddReg=VSATV26325-1W.AddReg,1024,DPMS
+Copyfiles=VSATV26325-1W.CopyFiles
+
+[VLCDS26063-3W.Install]                                         ;VP181s
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS26063-3W.AddReg,1280,DPMS
+Copyfiles=VLCDS26063-3W.CopyFiles
+
+[VLCDS26063-2W.Install]                                         ;VP181b-2
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS26063-2W.AddReg,1280,DPMS
+Copyfiles=VLCDS26063-2W.CopyFiles
+
+[VLCDS27944-2W.Install]                                         ;VG810b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS27944-2W.AddReg,1280,DPMS
+Copyfiles=VLCDS27944-2W.CopyFiles
+
+[VLCDS27944-1W.Install]                                         ;VG810s
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS27944-1W.AddReg,1280,DPMS
+Copyfiles=VLCDS27944-1W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS21441-1.AddReg]                                           ;VG180
+HKR,"MODES\1280,1024",Mode1,,"30-80,60-85,+,+"
+HKR,,ICMProfile,0,"VG180.ICM"
+
+[VLCDS21460-1.AddReg]						;VPD180
+HKR,"MODES\1280,1024",Mode1,,"64,60,+,+"
+HKR,,ICMProfile,0,"VPD180.ICM"
+
+[VLCDS21544-1.AddReg]                                           ;VP181
+HKR,"MODES\1600,1200",Mode1,,"30-95,50-75,+,+"
+HKR,,ICMProfile,0,"VP181.ICM"
+
+[VLCDS21520-2.AddReg]                                           ;VG180-2
+HKR,"MODES\1280,1024",Mode1,,"30-80,56-85,+,+"
+HKR,,ICMProfile,0,"VG180-2.ICM"
+
+[VLCDS21594-1.AddReg]                                           ;VG181
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG181.ICM"
+
+[VLCDS21833-1R.AddReg]                                          ;VA800
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VA800.ICM"
+
+[VLCDS22637-1.AddReg]                                           ;VP180m
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-85,+,+"
+HKR,,ICMProfile,0,"VP180m.ICM"
+
+[AT181H1.AddReg]                                                ;VE180
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VE180.ICM"
+
+[VLCDS21594-2.AddReg]                                           ;VG181b
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG181b.ICM"
+
+[VLCDS23245-1.AddReg]                                           ;VE180m
+HKR,"MODES\1280,1024",Mode1,,"24-82,56-85,+,+"
+HKR,,ICMProfile,0,"VE180m.ICM"
+
+[VLCDS23245-1b.AddReg]                                          ;VE180mb
+HKR,"MODES\1280,1024",Mode1,,"24-82,56-85,+,+"
+HKR,,ICMProfile,0,"VE180mb.ICM"
+
+[VLCDS23412-1.AddReg]                                         ;VX800
+HKR,"MODES\1280,1024",Mode1,,"24-82,56-85,+,+"
+HKR,,ICMProfile,0,"VX800.ICM"
+
+[VLCDS21594-3W.AddReg]                                       ;VG181-3
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG181-3.ICM"
+
+[VLCDS23768-1W.AddReg]                                       ;VG800
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG800.ICM"
+
+[VLCDS23895-2W.AddReg]                                       ;VE800
+HKR,"MODES\1280,1024",Mode1,,"30-80,50-75,+,+"
+HKR,,ICMProfile,0,"VE800.ICM"
+
+[VLCDS23896-2W.AddReg]                                         ;VX800-2
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VX800-2.ICM"
+
+[VLCDS23896-5W.AddReg]                                          ;VG800b
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG800b.ICM"
+
+[VLCDS26105-1W.AddReg]                                          ;VX800-3
+HKR,"MODES\1280,1024",Mode1,,"30-83,50-75,+,+" 
+HKR,,ICMProfile,0,"VX800-3.ICM"
+
+[VLCDS26105-3W.AddReg]                                          ;VG800-2
+HKR,"MODES\1280,1024",Mode1,,"30-83,50-75,+,+" 
+HKR,,ICMProfile,0,"VG800-2.ICM"
+
+[VLCDS26105-4W.AddReg]                                          ;VG800b-2
+HKR,"MODES\1280,1024",Mode1,,"30-83,50-75,+,+" 
+HKR,,ICMProfile,0,"VG800b-2.ICM"
+
+[VLCDS23895-5W.AddReg]                                          ;VG180m
+HKR,"MODES\1280,1024",Mode1,,"30-80,50-75,+,+" 
+HKR,,ICMProfile,0,"VG180m.ICM"
+
+[VSATV26325-1W.AddReg]                                          ;N1800TV
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,-,-"
+HKR,,ICMProfile,0,"N1800TV.ICM"
+
+[VLCDS26063-3W.AddReg]                                          ;VP181s
+HKR,"MODES\1280,1024",Mode1,,"30-92,50-85,+,+"
+HKR,,ICMProfile,0,"VP181s.ICM"
+
+[VLCDS26063-2W.AddReg]                                          ;VP181b-2
+HKR,"MODES\1280,1024",Mode1,,"30-92,50-85,+,+"
+HKR,,ICMProfile,0,"VP181b-2.ICM"
+
+[VLCDS27944-2W.AddReg]                                          ;VG810b
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG810b.ICM"
+
+[VLCDS27944-1W.AddReg]                                          ;VG810s
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG810s.ICM"
+
+[VLCDS21441-1.CopyFiles]                                       
+VG180.ICM
+
+[VLCDS21460-1.CopyFiles]                                       
+VPD180.ICM
+
+[VLCDS21544-1.CopyFiles]                                       
+VP181.ICM
+
+[VLCDS21520-2.CopyFiles]                                       
+VG180-2.ICM
+
+[VLCDS21594-1.CopyFiles]                                       
+VG181.ICM
+
+[VLCDS21833-1R.CopyFiles]                                       
+VA800.ICM
+
+[VLCDS22637-1.CopyFiles]                                       
+VP180m.ICM
+
+[AT181H1.CopyFiles]
+VE180.ICM
+
+[VLCDS21594-2.CopyFiles]                                       
+VG181b.ICM
+
+[VLCDS23245-1.CopyFiles]                                       
+VE180m.ICM
+
+[VLCDS23245-1b.CopyFiles]                                       
+VE180mb.ICM
+
+[VLCDS23412-1.CopyFiles]                                       
+VX800.ICM
+
+[VLCDS21594-3W.CopyFiles]                                       
+VG181-3.ICM
+
+[VLCDS23768-1W.CopyFiles]                                       
+VG800.ICM
+
+[VLCDS23895-2W.CopyFiles]                                       
+VE800.ICM
+
+[VLCDS23896-2W.CopyFiles]                                       
+VX800-2.ICM
+
+[VLCDS23896-5W.CopyFiles]                                       
+VG800b.ICM
+
+[VLCDS26105-1W.CopyFiles]                                       
+VX800-3.ICM
+
+[VLCDS26105-3W.CopyFiles]                                       
+VG800-2.ICM
+
+[VLCDS26105-4W.CopyFiles]                                       
+VG800b-2.ICM
+
+[VLCDS23895-5W.CopyFiles]                                       
+VG180m.ICM
+
+[VSATV26325-1W.CopyFiles]                                       
+N1800TV.ICM
+
+[VLCDS26063-3W.CopyFiles]                                       
+VP181s.ICM
+
+[VLCDS26063-2W.CopyFiles]                                       
+VP181b-2.ICM
+
+[VLCDS27944-2W.CopyFiles]                                       
+VG810b.ICM
+
+[VLCDS27944-1W.CopyFiles]                                       
+VG810s.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Wizard"
+
+VLCDS21441-1="ViewSonic VG180"           
+VLCDS21460-1="ViewSonic VPD180"
+VLCDS21544-1="ViewSonic VP181"
+VLCDS21520-2="ViewSonic VG180-2"
+VLCDS21594-1="ViewSonic VG181" 
+VLCDS21833-1R="ViewSonic VA800"   
+VLCDS22637-1="ViewSonic VP180m"
+AT181H1="ViewSonic VE180"
+VLCDS21594-2="ViewSonic VG181b"
+VLCDS23245-1="ViewSonic VE180m"
+VLCDS23245-1b="ViewSonic VE180mb"
+VLCDS23412-1="ViewSonic VX800"
+VLCDS21594-3W="ViewSonic VG181-3"
+VLCDS23768-1W="ViewSonic VG800"
+VLCDS23895-2W="ViewSonic VE800"
+VLCDS23896-2W="ViewSonic VX800-2"
+VLCDS23896-5W="ViewSonic VG800b"
+VLCDS26105-1W="ViewSonic VX800-3"
+VLCDS26105-3W="ViewSonic VG800-2"
+VLCDS26105-4W="ViewSonic VG800b-2"
+VLCDS23895-5W="ViewSonic VG180m"
+VSATV26325-1W="ViewSonic N1800TV"
+VLCDS26063-3W="ViewSonic VP181s"
+VLCDS26063-2W="ViewSonic VP181b-2"
+VLCDS27944-2W="ViewSonic VG810b"
+VLCDS27944-1W="ViewSonic VG810s"

@@ -1,0 +1,108 @@
+;=====================================================
+;
+;   PL2776HD.inf         Ver. 1.0      04/21/2011
+;
+;   Copyright (C) 2011 iiyama Inc. 
+;
+;   This is a Microsoft Windows setup information 
+;   file for the iiyama Color Monitor.
+; 
+;=====================================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+CatalogFile=PL2776HD.cat
+DriverVer=04/21/2011, 1.0
+
+[DestinationDirs]
+DefaultDestDir=11
+PL2776HD_Analog.copyfiles=23
+PL2776HD_Digital.copyfiles=23
+PL2776HD_HDMI.copyfiles=23
+
+[SourceDisksNames]
+1="iiyama Monitor installtion disk",,,
+
+[SourceDisksFiles]
+PL2776HD.ICM=1
+
+[Manufacturer]
+%iiyama%=iiyama,NTx86,NTAMD64
+
+[iiyama]
+%PL2776HD_Analog%=PL2776HD_Analog.Install, Monitor\IVM6605
+%PL2776HD_Digital%=PL2776HD_Digital.Install, Monitor\IVM6605
+%PL2776HD_HDMI%=PL2776HD_HDMI.Install, Monitor\IVM6605
+
+[iiyama.NTx86]
+%PL2776HD_Analog%=PL2776HD_Analog.Install, Monitor\IVM6605
+%PL2776HD_Digital%=PL2776HD_Digital.Install, Monitor\IVM6605
+%PL2776HD_HDMI%=PL2776HD_HDMI.Install, Monitor\IVM6605
+
+[iiyama.NTAMD64] 
+%PL2776HD_Analog%=PL2776HD_Analog.Install, Monitor\IVM6605
+%PL2776HD_Digital%=PL2776HD_Digital.Install, Monitor\IVM6605
+%PL2776HD_HDMI%=PL2776HD_HDMI.Install, Monitor\IVM6605
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IVM6605
+
+[PL2776HD_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2776HD_Analog.AddReg, 1920 ,DPMS
+Copyfiles=PL2776HD_Analog.CopyFiles
+
+[PL2776HD_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2776HD_Digital.AddReg, 1920 ,DPMS
+Copyfiles=PL2776HD_Digital.CopyFiles
+
+[PL2776HD_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2776HD_HDMI.AddReg, 1920 ,DPMS
+Copyfiles=PL2776HD_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL2776HD_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-81.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"PL2776HD.icm"
+
+[PL2776HD_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-81.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2776HD.icm"
+
+[PL2776HD_HDMI.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-81.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2776HD.icm"
+
+[PL2776HD_Analog.CopyFiles]
+PL2776HD.icm
+
+[PL2776HD_Digital.CopyFiles]
+PL2776HD.icm
+
+[PL2776HD_HDMI.CopyFiles]
+PL2776HD.icm
+
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama Inc."
+
+PL2776HD_Analog="iiyama PL2776HD"
+PL2776HD_Digital="iiyama PL2776HD (Digital)"
+PL2776HD_HDMI="iiyama PL2776HD (HDMI)"
+
+DISK="iiyama Inc. Monitor PL2776HD Installation Disk"

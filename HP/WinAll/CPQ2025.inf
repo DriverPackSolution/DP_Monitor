@@ -1,0 +1,98 @@
+; #################################################
+;
+;   CPQ2025.inf        Ver. 2.20      1/08/2003
+;
+;   Copyright (c)2003, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq 2025 Flat Panel Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=CPQ2025.cat
+DriverVer=01/08/2003,2.20
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ144A
+ExcludeFromSelect.nt = MONITOR\CPQ144B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+2025.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+2025.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%2025_a%=2025_a.Install, Monitor\CPQ144A
+%2025_d%=2025_d.Install, Monitor\CPQ144B
+
+[2025_a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2025_a.AddReg, 1600, DPMS
+CopyFiles=2025.CopyFiles
+
+[2025_d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2025_d.AddReg, 1600, DPMS
+CopyFiles=2025.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2025_a.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-94.0,56.0-85.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-94.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-94.0,56.0-85.0,+,+"
+HKR,"MODES\1152,864",Mode1,,"30.0-94.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-94.0,56.0-85.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-94.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"2025.icm"
+
+[2025_d.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-92.0,56.0-85.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-92.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-92.0,56.0-85.0,+,+"
+HKR,"MODES\1152,864",Mode1,,"30.0-92.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-92.0,56.0-85.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"30.0-92.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"2025.icm"
+
+[2025.CopyFiles]
+2025.icm
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+2025_a="COMPAQ 2025 Flat Panel Monitor"
+2025_d="COMPAQ 2025 Flat Panel Monitor"
+Disk1="COMPAQ 2025 INF Software"

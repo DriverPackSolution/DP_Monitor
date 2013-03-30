@@ -1,0 +1,108 @@
+
+;==================================================
+; sm193Pplus.inf 01/26/2005 ver. 1.0
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm193Pplus.cat
+DriverVer=01/26/2005,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0198
+ExcludeFromSelect.nt=Monitor\SAM0199
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm193Pplusa.CopyFiles = 23
+sm193Pplusd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm193Pplus.icm=1
+sm193Pplus.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm193Pplusa%=sm193Pplusa.Install, Monitor\SAM0198
+%sm193Pplusd%=sm193Pplusd.Install, Monitor\SAM0199
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm193Pplusa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm193Pplusa.AddReg, 1280, DPMS
+CopyFiles=sm193Pplusa.CopyFiles
+
+[sm193Pplusd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm193Pplusd.AddReg, 1280, DPMS
+CopyFiles=sm193Pplusd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm193Pplusa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm193Pplus.icm"
+
+[sm193Pplusd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm193Pplus.icm"
+;------------------------------------------------------
+
+[sm193Pplusa.CopyFiles]
+sm193Pplus.icm
+
+[sm193Pplusd.CopyFiles]
+sm193Pplus.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm193Pplusa="SyncMaster 193Pplus,SyncMaster Magic CX911P (Analog)"
+sm193Pplusd="SyncMaster 193Pplus,SyncMaster Magic CX911P (Digital)"

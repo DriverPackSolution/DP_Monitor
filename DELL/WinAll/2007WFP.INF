@@ -1,0 +1,108 @@
+;================================ 
+;2007WFP.INF 08/22/06 Ver. 2.0 PCC
+;Copyright 1996-2006 Dell Inc.
+;
+;This is a setupfile for 2007WFP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=2007WFP.cat
+DriverVer=08/22/2006, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA018
+ExcludeFromSelect.nt=Monitor\DELA019
+
+[DestinationDirs]
+DefaultDestDir=11
+2007WFP_Analog.CopyFiles=23
+2007WFP_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+2007WFP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%2007WFP_Analog%=2007WFP_Analog.Install, Monitor\DELA018
+%2007WFP_Digital%=2007WFP_Digital.Install, Monitor\DELA019
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%2007WFP_Analog%=2007WFP_Analog.Install, Monitor\DELA018
+%2007WFP_Digital%=2007WFP_Digital.Install, Monitor\DELA019
+
+
+; Install Sections
+;-------------------------------------------------
+
+[2007WFP_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2007WFP_Analog.AddReg, 1680, DPMS
+CopyFiles=2007WFP_Analog.CopyFiles
+
+[2007WFP_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=2007WFP_Digital.AddReg, 1680, DPMS
+CopyFiles=2007WFP_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[2007WFP_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2007WFP.icm"
+
+[2007WFP_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2007WFP.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[2007WFP_Analog.CopyFiles]
+2007WFP.icm
+
+[2007WFP_Digital.CopyFiles]
+2007WFP.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+2007WFP_Analog="Dell 2007WFP (Analog)"
+2007WFP_Digital="Dell 2007WFP (Digital)"

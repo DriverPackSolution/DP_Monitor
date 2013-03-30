@@ -1,0 +1,109 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2000 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=170B.cat
+DriverVer=07/31/2001,1.00.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL0801                
+ExcludeFromSelect.nt=Monitor\PHL170b 
+                 
+
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0801.CopyFiles=23
+170b.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+Ph_LCD17.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%0801%=0801.Install, Monitor\PHL0801
+%170b%=170b.Install, Monitor\PHL170b
+
+; Install sections
+;-------------------------------------------------
+[0801.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0801.AddReg,1280,DPMS
+CopyFiles=0801.CopyFiles
+
+; Install sections
+;-------------------------------------------------
+[170b.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=170b.AddReg,1280,DPMS
+CopyFiles=170b.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[0801.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"Ph_LCD17.icm"
+
+;-------------------------------------------------------------------
+[0801.CopyFiles]
+Ph_LCD17.icm
+
+;Model AddReg sections
+;-------------------------------------------------
+[170b.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,56.0-76.0,+,-"
+HKR,,ICMProfile,0,"Ph_LCD17.icm"
+
+;-------------------------------------------------------------------
+[170b.CopyFiles]
+Ph_LCD17.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+0801="Philips 170B (17inch LCD MONITOR)"
+170b="Philips 170B (17inch LCD MONITOR)"

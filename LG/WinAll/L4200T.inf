@@ -1,0 +1,86 @@
+;=============================================================== 
+; [L4200T.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L4200T.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM9C43
+ExcludeFromSelect.NT=Monitor\GSM9C44
+
+[DestinationDirs]
+DefaultDestDir = 11
+L4200T_Analog.CopyFiles = 23
+L4200T_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL4200T.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L4200T_Analog%=L4200T_Analog.Install,Monitor\GSM9C43
+%L4200T_Digital%=L4200T_Digital.Install,Monitor\GSM9C44
+
+[LG.NTamd64]
+%L4200T_Analog%=L4200T_Analog.Install,Monitor\GSM9C43
+%L4200T_Digital%=L4200T_Digital.Install,Monitor\GSM9C44
+
+[L4200T_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L4200T_Analog.AddReg,1600,DPMS
+CopyFiles=L4200T_Analog.CopyFiles
+
+[L4200T_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L4200T_Digital.AddReg,1360,DPMS
+CopyFiles=L4200T_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[1360]
+HKR,,MaxResolution,,"1360,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L4200T_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1360,768,60"
+HKR,,ICMprofile,0,"LGL4200T.ICM"
+
+[L4200T_Digital.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30.0-72.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1360,768,60"
+HKR,,ICMprofile,0,"LGL4200T.ICM"
+
+[L4200T_Analog.CopyFiles]
+LGL4200T.ICM
+
+[L4200T_Digital.CopyFiles]
+LGL4200T.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L4200T_Analog="LG L4200T(Analog)"
+L4200T_Digital="LG L4200T(Digital)"

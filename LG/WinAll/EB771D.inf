@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [EB771D.INF]
+;
+;      Revision 1.1   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=EB771D.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+EB771D.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+EB771D.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%EB771D%=EB771D, Monitor\GSM4323
+
+[LG.NTamd64]
+%EB771D%=EB771D, Monitor\GSM4323
+
+;------------------------------------; .Install
+
+[EB771D] 
+AddReg=EB771D.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=EB771D.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[EB771D.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"EB771D.ICM"
+
+;------------------------------------; .CopyFiles
+
+[EB771D.CopyFiles]  
+EB771D.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4323
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+EB771D="LG EB771D"

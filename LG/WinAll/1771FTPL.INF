@@ -1,0 +1,77 @@
+;=============================================================== 
+; 1771FTPL.INF 05/07/2002 Ver. 1.0 SND
+; Revision 1.0   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LGIBM%
+CatalogFile=1771FTPL.cat
+DriverVer=04/14/2005,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM434D
+
+[DestinationDirs]
+DefaultDestDir=11
+1771FTPL.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+1771FTPL.icm=1 
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTamd64
+
+[LGIBM]
+%1771FTPL%=1771FTPL, Monitor\GSM434D
+
+[LGIBM.NTamd64]
+%1771FTPL%=1771FTPL, Monitor\GSM434D
+
+;------------------------------------; .Install
+
+[1771FTPL] 
+AddReg=1771FTPL.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=1771FTPL.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[1771FTPL.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"1771FTPL.ICM"
+
+;------------------------------------; .CopyFiles
+
+[1771FTPL.CopyFiles]  
+1771FTPL.ICM
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1771FTPL="LGIBM 1771FT PLUS"

@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [77SFT_77SFN.INF]
+;
+;      Revision 1.0   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=77SFT_77SFN.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+77SFT_77SFN.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+77SFTN.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%77SFT_77SFN%=77SFT_77SFN, Monitor\GSM431A
+
+[LG.NTamd64]
+%77SFT_77SFN%=77SFT_77SFN, Monitor\GSM431A
+
+;------------------------------------; .Install
+
+[77SFT_77SFN] 
+AddReg=77SFT_77SFN.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=77SFT_77SFN.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[77SFT_77SFN.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"77SFTN.ICM"
+
+;------------------------------------; .CopyFiles
+
+[77SFT_77SFN.CopyFiles]  
+77SFTN.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM431A
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+77SFT_77SFN="LG 77SFT / 77SFN"

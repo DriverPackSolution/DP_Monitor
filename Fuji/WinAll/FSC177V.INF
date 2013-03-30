@@ -1,0 +1,82 @@
+; FSC177V.INF 
+;Monitor INF file for Fujitsu Siemens Monitor 177V
+;Copyright 2000 Fujitsu Siemens Computers
+
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%FUJSIE%
+CatalogFile=FSC177V.cat
+DriverVer=01/18/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FSC177V.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FSC177V.icm=1 
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FSC177V%=FSC177V, Monitor\FUS0402
+
+;------------------------------------; .Install
+
+[FSC177V] 
+AddReg=FSC177V.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FSC177V.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[FSC177V.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FSC177V.ICM"
+
+;------------------------------------; .CopyFiles
+
+[FSC177V.CopyFiles]  
+FSC177V.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\FUS0402
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Fujitsu Siemens Monitor 177V Installation Disk"
+FUJSIE="Fujitsu Siemens Computers"
+FSC177V="Fujitsu Siemens 177V"

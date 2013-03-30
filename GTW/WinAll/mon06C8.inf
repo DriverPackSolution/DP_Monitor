@@ -1,0 +1,105 @@
+; #######################################
+;      [mon06C8.INF] for FPD1830
+;      Revision 1.1   Feb  18, 2003
+;      Delta Electronics,Inc
+;      Copyright 2003
+; #######################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon06C8.cat
+DriverVer=02/18/2003,1.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\GWY06C4
+ExcludeFromSelect.nt=Monitor\GWY06C8
+ExcludeFromSelect.nt=Monitor\GWY06C9
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+mon06C4.CopyFiles=23
+mon06C8.CopyFiles=23
+mon06C9.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+mon06C4.icm=1
+mon06C8.icm=1
+mon06C9.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon06C4%=mon06C4.Install, Monitor\GWY06C4
+%mon06C8%=mon06C8.Install, Monitor\GWY06C8
+%mon06C9%=mon06C9.Install, Monitor\GWY06C9
+
+[mon06C4.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06C4.AddReg, 1280, DPMS
+CopyFiles=mon06C4.Copyfiles
+
+[mon06C8.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06C8.AddReg, 1280, DPMS
+CopyFiles=mon06C8.Copyfiles
+
+[mon06C9.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06C9.AddReg, 1280, DPMS
+CopyFiles=mon06C9.Copyfiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon06C4.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06C4.icm"
+
+[mon06C8.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06C8.icm"
+
+[mon06C9.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06C9.icm"
+
+[mon06C4.Copyfiles]
+mon06C4.icm
+
+[mon06C8.Copyfiles]
+mon06C8.icm
+
+[mon06C9.Copyfiles]
+mon06C9.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DISK="Gateway System Restoration CD"
+Gateway="Gateway"
+mon06C4="Gateway FPD1730"
+mon06C8="Gateway FPD1730"
+mon06C9="Gateway FPD1730"

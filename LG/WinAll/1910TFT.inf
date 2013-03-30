@@ -1,0 +1,81 @@
+;=============================================================== 
+; [1910TFT.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LGIBM%
+CatalogFile=1910TFT.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4A88
+ExcludeFromSelect.NT=Monitor\GSM4A89
+
+[DestinationDirs]
+DefaultDestDir = 11
+1910TFT_Analog.CopyFiles = 23
+1910TFT_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1910TFT.ICM=1
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTamd64
+
+[LGIBM]
+%1910TFT_Analog%=1910TFT_Analog.Install,Monitor\GSM4A88
+%1910TFT_Digital%=1910TFT_Digital.Install,Monitor\GSM4A89
+
+[LGIBM.NTamd64]
+%1910TFT_Analog%=1910TFT_Analog.Install,Monitor\GSM4A88
+%1910TFT_Digital%=1910TFT_Digital.Install,Monitor\GSM4A89
+
+[1910TFT_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1910TFT_Analog.AddReg,1280,DPMS
+CopyFiles=1910TFT_Analog.CopyFiles
+
+[1910TFT_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1910TFT_Digital.AddReg,1280,DPMS
+CopyFiles=1910TFT_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1910TFT_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1910TFT.ICM"
+
+[1910TFT_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"1910TFT.ICM"
+
+[1910TFT_Analog.CopyFiles]
+1910TFT.ICM
+
+[1910TFT_Digital.CopyFiles]
+1910TFT.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1910TFT_Analog="LGIBM FLATRON LCD 1910TFT(Analog)"
+1910TFT_Digital="LGIBM FLATRON LCD 1910TFT(Digital)"

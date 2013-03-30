@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VX2237.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/22/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2237.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2237_SERIES.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC2C24
+
+[ViewSonic]   
+%VX2237%=VX2237.Install,Monitor\VSC2C24  
+
+[ViewSonic.NTia64]   
+%VX2237%=VX2237.Install,Monitor\VSC2C24  
+
+[ViewSonic.NTamd64]   
+%VX2237%=VX2237.Install,Monitor\VSC2C24  
+
+[VX2237.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2237.AddReg,1680,DPMS
+Copyfiles=VX2237.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2237.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"24-82,50-75,-,+"
+HKR,,ICMProfile,0,"VX2237_SERIES.icm"
+
+[VX2237.CopyFiles]                                       
+VX2237_SERIES.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2237 ViewSonic Wizard"
+VX2237="ViewSonic VX2237"

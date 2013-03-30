@@ -1,0 +1,118 @@
+; p241w.inf
+; Setup information file for NEC MultiSync P241W Monitor
+;
+; Copyright (C) 2011, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=p241w.cat
+DriverVer=11/30/2009,1.09.1130.2014
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC685A
+ExcludeFromSelect.nt=Monitor\NEC685B
+ExcludeFromSelect.nt=Monitor\NEC685D
+
+[DestinationDirs]
+P241W.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+p241w.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%P241W-A%=P241W-A.Install, Monitor\NEC685A
+%P241W-D%=P241W-D.Install, Monitor\NEC685B
+%P241W-DP%=P241W-DP.Install, Monitor\NEC685D
+
+[NECDS.ntamd64]
+%P241W-A%=P241W-A.Install.ntamd64, Monitor\NEC685A
+%P241W-D%=P241W-D.Install.ntamd64, Monitor\NEC685B
+%P241W-DP%=P241W-DP.Install.ntamd64, Monitor\NEC685D
+
+; Install Sections
+;-------------------------------------------------
+[P241W-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P241W-A.AddReg, 1920, DPMS
+CopyFiles=P241W.CopyFiles
+
+[P241W-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P241W-D.AddReg, 1920, DPMS
+CopyFiles=P241W.CopyFiles
+
+[P241W-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P241W-DP.AddReg, 1920, DPMS
+CopyFiles=P241W.CopyFiles
+
+[P241W-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P241W-A.AddReg, 1920, DPMS
+CopyFiles=P241W.CopyFiles
+
+[P241W-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P241W-D.AddReg, 1920, DPMS
+CopyFiles=P241W.CopyFiles
+
+[P241W-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P241W-DP.AddReg, 1920, DPMS
+CopyFiles=P241W.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[P241W-A.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"p241w.icm"
+
+[P241W-D.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-92.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"p241w.icm"
+
+[P241W-DP.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-92.0,50.0-85.0,+,+"
+HKR,,ICMProfile,0,"p241w.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[P241W.CopyFiles]
+p241w.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+P241W-A="NEC MultiSync P241W(Analog)"
+P241W-D="NEC MultiSync P241W(Digital)"
+P241W-DP="NEC MultiSync P241W(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

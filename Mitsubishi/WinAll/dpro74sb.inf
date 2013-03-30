@@ -1,0 +1,83 @@
+; DPRO74SB.INF
+; Setup information file for Mitsubishi DiamondPro 740SB Monitor
+;
+; Copyright 2001, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=DPRO74SB.cat
+DriverVer=08/14/2001,1.08.0014.1800
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4521
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+Mits-DPro740SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+dpro74sb.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%Mits-DPro740SB%=Mits-DPro740SB.Install, Monitor\MEL4521
+
+; Install Sections
+;-------------------------------------------------
+[Mits-DPro740SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Mits-DPro740SB.AddReg, 1600, DPMS
+CopyFiles=Mits-DPro740SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[Mits-DPro740SB.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,0,"dpro74sb.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[Mits-DPro740SB.CopyFiles]
+DPRO74SB.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+Mits-DPro740SB="Mitsubishi Diamond Pro 740SB"

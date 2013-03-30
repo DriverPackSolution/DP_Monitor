@@ -1,0 +1,68 @@
+; Monitor INF file of Medion MD1772LD
+; Issue date -- 11/17/2000
+; Revise date --
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD1772LD.cat
+DriverVer=08/01/2000
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD1772LD.CopyFiles=23
+
+[SourceDisksNames]
+1="Medion Monitor Profiles Installation Disk",,,
+
+[SourceDisksFiles]
+MD1772LD.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%MD1772LD%=MD1772LD.Install, Monitor\MED2713
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED2713
+
+[MD1772LD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD1772LD.AddReg, 1280, DPMS
+CopyFiles=MD1772LD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD1772LD.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"MD1772LD.icm"
+
+[MD1772LD.CopyFiles]
+MD1772LD.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Medion="Medion"
+MD1772LD="MD1772LD"

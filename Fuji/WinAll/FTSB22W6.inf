@@ -1,0 +1,129 @@
+;FTSB22W6.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display B22W-6 LED
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=FTSB22W6.cat
+DriverVer=08/14/2012,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07F3
+ExcludeFromSelect.nt=Monitor\FUS07F4
+ExcludeFromSelect.nt=Monitor\FUS07F5
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB22W6.icm=1
+
+[DestinationDirs]
+DefaultDestDir=12
+FTSB22W6.CopyFiles=23
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTx86,NTAMD64
+
+ [FTS_Mfg] 
+%B22W-6a%=FTSB22W6a.Install, Monitor\FUS07F3
+%B22W-6d%=FTSB22W6d.Install, Monitor\FUS07F4
+%B22W-6dp%=FTSB22W6dp.Install, Monitor\FUS07F5
+
+ [FTS_Mfg.NTx86] 
+%B22W-6a%=FTSB22W6a.Install, Monitor\FUS07F3
+%B22W-6d%=FTSB22W6d.Install, Monitor\FUS07F4
+%B22W-6dp%=FTSB22W6dp.Install, Monitor\FUS07F5
+
+ [FTS_Mfg.NTAMD64] 
+%B22W-6a%=FTSB22W6a.Install, Monitor\FUS07F3
+%B22W-6d%=FTSB22W6d.Install, Monitor\FUS07F4
+%B22W-6dp%=FTSB22W6dp.Install, Monitor\FUS07F5
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSB22W6a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB22W6a.AddReg, 1680, DPMS
+CopyFiles=FTSB22W6.CopyFiles
+
+[FTSB22W6d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB22W6d.AddReg, 1680, DPMS
+CopyFiles=FTSB22W6.CopyFiles
+
+[FTSB22W6dp.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSB22W6dp.AddReg, 1680, DPMS
+CopyFiles=FTSB22W6.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSB22W6a.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSB22W6.icm"
+
+[FTSB22W6d.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSB22W6.icm"
+
+[FTSB22W6dp.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSB22W6.icm"
+
+;---------------------------------------------------------- 
+
+[FTSB22W6.CopyFiles]
+FTSB22W6.icm
+
+;---------------------------------------------------------- 
+
+[FTSB22W6a.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[FTSB22W6d.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[FTSB22W6dp.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Monitor Class Function Driver Service"
+
+DISK="Fujitsu Drivers, Manuals & Utilities Display"
+FTS_Mfg="Fujitsu Technology Solutions"	
+
+B22W-6a="Fujitsu B22W-6 LED (analog)"
+B22W-6d="Fujitsu B22W-6 LED (digital)"
+B22W-6dp="Fujitsu B22W-6 LED (DP)"

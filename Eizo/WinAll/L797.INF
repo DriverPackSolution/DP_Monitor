@@ -1,0 +1,90 @@
+; [L797.INF]
+; Revision 1.00
+; Copyright(c) 2004 EIZO NANAO CORPORATION
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=L797.cat
+DriverVer=03/04/2004,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1739
+;ExcludeFromSelect.nt = Monitor\ENC1740
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11	; \system32 directory on NT-based systems
+;
+L797D.CopyFiles = 23	; Color directory (ICM)
+L797A.CopyFiles = 23	; Color directory (ICM)
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L797D65.icm=1
+L797D50.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L797D%=L797D.Install, Monitor\ENC1739
+%L797A%=L797A.Install, Monitor\ENC1740
+
+[L797D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L797D.AddReg, 1280, DPMS
+CopyFiles=L797D.CopyFiles
+
+[L797A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L797A.AddReg, 1280, DPMS
+CopyFiles=L797A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L797D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L797D65.icm"
+
+[L797A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"L797D65.icm"
+
+[L797D.CopyFiles]
+L797D65.icm
+L797D50.icm
+
+[L797A.CopyFiles]
+L797D65.icm
+L797D50.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L797D="L797"
+L797A="L797"

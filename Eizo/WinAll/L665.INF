@@ -1,0 +1,87 @@
+; [L665.INF]
+; Revision 1.01
+; Copyright(c) 2002 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%	
+CatalogFile=L665.cat
+DriverVer=04/30/2002,1.01  ; MM/DD/YYYY,x.yz
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1664
+;ExcludeFromSelect.nt = Monitor\ENC1665
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L665D.CopyFiles = 23
+L665.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L665.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L665D%=L665D.Install, Monitor\ENC1664
+%L665%=L665.Install, Monitor\ENC1665
+
+[L665D.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=L665D.AddReg, 1280, DPMS	
+CopyFiles=L665D.CopyFiles
+
+[L665.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=L665.AddReg, 1280, DPMS
+CopyFiles=L665.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L665D.AddReg]	
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L665.ICM"
+
+[L665.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"23.0-81.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"L665.ICM"
+
+[L665D.CopyFiles]
+L665.ICM
+
+[L665.CopyFiles]
+L665.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L665D="L665"
+L665="L665"

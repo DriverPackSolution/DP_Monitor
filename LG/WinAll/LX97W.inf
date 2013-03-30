@@ -1,0 +1,83 @@
+;=============================================================== 
+; [LX97W.INF] 
+; Revision 1.4   January-31-2008
+; Copyright(c)1998~2008 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX97W.cat
+DriverVer=01/31/2008,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B75
+ExcludeFromSelect.NT=Monitor\GSM4B76
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX97W_Analog.CopyFiles = 23
+LX97W_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX97W.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX97W_Analog%=LX97W_Analog.Install,Monitor\GSM4B75
+%LX97W_Digital%=LX97W_Digital.Install,Monitor\GSM4B76
+
+[LG.NTamd64]
+%LX97W_Analog%=LX97W_Analog.Install,Monitor\GSM4B75
+%LX97W_Digital%=LX97W_Digital.Install,Monitor\GSM4B76
+
+[LX97W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX97W_Analog.AddReg,1440,DPMS
+CopyFiles=LX97W_Analog.CopyFiles
+
+[LX97W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX97W_Digital.AddReg,1440,DPMS
+CopyFiles=LX97W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX97W_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMprofile,0,"LX97W.ICM"
+
+[LX97W_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,60"
+HKR,,ICMprofile,0,"LX97W.ICM"
+
+[LX97W_Analog.CopyFiles]
+LX97W.ICM
+
+[LX97W_Digital.CopyFiles]
+LX97W.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX97W_Analog="LG LX97W(Analog)"
+LX97W_Digital="LG LX97W(Digital)"

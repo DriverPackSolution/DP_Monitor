@@ -1,0 +1,85 @@
+; #################################################
+;
+;   CPQ_W17q.inf             Ver. 1.00          2/12/2007
+;
+;   Copyright (c)2007, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the Compaq W17q Wide LCD Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=CPQ_W17q.cat
+DriverVer=02/12/2007,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\HWP26E1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+W17q.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQ_W17q.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%W17q%=W17q.Install, Monitor\HWP26E1
+
+[HP.NTamd64]
+%W17q%=W17q.Install, Monitor\HWP26E1
+
+[W17q.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=W17q.AddReg, 1440, DPMS
+CopyFiles=W17q.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[W17q.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-83,55-75,-,-"
+HKR,"MODES\800,600",Mode1,,"30-83,55-75,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-83,55-75,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-83,55-75,+,+"
+HKR,"MODES\1440,900",Mode1,,"30-83,55-75,+,-"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"CPQ_W17q.icm"
+HKR,,PreferredMode,,"1440,900,60"
+
+[W17q.CopyFiles]
+CPQ_W17q.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+W17q="Compaq W17q Wide LCD Monitor"
+Disk1="Compaq W17q Driver Software"

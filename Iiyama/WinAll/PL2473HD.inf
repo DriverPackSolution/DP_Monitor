@@ -1,0 +1,73 @@
+; [PL2473HD.INF]
+; Revision 1.00
+; Copyright(c) 2010 IIYAMA CORPORATION
+; V001
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL2473HD.cat
+DriverVer=12/24/2010,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\IVM6107
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+PL2473HD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+PL2473HD.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,ntamd64
+
+[IIYAMA]
+%PL2473HD%=PL2473HD.Install, Monitor\IVM6107
+
+[IIYAMA.ntamd64]
+%PL2473HD%=PL2473HD.Install, Monitor\IVM6107
+
+[PL2473HD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PL2473HD.AddReg, 1920, DPMS
+CopyFiles=PL2473HD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL2473HD.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PL2473HD.icm"
+
+[PL2473HD.CopyFiles]
+PL2473HD.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+PL2473HD="iiyama ProLite E2473HDS/B2473HDS"

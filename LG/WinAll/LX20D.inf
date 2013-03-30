@@ -1,0 +1,81 @@
+;=============================================================== 
+; LX20D.INF  
+; Revision 1.0   June-01-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX20D.cat
+DriverVer=06/01/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E4E
+ExcludeFromSelect.NT=Monitor\GSM4E4F
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX20D_Analog.CopyFiles = 23
+LX20D_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX20D.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX20D_Analog%=LX20D_Analog.Install,Monitor\GSM4E4E
+%LX20D_Digital%=LX20D_Digital.Install,Monitor\GSM4E4F
+
+[LG.NTamd64]
+%LX20D_Analog%=LX20D_Analog.Install,Monitor\GSM4E4E
+%LX20D_Digital%=LX20D_Digital.Install,Monitor\GSM4E4F
+
+[LX20D_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX20D_Analog.AddReg,1600,DPMS
+CopyFiles=LX20D_Analog.CopyFiles
+
+[LX20D_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX20D_Digital.AddReg,1600,DPMS
+CopyFiles=LX20D_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX20D_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"LX20D.ICM"
+
+[LX20D_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,ICMprofile,0,"LX20D.ICM"
+
+[LX20D_Analog.CopyFiles]
+LX20D.ICM
+
+[LX20D_Digital.CopyFiles]
+LX20D.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX20D_Analog="LG LX20D(Analog)"
+LX20D_Digital="LG LX20D(Digital)"

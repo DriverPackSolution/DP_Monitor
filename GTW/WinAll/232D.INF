@@ -1,0 +1,79 @@
+; Gateway VX930.inf, March-29-2002
+; manufactured by LG Electronics
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Gateway%
+CatalogFile=232D.cat
+DriverVer=03/29/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+232D.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+232D.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%232D%=232D.Install, Monitor\GWY232D
+
+;------------------------------------; .Install
+
+[232D.Install]
+AddReg=232D.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=232D.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[232D.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"232D.icm"
+
+;------------------------------------; .CopyFiles
+
+[232D.CopyFiles]
+232D.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY232D
+
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Gateway System Restoration Kit"
+Gateway="Gateway"
+232D="Gateway VX930"

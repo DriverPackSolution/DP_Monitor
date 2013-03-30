@@ -1,0 +1,78 @@
+;-------------------------------------------
+; Copyright 1999-2007 Dell Inc.
+; Issue date -- 10/18/2007
+; Revise date -- 10/18/2007
+; revision 1.0.0.0
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=C22W.cat
+DriverVer=10/18/2007,1.0.0.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+C22W_HDMI.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+C22W_HDMI.ICM=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%C22W_HDMI%=C22W_HDMI.Install, Monitor\DEL4040
+
+[DELL.NTx86]
+%C22W_HDMI%=C22W_HDMI.Install, Monitor\DEL4040
+
+[DELL.NTAMD64]
+%C22W_HDMI%=C22W_HDMI.Install, Monitor\DEL4040
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL4040
+
+[C22W_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C22W_HDMI.AddReg, 1680, DPMS
+CopyFiles=C22W_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[C22W_HDMI.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-76.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"C22W_HDMI.ICM"
+
+[C22W_HDMI.CopyFiles]
+C22W_HDMI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+diskname="Dell Monitor installtion disk"
+C22W_HDMI="Dell C22W(HDMI)"
+

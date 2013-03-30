@@ -1,0 +1,97 @@
+;Monitor INF file for Fujitsu Display SL27T-1 LED
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=SL27T-1 LED.cat
+DriverVer=03/10/2010,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07E4
+ExcludeFromSelect.nt=Monitor\FUS07E5
+ExcludeFromSelect.nt=Monitor\FUS07E6
+
+[DestinationDirs]
+DefaultDestDir=11
+SL27T-1 LED.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SL27T-1 LED.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%SL_27T-1La%=SL27T-1La.Install, Monitor\FUS07E4
+%SL_27T-1Lh%=SL27T-1Lh.Install, Monitor\FUS07E5
+%SL_27T-1Lh%=SL27T-1Lh.Install, Monitor\FUS07E6
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%SL_27T-1La%=SL27T-1La.Install, Monitor\FUS07E4
+%SL_27T-1Lh%=SL27T-1Lh.Install, Monitor\FUS07E5
+%SL_27T-1Lh%=SL27T-1Lh.Install, Monitor\FUS07E6
+
+; Install Sections
+;-------------------------------------------------
+
+[SL27T-1La.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=SL27T-1La.AddReg, 1920, DPMS
+CopyFiles=SL27T-1 LED.CopyFiles
+
+[SL27T-1Lh.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=SL27T-1Lh.AddReg, 1920, DPMS
+CopyFiles=SL27T-1 LED.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[SL27T-1La.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-82.0,59.0-76.0,-,+"
+HKR,,ICMProfile,0,"SL27T-1 LED.icm"
+
+[SL27T-1Lh.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"15.0-82.0,23.0-61.0,-,+"
+HKR,,ICMProfile,0,"SL27T-1 LED.icm"
+
+;---------------------------------------------------------- 
+
+[SL27T-1 LED.CopyFiles]
+SL27T-1 LED.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD Display SL27T-1 LED"
+FTS.Mfg="Fujitsu Technology Solutions"	
+SL_27T-1La="Fujitsu Display SL27T-1 LED"
+SL_27T-1Lh="Fujitsu Display SL27T-1 LED"

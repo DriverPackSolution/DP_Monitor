@@ -1,0 +1,73 @@
+; [PL2209HDS.INF]
+; Revision 1.00
+; Copyright(c) 2009 IIYAMA CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=2209HDS.cat
+DriverVer=02/13/2009,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\IVM560B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+2209HDS.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+2209HDS.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,ntamd64
+
+[IIYAMA]
+%2209HDS%=2209HDS.Install, Monitor\IVM560B
+
+[IIYAMA.ntamd64]
+%2209HDS%=2209HDS.Install, Monitor\IVM560B
+
+[2209HDS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2209HDS.AddReg, 1920, DPMS
+CopyFiles=2209HDS.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[2209HDS.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"2209HDS.icm"
+
+[2209HDS.CopyFiles]
+2209HDS.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+Disk1="IIYAMA LCD Monitor Installation Disk"
+
+2209HDS="iiyama ProLite E2209HDS"

@@ -1,0 +1,162 @@
+; [CG211.INF]
+; Revision 1.00
+; Copyright(c) 2006 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=CG211.cat
+DriverVer=06/14/2006,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1843   
+;ExcludeFromSelect.nt = Monitor\ENC1845
+;ExcludeFromSelect.nt = Monitor\ENC1844
+;ExcludeFromSelect.nt = Monitor\ENC1846
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+CG211.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CG211D50.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%CG211DL%=CG211DL.Install, Monitor\ENC1843   
+%CG211AL%=CG211AL.Install, Monitor\ENC1845
+%CG211DP%=CG211DP.Install, Monitor\ENC1844
+%CG211AP%=CG211AP.Install, Monitor\ENC1846
+
+[EIZONANAO.NTamd64]
+%CG211DL%=CG211DL.Installamd64, Monitor\ENC1843   
+%CG211AL%=CG211AL.Installamd64, Monitor\ENC1845
+%CG211DP%=CG211DP.Installamd64, Monitor\ENC1844
+%CG211AP%=CG211AP.Installamd64, Monitor\ENC1846
+
+[EIZONANAO.NTia64]
+%CG211DL%=CG211DL.Installia64, Monitor\ENC1843   
+%CG211AL%=CG211AL.Installia64, Monitor\ENC1845
+%CG211DP%=CG211DP.Installia64, Monitor\ENC1844
+%CG211AP%=CG211AP.Installia64, Monitor\ENC1846
+
+[CG211DL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211DL.AddReg, 1600, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211AL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211AL.AddReg, 1600, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211DP.AddReg, 1200, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211AP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211AP.AddReg, 1200, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211DL.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211DL.AddReg, 1600, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211AL.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211AL.AddReg, 1600, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211DP.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211DP.AddReg, 1200, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211AP.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211AP.AddReg, 1200, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211DL.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211DL.AddReg, 1600, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211AL.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211AL.AddReg, 1600, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211DP.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211DP.AddReg, 1200, DPMS
+CopyFiles=CG211.CopyFiles
+
+[CG211AP.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=CG211AP.AddReg, 1200, DPMS
+CopyFiles=CG211.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[1200]
+HKR,,MaxResolution,,"1200,1600"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CG211DL.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-100.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"CG211D50.icm"
+
+[CG211AL.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.0-100.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"CG211D50.icm"
+
+[CG211DP.AddReg]
+HKR,"MODES\1200,1600",Mode1,,"31.0-100.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"CG211D50.icm"
+
+[CG211AP.AddReg]
+HKR,"MODES\1200,1600",Mode1,,"24.0-100.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"CG211D50.icm"
+
+[CG211.CopyFiles]
+CG211D50.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+CG211DL="CG211 Digital Landscape"
+CG211AL="CG211 Analog Landscape"
+CG211DP="CG211 Digital Portrait"
+CG211AP="CG211 Analog Portrait"

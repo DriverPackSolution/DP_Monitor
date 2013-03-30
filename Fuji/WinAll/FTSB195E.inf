@@ -1,0 +1,72 @@
+;FTSB195E.INF Ver. 2.0
+;Monitor INF file for FUJITSU B19-5 ECO 
+;Copyright2009 Fujitsu Technology Solutions 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSB195E.cat
+DriverVer=01/29/2010, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07C0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSB195E.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB195E.ICM=1
+
+[Manufacturer]
+%FTS.MfG%=FTS.MfG,NTAMD64
+
+[FTS.MfG]
+%FTSB195E%=FTSB195E.Install, Monitor\FUS07C0
+
+[FTS.MfG.NTAMD64]
+%FTSB195E%=FTSB195E.Install, Monitor\FUS07C0
+
+[FTSB195E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSB195E.AddReg, 1280, DPMS
+CopyFiles=FTSB195E.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTSB195E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FTSB195E.ICM"
+
+[FTSB195E.CopyFiles]
+FTSB195E.ICM
+
+[Strings]
+DISK="Driver & Utility CD B17-5 ECO/B19-5 ECO"
+MonitorClassName="Monitor"
+FTS.MfG="Fujitsu Technology Solutions"
+FTSB195E="Fujitsu B19-5 ECO"

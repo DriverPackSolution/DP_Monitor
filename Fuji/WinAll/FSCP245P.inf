@@ -1,0 +1,110 @@
+;FSCP245P.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor P24W-5P
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP245P.cat
+DriverVer=06/03/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0773
+ExcludeFromSelect.nt=Monitor\FUS0774
+ExcludeFromSelect.nt=Monitor\FUS0775
+
+[DestinationDirs]
+DefaultDestDir=11
+FSCP245P.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP245P.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%P24W-5Pa%=FSCP245Pa.Install, Monitor\FUS0773
+%P24W-5Pd%=FSCP245Pd.Install, Monitor\FUS0774
+%P24W-5Ph%=FSCP245Ph.Install, Monitor\FUS0775
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%P24W-5Pa%=FSCP245Pa.Install, Monitor\FUS0773
+%P24W-5Pd%=FSCP245Pd.Install, Monitor\FUS0774
+%P24W-5Ph%=FSCP245Ph.Install, Monitor\FUS0775
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FSCP245Pa.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP245Pa.AddReg, 1920, DPMS
+CopyFiles=FSCP245P.CopyFiles
+
+[FSCP245Pd.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP245Pd.AddReg, 1920, DPMS
+CopyFiles=FSCP245P.CopyFiles
+
+[FSCP245Ph.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP245Ph.AddReg, 1920, DPMS
+CopyFiles=FSCP245P.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FSCP245Pa.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP245P.icm"
+
+[FSCP245Pd.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP245P.icm"
+
+[FSCP245Ph.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCP245P.icm"
+
+;---------------------------------------------------------- 
+
+[FSCP245P.CopyFiles]
+FSCP245P.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD SCENICVIEW P24W-5P"
+FUJSIE="Fujitsu Siemens Computers"	
+P24W-5Pa="SCENICVIEW P24W-5P"
+P24W-5Pd="SCENICVIEW P24W-5P"
+P24W-5Ph="SCENICVIEW P24W-5P"

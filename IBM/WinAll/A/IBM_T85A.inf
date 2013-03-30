@@ -1,0 +1,75 @@
+; Copyright (c) 1998 IBM Corporation Revision 1.2
+; 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+IBM_9519.copyfiles = 23
+
+
+[SourceDisksNames]
+1="IBM Flat Panel Monitor installation disk",,1
+
+[SourceDisksFiles]
+IBM_9519.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_9519%=IBM_9519.Install, Monitor\IBM252F
+
+[IBM_9519.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_9519.AddReg, 1280, DPMS
+CopyFiles=IBM_9519.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1152]
+HKR,,MaxResolution,,"1152,864"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_9519.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.5-43.0,59.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"35.0-51.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"47.8-61.0,59.0-76.0,+,+"
+HKR,"MODES\1152,864",Mode1,,"68.0-70.0,74.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"61.5-82.0,59.0-76.0,+,+"
+HKR,,ICMProfile,0,"IBM_9519.icm"
+
+[IBM_9519.CopyFiles]
+ibm_9519.icm
+
+[Strings]
+MonitorClassName="Monitor"
+IBM_9519="IBM 9519 T85A"
+IBM="IBM"
+

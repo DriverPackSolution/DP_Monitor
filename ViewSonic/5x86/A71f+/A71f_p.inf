@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=A71f+.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=05/17/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+A71f+.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+A71f_p.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%A71f+%=A71f+.Install,Monitor\VSC7619                 ;A71f+
+
+[A71f+.Install]                                       ;A71f+
+DelReg=DEL_CURRENT_REG 
+AddReg=A71f+.AddReg,1280,DPMS
+Copyfiles=A71f+.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[A71f+.AddReg]                                         ;A71f+
+HKR,"MODES\1280,1024",Mode1,,"30-72,50-160,+,+"
+HKR,,ICMProfile,0,"A71f_p.ICM"
+
+[A71f+.CopyFiles]                                       
+A71f_p.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+A71f+="ViewSonic A71f+"

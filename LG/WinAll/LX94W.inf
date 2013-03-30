@@ -1,0 +1,83 @@
+;===============================================================
+; [LX94W.inf]
+; Revision 1.3   December-19-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX94W.cat
+DriverVer=12/19/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B29
+ExcludeFromSelect.NT=Monitor\GSM4B2A
+
+[DestinationDirs]
+DefaultDestDir = 11
+LX94W_Analog.CopyFiles = 23
+LX94W_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX94W.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX94W_Analog%=LX94W_Analog.Install,Monitor\GSM4B29
+%LX94W_Digital%=LX94W_Digital.Install,Monitor\GSM4B2A
+
+[LG.NTamd64]
+%LX94W_Analog%=LX94W_Analog.Install,Monitor\GSM4B29
+%LX94W_Digital%=LX94W_Digital.Install,Monitor\GSM4B2A
+
+[LX94W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX94W_Analog.AddReg,1440,DPMS
+CopyFiles=LX94W_Analog.CopyFiles
+
+[LX94W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX94W_Digital.AddReg,1440,DPMS
+CopyFiles=LX94W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX94W_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,59"
+HKR,,ICMprofile,0,"LX94W.ICM"
+
+[LX94W_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,59"
+HKR,,ICMprofile,0,"LX94W.ICM"
+
+[LX94W_Analog.CopyFiles]
+LX94W.ICM
+
+[LX94W_Digital.CopyFiles]
+LX94W.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX94W_Analog="LG LX94W(Analog)"
+LX94W_Digital="LG LX94W(Digital)"

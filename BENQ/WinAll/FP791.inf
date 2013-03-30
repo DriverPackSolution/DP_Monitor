@@ -1,0 +1,76 @@
+;================================ 
+;FP791.INF 9/17/02 Ver. 1.1 
+;; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2001, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=FP791.cat
+DriverVer=12/18/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP791.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP791.icm=1
+
+[Manufacturer]
+%BenQ%=BenQ
+
+[BenQ]
+%FP791%=FP791.Install, Monitor\BNQ763F
+%FP791%=FP791.Install, Monitor\BNQ7640
+
+[FP791.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP791.AddReg, 1280, DPMS
+CopyFiles=FP791.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP791.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-81.0,60.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5-81.0,60.0-75.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.5-81.0,60.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-81.0,60.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31.5-83.0,60.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP791.icm"
+
+[FP791.CopyFiles]
+FP791.ICM
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ763F
+ExcludeFromSelect.NT=Monitor\BNQ7640
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BenQ flat panel Monitor installation diskette"
+FP791="BenQ FP791"
+BenQ="BenQ"

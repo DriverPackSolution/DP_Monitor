@@ -1,0 +1,120 @@
+
+;==================================================
+; SMUD55A.inf 04/20/2011 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SMUD55A.cat
+DriverVer=04/20/2011 ,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM085A
+ExcludeFromSelect.nt=Monitor\SAM085B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SMUD55Aa.CopyFiles = 23
+SMUD55Ad.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SMUD55A.icm=1
+SMUD55A.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SMUD55Aa%=SMUD55Aa.Install, Monitor\SAM085A
+%SMUD55Ad%=SMUD55Ad.Install, Monitor\SAM085B
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SMUD55Aa%=SMUD55Aa.Install, Monitor\SAM085A
+%SMUD55Ad%=SMUD55Ad.Install, Monitor\SAM085B
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SMUD55Aa%=SMUD55Aa.Install, Monitor\SAM085A
+%SMUD55Ad%=SMUD55Ad.Install, Monitor\SAM085B
+
+; Install Sections
+;-----------------------------------------------------
+
+[SMUD55Aa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMUD55Aa.AddReg, 1920, DPMS
+CopyFiles=SMUD55Aa.CopyFiles
+
+[SMUD55Ad.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SMUD55Ad.AddReg, 1920, DPMS
+CopyFiles=SMUD55Ad.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SMUD55Aa.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SMUD55A.icm"
+
+[SMUD55Ad.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SMUD55A.icm"
+;------------------------------------------------------
+
+[SMUD55Aa.CopyFiles]
+SMUD55A.icm
+
+[SMUD55Ad.CopyFiles]
+SMUD55A.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SMUD55Aa="SyncMaster UD55A (Analog)"
+SMUD55Ad="SyncMaster UD55A (Digital)"

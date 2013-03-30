@@ -1,0 +1,74 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VG1921wm.cat
+DriverVer=11/07/2007, 1.5.1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG1921wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG1921wm_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC5E1E
+
+[ViewSonic]   
+%VG1921wm%=VG1921wm.Install,Monitor\VSC5E1E  
+
+[ViewSonic.NTx86]   
+%VG1921wm%=VG1921wm.Install,Monitor\VSC5E1E
+
+[ViewSonic.NTAMD64]   
+%VG1921wm%=VG1921wm.Install,Monitor\VSC5E1E 
+
+[VG1921wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG1921wm.AddReg,1440,DPMS
+Copyfiles=VG1921wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG1921wm.AddReg]  
+HKR,"MODES\1440,900",Mode1,,"30-82,56-75,-,+" 
+HKR,,ICMProfile,0,"VG1921wm_SERIES.ICM"
+
+[VG1921wm.CopyFiles]                                       
+VG1921wm_SERIES.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+ViewSonic="ViewSonic"
+DiskLabel="VG1921wm SERIES ViewSonic Wizard"
+VG1921wm="ViewSonic VG1921wm SERIES"

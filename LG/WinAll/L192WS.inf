@@ -1,0 +1,65 @@
+;===============================================================
+; [L192WS.inf]
+; Revision 1.3   November-22-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L192WS.cat
+DriverVer=11/22/2006,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4B32
+
+[DestinationDirs]
+DefaultDestDir = 11
+L192WS.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L192WS.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L192WS%=L192WS.Install,Monitor\GSM4B32
+
+[LG.NTamd64]
+%L192WS%=L192WS.Install,Monitor\GSM4B32
+
+[L192WS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L192WS.AddReg,1440,DPMS
+CopyFiles=L192WS.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L192WS.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1440,900,59"
+HKR,,ICMprofile,0,"L192WS.ICM"
+
+[L192WS.CopyFiles]
+L192WS.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L192WS="LG L192WS"

@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2005, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA902b.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/02/2005,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA902b.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA902b.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+
+[ViewSonic]   
+%VA902b%=VA902b.Install,Monitor\VSC211C                  ;VA902b
+
+[VA902b.Install]                                         ;VA902b
+DelReg=DEL_CURRENT_REG 
+AddReg=VA902b.AddReg,1280,DPMS
+Copyfiles=VA902b.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA902b.AddReg]                                          ;VA902b
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-85,+,+"
+HKR,,ICMProfile,0,"VA902b.ICM"
+
+[VA902b.CopyFiles]                                       
+VA902b.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VA902b="ViewSonic VA902b"

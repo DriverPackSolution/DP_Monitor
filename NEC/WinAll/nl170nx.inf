@@ -1,0 +1,95 @@
+; NL170NX.INF
+; Setup information file for NEC MultiSync LCD1700NX Monitor
+;
+; Copyright 2001, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NL170NX.cat
+DriverVer=03/04/2002,2.03.0004.1355
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC65E0
+ExcludeFromSelect.nt=Monitor\NEC65DF
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-LCD1700NX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+nl170nx1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-LCD1700NX-A%=NEC-LCD1700NX-A.Install, Monitor\NEC65E0
+%NEC-LCD1700NX-D%=NEC-LCD1700NX-D.Install, Monitor\NEC65DF
+
+; Install Sections
+;-------------------------------------------------
+[NEC-LCD1700NX-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1700NX-A.AddReg, 1280, DPMS
+CopyFiles=NEC-LCD1700NX.CopyFiles
+
+[NEC-LCD1700NX-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-LCD1700NX-D.AddReg, 1280, DPMS
+CopyFiles=NEC-LCD1700NX.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-LCD1700NX-A.AddReg]
+HKR,"MODES\1280,1024,768",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl170nx1.icm"
+
+[NEC-LCD1700NX-D.AddReg]
+HKR,"MODES\1280,1024,768",Mode1,,"31.0-68.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl170nx1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-LCD1700NX.CopyFiles]
+NL170NX1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-LCD1700NX-A="NEC MultiSync LCD1700NX (Analog)"
+NEC-LCD1700NX-D="NEC MultiSync LCD1700NX (Digital)"

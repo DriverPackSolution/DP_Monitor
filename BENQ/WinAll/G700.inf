@@ -1,0 +1,122 @@
+;================================ 
+;BenQ_G700.INF 10/16/06 Ver. 1.0 
+;; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2006, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G700.cat
+DriverVer=04/19/2007,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7801
+ExcludeFromSelect.NT=Monitor\BNQ7802
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G700_Analog.copyfiles = 23
+G700_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G700DSUB.icm=1
+G700DVI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G700_Analog%=G700_Analog.Install, Monitor\BNQ7801
+%G700_Digital%=G700_Digital.Install, Monitor\BNQ7802
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G700_Analog%=G700_Analog.Install, Monitor\BNQ7801
+%G700_Digital%=G700_Digital.Install, Monitor\BNQ7802
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G700_Analog%=G700_Analog.Install, Monitor\BNQ7801
+%G700_Digital%=G700_Digital.Install, Monitor\BNQ7802
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G700_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G700_Analog.AddReg, 1280, DPMS
+CopyFiles=G700_Analog.CopyFiles
+
+[G700_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G700_Digital.AddReg, 1280, DPMS
+CopyFiles=G700_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[G700_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"G700DSUB.icm"
+
+[G700_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"G700DVI.icm"
+
+
+
+[G700_Analog.CopyFiles]
+G700DSUB.ICM
+
+[G700_Digital.CopyFiles]
+G700DVI.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G700_Analog="BenQ G700 (Analog)"
+G700_Digital="BenQ G700 (Digital)"
+

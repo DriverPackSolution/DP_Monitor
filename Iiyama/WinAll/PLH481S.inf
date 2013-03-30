@@ -1,0 +1,72 @@
+;PLE480S_481S.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH ProLite E480S/E481S/H481S
+;Copyright 2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE481S.cat      
+DriverVer=4/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM4826
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE481S.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE481S.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE481S%=PLE481S.Install, Monitor\IVM4826
+
+[PLE481S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE481S.AddReg, 1280, DPMS
+CopyFiles=PLE481S.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE481S.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,55.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE481S_3.ICM"
+
+[PLE481S.CopyFiles]
+PLE481S_3.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE481S="iiyama ProLite E480S/E481S/H481S"

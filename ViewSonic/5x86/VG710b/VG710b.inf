@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG710b.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=12/02/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS23719-5W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG710b.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS23719-5W%=VLCDS23719-5W.Install,Monitor\VSCA318           ;VG710b
+
+[VLCDS23719-5W.Install]                                         ;VG710b
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23719-5W.AddReg,1280,DPMS
+Copyfiles=VLCDS23719-5W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS23719-5W.AddReg]                                          ;VG710b
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-85,+,+"
+HKR,,ICMProfile,0,"VG710b.ICM"
+
+[VLCDS23719-5W.CopyFiles]                                       
+VG710b.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS23719-5W="ViewSonic VG710b"

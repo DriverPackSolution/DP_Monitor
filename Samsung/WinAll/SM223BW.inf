@@ -1,0 +1,120 @@
+
+;==================================================
+; SM223BW.inf 03/28/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM223BW.cat
+DriverVer=03/28/2007,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM030C
+ExcludeFromSelect.nt=Monitor\SAM030D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM223BWa.CopyFiles = 23
+SM223BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM223BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM223BWa%=SM223BWa.Install, Monitor\SAM030C
+%SM223BWd%=SM223BWd.Install, Monitor\SAM030D
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM223BWa%=SM223BWa.Install, Monitor\SAM030C
+%SM223BWd%=SM223BWd.Install, Monitor\SAM030D
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM223BWa%=SM223BWa.Install, Monitor\SAM030C
+%SM223BWd%=SM223BWd.Install, Monitor\SAM030D
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM223BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM223BWa.AddReg, 1680, DPMS
+CopyFiles=SM223BWa.CopyFiles
+
+[SM223BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM223BWd.AddReg, 1680, DPMS
+CopyFiles=SM223BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM223BWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM223BW.icm"
+
+[SM223BWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM223BW.icm"
+;------------------------------------------------------
+
+[SM223BWa.CopyFiles]
+SM223BW.icm
+
+[SM223BWd.CopyFiles]
+SM223BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM223BWa="SyncMaster 223BW/223BWG/216BW(Analog)"
+SM223BWd="SyncMaster 223BW/223BWG/216BW(Digital)"

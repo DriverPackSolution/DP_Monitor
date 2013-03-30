@@ -1,0 +1,83 @@
+; NAL51V.INF
+; Setup information file for NEC LCD51V Monitor
+;
+; Copyright 2003, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NAL51V.cat
+DriverVer=04/23/2003,3.04.0023.1017
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC661B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-ASLCD51V.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+NAL51V.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-ASLCD51V%=NEC-ASLCD51V.Install, Monitor\NEC661B
+
+; Install Sections
+;-------------------------------------------------
+[NEC-ASLCD51V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-ASLCD51V.AddReg, 1024, DPMS
+CopyFiles=NEC-ASLCD51V.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-ASLCD51V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"NAL51V.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-ASLCD51V.CopyFiles]
+NAL51V.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-ASLCD51V="NEC LCD51V"

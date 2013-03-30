@@ -1,0 +1,68 @@
+; NL19WV.inf
+; Setup information file for NEC LCD19WV Monitor
+;
+; Copyright 2007, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NL19WV.cat
+DriverVer=08/01/2007,1.07.0801.2311
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC671C
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD19WV.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NL19WV.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD19WV%=LCD19WV.Install, Monitor\NEC671C
+
+[NECDS.ntamd64]
+%LCD19WV%=LCD19WV.Install.ntamd64, Monitor\NEC671C
+
+[LCD19WV.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD19WV.AddReg, 1440, DPMS
+CopyFiles=LCD19WV.CopyFiles
+
+[LCD19WV.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD19WV.AddReg, 1440, DPMS
+CopyFiles=LCD19WV.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,1440,900
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD19WV.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"NL19WV.icm"
+
+[LCD19WV.CopyFiles]
+NL19WV.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD19WV="NEC LCD19WV"

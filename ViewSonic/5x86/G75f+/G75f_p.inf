@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=G75f+.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/29/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+G75f+.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+G75f_p.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%G75f+%=G75f+.Install,Monitor\VSCB719                   ;G75f+
+
+[G75f+.Install]                                         ;G75f+
+DelReg=DEL_CURRENT_REG 
+AddReg=G75f+.AddReg,1600,DPMS
+Copyfiles=G75f+.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[G75f+.AddReg]                                          ;G75f+
+HKR,"MODES\1600,1200",Mode1,,"30-86,50-160,+,+"
+HKR,,ICMProfile,0,"G75f_p.ICM"
+
+[G75f+.CopyFiles]                                       
+G75f_p.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+G75f+="ViewSonic G75f+"

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX1933w.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/11/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX1933w.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX1933w.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC1722
+
+[ViewSonic]   
+%VX1933w%=VX1933w.Install,Monitor\VSC1722  
+
+[ViewSonic.NTia64]   
+%VX1933w%=VX1933w.Install,Monitor\VSC1722  
+
+[ViewSonic.NTamd64]   
+%VX1933w%=VX1933w.Install,Monitor\VSC1722  
+
+[VX1933w.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX1933w.AddReg,1366,DPMS
+Copyfiles=VX1933w.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX1933w.AddReg]  
+HKR,"MODES\1366,768",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VX1933w.ICM"
+
+[VX1933w.CopyFiles]                                       
+VX1933w.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX1933w ViewSonic Monitor Installation Disk"
+VX1933w="ViewSonic VX1933w"

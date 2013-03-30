@@ -1,0 +1,73 @@
+;FTSA175E.INF Ver. 1.1
+;Monitor INF file for Fujitsu A17-5 ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSA175E.cat
+DriverVer=09/21/2009, 1.1.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07D5
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSA175E.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSA175E.ICM=1
+
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+[FTS.Mfg]
+%FTSA175E%=FTSA175E.Install, Monitor\FUS07D5
+
+[FTS.Mfg.NTAMD64]
+%FTSA175E%=FTSA175E.Install, Monitor\FUS07D5
+
+[FTSA175E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTSA175E.AddReg, 1280, DPMS
+CopyFiles=FTSA175E.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTSA175E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FTSA175E.ICM"
+
+[FTSA175E.CopyFiles]
+FTSA175E.ICM
+
+[Strings]
+DISK="Driver & Utility CD A17-5 ECO"
+MonitorClassName="Monitor"
+FTS.Mfg="Fujitsu Technology Solutions"
+FTSA175E="FUJITSU A17-5 ECO"

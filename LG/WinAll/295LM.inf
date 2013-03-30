@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [295LM.INF]
+;
+;      Revision 1.0   OCTOBER-25-2001
+;      LGE
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=10/25/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+295LM.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG295LM.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%295LM%=295LM, Monitor\GSM55F2
+
+;------------------------------------; .Install
+
+[295LM] 
+AddReg=295LM.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=295LM.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[295LM.AddReg] 
+HKR,"MODES\1600,1200",Mode1,,"30.0-94.0,56.0-85.0,+,+"
+HKR,,ICMProfile,0,"LG295LM.ICM"
+
+;------------------------------------; .CopyFiles
+
+[295LM.CopyFiles]  
+LG295LM.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM55F2
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+295LM="FLATRON LCD 295LM"

@@ -1,0 +1,64 @@
+;=============================================================== 
+; [F702PU.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=F702PU.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4387
+
+[DestinationDirs]
+DefaultDestDir = 11
+F702PU.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGF702PU.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%F702PU%=F702PU.Install,Monitor\GSM4387
+
+[LG.NTamd64]
+%F702PU%=F702PU.Install,Monitor\GSM4387
+
+[F702PU.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F702PU.AddReg,1600,DPMS
+CopyFiles=F702PU.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F702PU.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LGF702PU.ICM"
+
+[F702PU.CopyFiles]
+LGF702PU.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+F702PU="LG FLATRON F702PU"

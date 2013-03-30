@@ -1,0 +1,69 @@
+;PLE481S.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor PLE481S 
+;Copyright 2003 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE481.cat      
+DriverVer=08/20/2003,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM480A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE481.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE481.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE481%=PLE481.Install, Monitor\IVM480A
+
+[PLE481.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE481.AddReg, 1280, DPMS
+CopyFiles=PLE481.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE481.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24-83,55-76,+,+"
+HKR,,ICMProfile,0,"PLE481.ICM"
+
+[PLE481.CopyFiles]
+PLE481.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE481="IIYAMA ProLite E481S"

@@ -1,0 +1,100 @@
+;============================================== 
+;E2200W.INF 06/26/07 Ver. 1.0 
+;; INF File for Windows
+; Copyright (c) 2007, BENQ Corporation. reserves all rights. 
+;==============================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=E2200W.cat
+DriverVer=06/26/2007,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7909
+ExcludeFromSelect.NT=Monitor\BNQ790A
+
+[DestinationDirs]
+DefaultDestDir = 11
+E2200W_Analog.copyfiles = 23
+E2200W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+E2200W_DSUB.icm=1
+E2200W_DVI.icm=1
+
+; Manufacturers
+;---------------------------------------------------------------------------------------
+[Manufacturer]
+%BenQ%=BenQ,NTAMD64
+;---------------------------------------------------------------------------------------
+
+; Manufacturer sections
+;---------------------------------------------------------------------------------------
+[BenQ] 
+%E2200W_Analog%=E2200W_Analog.Install, Monitor\BNQ7909
+%E2200W_Digital%=E2200W_Digital.Install, Monitor\BNQ790A
+
+ [BenQ.NTAMD64] 
+%E2200W_Analog%=E2200W_Analog.Install, Monitor\BNQ7909
+%E2200W_Digital%=E2200W_Digital.Install, Monitor\BNQ790A
+;---------------------------------------------------------------------------------------
+
+; Install Sections
+;---------------------------------------------------------------------------------------
+[E2200W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2200W_Analog.AddReg, 1680, DPMS
+CopyFiles=E2200W_Analog.CopyFiles
+
+[E2200W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2200W_Digital.AddReg, 1680, DPMS
+CopyFiles=E2200W_Digital.CopyFiles
+;---------------------------------------------------------------------------------------
+
+;  DelReg sections
+;---------------------------------------------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+;---------------------------------------------------------------------------------------
+
+; AddReg sections
+;---------------------------------------------------------------------------------------
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[E2200W_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,55.0-76.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"E2200W_DSUB.icm"
+
+[E2200W_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,55.0-76.0,-,+"
+HKR,,PreferredMode,,"1680,1050,60"
+HKR,,ICMProfile,0,"E2200W_DVI.icm"
+;---------------------------------------------------------------------------------------
+
+[E2200W_Analog.CopyFiles]
+E2200W_DSUB.ICM
+
+[E2200W_Digital.CopyFiles]
+E2200W_DVI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+E2200W_Analog="BenQ E2200W (Analog)"
+E2200W_Digital="BenQ E2200W (Digital)"

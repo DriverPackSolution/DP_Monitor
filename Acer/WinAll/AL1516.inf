@@ -1,0 +1,72 @@
+
+; AL1516.INF
+;
+; This is Setup information file for monitors 
+;
+; Copyright (c) 2006, Acer
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%	
+CatalogFile=AL1516.cat
+DriverVer=12/15/2006,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ACR05EC
+
+[ClassInstall32]
+;AddReg=ClassAddReg32
+
+[ClassAddReg32]
+;HKR,,,,%MonitorClassName%
+;HKR,,Icon,,"-1"
+;HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+AL1516.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+AL1516.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AL1516%=AL1516.Install, Monitor\ACR05EC
+
+[AL1516.Install]	
+DelReg=DEL_CURRENT_REG
+AddReg=AL1516.AddReg, 1024, DPMS
+CopyFiles=AL1516.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL1516.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"AL1516.icm"
+
+[AL1516.CopyFiles]
+AL1516.icm
+
+[Strings]
+;MonitorClassName="Monitor"
+Acer="Acer"
+Disk1="Acer LCD Utility Disk"
+AL1516="Acer AL1516"

@@ -1,0 +1,89 @@
+;FTSB19W-5 ECO.INF Ver. 1.1
+;Monitor INF file for Fujitsu DISPLAY B19W-5 ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS%
+CatalogFile=FTSB19W-5 ECO.cat
+DriverVer=06/04/2009, 1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07D1
+ExcludeFromSelect.nt=Monitor\FUS07CE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTS-B19W-5 ECO_Analog.CopyFiles=23
+FTS-B19W-5 ECO_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSB19W-5 ECO.ICM=1
+
+[Manufacturer]
+%FTS%=FTS,NTAMD64
+
+[FTS]
+%FTS-B19W-5 ECO_Analog%=FTS-B19W-5 ECO_Analog.Install, Monitor\FUS07D1
+%FTS-B19W-5 ECO_Digital%=FTS-B19W-5 ECO_Digital.Install, Monitor\FUS07CE
+
+[FTS.NTAMD64]
+%FTS-B19W-5 ECO_Analog%=FTS-B19W-5 ECO_Analog.Install, Monitor\FUS07D1
+%FTS-B19W-5 ECO_Digital%=FTS-B19W-5 ECO_Digital.Install, Monitor\FUS07CE
+
+[FTS-B19W-5 ECO_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTS-B19W-5 ECO_Analog.AddReg, 1440, DPMS
+CopyFiles=FTS-B19W-5 ECO_Analog.CopyFiles
+
+[FTS-B19W-5 ECO_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTS-B19W-5 ECO_Digital.AddReg, 1440, DPMS
+CopyFiles=FTS-B19W-5 ECO_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTS-B19W-5 ECO_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-82.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSB19W-5 ECO.ICM"
+
+[FTS-B19W-5 ECO_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-82.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FTSB19W-5 ECO.ICM"
+
+[FTS-B19W-5 ECO_Analog.CopyFiles]
+FTSB19W-5 ECO.ICM
+
+[FTS-B19W-5 ECO_Digital.CopyFiles]
+FTSB19W-5 ECO.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Technology Solutions B19W-5 ECO"
+MonitorClassName="Monitor"
+FTS="Fujitsu Technology Solutions"
+FTS-B19W-5 ECO_Analog="Fujitsu Technology Solutions B19W-5 ECO(Analog)"
+FTS-B19W-5 ECO_Digital="Fujitsu Technology Solutions B19W-5 ECO(Digital)"

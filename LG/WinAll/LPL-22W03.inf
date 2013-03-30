@@ -1,0 +1,84 @@
+;=============================================================== 
+; [LPL-22W03.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LPL-22W03.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM55FB
+ExcludeFromSelect.NT=Monitor\GSM55FC
+
+[DestinationDirs]
+DefaultDestDir = 11
+LPL-22W03_Analog.CopyFiles = 23
+LPL-22W03_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGLPL-22.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LPL-22W03_Analog%=LPL-22W03_Analog.Install,Monitor\GSM55FB
+%LPL-22W03_Digital%=LPL-22W03_Digital.Install,Monitor\GSM55FC
+
+[LG.NTamd64]
+%LPL-22W03_Analog%=LPL-22W03_Analog.Install,Monitor\GSM55FB
+%LPL-22W03_Digital%=LPL-22W03_Digital.Install,Monitor\GSM55FC
+
+[LPL-22W03_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LPL-22W03_Analog.AddReg,1600,DPMS
+CopyFiles=LPL-22W03_Analog.CopyFiles
+
+[LPL-22W03_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LPL-22W03_Digital.AddReg,1280,DPMS
+CopyFiles=LPL-22W03_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1024"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LPL-22W03_Analog.AddReg]
+HKR,"MODES\1600,1024",Mode1,,"30.0-80.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"LGLPL-22.ICM"
+
+[LPL-22W03_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,60.0-60.0,+,+"
+HKR,,ICMprofile,0,"LGLPL-22.ICM"
+
+[LPL-22W03_Analog.CopyFiles]
+LGLPL-22.ICM
+
+[LPL-22W03_Digital.CopyFiles]
+LGLPL-22.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LPL-22W03_Analog="LG FLATRON LPL-22W03(Analog)"
+LPL-22W03_Digital="LG FLATRON LPL-22W03(Digital)"

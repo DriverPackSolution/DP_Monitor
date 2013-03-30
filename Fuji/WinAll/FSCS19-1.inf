@@ -1,0 +1,81 @@
+; S19-1.INF Ver. 1.1
+;Monitor INF file for Fujitsu Siemens Monitor SCALEOVIEW S19-1
+;Copyright 2003 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCS19-1.cat
+DriverVer=06/16/2003, 1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0474
+ExcludeFromSelect.nt=Monitor\FUS0475
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-S19-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCS19-1.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FUS-S19-1%=FUS-S19-1a.Install, Monitor\FUS0474
+%FUS-S19-1%=FUS-S19-1d.Install, Monitor\FUS0475
+
+[FUS-S19-1a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-S19-1a.AddReg, 1280, DPMS
+CopyFiles=FUS-S19-1.CopyFiles
+
+[FUS-S19-1d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-S19-1d.AddReg, 1280, DPMS
+CopyFiles=FUS-S19-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-S19-1a.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-83,56-76,+,+"
+HKR,,ICMProfile,0,"FSCS19-1.ICM"
+
+[FUS-S19-1d.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-68,56-76,+,+"
+HKR,,ICMProfile,0,"FSCS19-1.ICM"
+
+[FUS-S19-1.CopyFiles]
+FSCS19-1.ICM
+
+[Strings]
+DISK="Driver & Utility for SCALEOVIEW S19-1"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-S19-1="Fujitsu Siemens SCALEOVIEW S19-1"

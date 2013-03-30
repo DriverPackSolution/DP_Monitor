@@ -1,0 +1,97 @@
+;------------------------------------------------------
+; Copyright (c) 2005 Lenovo Corporation
+; Issue date -- 08/04/2005
+; Revise date -- 09/28/2005
+; revision 1
+;------------------------------------------------------  
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=L192p.cat
+DriverVer=09/28/2005,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+L192p_Analog.copyfiles = 23
+L192p_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Lenovo Monitor installtion disk",,,
+
+[SourceDisksFiles]
+L192p.icm=1
+
+[Manufacturer]
+%LEN%=LEN,NTx86,NTAMD64
+
+[LEN]
+%L192p_Analog%=L192p_Analog.Install, Monitor\LEN24CB
+%L192p_Digital%=L192p_Digital.Install, Monitor\LEN4BDB
+
+[LEN.NTx86]
+%L192p_Analog%=L192p_Analog.Install, Monitor\LEN24CB
+%L192p_Digital%=L192p_Digital.Install, Monitor\LEN4BDB
+
+[LEN.NTAMD64]
+%L192p_Analog%=L192p_Analog.Install, Monitor\LEN24CB
+%L192p_Digital%=L192p_Digital.Install, Monitor\LEN4BDB
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\LEN24CB
+ExcludeFromSelect.NT=Monitor\LEN4BDB
+
+[L192p_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L192p_Analog.AddReg, 1280, DPMS
+CopyFiles=L192p_Analog.CopyFiles
+
+[L192p_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L192p_Digital.AddReg, 1280, DPMS
+CopyFiles=L192p_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L192p_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"L192p.icm"
+
+[L192p_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"L192p.icm"
+
+
+[L192p_Analog.CopyFiles]
+L192p.ICM
+
+[L192p_Digital.CopyFiles]
+L192p.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+LEN="Lenovo Inc."
+
+L192p_Analog="Lenovo L192p(Analog)"
+L192p_Digital="Lenovo L192p(Digital)"
+

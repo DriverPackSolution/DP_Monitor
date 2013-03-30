@@ -1,0 +1,69 @@
+;PLC171WT.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor PLC171WT
+;Copyright 2004 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLC171WT.cat      
+DriverVer=04/01/2004,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46C0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLC171WT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLC171WT.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLC171WT%=PLC171WT.Install, Monitor\IVM46C0
+
+[PLC171WT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLC171WT.AddReg, 1280, DPMS
+CopyFiles=PLC171WT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLC171WT.AddReg]
+HKR,"MODES\1280,768",Mode1,,"30-60,55-76,+,+"
+HKR,,ICMProfile,0,"PLC171WT.ICM"
+
+[PLC171WT.CopyFiles]
+PLC171WT.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLC171WT="IIYAMA ProLite C171WT"

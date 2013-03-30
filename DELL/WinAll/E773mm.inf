@@ -1,0 +1,98 @@
+
+;================================================
+;E773mm.INF 09/05/05 Ver. 1.0 JG
+;Copyright 1996-2005 Dell Inc.
+;
+;This is a setupfile for the DELL 
+;E773mm Monitor (64 bit).
+;================================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E773mm.cat
+DriverVer=09/05/2005, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELD009
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E773mm.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E773mm.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[DELL] 
+%E773mm%=E773mm.Install, Monitor\DELD009
+
+;-------------------------------------------------
+[DELL.NTAMD64] 
+%E773mm%=E773mm.Install, Monitor\DELD009
+
+; Install Sections
+;-------------------------------------------------
+
+[E773mm.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E773mm.AddReg, 1280, DPMS
+CopyFiles=E773mm.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E773mm.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E773mm.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E773mm.CopyFiles]
+E773mm.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E773mm="Dell E773mm"
+

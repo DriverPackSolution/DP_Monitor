@@ -1,0 +1,116 @@
+; [PL2775HD.INF]
+; Revision 1.00
+; Copyright(c) 2011 IIYAMA CORPORATION
+; V001
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PL2775HD.cat
+DriverVer=01/26/2011,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+PL2775HD_Analog.copyfiles = 23
+PL2775HD_Digital.copyfiles = 23
+PL2775HD_Hdmi.copyfiles = 23
+
+
+[SourceDisksNames]
+1=%MonitorClassName%,,,
+
+[SourceDisksFiles]
+PL2775HD.icm=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA,NTx86,NTAMD64
+
+[IIYAMA]
+%PL2775HD_Analog%=PL2775HD_Analog.Install, Monitor\IVM6604
+%PL2775HD_Digital%=PL2775HD_Digital.Install, Monitor\IVM6604
+%PL2775HD_Hdmi%=PL2775HD_Hdmi.Install, Monitor\IVM6604
+
+[IIYAMA.NTx86]
+%PL2775HD_Analog%=PL2775HD_Analog.Install, Monitor\IVM6604
+%PL2775HD_Digital%=PL2775HD_Digital.Install, Monitor\IVM6604
+%PL2775HD_Hdmi%=PL2775HD_Hdmi.Install, Monitor\IVM6604
+
+[IIYAMA.NTAMD64]
+%PL2775HD_Analog%=PL2775HD_Analog.Install, Monitor\IVM6604
+%PL2775HD_Digital%=PL2775HD_Digital.Install, Monitor\IVM6604
+%PL2775HD_Hdmi%=PL2775HD_Hdmi.Install, Monitor\IVM6604
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IVM6604
+ExcludeFromSelect.NT=Monitor\IVM6604
+ExcludeFromSelect.NT=Monitor\IVM6604
+
+[PL2775HD_Analog.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2775HD_Analog.AddReg, 1920, DPMS
+CopyFiles=PL2775HD_Analog.CopyFiles
+
+[PL2775HD_Digital.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2775HD_Digital.AddReg, 1920, DPMS
+CopyFiles=PL2775HD_Digital.CopyFiles
+
+[PL2775HD_Hdmi.Install]
+IVMReg=IVM_CURRENT_REG
+AddReg=PL2775HD_Hdmi.AddReg, 1920, DPMS
+CopyFiles=PL2775HD_Hdmi.CopyFiles
+
+[IVM_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PL2775HD_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-80.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"PL2775HD.icm"
+
+[PL2775HD_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-80.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"PL2775HD.icm"
+
+[PL2775HD_Hdmi.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-80.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"PL2775HD.icm"
+
+[PL2775HD_Analog.CopyFiles]
+PL2775HD.ICM
+
+[PL2775HD_Digital.CopyFiles]
+PL2775HD.ICM
+
+[PL2775HD_Hdmi.CopyFiles]
+PL2775HD.ICM
+
+
+[Strings]
+MonitorClassName="IIYAMA LCD Monitor Installation Disk"
+IIYAMA="IIYAMA CORPORATION"
+
+PL2775HD_Analog="IIYAMA ProLite PL2775HD(Analog)"
+PL2775HD_Digital="IIYAMA ProLite PL2775HD(Digital)"
+PL2775HD_Hdmi="IIYAMA ProLite PL2775HD(Hdmi)"
+
+

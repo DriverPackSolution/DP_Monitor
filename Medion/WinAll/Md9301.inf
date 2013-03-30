@@ -1,0 +1,88 @@
+     
+; MEDION.INF
+; Setup Information File for MEDION - v1.0
+; Copyright (c)  1997, MEDION Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MED%
+
+;-------------------------------------------------
+;Monitor class install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir    = 11
+MD9301.CopyFiles = 23
+
+[SourceDisksNames]
+1="MEDION Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+MD9301.ICM=1
+
+[Manufacturer]
+%MED%=MED
+
+[MED]
+%MD9301%=MD9301.install,Monitor\MED9301
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+[MD9301.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD9301.AddReg, 1024, DPMS
+CopyFiles=MD9301.CopyFiles
+
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+     
+;-------------------------------------------
+[MD9301.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MD9301.ICM"
+
+[MD9301.CopyFiles]
+MD9301.ICM
+
+;--------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+MED="MEDION"
+
+MD9301="MD9301"
+
+

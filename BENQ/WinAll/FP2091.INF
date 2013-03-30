@@ -1,0 +1,100 @@
+;================================ 
+;FP2091.INF 04/08/03 Ver. 1.0 JST
+; Copyright (c)  2003, BenQ Corporation.
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+CatalogFile=FP2091.cat
+DriverVer=04/08/2003, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\BNQ766B
+ExcludeFromSelect.nt=Monitor\BNQ766C
+
+[DestinationDirs]
+DefaultDestDir=11
+FP2091_Analog.CopyFiles=23
+FP2091_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP2091.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%BenQ%=BenQ
+
+; Manufacturer sections
+;-------------------------------------------------
+ [BenQ] 
+%FP2091_Analog%=FP2091_Analog.Install, Monitor\BNQ766B
+%FP2091_Digital%=FP2091_Digital.Install, Monitor\BNQ766C
+
+; Install Sections
+;-------------------------------------------------
+
+[FP2091_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=FP2091_Analog.AddReg, 1600, DPMS
+CopyFiles=FP2091_Analog.CopyFiles
+
+[FP2091_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=FP2091_Digital.AddReg, 1600, DPMS
+CopyFiles=FP2091_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[FP2091_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP2091.icm"
+
+[FP2091_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-80.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP2091.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[FP2091_Analog.CopyFiles]
+FP2091.icm
+
+[FP2091_Digital.CopyFiles]
+FP2091.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+diskname="BenQ LCD Monitor installation diskette"
+BenQ="BenQ"
+FP2091_Analog="BenQ FP2091 (Analog)"
+FP2091_Digital="BenQ FP2091 (Digital)"

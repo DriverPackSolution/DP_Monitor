@@ -1,0 +1,98 @@
+;================================ 
+; PLE2208HDS.INF 07/17/08 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2008, iiyama Corporation
+;================================
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%iiyama%
+CatalogFile=PLE2208HDSV.cat
+DriverVer=11/11/2008,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IVM560E
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+560E.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+PLE2208HDSV.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%iiyama%=iiyama, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[iiyama]
+%560E%=560E.Install, Monitor\IVM560E
+
+[iiyama.NTx86]
+%560E%=560E.Install, Monitor\IVM560E
+
+[iiyama.NTia64]
+%560E%=560E.Install, Monitor\IVM560E
+
+[iiyama.NTamd64]
+%560E%=560E.Install, Monitor\IVM560E
+
+; Install sections
+;-------------------------------------------------
+[560E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=560E.AddReg,1920,DPMS
+CopyFiles=560E.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[560E.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-84.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE2208HDSV.icm"
+
+;-------------------------------------------------------------------
+[560E.CopyFiles]
+PLE2208HDSV.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+iiyama="iiyama"
+DiskName="iiyama Monitor Setup Disk"
+
+560E="iiyama PLE2208HDSV"  

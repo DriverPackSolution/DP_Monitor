@@ -1,0 +1,77 @@
+;PLC300WT.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH PLC300WT
+;Copyright 2004 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLC300WT.cat      
+DriverVer=09/01/2004,1.05
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM1042
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLC300WT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLC300WT.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLC300WT%=PLC300WT.Install, Monitor\IVM1042
+
+[PLC300WT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLC300WT.AddReg, 1280, DPMS
+CopyFiles=PLC300WT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLC300WT.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-82,55-86,+,+"
+HKR,"MODES\800,600",Mode1,,"30-82,55-86,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-82,55-86,+,+"
+HKR,"MODES\1152,864",Mode1,,"30-82,55-76,+,+"
+HKR,"MODES\1280,600",Mode1,,"30-82,55-76,+,+"
+HKR,"MODES\1280,720",Mode1,,"30-82,55-76,+,+"
+HKR,"MODES\1280,768",Mode1,,"30-82,55-76,+,+"
+HKR,"MODES\1280,960",Mode1,,"30-82,55-62,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-82,55-62,+,+"
+HKR,,ICMProfile,0,"PLC300WT.ICM"
+
+[PLC300WT.CopyFiles]
+PLC300WT.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLC300WT="iiyama ProLite C300WT"

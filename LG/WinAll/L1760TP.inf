@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1760TP.INF] 
+; Revision 1.4   February-12-2008
+; Copyright(c)1998~2008 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1760TP.cat
+DriverVer=01/22/2008,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4497
+ExcludeFromSelect.NT=Monitor\GSM4498
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1760TP_Analog.CopyFiles = 23
+L1760TP_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1760TP.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1760TP_Analog%=L1760TP_Analog.Install,Monitor\GSM4497
+%L1760TP_Digital%=L1760TP_Digital.Install,Monitor\GSM4498
+
+[LG.NTamd64]
+%L1760TP_Analog%=L1760TP_Analog.Install,Monitor\GSM4497
+%L1760TP_Digital%=L1760TP_Digital.Install,Monitor\GSM4498
+
+[L1760TP_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1760TP_Analog.AddReg,1280,DPMS
+CopyFiles=L1760TP_Analog.CopyFiles
+
+[L1760TP_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1760TP_Digital.AddReg,1280,DPMS
+CopyFiles=L1760TP_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1760TP_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1760TP.ICM"
+
+[L1760TP_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1760TP.ICM"
+
+[L1760TP_Analog.CopyFiles]
+L1760TP.ICM
+
+[L1760TP_Digital.CopyFiles]
+L1760TP.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1760TP_Analog="LG L1760TP(Analog)"
+L1760TP_Digital="LG L1760TP(Digital)"

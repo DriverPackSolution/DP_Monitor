@@ -1,0 +1,104 @@
+; ea192m.inf
+; Setup information file for NEC MultiSync EA192M Monitor
+;
+; Copyright 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea192m.cat
+DriverVer=08/09/2010,1.10.0809.2215
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC680C
+ExcludeFromSelect.nt=Monitor\NEC680D
+ExcludeFromSelect.nt=Monitor\NEC680E
+
+[DestinationDirs]
+EA192M.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea192m.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA192M-A%=EA192M-A.Install, Monitor\NEC680C
+%EA192M-D%=EA192M-D.Install, Monitor\NEC680D
+%EA192M-DP%=EA192M-DP.Install, Monitor\NEC680E
+
+[NECDS.ntamd64]
+%EA192M-A%=EA192M-A.Install.ntamd64, Monitor\NEC680C
+%EA192M-D%=EA192M-D.Install.ntamd64, Monitor\NEC680D
+%EA192M-DP%=EA192M-DP.Install.ntamd64, Monitor\NEC680E
+
+[EA192M-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA192M-A.AddReg, 1280, DPMS
+CopyFiles=EA192M.CopyFiles
+
+[EA192M-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA192M-D.AddReg, 1280, DPMS
+CopyFiles=EA192M.CopyFiles
+
+[EA192M-DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA192M-DP.AddReg, 1280, DPMS
+CopyFiles=EA192M.CopyFiles
+
+[EA192M-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA192M-A.AddReg, 1280, DPMS
+CopyFiles=EA192M.CopyFiles
+
+[EA192M-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA192M-D.AddReg, 1280, DPMS
+CopyFiles=EA192M.CopyFiles
+
+[EA192M-DP.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA192M-DP.AddReg, 1280, DPMS
+CopyFiles=EA192M.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA192M-A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-85.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea192m.icm"
+
+[EA192M-D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-85.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea192m.icm"
+
+[EA192M-DP.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-85.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea192m.icm"
+
+[EA192M.CopyFiles]
+ea192m.icm
+
+[Strings]
+NECDS="NEC"
+EA192M-A="NEC MultiSync EA192M (Analog)"
+EA192M-D="NEC MultiSync EA192M (Digital)"
+EA192M-DP="NEC MultiSync EA192M (DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

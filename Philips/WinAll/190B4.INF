@@ -1,0 +1,86 @@
+; LCD MONITOR 190B4.INF  for Windows(R) 95/98/Me/2000/XP
+;
+; Revision History
+;-----------------
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%PHL%
+Catalogfile=190B4.cat
+DriverVer= 04/16/2003,1.00.1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL081A
+
+;Monitor class install (required for NT)
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+190B4.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+Ph_LCD19.ICM=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%PHL%=PHL
+
+; Manufacturer sections
+;-------------------------------------------------
+
+[PHL]
+%190B4%=190B4.Install, Monitor\PHL081A
+
+; Install sections
+;-------------------------------------------------
+[190B4.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=190B4.AddReg, 1280,DPMS
+CopyFiles=190B4.CopyFiles
+
+; AddReg sections
+;-------------------------------------------------
+[190B4.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"Ph_LCD19.ICM"
+
+[190B4.CopyFiles]
+Ph_LCD19.ICM
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+PHL="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+190B4="Philips 190B (19inch LCD MONITOR 190B4)"
+

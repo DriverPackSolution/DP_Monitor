@@ -1,0 +1,95 @@
+
+;================================================
+;E773s.INF 06/18/03 Ver. 1.0 PCC
+;Copyright 1996-2003 Dell Computer Corporation
+;
+;This is a setupfile for  the DELL 
+;E773s Monitor.  This file supports
+;Windows 2000 & XP
+;================================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E773s.cat
+DriverVer=06/18/2003, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL3012
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E773s.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E773s.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E773s%=E773s.Install, Monitor\DEL3012
+
+; Install Sections
+;-------------------------------------------------
+
+[E773s.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E773s.AddReg, 1280, DPMS
+CopyFiles=E773s.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E773s.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E773s.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E773s.CopyFiles]
+E773s.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+E773s="Dell E773s"
+

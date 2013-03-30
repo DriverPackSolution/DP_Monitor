@@ -1,0 +1,77 @@
+; #################################################
+;
+;   i560.inf           Ver. 2.50      10/12/2001
+;
+;   Copyright (c)2001, Compaq Computer Corporation
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq i560 Color Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=i560.cat
+DriverVer=10/12/2001,2.50
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ1433
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+i560.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQi560.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%i560%=i560.Install, Monitor\CPQ1433
+
+[i560.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=i560.AddReg, 1024, DPMS
+CopyFiles=i560.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[i560.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"CPQi560.icm"
+
+[i560.CopyFiles]
+CPQi560.ICM
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+Disk1="COMPAQ i560 Monitor Software CD"
+i560="COMPAQ i560 Color Monitor"
+

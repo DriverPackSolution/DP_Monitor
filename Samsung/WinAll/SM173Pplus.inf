@@ -1,0 +1,108 @@
+
+;==================================================
+; sm173Pplus.inf 01/26/2005 ver. 1.0
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm173Pplus.cat
+DriverVer=01/26/2005,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0196
+ExcludeFromSelect.nt=Monitor\SAM0197
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm173Pplusa.CopyFiles = 23
+sm173Pplusd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm173Pplus.icm=1
+sm173Pplus.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm173Pplusa%=sm173Pplusa.Install, Monitor\SAM0196
+%sm173Pplusd%=sm173Pplusd.Install, Monitor\SAM0197
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm173Pplusa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm173Pplusa.AddReg, 1280, DPMS
+CopyFiles=sm173Pplusa.CopyFiles
+
+[sm173Pplusd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm173Pplusd.AddReg, 1280, DPMS
+CopyFiles=sm173Pplusd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm173Pplusa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm173Pplus.icm"
+
+[sm173Pplusd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm173Pplus.icm"
+;------------------------------------------------------
+
+[sm173Pplusa.CopyFiles]
+sm173Pplus.icm
+
+[sm173Pplusd.CopyFiles]
+sm173Pplus.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm173Pplusa="SyncMaster 173Pplus,SyncMaster Magic CX711P (Analog)"
+sm173Pplusd="SyncMaster 173Pplus,SyncMaster Magic CX711P (Digital)"

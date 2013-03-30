@@ -1,0 +1,64 @@
+;=============================================================== 
+; [M3201C.INF] 
+; Revision 1.4  July-10-2006
+; Copyright(c)1998~2006 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M3201C.cat
+DriverVer=07/10/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM7579
+
+[DestinationDirs]
+DefaultDestDir=11
+M3201C.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M3201C.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M3201C%=M3201C.Install,Monitor\GSM7579
+
+[LG.NTamd64]
+%M3201C%=M3201C.Install,Monitor\GSM7579
+
+[M3201C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M3201C.AddReg,1600,DPMS
+CopyFiles=M3201C.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M3201C.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-83.0,56.0-85.0,+,+"
+HKR,,ICMprofile,0,"M3201C.ICM"
+
+[M3201C.CopyFiles]
+M3201C.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M3201C="LG M3201C"

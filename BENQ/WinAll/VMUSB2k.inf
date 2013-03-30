@@ -1,0 +1,104 @@
+;
+;VMUSB2k.inf
+;
+[Version]
+Signature="$CHICAGO$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%VMMfg%
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+DriverVer=03/13/2002, 2.0.312.1
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%VMMfg%=VM.Section,NT
+
+[VM.Section]
+%Composite.DeviceDesc%=VM.Comp.Device,USB\VID_0AC8&PID_0302
+;%Extra.DeviceDesc%=VM.Extra.Device,USB\VID_8086&PID_0780&MI_02
+
+[VM.Section.NT]
+%Composite.DeviceDesc%=VM.Comp.Device.XP,USB\VID_0AC8&PID_0302
+;%Extra.DeviceDesc%=VM.Extra.Device,USB\VID_8086&PID_0780&MI_02
+
+; This section used for 98, SE and Millennium.
+
+[VM.Comp.Device]
+Include=usb.inf
+Needs=Composite.Dev
+;CopyFiles=VM.Comp.CopyDriver
+
+[VM.Extra.Device]
+AddReg=None
+
+; This section used for Win2K.
+
+[VM.Comp.Device.NT]
+Include=usb.inf
+Needs=Composite.Dev.NT
+;CopyFiles=VM.Comp.CopyDriver
+
+; This section used for WinXP/2002.
+
+[VM.Comp.Device.XP]
+Include=usb.inf
+Needs=Composite.Dev.NT
+;CopyFiles=VM.Comp.CopyDriver
+;CopyInf=icm12usb.inf,icm12fil.inf
+
+[VM.Extra.Device.NT]
+AddReg=None
+
+;
+; Define registry entries.
+;
+
+
+[None]
+
+;
+; Define NT services.
+;
+
+[VM.Comp.Device.NT.Services]
+Include=usb.inf
+Needs=Composite.Dev.NT.Services
+
+[VM.Comp.Device.XP.Services]
+Include=usb.inf
+Needs=Composite.Dev.NT.Services
+
+[VM.Extra.Device.NT.Services]
+AddService = , 0x2      ; Null driver
+
+;
+; Define files to be copied.
+;
+
+[DestinationDirs]
+DefaultDestDir=11
+;VM.Comp.CopyDriver=10,system32\drivers
+
+;[VM.Comp.CopyDriver]
+;icm12ply.sys
+
+[SourceDisksNames]
+;1=%InstallationDisk%,icm12.cab,,
+;2=%InstallationDisk%,,,
+
+[SourceDisksFiles]
+;icm12ply.sys=1
+
+[Strings]
+
+# Localizable.
+
+Composite.DeviceDesc="Web Camera"
+InstallationDisk="Web Camera Installation Disk"
+;Extra.DeviceDesc="Web Camera Audio Support Driver"
+
+# Non-localizable.
+
+VMMfg="BenQ"

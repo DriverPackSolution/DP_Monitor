@@ -1,0 +1,64 @@
+;=============================================================== 
+; [500G.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=500G.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM3B66
+
+[DestinationDirs]
+DefaultDestDir=11
+500G.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LG500G.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%500G%=500G.Install,Monitor\GSM3B66
+
+[LG.NTamd64]
+%500G%=500G.Install,Monitor\GSM3B66
+
+[500G.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=500G.AddReg,1024,DPMS
+CopyFiles=500G.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[500G.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMprofile,0,"LG500G.ICM"
+
+[500G.CopyFiles]
+LG500G.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+500G="LG 500G"

@@ -1,0 +1,79 @@
+;PLC320WT.INF Ver. 1.00
+;Monitor INF file for IIYAMA AH PLC320WT
+;Copyright 2005 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLC320WT.cat      
+DriverVer=09/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM1048
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLC320WT.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLC320WT.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLC320WT%=PLC320WT.Install, Monitor\IVM1048
+
+[PLC320WT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLC320WT.AddReg, 1360, DPMS
+CopyFiles=PLC320WT.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1360]
+HKR,,MaxResolution,,"1360,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLC320WT.AddReg]
+;HKR,"MODES\640,480",Mode1,,"30-82,55-86,+,+"
+;HKR,"MODES\800,600",Mode1,,"30-82,55-86,+,+"
+;HKR,"MODES\1024,768",Mode1,,"30-82,55-86,+,+"
+;HKR,"MODES\1152,864",Mode1,,"30-82,55-76,+,+"
+;HKR,"MODES\1280,600",Mode1,,"30-82,55-76,+,+"
+;HKR,"MODES\1280,720",Mode1,,"30-82,55-76,+,+"
+;HKR,"MODES\1280,768",Mode1,,"30-82,55-76,+,+"
+;HKR,"MODES\1280,960",Mode1,,"30-82,55-62,+,+"
+;HKR,"MODES\1280,1024",Mode1,,"30-82,55-62,+,+"
+;HKR,"MODES\1360,768",Mode1,,"30-82,55-76,+,+"
+HKR,"MODES\1360,1024",Mode1,,"30-82,55-86,+,+"
+HKR,,ICMProfile,0,"PLC320WT.ICM"
+
+[PLC320WT.CopyFiles]
+PLC320WT.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLC320WT="iiyama ProLite C320WT"

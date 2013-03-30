@@ -1,0 +1,108 @@
+
+;==================================================
+; sm173P.inf 09/16/2003 ver. 1.1
+;
+; Copyright 2003 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm173P.cat
+DriverVer=09/16/2003,1.1
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM00D3
+ExcludeFromSelect.nt=Monitor\SAM00E2
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm173Pa.CopyFiles = 23
+sm173Pd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm173P.icm=1
+sm173P.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm173Pa%=sm173Pa.Install, Monitor\SAM00D3
+%sm173Pd%=sm173Pd.Install, Monitor\SAM00E2
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm173Pa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm173Pa.AddReg, 1280, DPMS
+CopyFiles=sm173Pa.CopyFiles
+
+[sm173Pd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm173Pd.AddReg, 1280, DPMS
+CopyFiles=sm173Pd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm173Pa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm173P.icm"
+
+[sm173Pd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm173P.icm"
+;------------------------------------------------------
+
+[sm173Pa.CopyFiles]
+sm173P.icm
+
+[sm173Pd.CopyFiles]
+sm173P.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm173Pa="SyncMaster 173P,SyncMaster Magic CX710P (Analog)"
+sm173Pd="SyncMaster 173P,SyncMaster Magic CX710P (Digital)"

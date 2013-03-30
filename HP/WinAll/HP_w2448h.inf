@@ -1,0 +1,138 @@
+; ###########################################################
+;
+;   HP_w2448h.inf        Ver. 1.00            4/03/2008
+;
+;   Copyright (c)2008, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP w2448h Wide LCD Monitor.
+; 
+; ###########################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_w2448h.cat
+DriverVer=04/03/2008,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP2813
+ExcludeFromSelect.nt = MONITOR\HWP2814
+ExcludeFromSelect.nt = MONITOR\HWP2815
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+w2448h.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_w2448h.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%w2448h_A%=w2448h_A.Install, Monitor\HWP2813
+%w2448h_D%=w2448h_D.Install, Monitor\HWP2814
+%w2448h_H%=w2448h_H.Install, Monitor\HWP2815
+
+[HP.NTamd64]
+%w2448h_A%=w2448h_A.Install, Monitor\HWP2813
+%w2448h_D%=w2448h_D.Install, Monitor\HWP2814
+%w2448h_H%=w2448h_H.Install, Monitor\HWP2815
+
+[w2448h_A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w2448h_A.AddReg, 1920, DPMS
+CopyFiles=w2448h.CopyFiles
+
+[w2448h_D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w2448h_D.AddReg, 1920, DPMS
+CopyFiles=w2448h.CopyFiles
+
+[w2448h_H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w2448h_H.AddReg, 1920, DPMS
+CopyFiles=w2448h.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[w2448h_A.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-94,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1280,960",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1440,900",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1600,1200",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1920,1200",Mode1,,"24-94,48-85,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w2448h.icm"
+
+[w2448h_D.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-94,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1280,960",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1440,900",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1600,1200",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1920,1200",Mode1,,"24-94,48-85,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w2448h.icm"
+
+[w2448h_H.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-94,48-85,-,-"
+HKR,"MODES\800,600",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1280,960",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1440,900",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1600,1000",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1600,1200",Mode1,,"24-94,48-85,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24-94,48-85,-,+"
+HKR,"MODES\1920,1200",Mode1,,"24-94,48-85,+,-"
+HKR,,PreferredMode,,"1920,1200,60"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w2448h.icm"
+
+[w2448h.CopyFiles]
+HP_w2448h.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+w2448h_A="HP w2448h Wide LCD Monitor"
+w2448h_D="HP w2448h Wide LCD Monitor"
+w2448h_H="HP w2448h Wide LCD Monitor"
+Disk1="HP w2448h Driver Software"

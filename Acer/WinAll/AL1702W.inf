@@ -1,0 +1,90 @@
+; This is a Setup information file for monitors  with ICM  file; 
+; Copyright 2007 Acer International Electronic AG 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ACR%
+CatalogFile=AL1702W.cat   
+DriverVer=03/19/2007,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ACRADA7
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+ADA7.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+AL1702W.ICM=1
+
+; Manufacturers 
+;-------------------------------------------------
+[Manufacturer]
+%ACR%=ACR,NTAMD64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[ACR]
+%ADA7%=ADA7.Install, Monitor\ACRADA7
+;-------------------------------------------------
+[ACR.NTAMD64] 
+%ADA7%=ADA7.Install, Monitor\ACRADA7
+
+; Install Sections
+;-------------------------------------------------
+[ADA7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ADA7.AddReg, 1440 ,DPMS
+Copyfiles=ADA7.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[ADA7.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1440,900",Mode1,,"30.0-83.0,55.0-75.0,+,-"
+HKR,,ICMProfile,0,"AL1702W.icm"
+
+[ADA7.CopyFiles]
+AL1702W.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="Acer Monitor AL1702W Installation Disk"
+MonitorClassName="Monitor"
+ACR="Acer Incorporated"
+ADA7="Acer AL1702W"

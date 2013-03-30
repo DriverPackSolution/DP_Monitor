@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=Q190mb.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/17/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+Q190mb.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+Q190mb.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%Q190mb%=Q190mb.Install,Monitor\VSC0B1A               ;Q190mb
+
+[Q190mb.Install]                                      ;Q190mb
+DelReg=DEL_CURRENT_REG 
+AddReg=Q190mb.AddReg,1280,DPMS
+Copyfiles=Q190mb.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Q190mb.AddReg]                                         ;Q190mb
+HKR,"MODES\1280,1024",Mode1,,"30-80,50-75,+,+"
+HKR,,ICMProfile,0,"Q190mb.ICM"
+
+[Q190mb.CopyFiles]                                       
+Q190mb.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+Q190mb="ViewSonic Q190mb"

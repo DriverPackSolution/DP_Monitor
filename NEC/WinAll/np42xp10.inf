@@ -1,0 +1,100 @@
+; np42xp10.inf
+; Setup information file for NEC PlasmaSync 42XP10 Monitor
+;
+; Copyright (C) 2007 NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=np42xp10.cat
+DriverVer=11/01/2007, 1.07.1101.1830
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66FE
+ExcludeFromSelect.nt=Monitor\NEC66FD
+
+[DestinationDirs]
+P42XP10.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+np42xp10.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%P42XP10-D%=P42XP10-D.Install, Monitor\NEC66FE
+%P42XP10-A%=P42XP10-A.Install, Monitor\NEC66FD
+
+[NECDS.ntamd64]
+%P42XP10-D%=P42XP10-D.Install.ntamd64, Monitor\NEC66FE
+%P42XP10-A%=P42XP10-A.Install.ntamd64, Monitor\NEC66FD
+
+; Install Sections
+;-------------------------------------------------
+[P42XP10-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P42XP10-D.AddReg, 1920, DPMS
+CopyFiles=P42XP10.CopyFiles
+
+[P42XP10-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P42XP10-A.AddReg, 1920, DPMS
+CopyFiles=P42XP10.CopyFiles
+
+[P42XP10-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P42XP10-D.AddReg, 1920, DPMS
+CopyFiles=P42XP10.CopyFiles
+
+[P42XP10-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P42XP10-A.AddReg, 1920, DPMS
+CopyFiles=P42XP10.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[P42XP10-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-91.0,23.0-120.0,+,+"
+HKR,,ICMProfile,0,"np42xp10.icm"
+
+[P42XP10-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-109.0,23.0-120.0,+,+"
+HKR,,ICMProfile,0,"np42xp10.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[P42XP10.CopyFiles]
+np42xp10.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+P42XP10-D="NEC PlasmaSync 42XP10(Digital)"
+P42XP10-A="NEC PlasmaSync 42XP10(Analog)"
+Disk1="NEC Monitor Installation Disk"

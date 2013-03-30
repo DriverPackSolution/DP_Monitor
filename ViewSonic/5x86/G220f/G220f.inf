@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=G220f.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/09/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS23852-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+G220f.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS23852-1%=VCDTS23852-1.Install,Monitor\VSCE709             ;G220f
+
+[VCDTS23852-1.Install]                                          ;G220f
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23852-1.AddReg,1920,DPMS
+Copyfiles=VCDTS23852-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS23852-1.AddReg]                                           ;G220f
+HKR,"MODES\1920,1440",Mode1,,"30-110,50-180,+,+"
+HKR,,ICMProfile,0,"G220f.ICM"
+
+[VCDTS23852-1.CopyFiles]                                       
+G220f.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS23852-1="ViewSonic G220f"

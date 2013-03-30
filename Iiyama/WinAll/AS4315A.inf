@@ -1,0 +1,69 @@
+; AS4315UT_A.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor AS4315UT_A 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=AS4315A.cat      
+DriverVer=06/20/2003,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM4654
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AS4315A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+AS4315A.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%AS4315A%=AS4315A.Install, Monitor\IVM4654
+
+[AS4315A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS4315A.AddReg, 1280, DPMS
+CopyFiles=AS4315A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS4315A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24-83,60-75,+,+"
+HKR,,ICMProfile,0,"AS4315A.ICM"
+
+[AS4315A.CopyFiles]
+AS4315A.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+AS4315A="IIYAMA AS4315UTA"

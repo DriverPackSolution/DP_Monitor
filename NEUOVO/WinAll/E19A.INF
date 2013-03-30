@@ -1,0 +1,101 @@
+;============================================
+;This is setup information file for monitors
+;Revision 1.0   08 07, 2003
+;Date: 2003-08-07
+;============================================
+; 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AIC%
+;CatalogFile=E19A.cat
+DriverVer=08/07/2003, 1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\AIC1920
+ExcludeFromSelect.NT=Monitor\AIC1925
+
+;ExcludeFromSelect=*
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]  
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+192X.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,
+
+[SourceDisksFiles]
+LCD_165.icm=1
+LCD_193.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%AIC%=AIC
+
+; Manufacturer sections
+;-------------------------------------------------
+[AIC]
+%1920%=192X.Install, Monitor\AIC1920
+%1925%=192X.Install, Monitor\AIC1925
+
+;-------------------------------------------------
+
+[192X.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=192X.AddReg,1280,DPMS
+CopyFiles=192X.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+;--------------------------------
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+
+[192X.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,49.0-75.0,+,-"
+HKR,,ICMProfile,0,"LCD_193.icm"
+
+;-------------------------------------------------------
+
+[192X.CopyFiles]
+LCD_165.icm
+LCD_193.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+DiskName="AG neovo Driver Disk"
+AIC="AG neovo"
+1920="E-191"
+1925="E-191 DVI"
+
+

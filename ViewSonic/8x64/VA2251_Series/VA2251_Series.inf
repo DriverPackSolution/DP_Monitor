@@ -1,0 +1,75 @@
+;Monitor.Inf for Windows(R) 7 x86, 7 x64, 8 x86, 8 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2251_Series.cat  
+signature="$Windows NT$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/07/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 12
+VA2251_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VA2251_Series.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC112B
+
+[ViewSonic]   
+%VA2251_Series%=VA2251_Series.Install,Monitor\VSC112B  
+
+[ViewSonic.NTx86]   
+%VA2251_Series%=VA2251_Series.Install,Monitor\VSC112B
+
+[ViewSonic.NTAMD64]   
+%VA2251_Series%=VA2251_Series.Install,Monitor\VSC112B 
+
+[VA2251_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2251_Series.AddReg
+Copyfiles=VA2251_Series.CopyFiles
+
+[VA2251_Series.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[VA2251_Series.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMProfile,0,"VA2251_Series.ICM"
+
+[VA2251_Series.CopyFiles]                                       
+VA2251_Series.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VA2251 Series ViewSonic Wizard"
+VA2251_Series="ViewSonic VA2251 Series"

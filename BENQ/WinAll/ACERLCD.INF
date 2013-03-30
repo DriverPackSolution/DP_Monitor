@@ -1,0 +1,442 @@
+
+; AcerView INF File for Win98
+; Setup Information File for AcerView Monitors - V2.0
+; Copyright (c)  1999, Acer Peripherals,Inc.
+
+
+;-------------------------------------------------
+; Version section
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+
+;-------------------------------------------------
+;Monitor class install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir	 = 11
+7631F.CopyFiles = 23
+7631FE.CopyFiles= 23
+7651F.CopyFiles = 23
+7650FP.CopyFiles= 23
+FP850.CopyFiles = 23
+FP500.CopyFiles = 23
+FP551.CopyFiles = 23
+FP560.CopyFiles = 23
+FP555.CopyFiles = 23
+FP51E.CopyFiles = 23
+FP561.CopyFiles = 23
+FP851.CopyFiles = 23
+FP502.CopyFiles = 23
+LM551.CopyFiles = 23
+LM552.CopyFiles = 23
+LM554.CopyFiles = 23
+FP855.CopyFiles = 23
+FP550.CopyFiles = 23
+
+[SourceDisksNames]
+1="Acer LCD Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+7631F.ICM=1
+7631FE.ICM=1
+7651F.ICM=1
+7650FP.ICM=1
+FP850.ICM=1
+FP500.ICM=1
+FP551.ICM=1
+FP560.ICM=1
+FP555.ICM=1
+FP51E.ICM=1
+FP561.ICM=1
+FP851.ICM=1
+FP502.ICM=1
+LM551.ICM=1
+LM552.ICM=1
+LM554.ICM=1
+FP855.ICM=1
+FP550.ICM=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%Acer%=Acer
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[Acer]
+%7631FE%=7631FE.install,Monitor\API7601
+%7651F%=7651F.install,Monitor\API7602
+%7631F%=7631F.install,Monitor\API1035
+%7650FP%=7650FP.install,Monitor\API7604
+%FP850%=FP850.install,Monitor\API7605
+%FP500%=FP500.install,Monitor\API7606
+%FP551%=FP551.install,Monitor\API7607
+%FP560%=FP560.install,Monitor\API7608
+%FP555%=FP555.install,Monitor\API7609
+%FP51E%=FP51E.install,Monitor\API760A
+%FP561%=FP561.install,Monitor\API760B
+%FP851%=FP851.install,Monitor\API760C
+%FP502%=FP502.install,Monitor\API760D
+%LM551%=LM551.install,Monitor\API760E
+%LM552%=LM552.install,Monitor\API760F
+%LM554%=LM554.install,Monitor\API7610
+%FP855%=FP855.install,Monitor\API7611
+%FP550%=FP550.install,Monitor\API7612
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+[7631F.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7631F.AddReg, 1024, DPMS
+CopyFiles=7631F.CopyFiles
+
+[7631FE.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7631FE.AddReg, 1024, DPMS
+CopyFiles=7631FE.CopyFiles
+
+[7651F.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7651F.AddReg, 1024, DPMS
+CopyFiles=7651F.CopyFiles
+
+[7650FP.install]
+DelReg=DEL_CURRENT_REG
+AddReg=7650FP.AddReg, 1024, DPMS
+CopyFiles=7650FP.CopyFiles
+
+[FP850.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP850.AddReg, 1280, DPMS
+CopyFiles=FP850.CopyFiles
+
+[FP500.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP500.AddReg, 1024, DPMS
+CopyFiles=FP500.CopyFiles
+
+[FP551.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP551.AddReg, 1024, DPMS
+CopyFiles=FP551.CopyFiles
+
+[FP560.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP560.AddReg, 1024, DPMS
+CopyFiles=FP560.CopyFiles
+
+[FP555.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP555.AddReg, 1024, DPMS
+CopyFiles=FP555.CopyFiles
+
+[FP51E.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP51E.AddReg, 1024, DPMS
+CopyFiles=FP51E.CopyFiles
+
+[FP561.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP561.AddReg, 1024, DPMS
+CopyFiles=FP561.CopyFiles
+
+[FP851.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP851.AddReg, 1280, DPMS
+CopyFiles=FP851.CopyFiles
+
+[FP502.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP502.AddReg, 1024, DPMS
+CopyFiles=FP502.CopyFiles
+
+[LM551.install]
+DelReg=DEL_CURRENT_REG
+AddReg=LM551.AddReg, 1024, DPMS
+CopyFiles=LM551.CopyFiles
+
+[LM552.install]
+DelReg=DEL_CURRENT_REG
+AddReg=LM552.AddReg, 1024, DPMS
+CopyFiles=LM552.CopyFiles
+
+[LM554.install]
+DelReg=DEL_CURRENT_REG
+AddReg=LM554.AddReg, 1024, DPMS
+CopyFiles=LM554.CopyFiles
+
+[FP855.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP855.AddReg, 1280, DPMS
+CopyFiles=FP855.CopyFiles
+
+[FP550.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP550.AddReg, 1024, DPMS
+CopyFiles=FP550.CopyFiles
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------
+
+[7631F.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"7631F.ICM"
+
+[7631FE.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"7631FE.ICM"
+
+[7651F.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"7651F.ICM"
+
+[7650FP.AddReg]
+HKR,"MODES\1024,768",Mode1,,"56.5,70,-,-"
+HKR,"MODES\1024,768",Mode2,,"48.4,60,-,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"7650FP.ICM"
+
+[FP850.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode5,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP850.ICM"
+
+[FP500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"56.5,70,-,-"
+HKR,"MODES\1024,768",Mode2,,"48.4,60,-,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP500.ICM"
+
+[FP551.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-85.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP551.ICM"
+
+[FP560.AddReg]
+HKR,"MODES\1024,768",Mode1,,"56.5,70,-,-"
+HKR,"MODES\1024,768",Mode2,,"48.4,60,-,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP560.ICM"
+
+[FP555.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP555.ICM"
+
+[FP51E.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP51E.ICM"
+
+[FP561.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP561.ICM"
+
+[FP851.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode5,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP851.ICM"
+
+[FP502.AddReg]
+HKR,"MODES\1024,768",Mode1,,"56.5,70,-,-"
+HKR,"MODES\1024,768",Mode2,,"48.4,60,-,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP502.ICM"
+
+[LM551.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-85.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"LM551.ICM"
+
+[LM552.AddReg]
+HKR,"MODES\1024,768",Mode1,,"56.5,70,-,-"
+HKR,"MODES\1024,768",Mode2,,"48.4,60,-,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"LM552.ICM"
+
+[LM554.AddReg]
+HKR,"MODES\1024,768",Mode1,,"56.5,70,-,-"
+HKR,"MODES\1024,768",Mode2,,"48.4,60,-,-"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"LM554.ICM"
+
+[FP855.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode5,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP855.ICM"
+
+[FP550.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP550.ICM"
+
+
+[7631F.CopyFiles]
+7631F.ICM
+
+[7631FE.CopyFiles]
+7631FE.ICM
+
+[7651F.CopyFiles]
+7651F.ICM
+
+[7650FP.CopyFiles]
+7650FP.ICM
+
+[FP850.CopyFiles]
+FP850.ICM
+
+[FP500.CopyFiles]
+FP500.ICM
+
+[FP551.CopyFiles]
+FP551.ICM
+
+[FP560.CopyFiles]
+FP560.ICM
+
+[FP555.CopyFiles]
+FP555.ICM
+
+[FP51E.CopyFiles]
+FP51E.ICM
+
+[FP561.CopyFiles]
+FP561.ICM
+
+[FP851.CopyFiles]
+FP851.ICM
+
+[FP502.CopyFiles]
+FP502.ICM
+
+[LM551.CopyFiles]
+LM551.ICM
+
+[LM552.CopyFiles]
+LM552.ICM
+
+[LM554.CopyFiles]
+LM554.ICM
+
+[FP855.CopyFiles]
+FP855.ICM
+
+[FP550.CopyFiles]
+FP550.ICM
+
+
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+
+Acer="Acer"
+
+7631FE="AcerView F31e"
+7651F= "AcerView F51"
+7631F= "AcerView F31"
+7650FP="AcerView F50p"
+FP850= "Acer FP850"
+FP500= "Acer FP500"
+FP551= "Acer FP551"
+FP560= "Acer FP560"
+FP555= "Acer FP555"
+FP51E= "Acer FP51e"
+FP561= "Acer FP561"
+FP851= "Acer FP851"
+FP502= "Acer FP502"
+LM551= "Acer LM551"
+LM552= "Acer LM552"
+LM554= "Acer LM554"
+FP855= "Acer FP855"
+FP550= "Acer FP550"
+
+

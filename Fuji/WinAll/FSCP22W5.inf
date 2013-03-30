@@ -1,0 +1,120 @@
+;FSCP22W5.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor P22W-5
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP22W5.cat
+DriverVer=05/26/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS06A4
+ExcludeFromSelect.nt=Monitor\FUS06A5
+ExcludeFromSelect.nt=Monitor\FUS06A6
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FSCP22W5.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP22W5.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%P22W-5%=FSCP22W5a.Install, Monitor\FUS06A4
+%P22W-5%=FSCP22W5d.Install, Monitor\FUS06A5
+%P22W-5%=FSCP22W5h.Install, Monitor\FUS06A6
+
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%P22W-5%=FSCP22W5a.Install, Monitor\FUS06A4
+%P22W-5%=FSCP22W5d.Install, Monitor\FUS06A5
+%P22W-5%=FSCP22W5h.Install, Monitor\FUS06A6
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FSCP22W5a.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP22W5a.AddReg, 1680, DPMS
+CopyFiles=FSCP22W5.CopyFiles
+
+[FSCP22W5d.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP22W5d.AddReg, 1680, DPMS
+CopyFiles=FSCP22W5.CopyFiles
+
+[FSCP22W5h.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCP22W5h.AddReg, 1680, DPMS
+CopyFiles=FSCP22W5.CopyFiles
+
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+
+[FSCP22W5a.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-94.0,55.0-75.0,-,+"
+HKR,,ICMProfile,0,"FSCP22W5.icm"
+
+[FSCP22W5d.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"FSCP22W5.icm"
+
+[FSCP22W5h.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-94.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"FSCP22W5.icm"
+
+
+;---------------------------------------------------------- 
+
+
+
+[FSCP22W5.CopyFiles]
+FSCP22W5.icm
+
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="FUJSIE Inc. Monitor Installation Disk"
+FUJSIE="Fujitsu Siemens Computers"	
+P22W-5="Fujitsu Siemens Computers P22W-5"

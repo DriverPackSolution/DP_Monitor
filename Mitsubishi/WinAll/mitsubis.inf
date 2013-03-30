@@ -1,0 +1,911 @@
+; Monitor INF file for Mitsubishi Monitors
+; Copyright 1995-2000, Mitsubishi Electronics of America Inc.
+; Copyright 2000-2001, NEC-Mitsubishi Electronics Display of America Inc.
+; version 010925 WGH
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Mitsubishi%
+DriverVer=09/25/2001,1.01.0925.0001
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+
+[Manufacturer]
+%Mitsubishi%=Mitsubishi
+
+[Mitsubishi]
+%FW-6405%=FW-6405.Install,   MonID_MEL6405
+%SD-4100%=SD-4100.Install,   MonID_MEL4100
+%SD-4300%=SD-4300.Install,   MonID_MEL4300
+%SD-4500%=SD-4500.Install,   MonID_MEL4500
+%SD-5500%=SD-5500.Install,   MonID_MEL5500
+%SD-5600%=SD-5600.Install,   MonID_MEL5600
+%SD-5700%=SD-5700.Install,   Monitor\MEL8040
+%SD-5800%=SD-5800.Install,   Monitor\MEL408F
+%FFY-7705%=FFY-7705.Install, MonID_MEL7705
+%TFS-6705%=TFS-6705.Install, MonID_MEL6705
+%TFG-8705%=TFG-8705.Install, Monitor\MEL4040
+%TFM-8705%=TFM-8705.Install, Monitor\MEL40C0
+%FFF-8705%=FFF-8705.Install, Monitor\MEL6140
+%HL-6955%=HL-6955.Install,   MonID_MEL6955
+%HL-7955%=HL-7955.Install,   MonID_MEL7955
+%HC-3925%=HC-3925.Install,   MonID_MEL3925
+%FR-8905%=FR-8905.Install,   Monitor\MEL2040
+%FR-8905B%=FR-8905B.Install, Monitor\MEL2040
+%FFL-7165%=FFL-7165.Install, MonID_MEL7165
+%FFL-7165B%=FFL-7165B.Install, MonID_MEL7165B
+%THZ-8155%=THZ-8155.Install, MonID_MEL8155
+%THN-9105%=THN-9105.Install, Monitor\MEL0040
+%TFW-9105%=TFW-9105.Install, Monitor\MEL40E0
+%HC-3505%=HC-3505.Install,   MonID_MEL3505
+%HJ-6505%=HJ-6505.Install,   MonID_MEL6505
+%XC-2930%=XC-2930.Install,   MonID_MEL2930
+%XC-3315%=XC-3315.Install,   MonID_MEL3315
+%XC-3715%=XC-3715.Install,   MonID_MEL3715
+%XC-3725%=XC-3725.Install,   MonID_MEL3725
+%XC-3716%=XC-3716.Install,   MonID_MEL3716
+%XC-3730%=XC-3730.Install,   MonID_MEL3730
+%AM-4201%=AM-4201.Install,   MonID_MEL4201
+%AM-2752%=AM-2752.Install,   MonID_MEL2752
+%XC-3717%=XC-3717.Install,   MonID_MEL3717
+%VS-1280%=VS-1280.Install,   MonID_MEL1280
+%VS-1281%=VS-1281.Install,   MonID_MEL1281
+%LVP-G1A%=LVP-G1A.Install,   MonID_MELLVPG1A
+%PP-5800%=PP-5800.Install,   MonID_MELPP_5800
+%PP-8705%=PP-8705.Install,   MonID_MELPP_8705
+%PP-8905%=PP-8905.Install,   MonID_MELPP_8905
+%TFV-6705%=TFV-6705.Install, Monitor\MEL4064
+%TFX-1105%=TFX-1105.Install, Monitor\MEL4100
+%TUX-1107%=TUX-1107.Install, Monitor\MEL4101
+%TFK-9705%=TFK-9705.Install, Monitor\MEL4110
+%SV-1000%=SV-1000.Install, Monitor\MEL4120
+%SV-700%=SV-700.Install, Monitor\MEL4130
+%TF-7700P%=TF-7700P.Install, Monitor\MEL4190
+%TFW-1105%=TFW-1105.Install, Monitor\MEL40E1
+%SD-5904%=SD-5904.Install, Monitor\MEL41F0
+%SD-7704%=SD-7704.Install, Monitor\MEL4210
+%TFV-6708%=TFV-6708.Install, Monitor\MEL4240
+%TFV-8705%=TFV-8705.Install, Monitor\MEL4160
+%FFT-9905%=FFT-9905.Install, Monitor\MEL4220
+%NFJ-9905%=NFJ-9905.Install, Monitor\MEL42C0
+%TFA-1105%=TFA-1105.Install, Monitor\MEL42F0
+%NUB-1107%=NUB-1107.Install, Monitor\MEL4310
+%NUR-1905%=NUR-1905.Install, Monitor\MEL4440
+%NFF-8705%=NFF-8705.Install, Monitor\MEL4360
+%LVP-X300%=LVP-X300.Install, Monitor\MEL3001
+%NSB-1107%=NSB-1107.Install, Monitor\MEL4311
+%NSH-1117%=NSH-1117.Install, Monitor\MEL43F0
+%NSH-1157%=NSH-1157.Install, Monitor\MEL43F3
+%NFL-9905%=NFL-9905.Install, Monitor\MEL43A0
+%NFN-8705%=NFN-8705.Install, Monitor\MEL4380
+%NFN-9705%=NFN-9705.Install, Monitor\MEL4381
+%N-9705%=N-9705.Install, Monitor\MEL4460
+%LSA810W%=LSA810W.Install, Monitor\MEL4340
+%LSA820W%=LSA820W.Install, Monitor\MEL4341
+%LSA831W%=LSA831W.Install, Monitor\MEL4343
+%LXA420W%=LXA420W.Install, Monitor\MEL41C0
+%LXA520W%=LXA520W.Install, Monitor\MEL41D0
+%LXA530W%=LXA530W.Install, Monitor\MEL41D1
+%LXA550W%=LXA550W.Install, Monitor\MEL41D2
+%LXA565W%=LXA565W.Install, Monitor\MEL41D3
+%LXA572W%=LXA572W.Install, Monitor\MEL41D4
+%LXA580W%=LXA580W.Install, Monitor\MEL41D6
+%NSZ-2107%=NSZ-2107.Install, Monitor\MEL4511
+%NSZ-2107B%=NSZ-2107B.Install, Monitor\MEL4513
+%NSV-1107%=NSV-1107.Install, Monitor\MEL4480
+%MITS-DP730%=MITS-DP730.Install, Monitor\MEL4520
+%MITS-DP740SB%=MITS-DP740SB.Install, Monitor\MEL4521
+%MITS-DS72%=MITS-DS72.Install, Monitor\MEL4580
+%MITS-DS52%=MITS-DS52.Install, Monitor\MEL4570
+%MITS-DPLUS92%=MITS-DPLUS92.Install, Monitor\MEL44B0
+
+; Install sections
+[FW-6405.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FW-6405.AddReg, 1024
+
+[SD-4100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-4100.AddReg, 640
+
+[SD-4300.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-4300.AddReg, 800
+
+[SD-4500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-4500.AddReg, 1024
+
+[SD-5500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-5500.AddReg, 1024
+
+[SD-5600.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-5600.AddReg, 1024
+
+[SD-5700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-5700.AddReg, 1024, DPMS
+
+[SD-5800.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-5800.AddReg, 1280, DPMS
+
+[FFY-7705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FFY-7705.AddReg, 1280, DPMS
+
+[TFS-6705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFS-6705.AddReg, 1280
+
+[TFG-8705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFG-8705.AddReg, 1600, DPMS
+
+[TFM-8705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFM-8705.AddReg, 1600, DPMS
+
+[FFF-8705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FFF-8705.AddReg, 1280, DPMS
+
+[HL-6955.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HL-6955.AddReg, 1280
+
+[HL-7955.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HL-7955.AddReg, 1280
+
+[HC-3925.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HC-3925.AddReg, 1024
+
+[FR-8905.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-8905.AddReg, 1600, DPMS
+
+[FR-8905B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FR-8905B.AddReg, 1600, DPMS
+
+[FFL-7165.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FFL-7165.AddReg, 1280
+
+[FFL-7165B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FFL-7165B.AddReg, 1280
+
+[THZ-8155.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=THZ-8155.AddReg, 1600, DPMS
+
+[THN-9105.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=THN-9105.AddReg, 1600, DPMS
+
+[TFW-9105.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFW-9105.AddReg, 1600, DPMS
+
+[HC-3505.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HC-3505.AddReg, 1024
+
+[HJ-6505.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HJ-6505.AddReg, 1280
+
+[XC-2930.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XC-2930.AddReg, 1280
+
+[XC-3315.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XC-3315.AddReg, 800
+
+[XC-3715.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XC-3715.AddReg, 640
+
+[XC-3725.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XC-3725.AddReg, 1024
+
+[XC-3716.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XC-3716.AddReg, 1024
+
+[XC-3730.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XC-3730.AddReg, 1280
+
+[AM-4201.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AM-4201.AddReg, 1280
+
+[AM-2752.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AM-2752.AddReg, 640
+
+[XC-3717.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XC-3717.AddReg, 1024
+
+[VS-1280.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-1280.AddReg, 1600
+
+[VS-1281.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VS-1281.AddReg, 1600
+
+[LVP-G1A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LVP-G1A.AddReg, 640, DPMS
+
+[PP-5800.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PP-5800.AddReg, 1280, DPMS
+
+[PP-8705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PP-8705.AddReg, 1280, DPMS
+
+[PP-8905.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PP-8905.AddReg, 1600, DPMS
+
+[TFV-6705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFV-6705.AddReg, 1280, DPMS
+
+[TFX-1105.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFX-1105.AddReg, 1800, DPMS
+
+[TUX-1107.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFX-1105.AddReg, 1800, DPMS
+
+[TFK-9705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFK-9705.AddReg, 1600, DPMS
+
+[LXA420W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LXA420W.AddReg, 1024, DPMS
+
+[LXA520W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LXA520W.AddReg, 1024, DPMS
+
+[SV-1000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SV-1000.AddReg, 1600, DPMS
+
+[SV-700.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SV-700.AddReg, 1600, DPMS
+
+[TF-7700P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TF-7700P.AddReg, 1280, DPMS
+
+[TFW-1105.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFW-1105.AddReg, 1600, DPMS
+
+[SD-5904.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-5904.AddReg, 1280, DPMS
+
+[SD-7704.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SD-7704.AddReg, 1280, DPMS
+
+[TFV-6708.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFV-6708.AddReg, 1280, DPMS
+
+[TFV-8705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFV-8705.AddReg, 1600, DPMS
+
+[FFT-9905.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FFT-9905.AddReg, 1600, DPMS
+
+[NFJ-9905.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NFJ-9905.AddReg, 1600, DPMS
+
+[TFA-1105.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TFA-1105.AddReg, 1800, DPMS
+
+[NUB-1107.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NUB-1107.AddReg, 1920, DPMS
+
+[NUR-1905.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NUR-1905.AddReg, 1600, DPMS
+
+[NFF-8705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NFF-8705.AddReg, 1600, DPMS
+
+[LVP-X300.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LVP-X300.AddReg, 1280, DPMS
+
+[NSB-1107.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NSB-1107.AddReg, 2048, DPMS
+
+[NSH-1117.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NSH-1117.AddReg, 1800, DPMS
+
+[NSH-1157.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NSH-1157.AddReg, 2048, DPMS
+
+[NFL-9905.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NFL-9905.AddReg, 1600, DPMS
+
+[NFN-9705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NFN-9705.AddReg, 1600, DPMS
+
+[NFN-8705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NFN-8705.AddReg, 1600, DPMS
+
+[N-9705.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=N-9705.AddReg, 1280, DPMS
+
+[LSA810W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LSA810W.AddReg, 1280, DPMS
+
+[LSA820W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LSA820W.AddReg, 1280, DPMS
+
+[LSA831W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LSA831W.AddReg, 1280, DPMS
+
+[LXA530W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LXA530W.AddReg, 1024, DPMS
+
+[LXA550W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LXA550W.AddReg, 1024, DPMS
+
+[LXA565W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LXA565W.AddReg, 1024, DPMS
+
+[LXA572W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LXA572W.AddReg, 1024, DPMS
+
+[LXA580W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LXA580W.AddReg, 1024, DPMS
+
+[NSZ-2107.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NSZ-2107.AddReg, 2048, DPMS
+
+[NSZ-2107B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NSZ-2107B.AddReg, 2048, DPMS
+
+[NSV-1107.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NSV-1107.AddReg, 1920, DPMS
+
+[MITS-DP730.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MITS-DP730.AddReg, 1600, DPMS
+
+[MITS-DP740SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MITS-DP740SB.AddReg, 1600, DPMS
+
+[MITS-DS72.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MITS-DS72.AddReg, 1280, DPMS
+
+[MITS-DS52.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MITS-DS52.AddReg, 1280, DPMS
+
+[MITS-DPLUS92.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MITS-DPLUS92.AddReg, 1792, DPMS
+
+; AddReg sections
+[FW-6405.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-58,50.0-90.0,+,+"
+HKR,,ICMProfile,1,2
+
+[SD-4100.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5,60.0-70.0,-,-"
+HKR,,ICMProfile,1,2
+
+[SD-4300.AddReg]
+HKR,"MODES\800,600",Mode1,,"30.0-38.5,50.0-70.0,+,+"
+HKR,,ICMProfile,1,2
+
+[SD-4500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-57.0,50.0-90.0,+,+"
+HKR,,ICMProfile,1,2
+
+[SD-5500.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-57.0,50.0-90.0,+,+"
+HKR,,ICMProfile,1,2
+
+[SD-5600.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-64.0,50.0-90.0,+,+"
+HKR,,ICMProfile,1,2
+
+[SD-5700.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-65.0,50.0-90.0,+,+"
+HKR,,ICMProfile,1,2
+
+[SD-5800.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-65.0,50.0-100.0,+,+"
+HKR,,ICMProfile,1,2
+
+[FFY-7705.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,2
+
+[TFS-6705.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,2
+
+[TFG-8705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFM-8705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[FFF-8705.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,2
+
+[HL-6955.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,2
+
+[HL-7955.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,2
+
+[HC-3925.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.7-38.0,45.0-90.0,+,+"
+HKR,,ICMProfile,1,2
+
+[FR-8905.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-82.0,50.0-120.0,+,+"
+HKR,,ICMProfile,1,6
+
+[FR-8905B.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-82.0,50.0-120.0,+,+"
+HKR,,ICMProfile,1,6
+
+[FFL-7165.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,2
+
+[FFL-7165B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-78.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,2
+
+[THZ-8155.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[THN-9105.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-93.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFW-9105.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[HC-3505.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.7-38.0,45.0-90.0,+,+"
+HKR,,ICMProfile,1,2
+
+[HJ-6505.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"45.0-70.0,50.0-80.0,+,+"
+HKR,,ICMProfile,1,2
+
+[XC-2930.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"15.0-82.0,40.0-120.0,+,+"
+HKR,,ICMProfile,1,2
+
+[XC-3315.AddReg]
+HKR,"MODES\800,600",Mode1,,"15.0-38.0,40.0-120.0,+,+"
+HKR,,ICMProfile,1,2
+
+[XC-3715.AddReg]
+HKR,"MODES\640,480",Mode1,,"15.0-36.5,40.0-120.0,+,+"
+HKR,,ICMProfile,1,2
+
+[XC-3725.AddReg]
+HKR,"MODES\1024,768",Mode1,,"24.0-64.0,40.0-120.0,+,+"
+HKR,,ICMProfile,1,2
+
+[XC-3716.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-39.5,40.0-120.0,+,+"
+HKR,,ICMProfile,1,2
+
+[XC-3730.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"15.0-85.0,40.0-120.0,+,+"
+HKR,,ICMProfile,1,2
+
+[AM-4201.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"20.0-64.0,45.0-120.0,+,+"
+HKR,,ICMProfile,1,2
+
+[AM-2752.AddReg]
+HKR,"MODES\640,480",Mode1,,"15.0-39.0,45.0-100.0,+,+"
+HKR,,ICMProfile,1,2
+
+[XC-3717.AddReg]
+HKR,"MODES\1024,768",Mode1,,"15.0-61.0,40.0-120.0,+,+"
+HKR,,ICMProfile,1,2
+
+[VS-1280.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"15.0-100.0,40.0-150.0,+,+"
+HKR,,ICMProfile,1,2
+
+[VS-1281.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"15.0-103.0,40.0-150.0,+,+"
+HKR,,ICMProfile,1,2
+
+[LVP-G1A.AddReg]
+HKR,"MODES\640,480",Mode1,,"25.0-37.86,56.0-72.0,+,+"
+HKR,,ICMProfile,1,2
+
+[PP-5800.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-100.0,+,+"
+HKR,,ICMProfile,1,2
+
+[PP-8705.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,2
+
+[PP-8905.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-82.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFV-6705.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFX-1105.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-115.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TUX-1107.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-115.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFK-9705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[LXA420W.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.2,56.3-85.1,+,+" 
+HKR,,ICMProfile,1,6
+
+[LXA520W.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.2,56.3-85.1,+,+" 
+HKR,,ICMProfile,1,6
+
+[SV-1000.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[SV-700.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TF-7700P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-180.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFW-1105.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-108.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[SD-5904.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-100.0,+,+"
+HKR,,ICMProfile,1,6
+
+[SD-7704.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-100.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFV-6708.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFV-8705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[FFT-9905.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NFJ-9905.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-152.0,+,+"
+HKR,,ICMProfile,1,6
+
+[TFA-1105.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NUB-1107.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-121.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NUR-1905.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-108.0,50.0-140.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NFF-8705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[LVP-X300.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"15.0-91.0,50.0-85.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NSB-1107.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-121.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NSH-1117.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-108.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NSH-1157.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-121.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NFL-9905.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-140.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NFN-8705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NFN-9705.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-130.0,+,+"
+HKR,,ICMProfile,1,6
+
+[N-9705.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-69.0,59.0-86.0,+,+"
+HKR,,ICMProfile,1,6
+
+[LSA810W.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,30.0-85.1,+,+"
+HKR,,ICMProfile,1,6
+
+[LSA820W.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.5,30.0-85.1,+,+"
+HKR,,ICMProfile,1,6
+
+[LSA831W.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,30.0-85.0,+,+"
+HKR,,ICMProfile,1,6
+
+[LXA530W.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,30.0-85.1,+,+" 
+HKR,,ICMProfile,1,6
+
+[LXA550W.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.5,56.0-75.0,+,+" 
+HKR,,ICMProfile,1,6
+
+[LXA565W.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.5-60.5,56.0-75.0,+,+" 
+HKR,,ICMProfile,1,6
+
+[LXA572W.Install]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-76.0,+,+"
+HKR,,ICMProfile,1,6
+
+[LXA580W.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NSZ-2107.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-121.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NSZ-2107B.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-121.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[NSV-1107.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[MITS-DP730.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[MITS-DP740SB.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+[MITS-DS72.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,1,6
+
+[MITS-DS52.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,1,6
+
+[MITS-DPLUS92.AddReg]
+HKR,"MODES\1792,1344",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+; Common AddReg/DelReg sections
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+
+[800]
+HKR,,MaxResolution,,"800,600"
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[1800]
+HKR,,MaxResolution,,"1800,1440"
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; User visible strings
+[Strings]
+MonitorClassName="Monitor"
+Mitsubishi="Mitsubishi Electronics"
+FW-6405="Mitsubishi Diamond Pro 14 (FW6405)"
+SD-4100="Mitsubishi Diamond Pro VGA (SD41xx)"
+SD-4300="Mitsubishi Diamond Pro SVGA (SD43xx)"
+SD-4500="Mitsubishi Diamond Pro 14 Plus (SD45xx)"
+SD-5500="Mitsubishi Diamond Scan 15FS (SD55xx)"
+SD-5600="Mitsubishi Diamond Pro 15FS (SD56xx)"
+SD-5700="Mitsubishi Diamond Scan 15HX (SD57xx)"
+SD-5800="Mitsubishi Diamond Scan 15VX (SD58xx)"
+FFY-7705="Mitsubishi Diamond Scan 17FS (FFY7705)"
+TFS-6705="Mitsubishi Diamond Pro 17 (TFS6705)"
+TFG-8705="Mitsubishi Diamond Pro 17TX (TFG8705)"
+TFM-8705="Mitsubishi Diamond Pro 87TXM (TFM8705)"
+FFF-8705="Mitsubishi Diamond Scan 17HX (FFF8705)"
+HL-6955="Mitsubishi Diamond Scan 20 (HL6945/55)"
+HL-7955="Mitsubishi Diamond Pro 20 (HL7955)"
+HC-3925="Mitsubishi Diamond Scan 20M (HC3925)"
+FR-8905="Mitsubishi Diamond Scan 20H (FR8905)"
+FR-8905B="Mitsubishi Diamond Pro 20X (FR8905)"
+FFL-7165="Mitsubishi Diamond Scan 21 (FFL7165)"
+FFL-7165B="Mitsubishi Diamond Pro 21FS (FFL7165)"
+THZ-8155="Mitsubishi Diamond Pro 21T (THZ8155)"
+THN-9105="Mitsubishi Diamond Pro 21TX (THN9105)"
+TFW-9105="Mitsubishi Diamond Pro 91TXM (TFW9105)"
+HC-3505="Mitsubishi Diamond Pro 26M (HC3505)"
+HJ-6505="Mitsubishi Diamond Pro 26H (HJ6505)"
+XC-2930="Mitsubishi MegaView Pro 29 (XC2930)"
+XC-3315="Mitsubishi MegaView 33 (XC3315)"
+XC-3715="Mitsubishi Diamond Scan 37 (XC3715)"
+XC-3716="Mitsubishi MegaView 37 (XC3716)"
+XC-3725="Mitsubishi Diamond Pro 37 (XC3725)"
+XC-3730="Mitsubishi MegaView Pro 37 (XC3730)"
+AM-4201="Mitsubishi MegaView Pro 42 (AM4201)"
+AM-2752="Mitsubishi MegaView 29 (AM2752)"
+XC-3717="Mitsubishi MegaView 37 Plus (XC3717)"
+VS-1280="Mitsubishi VS1280 Projector"
+VS-1281="Mitsubishi The Big Easy 1281 (VS1281)"
+LVP-G1A="Mitsubishi The Big Easy G1A (LVPG1A)"
+PP-5800="Mitsubishi Precise Point 5800"
+PP-8705="Mitsubishi Precise Point 8705"
+PP-8905="Mitsubishi Precise Point 8905"
+TFV-6705="Mitsubishi Diamond Pro 67TXV (TFV6705)"
+TFX-1105="Mitsubishi Diamond Pro 1000 (TFX1105)"
+TUX-1107="Mitsubishi Diamond Pro 1010 (TUX1107)"
+TFK-9705="Mitsubishi Diamond Pro 700 (TFK9705)"
+SV-1000="Mitsubishi SpectraView 1000"
+SV-700="Mitsubishi SpectraView 700"
+TF-7700P="Mitsubishi Diamond Plus 70 (TF-7700P)"
+TFW-1105="Mitsubishi Diamond Plus 100 (TFW1105)"
+SD-5904="Mitsubishi Diamond Scan 50 (SD5904)"
+SD-7704="Mitsubishi Diamond Scan 70 (SD7704)"
+TFV-6708="Mitsubishi Diamond Plus 71 (TFV6708)"
+TFV-8705="Mitsubishi Diamond Plus 72 (TFV8705)"
+FFT-9905="Mitsubishi Diamond Scan 90e (FFT9905)"
+NFJ-9905="Mitsubishi Diamond Pro 900u (NFJ9905)"
+TFA-1105="Mitsubishi Diamond Plus 120u (TFA1105)"
+NUB-1107="Mitsubishi Diamond Pro 2020u (NUB1107)"
+NUR-1905="Mitsubishi Diamond Pro 920 (NUR1905)"
+NFF-8705="Mitsubishi Diamond Pro 710 (NFF8705)"
+LVP-X300="Mitsubishi LVP-X300 Projector (LVP-X300)"
+NSB-1107="Mitsubishi Diamond Pro 2040u (NSB1107)"
+NSH-1117="Mitsubishi Diamond Plus 200 (NSH1117)"
+NSH-1157="Mitsubishi Diamond Pro 2045u (NSH1157)"
+NFL-9905="Mitsubishi Diamond Plus 91 (NFL9905)"
+NFN-8705="Mitsubishi Diamond Pro 710s (NFN8705)"
+NFN-9705="Mitsubishi Diamond Pro 720 (NFN9705)"
+N-9705="Mitsubishi Diamond Plus 73 (N9705)"
+LSA810W="Mitsubishi LCD 80 (LSA810W)"
+LSA820W="Mitsubishi LCD 80 (LSA820W/WB)"
+LSA831W="Mitsubishi LCD 80 (LSA831W)"
+LXA420W="Mitsubishi LCD 40 (LXA420W)"
+LXA520W="Mitsubishi LCD 50 (LXA520W)"
+LXA530W="Mitsubishi LCD 51 (LXA530W)"
+LXA550W="Mitsubishi LCD 52 (LXA550W/WB)"
+LXA565W="Mitsubishi LCD 52 (LXA565W)"
+LXA572W="Mitsubishi LCD 151A (LXA572WB)"
+LXA580W="Mitsubishi LCD 580 (LXA580W)"
+NSZ-2107="Mitsubishi Diamond Pro 2060u (NSZ2107)"
+NSZ-2107B="Mitsubishi Diamond Pro 2060u (NSZ2107)"
+NSV-1107="Mitsubishi Diamond Plus 220 (NSV1107)"
+MITS-DP730="Mitsubishi Diamond Pro730"
+MITS-DP740SB="Mitsubishi Diamond Pro 740SB"
+MITS-DS72="Mitsubishi Diamond Scan 72"
+MITS-DS52="Mitsubishi Diamond Scan 52"
+MITS-DPLUS92="Mitsubishi Diamond Plus 92"

@@ -1,0 +1,61 @@
+; Acer INF File for Windows 9x/2000
+; Copyright (c)  2002, Acer Inc.
+; Revision Date: SEP 12, 2001
+
+[Version]    
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Mfg%
+DriverVer=09/12/2001,1.1
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\JEN00A6
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+[Manufacturer]
+%Mfg%=Acer
+
+[Acer]
+%JT166%=JT166.Install,Monitor\JEN00A6 ;JT166
+
+[JT166.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=JT166.AddReg,1024,DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+
+
+;Defind Repetitive AddReg Parameters
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[JT166.Addreg]
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,+,+"
+
+[Strings]
+MonitorClassName="Monitor"
+Mfg="Acer Inc."
+
+JT166="Acer AJ15FP TFT LCD Monitor"

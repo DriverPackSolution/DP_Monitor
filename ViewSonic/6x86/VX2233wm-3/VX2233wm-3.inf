@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2233wm-3.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/15/2008, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2233wm-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2233wm-3.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC3322
+
+[ViewSonic]   
+%VX2233wm-3%=VX2233wm-3.Install,Monitor\VSC3322  
+
+[ViewSonic.NTia64]   
+%VX2233wm-3%=VX2233wm-3.Install,Monitor\VSC3322  
+
+[ViewSonic.NTamd64]   
+%VX2233wm-3%=VX2233wm-3.Install,Monitor\VSC3322  
+
+[VX2233wm-3.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2233wm-3.AddReg,1920,DPMS
+Copyfiles=VX2233wm-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2233wm-3.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VX2233wm-3.ICM"
+
+[VX2233wm-3.CopyFiles]                                       
+VX2233wm-3.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2233wm-3 ViewSonic Monitor Installation Disk"
+VX2233wm-3="ViewSonic VX2233wm-3"

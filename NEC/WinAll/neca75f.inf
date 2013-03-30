@@ -1,0 +1,82 @@
+; NECA75F.INF
+; Setup information file for NEC AccuSync 75F Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=NECA75F.cat
+DriverVer=01/28/2002,2.01.0028.1728
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC5DCF
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+NEC-AS75F.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+neca75f1.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%NEC-AS75F%=NEC-AS75F.Install, Monitor\NEC5DCF
+
+; Install Sections
+;-------------------------------------------------
+[NEC-AS75F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NEC-AS75F.AddReg, 1280, DPMS
+CopyFiles=NEC-AS75F.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[NEC-AS75F.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-70.0,55.0-120.0,+,+"
+HKR,,ICMProfile,0,"neca75F1.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[NEC-AS75F.CopyFiles]
+NECA75F1.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+NEC-AS75F="NEC AccuSync 75F"

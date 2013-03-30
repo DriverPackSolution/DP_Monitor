@@ -1,0 +1,82 @@
+#####################################################################
+; This is a setup information file for Belinea 2025 S1W monitor
+; Modified by MAXDATA Systeme GmbH (ABA)                            
+; Revision 1.0.0.0, February 09, 2007
+; Copyright 2000-2007 MAXDATA Systeme GmbH
+#####################################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=112011.cat
+DriverVer=02/09/2007,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX07DB
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea 2025 S1W / Art. No. 112011" = 112011.Install, Monitor\MAX07DB
+
+[Belinea.NTx86]
+"Belinea 2025 S1W / Art. No. 112011" = 112011.Install, Monitor\MAX07DB
+
+[Belinea.NTia64]
+"Belinea 2025 S1W / Art. No. 112011" = 112011.Install, Monitor\MAX07DB
+
+[Belinea.NTamd64]
+"Belinea 2025 S1W / Art. No. 112011" = 112011.Install, Monitor\MAX07DB
+
+
+; Install sections
+;-------------------------------------------------
+[112011.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=112011.AddReg,1680,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[112011.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA Systeme GmbH"
+BELINEA="MAXDATA Systeme GmbH"
+

@@ -1,0 +1,99 @@
+;================================ 
+;SL23T-1L.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display SL23T-1 LED
+;Copyright 2010 Fujitsu Technology Solutions GmbH
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS-Mfg%
+CatalogFile=SL23T-1L.cat
+DriverVer=11/10/2010,1.0.0.0
+
+;-------------------------------------------------
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SL23T-1L.CopyFiles = 23
+
+[SourceDisksNames]
+1="Fujitsu Driver & Utilities CD SL23T-6 LED",,,
+
+[SourceDisksFiles]
+SL23T-1L.icm=1
+
+[Manufacturer]
+%FTS-Mfg%=FTS-Mfg,NTx86,NTAMD64 
+
+[FTS-Mfg]  
+%SL23T-1L_a%=SL23T-1L_a.Install, Monitor\FUS07F8
+%SL23T-1L_h1%=SL23T-1L_h.Install, Monitor\FUS07F9
+%SL23T-1L_h2%=SL23T-1L_h.Install, Monitor\FUS07FA
+
+[FTS-Mfg.NTx86]
+%SL23T-1L_a%=SL23T-1L_a.Install, Monitor\FUS07F8
+%SL23T-1L_h1%=SL23T-1L_h.Install, Monitor\FUS07F9
+%SL23T-1L_h2%=SL23T-1L_h.Install, Monitor\FUS07FA
+
+[FTS-Mfg.NTAMD64]  
+%SL23T-1L_a%=SL23T-1L_a.Install, Monitor\FUS07F8
+%SL23T-1L_h1%=SL23T-1L_h.Install, Monitor\FUS07F9
+%SL23T-1L_h2%=SL23T-1L_h.Install, Monitor\FUS07FA
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07F8
+ExcludeFromSelect.nt=Monitor\FUS07F9
+ExcludeFromSelect.nt=Monitor\FUS07FA
+
+[SL23T-1L_a.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=SL23T-1L_a.AddReg, 1920, DPMS
+CopyFiles=SL23T-1L.CopyFiles
+					     
+[SL23T-1L_h.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=SL23T-1L_h.AddReg, 1920, DPMS
+CopyFiles=SL23T-1L.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[SL23T-1L_a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-82.0,59.0-76.0,+,+"
+HKR,,ICMProfile,0,"SL23T-1L.icm"
+
+[SL23T-1L_h.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"15.0-82.0,23.0-76.0,+,+"
+HKR,,ICMProfile,0,"SL23T-1L.icm"
+
+[SL23T-1L.CopyFiles]
+SL23T-1L.icm
+
+[Strings]
+MonitorClassName="Monitor"
+FTS-Mfg="Fujitsu Technology Solutions"	
+
+SL23T-1L_a="Fujitsu SL23T-1 LED (Analog)"
+SL23T-1L_h1="Fujitsu SL23T-1 LED (HDMI 1)"
+SL23T-1L_h2="Fujitsu SL23T-1 LED (HDMI 2)"

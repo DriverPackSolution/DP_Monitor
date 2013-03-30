@@ -1,0 +1,73 @@
+
+; Medion AG INF File for Win98
+; Setup Information File for Medion 19" Monitor
+; Copyright (c)  1999, Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+MD1998sl.CopyFiles = 23
+
+[SourceDisksNames]
+1="Medion Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+MD1998sl.ICM=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%MD1998sl%=MD1998sl.install,  Monitor\MED1903
+
+[MD1998sl.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD1998sl.AddReg, 1600, DPMS
+CopyFiles=MD1998sl.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD1998sl.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"MD1998sl.ICM"
+
+[MD1998sl.CopyFiles]
+MD1998sl.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+
+Medion="Medion"
+
+MD1998sl= "Medion MD1998sl"

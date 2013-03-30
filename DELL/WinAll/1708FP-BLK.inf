@@ -1,0 +1,99 @@
+;================================ 
+;1708FP-BLK.INF 07/21/08 Ver. 2.0
+;Copyright 1996-2009 Dell Inc.
+;
+;This is a setupfile for 1708FP-BLK
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1708FP-BLK.cat
+DriverVer=07/21/2008, 1.0  
+
+;-------------------------------------------------
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+1708FP-BLK_Analog.CopyFiles = 23
+1708FP-BLK_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+1708FP-BLK.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64 
+
+[DELL]  
+%1708FP-BLK_Analog%=1708FP-BLK_Analog.Install, Monitor\DEL4045
+%1708FP-BLK_Digital%=1708FP-BLK_Digital.Install, Monitor\DEL4046
+
+[DELL.NTx86]
+%1708FP-BLK_Analog%=1708FP-BLK_Analog.Install, Monitor\DEL4045
+%1708FP-BLK_Digital%=1708FP-BLK_Digital.Install, Monitor\DEL4046
+
+[DELL.NTAMD64]  
+%1708FP-BLK_Analog%=1708FP-BLK_Analog.Install, Monitor\DEL4045
+%1708FP-BLK_Digital%=1708FP-BLK_Digital.Install, Monitor\DEL4046
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL4045
+ExcludeFromSelect.nt=Monitor\DEL4046
+
+[1708FP-BLK_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1708FP-BLK_Analog.AddReg, 1280, DPMS
+CopyFiles=1708FP-BLK_Analog.CopyFiles
+
+[1708FP-BLK_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1708FP-BLK_Digital.AddReg, 1280, DPMS
+CopyFiles=1708FP-BLK_Digital.CopyFiles
+					    
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1708FP-BLK_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1708FP-BLK.icm"
+
+[1708FP-BLK_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1708FP-BLK.icm"
+
+[1708FP-BLK_Analog.CopyFiles]
+1708FP-BLK.icm
+
+[1708FP-BLK_Digital.CopyFiles]
+1708FP-BLK.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."	
+
+1708FP-BLK_Analog="Dell 1708FP-BLK(Analog)"
+1708FP-BLK_Digital="Dell 1708FP-BLK(Digital)"

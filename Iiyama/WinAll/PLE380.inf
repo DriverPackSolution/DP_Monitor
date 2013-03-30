@@ -1,0 +1,68 @@
+;PLE380S/T.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor PLE380S/T 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PLE380.cat      
+DriverVer=10/01/2002,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM386C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE380.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE380.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE380%=PLE380.Install, Monitor\IVM386C
+[PLE380.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE380.AddReg, 1024, DPMS
+CopyFiles=PLE380.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE380.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-62.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"PLE380.ICM"
+
+[PLE380.CopyFiles]
+PLE380.ICM
+
+[Strings]
+DISK1="IIYAMA LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+PLE380="IIYAMA ProLite E380S/T"

@@ -1,0 +1,120 @@
+
+;==================================================
+; T200.inf 02/24/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=T200.cat
+DriverVer=02/24/2008,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM03E2
+ExcludeFromSelect.nt=Monitor\SAM03E3
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+T200a.CopyFiles = 23
+T200d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+T200.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%T200a%=T200a.Install, Monitor\SAM03E2
+%T200d%=T200d.Install, Monitor\SAM03E3
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%T200a%=T200a.Install, Monitor\SAM03E2
+%T200d%=T200d.Install, Monitor\SAM03E3
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%T200a%=T200a.Install, Monitor\SAM03E2
+%T200d%=T200d.Install, Monitor\SAM03E3
+
+; Install Sections
+;-----------------------------------------------------
+
+[T200a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T200a.AddReg, 1680, DPMS
+CopyFiles=T200a.CopyFiles
+
+[T200d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T200d.AddReg, 1680, DPMS
+CopyFiles=T200d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[T200a.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T200.icm"
+
+[T200d.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T200.icm"
+;------------------------------------------------------
+
+[T200a.CopyFiles]
+T200.icm
+
+[T200d.CopyFiles]
+T200.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+T200a="SyncMaster T200/T200G,SyncMaster Magic T200/T200G(Analog)"
+T200d="SyncMaster T200/T200G,SyncMaster Magic T200/T200G(Digital)"

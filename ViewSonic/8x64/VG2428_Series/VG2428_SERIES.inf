@@ -1,0 +1,78 @@
+;Monitor.Inf 
+;Copyright 2012, ViewSonic Corporation
+;V001
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VG2428_SERIES.cat
+DriverVer=08/08/2012, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG2428.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VG2428_SERIES.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCE32C  
+
+[ViewSonic]   
+%VG2428%=VG2428.Install,Monitor\VSCE32C  
+
+[ViewSonic.NTia64]   
+%VG2428%=VG2428.Install,Monitor\VSCE32C
+
+[ViewSonic.NTamd64]   
+%VG2428%=VG2428.Install,Monitor\VSCE32C
+ 
+
+[VG2428.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2428.AddReg
+Copyfiles=VG2428.CopyFiles
+
+[VG2428.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+
+[VG2428.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-82,50-75,+,+" 
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"VG2428_SERIES.ICM"
+
+[VG2428.CopyFiles]                                       
+VG2428_SERIES.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+diskname="VG2428 SERIES ViewSonic Wizard"
+ViewSonic="ViewSonic"
+
+VG2428="ViewSonic VG2428 SERIES"

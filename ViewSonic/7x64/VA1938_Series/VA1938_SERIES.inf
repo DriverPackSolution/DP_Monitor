@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VA1938_SERIES.cat
+DriverVer=12/30/2009, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1938.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1938_SERIES.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC0626 
+
+[ViewSonic]   
+%VA1938%=VA1938.Install,Monitor\VSC0626  
+
+[ViewSonic.NTia64]   
+%VA1938%=VA1938.Install,Monitor\VSC0626 
+
+[ViewSonic.NTamd64]   
+%VA1938%=VA1938.Install,Monitor\VSC0626  
+
+[VA1938.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1938.AddReg,1366,DPMS
+Copyfiles=VA1938.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1938.AddReg]  
+HKR,"MODES\1366,768",Mode1,,"24-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA1938_SERIES.icm"
+
+[VA1938.CopyFiles]                                       
+VA1938_SERIES.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA1938 SERIES ViewSonic Wizard"
+VA1938="ViewSonic VA1938 SERIES"

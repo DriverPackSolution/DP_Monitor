@@ -1,0 +1,105 @@
+
+;================================ 
+;E2209W.INF 03/24/08 Ver. 2.0 PCC
+;Copyright 1996-2008 Dell Inc.
+;
+;This is a setupfile for E2209W 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E2209W.cat
+DriverVer=04/24/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELD01E
+ExcludeFromSelect.nt=Monitor\DELD01F
+
+
+[DestinationDirs]
+DefaultDestDir=11
+E2209W.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E2209W.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E2209W%=E2209W.Install, Monitor\DELD01E
+%E2209W%=E2209W.Install, Monitor\DELD01F
+
+
+;-------------------------------------------------
+ [DELL.NTAMD64] 
+%E2209W%=E2209W.Install, Monitor\DELD01E
+%E2209W%=E2209W.Install, Monitor\DELD01F
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E2209W.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E2209W.AddReg, 1680, DPMS
+CopyFiles=E2209W.CopyFiles
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+
+[E2209W.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-75.0,-,+"
+HKR,,ICMProfile,0,"E2209W.icm"
+
+
+;---------------------------------------------------------- 
+
+
+
+[E2209W.CopyFiles]
+E2209W.icm
+
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Dell Inc. Monitor Installation Disk"
+Dell="Dell Inc."	
+E2209W="Dell E2209W"

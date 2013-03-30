@@ -1,0 +1,78 @@
+; Quanta FPD1530, January-018-2002
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%Gateway%
+CatalogFile=05fb.cat
+DriverVer=01/18/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+05FB.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+05FB.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%05FB%=05FB.Install, Monitor\GWY05FB
+
+;------------------------------------; .Install
+
+[05FB.Install]
+AddReg=05FB.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=05FB.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[05FB.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31-66,50-75,+,+"
+HKR,,ICMProfile,0,"05FB.icm"
+
+;------------------------------------; .CopyFiles
+
+[05FB.CopyFiles]
+05FB.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY05FB
+
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Gateway System Restoration Kit"
+Gateway="Gateway"
+05FB="Gateway FPD1530"

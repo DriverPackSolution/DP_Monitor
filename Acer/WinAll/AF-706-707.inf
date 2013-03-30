@@ -1,0 +1,85 @@
+;AF-706 / AF-707.INF Ver. 1.0.0.0
+;Monitor INF file for Acer Incorporated Monitor AF-706 / AF-707 
+;Copyright 2001,2002 Acer Incorporated
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+;CatalogFile=Acer.cat
+DriverVer=05/07/2003, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PTS0309
+ExcludeFromSelect.nt=Monitor\PTS0313
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AF-706.CopyFiles=23
+AF-707.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+AF-706.ICM=1
+AF-707.ICM=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%AF-706%=AF-706.Install, Monitor\PTS0309
+%AF-707%=AF-706.Install, Monitor\PTS0313
+
+[AF-706.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AF-706.AddReg, 1280, DPMS
+CopyFiles=AF-706.CopyFiles
+[AF-707.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AF-707.AddReg, 1600, DPMS
+CopyFiles=AF-707.CopyFiles
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AF-706.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-70,50-160,+,+"
+HKR,,ICMProfile,0,"AF-706.ICM"
+[AF-707.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-86,50-160,+,+"
+HKR,,ICMProfile,0,"AF-707.ICM"
+
+[AF-706.CopyFiles]
+AF-706.ICM
+[AF-707.CopyFiles]
+AF-707.ICM
+
+[Strings]
+DISK="Driver & Utility for Acer AF-706 / AF-707 "
+MonitorClassName="Monitor"
+Acer="Acer Incorporated"
+AF-706="Acer AF-706 "
+AF-707="Acer AF-707"

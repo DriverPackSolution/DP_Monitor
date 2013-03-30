@@ -1,0 +1,86 @@
+; nl4615.inf
+; Setup information file for NEC LCD Monitor LCD4615
+;
+; Copyright (C) 2008 NEC Display Solutions, Ltd.
+;---------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NEC%
+CatalogFile=nl4615.cat
+DriverVer=11/04/2008,1.08.1104.1623
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC676D
+ExcludeFromSelect.nt=Monitor\NEC676E
+
+[DestinationDirs]
+LCD4615.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl4615.icm=1
+
+[Manufacturer]
+%NEC%=NEC,ntamd64
+
+[NEC]
+%LCD4615-A%=LCD4615-A.Install, Monitor\NEC676D
+%LCD4615-D%=LCD4615-D.Install, Monitor\NEC676E
+
+[NEC.ntamd64]
+%LCD4615-A%=LCD4615-A.Install, Monitor\NEC676D
+%LCD4615-D%=LCD4615-D.Install, Monitor\NEC676E
+
+[LCD4615-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4615-A.AddReg, 1920, DPMS
+CopyFiles=LCD4615.CopyFiles
+
+[LCD4615-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4615-D.AddReg, 1920, DPMS
+CopyFiles=LCD4615.CopyFiles
+
+[LCD4615-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4615-A.AddReg, 1920, DPMS
+CopyFiles=LCD4615.CopyFiles
+
+[LCD4615-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD4615-D.AddReg, 1920, DPMS
+CopyFiles=LCD4615.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD4615-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-92.0,48.0-85.0,-,+"
+HKR,,ICMProfile,0,"nl4615.icm"
+
+[LCD4615-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-92.0,48.0-85.0,-,+"
+HKR,,ICMProfile,0,"nl4615.icm"
+
+[LCD4615.CopyFiles]
+nl4615.icm
+
+[Strings]
+NEC="NEC"
+LCD4615-A="NEC LCD4615 (Analog)"
+LCD4615-D="NEC LCD4615 (Digital)"
+Disk1="NEC Display Monitor Installation Disk"

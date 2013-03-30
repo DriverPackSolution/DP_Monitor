@@ -1,0 +1,92 @@
+; Monitor INF file for ImageQuest L80A
+;
+; Copyright 1997-2002, ImageQuest Co., Ltd.
+;
+; This is a INF file for installing monitors for Windows.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ImageQuest%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L80AA.Install.CopyFiles=23
+L80AD.Install.CopyFiles=23
+
+[SourceDisksNames]
+1="ImageQuest Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+L80A.icm=1
+L80A.icm=1
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%L80AA%=L80AA.Install, Monitor\IQT80AA
+%L80AD%=L80AD.Install, Monitor\IQT80AD
+
+[L80AA.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L80AA.AddReg, 1280, DPMS
+CopyFiles=L80AA.Install.CopyFiles
+
+[L80AD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L80AD.AddReg, 1280, DPMS
+CopyFiles=L80AD.Install.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[L80AA.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,56.0-87.0,+,+"
+HKR,,ICMProfile,0,"L80A.icm"
+
+[L80AD.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,56.0-87.0,+,+"
+HKR,,ICMProfile,0,"L80A.icm"
+
+[L80AA.Install.CopyFiles]
+L80A.icm
+
+[L80AD.Install.CopyFiles]
+L80A.icm
+
+[640]
+HKR,,MaxResolution,,"640,480"
+
+[800]
+HKR,,MaxResolution,,"800,600"
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Strings]
+MonitorClassName="Monitor"
+ImageQuest="ImageQuest Co., Ltd."
+L80AA="ImageQuest L80A Analog"
+L80AD="ImageQuest L80A Digital"

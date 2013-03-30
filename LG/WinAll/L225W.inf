@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L225W.INF] 
+; Revision 1.4   March-20-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L225W.cat
+DriverVer=09/20/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM5662
+ExcludeFromSelect.NT=Monitor\GSM5663
+
+[DestinationDirs]
+DefaultDestDir = 11
+L225W_Analog.CopyFiles = 23
+L225W_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L225W.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L225W_Analog%=L225W_Analog.Install,Monitor\GSM5662
+%L225W_Digital%=L225W_Digital.Install,Monitor\GSM5663
+
+[LG.NTamd64]
+%L225W_Analog%=L225W_Analog.Install,Monitor\GSM5662
+%L225W_Digital%=L225W_Digital.Install,Monitor\GSM5663
+
+[L225W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L225W_Analog.AddReg,1680,DPMS
+CopyFiles=L225W_Analog.CopyFiles
+
+[L225W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L225W_Digital.AddReg,1680,DPMS
+CopyFiles=L225W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L225W_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"L225W.ICM"
+
+[L225W_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"L225W.ICM"
+
+[L225W_Analog.CopyFiles]
+L225W.ICM
+
+[L225W_Digital.CopyFiles]
+L225W.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L225W_Analog="LG L225W (Analog)"
+L225W_Digital="LG L225W (Digital)"

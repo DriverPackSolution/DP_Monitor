@@ -1,0 +1,87 @@
+; [L985EX.INF]
+; Revision 1.01
+; Copyright(c) 2002 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L985EX.cat
+DriverVer=10/22/2002,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\ENC1674
+ExcludeFromSelect.nt=Monitor\ENC1675
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L985EXD.CopyFiles = 23
+L985EX.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L985EX.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L985EXD%=L985EXD.Install, Monitor\ENC1674
+%L985EX%=L985EX.Install, Monitor\ENC1675
+
+[L985EXD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L985EXD.AddReg, 1600, DPMS
+CopyFiles=L985EXD.CopyFiles
+
+[L985EX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L985EX.AddReg, 1600, DPMS
+CopyFiles=L985EX.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L985EXD.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-76.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L985EX.ICM"
+
+[L985EX.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"24.0-94.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"L985EX.ICM"
+
+[L985EXD.CopyFiles]
+L985EX.ICM
+
+[L985EX.CopyFiles]
+L985EX.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L985EXD="L985EX"
+L985EX="L985EX"

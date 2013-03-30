@@ -1,0 +1,95 @@
+;FTSE22W6.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display E22W-6 LED
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=FTSE22W6.cat
+DriverVer=08/20/2012,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07F7
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSE22W6.icm=1
+
+[DestinationDirs]
+DefaultDestDir=12
+FTSE22W6.CopyFiles=23
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTx86,NTAMD64
+
+ [FTS_Mfg] 
+%E22W-6%=FTSE22W6.Install, Monitor\FUS07F7
+
+ [FTS_Mfg.NTx86] 
+%E22W-6%=FTSE22W6.Install, Monitor\FUS07F7
+
+ [FTS_Mfg.NTAMD64] 
+%E22W-6%=FTSE22W6.Install, Monitor\FUS07F7
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSE22W6.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSE22W6.AddReg, 1680, DPMS
+CopyFiles=FTSE22W6.CopyFiles
+
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSE22W6.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSE22W6.icm"
+
+;---------------------------------------------------------- 
+
+[FTSE22W6.CopyFiles]
+FTSE22W6.icm
+
+;---------------------------------------------------------- 
+
+[FTSE22W6.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Monitor Class Function Driver Service"
+
+DISK="Fujitsu Drivers, Manuals & Utilities Display"
+FTS_Mfg="Fujitsu Technology Solutions"	
+
+E22W-6="Fujitsu E22W-6 LED"

@@ -1,0 +1,108 @@
+
+;==================================================
+; sm151p.inf 010/09/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm151p.cat
+DriverVer=10/09/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0019
+ExcludeFromSelect.nt=Monitor\SAM001A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm151pa.CopyFiles = 23
+sm151pd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm151p.icm=1
+sm151p.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm151pa%=sm151pa.Install, Monitor\SAM0019
+%sm151pd%=sm151pd.Install, Monitor\SAM001A
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm151pa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm151pa.AddReg, 1024, DPMS
+CopyFiles=sm151pa.CopyFiles
+
+[sm151pd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm151pd.AddReg, 1024, DPMS
+CopyFiles=sm151pd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm151pa.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"sm151p.icm"
+
+[sm151pd.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-75,+,+"
+HKR,,ICMProfile,0,"sm151p.icm"
+;------------------------------------------------------
+
+[sm151pa.CopyFiles]
+sm151p.icm
+
+[sm151pd.CopyFiles]
+sm151p.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm151pa="SyncMaster 151p/155p/150p, MagicSyncMaster CX151BD(Analog)"
+sm151pd="SyncMaster 151p/155p/150p, MagicSyncMaster CX151BD(Digital)"

@@ -1,0 +1,127 @@
+;================================ 
+; BenQ_G2400W.INF 10/16/06 Ver. 1.0 
+; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2006, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G2400W.cat
+DriverVer=10/16/2006,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7809
+ExcludeFromSelect.NT=Monitor\BNQ780A
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G2400W_Analog.copyfiles = 23
+G2400W_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G2400WDSUB.icm=1
+G2400WDVI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G2400W_Analog%=G2400W_Analog.Install, Monitor\BNQ7809
+%G2400W_Digital%=G2400W_Digital.Install, Monitor\BNQ780A
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%G2400W_Analog%=G2400W_Analog.Install, Monitor\BNQ7809
+%G2400W_Digital%=G2400W_Digital.Install, Monitor\BNQ780A
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G2400W_Analog%=G2400W_Analog.Install, Monitor\BNQ7809
+%G2400W_Digital%=G2400W_Digital.Install, Monitor\BNQ780A
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G2400W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2400W_Analog.AddReg, 1920, DPMS
+CopyFiles=G2400W_Analog.CopyFiles
+
+[G2400W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2400W_Digital.AddReg, 1920, DPMS
+CopyFiles=G2400W_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[G2400W_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"31-83.0,55.0-60.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"31-83.0,55.0-60.0,+,+"
+
+HKR,,ICMProfile,0,"G2400WDSUB.icm"
+
+[G2400W_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"31-83.0,55.0-60.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"31-83.0,55.0-60.0,+,+"
+HKR,,ICMProfile,0,"G2400WDVI.icm"
+
+
+
+[G2400W_Analog.CopyFiles]
+G2400WDSUB.ICM
+
+[G2400W_Digital.CopyFiles]
+G2400WDVI.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G2400W_Analog="BenQ G2400W (Analog)"
+G2400W_Digital="BenQ G2400W (Digital)"
+

@@ -1,0 +1,118 @@
+;================================ 
+;FP94VW.INF 02/06/06 Ver. 1.0 
+;; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2006, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=FP94VW.cat
+DriverVer=08/30/2006,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ76CF
+ExcludeFromSelect.NT=Monitor\BNQ76D0
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP94VW_Analog.copyfiles = 23
+FP94VW_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP94VW.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%FP94VW_Analog%=FP94VW_Analog.Install, Monitor\BNQ76CF
+%FP94VW_Digital%=FP94VW_Digital.Install, Monitor\BNQ76D0
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%FP94VW_Analog%=FP94VW_Analog.Install, Monitor\BNQ76CF
+%FP94VW_Digital%=FP94VW_Digital.Install, Monitor\BNQ76D0
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FP94VW_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP94VW_Analog.AddReg, 1440, DPMS
+CopyFiles=FP94VW_Analog.CopyFiles
+
+[FP94VW_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP94VW_Digital.AddReg, 1440, DPMS
+CopyFiles=FP94VW_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[FP94VW_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\1440,1024",Mode1,,"30-83.0,56.0-75.0,+,+"
+
+HKR,,ICMProfile,0,"FP94VW.icm"
+
+[FP94VW_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30-83.0,56.0-76.0,+,+"
+HKR,"MODES\1440,1024",Mode1,,"30-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"FP94VW.icm"
+
+[FP94VW_Analog.CopyFiles]
+FP94VW.ICM
+
+[FP94VW_Digital.CopyFiles]
+FP94VW.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+FP94VW_Analog="BenQ FP94VW (Analog)"
+FP94VW_Digital="BenQ FP94VW (Digital)"
+

@@ -1,0 +1,79 @@
+; #################################################
+;
+;   f1703.inf        Ver. 2.02      11/21/2002
+;
+;   Copyright (c)2002, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the hp f1703 Flat Panel Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=f1703.cat
+DriverVer=11/21/2002,2.02
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP2594
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+f1703.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+f1703.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%f1703%=f1703.Install, Monitor\HWP2594
+
+[f1703.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=f1703.AddReg, 1280, DPMS
+CopyFiles=f1703.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[f1703.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"f1703.icm"
+
+[f1703.CopyFiles]
+f1703.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+f1703="hp f1703 Flat Panel Monitor"
+Disk1="hp f1703 INF Software"

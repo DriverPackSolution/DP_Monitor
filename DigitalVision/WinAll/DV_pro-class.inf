@@ -1,0 +1,164 @@
+; DV_pro-class.INF
+; This is a INF file is created special for Digital Vision Professional series monitor
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+Classguid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Digital Vision%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir    = 11
+;3050.CopyFiles = 23
+2150.CopyFiles = 23
+2170.CopyFiles = 23
+2190.CopyFiles = 23
+
+
+
+
+[SourceDisksNames]
+1="DigitalVision Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+DV15P.ICM=1
+DV17P.ICM=1
+DV19P.ICM=1
+
+
+[Manufacturer]
+%Digital Vision%=DV
+
+; Manufacturer sections
+;-------------------------------------------------
+[DV]
+%CTA1570A%=1570, Monitor\PRO1570F
+%B086%=1785, Monitor\PRO1785F
+%CTA1786C%=1786, Monitor\PRO1786F
+%CTA1797C%=1797, Monitor\PRO1797F
+%H972%=1915, Monitor\PRO1915HF
+
+
+; Install sections
+;-------------------------------------------------
+
+[1570]
+DelReg=DEL_CURRENT_REG
+AddReg=1501.AddReg
+CopyFiles=2150.CopyFiles
+
+[1785]
+DelReg=DEL_CURRENT_REG
+AddReg=1701.AddReg
+CopyFiles=2170.CopyFiles
+
+[1786]
+DelReg=DEL_CURRENT_REG
+AddReg=1702.AddReg
+CopyFiles=2170.CopyFiles
+
+[1797]
+DelReg=DEL_CURRENT_REG
+AddReg=1703.AddReg
+CopyFiles=2170.CopyFiles
+
+[1915]
+DelReg=DEL_CURRENT_REG
+AddReg=1901.AddReg
+CopyFiles=2190.CopyFiles
+
+;
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+[1800]
+HKR,,MaxResolution,,"1800,1440"
+[1856]
+HKR,,MaxResolution,,"1856,1392"
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-----MaxResolution(x,x)",Mode1,,"Hor.Freg.Range,Ver.Freg.Range, +,+"
+[1501.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-130.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"DV15PF.ICM"
+
+
+[1701.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"DV17PF.ICM"
+
+[1702.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"DV17PF.ICM"
+
+[1703.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"DV17PF.ICM"
+
+[1901.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"31.0-115.0,50.0-160.0,+,+"
+HKR,,MaxResolution,,"1920,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"DV19PHF.ICM"
+
+
+[2150.CopyFiles]
+DV15PF.ICM
+
+[2170.CopyFiles]
+DV17PF.ICM
+
+[2190.CopyFiles]
+DV19PHF.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Digital Vision="Digital Vision PRO-series"
+
+CTA1570A ="Digital Vision PRO1570F"
+B086 ="Digital Vision PRO1785F"
+CTA1786C ="Digital Vision PRO1786F"
+CTA1797C ="Digital Vision PRO1797F"
+H972 ="Digital Vision PRO1915HF"

@@ -1,0 +1,110 @@
+; [L695.INF]
+; Revision 1.01
+; Copyright(c) 2003 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L695.cat
+DriverVer=07/15/2003,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1681
+ExcludeFromSelect.nt = Monitor\ENC1682
+ExcludeFromSelect.nt = Monitor\ENC1683
+ExcludeFromSelect.nt = Monitor\ENC1684
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L695.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L695.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L695DL%=L695DL.Install, Monitor\ENC1681
+%L695DP%=L695DP.Install, Monitor\ENC1682
+%L695AL%=L695AL.Install, Monitor\ENC1683
+%L695AP%=L695AP.Install, Monitor\ENC1684
+
+[L695DL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L695DL.AddReg, 1280, DPMS
+CopyFiles=L695.CopyFiles
+
+[L695DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L695DP.AddReg, 1024, DPMS
+CopyFiles=L695.CopyFiles
+
+[L695AL.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L695AL.AddReg, 1280, DPMS
+CopyFiles=L695.CopyFiles
+
+[L695AP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L695AP.AddReg, 1024, DPMS
+CopyFiles=L695.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1024]
+HKR,,MaxResolution,,"1024,1280"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L695DL.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L695.ICM"
+
+[L695DP.AddReg]
+HKR,"MODES\1024,1280",Mode1,,"30.0-81.0,59.0-61.0,-,+"
+HKR,,ICMProfile,0,"L695.ICM"
+
+[L695AL.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"L695.ICM"
+
+[L695AP.AddReg]
+HKR,"MODES\1024,1280",Mode1,,"30.0-81.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"L695.ICM"
+
+[L695.CopyFiles]
+L695.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L695DL="L695 Digital Landscape"
+L695DP="L695 Digital Portrait"
+L695AL="L695 Analog Landscape"
+L695AP="L695 Analog Portrait"

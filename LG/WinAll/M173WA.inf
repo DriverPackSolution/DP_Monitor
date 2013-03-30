@@ -1,0 +1,83 @@
+;=============================================================== 
+; [M173WA.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M173WA.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM43D1
+ExcludeFromSelect.NT=Monitor\GSM43D2
+
+[DestinationDirs]
+DefaultDestDir = 11
+M173WA_Analog.CopyFiles = 23
+M173WA_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M173WA.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M173WA_Analog%=M173WA_Analog.Install,Monitor\GSM43D1
+%M173WA_Digital%=M173WA_Digital.Install,Monitor\GSM43D2
+
+[LG.NTamd64]
+%M173WA_Analog%=M173WA_Analog.Install,Monitor\GSM43D1
+%M173WA_Digital%=M173WA_Digital.Install,Monitor\GSM43D2
+
+[M173WA_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M173WA_Analog.AddReg,1280,DPMS
+CopyFiles=M173WA_Analog.CopyFiles
+
+[M173WA_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M173WA_Digital.AddReg,1280,DPMS
+CopyFiles=M173WA_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M173WA_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,768,60"
+HKR,,ICMprofile,0,"M173WA.ICM"
+
+[M173WA_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,768,60"
+HKR,,ICMprofile,0,"M173WA.ICM"
+
+[M173WA_Analog.CopyFiles]
+M173WA.ICM
+
+[M173WA_Digital.CopyFiles]
+M173WA.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M173WA_Analog="LG M173WA(Analog)"
+M173WA_Digital="LG M173WA(Digital)"

@@ -1,0 +1,1254 @@
+; #######################################
+;      [SONYMON.INF]
+;
+;      Revision 2.70   April 06, 1999
+;      Sony Corporation
+; #######################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%SONY%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+
+CPD-15SF2.Copyfiles=23
+CPD-15SF8.Copyfiles=23
+CPD-17SF2.Copyfiles=23
+CPD-17SF8.Copyfiles=23
+CPD-15SX1.Copyfiles=23
+CPD-20SF2.Copyfiles=23
+CPD-20SF2T.Copyfiles=23
+GDM-20SHT.Copyfiles=23
+CPD-100VS.Copyfiles=23
+CPD-100SF.Copyfiles=23
+CPD-100SFT.Copyfiles=23
+CPD-100SFB.Copyfiles=23
+CPD-15SF9.Copyfiles=23
+CPD-100SX.Copyfiles=23
+CPD-17SF8R.Copyfiles=23
+CPD-17SF9.Copyfiles=23
+CPD-200SX.Copyfiles=23
+CPD-20SF2T5.Copyfiles=23
+CPD-20SF3.Copyfiles=23
+GDM-20SE3T.Copyfiles=23
+GDM-20SHT-NEW.Copyfiles=23
+VMU-1000.Copyfiles=23
+CPD-210SFB.Copyfiles=23
+
+CPD-120VS.Copyfiles=23
+;  CPD-120GS.Copyfiles=23
+CPD-220VS.Copyfiles=23
+CPD-220GS.Copyfiles=23
+GDM-W900.Copyfiles=23
+
+CPD-100GS.Copyfiles=23
+CPD-200GS.Copyfiles=23
+CPD-100ES.Copyfiles=23
+CPD-200ES.Copyfiles=23
+CPD-100EST.Copyfiles=23
+CPD-200EST.Copyfiles=23
+GDM-200PS.Copyfiles=23
+
+CPD-100GST.Copyfiles=23
+CPD-200GST.Copyfiles=23
+CPD-15ES.Copyfiles=23
+CPD-17C1.Copyfiles=23
+CPD-17GS.Copyfiles=23
+
+GDM-400PS.Copyfiles=23
+GDM-500PS.Copyfiles=23
+GDM-F500.Copyfiles=23
+CPD-120AS.Copyfiles=23
+CPD-220AS.Copyfiles=23
+CPD-520GS.Copyfiles=23
+CPD-420GS.Copyfiles=23
+
+GDM-20SE2T.Copyfiles=23
+GDM-20SE2T5.Copyfiles=23
+GDM-17SE2T.Copyfiles=23
+GDM-17SE2T-NEW.Copyfiles=23
+GDM-17SE2T5.Copyfiles=23
+CPD-300SFT.Copyfiles=23
+CPD-300SFT5.Copyfiles=23
+CPD-200SF.Copyfiles=23
+CPD-200SFT.Copyfiles=23
+
+CPD-17MS.Copyfiles=23
+
+CPD-101VS_iGPE.Copyfiles=23
+CPD-201VS_iGPE.Copyfiles=23
+
+CPD-L150.Copyfiles=23
+CPD-L133.Copyfiles=23
+
+CPD-15ES2.Copyfiles=23
+CPD-17ES2.Copyfiles=23
+CPD-110GSX.Copyfiles=23
+CPD-210GSX.Copyfiles=23
+GDM-F400.Copyfiles=23
+CPD-H200_iGPE.Copyfiles=23
+CPD-L181.Copyfiles=23
+
+CPD-E100.Copyfiles=23
+CPD-E200.Copyfiles=23
+CPD-G200.Copyfiles=23
+CPD-E400.Copyfiles=23
+CPD-G400.Copyfiles=23
+CPD-E500.Copyfiles=23
+CPD-G500.Copyfiles=23
+CPD-A100.Copyfiles=23
+CPD-A200.Copyfiles=23
+
+CPD-V200.Copyfiles=23
+CPD-L200.Copyfiles=23
+CPD-L141.Copyfiles=23
+
+[SourceDisksNames]
+1="SONY Monitor Information Disk",,1
+
+[SourceDisksFiles]
+sony_d93.icm=1
+sony_d65.icm=1
+sony_d50.icm=1
+
+;for CPD-L150
+sony_l93.icm=1
+sony_l65.icm=1
+sony_l50.icm=1
+
+[Manufacturer]
+%SONY%=SONY
+
+[SONY]
+%CPD-15SF2%=CPD-15SF2.Install, Monitor\SNY0000
+%CPD-15SF8%=CPD-15SF8.Install, Monitor\SNY0000
+%CPD-17SF2%=CPD-17SF2.Install, Monitor\SNY0000
+%CPD-17SF8%=CPD-17SF8.Install, Monitor\SNY0000
+%CPD-15SX1%=CPD-15SX1.Install, Monitor\SNY0000
+%CPD-20SF2%=CPD-20SF2.Install, Monitor\SNY0000
+%CPD-20SF2T%=CPD-20SF2T.Install, Monitor\SNY0000
+%GDM-17SE2T%=GDM-17SE2T.Install, Monitor\SNY0000
+%GDM-20SHT%=GDM-20SHT.Install, Monitor\SNY0000
+%CPD-100VS%=CPD-100VS.Install, Monitor\SNY0050
+%CPD-100SF%=CPD-100SF.Install, Monitor\SNY0150
+%CPD-100SFT%=CPD-100SFT.Install, Monitor\SNY0150
+%CPD-100SFB%=CPD-100SFB.Install, Monitor\SNY0150
+%CPD-15SF9%=CPD-15SF9.Install, Monitor\SNY0350
+%CPD-100SX%=CPD-100SX.Install, Monitor\SNY8050
+%CPD-17SF8R%=CPD-17SF8R.Install, Monitor\SNY0070
+%GDM-17SE2T5%=GDM-17SE2T5.Install, Monitor\SNY0170
+%CPD-200SF%=CPD-200SF.Install, Monitor\SNY0270
+%CPD-200SFT%=CPD-200SFT.Install, Monitor\SNY0370
+%CPD-17SF9%=CPD-17SF9.Install, Monitor\SNY0470
+%CPD-200SX%=CPD-200SX.Install, Monitor\SNY0570
+%GDM-17SE2T-NEW%=GDM-17SE2T-NEW.Install, Monitor\SNY0170
+%CPD-20SF2T5%=CPD-20SF2T5.Install, Monitor\SNY00A0
+%CPD-20SF3%=CPD-20SF3.Install, Monitor\SNY01A0
+%CPD-300SFT%=CPD-300SFT.Install, Monitor\SNY03A0
+%CPD-300SFT5%=CPD-300SFT5.Install, Monitor\SNY04A0
+%GDM-20SE2T5%=GDM-20SE2T5.Install, Monitor\SNY05A0
+%GDM-20SE2T%=GDM-20SE2T.Install, Monitor\SNY06A0
+%GDM-20SE3T%=GDM-20SE3T.Install, Monitor\SNY06A0
+%GDM-20SHT-NEW%=GDM-20SHT-NEW.Install, Monitor\SNY08A0
+%VMU-1000%=VMU-1000.Install, Monitor\SNY07A0
+%CPD-210SFB%=CPD-210SFB.Install, Monitor\SNY0870
+%CPD-17MS%=CPD-17MS.Install, Monitor\SNY0970
+
+%CPD-120VS%=CPD-120VS.Install, Monitor\SNY0650
+; %CPD-120GS%=CPD-120GS.Install, Monitor\SNY0051
+%CPD-220VS%=CPD-220VS.Install, Monitor\SNY0670
+%CPD-220GS%=CPD-220GS.Install, Monitor\SNY0071
+%GDM-W900%=GDM-W900.Install, Monitor\SNY00E0
+
+%CPD-100GS%=CPD-100GS.Install, Monitor\SNY0550
+%CPD-200GS%=CPD-200GS.Install, Monitor\SNY0A70
+%CPD-100ES%=CPD-100ES.Install, Monitor\SNY0450
+%CPD-100EST%=CPD-100EST.Install, Monitor\SNY0450
+%CPD-200ES%=CPD-200ES.Install, Monitor\SNY0770
+%CPD-200EST%=CPD-200EST.Install, Monitor\SNY0770
+%GDM-200PS%=GDM-200PS.Install, Monitor\SNY0C70
+
+%CPD-100GST%=CPD-100GST.Install, Monitor\SNY0550
+%CPD-200GST%=CPD-200GST.Install, Monitor\SNY0A70
+%CPD-15ES%=CPD-15ES.Install, Monitor\SNY0750
+%CPD-17C1%=CPD-17C1.Install, Monitor\SNY0B70
+%CPD-17GS%=CPD-17GS.Install, Monitor\SNY0A70
+
+%GDM-500PS%=GDM-500PS.Install, Monitor\SNY00B0
+%GDM-F500%=GDM-F500.Install, Monitor\SNY01B0
+%GDM-400PS%=GDM-400PS.Install, Monitor\SNY0090
+%CPD-120AS%=CPD-120AS.Install, Monitor\SNY0850
+%CPD-220AS%=CPD-220AS.Install, Monitor\SNY0D70
+%CPD-520GS%=CPD-520GS.Install, Monitor\SNY02B0
+%CPD-420GS%=CPD-420GS.Install, Monitor\SNY0091
+
+%CPD-101VS_iGPE%=CPD-101VS_iGPE.Install, Monitor\SNY0A50
+%CPD-201VS_iGPE%=CPD-201VS_iGPE.Install, Monitor\SNY0E70
+
+%CPD-L150%=CPD-L150.Install, Monitor\SNY0950
+%CPD-L133%=CPD-L133.Install, Monitor\SNY0030
+
+%CPD-15ES2%=CPD-15ES2.Install, Monitor\SNY0B50
+%CPD-17ES2%=CPD-17ES2.Install, Monitor\SNY0F70
+%CPD-110GSX%=CPD-110GSX.Install, Monitor\SNY0C50
+%CPD-210GSX%=CPD-210GSX.Install, Monitor\SNY1070
+%GDM-F400%=GDM-F400.Install, Monitor\SNY0190
+%CPD-H200_iGPE%=CPD-H200_iGPE.Install, Monitor\SNY1170
+%CPD-L181%=CPD-L181.Install, Monitor\SNY0080
+
+%CPD-E100%=CPD-E100.Install, Monitor\SNY0D50
+%CPD-E200%=CPD-E200.Install, Monitor\SNY1470
+%CPD-G200%=CPD-G200.Install, Monitor\SNY1270
+%CPD-E400%=CPD-E400.Install, Monitor\SNY0390
+%CPD-G400%=CPD-G400.Install, Monitor\SNY0290
+%CPD-E500%=CPD-E500.Install, Monitor\SNY04B0
+%CPD-G500%=CPD-G500.Install, Monitor\SNY03B0
+%CPD-A100%=CPD-A100.Install, Monitor\SNY0E50
+%CPD-A200%=CPD-A200.Install, Monitor\SNY1370
+
+%CPD-V200%=CPD-V200.Install, Monitor\SNY1570
+%CPD-L200%=CPD-L200.Install, Monitor\SNY0F50
+%CPD-L141%=CPD-L141.Install, Monitor\SNY0040
+
+[CPD-15SF2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-15SF2.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-15SF2.Copyfiles
+[CPD-15SF8.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-15SF8.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-15SF8.Copyfiles
+[CPD-17SF2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-17SF2.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-17SF2.Copyfiles
+[CPD-17SF8.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-17SF8.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-17SF8.Copyfiles
+[CPD-15SX1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-15SX1.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-15SX1.Copyfiles
+[CPD-20SF2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-20SF2.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-20SF2.Copyfiles
+[CPD-20SF2T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-20SF2T.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-20SF2T.Copyfiles
+[GDM-20SHT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-20SHT.AddReg, 1600, DPMS, ICM
+CopyFiles=GDM-20SHT.Copyfiles
+[CPD-100VS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100VS.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-100VS.Copyfiles
+[CPD-100SF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100SF.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-100SF.Copyfiles
+[CPD-100SFT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100SFT.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-100SFT.Copyfiles
+[CPD-100SFB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100SFB.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-100SFB.Copyfiles
+[CPD-15SF9.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-15SF9.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-15SF9.Copyfiles
+[CPD-100SX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100SX.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-100SX.Copyfiles
+[CPD-17SF8R.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-17SF8R.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-17SF8R.Copyfiles
+[CPD-17SF9.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-17SF9.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-17SF9.Copyfiles
+[CPD-200SX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-200SX.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-200SX.Copyfiles
+[CPD-20SF2T5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-20SF2T5.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-20SF2T5.Copyfiles
+[CPD-20SF3.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-20SF3.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-20SF3.Copyfiles
+[GDM-20SE3T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-20SE3T.AddReg, 1600, DPMS, ICM
+CopyFiles=GDM-20SE3T.Copyfiles
+[GDM-20SHT-NEW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-20SHT-NEW.AddReg, 1600, DPMS, ICM
+CopyFiles=GDM-20SHT-NEW.Copyfiles
+[VMU-1000.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VMU-1000.AddReg, 1280, DPMS, ICM
+CopyFiles=VMU-1000.Copyfiles
+[CPD-210SFB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-210SFB.AddReg, 1280, DPMS, ICM
+CopyFiles=CPD-210SFB.Copyfiles
+
+[CPD-120VS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-120VS.AddReg, 1280, DPMS
+CopyFiles=CPD-120VS.Copyfiles
+;  [CPD-120GS.Install]
+;  DelReg=DEL_CURRENT_REG
+;  AddReg=CPD-120GS.AddReg, 1280, DPMS
+;  CopyFiles=CPD-120GS.Copyfiles
+[CPD-220VS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-220VS.AddReg, 1280, DPMS
+CopyFiles=CPD-220VS.Copyfiles
+[CPD-220GS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-220GS.AddReg, 1280, DPMS
+CopyFiles=CPD-220GS.Copyfiles
+[GDM-W900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-W900.AddReg, 1920, DPMS
+CopyFiles=GDM-W900.Copyfiles
+
+[CPD-100GS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100GS.AddReg, 1280, DPMS
+CopyFiles=CPD-100GS.Copyfiles
+[CPD-200GS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-200GS.AddReg, 1280, DPMS
+CopyFiles=CPD-200GS.Copyfiles
+[CPD-100ES.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100ES.AddReg, 1280, DPMS
+CopyFiles=CPD-100ES.Copyfiles
+[CPD-100EST.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100EST.AddReg, 1280, DPMS
+CopyFiles=CPD-100EST.Copyfiles
+[CPD-200ES.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-200ES.AddReg, 1280, DPMS
+CopyFiles=CPD-200ES.Copyfiles
+[CPD-200EST.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-200EST.AddReg, 1280, DPMS
+CopyFiles=CPD-200EST.Copyfiles
+[GDM-200PS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-200PS.AddReg, 1280, DPMS
+CopyFiles=GDM-200PS.Copyfiles
+
+[CPD-100GST.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-100GST.AddReg, 1280, DPMS
+CopyFiles=CPD-100GST.Copyfiles
+[CPD-200GST.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-200GST.AddReg, 1280, DPMS
+CopyFiles=CPD-200GST.Copyfiles
+[CPD-15ES.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-15ES.AddReg, 1280, DPMS
+CopyFiles=CPD-15ES.Copyfiles
+[CPD-17C1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-17C1.AddReg, 1280, DPMS
+CopyFiles=CPD-17C1.Copyfiles
+[CPD-17GS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-17GS.AddReg, 1280, DPMS
+CopyFiles=CPD-17GS.Copyfiles
+		
+[GDM-500PS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-500PS.AddReg, 1800, DPMS
+CopyFiles=GDM-500PS.Copyfiles
+[GDM-F500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-F500.AddReg, 2048, DPMS
+CopyFiles=GDM-F500.Copyfiles
+[GDM-400PS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-400PS.AddReg, 1600, DPMS
+CopyFiles=GDM-400PS.Copyfiles
+[CPD-120AS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-120AS.AddReg, 1280, DPMS
+CopyFiles=CPD-120AS.Copyfiles
+[CPD-220AS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-220AS.AddReg, 1280, DPMS
+CopyFiles=CPD-220AS.Copyfiles
+[CPD-520GS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-520GS.AddReg, 1800, DPMS
+CopyFiles=CPD-520GS.Copyfiles
+[CPD-420GS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-420GS.AddReg, 1600, DPMS
+CopyFiles=CPD-420GS.Copyfiles
+
+[GDM-20SE2T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-20SE2T.AddReg, 1600, DPMS
+CopyFiles=GDM-20SE2T.Copyfiles
+[GDM-20SE2T5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-20SE2T5.AddReg, 1600, DPMS
+CopyFiles=GDM-20SE2T5.Copyfiles
+[GDM-17SE2T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-17SE2T.AddReg, 1280, DPMS
+CopyFiles=GDM-17SE2T.Copyfiles
+[GDM-17SE2T-NEW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-17SE2T-NEW.AddReg, 1280, DPMS
+CopyFiles=GDM-17SE2T-NEW.Copyfiles
+[GDM-17SE2T5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-17SE2T5.AddReg, 1280, DPMS
+CopyFiles=GDM-17SE2T5.Copyfiles
+[CPD-300SFT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-300SFT.AddReg, 1280, DPMS
+CopyFiles=CPD-300SFT.Copyfiles
+[CPD-300SFT5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-300SFT5.AddReg, 1280, DPMS
+CopyFiles=CPD-300SFT5.Copyfiles
+[CPD-200SF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-200SF.AddReg, 1280, DPMS
+CopyFiles=CPD-200SF.Copyfiles
+[CPD-200SFT.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-200SFT.AddReg, 1280, DPMS
+CopyFiles=CPD-200SFT.Copyfiles
+[CPD-17MS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-17MS.AddReg, 1280, DPMS
+CopyFiles=CPD-17MS.Copyfiles
+
+[CPD-101VS_iGPE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-101VS_iGPE.AddReg, 1280, DPMS
+CopyFiles=CPD-101VS_iGPE.Copyfiles
+[CPD-201VS_iGPE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-201VS_iGPE.AddReg, 1280, DPMS
+CopyFiles=CPD-201VS_iGPE.Copyfiles
+
+[CPD-L150.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-L150.AddReg, 1024, DPMS
+CopyFiles=CPD-L150.Copyfiles
+[CPD-L133.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-L133.AddReg, 1024, DPMS
+CopyFiles=CPD-L133.Copyfiles
+			     
+[CPD-15ES2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-15ES2.AddReg, 1280, DPMS
+CopyFiles=CPD-15ES2.Copyfiles
+[CPD-17ES2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-17ES2.AddReg, 1280, DPMS
+CopyFiles=CPD-17ES2.Copyfiles
+[CPD-110GSX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-110GSX.AddReg, 1280, DPMS
+CopyFiles=CPD-110GSX.Copyfiles
+[CPD-210GSX.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-210GSX.AddReg, 1280, DPMS
+CopyFiles=CPD-210GSX.Copyfiles
+[GDM-F400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GDM-F400.AddReg, 1800, DPMS
+CopyFiles=GDM-F400.Copyfiles
+[CPD-H200_iGPE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-H200_iGPE.AddReg, 1280, DPMS
+CopyFiles=CPD-H200_iGPE.Copyfiles
+[CPD-L181.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-L181.AddReg, 1280, DPMS
+CopyFiles=CPD-L181.Copyfiles
+
+[CPD-E100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-E100.AddReg, 1280, DPMS
+CopyFiles=CPD-E100.Copyfiles
+[CPD-E200.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-E200.AddReg, 1600, DPMS
+CopyFiles=CPD-E200.Copyfiles
+[CPD-G200.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-G200.AddReg, 1600, DPMS
+CopyFiles=CPD-G200.Copyfiles
+[CPD-E400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-E400.AddReg, 1800, DPMS
+CopyFiles=CPD-E400.Copyfiles
+[CPD-G400.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-G400.AddReg, 1800, DPMS
+CopyFiles=CPD-G400.Copyfiles
+[CPD-E500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-E500.AddReg, 2048, DPMS
+CopyFiles=CPD-E500.Copyfiles
+[CPD-G500.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-G500.AddReg, 2048, DPMS
+CopyFiles=CPD-G500.Copyfiles
+[CPD-A100.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-A100.AddReg, 1280, DPMS
+CopyFiles=CPD-A100.Copyfiles
+[CPD-A200.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-A200.AddReg, 1280, DPMS
+CopyFiles=CPD-A200.Copyfiles
+
+[CPD-V200.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-V200.AddReg, 1280, DPMS
+CopyFiles=CPD-V200.Copyfiles
+[CPD-L200.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-L200.AddReg, 1024, DPMS
+CopyFiles=CPD-L200.Copyfiles
+[CPD-L141.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CPD-L141.AddReg, 1024, DPMS
+CopyFiles=CPD-L141.Copyfiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1800]
+HKR,,MaxResolution,,"1800,1440"
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CPD-15SF2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-15SF8.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-17SF2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-17SF8.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-15SX1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-20SF2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-20SF2T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-20SHT.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-100VS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-100SF.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-100SFT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-100SFB.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-15SF9.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-100SX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-17SF8R.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-65.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-17SF9.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-200SX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-20SF2T5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-20SF3.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-20SE3T.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-20SHT-NEW.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-107.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[VMU-1000.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-210SFB.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[CPD-120VS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+;  [CPD-120GS.AddReg]
+;  HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+;  HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-220VS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-220GS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-W900.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[CPD-100GS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-200GS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-100ES.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-100EST.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-200ES.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-200EST.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-200PS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-92.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[CPD-100GST.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-200GST.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-15ES.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-17C1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-17GS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[GDM-500PS.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-107.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-F500.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-121.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-400PS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-120AS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-220AS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-520GS.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-420GS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+  
+[GDM-20SE2T.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-20SE2T5.AddReg]
+HKR,"MODES\1600,1280",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-17SE2T.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-17SE2T-NEW.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-17SE2T5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-85.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-300SFT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-300SFT5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,48.0-150.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-200SF.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-200SFT.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-17MS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[CPD-101VS_iGPE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-201VS_iGPE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[CPD-L150.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-70.0,50.0-65.0,+,+"
+HKR,,ICMProfile,0,"sony_l93.icm"
+[CPD-L133.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-70.0,50.0-65.0,+,+"
+HKR,,ICMProfile,0,"sony_l93.icm"
+
+[CPD-15ES2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-17ES2.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-110GSX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-210GSX.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[GDM-F400.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-107.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-H200_iGPE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-L181.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-92.0,48.0-65.0,+,+"
+HKR,,ICMProfile,0,"sony_l93.icm"
+
+[CPD-E100.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-E200.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-G200.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-E400.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-96.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-G400.AddReg]
+HKR,"MODES\1800,1440",Mode1,,"30.0-107.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-E500.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-G500.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-121.0,48.0-160.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-A100.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-A200.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+
+[CPD-V200.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,48.0-120.0,+,+"
+HKR,,ICMProfile,0,"sony_d93.icm"
+[CPD-L200.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,50.0-65.0,+,+"
+HKR,,ICMProfile,0,"sony_l93.icm"
+[CPD-L141.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-70.0,50.0-65.0,+,+"
+HKR,,ICMProfile,0,"sony_l93.icm"
+
+[CPD-15SF2.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-15SF8.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-17SF2.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-17SF8.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-15SX1.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-20SF2.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-20SF2T.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-20SHT.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-100VS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-100SF.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-100SFT.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-100SFB.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-15SF9.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-100SX.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-17SF8R.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-17SF9.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-200SX.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-20SF2T5.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-20SF3.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-20SE3T.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-20SHT-NEW.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[VMU-1000.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-210SFB.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+
+[CPD-120VS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+;  [CPD-120GS.Copyfiles]
+;  sony_d93.icm
+;  sony_d65.icm
+;  sony_d50.icm
+[CPD-220VS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-220GS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-W900.Copyfiles]
+sony_D93.icm
+sony_D65.icm
+sony_D50.icm
+
+[CPD-100GS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-200GS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-100ES.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-200ES.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-100EST.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-200EST.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-200PS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+
+[CPD-100GST.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-200GST.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-15ES.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-17C1.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-17GS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+
+[GDM-500PS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-F500.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-400PS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-120AS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-220AS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-520GS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-420GS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+
+[GDM-20SE2T.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-20SE2T5.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-17SE2T.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-17SE2T-NEW.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-17SE2T5.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-300SFT.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-300SFT5.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-200SF.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-200SFT.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-17MS.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+
+[CPD-101VS_iGPE.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-201VS_iGPE.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+
+[CPD-L150.Copyfiles]
+sony_l93.icm
+sony_l65.icm
+sony_l50.icm
+[CPD-L133.Copyfiles]
+sony_l93.icm
+sony_l65.icm
+sony_l50.icm
+
+[CPD-15ES2.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-17ES2.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-110GSX.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-210GSX.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[GDM-F400.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-H200_iGPE.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-L181.Copyfiles]
+sony_l93.icm
+sony_l65.icm
+sony_l50.icm
+[CPD-E100.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-E200.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-G200.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-E400.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-G400.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-E500.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-G500.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-A100.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-A200.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-V200.Copyfiles]
+sony_d93.icm
+sony_d65.icm
+sony_d50.icm
+[CPD-L200.Copyfiles]
+sony_l93.icm
+sony_l65.icm
+sony_l50.icm
+[CPD-L141.Copyfiles]
+sony_l93.icm
+sony_l65.icm
+sony_l50.icm
+
+[Strings]
+MonitorClassName="Monitor"
+SONY="SONY Corporation"
+CPD-15SF2="SONY CPD-15SF2"
+CPD-15SF8="SONY CPD-15SF8"
+CPD-17SF2="SONY CPD-17SF2"
+CPD-17SF8="SONY CPD-17SF8"
+CPD-15SX1="SONY CPD-15SX1"
+CPD-20SF2="SONY CPD-20SF2"
+CPD-20SF2T="SONY CPD-20SF2T"
+GDM-17SE2T="SONY GDM-17SE2T"
+GDM-20SHT="SONY GDM-20SHT"
+CPD-100VS="SONY CPD-100VS"
+CPD-100SF="SONY CPD-100SF"
+CPD-100SFT="SONY CPD-100SFT"
+CPD-100SFB="SONY CPD-100SFB"
+CPD-15SF9="SONY CPD-15SF9"
+CPD-100SX="SONY CPD-100SX"
+CPD-17SF8R="SONY CPD-17SF8R"
+GDM-17SE2T5="SONY GDM-17SE2T5"
+CPD-200SF="SONY CPD-200SF"
+CPD-200SFT="SONY CPD-200SFT"
+CPD-17SF9="SONY CPD-17SF9"
+CPD-200SX="SONY CPD-200SX"
+GDM-17SE2T-NEW="SONY GDM-17SE2T(NEW)"
+CPD-20SF2T5="SONY CPD-20SF2T5"
+CPD-20SF3="SONY CPD-20SF3"
+CPD-300SFT="SONY CPD-300SFT"
+CPD-300SFT5="SONY CPD-300SFT5"
+GDM-20SE2T5="SONY GDM-20SE2T5"
+GDM-20SE2T="SONY GDM-20SE2T"
+GDM-20SE3T="SONY GDM-20SE3T"
+GDM-20SHT-NEW="SONY GDM-20SHT(NEW)"
+VMU-1000="SONY VMU-1000"
+CPD-210SFB="SONY CPD-210SFB"
+CPD-17MS="SONY CPD-17MS"
+
+CPD-120VS="SONY CPD-120VS"
+;  CPD-120GS="SONY CPD-120GS"	     ;v2.40 delete 
+CPD-220VS="SONY CPD-220VS"
+CPD-220GS="SONY CPD-220GS/17GS2"     ;v2.40 add models
+GDM-W900="SONY GDM-W900"
+
+CPD-100GS="SONY CPD-100GS"
+CPD-200GS="SONY CPD-200GS"
+CPD-100ES="SONY CPD-100ES"
+CPD-100EST="SONY CPD-100EST"
+CPD-200ES="SONY CPD-200ES"
+CPD-200EST="SONY CPD-200EST"
+GDM-200PS="SONY GDM-200PS/T/T9"      ;v2.60 add model
+
+CPD-100GST="SONY CPD-100GST"
+CPD-200GST="SONY CPD-200GST"
+CPD-15ES="SONY CPD-15ES"
+CPD-17C1="SONY CPD-17C1"
+CPD-17GS="SONY CPD-17GS"
+
+GDM-500PS="SONY GDM-500PS/T/T9/21PS"    ;v2.60 add model
+GDM-F500="SONY GDM-F500/F500T9"         ;v2.60 add model
+GDM-400PS="SONY GDM-400PS/T/T9/19PS"    ;v2.60 add model
+CPD-120AS="SONY CPD-120AS"
+CPD-220AS="SONY CPD-220AS"
+CPD-520GS="SONY CPD-520GS/T/T9/21GS2"   ;v2.60 add model
+CPD-420GS="SONY CPD-420GS/GST/19GS2"    ;v2.50 change name
+
+CPD-101VS_iGPE="SONY CPD-101VS iGPE"
+CPD-201VS_iGPE="SONY CPD-201VS iGPE"
+
+CPD-L150="SONY CPD-L150"
+CPD-L133="SONY CPD-L133"                  ;v2.40
+
+CPD-15ES2="SONY CPD-15ES2"                ;v2.40
+CPD-17ES2="SONY CPD-17ES2"                ;v2.40
+CPD-110GSX="SONY CPD-110GS/110EST/T9"     ;v2.70 add model
+CPD-210GSX="SONY CPD-210GS/210EST/T9"     ;v2.70 add model
+GDM-F400="SONY GDM-F400/F400T9"           ;v2.60 add model
+CPD-H200_iGPE="SONY CPD-H200"             ;v2.70 change name
+CPD-L181="SONY CPD-L181"                  ;v2.60
+
+CPD-E100="SONY CPD-E100/E100E"            ;v2.70
+CPD-E200="SONY CPD-E200/E200E"            ;v2.70
+CPD-G200="SONY CPD-G200"                  ;v2.70
+CPD-E400="SONY CPD-E400/E400E"            ;v2.70
+CPD-G400="SONY CPD-G400"                  ;v2.70
+CPD-E500="SONY CPD-E500/E500E"            ;v2.70
+CPD-G500="SONY CPD-G500"                  ;v2.70
+CPD-A100="SONY CPD-A100"                  ;v2.70
+CPD-A200="SONY CPD-A200"                  ;v2.70
+
+CPD-V200="SONY CPD-V200"                  ;v2.70 
+CPD-L200="SONY CPD-L200"                  ;v2.70
+CPD-L141="SONY CPD-L141"                  ;v2.70

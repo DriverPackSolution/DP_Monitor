@@ -1,0 +1,64 @@
+;=============================================================== 
+; [F700PH.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=F700PH.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM435C
+
+[DestinationDirs]
+DefaultDestDir = 11
+F700PH.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGF700PH.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%F700PH%=F700PH.Install,Monitor\GSM435C
+
+[LG.NTamd64]
+%F700PH%=F700PH.Install,Monitor\GSM435C
+
+[F700PH.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F700PH.AddReg,1920,DPMS
+CopyFiles=F700PH.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F700PH.AddReg]
+HKR,"MODES\1920,1440",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LGF700PH.ICM"
+
+[F700PH.CopyFiles]
+LGF700PH.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+F700PH="LG F700PH"

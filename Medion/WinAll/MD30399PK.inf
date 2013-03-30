@@ -1,0 +1,70 @@
+;C12.INF Ver. 1.0
+;Monitor INF file for Medion C12
+;Copyright 2001,2002 Medion AG
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=md30399pk.cat
+DriverVer=07/14/2005, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MED09A5
+ExcludeFromSelect.nt=Monitor\MED09A6
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+C12.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+C12.ICM=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%C12%=C12.Install, Monitor\MED09A5
+%C12%=C12.Install, Monitor\MED09A6
+
+[C12.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=C12.AddReg, 1280, DPMS
+CopyFiles=C12.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[C12.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31-83,50-75,+,+"
+HKR,,ICMProfile,0,"C12.ICM"
+
+[C12.CopyFiles]
+C12.ICM
+
+[Strings]
+DISK="Medion Manual and Driver CD"
+MonitorClassName="Monitor"
+Medion="Medion AG"
+C12="Medion MD30399PK C12"

@@ -1,0 +1,123 @@
+
+;==================================================
+; SM710TM.inf 05/06/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM710TM.cat
+DriverVer=05/06/2005,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0167
+ExcludeFromSelect.nt=Monitor\SAM0168
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM710TMa.CopyFiles = 23
+SM710TMd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM710TM.icm=1
+SM710TM.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM710TMa%=SM710TMa.Install, Monitor\SAM0167
+%SM710TMd%=SM710TMd.Install, Monitor\SAM0168
+
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM710TMa%=SM710TMa.Install, Monitor\SAM0167
+%SM710TMd%=SM710TMd.Install, Monitor\SAM0168
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM710TMa%=SM710TMa.Install, Monitor\SAM0167
+%SM710TMd%=SM710TMd.Install, Monitor\SAM0168
+
+
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM710TMa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM710TMa.AddReg, 1280, DPMS
+CopyFiles=SM710TMa.CopyFiles
+
+[SM710TMd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM710TMd.AddReg, 1280, DPMS
+CopyFiles=SM710TMd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM710TMa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM710TM.icm"
+
+[SM710TMd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM710TM.icm"
+;------------------------------------------------------
+
+[SM710TMa.CopyFiles]
+SM710TM.icm
+
+[SM710TMd.CopyFiles]
+SM710TM.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM710TMa="SyncMaster 710TM/713TM/713BM,SyncMaster Magic CX713TM (Analog)"
+SM710TMd="SyncMaster 710TM/713TM/713BM,SyncMaster Magic CX713TM (Digital)"

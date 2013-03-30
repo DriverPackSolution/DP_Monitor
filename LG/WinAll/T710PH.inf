@@ -1,0 +1,64 @@
+;=============================================================== 
+; [T710PH.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=T710PH.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4367
+
+[DestinationDirs]
+DefaultDestDir = 11
+T710PH.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGT710PH.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%T710PH%=T710PH.Install,Monitor\GSM4367
+
+[LG.NTamd64]
+%T710PH%=T710PH.Install,Monitor\GSM4367
+
+[T710PH.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T710PH.AddReg,1600,DPMS
+CopyFiles=T710PH.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[T710PH.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LGT710PH.ICM"
+
+[T710PH.CopyFiles]
+LGT710PH.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+T710PH="LG FLATRON ez T710PH"

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA2342.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/21/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2342.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2342_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCFA2B
+
+[ViewSonic]   
+%VA2342%=VA2342.Install,Monitor\VSCFA2B  
+
+[ViewSonic.NTia64]   
+%VA2342%=VA2342.Install,Monitor\VSCFA2B
+
+[ViewSonic.NTamd64]   
+%VA2342%=VA2342.Install,Monitor\VSCFA2B 
+
+[VA2342.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2342.AddReg,1920,DPMS
+Copyfiles=VA2342.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2342.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"24-83,50-76,+,+" 
+HKR,,ICMProfile,0,"VA2342_SERIES.ICM"
+
+[VA2342.CopyFiles]                                       
+VA2342_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA2342 SERIES ViewSonic Wizard"
+VA2342="ViewSonic VA2342 SERIES"

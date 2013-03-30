@@ -1,0 +1,82 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; Monitor INF file for ImageQuest L50S
+;
+; Copyright 1997-2002, ImageQuest Co., Ltd.
+;
+; This is a INF file for installing monitors for Windows.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%ImageQuest%
+CatalogFile=L50S.cat
+DriverVer=10/07/2002,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L50S.CopyFiles=23
+
+[SourceDisksNames]
+1=%InsDisk%,,
+
+[SourceDisksFiles]
+L50S.icm=1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%L50S%=L50S.Install, Monitor\IQT0503
+
+[L50S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L50S.AddReg, 1024, DPMS
+CopyFiles=L50S.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[L50S.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"L50S.icm"
+
+[L50S.CopyFiles]
+L50S.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IQT0503
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+MonitorClassName="Monitor"
+InsDisk="ImageQuest Monitor Installation Disk"
+ImageQuest="ImageQuest Co., Ltd."
+L50S="ImageQuest L50S"

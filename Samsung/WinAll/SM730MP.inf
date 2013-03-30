@@ -1,0 +1,108 @@
+
+;==================================================
+; sm730MP.inf 06/23/2004 ver. 1.0
+;
+; Copyright 2004 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm730MP.cat
+DriverVer=06/23/2004,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM015F
+ExcludeFromSelect.nt=Monitor\SAM0160
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm730MPa.CopyFiles = 23
+sm730MPd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm730MP.icm=1
+sm730MP.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm730MPa%=sm730MPa.Install, Monitor\SAM015F
+%sm730MPd%=sm730MPd.Install, Monitor\SAM0160
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm730MPa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm730MPa.AddReg, 1280, DPMS
+CopyFiles=sm730MPa.CopyFiles
+
+[sm730MPd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm730MPd.AddReg, 1280, DPMS
+CopyFiles=sm730MPd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm730MPa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm730MP.icm"
+
+[sm730MPd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm730MP.icm"
+;------------------------------------------------------
+
+[sm730MPa.CopyFiles]
+sm730MP.icm
+
+[sm730MPd.CopyFiles]
+sm730MP.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm730MPa="SyncMaster 730MP,SyncMaster Magic CX714MP (Analog)"
+sm730MPd="SyncMaster 730MP,SyncMaster Magic CX714MP (Digital)"

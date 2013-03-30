@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1980QPL.INF] 
+; Revision 1.4  July-1-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1980QPL.cat
+DriverVer=07/01/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4ACE
+ExcludeFromSelect.NT=Monitor\GSM4ACF
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1980QPL_Analog.CopyFiles = 23
+L1980QPL_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1980QPL.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1980QPL_Analog%=L1980QPL_Analog.Install,Monitor\GSM4ACE
+%L1980QPL_Digital%=L1980QPL_Digital.Install,Monitor\GSM4ACF
+
+[LG.NTamd64]
+%L1980QPL_Analog%=L1980QPL_Analog.Install,Monitor\GSM4ACE
+%L1980QPL_Digital%=L1980QPL_Digital.Install,Monitor\GSM4ACF
+
+[L1980QPL_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1980QPL_Analog.AddReg,1280,DPMS
+CopyFiles=L1980QPL_Analog.CopyFiles
+
+[L1980QPL_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1980QPL_Digital.AddReg,1280,DPMS
+CopyFiles=L1980QPL_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1980QPL_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1980QPL.ICM"
+
+[L1980QPL_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1980QPL.ICM"
+
+[L1980QPL_Analog.CopyFiles]
+L1980QPL.ICM
+
+[L1980QPL_Digital.CopyFiles]
+L1980QPL.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1980QPL_Analog="LG L1980Q Plus(Analog)"
+L1980QPL_Digital="LG L1980Q Plus(Digital)"

@@ -1,0 +1,77 @@
+; G210.INF
+;
+; Copyright 2000, ImageQuest Co., Ltd.
+; 
+; This is a INF file for installing monitors for Windows.
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ImageQuest%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+G210.CopyFiles=23
+
+[SourceDisksNames]
+1="ImageQuest Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+G210.icm=1
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%G210%=G210.Install, Monitor\IQT0210
+
+[G210.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G210.AddReg, 1792, DPMS
+CopyFiles=G210.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[G210.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-110.0,50.0-150.0,+,+"
+HKR,"MODES\1792,1344",Mode1,,"30.0-110.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"G210.icm"
+
+[G210.CopyFiles]
+G210.icm
+
+[Strings]
+MonitorClassName="Monitor"
+
+ImageQuest="ImageQuest Co., Ltd."
+G210="ImageQuest G210"

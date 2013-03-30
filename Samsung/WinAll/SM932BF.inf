@@ -1,0 +1,119 @@
+
+;==================================================
+; SM932BF.inf 02/05/2007 ver. 3.0HC
+;
+; Copyright 2006 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM932BF.cat
+DriverVer=02/05/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0291
+ExcludeFromSelect.nt=Monitor\SAM0292
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM932BFa.CopyFiles = 23
+SM932BFd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM932BF.icm=1
+sm740BF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM932BFa%=SM932BFa.Install, Monitor\SAM0291
+%SM932BFd%=SM932BFd.Install, Monitor\SAM0292
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM932BFa%=SM932BFa.Install, Monitor\SAM0291
+%SM932BFd%=SM932BFd.Install, Monitor\SAM0292
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM932BFa%=SM932BFa.Install, Monitor\SAM0291
+%SM932BFd%=SM932BFd.Install, Monitor\SAM0292
+; Install Sections
+;-----------------------------------------------------
+
+[SM932BFa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM932BFa.AddReg, 1280, DPMS
+CopyFiles=SM932BFa.CopyFiles
+
+[SM932BFd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM932BFd.AddReg, 1280, DPMS
+CopyFiles=SM932BFd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM932BFa.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM932BF.icm"
+
+[SM932BFd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM932BF.icm"
+;------------------------------------------------------
+
+[SM932BFa.CopyFiles]
+SM932BF.icm
+
+[SM932BFd.CopyFiles]
+SM932BF.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM932BFa="SyncMaster 932BF/932Bplus,SyncMaster Magic CX932BF/CX932B (Analog)"
+SM932BFd="SyncMaster 932BF/932Bplus,SyncMaster Magic CX932BF/CX932B (Digital)"

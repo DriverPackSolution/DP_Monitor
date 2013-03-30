@@ -1,0 +1,118 @@
+; nls401.inf
+; Setup information file for NEC MultiSync S401 Monitor
+;
+; Copyright (C) 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nls401.cat
+DriverVer=08/28/2009, 1.09.0828.1431
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67A6
+ExcludeFromSelect.nt=Monitor\NEC67A7
+ExcludeFromSelect.nt=Monitor\NEC67A9
+
+[DestinationDirs]
+S401.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nls401.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%S401-A%=S401-A.Install, Monitor\NEC67A6
+%S401-D%=S401-D.Install, Monitor\NEC67A7
+%S401-P%=S401-P.Install, Monitor\NEC67A9
+
+[NECDS.ntamd64]
+%S401-A%=S401-A.Install.ntamd64, Monitor\NEC67A6
+%S401-D%=S401-D.Install.ntamd64, Monitor\NEC67A7
+%S401-P%=S401-P.Install.ntamd64, Monitor\NEC67A9
+
+; Install Sections
+;-------------------------------------------------
+[S401-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S401-A.AddReg, 1920, DPMS
+CopyFiles=S401.CopyFiles
+
+[S401-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S401-D.AddReg, 1920, DPMS
+CopyFiles=S401.CopyFiles
+
+[S401-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S401-P.AddReg, 1920, DPMS
+CopyFiles=S401.CopyFiles
+
+[S401-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=S401-A.AddReg, 1920, DPMS
+CopyFiles=S401.CopyFiles
+
+[S401-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=S401-D.AddReg, 1920, DPMS
+CopyFiles=S401.CopyFiles
+
+[S401-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=S401-P.AddReg, 1920, DPMS
+CopyFiles=S401.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[S401-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nls401.icm"
+
+[S401-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nls401.icm"
+
+[S401-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nls401.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[S401.CopyFiles]
+nls401.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+S401-A="NEC MultiSync S401(Analog)"
+S401-D="NEC MultiSync S401(Digital)"
+S401-P="NEC MultiSync S401(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

@@ -1,0 +1,127 @@
+;========================================== 
+; BenQ_E2400HD.INF 06/04/08 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2007, BENQ Corporation
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=E2400HD.cat
+DriverVer=06/04/2008,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ790D
+ExcludeFromSelect.NT=Monitor\BNQ790E
+ExcludeFromSelect.NT=Monitor\BNQ790E
+
+[DestinationDirs]
+DefaultDestDir  = 11
+E2400HD_Analog.copyfiles = 23
+E2400HD_Digital.copyfiles = 23
+E2400HD_HDMI.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+E2400HDDSUB.icm=1
+E2400HDDVI.icm=1
+E2400HDHDMI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%E2400HD_Analog%=E2400HD_Analog.Install, Monitor\BNQ790D
+%E2400HD_Digital%=E2400HD_Digital.Install, Monitor\BNQ790E
+%E2400HD_HDMI%=E2400HD_HDMI.Install, Monitor\BNQ790E
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%E2400HD_Analog%=E2400HD_Analog.Install, Monitor\BNQ790D
+%E2400HD_Digital%=E2400HD_Digital.Install, Monitor\BNQ790E
+%E2400HD_HDMI%=E2400HD_HDMI.Install, Monitor\BNQ790E
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%E2400HD_Analog%=E2400HD_Analog.Install, Monitor\BNQ790D
+%E2400HD_Digital%=E2400HD_Digital.Install, Monitor\BNQ790E
+%E2400HD_HDMI%=E2400HD_HDMI.Install, Monitor\BNQ790E
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E2400HD_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2400HD_Analog.AddReg, 1920, DPMS
+CopyFiles=E2400HD_Analog.CopyFiles
+
+[E2400HD_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2400HD_Digital.AddReg, 1920, DPMS
+CopyFiles=E2400HD_Digital.CopyFiles
+
+[E2400HD_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E2400HD_HDMI.AddReg, 1920, DPMS
+CopyFiles=E2400HD_HDMI.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E2400HD_Analog.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,55.0-85.0,+,+"
+HKR,,ICMProfile,0,"E2400HDDSUB.icm"
+
+[E2400HD_Digital.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,55.0-85.0,+,+"
+HKR,,ICMProfile,0,"E2400HDDVI.icm"
+
+[E2400HD_HDMI.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,55.0-85.0,+,+"
+HKR,,ICMProfile,0,"E2400HDHDMI.icm"
+
+
+[E2400HD_Analog.CopyFiles]
+E2400HDDSUB.ICM
+
+[E2400HD_Digital.CopyFiles]
+E2400HDDVI.ICM
+
+[E2400HD_HDMI.CopyFiles]
+E2400HDHDMI.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+E2400HD_Analog="BenQ E2400HD (Analog)"
+E2400HD_Digital="BenQ E2400HD (Digital)"
+E2400HD_HDMI="BenQ E2400HD (HDMI)"

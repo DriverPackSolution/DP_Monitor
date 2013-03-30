@@ -1,0 +1,83 @@
+================================ 
+;This is a setupfile for the LEN Flat Panel Monitors
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LEN%
+CatalogFile=LEN240B.cat
+DriverVer=01/09/2008, 1.0
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN240B
+
+[DestinationDirs]
+DefaultDestDir=11
+LEN240B.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LEN240B.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%LEN%=LEN,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+[LEN] 
+%LEN240B%=LEN240B.Install, Monitor\LEN240B
+;-------------------------------------------------
+[LEN.NTAMD64]
+%LEN240B%=LEN240B.Install, Monitor\LEN240B
+
+; Install Sections
+;-------------------------------------------------
+
+[LEN240B.Install]
+DelReg=DEL_CURRENT_REG 
+AddReg=LEN240B.AddReg, 1280, DPMS
+CopyFiles=LEN240B.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[LEN240B.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"LEN240B.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[LEN240B.CopyFiles]
+LEN240B.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="LEN Flat Panel Monitor Installation disk"
+LEN="LEN International (Europe) GmbH" 
+LEN240B="LEN L174"

@@ -1,0 +1,120 @@
+
+;==================================================
+; SM225BW.inf 01/26/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM225BW.cat
+DriverVer=01/26/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0254
+ExcludeFromSelect.nt=Monitor\SAM0255
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM225BWa.CopyFiles = 23
+SM225BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM225BW.icm=1
+SM225BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM225BWa%=SM225BWa.Install, Monitor\SAM0254
+%SM225BWd%=SM225BWd.Install, Monitor\SAM0255
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM225BWa%=SM225BWa.Install, Monitor\SAM0254
+%SM225BWd%=SM225BWd.Install, Monitor\SAM0255
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM225BWa%=SM225BWa.Install, Monitor\SAM0254
+%SM225BWd%=SM225BWd.Install, Monitor\SAM0255
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM225BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM225BWa.AddReg, 1680, DPMS
+CopyFiles=SM225BWa.CopyFiles
+
+[SM225BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM225BWd.AddReg, 1680, DPMS
+CopyFiles=SM225BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM225BWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM225BW.icm"
+
+[SM225BWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM225BW.icm"
+;------------------------------------------------------
+
+[SM225BWa.CopyFiles]
+SM225BW.icm
+
+[SM225BWd.CopyFiles]
+SM225BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM225BWa="SyncMaster 225BW, SyncMaster CX223BW(Analog)"
+SM225BWd="SyncMaster 225BW, SyncMaster CX223BW(Digital)"

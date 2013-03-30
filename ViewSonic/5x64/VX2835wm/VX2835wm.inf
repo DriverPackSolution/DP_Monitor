@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2835wm.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/30/2007, 1.6.0.15
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2835wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2835wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX2835wm%=VX2835wm.Install,Monitor\VSC0F1F  
+
+[ViewSonic.NTia64]   
+%VX2835wm%=VX2835wm.Install,Monitor\VSC0F1F  
+
+[ViewSonic.NTamd64]   
+%VX2835wm%=VX2835wm.Install,Monitor\VSC0F1F  
+
+[VX2835wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2835wm.AddReg,1920,DPMS
+Copyfiles=VX2835wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2835wm.AddReg]  
+HKR,"MODES\1920,1200",Mode1,,"30-82,50-76,+,-" 
+HKR,,ICMProfile,0,"VX2835wm.ICM"
+
+[VX2835wm.CopyFiles]                                       
+VX2835wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2835wm ViewSonic Wizard"
+VX2835wm="ViewSonic VX2835wm"

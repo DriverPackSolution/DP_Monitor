@@ -1,0 +1,81 @@
+; IBM_6632, OCTOBER-26-2001
+
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%IBM%
+CatalogFile=IBM_6632.cat
+DriverVer=10/26/2001,1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_6632.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+IBM_6632.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_6632%=IBM_6632, Monitor\IBM19E8
+
+;------------------------------------; .Install
+
+[IBM_6632]
+AddReg=IBM_6632.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=IBM_6632.CopyFiles
+
+
+;------------------------------------; DEL_CURRENT_REG
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;------------------------------------; .AddReg
+
+
+[IBM_6632.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"IBM_6632.icm"
+
+
+;------------------------------------; .CopyFiles
+
+[IBM_6632.CopyFiles]
+IBM_6632.icm
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM19E8
+;------------------------------------; .Strings
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+IBM="IBM"
+IBM_6632="IBM 6632 A70"

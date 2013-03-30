@@ -1,0 +1,120 @@
+
+;==================================================
+; T190.inf 02/24/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=T190.cat
+DriverVer=02/24/2008,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM03E0
+ExcludeFromSelect.nt=Monitor\SAM03E1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+T190a.CopyFiles = 23
+T190d.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+T190.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%T190a%=T190a.Install, Monitor\SAM03E0
+%T190d%=T190d.Install, Monitor\SAM03E1
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%T190a%=T190a.Install, Monitor\SAM03E0
+%T190d%=T190d.Install, Monitor\SAM03E1
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%T190a%=T190a.Install, Monitor\SAM03E0
+%T190d%=T190d.Install, Monitor\SAM03E1
+
+; Install Sections
+;-----------------------------------------------------
+
+[T190a.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T190a.AddReg, 1440, DPMS
+CopyFiles=T190a.CopyFiles
+
+[T190d.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T190d.AddReg, 1440, DPMS
+CopyFiles=T190d.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[T190a.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T190.icm"
+
+[T190d.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"T190.icm"
+;------------------------------------------------------
+
+[T190a.CopyFiles]
+T190.icm
+
+[T190d.CopyFiles]
+T190.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+T190a="SyncMaster T190/T190G,SyncMaster Magic T190/T190G(Analog)"
+T190d="SyncMaster T190/T190G,SyncMaster Magic T190/T190G(Digital)"

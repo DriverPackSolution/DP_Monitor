@@ -1,0 +1,120 @@
+
+;==================================================
+; SM2263UW.inf 01/22/2008 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM2263UW.cat
+DriverVer=01/22/2008,3.0
+
+;--------------------------------------------------
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM03B8
+ExcludeFromSelect.nt=Monitor\SAM03B9
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM2263UWa.CopyFiles = 23
+SM2263UWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM2263UW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM2263UWa%=SM2263UWa.Install, Monitor\SAM03B8
+%SM2263UWd%=SM2263UWd.Install, Monitor\SAM03B9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM2263UWa%=SM2263UWa.Install, Monitor\SAM03B8
+%SM2263UWd%=SM2263UWd.Install, Monitor\SAM03B9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM2263UWa%=SM2263UWa.Install, Monitor\SAM03B8
+%SM2263UWd%=SM2263UWd.Install, Monitor\SAM03B9
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM2263UWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2263UWa.AddReg, 1680, DPMS
+CopyFiles=SM2263UWa.CopyFiles
+
+[SM2263UWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM2263UWd.AddReg, 1680, DPMS
+CopyFiles=SM2263UWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM2263UWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2263UW.icm"
+
+[SM2263UWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM2263UW.icm"
+;------------------------------------------------------
+
+[SM2263UWa.CopyFiles]
+SM2263UW.icm
+
+[SM2263UWd.CopyFiles]
+SM2263UW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM2263UWa="SyncMaster 2263UW,SyncMaster Magic CX2263UW(Analog)"
+SM2263UWd="SyncMaster 2263UW,SyncMaster Magic CX2263UW(Digital)"

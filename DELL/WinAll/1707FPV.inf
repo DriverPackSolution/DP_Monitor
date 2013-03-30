@@ -1,0 +1,97 @@
+;-------------------------------------------
+; Copyright (c) 2005 Dell Corporation
+; Issue date -- 03/30/2006
+; Revise date -- 03/30/2006
+; revision 1
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1707FPV.cat
+DriverVer=08/21/2006,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+1707FPV_Analog.copyfiles = 23
+1707FPV_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+1707FPV.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%1707FPV_Analog%=1707FPV_Analog.Install, Monitor\DEL4021
+%1707FPV_Digital%=1707FPV_Digital.Install, Monitor\DEL4022
+
+[DELL.NTx86]
+%1707FPV_Analog%=1707FPV_Analog.Install, Monitor\DEL4021
+%1707FPV_Digital%=1707FPV_Digital.Install, Monitor\DEL4022
+
+[DELL.NTAMD64]
+%1707FPV_Analog%=1707FPV_Analog.Install, Monitor\DEL4021
+%1707FPV_Digital%=1707FPV_Digital.Install, Monitor\DEL4022
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL4021
+ExcludeFromSelect.NT=Monitor\DEL4022
+
+[1707FPV_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1707FPV_Analog.AddReg, 1280, DPMS
+CopyFiles=1707FPV_Analog.CopyFiles
+
+[1707FPV_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1707FPV_Digital.AddReg, 1280, DPMS
+CopyFiles=1707FPV_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1707FPV_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1707FPV.icm"
+
+[1707FPV_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1707FPV.icm"
+
+
+[1707FPV_Analog.CopyFiles]
+1707FPV.ICM
+
+[1707FPV_Digital.CopyFiles]
+1707FPV.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+
+1707FPV_Analog="Dell 1707FPV(Analog)"
+1707FPV_Digital="Dell 1707FPV(Digital)"
+

@@ -1,0 +1,173 @@
+;================================ 
+;XL2420TX.INF 08/05/11 Ver. 1.0 
+;; INF File for Windows Vista/win7
+; Copyright (c) 2011, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=XL2420TX.cat
+DriverVer=08/05/2011,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7F07
+ExcludeFromSelect.NT=Monitor\BNQ7F08
+ExcludeFromSelect.NT=Monitor\BNQ7F09
+ExcludeFromSelect.NT=Monitor\BNQ7F0A
+
+[DestinationDirs]
+DefaultDestDir  = 11
+XL2420TX_Analog.copyfiles = 23
+XL2420TX_Digital.copyfiles = 23
+XL2420TX_HDMI.copyfiles = 23
+XL2420TX_DP.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+XL2420TX.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%XL2420TX_Analog%=XL2420TX_Analog.Install, Monitor\BNQ7F07
+%XL2420TX_Digital%=XL2420TX_Digital.Install, Monitor\BNQ7F08
+%XL2420TX_HDMI%=XL2420TX_HDMI.Install, Monitor\BNQ7F09
+%XL2420TX_DP%=XL2420TX_DP.Install, Monitor\BNQ7F0A
+
+;-------------------------------------------------
+
+ [BenQ.NTx86] 
+%XL2420TX_Analog%=XL2420TX_Analog.Install, Monitor\BNQ7F07
+%XL2420TX_Digital%=XL2420TX_Digital.Install, Monitor\BNQ7F08
+%XL2420TX_HDMI%=XL2420TX_HDMI.Install, Monitor\BNQ7F09
+%XL2420TX_DP%=XL2420TX_DP.Install, Monitor\BNQ7F0A
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%XL2420TX_Analog%=XL2420TX_Analog.Install, Monitor\BNQ7F07
+%XL2420TX_Digital%=XL2420TX_Digital.Install, Monitor\BNQ7F08
+%XL2420TX_HDMI%=XL2420TX_HDMI.Install, Monitor\BNQ7F09
+%XL2420TX_DP%=XL2420TX_DP.Install, Monitor\BNQ7F0A
+
+
+; Install Sections
+;-------------------------------------------------
+
+[XL2420TX_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XL2420TX_Analog.AddReg, 1920, DPMS
+CopyFiles=XL2420TX_Analog.CopyFiles
+
+[XL2420TX_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XL2420TX_Digital.AddReg, 1920, DPMS
+CopyFiles=XL2420TX_Digital.CopyFiles
+
+[XL2420TX_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XL2420TX_HDMI.AddReg, 1920, DPMS
+CopyFiles=XL2420TX_HDMI.CopyFiles
+
+[XL2420TX_DP.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XL2420TX_DP.AddReg, 1920, DPMS
+CopyFiles=XL2420TX_DP.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[XL2420TX_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\800,600",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+
+HKR,,ICMProfile,0,"XL2420TX.icm"
+
+[XL2420TX_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+
+HKR,,ICMProfile,0,"XL2420TX.icm"
+
+
+[XL2420TX_HDMI.AddReg]
+HKR,"MODES\640,480",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\800,600",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"15.0-135.0,24.0-120.0,+,+"
+
+HKR,,ICMProfile,0,"XL2420TX.icm"
+
+[XL2420TX_DP.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"30.0-140.0,56.0-120.0,+,+"
+
+HKR,,ICMProfile,0,"XL2420TX.icm"
+
+[XL2420TX_Analog.CopyFiles]
+XL2420TX.icm
+
+[XL2420TX_Digital.CopyFiles]
+XL2420TX.icm
+
+[XL2420TX_HDMI.CopyFiles]
+XL2420TX.icm
+
+[XL2420TX_DP.CopyFiles]
+XL2420TX.icm
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+XL2420TX_Analog="BenQ XL2420TX (Analog)"
+XL2420TX_Digital="BenQ XL2420TX (Digital)"
+XL2420TX_HDMI="BenQ XL2420TX (HDMI)"
+XL2420TX_DP="BenQ XL2420TX (DisplayPort)"

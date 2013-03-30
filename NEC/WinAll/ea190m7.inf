@@ -1,0 +1,86 @@
+; ea190m7.inf
+; Setup information file for NEC MultiSync EA190M Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=ea190m7.cat
+DriverVer=09/15/2009,2.09.0915.1802
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67BE
+ExcludeFromSelect.nt=Monitor\NEC67BF
+
+[DestinationDirs]
+EA190M.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+ea190m7.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%EA190M-A%=EA190M-A.Install, Monitor\NEC67BE
+%EA190M-D%=EA190M-D.Install, Monitor\NEC67BF
+
+[NECDS.ntamd64]
+%EA190M-A%=EA190M-A.Install.ntamd64, Monitor\NEC67BE
+%EA190M-D%=EA190M-D.Install.ntamd64, Monitor\NEC67BF
+
+[EA190M-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA190M-A.AddReg, 1280, DPMS
+CopyFiles=EA190M.CopyFiles
+
+[EA190M-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EA190M-D.AddReg, 1280, DPMS
+CopyFiles=EA190M.CopyFiles
+
+[EA190M-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA190M-A.AddReg, 1280, DPMS
+CopyFiles=EA190M.CopyFiles
+
+[EA190M-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=EA190M-D.AddReg, 1280, DPMS
+CopyFiles=EA190M.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[EA190M-A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-85.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea190m7.icm"
+
+[EA190M-D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-85.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"ea190m7.icm"
+
+[EA190M.CopyFiles]
+ea190m7.icm
+
+[Strings]
+NECDS="NEC"
+EA190M-A="NEC MultiSync EA190M (Analog)"
+EA190M-D="NEC MultiSync EA190M (Digital)"
+Disk1="NEC Monitor Installation Disk"

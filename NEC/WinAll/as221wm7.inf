@@ -1,0 +1,68 @@
+; as221wm7.inf
+; Setup information file for NEC AS221WM Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=as221wm7.cat
+DriverVer=09/15/2009,2.09.0915.1813
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67C2
+
+[DestinationDirs]
+DefaultDestDir=11
+AS221WM.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+as221wm7.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%AS221WM%=AS221WM.Install, Monitor\NEC67C2
+
+[NECDS.ntamd64]
+%AS221WM%=AS221WM.Install.ntamd64, Monitor\NEC67C2
+
+[AS221WM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS221WM.AddReg, 1680, DPMS
+CopyFiles=AS221WM.CopyFiles
+
+[AS221WM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS221WM.AddReg, 1680, DPMS
+CopyFiles=AS221WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS221WM.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-85.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"as221wm7.icm"
+
+[AS221WM.CopyFiles]
+as221wm7.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+AS221WM="NEC AS221WM"

@@ -1,0 +1,68 @@
+; nas191wm.inf
+; Setup information file for NEC AS191WM Monitor
+;
+; Copyright 2009, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nas191wm.cat
+DriverVer=07/01/2009,1.09.0701.0957
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67C0
+
+[DestinationDirs]
+DefaultDestDir=11
+AS191WM.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nas191wm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%AS191WM%=AS191WM.Install, Monitor\NEC67C0
+
+[NECDS.ntamd64]
+%AS191WM%=AS191WM.Install.ntamd64, Monitor\NEC67C0
+
+[AS191WM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AS191WM.AddReg, 1440, DPMS
+CopyFiles=AS191WM.CopyFiles
+
+[AS191WM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=AS191WM.AddReg, 1440, DPMS
+CopyFiles=AS191WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AS191WM.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-85.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"nas191wm.icm"
+
+[AS191WM.CopyFiles]
+nas191wm.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+AS191WM="NEC AS191WM"

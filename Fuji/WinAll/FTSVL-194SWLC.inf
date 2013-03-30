@@ -1,0 +1,89 @@
+;Fujitsu Technology Solutions VL-194SWLC.INF Ver. 1.1
+;Monitor INF file for Fujitsu Technology Solutions VL-194SWLC
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS%
+CatalogFile=FTSVL-194SWLC.cat
+DriverVer=04/01/2010, 1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07CE
+ExcludeFromSelect.nt=Monitor\FUS07CE
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-VL-194SWLC_Analog.CopyFiles=23
+FUS-VL-194SWLC_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSVL-194SWLC.ICM=1
+
+[Manufacturer]
+%FTS%=FTS,NTAMD64
+
+[FTS]
+%FUS-VL-194SWLC_Analog%=FUS-VL-194SWLC_Analog.Install, Monitor\FUS07CE
+%FUS-VL-194SWLC_Digital%=FUS-VL-194SWLC_Digital.Install, Monitor\FUS07CE
+
+[FTS.NTAMD64]
+%FUS-VL-194SWLC_Analog%=FUS-VL-194SWLC_Analog.Install, Monitor\FUS07CE
+%FUS-VL-194SWLC_Digital%=FUS-VL-194SWLC_Digital.Install, Monitor\FUS07CE
+
+[FUS-VL-194SWLC_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-VL-194SWLC_Analog.AddReg, 1440, DPMS
+CopyFiles=FUS-VL-194SWLC_Analog.CopyFiles
+
+[FUS-VL-194SWLC_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-VL-194SWLC_Digital.AddReg, 1440, DPMS
+CopyFiles=FUS-VL-194SWLC_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-VL-194SWLC_Analog.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-82.0,56.0-75.0,+,-"
+HKR,,ICMProfile,0,"FTSVL-194SWLC.ICM"
+
+[FUS-VL-194SWLC_Digital.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-82.0,56.0-75.0,+,-"
+HKR,,ICMProfile,0,"FTSVL-194SWLC.ICM"
+
+[FUS-VL-194SWLC_Analog.CopyFiles]
+FTSVL-194SWLC.ICM
+
+[FUS-VL-194SWLC_Digital.CopyFiles]
+FTSVL-194SWLC.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Technology Solutions VL-194SWLC"
+MonitorClassName="Monitor"
+FTS="Fujitsu Technology Solutions"
+FUS-VL-194SWLC_Analog="Fujitsu Technology Solutions VL-194SWLC(Analog)"
+FUS-VL-194SWLC_Digital="Fujitsu Technology Solutions VL-194SWLC(Digital)"

@@ -1,0 +1,136 @@
+; nlv651.inf
+; Setup information file for NEC MultiSync V651 Monitor
+;
+; Copyright (C) 2011, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlv651.cat
+DriverVer=04/01/2011, 1.11.0401.2301
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6840
+ExcludeFromSelect.nt=Monitor\NEC6841
+ExcludeFromSelect.nt=Monitor\NEC6842
+ExcludeFromSelect.nt=Monitor\NEC6843
+
+[DestinationDirs]
+V651.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlv651.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%V651-A%=V651-A.Install, Monitor\NEC6840
+%V651-D%=V651-D.Install, Monitor\NEC6841
+%V651-H%=V651-H.Install, Monitor\NEC6842
+%V651-P%=V651-P.Install, Monitor\NEC6843
+
+[NECDS.ntamd64]
+%V651-A%=V651-A.Install.ntamd64, Monitor\NEC6840
+%V651-D%=V651-D.Install.ntamd64, Monitor\NEC6841
+%V651-H%=V651-H.Install.ntamd64, Monitor\NEC6842
+%V651-P%=V651-P.Install.ntamd64, Monitor\NEC6843
+
+; Install Sections
+;-------------------------------------------------
+[V651-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V651-A.AddReg, 1920, DPMS
+CopyFiles=V651.CopyFiles
+
+[V651-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V651-D.AddReg, 1920, DPMS
+CopyFiles=V651.CopyFiles
+
+[V651-H.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V651-H.AddReg, 1920, DPMS
+CopyFiles=V651.CopyFiles
+
+[V651-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V651-P.AddReg, 1920, DPMS
+CopyFiles=V651.CopyFiles
+
+[V651-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V651-A.AddReg, 1920, DPMS
+CopyFiles=V651.CopyFiles
+
+[V651-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V651-D.AddReg, 1920, DPMS
+CopyFiles=V651.CopyFiles
+
+[V651-H.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V651-H.AddReg, 1920, DPMS
+CopyFiles=V651.CopyFiles
+
+[V651-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V651-P.AddReg, 1920, DPMS
+CopyFiles=V651.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[V651-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv651.icm"
+
+[V651-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv651.icm"
+
+[V651-H.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv651.icm"
+
+[V651-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlv651.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[V651.CopyFiles]
+nlv651.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+V651-A="NEC MultiSync V651(Analog)"
+V651-D="NEC MultiSync V651(Digital)"
+V651-H="NEC MultiSync V651(HDMI)"
+V651-P="NEC MultiSync V651(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

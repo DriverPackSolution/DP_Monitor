@@ -1,0 +1,95 @@
+;B22W-6pG.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display E22W-6 LED
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=B22W-6pG.cat
+DriverVer=08/20/2012,1.1.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0780
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+B22W-6pG.icm=1
+
+[DestinationDirs]
+DefaultDestDir=12
+B22W-6pG.CopyFiles=23
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTx86,NTAMD64
+
+ [FTS_Mfg] 
+%B22W-6pG%=B22W-6pG.Install, Monitor\FUS0780
+
+ [FTS_Mfg.NTx86] 
+%B22W-6pG%=B22W-6pG.Install, Monitor\FUS0780
+
+ [FTS_Mfg.NTAMD64] 
+%B22W-6pG%=B22W-6pG.Install, Monitor\FUS0780
+
+; Install Sections
+;-------------------------------------------------
+
+[B22W-6pG.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=B22W-6pG.AddReg, 1680, DPMS
+CopyFiles=B22W-6pG.CopyFiles
+
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[B22W-6pG.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"B22W-6pG.icm"
+
+;---------------------------------------------------------- 
+
+[B22W-6pG.CopyFiles]
+B22W-6pG.icm
+
+;---------------------------------------------------------- 
+
+[B22W-6pG.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Monitor Class Function Driver Service"
+
+DISK="Fujitsu Drivers, Manuals & Utilities Display"
+FTS_Mfg="Fujitsu Technology Solutions"	
+
+B22W-6pG="Fujitsu B22W-6 LED proGREEN"

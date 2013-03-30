@@ -1,0 +1,72 @@
+;PLE511S-2.INF Ver. 1.10
+;Monitor INF file for IIYAMA ProLite E511S-2
+;Copyright 2006 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=PLE511S_2.cat
+DriverVer=5/1/2006,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM5395
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE511S_2.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE511S_2.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE511S_2%=PLE511S_2.Install, Monitor\IVM5395
+
+[PLE511S_2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE511S_2.AddReg, 1600, DPMS
+CopyFiles=PLE511S_2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE511S_2.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,55.0-86.0,-,-"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,55.0-86.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,55.0-86.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,55.0-76.0,+,+"
+HKR,"MODES\1600,1200",Mode1,,"24.0-83.0,55-62.0,+,+"
+HKR,,ICMProfile,0,"PLE511S_2.ICM"
+[PLE511S_2.CopyFiles]
+PLE511S_2.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE511S_2="IIYAMA ProLite E511S/H511S"

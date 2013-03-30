@@ -1,0 +1,811 @@
+;     [MAG MONITOR].INF       
+;     MAG MONITOR PLUG & PLAY *.INF FILE FOR WINDOWS 98/ME/2000/XP or LATER VERSIONS
+;     COPYRIGHT(C), MAG Technology Co., LTD.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAG%
+DriverVer=03/06/2007,3.00.2.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+HD572.CopyFiles=23
+770FS.CopyFiles=23
+PS976.CopyFiles=23
+PZ456.CopyFiles=23
+PS576.CopyFiles=23
+PS576W.CopyFiles=23
+MA782.CopyFiles=23
+MA582.CopyFiles=23
+1501.CopyFiles=23
+1701.CopyFiles=23
+1702.CopyFiles=23
+1901.CopyFiles=23
+1902.CopyFiles=23
+1903.CopyFiles=23
+2001.CopyFiles=23
+772.CopyFiles=23
+778.CopyFiles=23
+785.Copyfiles=23
+986.Copyfiles=23
+796.Copyfiles=23
+LP917W.Copyfiles=23
+XP911W.Copyfiles=23
+JA781I.Copyfiles=23
+LT926WB.Copyfiles=23
+XP711.Copyfiles=23
+XP911.Copyfiles=23
+GB980W.Copyfiles=23
+LP917.Copyfiles=23
+EV527.Copyfiles=23
+MP720KC.Copyfiles=23
+GA580K.Copyfiles=23
+GA780K.Copyfiles=23
+GA980K.Copyfiles=23
+GB980AFW.Copyfiles=23
+GA980IK.Copyfiles=23
+FP2226AFW.Copyfiles=23
+BP2219AFW.Copyfiles=23
+BP2219ABW.Copyfiles=23
+GP2280AFW.Copyfiles=23
+XP2211AFW.Copyfiles=23
+NA786.Copyfiles=23
+NA986.Copyfiles=23
+BP919AFW.Copyfiles=23
+BP719KC.Copyfiles=23
+BP2219W.Copyfiles=23
+BP719.Copyfiles=23
+BP919.Copyfiles=23
+PQ721.Copyfiles=23
+XP2011B.Copyfiles=23
+BP2019B.Copyfiles=23
+EP2030ADJ.Copyfiles=23
+BP919AJW.Copyfiles=23
+BP2219AFJW.Copyfiles=23
+EP2030AFJW.Copyfiles=23
+HJ524AW-1.Copyfiles=23
+HJ524AW-2.Copyfiles=23
+[SourceDisksNames]
+1="MAG Technology LCD Monitor Installation ",,1
+
+[SourceDisksFiles]
+HD572.icm=1
+770FS.icm=1
+PS976.icm=1
+456.icm=1
+576.icm=1
+576W.icm=1
+782.icm=1
+582.icm=1
+765W.icm=1
+516.icm=1
+716.icm=1
+916.icm=1
+906W.icm=1
+2006W.icm=1
+772.icm=1
+778.icm=1
+785.icm=1
+986.icm=1
+796.icm=1
+917W.icm=1
+911W.icm=1
+781I.icm=1
+926WB.icm=1
+XP711.icm=1
+XP911.icm=1
+GB980W.icm=1
+LP917.icm=1
+EV527.icm=1
+MP720KC.icm=1
+GA580K.icm=1
+GA780K.icm=1
+GA980K.icm=1
+GB980AFW.icm=1
+GA980IK.icm=1
+FP2226AFW.icm=1
+BP2219AFW.icm=1
+BP2219ABW.icm=1
+2280AFW.icm=1
+2211AFW.icm=1
+NA786.icm=1
+NA986.icm=1
+919AFW.icm=1
+719KC.icm=1
+2219W.icm=1
+719.icm=1
+919.icm=1
+721.icm=1
+2011B.icm=1
+2019B.icm=1
+2030ADJ.icm=1
+919AJW.icm=1
+2219AFJW.icm=1
+2030AFJW.icm=1
+524AW-1.icm=1
+524AW-2.icm=1
+
+[Manufacturer]
+%MAG%=MAG
+
+[MAG]
+%HD572%=HD572.Install,  Monitor\MAG023C
+%770FS%=770FS.Install,  Monitor\MAG0302
+%PS976%=PS976.Install,  Monitor\PTS0319
+%PZ456%=PZ456.Install,  Monitor\PTS0614
+%PS576%=PS576.Install,  Monitor\MAG0240
+%PS576W%=PS576W.Install,  Monitor\PTS1599
+%MA782%=MA782.Install,  Monitor\PTS1718
+%MA582%=MA582.Install,  Monitor\PTS2615
+%CY765W%=CY765W.Install,  Monitor\PTS0417
+%1501%=1501.Install,  Monitor\PTS05DD
+%1701%=1701.Install,  Monitor\PTS06A5
+%1702%=1702.Install,  Monitor\PTS06A6
+%1901%=1901.Install,  Monitor\PTS076D
+%1902%=1902.Install,  Monitor\PTS076E
+%1903%=1903.Install,  Monitor\PTS076F
+%2001%=2001.Install,  Monitor\PTS07D1
+%772%=772.Install,  Monitor\PTS0817
+%778%=778.Install, Monitor\PTS0308
+%785%=785.Install, Monitor\PTS0311
+%986%=986.Install, Monitor\PTS03DA
+%796%=796.Install, Monitor\PTS031B
+%LP917W%=LP917W.Install, Monitor\PTS1904
+%XP911W%=XP911W.Install, Monitor\PTS1904
+%JA781I%=JA781I.Install, Monitor\PTS1702
+%LT926WB%=LT926WB.Install, Monitor\PTS0770
+%XP711%=XP711.Install, Monitor\PTS06A5
+%XP911%=XP911.Install, Monitor\PTS076D
+%GB980W%=GB980W.Install, Monitor\PTS0770
+%LP917%=LP917.Install, Monitor\PTS076D
+%EV527%=EV527.Install, Monitor\PTS05DD
+%MP720KC%=MP720KC.Install, Monitor\PTS06A5
+%GA580K%=GA580K.Install, Monitor\PTS05DD
+%GA780K%=GA780K.Install, Monitor\PTS06A5
+%GA980K%=GA980K.Install, Monitor\PTS076D
+%GB980AFW%=GB980AFW.Install, Monitor\PTS076F
+%GA980IK%=GA980IK.Install, Monitor\PTS076E
+%FP2226AFW%=FP2226AFW.Install, Monitor\PTS0899
+%BP2219AFW%=BP2219AFW.Install, Monitor\PTS0899
+%BP2219ABW%=BP2219ABW.Install, Monitor\PTS0899
+%GP2280AFW%=GP2280AFW.Install, Monitor\PTS0899
+%XP2211AFW%=XP2211AFW.Install, Monitor\PTS0899
+%NA786%=NA786.Install, Monitor\PTS06A5
+%NA986%=NA986.Install, Monitor\PTS076D
+%BP919AFW%=BP919AFW.Install, Monitor\PTS076F
+%BP719KC%=BP719KC.Install, Monitor\PTS06A5
+%BP2219W%=BP2219W.Install, Monitor\PTS089A
+%BP719%=BP719.Install, Monitor\PTS06A5
+%BP919%=BP919.Install, Monitor\PTS076D
+%PQ721%=PQ721.Install, Monitor\PTS06A5
+%XP2011B%=XP2011B.Install, Monitor\PTS07D3
+%BP2019B%=BP2019B.Install, Monitor\PTS07D3
+%EP2030ADJ%=EP2030ADJ.Install, Monitor\PTS07D2
+%BP919AJW%=BP919AJW.Install, Monitor\PTS0770
+%BP2219AFJW%=BP2219AFJW.Install, Monitor\PTS0899
+%EP2030AFJW%=EP2030AFJW.Install, Monitor\PTS07D1
+%HJ524AW-1%=HJ524AW-1.Install, Monitor\PTS05E1
+%HJ524AW-2%=HJ524AW-2.Install, Monitor\PTS05E2
+
+
+
+[HD572.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HD572.AddReg, 1024, DPMS
+CopyFiles=HD572.CopyFiles
+[770FS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=770FS.AddReg, 1280, DPMS
+CopyFiles=770FS.CopyFiles
+[PS976.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PS976.AddReg, 1280, DPMS
+CopyFiles=PS976.CopyFiles
+[PZ456.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PZ456.AddReg, 1024, DPMS
+CopyFiles=PZ456.CopyFiles
+[PS576.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PS576.AddReg, 1024, DPMS
+CopyFiles=PS576.CopyFiles
+[PS576W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PS576W.AddReg, 1280, DPMS
+CopyFiles=PS576W.CopyFiles
+[MA782.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MA782.AddReg, 1280, DPMS
+CopyFiles=MA782.CopyFiles
+[MA582.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MA582.AddReg, 1024, DPMS
+CopyFiles=MA582.CopyFiles
+[CY765W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CY765W.AddReg, 1280, DPMS
+CopyFiles=CY765W.CopyFiles
+[1501.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1501.AddReg, 1024, DPMS
+CopyFiles=1501.CopyFiles
+[1701.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1701.AddReg, 1280, DPMS
+CopyFiles=1701.CopyFiles
+[1702.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1702.AddReg, 1280, DPMS
+CopyFiles=1702.CopyFiles
+[1901.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1901.AddReg, 1280, DPMS
+CopyFiles=1901.CopyFiles
+[1902.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1902.AddReg, 1280, DPMS
+CopyFiles=1902.CopyFiles
+[1903.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1903.AddReg, 1440, DPMS
+CopyFiles=1903.CopyFiles
+[2001.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2001.AddReg, 1680, DPMS
+CopyFiles=2001.CopyFiles
+[772.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=772.AddReg, 1280, DPMS,  
+CopyFiles=772.Copyfiles
+[778.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=778.AddReg, 1280, DPMS,  
+CopyFiles=778.Copyfiles
+[785.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=785.AddReg, 1600, DPMS,  
+CopyFiles=785.Copyfiles
+[986.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=986.AddReg, 1600, DPMS,  
+CopyFiles=986.Copyfiles
+[796.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=796.AddReg, 1600, DPMS,  
+CopyFiles=796.Copyfiles
+[LP917W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP917W.AddReg, 1440, DPMS
+CopyFiles=LP917W.CopyFiles
+[XP911W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XP911W.AddReg, 1440, DPMS
+CopyFiles=XP911W.CopyFiles
+[JA781I.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=JA781I.AddReg, 1280, DPMS
+CopyFiles=JA781I.CopyFiles
+[LT926WB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LT926WB.AddReg, 1440, DPMS
+CopyFiles=LT926WB.CopyFiles
+[XP711.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XP711.AddReg, 1280, DPMS
+CopyFiles=XP711.CopyFiles
+[XP911.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XP911.AddReg, 1280, DPMS
+CopyFiles=XP911.CopyFiles
+[GB980W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GB980W.AddReg, 1440, DPMS
+CopyFiles=GB980W.CopyFiles
+[LP917.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LP917.AddReg, 1280, DPMS
+CopyFiles=LP917.CopyFiles
+[EV527.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EV527.AddReg, 1024, DPMS
+CopyFiles=EV527.CopyFiles
+[MP720KC.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MP720KC.AddReg, 1280, DPMS
+CopyFiles=MP720KC.CopyFiles
+[GA580K.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GA580K.AddReg, 1024, DPMS
+CopyFiles=GA580K.CopyFiles
+[GA780K.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GA780K.AddReg, 1280, DPMS
+CopyFiles=GA780K.CopyFiles
+[GA980K.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GA980K.AddReg, 1280, DPMS
+CopyFiles=GA980K.CopyFiles
+[GB980AFW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GB980AFW.AddReg, 1440, DPMS
+CopyFiles=GB980AFW.CopyFiles
+[GA980IK.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GA980IK.AddReg, 1280, DPMS
+CopyFiles=GA980IK.CopyFiles
+[FP2226AFW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP2226AFW.AddReg, 1680, DPMS
+CopyFiles=FP2226AFW.CopyFiles
+[BP2219AFW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP2219AFW.AddReg, 1680, DPMS
+CopyFiles=BP2219AFW.CopyFiles
+[BP2219ABW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP2219ABW.AddReg, 1680, DPMS
+CopyFiles=BP2219ABW.CopyFiles
+[GP2280AFW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GP2280AFW.AddReg, 1680, DPMS
+CopyFiles=GP2280AFW.CopyFiles
+[XP2211AFW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XP2211AFW.AddReg, 1680, DPMS
+CopyFiles=XP2211AFW.CopyFiles
+[NA786.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NA786.AddReg, 1280, DPMS
+CopyFiles=NA786.CopyFiles
+[NA986.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=NA986.AddReg, 1280, DPMS
+CopyFiles=NA986.CopyFiles
+[BP919AFW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP919AFW.AddReg, 1440, DPMS
+CopyFiles=BP919AFW.CopyFiles
+[BP719KC.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP719KC.AddReg, 1280, DPMS
+CopyFiles=BP719KC.CopyFiles
+[BP2219W.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP2219W.AddReg, 1680, DPMS
+CopyFiles=BP2219W.CopyFiles
+[BP719.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP719.AddReg, 1280, DPMS
+CopyFiles=BP719.CopyFiles
+[BP919.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP919.AddReg, 1280, DPMS
+CopyFiles=BP919.CopyFiles
+[PQ721.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PQ721.AddReg, 1280, DPMS
+CopyFiles=PQ721.CopyFiles
+[XP2011B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=XP2011B.AddReg, 1680, DPMS
+CopyFiles=XP2011B.CopyFiles
+[BP2019B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP2019B.AddReg, 1680, DPMS
+CopyFiles=BP2019B.CopyFiles
+[EP2030ADJ.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EP2030ADJ.AddReg, 1680, DPMS
+CopyFiles=EP2030ADJ.CopyFiles
+[BP919AJW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP919AJW.AddReg, 1440, DPMS
+CopyFiles=BP919AJW.CopyFiles
+[BP2219AFJW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=BP2219AFJW.AddReg, 1680, DPMS
+CopyFiles=BP2219AFJW.CopyFiles
+[EP2030AFJW.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=EP2030AFJW.AddReg, 1680, DPMS
+CopyFiles=EP2030AFJW.CopyFiles
+[HJ524AW-1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HJ524AW-1.AddReg, 1440, DPMS
+CopyFiles=HJ524AW-1.CopyFiles
+[HJ524AW-2.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HJ524AW-2.AddReg, 1280, DPMS
+CopyFiles=HJ524AW-2.CopyFiles
+
+
+
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1440]
+HKR,,MaxResolution,,"1440,900"
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HD572.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-61.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"HD572.icm"
+[770FS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"770FS.icm"
+[PS976.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"PS976.icm"
+[PZ456.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"456.icm"
+[PS576.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"576.icm"
+[PS576W.AddReg]
+HKR,"MODES\1280,800",Mode1,,"30.0-50.0,60.0-70.0,+,+"
+HKR,,ICMProfile,0,"576W.icm"
+[MA782.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"782.icm"
+[MA582.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"582.icm"
+[CY765W.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"765W.icm"
+[1501.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"516.icm"
+[1701.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"716.icm"
+[1702.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"716.icm"
+[1901.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"916.icm"
+[1902.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"916.icm"
+[1903.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"906W.icm"
+[2001.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2006W.icm"
+[772.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"772.icm"
+[778.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-76.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"778.icm"
+[785.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"785.icm"
+[986.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"986.icm"
+[796.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"796.icm"
+[LP917W.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"917W.icm"
+[XP911W.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"911W.icm"
+[JA781I.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-76.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"781I.icm"
+[LT926WB.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"926WB.icm"
+[XP711.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"XP711.icm"
+[XP911.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"XP911.icm"
+[GB980W.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"GB980W.icm"
+[LP917.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"LP917.icm"
+[EV527.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"EV527.icm"
+[MP720KC.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"MP720KC.icm"
+[GA580K.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"GA580K.icm"
+[GA780K.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"GA780K.icm"
+[GA980K.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"GA980K.icm"
+[GB980AFW.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"GB980AFW.icm"
+[GA980IK.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"GA980IK.icm"
+[FP2226AFW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"FP2226AFW.icm"
+[BP2219AFW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"BP2219AFW.icm"
+[BP2219ABW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"BP2219ABW.icm"
+[GP2280AFW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2280AFW.icm"
+[XP2211AFW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2211AFW.icm"
+[NA786.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"NA786.icm"
+[NA986.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"NA986.icm"
+[BP919AFW.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"919AFW.icm"
+[BP719KC.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"719KC.icm"
+[BP2219W.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2219W.icm"
+[BP719.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"719.icm"
+[BP919.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"919.icm"
+[PQ721.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"721.icm"
+[XP2011B.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2011B.icm"
+[BP2019B.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2019B.icm"
+[EP2030ADJ.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2030ADJ.icm"
+[BP919AJW.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"BP919AJW.icm"
+[BP2219AFJW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2219AFJW.icm"
+[EP2030AFJW.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,ICMProfile,0,"2030AFJW.icm"
+[HJ524AW-1.AddReg]
+HKR,"MODES\1440,900",Mode1,,"30.0-64.0,56.0-70.0,+,+"
+HKR,,ICMProfile,0,"524AW-1.icm"
+[HJ524AW-2.AddReg]
+HKR,"MODES\1280,800",Mode1,,"30.0-64.0,56.0-70.0,+,+"
+HKR,,ICMProfile,0,"524AW-2.icm"
+
+
+
+
+
+
+[HD572.CopyFiles]
+HD572.ICM
+[770FS.CopyFiles]
+770FS.ICM
+[PS976.CopyFiles]
+PS976.ICM
+[PZ456.CopyFiles]
+456.icm
+[PS576.CopyFiles]
+576.icm
+[PS576W.CopyFiles]
+576W.icm
+[MA782.CopyFiles]
+782.icm
+[MA582.CopyFiles]
+582.icm
+[CY765W.CopyFiles]
+765W.icm
+[1501.CopyFiles]
+516.icm
+[1701.CopyFiles]
+716.icm
+[1702.CopyFiles]
+716.icm
+[1901.CopyFiles]
+916.icm
+[1902.CopyFiles]
+916.icm
+[1903.CopyFiles]
+906W.icm
+[2001.CopyFiles]
+2006W.icm
+[772.Copyfiles]
+772.icm
+[778.Copyfiles]
+778.icm
+[785.Copyfiles]
+785.icm
+[986.Copyfiles]
+986.icm
+[796.Copyfiles]
+796.icm
+[LP917W.Copyfiles]
+917W.icm
+[XP911W.Copyfiles]
+911W.icm
+[JA781I.Copyfiles]
+781I.icm
+[LT926WB.Copyfiles]
+926WB.icm
+[XP711.Copyfiles]
+XP711.icm
+[XP911.Copyfiles]
+XP911.icm
+[GB980W.Copyfiles]
+GB980W.icm
+[LP917.Copyfiles]
+LP917.icm
+[EV527.Copyfiles]
+EV527.icm
+[MP720KC.Copyfiles]
+MP720KC.icm
+[GA580K.Copyfiles]
+GA580K.icm
+[GA780K.Copyfiles]
+GA780K.icm
+[GA980K.Copyfiles]
+GA980K.icm
+[GB980AFW.Copyfiles]
+GB980AFW.icm
+[GA980IK.Copyfiles]
+GA980IK.icm
+[FP226AFW.Copyfiles]
+FP2226AFW.icm
+[BP2219AFW.Copyfiles]
+BP2219AFW.icm
+[BP2219ABW.Copyfiles]
+BP2219ABW.icm
+[GP2280AFW.Copyfiles]
+2280AFW.icm
+[XP2211AFW.Copyfiles]
+2211AFW.icm
+[NA786.Copyfiles]
+NA786.icm
+[NA986.Copyfiles]
+NA986.icm
+[BP919AFW.Copyfiles]
+919AFW.icm
+[BP719KC.Copyfiles]
+719KC.icm
+[BP2219W.Copyfiles]
+2219W.icm
+[BP719.Copyfiles]
+719.icm
+[BP919.Copyfiles]
+919.icm
+[PQ721.Copyfiles]
+721.icm
+[XP2011B.Copyfiles]
+2011B.icm
+[BP2019B.Copyfiles]
+2019B.icm
+[EP2030ADJ.Copyfiles]
+2030ADJ.icm
+[BP919AJW.Copyfiles]
+919AJW.icm
+[BP2219AFJW.Copyfiles]
+2219AFJW.icm
+[EP2030AFJW.Copyfiles]
+2030AFJW.icm
+[HJ524AW-1.Copyfiles]
+524AW-1.icm
+[HJ524AW-2.Copyfiles]
+524AW-2.icm
+
+
+
+[Strings]
+
+MonitorClassName="Monitor"
+MAG="MAG Technology Co., Ltd."
+HD572="MAG HD572 LCD Display"
+770FS="MAG 770FS CRT Display"
+PS976="MAG PS976 LCD Display"
+PZ456="MAG LT456s LCD Display"
+PS576="MAG MS576 LCD Display"
+PS576W="MAG PS576W LCD Display"
+MA782="MAG MA782 LCD Display"
+MA582="MAG MA582 LCD Display"
+CY765W="MAG CY765W LCD Display"
+1501="MAG B516/E586/LP517/PS576/516/SP516/MA582K LCD Display"
+1701="MAG B716/E786/LP717/PS776/782/716/SP716/MA782K LCD Display"
+1702="MAG S705/771/LM705/AR738/EV727 LCD Display"
+1901="MAG B916/E986/LP917/PS976/982/916/SP916/MA982K LCD Display"
+1902="MAG S905/971/LM905/AR938 LCD Display"
+1903="MAG T906W/926afw/LB906W/AR938W LCD Display"
+2001="MAG T2006W/2071W/LB2006W LCD Display"
+772="MAG HD772/HD772i LCD Display"
+778="MAG AH778 CRT Display"
+785="MAG 786 CRT Display"
+986="MAG 986 CRT Display"
+796="MAG 796 CRT Display"
+LP917W="MAG LP917W LCD Display"
+XP911W="MAG XP911W LCD Display"
+JA781I="MAG JA781I LCD Display"
+LT926WB="MAG LT926WB LCD Display"
+XP711="MAG XP711 LCD Display"
+XP911="MAG XP911 LCD Display"
+GB980W="MAG GB980W LCD Display"
+LP917="MAG LP917 LCD Display"
+EV527="MAG EV527 LCD Display"
+MP720KC="MAG MP720KC LCD Display"
+GA580K="MAG GA580K LCD Display"
+GA780K="MAG GA780K LCD Display"
+GA980K="MAG GA980K LCD Display"
+GB980AFW="MAG GB980AFW LCD Display"
+GA980IK="MAG GA980IK LCD Display"
+FP2226AFW="MAG FP2226AFW LCD Display"
+BP2219AFW="MAG BP2219AFW LCD Display"
+BP2219ABW="MAG BP2219ABW LCD Display"
+GP2280AFW="MAG GP2280AFW LCD Display"
+XP2211AFW="MAG XP2211AFW LCD Display"
+NA786="MAG NA786 LCD Display"
+NA986="MAG NA986 LCD Display"
+BP919AFW="MAG BP919AFW LCD Display"
+BP719KC="MAG BP719KC LCD Display"
+BP2219W="MAG BP2219W LCD Display"
+BP719="MAG BP719 LCD Display"
+BP919="MAG BP919 LCD Display"
+PQ721="MAG PQ721 LCD Display"
+XP2011B="MAG XP2011B LCD Display"
+BP2019B="MAG BP2019B LCD Display"
+EP2030ADJ="MAG EP2030ADJ LCD Display"
+BP919AJW="MAG BP919AJW LCD Display"
+BP2219AFJW="MAG BP2219AFJW LCD Display"
+EP2030AFJW="MAG EP2030AFJW LCD Display"
+HJ524AW-1="MAG HJ524AW-1 LCD Display"
+HJ524AW-2="MAG HJ524AW-2 LCD Display"
+

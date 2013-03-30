@@ -1,0 +1,66 @@
+;
+; ctxvl950t.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Nov 06, 2002
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=11/06/2002,1.0.0
+CatalogFile=ctxvl950t.cat
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTXCA01
+
+[DestinationDirs]
+DefaultDestDir=11
+
+VL950T.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk%,,,
+
+[SourceDisksFiles]
+CTX19.ICM=1
+
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%VL950T%=VL950T.Install,Monitor\CTXCA01
+
+[VL950T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VL950T.AddReg, 1600, DPMS
+CopyFiles=VL950T.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VL950T.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CTX19.ICM"
+
+[VL950T.CopyFiles]
+CTX19.ICM
+
+[Strings]
+Disk="CTX CRT Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+VL950T="CTX VL950T"

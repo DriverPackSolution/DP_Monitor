@@ -1,0 +1,87 @@
+; Monitor INF file of Gateway FPD1730
+; Manufactured by Lite-On
+; Doc Number : 9086000020-0B
+; Issue date -- 10/07/2002
+; Revise date -- 10/24/2002
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon06C6.cat
+DriverVer=07/02/2001,10.07.1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GWY06C6
+ExcludeFromSelect.NT=Monitor\GWY06C7
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+mon06C6.CopyFiles=23 
+mon06C7.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon06C6.icm=1
+mon06C7.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon06C6%=mon06C6.Install, Monitor\GWY06C6
+%mon06C7%=mon06C7.Install, Monitor\GWY06C7
+
+[mon06C6.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06C6.AddReg,1280,DPMS
+CopyFiles=mon06C6.CopyFiles
+
+[mon06C7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon06C7.AddReg,1280,DPMS
+CopyFiles=mon06C7.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon06C6.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06C6.icm"
+
+[mon06C7.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon06C7.icm"
+
+[mon06C6.CopyFiles]
+mon06C6.icm
+
+[mon06C7.CopyFiles]
+mon06C7.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon06C6="Gateway FPD1730"
+mon06C7="Gateway FPD1730"

@@ -1,0 +1,94 @@
+;
+;VMMicFl.inf
+;
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%VM%
+LayoutFile=layout.inf, layout1.inf, layout2.inf
+DriverVer=06/28/2000
+
+[SourceDisksNames]
+1="Web Camera Installation Disk",,1
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromselect = *
+
+[Manufacturer]
+%VMCam%=VMCam
+
+[DestinationDirs]
+USBMic.CopyList=10,system32\drivers ; %SystemRoot%\system32\drivers
+DSFilters.CopyFiles=11
+
+; =================== Device Section =============================
+[VMCam]
+%USB\VID_0AC8&PID_0302.DeviceDesc%=USBMic,USB\VID_0AC8&PID_0302&MI_01
+
+[USBMic]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=USBMic.CopyList, DSFilters.CopyFiles
+AddReg=USBMic.AddReg,DSPlugIns.AddReg
+KnownFiles = USBMic.KnownFiles
+
+[USBMic.CopyList]
+USBAUDIO.sys
+
+[DSFilters.CopyFiles]     ; installation of DirectShow ext.dll being
+                          ; a multimedia device as well (copied by omcamvid.inf)
+
+[USBMic.KnownFiles]
+usbaudio.sys.4.10.0 = safe
+
+[USBMic.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,redbook,sbemul" 
+HKR,,Driver,,usbaudio.sys
+HKR,,NTMPDriver,,"usbaudio.sys,sbemul.sys"
+HKR,,CLSID,,%Proxy.CLSID% 
+
+HKR,Drivers,SubClasses,,"wave,mixer" 
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv, Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv, Description,,%USBGenericDesc%
+HKR,Drivers\mixer\wdmaud.drv, Description,,%USBGenericDesc%
+
+HKCU,%MediaPrefered%,"Record",,%USB\VID_0AC8&PID_0302.DeviceDesc%
+HKCU,%MediaPrefered%,"UserRecord",,%USB\VID_0AC8&PID_0302.DeviceDesc%
+
+;**************8
+[USBMic.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,"GLOBAL",Z302.Interface
+
+[Z302.Interface]
+AddReg=Z302.Interface.AddReg
+
+[Z302.Interface.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%Z302.Mic.DeviceDesc%
+HKR,Mixer\0\Controls\1,Channel0,0x10001,51914
+
+;========================== Strings =========================================
+
+[Strings]
+;----------------
+; Non-Localizable
+;----------------
+MediaCategories = "SYSTEM\CurrentControlSet\Control\MediaCategories"
+Proxy.CLSID     = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+USBGenericDesc  = "Web Camera Microphone"
+USBMic.SvcDesc  = "Web Camera Microphone"
+KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+;----------------
+; Localizable
+;----------------
+VM="BenQ"
+VMCam="BenQ"
+USB\VID_0AC8&PID_0302.DeviceDesc="Web Camera Microphone"
+Z302.Mic.DeviceDesc="Web Camera Microphone"
+
+MediaPrefered="Software\Microsoft\Multimedia\Sound Mapper"

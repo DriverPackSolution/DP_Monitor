@@ -1,0 +1,120 @@
+
+;==================================================
+; SM203B.inf 01/09/2006 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM203B.cat
+DriverVer=01/09/2006,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM021B
+ExcludeFromSelect.nt=Monitor\SAM021C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM203Ba.CopyFiles = 23
+SM203Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM203B.icm=1
+SM203B.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM203Ba%=SM203Ba.Install, Monitor\SAM021B
+%SM203Bd%=SM203Bd.Install, Monitor\SAM021C
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM203Ba%=SM203Ba.Install, Monitor\SAM021B
+%SM203Bd%=SM203Bd.Install, Monitor\SAM021C
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM203Ba%=SM203Ba.Install, Monitor\SAM021B
+%SM203Bd%=SM203Bd.Install, Monitor\SAM021C
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM203Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM203Ba.AddReg, 1400, DPMS
+CopyFiles=SM203Ba.CopyFiles
+
+[SM203Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM203Bd.AddReg, 1400, DPMS
+CopyFiles=SM203Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1600]
+HKR,,MaxResolution,,"1400,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM203Ba.AddReg]
+HKR,"MODES\1400,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM203B.icm"
+
+[SM203Bd.AddReg]
+HKR,"MODES\1400,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM203B.icm"
+;------------------------------------------------------
+
+[SM203Ba.CopyFiles]
+SM203B.icm
+
+[SM203Bd.CopyFiles]
+SM203B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM203Ba="SyncMaster 203B(Analog)"
+SM203Bd="SyncMaster 203B(Digital)"

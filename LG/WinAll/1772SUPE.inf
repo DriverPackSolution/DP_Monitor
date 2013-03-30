@@ -1,0 +1,64 @@
+;=============================================================== 
+; [1772SUPE.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LGIBM%
+CatalogFile=1772SUPE.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4342
+
+[DestinationDirs]
+DefaultDestDir=11
+1772SUPE.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1772SUPE.ICM=1
+
+[Manufacturer]
+%LGIBM%=LGIBM,NTAMD64
+
+[LGIBM]
+%1772SUPE%=1772SUPE.Install,Monitor\GSM4342
+
+[LGIBM.NTAMD64]
+%1772SUPE%=1772SUPE.Install,Monitor\GSM4342
+
+[1772SUPE.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1772SUPE.AddReg,1280,DPMS
+CopyFiles=1772SUPE.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1772SUPE.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"1772SUPE.ICM"
+
+[1772SUPE.CopyFiles]
+1772SUPE.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LGIBM="LGIBM"
+1772SUPE="LGIBM 1772 SUPER"

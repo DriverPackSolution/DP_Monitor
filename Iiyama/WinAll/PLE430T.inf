@@ -1,0 +1,72 @@
+;PLE430T.INF Ver. 1.00
+;Monitor INF file for IIYAMA EMS Dept. Monitor PLE430T
+;Copyright 2003 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+CatalogFile=PLE430T.cat
+DriverVer=10/01/2003,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM46BC
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+PLE430T.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+PLE430T.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%PLE430T%=PLE430T.Install, Monitor\IVM46BC
+
+[PLE430T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=PLE430T.AddReg, 1280, DPMS
+CopyFiles=PLE430T.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[PLE430T.AddReg]
+HKR,"MODES\640,480",Mode1,,"24-83,55-76,+,+"
+HKR,"MODES\800,600",Mode1,,"24-83,55-76,+,+"
+HKR,"MODES\1024,768",Mode1,,"24-83,55-76,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24-83,55-76,+,+"
+HKR,,ICMProfile,0,"PLE430T.ICM"
+
+[PLE430T.CopyFiles]
+PLE430T.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA LCD Monitor Installation Disk"
+
+PLE430T="IIYAMA ProLite E430T"

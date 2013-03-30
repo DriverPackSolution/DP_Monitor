@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2001, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VE150.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/22/2001,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VLCDS21553-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VE150.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS21553-1%=VLCDS21553-1.Install,Monitor\VSC5547             ;VE150
+
+[VLCDS21553-1.Install]                                          ;VE150
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS21553-1.AddReg,1024,DPMS
+Copyfiles=VLCDS21553-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS21553-1.AddReg]                                           ;VE150
+HKR,"MODES\1024,768",Mode1,,"30-60,50-75,+,+"
+HKR,,ICMProfile,0,"VE150.ICM"
+
+[VLCDS21553-1.CopyFiles]                                       
+VE150.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS21553-1="ViewSonic VE150"

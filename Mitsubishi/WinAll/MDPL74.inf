@@ -1,0 +1,83 @@
+; MDPL74.INF
+; Setup information file for Mitsubishi Diamond Plus 74SB Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=mdpl74.cat
+DriverVer=02/18/2002,2.02.0018.1853
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4623
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DPlus74SB.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+mdpl74.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%DPlus74SB%=DPlus74SB.Install, Monitor\MEL4623
+
+; Install Sections
+;-------------------------------------------------
+[DPlus74SB.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPlus74SB.AddReg, 1280, DPMS
+CopyFiles=DPlus74SB.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[DPlus74SB.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"mdpl74.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[DPlus74SB.CopyFiles]
+MDPL74.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+DPlus74SB="Mitsubishi Diamond Plus 74SB"

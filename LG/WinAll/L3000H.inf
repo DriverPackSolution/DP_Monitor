@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L3000H.INF] 
+; Revision 1.4   April-14-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L3000H.cat
+DriverVer=04/14/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM7537
+ExcludeFromSelect.NT=Monitor\GSM7538
+
+[DestinationDirs]
+DefaultDestDir = 11
+L3000H_Analog.CopyFiles = 23
+L3000H_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGL3000H.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L3000H_Analog%=L3000H_Analog.Install,Monitor\GSM7537
+%L3000H_Digital%=L3000H_Digital.Install,Monitor\GSM7538
+
+[LG.NTamd64]
+%L3000H_Analog%=L3000H_Analog.Install,Monitor\GSM7537
+%L3000H_Digital%=L3000H_Digital.Install,Monitor\GSM7538
+
+[L3000H_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L3000H_Analog.AddReg,1280,DPMS
+CopyFiles=L3000H_Analog.CopyFiles
+
+[L3000H_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L3000H_Digital.AddReg,1280,DPMS
+CopyFiles=L3000H_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L3000H_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL3000H.ICM"
+
+[L3000H_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,56.0-85.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LGL3000H.ICM"
+
+[L3000H_Analog.CopyFiles]
+LGL3000H.ICM
+
+[L3000H_Digital.CopyFiles]
+LGL3000H.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L3000H_Analog="LG L3000H(Analog)"
+L3000H_Digital="LG L3000H(Digital)"

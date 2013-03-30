@@ -1,0 +1,75 @@
+; FSCA24W-3A.INF Ver. 1.1
+;Monitor INF file for Fujitsu Siemens Monitor A24W-3A
+;Copyright 2002,2003,2004,2005,2006,2007 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCA24W3A.cat
+DriverVer=08/06/2007, 1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS068E
+ExcludeFromSelect.nt=Monitor\FUS068F
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-A24W-3A.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCA24W3A.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+[FUJSIE]
+%FUS-A24W-3A%=FUS-A24W-3A.Install, Monitor\FUS068E
+%FUS-A24W-3A%=FUS-A24W-3A.Install, Monitor\FUS068F
+
+[FUJSIE.NTAMD64]
+%FUS-A24W-3A%=FUS-A24W-3A.Install, Monitor\FUS068E
+%FUS-A24W-3A%=FUS-A24W-3A.Install, Monitor\FUS068F
+
+[FUS-A24W-3A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-A24W-3A.AddReg, 1920, DPMS
+CopyFiles=FUS-A24W-3A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-A24W-3A.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"FSCA24W3A.ICM"
+
+[FUS-A24W-3A.CopyFiles]
+FSCA24W3A.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor SCENICVIEW A20W-3A/A22W-3A/A24W-3A"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-A24W-3A="Fujitsu Siemens A24W-3A"

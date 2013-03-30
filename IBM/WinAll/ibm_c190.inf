@@ -1,0 +1,66 @@
+; Copyright (c) 2003 IBM Corporation
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_C190.cat
+DriverVer=01/29/2003,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM1A53
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+IBM_C190.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,,
+
+[SourceDisksFiles]
+IBM_C190.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_C190%=IBM_C190.Install, Monitor\IBM1A53
+
+[IBM_C190.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_C190.AddReg, 1600, DPMS
+CopyFiles=IBM_C190.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_C190.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"IBM_C190.icm"
+
+[IBM_C190.CopyFiles]
+IBM_C190.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="IBM Monitor installtion disk"
+IBM_C190="IBM C190"
+IBM="IBM"

@@ -1,0 +1,87 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [882LE.INF]
+;
+;      Revision 1.1   April-14-2005
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+CatalogFile=882LE.cat
+DriverVer=04/14/2005,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FLATRONLCD882LE.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+882LE.icm=1 
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%FLATRONLCD882LE%=FLATRONLCD882LE, Monitor\GSM4656
+
+[LG.NTamd64]
+%FLATRONLCD882LE%=FLATRONLCD882LE, Monitor\GSM4656
+
+;------------------------------------; .Install
+
+[FLATRONLCD882LE] 
+AddReg=FLATRONLCD882LE.AddReg,1280,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=FLATRONLCD882LE.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[FLATRONLCD882LE.AddReg] 
+HKR,"MODES\1280,1024",Mode1,,"31.0-80.0,58.0-120.0,+,+"
+HKR,,ICMProfile,0,"882LE.ICM"
+
+;------------------------------------; .CopyFiles
+
+[FLATRONLCD563LS.CopyFiles]  
+882LE.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4656
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+FLATRONLCD882LE="LG 882LE"

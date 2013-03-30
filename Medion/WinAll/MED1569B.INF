@@ -1,0 +1,108 @@
+
+;----------------------------
+; Include ICC profiles.
+; Test only
+;----------------------------
+
+
+;-------------------------------------------------
+; Version section
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEDION%
+
+;-------------------------------------------------
+;Monitor class install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir    = 11
+MED1569B.CopyFiles = 23
+
+[SourceDisksNames]
+1="MEDION Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+MED1569B.ICM=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%MEDION%=MEDION
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[MEDION]
+%MED1569B%=MED1569B.install,Monitor\MED1569
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+[MED1569B.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MED1569B.AddReg,1280, DPMS
+CopyFiles=MED1569B.CopyFiles
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------
+
+[MED1569B.AddReg]
+HKR,"MODES\800,600",Mode1,,"53.0-54.0,85.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-110.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"MED1569B.ICM"
+
+
+[MED1569B.CopyFiles]
+MED1569B.ICM
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+
+MEDION="MEDION"
+
+MED1569B="MEDION 1569B"
+

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/23/2008, 1.5.1.0
+Catalogfile=VX2262wm.cat
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2262wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2262wm_SERIES.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX2262wm%=VX2262wm.Install,Monitor\VSC7821  
+
+[ViewSonic.NTia64]   
+%VX2262wm%=VX2262wm.Install,Monitor\VSC7821  
+
+[ViewSonic.NTamd64]   
+%VX2262wm%=VX2262wm.Install,Monitor\VSC7821  
+
+[VX2262wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2262wm.AddReg,1680,DPMS
+Copyfiles=VX2262wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2262wm.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"24-83,50-76,-,+"
+HKR,,ICMProfile,0,"VX2262wm_SERIES.icm"
+
+[VX2262wm.CopyFiles]                                       
+VX2262wm_SERIES.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2262wm SERIES ViewSonic Wizard"
+VX2262wm="ViewSonic VX2262wm SERIES"

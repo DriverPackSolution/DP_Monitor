@@ -1,0 +1,80 @@
+; IBM T545H, April-23-2001
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%IBM%
+CatalogFile=IBMT545H.cat
+DriverVer=04/23/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+
+[DestinationDirs]
+DefaultDestDir=11
+IBMT545H.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+IBMT545H.icm=1 
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBMT545H%=IBMT545H.Install, Monitor\IBM19FD
+
+;------------------------------------; .Install
+
+[IBMT545H] 
+AddReg=IBMT545H.AddReg,1024,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=IBMT545H.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[IBMT545H.AddReg] 
+HKR,"MODES\1024,768",Mode1,,"31.0-61.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"IBMT545H.ICM"
+
+;------------------------------------; .CopyFiles
+
+[IBMT545H.CopyFiles]  
+IBMT545H.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\IBM19FD
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+IBM="IBM"
+IBMT545H="IBM 6653 T545H"

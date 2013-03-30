@@ -1,0 +1,111 @@
+; [M1900.INF]
+; Revision 1.10
+; Copyright(c) 2005 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=M1900.cat
+DriverVer=12/05/2005,1.10
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1806
+ExcludeFromSelect.nt = Monitor\ENC1807
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+M1900.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+M1900D65.ICM=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO, NTamd64, NTia64
+
+[EIZONANAO]
+%M1900D%=M1900D.Install, Monitor\ENC1806
+%M1900%=M1900.Install, Monitor\ENC1807
+
+[EIZONANAO.NTamd64]
+%M1900D%=M1900D.Installamd64, Monitor\ENC1806
+%M1900%=M1900.Installamd64, Monitor\ENC1807
+
+[EIZONANAO.NTia64]
+%M1900D%=M1900D.Installia64, Monitor\ENC1806
+%M1900%=M1900.Installia64, Monitor\ENC1807
+
+[M1900D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1900D.AddReg, 1280, DPMS
+CopyFiles=M1900.CopyFiles
+
+[M1900.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M1900.AddReg, 1280, DPMS
+CopyFiles=M1900.CopyFiles
+
+[M1900D.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M1900D.AddReg, 1280, DPMS
+CopyFiles=M1900.CopyFiles
+
+[M1900.Installamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=M1900.AddReg, 1280, DPMS
+CopyFiles=M1900.CopyFiles
+
+[M1900D.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=M1900D.AddReg, 1280, DPMS
+CopyFiles=M1900.CopyFiles
+
+[M1900.Installia64]
+DelReg=DEL_CURRENT_REG
+AddReg=M1900.AddReg, 1280, DPMS
+CopyFiles=M1900.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M1900D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-64.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"M1900D65.ICM"
+
+[M1900.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"M1900D65.ICM"
+
+[M1900.CopyFiles]
+M1900D65.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+M1900D="M1900 Digital"
+M1900="M1900 Analog"

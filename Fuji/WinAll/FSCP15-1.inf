@@ -1,0 +1,69 @@
+; P15-1.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor P15-1
+;Copyright 2002,2003 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCP15-1.cat
+DriverVer=04/17/2003, 1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0448
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-P15-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCP15-1.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FUS-P15-1%=FUS-P15-1.Install, Monitor\FUS0448
+
+[FUS-P15-1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-P15-1.AddReg, 1024, DPMS
+CopyFiles=FUS-P15-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-P15-1.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"FSCP15-1.ICM"
+
+[FUS-P15-1.CopyFiles]
+FSCP15-1.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor P15-1"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-P15-1="Fujitsu Siemens P15-1"

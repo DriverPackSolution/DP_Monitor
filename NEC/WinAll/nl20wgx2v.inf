@@ -1,0 +1,86 @@
+; nl20wgx2v.inf
+; Setup information file for NEC MultiSync 20WGX2 Monitor
+;
+; Copyright 2007, NEC Display Solutions,Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl20wgx2v.cat
+DriverVer=01/24/2007,1.07.0124.1051
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6698
+ExcludeFromSelect.nt=Monitor\NEC6699
+
+[DestinationDirs]
+20WGX2.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl20wgx2v.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%20WGX2-A%=20WGX2-A.Install, Monitor\NEC6698
+%20WGX2-D%=20WGX2-D.Install, Monitor\NEC6699
+
+[NECDS.ntamd64]
+%20WGX2-A%=20WGX2-A.Install.ntamd64, Monitor\NEC6698
+%20WGX2-D%=20WGX2-D.Install.ntamd64, Monitor\NEC6699
+
+[20WGX2-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=20WGX2-A.AddReg, 1680, DPMS
+CopyFiles=20WGX2.CopyFiles
+
+[20WGX2-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=20WGX2-D.AddReg, 1680, DPMS
+CopyFiles=20WGX2.CopyFiles
+
+[20WGX2-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=20WGX2-A.AddReg, 1680, DPMS
+CopyFiles=20WGX2.CopyFiles
+
+[20WGX2-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=20WGX2-D.AddReg, 1680, DPMS
+CopyFiles=20WGX2.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[20WGX2-A.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl20wgx2v.icm"
+
+[20WGX2-D.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl20wgx2v.icm"
+
+[20WGX2.CopyFiles]
+nl20wgx2v.icm
+
+[Strings]
+NECDS="NEC"
+20WGX2-A="NEC MultiSync 20WGX2(Analog)"
+20WGX2-D="NEC MultiSync 20WGX2(Digital)"
+Disk1="NEC Monitor Installation Disk"

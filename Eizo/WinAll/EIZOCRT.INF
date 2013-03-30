@@ -1,0 +1,1095 @@
+; EIZO.INF
+;
+; Copyright(c) 2000 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+DriverVer=08/21/2000,
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;----- EIZO ----- 
+F35.CopyFiles = 23
+T57S.CopyFiles = 23
+T67.CopyFiles = 23
+T67S.CopyFiles = 23
+F56.CopyFiles = 23
+T57.CopyFiles = 23
+F77.CopyFiles = 23
+F78.CopyFiles = 23
+F55.CopyFiles = 23
+T77.CopyFiles = 23
+F67.CopyFiles = 23
+T68.CopyFiles = 23
+F55S.CopyFiles = 23
+F57.CopyFiles = 23
+F77S.CopyFiles = 23
+;----- ETI -----
+FXB5.CopyFiles = 23
+TXC7S.CopyFiles = 23
+TXD7S.CopyFiles = 23
+FXC6.CopyFiles = 23
+TXC7.CopyFiles = 23
+FXE7.CopyFiles = 23
+FXE8.CopyFiles = 23
+FXC5.CopyFiles = 23
+FXD7.CopyFiles = 23
+TXD7.CopyFiles = 23
+FXC5S.CopyFiles = 23
+FXC7.CopyFiles = 23
+FXE7S.CopyFiles = 23
+;----- NANAO -----
+E35F.CopyFiles = 23
+E57T.CopyFiles = 23
+E66T.CopyFiles = 23
+E65T.CopyFiles = 23
+E53F.CopyFiles = 23
+E55D.CopyFiles = 23
+E75F.CopyFiles = 23
+E78F.CopyFiles = 23
+E51F.CopyFiles = 23
+E57Ts.CopyFiles = 23
+E76D.CopyFiles = 23
+E67F.CopyFiles = 23
+E67T.CopyFiles = 23
+E51FS.CopyFiles = 23
+E54F.CopyFiles = 23
+E76F.CopyFiles = 23
+;----- EIZO ETI NANAO ------
+T960.CopyFiles = 23
+T550.CopyFiles = 23
+F520.CopyFiles = 23
+F980.CopyFiles = 23
+F730.CopyFiles = 23
+T760.CopyFiles = 23
+T961.CopyFiles = 23
+F930.CopyFiles = 23
+T761.CopyFiles = 23
+T962.CopyFiles = 23
+T561.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,1
+
+[SourceDisksFiles]
+;----- EIZO -----
+F35___65.ICM=1
+F35___93.ICM=1
+T57S__65.ICM=1
+T57S__93.ICM=1
+T67___65.ICM=1
+T67___93.ICM=1
+T67S__65.ICM=1
+T67S__93.ICM=1
+F56___65.ICM=1
+F56___93.ICM=1
+T57___65.ICM=1
+T57___93.ICM=1
+F77___65.ICM=1
+F77___93.ICM=1
+F78___65.ICM=1
+F78___93.ICM=1
+F55___65.ICM=1
+F55___93.ICM=1
+T77___65.ICM=1
+T77___93.ICM=1
+F67___65.ICM=1
+F67___93.ICM=1
+T68___65.ICM=1
+T68___93.ICM=1
+F55S__65.ICM=1
+F55S__93.ICM=1
+F57___65.ICM=1
+F57___93.ICM=1
+F77S__65.ICM=1
+F77S__93.ICM=1
+;----- ETI -----
+FXB5__65.ICM=1
+FXB5__93.ICM=1
+TXC7S_65.ICM=1
+TXC7S_93.ICM=1
+TXD7S_65.ICM=1
+TXD7S_93.ICM=1
+FXC6__65.ICM=1
+FXC6__93.ICM=1
+TXC7__65.ICM=1
+TXC7__93.ICM=1
+FXE7__65.ICM=1
+FXE7__93.ICM=1
+FXE8__65.ICM=1
+FXE8__93.ICM=1
+FXC5__65.ICM=1
+FXC5__93.ICM=1
+FXD7__65.ICM=1
+FXD7__93.ICM=1
+TXD7__65.ICM=1
+TXD7__93.ICM=1
+FXC5S_65.ICM=1
+FXC5S_93.ICM=1
+FXC7__65.ICM=1
+FXC7__93.ICM=1
+FXE7S_65.ICM=1
+FXE7S_93.ICM=1
+;----- NANAO -----
+E35F__65.ICM=1
+E35F__93.ICM=1
+E57T__65.ICM=1
+E57T__93.ICM=1
+E66T__65.ICM=1
+E66T__93.ICM=1
+E65T__65.ICM=1
+E65T__93.ICM=1
+E53F__65.ICM=1
+E53F__93.ICM=1
+E55D__65.ICM=1
+E55D__93.ICM=1
+E75F__65.ICM=1
+E75F__93.ICM=1
+E78F__65.ICM=1
+E78F__93.ICM=1
+E51F__65.ICM=1
+E51F__93.ICM=1
+E57Ts_65.ICM=1
+E57Ts_93.ICM=1
+E76D__65.ICM=1
+E76D__93.ICM=1
+E67F__65.ICM=1
+E67F__93.ICM=1
+E67T__65.ICM=1
+E67T__93.ICM=1
+E51FS_65.ICM=1
+E51FS_93.ICM=1
+E54F__65.ICM=1
+E54F__93.ICM=1
+E76F__65.ICM=1
+E76F__93.ICM=1
+;----- EIZO ETI NANAO ------
+T960__65.ICM=1
+T960__93.ICM=1
+T550__65.ICM=1
+T550__93.ICM=1
+F520__65.ICM=1
+F520__93.ICM=1
+F980__65.ICM=1
+F980__93.ICM=1
+F730__65.ICM=1
+F730__93.ICM=1
+T760__65.ICM=1
+T760__93.ICM=1
+T961__65.ICM=1
+T961__93.ICM=1
+F930__65.ICM=1
+F930__93.ICM=1
+T761__50.ICM=1
+T761__65.ICM=1
+T761__93.ICM=1
+T962__50.ICM=1
+T962__65.ICM=1
+T962__93.ICM=1
+T561__65.ICM=1
+T561__93.ICM=1
+
+[Manufacturer]
+%EIZO%=EIZO
+%NANAO%=NANAO
+%EIZONANAO%=EIZONANAO
+
+[EIZO]
+;----- EIZO -----
+%F35%=F35.Install, Monitor\EIZ1000
+%T57S%=T57S.Install, Monitor\EIZ1001
+%T67%=T67.Install, Monitor\EIZ1002
+%T67S%=T67S.Install, Monitor\EIZ1003
+%F56%=F56.Install, Monitor\EIZ1004
+%T57%=T57.Install, Monitor\EIZ1005
+%F77%=F77.Install, Monitor\EIZ1006
+%F78%=F78.Install, Monitor\EIZ1007
+%F55%=F55.Install, Monitor\EIZ1008
+%T77%=T77.Install, Monitor\EIZ1011
+%F67%=F67.Install, Monitor\EIZ1013
+%T68%=T68.Install, Monitor\EIZ1014
+%F55S%=F55S.Install, Monitor\EIZ1015
+%F57%=F57.Install, Monitor\EIZ1020
+%F77S%=F77S.Install, Monitor\EIZ1018
+%T960_E%=T960.Install, Monitor\EIZ1022
+;----- ETI -----
+%FXB5E%=FXB5.Install, Monitor\EIZ1400
+%TXC7SE%=TXC7S.Install, Monitor\EIZ1401
+%TXD7SE%=TXD7S.Install, Monitor\EIZ1403
+%FXC6E%=FXC6.Install, Monitor\EIZ1404
+%TXC7E%=TXC7.Install, Monitor\EIZ1405
+%FXE7E%=FXE7.Install, Monitor\EIZ1406
+%FXE8E%=FXE8.Install, Monitor\EIZ1407
+%FXC5E%=FXC5.Install, Monitor\EIZ1408
+%FXD7%=FXD7.Install, Monitor\EIZ1413
+%TXD7%=TXD7.Install, Monitor\EIZ1414
+%FXC5S%=FXC5S.Install, Monitor\EIZ1415
+%FXC7%=FXC7.Install, Monitor\EIZ1420
+%FXE7S%=FXE7S.Install, Monitor\EIZ1418
+%T960_U%=T960.Install, Monitor\EIZ1422
+
+[NANAO]
+;----- NANAO -----
+%E35F%=E35F.Install, Monitor\NAN1200
+%E57T%=E57T.Install, Monitor\NAN1201
+%E66T%=E66T.Install, Monitor\NAN1202
+%E65T%=E65T.Install, Monitor\NAN1203
+%E53F%=E53F.Install, Monitor\NAN1204
+%E55D%=E55D.Install, Monitor\NAN1205
+%E75F%=E75F.Install, Monitor\NAN1206
+%E78F%=E78F.Install, Monitor\NAN1207
+%E51F%=E51F.Install, Monitor\NAN1208
+%E57Ts%=E57Ts.Install, Monitor\NAN1210
+%E76D%=E76D.Install, Monitor\NAN1211
+%E67F%=E67F.Install, Monitor\NAN1213
+%E67T%=E67T.Install, Monitor\NAN1214
+%E51FS%=E51FS.Install, Monitor\NAN1215
+%E54F%=E54F.Install, Monitor\NAN1220
+%E76F%=E76F.Install, Monitor\NAN1218
+%T960_J%=T960.Install, Monitor\NAN1222
+
+[EIZONANAO]
+%T550%=T550.Install, Monitor\ENC1600
+%F520%=F520.Install, Monitor\ENC1602
+%F980%=F980.Install, Monitor\ENC1603
+%F730%=F730.Install, Monitor\ENC1604
+%T760%=T760.Install, Monitor\ENC1605
+%T961%=T961.Install, Monitor\ENC1610
+%F930%=F930.Install, Monitor\ENC1612
+%T761%=T761.Install, Monitor\ENC1613
+%T962%=T962.Install, Monitor\ENC1614
+%T561%=T561.Install, Monitor\ENC1615
+
+;----- EIZO -----
+[F35.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F35.AddReg, 1280, DPMS
+CopyFiles=F35.CopyFiles
+
+[T57S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T57S.AddReg, 1920, DPMS
+CopyFiles=T57S.CopyFiles
+
+[T67.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T67.AddReg, 2048, DPMS
+CopyFiles=T67.CopyFiles
+
+[T67S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T67S.AddReg, 2048, DPMS
+CopyFiles=T67S.CopyFiles
+
+[F56.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F56.AddReg, 1920, DPMS
+CopyFiles=F56.CopyFiles
+
+[T57.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T57.AddReg, 1920, DPMS
+CopyFiles=T57.CopyFiles
+
+[F77.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F77.AddReg, 2048, DPMS
+CopyFiles=F77.CopyFiles
+
+[F78.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F78.AddReg, 2048, DPMS
+CopyFiles=F78.CopyFiles
+
+[F55.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F55.AddReg, 1280, DPMS
+CopyFiles=F55.CopyFiles
+
+[T77.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T77.AddReg, 2048, DPMS
+CopyFiles=T77.CopyFiles
+
+[F67.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F67.AddReg, 2048, DPMS
+CopyFiles=F67.CopyFiles
+
+[T68.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T68.AddReg, 2048, DPMS
+CopyFiles=T68.CopyFiles
+
+[F55S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F55S.AddReg, 1600, DPMS
+CopyFiles=F55S.CopyFiles
+
+[F57.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F57.AddReg, 1920, DPMS
+CopyFiles=F57.CopyFiles
+
+[F77S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F77S.AddReg, 2048, DPMS
+CopyFiles=F77S.CopyFiles
+
+;----- ETI -----
+[FXB5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXB5.AddReg, 1280, DPMS
+CopyFiles=FXB5.CopyFiles
+
+[TXC7S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TXC7S.AddReg, 1920, DPMS
+CopyFiles=TXC7S.CopyFiles
+
+[TXD7S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TXD7S.AddReg, 2048, DPMS
+CopyFiles=TXD7S.CopyFiles
+
+[FXC6.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXC6.AddReg, 1920, DPMS
+CopyFiles=FXC6.CopyFiles
+
+[TXC7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TXC7.AddReg, 1920, DPMS
+CopyFiles=TXC7.CopyFiles
+
+[FXE7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXE7.AddReg, 2048, DPMS
+CopyFiles=FXE7.CopyFiles
+
+[FXE8.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXE8.AddReg, 2048, DPMS
+CopyFiles=FXE8.CopyFiles
+
+[FXC5.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXC5.AddReg, 1280, DPMS
+CopyFiles=FXC5.CopyFiles
+
+[FXD7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXD7.AddReg, 2048, DPMS
+CopyFiles=FXD7.CopyFiles
+
+[TXD7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=TXD7.AddReg, 2048, DPMS
+CopyFiles=TXD7.CopyFiles
+
+[FXC5S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXC5S.AddReg, 1600, DPMS
+CopyFiles=FXC5S.CopyFiles
+
+[FXC7.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXC7.AddReg, 1920, DPMS
+CopyFiles=FXC7.CopyFiles
+
+[FXE7S.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FXE7S.AddReg, 2048, DPMS
+CopyFiles=FXE7S.CopyFiles
+
+;----- NANAO -----
+[E35F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E35F.AddReg, 1280, DPMS
+CopyFiles=E35F.CopyFiles
+
+[E57T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E57T.AddReg, 1920, DPMS
+CopyFiles=E57T.CopyFiles
+
+[E66T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E66T.AddReg, 2048, DPMS
+CopyFiles=E66T.CopyFiles
+
+[E65T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E65T.AddReg, 2048, DPMS
+CopyFiles=E65T.CopyFiles
+
+[E53F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E53F.AddReg, 1920, DPMS
+CopyFiles=E53F.CopyFiles
+
+[E55D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E55D.AddReg, 1920, DPMS
+CopyFiles=E55D.CopyFiles
+
+[E75F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E75F.AddReg, 2048, DPMS
+CopyFiles=E75F.CopyFiles
+
+[E78F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E78F.AddReg, 2048, DPMS
+CopyFiles=E78F.CopyFiles
+
+[E51F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E51F.AddReg, 1280, DPMS
+CopyFiles=E51F.CopyFiles
+
+[E57Ts.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E57Ts.AddReg, 1920, DPMS
+CopyFiles=E57Ts.CopyFiles
+
+[E76D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E76D.AddReg, 2048, DPMS
+CopyFiles=E76D.CopyFiles
+
+[E67F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E67F.AddReg, 2048, DPMS
+CopyFiles=E67F.CopyFiles
+
+[E67T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E67T.AddReg, 2048, DPMS
+CopyFiles=E67T.CopyFiles
+
+[E51FS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E51FS.AddReg, 1600, DPMS
+CopyFiles=E51FS.CopyFiles
+
+[E54F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E54F.AddReg, 1920, DPMS
+CopyFiles=E54F.CopyFiles
+
+[E76F.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E76F.AddReg, 2048, DPMS
+CopyFiles=E76F.CopyFiles
+
+;----- EIZO ETI NANAO -----
+[T960.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T960.AddReg, 2048, DPMS
+CopyFiles=T960.CopyFiles
+
+[T550.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T550.AddReg, 1600, DPMS
+CopyFiles=T550.CopyFiles
+
+[F520.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F520.AddReg, 1600, DPMS
+CopyFiles=F520.CopyFiles
+
+[F980.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F980.AddReg, 2048, DPMS
+CopyFiles=F980.CopyFiles
+
+[F730.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F730.AddReg, 2048, DPMS
+CopyFiles=F730.CopyFiles
+
+[T760.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T760.AddReg, 2048, DPMS
+CopyFiles=T760.CopyFiles
+
+[T961.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T961.AddReg, 2048, DPMS
+CopyFiles=T961.CopyFiles
+
+[F930.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F930.AddReg, 2048, DPMS
+CopyFiles=F930.CopyFiles
+
+[T761.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T761.AddReg, 2048, DPMS
+CopyFiles=T761.CopyFiles
+
+[T962.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T962.AddReg, 2048, DPMS
+CopyFiles=T962.CopyFiles
+
+[T561.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=T561.AddReg, 1600, DPMS
+CopyFiles=T561.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[1920]
+HKR,,MaxResolution,,"1920,1440"
+
+[2048]
+HKR,,MaxResolution,,"2048,1536"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;----- EIZO -----
+[F35.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"F35___93.ICM"
+
+[T57S.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T57S__93.ICM"
+
+[T67.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T67___93.ICM"
+
+[T67S.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T67S__93.ICM"
+
+[F56.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F56___93.ICM"
+
+[T57.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T57___93.ICM"
+
+[F77.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F77___93.ICM"
+
+[F78.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"31.5-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F78___93.ICM"
+
+[F55.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"F55___93.ICM"
+
+[T77.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"27.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"T77___93.ICM"
+
+[F67.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F67___93.ICM"
+
+[T68.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T68___93.ICM"
+
+[F55S.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-82.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"F55S__93.ICM"
+
+[F57.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F57___93.ICM"
+
+[F77S.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F77S__93.ICM"
+
+;----- ETI -----
+[FXB5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"FXB5__93.ICM"
+
+[TXC7S.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"TXC7S_93.ICM"
+
+[TXD7S.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"TXD7S_93.ICM"
+
+[FXC6.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FXC6__93.ICM"
+
+[TXC7.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"27.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"TXC7__93.ICM"
+
+[FXE7.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FXE7__93.ICM"
+
+[FXE8.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"31.5-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FXE8__93.ICM"
+
+[FXC5.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"27.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"FXC5__93.ICM"
+
+[FXD7.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FXD7__93.ICM"
+
+[TXD7.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"TXD7__93.ICM"
+
+[FXC5S.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-82.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"FXC5S_93.ICM"
+
+[FXC7.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FXC7__93.ICM"
+
+[FXE7S.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"FXE7S_93.ICM"
+
+;----- NANAO -----
+[E35F.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.5-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"E35F__93.ICM"
+
+[E57T.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E57T__93.ICM"
+
+[E66T.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E66T__93.ICM"
+
+[E65T.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E65T__93.ICM"
+
+[E53F.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.5-86.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E53F__93.ICM"
+
+[E55D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.5-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E55D__93.ICM"
+
+[E75F.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-95.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E75F__93.ICM"
+
+[E78F.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"31.5-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E78F__93.ICM"
+
+[E51F.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.5-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"E51F__93.ICM"
+
+[E57Ts.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-92.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E57Ts_93.ICM"
+
+[E76D.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E76D__93.ICM"
+
+[E67F.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E67F__93.ICM"
+
+[E67T.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E67T__93.ICM"
+
+[E51FS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-82.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"E51FS_93.ICM"
+
+[E54F.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E54F__93.ICM"
+
+[E76F.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-110.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"E76F__93.ICM"
+
+;----- EIZO ETI NANAO -----
+[T960.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T960__93.ICM"
+
+[T550.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-82.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T550__93.ICM"
+
+[F520.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F520__93.ICM"
+
+[F980.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-137.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F980__93.ICM"
+
+[F730.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F730__93.ICM"
+
+[T760.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T760__93.ICM"
+
+[T961.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T961__93.ICM"
+
+[F930.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-130.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"F930__93.ICM"
+
+[T761.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-115.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T761__93.ICM"
+
+[T962.AddReg]
+HKR,"MODES\2048,1536",Mode1,,"30.0-130.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T962__93.ICM"
+
+[T561.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-96.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"T561__93.ICM"
+
+;----- EIZO -----
+[F35.CopyFiles]
+F35___93.ICM
+F35___65.ICM
+
+[T57S.CopyFiles]
+T57S__93.ICM
+T57S__65.ICM
+
+[T67.CopyFiles]
+T67___93.ICM
+T67___65.ICM
+
+[T67S.CopyFiles]
+T67S__93.ICM
+T67S__65.ICM
+
+[F56.CopyFiles]
+F56___93.ICM
+F56___65.ICM
+
+[T57.CopyFiles]
+T57___93.ICM
+T57___65.ICM
+
+[F77.CopyFiles]
+F77___93.ICM
+F77___65.ICM
+
+[F78.CopyFiles]
+F78___93.ICM
+F78___65.ICM
+
+[F55.CopyFiles]
+F55___93.ICM
+F55___65.ICM
+
+[T77.CopyFiles]
+T77___93.ICM
+T77___65.ICM
+
+[F67.CopyFiles]
+F67___93.ICM
+F67___65.ICM
+
+[T68.CopyFiles]
+T68___93.ICM
+T68___65.ICM
+
+[F55S.CopyFiles]
+F55S__93.ICM
+F55S__65.ICM
+
+[F57.CopyFiles]
+F57___93.ICM
+F57___65.ICM
+
+[F77S.CopyFiles]
+F77S__93.ICM
+F77S__65.ICM
+
+;----- ETI -----
+[FXB5.CopyFiles]
+FXB5__93.ICM
+FXB5__65.ICM
+
+[TXC7S.CopyFiles]
+TXC7S_93.ICM
+TXC7S_65.ICM
+
+[TXD7S.CopyFiles]
+TXD7S_93.ICM
+TXD7S_65.ICM
+
+[FXC6.CopyFiles]
+FXC6__93.ICM
+FXC6__65.ICM
+
+[TXC7.CopyFiles]
+TXC7__93.ICM
+TXC7__65.ICM
+
+[FXE7.CopyFiles]
+FXE7__93.ICM
+FXE7__65.ICM
+
+[FXE8.CopyFiles]
+FXE8__93.ICM
+FXE8__65.ICM
+
+[FXC5.CopyFiles]
+FXC5__93.ICM
+FXC5__65.ICM
+
+[FXD7.CopyFiles]
+FXD7__93.ICM
+FXD7__65.ICM
+
+[TXD7.CopyFiles]
+TXD7__93.ICM
+TXD7__65.ICM
+
+[FXC5S.CopyFiles]
+FXC5S_93.ICM
+FXC5S_65.ICM
+
+[FXC7.CopyFiles]
+FXC7__93.ICM
+FXC7__65.ICM
+
+[FXE7S.CopyFiles]
+FXE7S_93.ICM
+FXE7S_65.ICM
+
+;----- NANAO -----
+[E35F.CopyFiles]
+E35F__93.ICM
+E35F__65.ICM
+
+[E57T.CopyFiles]
+E57T__93.ICM
+E57T__65.ICM
+
+[E66T.CopyFiles]
+E66T__93.ICM
+E66T__65.ICM
+
+[E65T.CopyFiles]
+E65T__93.ICM
+E65T__65.ICM
+
+[E53F.CopyFiles]
+E53F__93.ICM
+E53F__65.ICM
+
+[E55D.CopyFiles]
+E55D__93.ICM
+E55D__65.ICM
+
+[E75F.CopyFiles]
+E75F__93.ICM
+E75F__65.ICM
+
+[E78F.CopyFiles]
+E78F__93.ICM
+E78F__65.ICM
+
+[E51F.CopyFiles]
+E51F__93.ICM
+E51F__65.ICM
+
+[E57Ts.CopyFiles]
+E57Ts_93.ICM
+E57Ts_65.ICM
+
+[E76D.CopyFiles]
+E76D__93.ICM
+E76D__65.ICM
+
+[E67F.CopyFiles]
+E67F__93.ICM
+E67F__65.ICM
+
+[E67T.CopyFiles]
+E67T__93.ICM
+E67T__65.ICM
+
+[E51FS.CopyFiles]
+E51FS_93.ICM
+E51FS_65.ICM
+
+[E54F.CopyFiles]
+E54F__93.ICM
+E54F__65.ICM
+
+[E76F.CopyFiles]
+E76F__93.ICM
+E76F__65.ICM
+
+;----- EIZO ETI NANAO -----
+[T960.CopyFiles]
+T960__93.ICM
+T960__65.ICM
+
+[T550.CopyFiles]
+T550__93.ICM
+T550__65.ICM
+
+[F520.CopyFiles]
+F520__93.ICM
+F520__65.ICM
+
+[F980.CopyFiles]
+F980__93.ICM
+F980__65.ICM
+
+[F730.CopyFiles]
+F730__93.ICM
+F730__65.ICM
+
+[T760.CopyFiles]
+T760__93.ICM
+T760__65.ICM
+
+[T961.CopyFiles]
+T961__93.ICM
+T961__65.ICM
+
+[F930.CopyFiles]
+F930__93.ICM
+F930__65.ICM
+
+[T761.CopyFiles]
+T761__50.ICM
+T761__65.ICM
+T761__93.ICM
+
+[T962.CopyFiles]
+T962__50.ICM
+T962__65.ICM
+T962__93.ICM
+
+[T561.CopyFiles]
+T561__93.ICM
+T561__65.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+EIZO="EIZO"
+NANAO="NANAO"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO CRT Utility Disk"
+
+;---- EIZO ----
+F35="EIZO F35"
+T57S="EIZO T57S"
+T67="EIZO T67"
+T67S="EIZO T67S"
+F56="EIZO F56"
+T57="EIZO T57"
+F77="EIZO F77"
+F78="EIZO F78"
+F55="EIZO F55"
+T77="EIZO T77"
+F67="EIZO F67"
+T68="EIZO T68"
+F55S="EIZO F55S"
+F57="EIZO F57"
+F77S="EIZO F77S"
+T960_E="EIZO T960"
+
+;---- ETI ----
+FXB5E="EIZO FX-B5"
+TXC7SE="EIZO TX-C7S"
+TXD7SE="EIZO TX-D7S"
+FXC6E="EIZO FX-C6"
+TXC7E="EIZO TX-C7"
+FXE7E="EIZO FX-E7"
+FXE8E="EIZO FX-E8"
+FXC5E="EIZO FX-C5"
+FXD7="EIZO FX-D7"
+TXD7="EIZO TX-D7"
+FXC5S="EIZO FX-C5S"
+FXC7="EIZO FX-C7"
+FXE7S="EIZO FX-E7S"
+T960_U="EIZO T960"
+
+;---- NANAO -----
+E35F="EIZO E35F"
+E57T="EIZO E57T"
+E66T="EIZO E66T"
+E65T="EIZO E65T"
+E53F="EIZO E53F"
+E55D="EIZO E55D"
+E75F="EIZO E75F"
+E78F="EIZO E78F"
+E51F="EIZO E51F"
+E57Ts="EIZO E57Ts"
+E76D="EIZO E76D"
+E67F="EIZO E67F"
+E67T="EIZO E67T"
+E51FS="EIZO E51FS"
+E54F="EIZO E54F"
+E76F="EIZO E76F"
+T960_J="EIZO T960"
+
+;----- EIZO ETI NANAO -----
+T550="T550"
+F520="F520"
+F980="F980"
+F730="F730"
+T760="T760"
+T961="T961"
+F930="F930"
+T761="T761"
+T962="T962"
+T561="T561"

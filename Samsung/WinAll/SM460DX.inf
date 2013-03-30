@@ -1,0 +1,119 @@
+
+;==================================================
+; SM460DX.inf 06/10/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM460DX.cat
+DriverVer=06/10/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM02E8
+ExcludeFromSelect.nt=Monitor\SAM02E9
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM460DXa.CopyFiles = 23
+SM460DXd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM460DX.icm=1
+sm740BF.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM460DXa%=SM460DXa.Install, Monitor\SAM02E8
+%SM460DXd%=SM460DXd.Install, Monitor\SAM02E9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM460DXa%=SM460DXa.Install, Monitor\SAM02E8
+%SM460DXd%=SM460DXd.Install, Monitor\SAM02E9
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM460DXa%=SM460DXa.Install, Monitor\SAM02E8
+%SM460DXd%=SM460DXd.Install, Monitor\SAM02E9
+; Install Sections
+;-----------------------------------------------------
+
+[SM460DXa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM460DXa.AddReg, 1360, DPMS
+CopyFiles=SM460DXa.CopyFiles
+
+[SM460DXd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM460DXd.AddReg, 1360, DPMS
+CopyFiles=SM460DXd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1360]
+HKR,,MaxResolution,,"1360,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM460DXa.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM460DX.icm"
+
+[SM460DXd.AddReg]
+HKR,"MODES\1360,768",Mode1,,"30-81,56-85,+,+"
+HKR,,ICMProfile,0,"SM460DX.icm"
+;------------------------------------------------------
+
+[SM460DXa.CopyFiles]
+SM460DX.icm
+
+[SM460DXd.CopyFiles]
+SM460DX.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM460DXa="SyncMaster 460DX/460DXN(Analog)"
+SM460DXd="SyncMaster 460DX/460DXN(Digital)"

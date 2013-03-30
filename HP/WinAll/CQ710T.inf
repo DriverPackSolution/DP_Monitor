@@ -1,0 +1,105 @@
+;-------------------------------------------------
+; 710T.INF
+;
+; This is a Setup information file for Compaq
+; 710T Consumer monitors. 
+;
+; Copyright (c) 1998-2000, Compaq Computer Corporation
+;
+;  Version 08.22.2000
+;  
+;-------------------------------------------------
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=Cq710t.cat
+DriverVer=08/22/2000,
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CPQ3057
+;-------------------------------------------------
+; Monitor Class Install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+710T.CopyFiles=23
+
+[SourceDisksNames]
+1="Compaq Consumer Monitor Installation Disk",,,
+
+[SourceDisksFiles]
+CQ710T.icm=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[COMPAQ]
+%710T% =710T.Install, Monitor\CPQ3057
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+
+[710T.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=710T.AddReg, 1600, DPMS
+CopyFiles=710T.CopyFiles
+
+
+;-------------------------------------------------
+; Common AddReg/DelReg Sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------------
+; Model AddReg Sections
+;-------------------------------------------------
+
+
+[710T.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-86,50-160,+,+"
+HKR,,ICMProfile,0,"CQ710T.icm"
+
+[710T.CopyFiles]
+CQ710T.icm
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+Compaq="COMPAQ"
+MonitorClassName="Monitor"
+710T="COMPAQ 710T Color Monitor"

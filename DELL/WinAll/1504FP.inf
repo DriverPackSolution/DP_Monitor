@@ -1,0 +1,103 @@
+
+;================================ 
+;1504FP.INF 03/22/02 Ver. 1.0 JG
+;Copyright 1996-2002 Dell Computer Corporation
+;
+;This is a setupfile for 1504FP 
+;
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1504FP.cat
+DriverVer=03/22/2002, 1.0  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DEL300C
+ExcludeFromSelect.nt=Monitor\DEL300D
+
+[DestinationDirs]
+DefaultDestDir=11
+1504FP_Analog.CopyFiles=23
+1504FP_Digital.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+1504FP.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%1504FP_Analog%=1504FP_Analog.Install, Monitor\DEL300C
+%1504FP_Digital%=1504FP_Digital.Install, Monitor\DEL300D
+
+; Install Sections
+;-------------------------------------------------
+
+[1504FP_Analog.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1504FP_Analog.AddReg, 1024, DPMS
+CopyFiles=1504FP_Analog.CopyFiles
+
+[1504FP_Digital.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=1504FP_Digital.AddReg, 1024, DPMS
+CopyFiles=1504FP_Digital.CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[1504FP_Analog.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"1504FP.icm"
+
+[1504FP_Digital.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"1504FP.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[1504FP_Analog.CopyFiles]
+1504FP.icm
+
+[1504FP_Digital.CopyFiles]
+1504FP.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+Dell="Dell Computer Corp."	
+1504FP_Analog="Dell 1504FP (Analog)"
+1504FP_Digital="Dell 1504FP (Digital)"

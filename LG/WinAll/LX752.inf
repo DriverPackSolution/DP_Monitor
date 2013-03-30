@@ -1,0 +1,65 @@
+;=============================================================== 
+; [LX752.INF] 
+; Revision 1.4   Feb-28-2006
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=LX752.cat
+DriverVer=02/28/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4445
+
+[DestinationDirs]
+DefaultDestDir=11
+LX752.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LX752.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%LX752%=LX752.Install,Monitor\GSM4445
+
+[LG.NTamd64]
+%LX752%=LX752.Install,Monitor\GSM4445
+
+[LX752.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LX752.AddReg,1280,DPMS
+CopyFiles=LX752.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LX752.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"LX752.ICM"
+
+[LX752.CopyFiles]
+LX752.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+LX752="LG LX752"

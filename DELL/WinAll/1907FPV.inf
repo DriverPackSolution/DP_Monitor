@@ -1,0 +1,97 @@
+;-------------------------------------------
+; Copyright (c) 2005 Dell Corporation
+; Issue date -- 03/30/2006
+; Revise date -- 03/30/2006
+; revision 1
+;-------------------------------------------
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=1907FPV.cat
+DriverVer=03/30/2006,1.0.0.0
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+1907FPV_Analog.copyfiles = 23
+1907FPV_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1="Dell Monitor installtion disk",,,
+
+[SourceDisksFiles]
+1907FPV.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%1907FPV_Analog%=1907FPV_Analog.Install, Monitor\DEL4019
+%1907FPV_Digital%=1907FPV_Digital.Install, Monitor\DEL4020
+
+[DELL.NTx86]
+%1907FPV_Analog%=1907FPV_Analog.Install, Monitor\DEL4019
+%1907FPV_Digital%=1907FPV_Digital.Install, Monitor\DEL4020
+
+[DELL.NTAMD64]
+%1907FPV_Analog%=1907FPV_Analog.Install, Monitor\DEL4019
+%1907FPV_Digital%=1907FPV_Digital.Install, Monitor\DEL4020
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL4019
+ExcludeFromSelect.NT=Monitor\DEL4020
+
+[1907FPV_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1907FPV_Analog.AddReg, 1280, DPMS
+CopyFiles=1907FPV_Analog.CopyFiles
+
+[1907FPV_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1907FPV_Digital.AddReg, 1280, DPMS
+CopyFiles=1907FPV_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1907FPV_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1907FPV.icm"
+
+[1907FPV_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"1907FPV.icm"
+
+
+[1907FPV_Analog.CopyFiles]
+1907FPV.ICM
+
+[1907FPV_Digital.CopyFiles]
+1907FPV.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+
+1907FPV_Analog="Dell 1907FPV(Analog)"
+1907FPV_Digital="Dell 1907FPV(Digital)"
+

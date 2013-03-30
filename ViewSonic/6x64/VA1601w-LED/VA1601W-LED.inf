@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VA1601W-LED.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/21/2009, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1601W-LED.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA1601W-LED.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC1A25
+
+[ViewSonic]   
+%VA1601W-LED%=VA1601W-LED.Install,Monitor\VSC1A25  
+
+[ViewSonic.NTia64]   
+%VA1601W-LED%=VA1601W-LED.Install,Monitor\VSC1A25  
+
+[ViewSonic.NTamd64]   
+%VA1601W-LED%=VA1601W-LED.Install,Monitor\VSC1A25  
+
+[VA1601W-LED.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1601W-LED.AddReg,1366,DPMS
+Copyfiles=VA1601W-LED.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA1601W-LED.AddReg]  
+HKR,"MODES\1366,768",Mode1,,"31-83,56-75,+,+"
+HKR,,ICMProfile,0,"VA1601W-LED.icm"
+
+[VA1601W-LED.CopyFiles]                                       
+VA1601W-LED.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA1601W-LED ViewSonic Wizard"
+VA1601W-LED="ViewSonic VA1601W-LED"

@@ -1,0 +1,41 @@
+;Medion MD1772A.inf 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD 1772 A.CopyFiles=23
+
+[SourceDisksNames]
+1="Medion Monitor Profiles Installation Disk",,1
+
+[SourceDisksFiles]
+MD1772A.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%MD 1772 A%=MD 1772 A.install,Monitor\MED0127  
+
+[MD 1772 A.install]
+  
+[Strings]
+MonitorClassName="Monitor"
+
+MEDION="MEDION"
+
+MD1772A= "MEDION MD1772A"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

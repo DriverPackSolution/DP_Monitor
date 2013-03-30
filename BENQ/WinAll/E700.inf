@@ -1,0 +1,122 @@
+;========================================= 
+; BenQ_E700.INF 10/16/06 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2006, BENQ Corporation
+;=========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=E700.cat
+DriverVer=10/16/2006,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7901
+ExcludeFromSelect.NT=Monitor\BNQ7902
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+E700_Analog.copyfiles = 23
+E700_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+E700DSUB.icm=1
+E700DVI.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%E700_Analog%=E700_Analog.Install, Monitor\BNQ7901
+%E700_Digital%=E700_Digital.Install, Monitor\BNQ7902
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%E700_Analog%=E700_Analog.Install, Monitor\BNQ7901
+%E700_Digital%=E700_Digital.Install, Monitor\BNQ7902
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%E700_Analog%=E700_Analog.Install, Monitor\BNQ7901
+%E700_Digital%=E700_Digital.Install, Monitor\BNQ7902
+
+
+; Install Sections
+;-------------------------------------------------
+
+[E700_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E700_Analog.AddReg, 1280, DPMS
+CopyFiles=E700_Analog.CopyFiles
+
+[E700_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=E700_Digital.AddReg, 1280, DPMS
+CopyFiles=E700_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[E700_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"E700DSUB.icm"
+
+[E700_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"E700DVI.icm"
+
+
+
+[E700_Analog.CopyFiles]
+E700DSUB.ICM
+
+[E700_Digital.CopyFiles]
+E700DVI.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+E700_Analog="BenQ E700 (Analog)"
+E700_Digital="BenQ E700 (Digital)"
+

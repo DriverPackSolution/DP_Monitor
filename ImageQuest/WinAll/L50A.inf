@@ -1,0 +1,76 @@
+; Monitor INF file for ImageQuest L50A
+;
+; Copyright 1997-2002, ImageQuest Co, Ltd.
+;
+; This is a INF file for installing monitors for Windows.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ImageQuest%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+L50A.Install.CopyFiles=23
+
+[SourceDisksNames]
+1="ImageQuest Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+L50A.icm=1
+
+[Manufacturer]
+%ImageQuest%=ImageQuest
+
+[ImageQuest]
+%L50A%=L50A.Install, Monitor\IQT0520
+
+[L50A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L50A.AddReg, 1024, DPMS
+CopyFiles=L50A.Install.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[L50A.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-60.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"L50A.icm"
+
+[L50A.Install.CopyFiles]
+L50A.icm
+
+[640]
+HKR,,MaxResolution,,"640,480"
+
+[800]
+HKR,,MaxResolution,,"800,600"
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Strings]
+MonitorClassName="Monitor"
+ImageQuest="ImageQuest Co., Ltd."
+L50A="ImageQuest L50A"

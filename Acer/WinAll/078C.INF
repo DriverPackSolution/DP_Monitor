@@ -1,0 +1,66 @@
+; Acer F-19, November-017-2004
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=078C.cat
+DriverVer=11/17/2004,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACR078C
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+078C.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+078C.icm=1
+
+[Manufacturer]
+%Acer%=Acer
+
+[Acer]
+%078C%=078C.Install, Monitor\ACR078C
+
+[078C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=078C.AddReg, 1280, DPMS
+CopyFiles=078C.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[078C.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"078C.icm"
+
+[078C.CopyFiles]
+078C.icm
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Acer System Restoration CD"
+Acer="Acer"
+078C="Acer F-19"

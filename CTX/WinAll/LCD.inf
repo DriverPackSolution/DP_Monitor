@@ -1,0 +1,169 @@
+;Monitor INF file created by R&D Department at CTX Electronics(Taiwan) Co., Ltd.
+;This is a INF file for CTX monitors supported in the Windows 98 or later versions.
+;Copyright (C) 2002 03/15/2002 VER.3.3 98T111-P??
+
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+Classguid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+3059.CopyFiles=23
+
+[SourceDisksNames]
+1="Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+CTXpfs.ICM=1
+
+[Manufacturer]
+%CTX%=CTX
+
+
+[CTX]
+;LCD 2000 YEARS MODEL
+%1500%=1500, Monitor\CTX1500			     ;PV510
+%1501%=1500, Monitor\CTX1501			     ;PV505
+%1502%=1500, Monitor\CTX1502			     ;PV520
+;LCD 2001 YEARS MODEL
+%2001%=2001.Install, Monitor\CTX2001		     ;PV720	
+%2002%=2002.Install, Monitor\CTX2002		     ;PV720M
+%2003%=2003.Install, Monitor\CTX2003		     ;PV720A
+%2004%=2004.Install, Monitor\CTX2004		     ;PV720D	
+%2005%=2005.Install, Monitor\CTX2005		     ;PV700	10/23/2001
+%2006%=2005.Install, Monitor\CTX2006		     ;PV700	1/23/2002
+
+%1001%=1001.Install, Monitor\CTX1001		     ;PV520A
+%1002%=1002.Install, Monitor\CTX1002		     ;PV505A
+%1003%=1003.Install, Monitor\CTX1003		     ;PV510A
+%1004%=1001.Install, Monitor\CTX1004		     ;PV500
+%1005%=1001.Install, Monitor\CTX1005		     ;PV500A
+
+
+
+[1500]
+DelReg=DEL_CURRENT_REG
+AddReg=3118.AddReg, 1024, DPMS
+CopyFiles=3059.CopyFiles
+
+[1001.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3118.AddReg, 1024, DPMS
+CopyFiles=3059.CopyFiles
+
+
+[2001.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2001.AddReg, 1280, DPMS
+CopyFiles=3059.CopyFiles
+
+[2002.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2001.AddReg, 1280, DPMS
+CopyFiles=3059.CopyFiles
+
+[2003.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2001.AddReg, 1280, DPMS
+CopyFiles=3059.CopyFiles
+
+[2004.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2001.AddReg, 1280, DPMS
+CopyFiles=3059.CopyFiles
+
+[2005.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2001.AddReg, 1280, DPMS
+CopyFiles=3059.CopyFiles
+
+
+[1002.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3118.AddReg, 1024, DPMS
+CopyFiles=3059.CopyFiles
+
+[1003.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=3118.AddReg, 1024, DPMS
+CopyFiles=3059.CopyFiles
+
+
+
+
+; AddReg & DelReg sections
+;
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+;
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+[DPMS]
+HKR,,DPMS,,1
+
+[3118.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-60.0,60.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"CTXpfs.ICM"
+
+[2001.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"pfs.ICM"
+
+
+[3059.CopyFiles]
+CTXpfs.ICM
+
+; User visible strings
+;
+[Strings]
+MonitorClassName="Monitor"
+CTX="CTX - Chuntex Electronic"
+
+
+
+;LCD 2000 YEARS MODEL
+1500 ="CTX PV510"                               ;LCD 15",30-80,59-76
+1501 ="CTX PV505"				;LCD 15",30-80,59-76
+1502 ="CTX PV520"				;LCD 15",30-80,59-76
+;LCD 2001 YEARS MODEL
+
+2001 ="CTX PV720,PV720L series"   		; 17", LCD MONITOR
+2002 ="CTX PV720M series"   			; 17", LCD MONITOR
+2003 ="CTX PV720A series"   			; 17", LCD MONITOR
+2004 ="CTX PV720D series"   			; 17", LCD MONITOR
+2005 ="CTX PV700 series"   			; 17", LCD MONITOR 10/23/2001 rev3.0
+2006 ="CTX PV700A series"   			; 17", LCD MONITOR 1/23/2002 rev3.2
+;
+1001 ="CTX PV520A"                              ;LCD 15",30-80,59-76
+1002 ="CTX PV505A series"			; 15",lcd monitor
+1003 ="CTX PV510A series" 			; 15",lcd monitor
+1004 ="CTX PV500 series" 			; 15",lcd monitor 
+1005 ="CTX PV500A series" 			; 15",lcd monitor 1/23/2002 rev3.2

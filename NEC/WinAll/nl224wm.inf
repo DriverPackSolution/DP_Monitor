@@ -1,0 +1,68 @@
+; nl224wm.inf
+; Setup information file for NEC LCD224WM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl224wm.cat
+DriverVer=10/15/2007,1.07.1015.1139
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6732
+
+[DestinationDirs]
+LCD224WM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl224wm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD224WM%=LCD224WM.Install, Monitor\NEC6732
+
+[NECDS.ntamd64]
+%LCD224WM%=LCD224WM.Install.ntamd64, Monitor\NEC6732
+
+[LCD224WM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD224WM.AddReg, 1680, DPMS
+CopyFiles=LCD224WM.CopyFiles
+
+[LCD224WM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD224WM.AddReg, 1680, DPMS
+CopyFiles=LCD224WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD224WM.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl224wm.icm"
+
+[LCD224WM.CopyFiles]
+nl224wm.icm
+
+[Strings]
+NECDS="NEC"
+LCD224WM="NEC LCD224WM"
+Disk1="NEC Monitor Installation Disk"

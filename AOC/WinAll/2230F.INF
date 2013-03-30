@@ -1,0 +1,101 @@
+; Copyright 2008 AOC International (Europe) GmbH
+; This is a Setup information file for monitors with ICM file.
+; vista
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=2230F.cat
+DriverVer=12/21/2007,1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOC2230
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+2230.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+2230F.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC,ntamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%2230%=2230.Install, Monitor\AOC2230
+
+
+[AOC.ntamd64]
+%2230%=2230.Install, Monitor\AOC2230
+
+
+; Install Sections
+;-------------------------------------------------
+[2230.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=2230.AddReg, 1680, DPMS
+Copyfiles=2230.CopyFiles
+
+
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[2230.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"24.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"2230F.icm"
+
+
+
+[2230.CopyFiles]
+2230F.icm
+
+
+
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+2230="AOC 2230F"
+
+

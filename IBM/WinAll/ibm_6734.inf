@@ -1,0 +1,61 @@
+;=============================================================== 
+; IBM_6734.INF 02/26/2004 
+; Revision 1.3   02-26-2004
+; Copyright(c) IBM,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_6734.cat
+DriverVer=02/26/2004,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\IBM1A4E
+
+[DestinationDirs]
+DefaultDestDir = 11
+IBM_6734.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+IBM_6734.ICM=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_6734%=IBM_6734.Install,Monitor\IBM1A4E
+
+[IBM_6734.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_6734.AddReg,1280,DPMS
+CopyFiles=IBM_6734.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_6734.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.0,55.0-75.0,+,+"
+HKR,,ICMprofile,0,"IBM_6734.ICM"
+
+[IBM_6734.CopyFiles]
+IBM_6734.ICM
+
+[Strings]
+DiskName="IBM Monitor installtion disk"
+IBM="IBM"
+IBM_6734="IBM 6734 L170"

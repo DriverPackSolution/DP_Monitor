@@ -1,0 +1,82 @@
+#####################################################################
+; This is a setup information file for Belinea 2225 S1W monitor
+; Modified by MAXDATA Systeme GmbH (ABA)                            
+; Revision 1.0.0.0, February 09, 2007
+; Copyright 2000-2007 MAXDATA Systeme GmbH
+#####################################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=112201.cat
+DriverVer=02/09/2007,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX0899
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea 2225 S1W / Art. No. 112201" = 112201.Install, Monitor\MAX0899
+
+[Belinea.NTx86]
+"Belinea 2225 S1W / Art. No. 112201" = 112201.Install, Monitor\MAX0899
+
+[Belinea.NTia64]
+"Belinea 2225 S1W / Art. No. 112201" = 112201.Install, Monitor\MAX0899
+
+[Belinea.NTamd64]
+"Belinea 2225 S1W / Art. No. 112201" = 112201.Install, Monitor\MAX0899
+
+
+; Install sections
+;-------------------------------------------------
+[112201.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=112201.AddReg,1680,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[112201.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-84.0,55.0-77.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA Systeme GmbH"
+BELINEA="MAXDATA Systeme GmbH"
+

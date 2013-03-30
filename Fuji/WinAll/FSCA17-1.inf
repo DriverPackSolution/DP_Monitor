@@ -1,0 +1,69 @@
+; A17-1.INF Ver. 1.1
+;Monitor INF file for Fujitsu Siemens Monitor A17-1
+;Copyright 2002,2003, 2004 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUS%
+CatalogFile=FSCA17-1.cat
+DriverVer=01/18/2005, 1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0565
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-A17-1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCA17-1.ICM=1 
+
+[Manufacturer]
+%FUS%=FUS
+
+[FUS]
+%FUS-A17-1%=FUS-A17-1.Install, Monitor\FUS0565
+
+[FUS-A17-1.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-A17-1.AddReg, 1280, DPMS
+CopyFiles=FUS-A17-1.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-A17-1.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"FSCA17-1.ICM"
+
+[FUS-A17-1.CopyFiles]
+FSCA17-1.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor A17-1"
+MonitorClassName="Monitor"
+FUS="Fujitsu Siemens Computers"
+FUS-A17-1="Fujitsu Siemens SCENICVIEW A17-1"

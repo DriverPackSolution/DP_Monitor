@@ -1,0 +1,68 @@
+; Copyright (c) 1999 IBM Corporation
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+catalogfile=IBM_9493.cat
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+IBM_9493.copyfiles = 23
+
+[SourceDisksNames]
+1="IBM Monitor installation diskette",,1
+
+[SourceDisksFiles]
+IBM_9493.icm=1
+
+[Manufacturer]
+%IBM%=IBM
+
+[IBM]
+%IBM_9493%=IBM_9493.Install, Monitor\IBM2515
+
+[IBM_9493.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=IBM_9493.AddReg, 1024, DPMS
+CopyFiles=IBM_9493.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[IBM_9493.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.0-44.3,59.0-86.0,+,+"
+HKR,"MODES\800,600",Mode1,,"34.1-54.7,55.0-86.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"47.4-69.7,59.0-86.0,+,+"
+HKR,,ICMProfile,0,"IBM_9493.icm"
+
+[IBM_9493.CopyFiles]
+IBM_9493.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IBM_9493="IBM 9493 T56A"
+IBM="IBM"
+

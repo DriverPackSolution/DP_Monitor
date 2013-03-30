@@ -1,0 +1,83 @@
+; INF File of BENQ LCD Monitor FP882 for Windows Me/9x/2000/XP
+; Copyright (c) 2002, BENQ 
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BENQ%
+catalogfile=FP882.cat
+DriverVer=03/14/2002, 1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7633
+ExcludeFromSelect.NT=Monitor\BNQ763D
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+FP882.copyfiles = 23
+FP882D.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+FP882.icm=1
+
+[Manufacturer]
+%BENQ%=BENQ
+
+[BENQ]
+%FP882%=FP882.Install,Monitor\BNQ7633
+%FP882D%=FP882D.Install,Monitor\BNQ763D
+
+[FP882.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP882.AddReg, 1280, DPMS
+CopyFiles=FP882.CopyFiles
+
+[FP882D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP882D.AddReg, 1280, DPMS
+CopyFiles=FP882D.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FP882.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP882.icm"
+
+[FP882D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.5-71.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FP882.icm"
+
+[FP882.CopyFiles]
+FP882.ICM
+
+[FP882D.CopyFiles]
+FP882.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="BENQ flat panel Monitor installation diskette"
+FP882="BENQ FP882 [ANALOG]"
+FP882D="BENQ FP882 [DIGITAL]"
+BENQ="BENQ"

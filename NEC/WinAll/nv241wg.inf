@@ -1,0 +1,68 @@
+; NV241WG.inf
+; Setup information file for NEC V241WG Monitor
+;
+; Copyright 2009, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NV241WG.cat
+DriverVer=12/17/2009,1.09.1217.1909
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC67DE
+
+[DestinationDirs]
+DefaultDestDir = 11
+V241WG.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NV241WG.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%V241WG%=V241WG.Install, Monitor\NEC67DE
+
+[NECDS.ntamd64]
+%V241WG%=V241WG.Install.ntamd64, Monitor\NEC67DE
+
+[V241WG.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V241WG.AddReg, 1920, DPMS
+CopyFiles=V241WG.CopyFiles
+
+[V241WG.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=V241WG.AddReg, 1920, DPMS
+CopyFiles=V241WG.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,1920,1080
+
+[DPMS]
+HKR,,DPMS,,1
+
+[V241WG.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"NV241WG.icm"
+
+[V241WG.CopyFiles]
+NV241WG.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+V241WG="NEC V241WG"

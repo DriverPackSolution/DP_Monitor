@@ -1,0 +1,282 @@
+; OEM MONITOR INF
+; Version:0.1         Aug./04/2001
+; This is a device information file for GBM monitors
+; which has been updated to include installing ICC profiles.
+;
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%GBM%
+
+;-------------------------------------------------
+;Monitor class install
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+;----------------------------------------------------
+;Destination Directory section
+;23 is the EDID for the \windows\color directory
+
+[DestinationDirs]
+DefaultDestDir=11
+CM1772PF.CopyFiles=23
+CM1772FS.CopyFiles=23
+CT1772PF.CopyFiles=23
+CT1772FS.CopyFiles=23
+CM1797PF.CopyFiles=23
+CM1797FS.CopyFiles=23
+CT1797PF.CopyFiles=23
+CT1797FS.CopyFiles=23
+CM1997PF.CopyFiles=23
+CM1997FS.CopyFiles=23
+CT1997PF.CopyFiles=23
+CT1997FS.CopyFiles=23
+
+;-----------------------------------------------------
+;Source disks and files
+
+[SourceDisksNames]
+1=" Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+CM1772PF.ICM=1
+CM1772FS.ICM=1
+CT1772PF.ICM=1
+CT1772FS.ICM=1
+CM1797PF.ICM=1
+CM1797FS.ICM=1
+CT1797PF.ICM=1
+CT1797FS.ICM=1
+CM1997PF.ICM=1
+CM1997FS.ICM=1
+CT1997PF.ICM=1
+CT1997FS.ICM=1
+;-----------------------------------------------------
+; Manufacturers
+
+[Manufacturer]
+%GBM%=GBM
+
+[GBM]
+%CM1772PF%=CM1772PF.Install,  Monitor\CM1772PF
+%CM1772FS%=CM1772FS.Install,  Monitor\CM1772FS
+%CT1772PF%=CT1772PF.Install,  Monitor\CT1772PF
+%CT1772FS%=CT1772FS.Install,  Monitor\CT1772FS
+%CM1797PF%=CM1797PF.Install,  Monitor\CM1797PF
+%CM1797FS%=CM1797FS.Install,  Monitor\CM1797FS
+%CT1797PF%=CT1797PF.Install,  Monitor\CT1797PF
+%CT1797FS%=CT1797FS.Install,  Monitor\CT1797FS
+%CM1997PF%=CM1997PF.Install,  Monitor\CM1997PF
+%CM1997FS%=CM1997FS.Install,  Monitor\CM1997FS
+%CT1997PF%=CT1997PF.Install,  Monitor\CT1997PF
+%CT1997FS%=CT1997FS.Install,  Monitor\CT1997FS
+
+;-------------------------------------------------
+; Install sections
+[CM1772PF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM1772PF.AddReg, 1280, DPMS
+CopyFiles=CM1772PF.CopyFiles
+
+[CM1772FS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM1772FS.AddReg, 1280, DPMS
+CopyFiles=CM1772FS.CopyFiles
+
+[CT1772PF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT1772PF.AddReg, 1280, DPMS
+CopyFiles=CT1772PF.CopyFiles
+
+[CT1772FS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT1772FS.AddReg, 1280, DPMS
+CopyFiles=CT1772FS.CopyFiles
+
+
+[CM1797PF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM1797PF.AddReg, 1600, DPMS
+CopyFiles=CM1797PF.CopyFiles
+
+[CM1797FS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM1797FS.AddReg, 1600, DPMS
+CopyFiles=CM1797FS.CopyFiles
+
+[CT1797PF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT1797PF.AddReg, 1600, DPMS
+CopyFiles=CT1797PF.CopyFiles
+
+[CT1797FS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT1797FS.AddReg, 1600, DPMS
+CopyFiles=CT1797FS.CopyFiles
+
+[CM1997PF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM1997PF.AddReg, 1600, DPMS
+CopyFiles=CM1997PF.CopyFiles
+
+[CM1997FS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CM1997FS.AddReg, 1600, DPMS
+CopyFiles=CM1997FS.CopyFiles
+
+[CT1997PF.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT1997PF.AddReg, 1600, DPMS
+CopyFiles=CT1997PF.CopyFiles
+
+[CT1997FS.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CT1997FS.AddReg, 1600, DPMS
+CopyFiles=CT1997FS.CopyFiles
+
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;Pre-defined AddReg sections
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------------
+;Model AddReg sections
+
+[CM1772PF.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-135.0,+,+"
+HKR,,ICMProfile,0,"CM1772PF.icm"
+
+[CM1772FS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-135.0,+,+"
+HKR,,ICMProfile,0,"CM1772FS.icm"
+
+[CT1772PF.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-135.0,+,+"
+HKR,,ICMProfile,0,"CT1772PF.icm"
+
+[CT1772FS.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-135.0,+,+"
+HKR,,ICMProfile,0,"CT1772FS.icm"
+
+
+[CM1797PF.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"CM1797PF.icm"
+
+[CM1797FS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"CM1797FS.icm"
+
+[CT1797PF.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"CT1797PF.icm"
+
+[CT1797FS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"CT1797FS.icm"
+
+[CM1997PF.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"CM1997PF.icm"
+
+[CM1997FS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"CM1997FS.icm"
+
+[CT1997PF.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"CT1997PF.icm"
+
+[CT1997FS.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-97.0,50.0-150.0,+,+"
+HKR,,ICMProfile,0,"CT1997FS.icm"
+
+
+;-----------------------------------------------------
+;List all color profile files here.
+
+[CM1772PF.CopyFiles]
+CM1772PF.icm
+
+[CM1772FS.CopyFiles]
+CM1772FS.icm
+
+[CT1772PF.CopyFiles]
+CT1772PF.icm
+
+[CT1772FS.CopyFiles]
+CT1772FS.icm
+
+[CM1797PF.CopyFiles]
+CM1797PF.icm
+
+[CM1797FS.CopyFiles]
+CM1797FS.icm
+
+[CT1797PF.CopyFiles]
+CT1797PF.icm
+
+[CT1797FS.CopyFiles]
+CT1797FS.icm
+
+[CM1997PF.CopyFiles]
+CM1997PF.icm
+
+[CM1997FS.CopyFiles]
+CM1997FS.icm
+
+[CT1997PF.CopyFiles]
+CT1997PF.icm
+
+[CT1997FS.CopyFiles]
+CT1997FS.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+
+MonitorClassName="Monitor"
+GBM="GBM Periphery Co.,Ltd"
+CM1772PF="CM1772PF"
+CM1772FS="CM1772FS"
+CT1772PF="CT1772PF"
+CT1772FS="CT1772FS"
+CM1797PF="CM1797PF"
+CM1797FS="CM1797FS"
+CT1797PF="CT1797PF"
+CT1797FS="CT1797FS"
+CM1997PF="CM1997PF"
+CM1997FS="CM1997FS"
+CT1997PF="CT1997PF"
+CT1997FS="CT1997FS"
+

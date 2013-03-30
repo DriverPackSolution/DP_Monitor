@@ -1,0 +1,120 @@
+
+;==================================================
+; SM205BW.inf 01/30/2007 ver. 3.0HC
+;
+; Copyright 2007 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM205BW.cat
+DriverVer=01/30/2007,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM021D
+ExcludeFromSelect.nt=Monitor\SAM021E
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM205BWa.CopyFiles = 23
+SM205BWd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM205BW.icm=1
+SM205BW.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM205BWa%=SM205BWa.Install, Monitor\SAM021D
+%SM205BWd%=SM205BWd.Install, Monitor\SAM021E
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM205BWa%=SM205BWa.Install, Monitor\SAM021D
+%SM205BWd%=SM205BWd.Install, Monitor\SAM021E
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM205BWa%=SM205BWa.Install, Monitor\SAM021D
+%SM205BWd%=SM205BWd.Install, Monitor\SAM021E
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM205BWa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM205BWa.AddReg, 1680, DPMS
+CopyFiles=SM205BWa.CopyFiles
+
+[SM205BWd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM205BWd.AddReg, 1680, DPMS
+CopyFiles=SM205BWd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM205BWa.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM205BW.icm"
+
+[SM205BWd.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM205BW.icm"
+;------------------------------------------------------
+
+[SM205BWa.CopyFiles]
+SM205BW.icm
+
+[SM205BWd.CopyFiles]
+SM205BW.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM205BWa="SyncMaster 205BW/204BW, SyncMaster Magic CX203BW/CX205BW(Analog)"
+SM205BWd="SyncMaster 205BW/204BW, SyncMaster Magic CX203BW/CX205BW(Digital)"

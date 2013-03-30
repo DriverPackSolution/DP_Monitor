@@ -1,0 +1,103 @@
+; This is a Setup information file for monitors  with ICM  file
+; Modified by Philips Monitor
+; CopyRight 2003-2007 Philips Electronics Co.
+
+
+ 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Philips%
+CatalogFile=240BW.cat
+DriverVer=06/30/2007,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\PHL0867
+
+                 
+[ClassInstall32] 
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+0867.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+240BW.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%Philips%=Philips, NTx86, NTia64, NTamd64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[Philips]
+%0867%=0867.Install, Monitor\PHL0867
+
+[Philips.NTx86]
+%0867%=0867.Install, Monitor\PHL0867
+
+[Philips.NTia64]
+%0867%=0867.Install, Monitor\PHL0867
+
+[Philips.NTamd64]
+%0867%=0867.Install, Monitor\PHL0867
+
+; Install sections
+;-------------------------------------------------
+[0867.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=0867.AddReg,1920,DPMS
+CopyFiles=0867.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;Model AddReg sections
+;-------------------------------------------------
+[0867.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"30.0-83.0,56.0-60.0,+,+"
+HKR,"MODES\1920,1200",Mode1,,"30.0-83.0,56.0-60.0,+,+"
+HKR,,ICMProfile,0,"240BW.icm"
+
+;-------------------------------------------------------------------
+[0867.CopyFiles]
+240BW.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+Philips="Philips Electronics"
+DiskName="Philips Monitor Setup Disk"
+
+0867="Philips 240BW (24inch LCD WIDE MONITOR 240BW8)"  

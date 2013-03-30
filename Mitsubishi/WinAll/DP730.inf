@@ -1,0 +1,57 @@
+; Monitor INF file for Mitsubishi DP730 Monitor
+; Copyright 2001, NEC-Mitsubishi Electronics Display of America Inc.
+; version 011102
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+DriverVer=11/02/2001,1.01.1102.0001
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+
+[Manufacturer]
+%NMD%=NMD
+
+[NMD]
+%MITS-DP730%=MITS-DP730.Install, Monitor\MEL4520
+
+; Install sections
+[MITS-DP730.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MITS-DP730.AddReg, 1600, DPMS
+
+; AddReg sections
+[MITS-DP730.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"31.0-96.0,55.0-160.0,+,+"
+HKR,,ICMProfile,1,6
+
+
+; Common AddReg/DelReg sections
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; User visible strings
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi Electronic Display"
+MITS-DP730="Mitsubishi Diamond Pro730"

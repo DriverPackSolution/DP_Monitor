@@ -1,0 +1,89 @@
+;================================ 
+;E153FP.INF 02/10/04 Ver. 1.0 JDW
+;Copyright 1996-2004 Dell Inc.
+;
+;This is a setupfile for E153FP 
+;
+;================================
+;
+;------------------------------------------------
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%DEL%
+Catalogfile=E153FP.cat
+DriverVer=02/10/2004,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA00C
+
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+A00C.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E153FP.icm=1
+
+; Manufacturer List
+;-------------------------------------------------
+[Manufacturer]
+%DEL%=DEL
+
+[DEL]
+%A00C%=A00C.Install, Monitor\DELA00C
+
+[A00C.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=A00C.AddReg, 1024 ,DPMS
+Copyfiles=A00C.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[A00C.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-63.0,56.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-63.0,56.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"E153FP.icm"
+
+[A00C.CopyFiles]
+E153FP.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="DELL Monitor Installation Disk"
+MonitorClassName="Monitor"
+DEL="DELL Inc."
+
+A00C="DELL E153FP"

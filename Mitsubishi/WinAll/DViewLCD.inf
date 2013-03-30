@@ -1,0 +1,115 @@
+     
+; DViewLCD.INF
+; Setup Information File for Diamond View LCD Monitors - V1.1  280999
+; Copyright (c)  1999, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+
+;-------------------------------------------------
+;Monitor class install
+;-------------------------------------------------
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir    = 11
+MEA0015.CopyFiles = 23
+MEA0180.CopyFiles = 23
+
+[SourceDisksNames]
+1="Mitsubishi Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+MEA0015.ICM=1
+MEA0180.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%MEA0015%=MEA0015.install,Monitor\MEA1500
+%MEA0180%=MEA0180.install,Monitor\MEA8001
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+
+[MEA0015.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA0015.AddReg, 1024, DPMS
+CopyFiles=MEA0015.CopyFiles
+
+[MEA0180.install]
+DelReg=DEL_CURRENT_REG
+AddReg=MEA0180.AddReg, 1280, DPMS
+CopyFiles=MEA0180.CopyFiles
+
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+     
+;-------------------------------------------
+
+[MEA0015.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA0015.ICM"
+
+[MEA0180.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\800,600",Mode2,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\832,624",Mode3,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1024,768",Mode4,,"31.5-80.0,56.0-85.0,+,+"
+HKR,"MODES\1280,1024",Mode5,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"MEA0180.ICM"
+
+[MEA0015.CopyFiles]
+MEA0015.ICM
+
+[MEA0180.CopyFiles]
+MEA0180.ICM
+
+;--------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+MEA="Mitsubishi Electric Australia"
+
+MEA0015="Diamond View DV150"
+MEA0180="Diamond View DV180"
+
+

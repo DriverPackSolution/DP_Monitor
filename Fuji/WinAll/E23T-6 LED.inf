@@ -1,0 +1,75 @@
+; FTS E23T-6 LED.INF Ver. 1.0
+;Monitor INF file for E23T-6 LED
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=FTSE23T6.cat
+DriverVer=09/22/2010, 1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07FE
+ExcludeFromSelect.nt=Monitor\FUS07FF
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTS-E23T-6.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSE23T6.ICM=1
+
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTAMD64
+
+[FTS_Mfg]
+%FTS-E23T-6%=FTS-E23T-6.Install, Monitor\FUS07FE
+%FTS-E23T-6%=FTS-E23T-6.Install, Monitor\FUS07FF
+
+[FTS_Mfg.NTAMD64]
+%FTS-E23T-6%=FTS-E23T-6.Install, Monitor\FUS07FE
+%FTS-E23T-6%=FTS-E23T-6.Install, Monitor\FUS07FF
+
+[FTS-E23T-6.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTS-E23T-6.AddReg, 1920, DPMS
+CopyFiles=FTS-E23T-6.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTS-E23T-6.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSE23T6.ICM"
+
+[FTS-E23T-6.CopyFiles]
+FTSE23T6.ICM
+
+[Strings]
+DISK="Driver & Utility CD E23T-6 LED"
+MonitorClassName="Monitor"
+FTS_Mfg="Fujitsu Technology Solutions"
+FTS-E23T-6="E23T-6 LED"

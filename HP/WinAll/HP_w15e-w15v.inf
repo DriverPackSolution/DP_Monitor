@@ -1,0 +1,83 @@
+; #################################################
+;
+;   HP_w15e-w15v.inf             Ver. 2.00          5/16/2008
+;
+;   Copyright (c)2008, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows x86/x64 setup information 
+;   file for the HP w15e/w15v Wide LCD Monitors.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_w15e-w15v.cat
+DriverVer=05/16/2008,2.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\HWP280A
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+w15e.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_w15e-w15v.icm=1
+
+[Manufacturer]
+%HP%=HP,NTamd64
+
+[HP]
+%w15e%=w15e.Install, Monitor\HWP280A
+
+[HP.NTamd64]
+%w15e%=w15e.Install, Monitor\HWP280A
+
+[w15e.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=w15e.AddReg, 1280, DPMS
+CopyFiles=w15e.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,720"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[w15e.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-64,59-75,-,-"
+HKR,"MODES\800,600",Mode1,,"31-64,59-75,+,+"
+HKR,"MODES\1280,720",Mode1,,"31-64,59-75,-,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_w15e-w15v.icm"
+HKR,,PreferredMode,,"1280,720,60"
+
+[w15e.CopyFiles]
+HP_w15e-w15v.icm
+
+[Strings]
+HP="HP"
+MonitorClassName="Monitor"
+w15e="HP w15e/w15v Wide LCD Monitor"
+Disk1="HP w15e/w15v Driver Software"

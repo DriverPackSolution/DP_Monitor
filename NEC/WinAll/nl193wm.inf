@@ -1,0 +1,68 @@
+; nl193wm.inf
+; Setup information file for NEC LCD193WM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl193wm.cat
+DriverVer=02/08/2007,1.07.0208.1154
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC66EF
+
+[DestinationDirs]
+LCD193WM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl193wm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD193WM%=LCD193WM.Install, Monitor\NEC66EF
+
+[NECDS.ntamd64]
+%LCD193WM%=LCD193WM.Install.ntamd64, Monitor\NEC66EF
+
+[LCD193WM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD193WM.AddReg, 1440, DPMS
+CopyFiles=LCD193WM.CopyFiles
+
+[LCD193WM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD193WM.AddReg, 1440, DPMS
+CopyFiles=LCD193WM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD193WM.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"nl193wm.icm"
+
+[LCD193WM.CopyFiles]
+nl193wm.icm
+
+[Strings]
+NECDS="NEC"
+LCD193WM="NEC LCD193WM"
+Disk1="NEC Monitor Installation Disk"

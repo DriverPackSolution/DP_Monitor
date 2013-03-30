@@ -1,0 +1,116 @@
+;=====================================================
+;
+;   B273HU.inf         Ver. 1.0      11/19/2008
+;
+;   Copyright (C) 1999-2008 Acer Inc. 
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Acer Color Monitor.
+; 
+;=====================================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=B273HU.cat   
+DriverVer=11/19/2008, 1.0  
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+B273HU_Analog.copyfiles=23
+B273HU_Digital.copyfiles=23
+B273HU_HDMI.copyfiles=23
+
+[SourceDisksNames]
+1="Acer Monitor installtion disk",,,
+
+[SourceDisksFiles]
+B273HU.ICM=1
+
+[Manufacturer]
+%Acer%=Acer,NTx86,NTAMD64
+
+[Acer]
+%B273HU_Analog%=B273HU_Analog.Install, Monitor\ACR0091
+%B273HU_Digital%=B273HU_Digital.Install, Monitor\ACR0091
+%B273HU_HDMI%=B273HU_HDMI.Install, Monitor\ACR0091
+
+[Acer.NTx86]
+%B273HU_Analog%=B273HU_Analog.Install, Monitor\ACR0091
+%B273HU_Digital%=B273HU_Digital.Install, Monitor\ACR0091
+%B273HU_HDMI%=B273HU_HDMI.Install, Monitor\ACR0091
+
+[Acer.NTAMD64] 
+%B273HU_Analog%=B273HU_Analog.Install, Monitor\ACR0091
+%B273HU_Digital%=B273HU_Digital.Install, Monitor\ACR0091
+%B273HU_HDMI%=B273HU_HDMI.Install, Monitor\ACR0091
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACR0091
+
+[B273HU_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=B273HU_Analog.AddReg, 2048 ,DPMS
+Copyfiles=B273HU_Analog.CopyFiles
+
+[B273HU_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=B273HU_Digital.AddReg, 2048 ,DPMS
+Copyfiles=B273HU_Digital.CopyFiles
+
+[B273HU_HDMI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=B273HU_HDMI.AddReg, 2048 ,DPMS
+Copyfiles=B273HU_HDMI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[2048]
+HKR,,MaxResolution,,"2048,1152"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[B273HU_Analog.AddReg]
+HKR,"MODES\2048,1152",Mode1,,"30.0-94.0,56.0-60.0,+,-"
+HKR,,ICMProfile,0,"B273HU.icm"
+
+[B273HU_Digital.AddReg]
+HKR,"MODES\2048,1152",Mode1,,"30.0-94.0,56.0-60.0,+,-"
+HKR,,ICMProfile,0,"B273HU.icm"
+
+[B273HU_HDMI.AddReg]
+HKR,"MODES\2048,1152",Mode1,,"30.0-94.0,56.0-60.0,+,-"
+HKR,,ICMProfile,0,"B273HU.icm"
+
+[B273HU_Analog.CopyFiles]
+B273HU.icm
+
+[B273HU_Digital.CopyFiles]
+B273HU.icm
+
+[B273HU_HDMI.CopyFiles]
+B273HU.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer Inc."
+
+B273HU_Analog="Acer B273HU"
+B273HU_Digital="Acer B273HU (Digital)"
+B273HU_HDMI="Acer B273HU (HDMI)"
+
+DISK="Acer Inc. Monitor B273HU Installation Disk"

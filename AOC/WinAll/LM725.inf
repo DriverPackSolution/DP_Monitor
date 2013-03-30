@@ -1,0 +1,86 @@
+; Copyright 2004 AOC International (Europe) GmbH
+; This is a Setup information file for monitors  with ICM  file
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%AOC%
+Catalogfile=LM725.cat
+DriverVer=08/26/2004,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\AOCA725
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+A725.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LM725.ICM=1
+
+; Manufacturer 
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%A725%=A725.Install, Monitor\AOCA725
+
+; Install Sections
+;-------------------------------------------------
+[A725.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=A725.AddReg, 1280 ,DPMS
+Copyfiles=A725.CopyFiles
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+[A725.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,55.0-75.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"LM725.icm"
+
+[A725.CopyFiles]
+LM725.icm
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+DISK="AOC Monitor Installation Disk"
+MonitorClassName="Monitor"
+AOC="AOC International (Europe) GmbH"
+
+A725="AOC LM725"
+

@@ -1,0 +1,146 @@
+;================================ 
+;P27T_VL270.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display P27T-6 IPS / VL-270VSWL
+;Copyright 2011 Fujitsu Technology Solutions GmbH
+;
+;================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS-Mfg%
+CatalogFile=P27T_VL270.cat
+DriverVer=08/14/2012,1.2.0.0
+
+;-------------------------------------------------
+
+[SourceDisksFiles]
+P27T_VL270.icm=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+P27T_VL270.CopyFiles = 23
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07ED
+ExcludeFromSelect.nt=Monitor\FUS07EE
+ExcludeFromSelect.nt=Monitor\FUS07EF
+ExcludeFromSelect.nt=Monitor\FUS07F1
+ExcludeFromSelect.nt=Monitor\FUS07F0
+
+[Manufacturer]
+%FTS-Mfg%=FTS-Mfg,NTx86,NTAMD64 
+
+[FTS-Mfg]  
+%P27T-VL270-a%=P27T_VL270_a.Install, Monitor\FUS07ED
+%P27T-VL270-d%=P27T_VL270_d.Install, Monitor\FUS07EE
+%P27T-VL270-dp%=P27T_VL270_dp.Install, Monitor\FUS07EF
+%P27T-VL270-h1%=P27T_VL270_h.Install, Monitor\FUS07F1
+%P27T-VL270-h2%=P27T_VL270_h.Install, Monitor\FUS07F0
+
+[FTS-Mfg.NTx86]
+%P27T-VL270-a%=P27T_VL270_a.Install, Monitor\FUS07ED
+%P27T-VL270-d%=P27T_VL270_d.Install, Monitor\FUS07EE
+%P27T-VL270-dp%=P27T_VL270_dp.Install, Monitor\FUS07EF
+%P27T-VL270-h1%=P27T_VL270_h.Install, Monitor\FUS07F1
+%P27T-VL270-h2%=P27T_VL270_h.Install, Monitor\FUS07F0
+
+[FTS-Mfg.NTAMD64]  
+%P27T-VL270-a%=P27T_VL270_a.Install, Monitor\FUS07ED
+%P27T-VL270-d%=P27T_VL270_d.Install, Monitor\FUS07EE
+%P27T-VL270-dp%=P27T_VL270_dp.Install, Monitor\FUS07EF
+%P27T-VL270-h1%=P27T_VL270_h.Install, Monitor\FUS07F1
+%P27T-VL270-h2%=P27T_VL270_h.Install, Monitor\FUS07F0
+
+[P27T_VL270_a.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P27T_VL270_a.AddReg, 1920x1200, DPMS
+CopyFiles=P27T_VL270.CopyFiles
+
+[P27T_VL270_d.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P27T_VL270_d.AddReg, 2560, DPMS
+CopyFiles=P27T_VL270.CopyFiles
+					     
+[P27T_VL270_h.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P27T_VL270_h.AddReg, 1920, DPMS
+CopyFiles=P27T_VL270.CopyFiles
+
+[P27T_VL270_dp.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=P27T_VL270_dp.AddReg, 2560, DPMS
+CopyFiles=P27T_VL270.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[1920x1200]
+HKR,,MaxResolution,,"1920,1200"
+
+[2560]
+HKR,,MaxResolution,,"2560,1440"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[P27T_VL270_a.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-99.0,59.0-76.0,-,+"
+HKR,,ICMProfile,0,"P27T_VL270.icm"
+
+[P27T_VL270_d.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"30.0-99.0,50.0-76.0,+,-"
+HKR,,ICMProfile,0,"P27T_VL270.icm"
+
+[P27T_VL270_h.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"15.0-75.0,23.0-76.0,+,+"
+HKR,,ICMProfile,0,"P27T_VL270.icm"
+
+[P27T_VL270_dp.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"15.0-99.0,23.0-76.0,+,-"
+HKR,,ICMProfile,0,"P27T_VL270.icm"
+
+[P27T_VL270.CopyFiles]
+P27T_VL270.icm
+
+[P27T_VL270_a.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[P27T_VL270_d.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[P27T_VL270_h.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[P27T_VL270_dp.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Monitor Class Function Driver Service"
+
+FTS-Mfg="Fujitsu Technology Solutions"	
+DiskName        = "Fujitsu Drivers, Manuals & Utilities Display"
+
+P27T-VL270-a="Fujitsu P27T-6 IPS / VL-270VSWL (Analog)"
+P27T-VL270-d="Fujitsu P27T-6 IPS / VL-270VSWL (Digital)"
+P27T-VL270-dp="Fujitsu P27T-6 IPS / VL-270VSWL (DP)"
+P27T-VL270-h1="Fujitsu P27T-6 IPS / VL-270VSWL (HDMI 1)"
+P27T-VL270-h2="Fujitsu P27T-6 IPS / VL-270VSWL (HDMI 2)"

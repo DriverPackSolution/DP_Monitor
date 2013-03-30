@@ -1,0 +1,83 @@
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+;      [910UC.INF]
+;
+;      Revision 1.0   September-20-2001
+;      LG ELECTRONICS
+; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[Version]
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%LG%
+DriverVer=09/20/2001,1.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+910UC.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+LG910UC.icm=1 
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%910UC%=910UC, Monitor\GSM4A3F
+
+;------------------------------------; .Install
+
+[910UC] 
+AddReg=910UC.AddReg,1600,DPMS
+DelReg=DEL_CURRENT_REG
+CopyFiles=910UC.CopyFiles
+
+;------------------------------------; DEL_CURRENT_REG
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+;------------------------------------; Pre-defined AddReg sections
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+;------------------------------------; .AddReg
+
+[910UC.AddReg] 
+HKR,"MODES\1600,1200",Mode1,,"30.0-100.0,50.0-200.0,+,+"
+HKR,,ICMProfile,0,"LG910UC.ICM"
+
+;------------------------------------; .CopyFiles
+
+[910UC.CopyFiles]  
+LG910UC.ICM
+
+[ControlFlags]
+
+ExcludeFromSelect.NT=Monitor\GSM4A3F
+
+;------------------------------------; .Strings
+
+[Strings]
+MonitorClassName="Monitor"
+diskname="Monitor Profiles Installation Disk"
+LG="LG"
+910UC="StudioWorks 910UC"

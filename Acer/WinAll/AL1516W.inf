@@ -1,0 +1,81 @@
+;=====================================================
+;
+;   AL1516W.inf         Ver. 1.0      08/16/2007
+;
+;   Copyright (C) 1995-2007 Acer Inc. 
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Acer Color Monitor.
+; 
+;=====================================================
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+CatalogFile=AL1516W.cat   
+DriverVer=08/16/2007, 1.0  
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+AL1516W_Analog.copyfiles=23
+
+[SourceDisksNames]
+1="Acer Monitor installtion disk",,,
+
+[SourceDisksFiles]
+AL1516W.ICM=1
+
+[Manufacturer]
+%Acer%=Acer,NTx86,NTAMD64
+
+[Acer]
+%AL1516W_Analog%=AL1516W_Analog.Install, Monitor\ACR000A
+
+[Acer.NTx86]
+%AL1516W_Analog%=AL1516W_Analog.Install, Monitor\ACR000A
+
+[Acer.NTAMD64] 
+%AL1516W_Analog%=AL1516W_Analog.Install, Monitor\ACR000A
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACR000A
+
+[AL1516W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=AL1516W_Analog.AddReg, 1280, DPMS
+Copyfiles=AL1516W_Analog.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,800"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[AL1516W_Analog.AddReg]
+HKR,"MODES\1280,800",Mode1,,"31.0-69.0,56.0-75.0,+,-"
+HKR,,PreferredMode,,"1280,800,60"
+HKR,,ICMProfile,0,"AL1516W.icm"
+
+[AL1516W_Analog.CopyFiles]
+AL1516W.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer Inc."
+AL1516W_Analog="Acer AL1516W"
+DISK="Acer Inc. Monitor AL1516W Installation Disk"

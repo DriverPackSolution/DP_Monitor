@@ -1,0 +1,67 @@
+; Diamond View INF File for Windows 9x/2000
+; Copyright (c)  2000, Mitsubishi Electric Australia Pty. Ltd.
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+;CatalogFile=2107e.cat
+DriverVer=06/01/2000,
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA2107
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir    = 11
+2107e.CopyFiles = 23
+
+[SourceDisksNames]
+1="Mitsubishi Monitor Installation Disk",,1,
+
+[SourceDisksFiles]
+2107e.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%2107e%=2107e.install,Monitor\MEA2107
+
+[2107e.install]
+DelReg=DEL_CURRENT_REG
+AddReg=2107e.AddReg, 1856, DPMS
+CopyFiles=2107e.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1856]
+HKR,,MaxResolution,,"1856,1392"
+
+[DPMS]
+HKR,,DPMS,,1
+     
+[2107e.AddReg]
+HKR,"MODES\1856,1392",Mode1,,"30.0-120.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"2107e.ICM"
+
+[2107e.CopyFiles]
+2107e.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+MEA="Mitsubishi Electric Australia"
+
+2107e="Diamond View 2107e"

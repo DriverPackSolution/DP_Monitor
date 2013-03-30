@@ -1,0 +1,109 @@
+;L22T3.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display L22T-3 LED
+;Copyright 2010 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=L22T3.cat
+DriverVer=04/08/2011,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0809
+ExcludeFromSelect.nt=Monitor\FUS080A
+
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSL22_3a.CopyFiles=23
+FTSL22_3d.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+L22T3.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg%=FTS_Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS_Mfg] 
+%L22T_3a%=FTSL22_3a.Install, Monitor\FUS0809
+%L22T_3d%=FTSL22_3d.Install, Monitor\FUS080A
+
+
+
+;-------------------------------------------------
+ [FTS_Mfg.NTAMD64] 
+%L22T_3a%=FTSL22_3a.Install, Monitor\FUS0809
+%L22T_3d%=FTSL22_3d.Install, Monitor\FUS080A
+
+
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSL22_3a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL22_3a.AddReg, 1920, DPMS
+CopyFiles=FTSL22_3a.CopyFiles
+
+[FTSL22_3d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=FTSL22_3d.AddReg, 1920, DPMS
+CopyFiles=FTSL22_3d.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSL22_3a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,-,+"
+HKR,,ICMProfile,0,"L22T3.icm"
+
+[FTSL22_3d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,50.0-76.0,-,+"
+HKR,,ICMProfile,0,"L22T3.icm"
+
+;---------------------------------------------------------- 
+
+[FTSL22_3a.CopyFiles]
+L22T3.icm
+
+[FTSL22_3d.CopyFiles]
+L22T3.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD L22T-3 LED"
+FTS_Mfg="Fujitsu Technology Solutions"	
+L22T_3a="Fujitsu L22T-3 LED (analog)"
+L22T_3d="Fujitsu L22T-3 LED (digital)"
+
+

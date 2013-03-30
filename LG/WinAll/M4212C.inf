@@ -1,0 +1,86 @@
+;===============================================================
+; [M4212C.inf]
+; Revision 1.3   February-26-2008
+; Copyright(c)1998~2008 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=M4212C.cat
+DriverVer=02/26/2008,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM9D4F
+ExcludeFromSelect.NT=Monitor\GSM9D50
+
+[DestinationDirs]
+DefaultDestDir = 11
+M4212C_Analog.CopyFiles = 23
+M4212C_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+M4212C.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%M4212C_Analog%=M4212C_Analog.Install,Monitor\GSM9D4F
+%M4212C_Digital%=M4212C_Digital.Install,Monitor\GSM9D50
+
+[LG.NTamd64]
+%M4212C_Analog%=M4212C_Analog.Install,Monitor\GSM9D4F
+%M4212C_Digital%=M4212C_Digital.Install,Monitor\GSM9D50
+
+[M4212C_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M4212C_Analog.AddReg,1600,DPMS
+CopyFiles=M4212C_Analog.CopyFiles
+
+[M4212C_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M4212C_Digital.AddReg,1920,DPMS
+CopyFiles=M4212C_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M4212C_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-72.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1360,768,60"
+HKR,,ICMprofile,0,"M4212C.ICM"
+
+[M4212C_Digital.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-72.0,56.0-60.0,+,+"
+HKR,,PreferredMode,,"1360,768,60"
+HKR,,ICMprofile,0,"M4212C.ICM"
+
+[M4212C_Analog.CopyFiles]
+M4212C.ICM
+
+[M4212C_Digital.CopyFiles]
+M4212C.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+M4212C_Analog="LG M4212C(Analog)"
+M4212C_Digital="LG M4212C(Digital)"

@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version]  
+CatalogFile=VX2055wm_Series.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=01/23/2007, 1.6.0.15
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2055wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2055wm_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX2055wm%=VX2055wm.Install,Monitor\VSCA41F  
+
+[ViewSonic.NTia64]   
+%VX2055wm%=VX2055wm.Install,Monitor\VSCA41F  
+
+[ViewSonic.NTamd64]   
+%VX2055wm%=VX2055wm.Install,Monitor\VSCA41F  
+
+[VX2055wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2055wm.AddReg,1680,DPMS
+Copyfiles=VX2055wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2055wm.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX2055wm_SERIES.ICM"
+
+[VX2055wm.CopyFiles]                                       
+VX2055wm_SERIES.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VX2055wm Series ViewSonic Wizard"
+VX2055wm="ViewSonic VX2055wm Series"

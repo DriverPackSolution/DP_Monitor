@@ -1,0 +1,75 @@
+; Medion INF File for Windows(R) 95/98/Me/2000/XP/Server 2003/XP/Vista x64 
+; Revision Date: Mar 12,2010
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion% 
+CatalogFile =MD 20160.CAT
+DriverVer=03/12/2010,1.0.0.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED3625
+ExcludeFromSelect.NT=Monitor\MED3626
+ExcludeFromSelect.NT=Monitor\MED3627
+
+[ClassInstall]
+AddReg=ClassAddReg32
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+[Manufacturer]
+%Medion%=Medion,NTx86,NTamd64,NTia64
+
+[Medion]
+%MD 20160%=MD 20160.Install,Monitor\MED3625
+%MD 20160%=MD 20160.Install,Monitor\MED3626
+%MD 20160%=MD 20160.Install,Monitor\MED3627
+
+[Medion.NTx86]
+%MD 20160%=MD 20160.Install,Monitor\MED3625
+%MD 20160%=MD 20160.Install,Monitor\MED3626
+%MD 20160%=MD 20160.Install,Monitor\MED3627
+
+[Medion.NTamd64]
+%MD 20160%=MD 20160.Install,Monitor\MED3625
+%MD 20160%=MD 20160.Install,Monitor\MED3626
+%MD 20160%=MD 20160.Install,Monitor\MED3627
+
+[Medion.NTia64]
+%MD 20160%=MD 20160.Install,Monitor\MED3625
+%MD 20160%=MD 20160.Install,Monitor\MED3626
+%MD 20160%=MD 20160.Install,Monitor\MED3627
+
+[MD 20160.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD 20160.AddReg,1920,DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD 20160.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"29.0-81.0,55.0-76.0,+,+"
+
+[Strings]
+MonitorClassName="Monitor"
+Medion="Medion Co.,LTD."
+
+MD 20160="Medion MD 20160"

@@ -1,0 +1,100 @@
+
+;==================================================
+; sm210t.inf 09/19/2001 ver. 1.0
+;
+; Copyright 2001 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+; 
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm210t.cat
+DriverVer=09/19/2001,1.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM4251
+ExcludeFromSelect.nt=Monitor\SAM4252
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+210T.CopyFiles = 23
+
+[SourceDisksNames]
+1="Samsung Monitor Installation Disk",,1
+
+[SourceDisksFiles]
+SM210T.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung
+
+[Samsung]
+%sm210ta%=sm210ta.Install, Monitor\SAM4251
+%sm210td%=sm210td.Install, Monitor\SAM4252
+
+
+[sm210ta.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm210ta.AddReg, 1600, DPMS
+CopyFiles=sm210ta.CopyFiles
+
+[sm210td.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm210td.AddReg, 1280, DPMS
+CopyFiles=sm210td.CopyFiles
+
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+
+;-----------------------------------------------------
+
+[sm210ta.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-93,50-85,+,+"
+HKR,,ICMProfile,0,"sm210t.icm"
+
+[sm210td.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,50-85,+,+"
+HKR,,ICMProfile,0,"sm210t.icm"
+
+;------------------------------------------------------
+
+[sm210ta.CopyFiles]
+sm210t.icm
+
+[sm210td.CopyFiles]
+sm210t.icm
+;------------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm210ta=" SyncMaster 210T(A)/210MP,MagicSyncMaster LXA210T(A)"
+sm210td=" SyncMaster 210T(D)/210MP,MagicSyncMaster LXA210T(D)"
+

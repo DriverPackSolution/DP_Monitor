@@ -1,0 +1,95 @@
+;Monitor INF file for Fujitsu Display SL3260W
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=SL3260W.cat
+DriverVer=05/14/2009,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07CB
+ExcludeFromSelect.nt=Monitor\FUS07CC
+
+[DestinationDirs]
+DefaultDestDir=11
+SL3260W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SL3260W.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%SL_3260Wa%=SL3260Wa.Install, Monitor\FUS07CB
+%SL_3260Wh%=SL3260Wh.Install, Monitor\FUS07CC
+
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%SL_3260Wa%=SL3260Wa.Install, Monitor\FUS07CB
+%SL_3260Wh%=SL3260Wh.Install, Monitor\FUS07CC
+
+; Install Sections
+;-------------------------------------------------
+
+[SL3260Wa.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=SL3260Wa.AddReg, 1920, DPMS
+CopyFiles=SL3260W.CopyFiles
+
+[SL3260Wh.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=SL3260Wh.AddReg, 1920, DPMS
+CopyFiles=SL3260W.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[SL3260Wa.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"SL3260W.icm"
+
+[SL3260Wh.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"SL3260W.icm"
+
+;---------------------------------------------------------- 
+
+[SL3260W.CopyFiles]
+SL3260W.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD Display SL3260W"
+FTS.Mfg="Fujitsu Technology Solutions"	
+SL_3260Wa="Fujitsu Display SL3260W"
+SL_3260Wh="Fujitsu Display SL3260W"

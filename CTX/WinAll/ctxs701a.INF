@@ -1,0 +1,59 @@
+;
+; ctxs701a.inf for WindowsXP, Windows ME and Windows 2000
+;
+; (C) Copyright 2002 Chuntex Electronic Corporation Ltd.
+;	
+; Revision 1.00 Oct 20, 2003
+; 
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTX%      
+DriverVer=10/20/2003,1.0.0
+CatalogFile=ctxs701a.cat
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\CTX2024
+;;---------------------------------------------------
+[Manufacturer]
+%CTX%=CTX
+
+[CTX]
+%S701A%=S701A.Install,Monitor\CTX2024
+
+
+;;---------------------------------------------------
+[S701A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S701A.AddReg, 1280, DPMS
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+;;----------------------------------------------------
+[S701A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-80.0,60.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+;;----------------------------------------------------
+[Strings]
+Disk="CTX LCD Monitor Installation Disk"
+MonitorClassName="Monitor"
+CTX="CTX"
+
+S701A="CTX S701A,S701BA,S721A"

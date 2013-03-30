@@ -1,0 +1,68 @@
+; nl17vmv.inf
+; Setup information file for NEC LCD17VM Monitor
+;
+; Copyright 2005, NEC Display Solutions,Ltd
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl17vmv.cat
+DriverVer=04/23/2007,1.07.0423.2145
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6713
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD17VM.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl17vmv.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD17VM%=LCD17VM.Install, Monitor\NEC6713
+
+[NECDS.ntamd64]
+%LCD17VM%=LCD17VM.Install.ntamd64, Monitor\NEC6713
+
+[LCD17VM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD17VM.AddReg, 1280, DPMS
+CopyFiles=LCD17VM.CopyFiles
+
+[LCD17VM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD17VM.AddReg, 1280, DPMS
+CopyFiles=LCD17VM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD17VM.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"nl17vmv.icm"
+
+[LCD17VM.CopyFiles]
+nl17vmv.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+LCD17VM="NEC LCD17VM"

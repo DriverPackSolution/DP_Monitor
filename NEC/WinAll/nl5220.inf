@@ -1,0 +1,100 @@
+; nl5220.inf
+; Setup information file for NEC MultiSync LCD5220 Monitor
+;
+; Copyright (C) 2008, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nl5220.cat
+DriverVer=01/17/2008, 1.08.0117.1432
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6739
+ExcludeFromSelect.nt=Monitor\NEC6738
+
+[DestinationDirs]
+LCD5220.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nl5220.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%LCD5220-D%=LCD5220-D.Install, Monitor\NEC6739
+%LCD5220-A%=LCD5220-A.Install, Monitor\NEC6738
+
+[NECDS.ntamd64]
+%LCD5220-D%=LCD5220-D.Install.ntamd64, Monitor\NEC6739
+%LCD5220-A%=LCD5220-A.Install.ntamd64, Monitor\NEC6738
+
+; Install Sections
+;-------------------------------------------------
+[LCD5220-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD5220-D.AddReg, 1920, DPMS
+CopyFiles=LCD5220.CopyFiles
+
+[LCD5220-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD5220-A.AddReg, 1920, DPMS
+CopyFiles=LCD5220.CopyFiles
+
+[LCD5220-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD5220-D.AddReg, 1920, DPMS
+CopyFiles=LCD5220.CopyFiles
+
+[LCD5220-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD5220-A.AddReg, 1920, DPMS
+CopyFiles=LCD5220.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[LCD5220-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl5220.icm"
+
+[LCD5220-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nl5220.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[LCD5220.CopyFiles]
+nl5220.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+LCD5220-D="NEC MultiSync LCD5220(Digital)"
+LCD5220-A="NEC MultiSync LCD5220(Analog)"
+Disk1="NEC Monitor Installation Disk"

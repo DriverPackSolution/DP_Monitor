@@ -1,0 +1,103 @@
+
+;================================ 
+;IBM_L190P.INF 08/22/2003 Ver. 1.0 
+;Copyright 1996-2003 IBM Computer Corporation
+;
+;This is a setupfile for the IBM Flat Panel Monitors
+;;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IBM%
+CatalogFile=IBM_L190P.cat
+DriverVer=08/22/2003, 1.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\IBM0A90
+ExcludeFromSelect.nt=Monitor\IBM31A0
+
+[DestinationDirs]
+DefaultDestDir=11
+IBM_L190P(analog).CopyFiles=23
+IBM_L190P(digital).CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+IBM_L190P.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%IBM%=IBM
+
+; Manufacturer sections
+;-------------------------------------------------
+[IBM] 
+%IBM_L190P(analog)%=IBM_L190P(analog).Install, Monitor\IBM0A90
+%IBM_L190P(digital)%=IBM_L190P(digital).Install, Monitor\IBM31A0
+
+
+; Install Sections
+;-------------------------------------------------
+
+[IBM_L190P(analog).Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_L190P(analog).AddReg, 1280, DPMS
+CopyFiles=IBM_L190P(analog).CopyFiles
+
+[IBM_L190P(digital).Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=IBM_L190P(digital).AddReg, 1280, DPMS
+CopyFiles=IBM_L190P(digital).CopyFiles
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[IBM_L190P(analog).AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"IBM_L190P.icm"
+
+[IBM_L190P(digital).AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-81.0,55.0-76.0,+,+"
+HKR,,ICMProfile,0,"IBM_L190P.icm"
+
+;------------------------------------------------------------------------------------------
+
+
+[IBM_L190P(analog).CopyFiles]
+IBM_L190P.icm
+
+[IBM_L190P(digital).CopyFiles]
+IBM_L190P.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="IBM Flat Panel Monitor Installation disk"
+IBM="IBM"	
+IBM_L190P(analog)="IBM L190P TFT Monitor(analog)"
+IBM_L190P(digital)="IBM L190P TFT Monitor(digital)"

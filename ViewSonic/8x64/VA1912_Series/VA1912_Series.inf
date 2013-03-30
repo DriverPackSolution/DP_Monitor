@@ -1,0 +1,75 @@
+;Monitor.Inf for Windows(R) 7 x86, 7 x64, 8 x86, 8 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VA1912_Series.cat  
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=08/27/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA1912_Series.CopyFiles=23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+VA1912_Series.ICM=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCBA2B
+
+[ViewSonic]   
+%VA1912_Series%=VA1912_Series.Install,Monitor\VSCBA2B  
+
+[ViewSonic.NTx86]   
+%VA1912_Series%=VA1912_Series.Install,Monitor\VSCBA2B
+
+[ViewSonic.NTAMD64]   
+%VA1912_Series%=VA1912_Series.Install,Monitor\VSCBA2B 
+
+[VA1912_Series.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA1912_Series.AddReg
+Copyfiles=VA1912_Series.CopyFiles
+
+[VA1912_Series.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[VA1912_Series.AddReg]  
+HKR,"MODES\1366,768",Mode1,,"24-82,50-75,+,+" 
+HKR,,MaxResolution,,"1366,768"
+HKR,,DPMS,,1
+HKR,,PreferredMode,,"1366,768,60"
+HKR,,ICMProfile,0,"VA1912_Series.ICM"
+
+[VA1912_Series.CopyFiles]                                       
+VA1912_Series.ICM
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+ViewSonic="ViewSonic"
+diskname="VA1912 Series ViewSonic Wizard"
+VA1912_Series="ViewSonic VA1912 Series"

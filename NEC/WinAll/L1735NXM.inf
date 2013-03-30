@@ -1,0 +1,72 @@
+; L1735NXM.inf
+; Setup information file for NEC LCD Monitor LCD1735NXM
+;
+; Copyright 2004, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=L1735NXM.cat
+DriverVer=05/18/2004,4.05.0018.1042
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6652
+ExcludeFromSelect.nt=Monitor\NEC6653
+
+[DestinationDirs]
+DefaultDestDir = 11
+LCD1735NXM.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L1735NXM.icm=1
+
+[Manufacturer]
+%NMD%=NMD
+
+[NMD]
+%LCD1735NXM-A%=LCD1735NXM-A.Install, Monitor\NEC6652
+%LCD1735NXM-D%=LCD1735NXM-D.Install, Monitor\NEC6653
+
+[LCD1735NXM-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1735NXM-A.AddReg, 1280, DPMS
+CopyFiles=LCD1735NXM.CopyFiles
+
+[LCD1735NXM-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD1735NXM-D.AddReg, 1280, DPMS
+CopyFiles=LCD1735NXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,1280,1024
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD1735NXM-A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"L1735NXM.icm"
+
+[LCD1735NXM-D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"L1735NXM.icm"
+
+[LCD1735NXM.CopyFiles]
+L1735NXM.icm
+
+[Strings]
+NMD="NEC-Mitsubishi"
+Disk1="NEC-Mitsubishi Monitor Installation Disk"
+LCD1735NXM-A="NEC LCD1735NXM(Analog)"
+LCD1735NXM-D="NEC LCD1735NXM(Digital)"

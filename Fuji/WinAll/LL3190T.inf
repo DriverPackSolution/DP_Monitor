@@ -1,0 +1,81 @@
+;Monitor INF file for Fujitsu Siemens Monitor AMILO LL 3190T
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=LL3190T.cat
+DriverVer=09/25/2008,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07AC
+
+[DestinationDirs]
+DefaultDestDir=11
+LL3190T.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+LL3190T.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%LL_3190T%=LL3190T.Install, Monitor\FUS07AC
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%LL_3190T%=LL3190T.Install, Monitor\FUS07AC
+
+; Install Sections
+;-------------------------------------------------
+
+[LL3190T.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=LL3190T.AddReg, 1366, DPMS
+CopyFiles=LL3190T.CopyFiles
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[LL3190T.AddReg]
+HKR,"MODES\1366,768",Mode1,,"28.0-82.0,50.0-75.0,-,+"
+HKR,,ICMProfile,0,"LL3190T.icm"
+
+;---------------------------------------------------------- 
+
+[LL3190T.CopyFiles]
+LL3190T.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD AMILO LL 3190T"
+FUJSIE="Fujitsu Siemens Computers"	
+LL_3190T="AMILO LL 3190T"

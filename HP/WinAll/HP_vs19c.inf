@@ -1,0 +1,81 @@
+; #################################################
+;
+;   HP_vs19c.inf         Ver. 2.00      10/29/2004
+;
+;   Copyright (c)2004, Hewlett-Packard Company
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the HP vs19c LCD monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP%
+CatalogFile=HP_vs19c.cat
+DriverVer=10/29/2004,2.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\HWP2658
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+vs19c.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+HP_vs19c.icm=1
+
+[Manufacturer]
+%HP%=HP
+
+[HP]
+%vs19c%=vs19c.Install, Monitor\HWP2658
+
+[vs19c.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=vs19c.AddReg, 1280, DPMS
+CopyFiles=vs19c.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[vs19c.AddReg]
+HKR,"MODES\640,480",Mode1,,"30.0-83.0,50.0-76.0,-,-"
+HKR,"MODES\800,600",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0x00010000,"sRGB Color Space Profile.icm"
+HKR,,ICMProfile,0x00010008,"HP_vs19c.icm"
+HKR,,PreferredMode,,"1280,1024,60"
+
+[vs19c.CopyFiles]
+HP_vs19c.icm
+
+[Strings]
+MonitorClassName="Monitor"
+HP="Hewlett-Packard"
+vs19c="HP vs19c LCD monitor"
+Disk1="HP vs19c INF software"

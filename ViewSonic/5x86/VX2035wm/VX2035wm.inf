@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX2035wm.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/28/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2035wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2035wm.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VX2035wm%=VX2035wm.Install,Monitor\VSCAF1E  
+
+[ViewSonic.NTia64]   
+%VX2035wm%=VX2035wm.Install,Monitor\VSCAF1E  
+
+[ViewSonic.NTamd64]   
+%VX2035wm%=VX2035wm.Install,Monitor\VSCAF1E  
+
+[VX2035wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2035wm.AddReg,1680,DPMS
+Copyfiles=VX2035wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2035wm.AddReg]  
+HKR,"MODES\1680,1050",Mode1,,"30-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX2035wm.ICM"
+
+[VX2035wm.CopyFiles]                                       
+VX2035wm.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VX2035wm="ViewSonic VX2035wm SERIES"

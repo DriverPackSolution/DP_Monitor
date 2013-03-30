@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2007, ViewSonic Corporation
+
+[Version] 
+CatalogFile=VA916_SERIES.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/24/2007, 1.5.1.16
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA916.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA916_SERIES.icm=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VA916%=VA916.Install,Monitor\VSC7C20  
+
+[ViewSonic.NTia64]   
+%VA916%=VA916.Install,Monitor\VSC7C20
+
+[ViewSonic.NTamd64]   
+%VA916%=VA916.Install,Monitor\VSC7C20 
+
+[VA916.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA916.AddReg,1280,DPMS
+Copyfiles=VA916.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA916.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VA916_SERIES.icm"
+
+[VA916.CopyFiles]                                       
+VA916_SERIES.icm
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA916 Series ViewSonic Wizard"
+VA916="ViewSonic VA916 Series"

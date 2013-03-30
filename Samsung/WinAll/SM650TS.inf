@@ -1,0 +1,120 @@
+
+;==================================================
+; SM650TS.inf 09/01/2009 ver. 3.0HC
+;
+; Copyright 2008 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=SM650TS.cat
+DriverVer=09/01/2009,3.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0605
+ExcludeFromSelect.nt=Monitor\SAM0606
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+SM650TSa.CopyFiles = 23
+SM650TSd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+SM650TS.icm=1
+SM650TS.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%SM650TSa%=SM650TSa.Install, Monitor\SAM0605
+%SM650TSd%=SM650TSd.Install, Monitor\SAM0606
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%SM650TSa%=SM650TSa.Install, Monitor\SAM0605
+%SM650TSd%=SM650TSd.Install, Monitor\SAM0606
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%SM650TSa%=SM650TSa.Install, Monitor\SAM0605
+%SM650TSd%=SM650TSd.Install, Monitor\SAM0606
+
+; Install Sections
+;-----------------------------------------------------
+
+[SM650TSa.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM650TSa.AddReg, 1920, DPMS
+CopyFiles=SM650TSa.CopyFiles
+
+[SM650TSd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=SM650TSd.AddReg, 1920, DPMS
+CopyFiles=SM650TSd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[SM650TSa.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM650TS.icm"
+
+[SM650TSd.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"SM650TS.icm"
+;------------------------------------------------------
+
+[SM650TSa.CopyFiles]
+SM650TS.icm
+
+[SM650TSd.CopyFiles]
+SM650TS.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+SM650TSa="SyncMaster 650TS/650MX/650FP/650MP(Analog)"
+SM650TSd="SyncMaster 650TS/650MX/650FP/650MP(Digital)"

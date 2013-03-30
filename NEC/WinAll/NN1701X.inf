@@ -1,0 +1,68 @@
+; NN1701X.inf
+; Setup information file for NEC N1701X Monitor
+;
+; Copyright 2010, NEC Display Solutions,Ltd.
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=NN1701X.cat
+DriverVer=06/28/2010,1.09.1224.1919
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6812
+
+[DestinationDirs]
+DefaultDestDir = 11
+N1701X.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+NN1701X.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%N1701X%=N1701X.Install, Monitor\NEC6812
+
+[NECDS.ntamd64]
+%N1701X%=N1701X.Install.ntamd64, Monitor\NEC6812
+
+[N1701X.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=N1701X.AddReg, 1280, DPMS
+CopyFiles=N1701X.CopyFiles
+
+[N1701X.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=N1701X.AddReg, 1280, DPMS
+CopyFiles=N1701X.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[N1701X.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-81.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"NN1701X.icm"
+
+[N1701X.CopyFiles]
+NN1701X.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+N1701X="NEC N1701X"

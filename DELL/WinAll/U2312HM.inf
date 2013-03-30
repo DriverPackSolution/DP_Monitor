@@ -1,0 +1,81 @@
+;===============================================================================
+; U2312HM.inf        Ver. 1.1        04/07/2011
+;
+; Copyright (c) 2011 Dell Corporation
+;
+; This is a Microsoft Windows setup information file for the Dell Color Monitor.
+;===============================================================================
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=U2312HM.cat
+DriverVer=04/07/2011, 1.1
+
+[DestinationDirs]
+DefaultDestDir=11
+U2312HM.copyfiles=23
+
+[SourceDisksNames]
+1=%diskname%,,,
+
+[SourceDisksFiles]
+U2312HM.icm=1
+
+[Manufacturer]
+%DELL%=DELL,NTx86,NTAMD64
+
+[DELL]
+%U2312HM_VGA%=U2312HM.Install, Monitor\DEL4071
+%U2312HM_DVI%=U2312HM.Install, Monitor\DEL4072
+%U2312HM_DP%=U2312HM.Install, Monitor\DEL4073
+
+[DELL.NTx86]
+%U2312HM_VGA%=U2312HM.Install, Monitor\DEL4071
+%U2312HM_DVI%=U2312HM.Install, Monitor\DEL4072
+%U2312HM_DP%=U2312HM.Install, Monitor\DEL4073
+
+[DELL.NTAMD64]
+%U2312HM_VGA%=U2312HM.Install, Monitor\DEL4071
+%U2312HM_DVI%=U2312HM.Install, Monitor\DEL4072
+%U2312HM_DP%=U2312HM.Install, Monitor\DEL4073
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\DEL4071
+ExcludeFromSelect.NT=Monitor\DEL4072
+ExcludeFromSelect.NT=Monitor\DEL4073
+
+[U2312HM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=U2312HM.AddReg, Max_Resolution, DPMS
+CopyFiles=U2312HM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[U2312HM.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-83.0,56.0-76.0,+,+"
+HKR,,PreferredMode,,"1920,1080,60"
+HKR,,ICMProfile,0,"U2312HM.icm"
+
+[Max_Resolution]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[U2312HM.CopyFiles]
+U2312HM.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+Dell="Dell Inc."
+diskname="Dell Monitor Installation Disk"
+
+U2312HM_VGA="Dell U2312HM VGA"
+U2312HM_DVI="Dell U2312HM DVI"
+U2312HM_DP="Dell U2312HM DP"

@@ -1,0 +1,82 @@
+; n817143a.inf
+; Setup information file for NEC N8171-43A Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n817143a.cat
+DriverVer=02/26/2007,1.07.0226.1448
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6712
+
+[DestinationDirs]
+N817143A.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n817143a.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%N817143A%=N817143A.Install, Monitor\NEC6712
+
+[NECDS.ntamd64]
+%N817143A%=N817143A.Install,ntamd64, Monitor\NEC6712
+
+; Install Sections
+;-------------------------------------------------
+[N817143A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=N817143A.AddReg, 1280, DPMS
+CopyFiles=N817143A.CopyFiles
+
+[N817143A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=N817143A.AddReg, 1280, DPMS
+CopyFiles=N817143A.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[N817143A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n817143a.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[N817143A.CopyFiles]
+n817143a.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+N817143A="NEC N8171-43A"
+Disk1="NEC Monitor Installation Disk"

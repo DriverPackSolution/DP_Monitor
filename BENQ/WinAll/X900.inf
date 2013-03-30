@@ -1,0 +1,124 @@
+;================================ 
+;BenQ_X900.INF 09/11/07 Ver. 1.0 
+;; INF File for Windows Vista/XP/Me/9x/2000
+; Copyright (c) 2007, BENQ Corporation
+;================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=X900.cat
+DriverVer=08/03/2007,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7A01
+ExcludeFromSelect.NT=Monitor\BNQ7A02
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+X900_Analog.copyfiles = 23
+X900_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+X900DSUB.icm=1
+X900DVI.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%X900_Analog%=X900_Analog.Install, Monitor\BNQ7A01
+%X900_Digital%=X900_Digital.Install, Monitor\BNQ7A02
+
+;-------------------------------------------------
+
+ [BenQ.NTx86] 
+%X900_Analog%=X900_Analog.Install, Monitor\BNQ7A01
+%X900_Digital%=X900_Digital.Install, Monitor\BNQ7A02
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%X900_Analog%=X900_Analog.Install, Monitor\BNQ7A01
+%X900_Digital%=X900_Digital.Install, Monitor\BNQ7A02
+
+
+; Install Sections
+;-------------------------------------------------
+
+[X900_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X900_Analog.AddReg, 1280, DPMS
+CopyFiles=X900_Analog.CopyFiles
+
+[X900_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=X900_Digital.AddReg, 1280, DPMS
+CopyFiles=X900_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[X900_Analog.AddReg]
+
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+
+
+HKR,,ICMProfile,0,"X900DSUB.icm"
+
+[X900_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31-83.0,55.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"31-83.0,55.0-76.0,+,+"
+
+HKR,,ICMProfile,0,"X900DVI.icm"
+
+[X900_Analog.CopyFiles]
+X900DSUB.ICM
+
+[X900_Digital.CopyFiles]
+X900DVI.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+X900_Analog="BenQ X900 (Analog)"
+X900_Digital="BenQ X900 (Digital)"

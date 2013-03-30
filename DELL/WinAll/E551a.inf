@@ -1,0 +1,102 @@
+
+;================================ 
+;E551a.INF 02/29/00 Ver. 1.0 SND
+;Copyright 1996-2000 Dell Computer Corporation
+;
+;This is a setupfile for DELL 
+;Monitors
+;================================
+;
+;------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Dell%
+CatalogFile=E551a.cat
+DriverVer=02/29/2000,  
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\DELA000
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+E551a.CopyFiles=23
+
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+E551a.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%DELL%=DELL
+
+; Manufacturer sections
+;-------------------------------------------------
+ [DELL] 
+%E551a%=E551a.Install, Monitor\DELA000
+
+; Install Sections
+;-------------------------------------------------
+
+[E551a.Install]
+DelReg=DEL_CURRENT_REG    
+AddReg=E551a.AddReg, 1024, DPMS
+CopyFiles=E551a.CopyFiles
+
+
+
+					     
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[E551a.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"E551a.icm"
+
+
+
+;------------------------------------------------------------------------------------------
+
+
+[E551a.CopyFiles]
+E551a.icm
+
+;------------------------------------------------------------------------------------------
+[Strings]
+DISK="Dell Computer Corp. Monitor Installation Disk"
+MonitorClassName="Monitor"
+Dell="Dell Computer Corp."	
+E551a="Dell E551a"
+

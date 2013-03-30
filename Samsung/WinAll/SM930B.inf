@@ -1,0 +1,123 @@
+
+;==================================================
+; sm930B.inf 05/16/2005 ver. 2.0HC
+;
+; Copyright 2005 Samsung Electronics Corporation
+;
+; This is a Setup information file for Samsung Monitor. 
+;==================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Samsung%
+CatalogFile=sm930B.cat
+DriverVer=05/16/2005,2.0
+
+;--------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\SAM0193
+ExcludeFromSelect.nt=Monitor\SAM0194
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+sm930Ba.CopyFiles = 23
+sm930Bd.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+sm930B.icm=1
+sm930B.icm=1
+
+[Manufacturer]
+%Samsung%=Samsung,NTx86,NTAMD64
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung]
+%sm930Ba%=sm930Ba.Install, Monitor\SAM0193
+%sm930Bd%=sm930Bd.Install, Monitor\SAM0194
+
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTx86]
+%sm930Ba%=sm930Ba.Install, Monitor\SAM0193
+%sm930Bd%=sm930Bd.Install, Monitor\SAM0194
+
+; Manufacturer sections
+;-----------------------------------------------------
+[Samsung.NTAMD64]
+%sm930Ba%=sm930Ba.Install, Monitor\SAM0193
+%sm930Bd%=sm930Bd.Install, Monitor\SAM0194
+
+
+
+; Install Sections
+;-----------------------------------------------------
+
+[sm930Ba.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm930Ba.AddReg, 1280, DPMS
+CopyFiles=sm930Ba.CopyFiles
+
+[sm930Bd.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=sm930Bd.AddReg, 1280, DPMS
+CopyFiles=sm930Bd.CopyFiles
+
+; Addreg & DelReg sections
+;-----------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;-----------------------------------------------------
+
+
+[sm930Ba.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm930B.icm"
+
+[sm930Bd.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30-81,56-75,+,+"
+HKR,,ICMProfile,0,"sm930B.icm"
+;------------------------------------------------------
+
+[sm930Ba.CopyFiles]
+sm930B.icm
+
+[sm930Bd.CopyFiles]
+sm930B.icm
+
+;------------------------------------------------------
+
+[Strings]
+DISK="Samsung Monitor Installation Disk"
+MonitorClassName="Monitor"
+Samsung="Samsung"
+sm930Ba="SyncMaster 930B/930BC/930BF/198B(Analog)"
+sm930Bd="SyncMaster 930B/930BC/930BF/198B(Digital)"

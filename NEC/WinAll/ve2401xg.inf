@@ -1,0 +1,69 @@
+; VE2401XG.inf
+; Setup information file for NEC VE2401XG Monitor
+;
+; Copyright 2011, NEC Display Solutions,Ltd.
+; V001
+;---------------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=VE2401XG.cat
+DriverVer=02/12/2011,1.09.1126.1945
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6856
+
+[DestinationDirs]
+DefaultDestDir = 11
+VE2401XG.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+VE2401XG.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%VE2401XG%=VE2401XG.Install, Monitor\NEC6856
+
+[NECDS.ntamd64]
+%VE2401XG%=VE2401XG.Install.ntamd64, Monitor\NEC6856
+
+[VE2401XG.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=VE2401XG.AddReg, 1920, DPMS
+CopyFiles=VE2401XG.CopyFiles
+
+[VE2401XG.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=VE2401XG.AddReg, 1920, DPMS
+CopyFiles=VE2401XG.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,1920,1080
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VE2401XG.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-80.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"VE2401XG.icm"
+
+[VE2401XG.CopyFiles]
+VE2401XG.icm
+
+[Strings]
+NECDS="NEC"
+Disk1="NEC Monitor Installation Disk"
+VE2401XG="NEC VE2401XG"

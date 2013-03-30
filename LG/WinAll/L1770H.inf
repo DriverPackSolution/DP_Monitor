@@ -1,0 +1,83 @@
+;=============================================================== 
+; [L1770H.INF] 
+; Revision 1.4   Sept-13-2005
+; Copyright(c)1998~2005 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L1770H.cat
+DriverVer=09/13/2005,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4425
+ExcludeFromSelect.NT=Monitor\GSM4426
+
+[DestinationDirs]
+DefaultDestDir = 11
+L1770H_Analog.CopyFiles = 23
+L1770H_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L1770H.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L1770H_Analog%=L1770H_Analog.Install,Monitor\GSM4425
+%L1770H_Digital%=L1770H_Digital.Install,Monitor\GSM4426
+
+[LG.NTamd64]
+%L1770H_Analog%=L1770H_Analog.Install,Monitor\GSM4425
+%L1770H_Digital%=L1770H_Digital.Install,Monitor\GSM4426
+
+[L1770H_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1770H_Analog.AddReg,1280,DPMS
+CopyFiles=L1770H_Analog.CopyFiles
+
+[L1770H_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L1770H_Digital.AddReg,1280,DPMS
+CopyFiles=L1770H_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L1770H_Analog.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1770H.ICM"
+
+[L1770H_Digital.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1280,1024,60"
+HKR,,ICMprofile,0,"L1770H.ICM"
+
+[L1770H_Analog.CopyFiles]
+L1770H.ICM
+
+[L1770H_Digital.CopyFiles]
+L1770H.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L1770H_Analog="LG L1770H(Analog)"
+L1770H_Digital="LG L1770H(Digital)"

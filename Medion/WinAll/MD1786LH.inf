@@ -1,0 +1,67 @@
+; Monitor INF file of Medion MD1786LH
+; Issue date -- 07/16/2001
+; Revise date --
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Medion%
+CatalogFile=MD1786LH.cat
+DriverVer=07/02/2001
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+MD1786LH.CopyFiles=23
+
+[SourceDisksNames]
+1="Medion Monitor Profiles Installation Disk",,,
+
+[SourceDisksFiles]
+MD1786LH.icm=1
+
+[Manufacturer]
+%Medion%=Medion
+
+[Medion]
+%MD1786LH%=MD1786LH.Install, Monitor\MED2724
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED2724
+
+[MD1786LH.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MD1786LH.AddReg, 1280, DPMS
+CopyFiles=MD1786LH.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[MD1786LH.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-86.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"MD1786LH.icm"
+
+[MD1786LH.CopyFiles]
+MD1786LH.icm
+
+[Strings]
+MonitorClassName="Monitor"
+Medion="Medion"
+MD1786LH="MD1786LH"

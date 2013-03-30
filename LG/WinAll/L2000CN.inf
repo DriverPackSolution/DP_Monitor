@@ -1,0 +1,83 @@
+;===============================================================
+; [L2000CN.inf]
+; Revision 1.3   05-08-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L2000CN.cat
+DriverVer=05/08/2007,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E52
+ExcludeFromSelect.NT=Monitor\GSM4E53
+
+[DestinationDirs]
+DefaultDestDir = 11
+L2000CN_Analog.CopyFiles = 23
+L2000CN_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L2000CN.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L2000CN_Analog%=L2000CN_Analog.Install,Monitor\GSM4E52
+%L2000CN_Digital%=L2000CN_Digital.Install,Monitor\GSM4E53
+
+[LG.NTamd64]
+%L2000CN_Analog%=L2000CN_Analog.Install,Monitor\GSM4E52
+%L2000CN_Digital%=L2000CN_Digital.Install,Monitor\GSM4E53
+
+[L2000CN_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2000CN_Analog.AddReg,1600,DPMS
+CopyFiles=L2000CN_Analog.CopyFiles
+
+[L2000CN_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L2000CN_Digital.AddReg,1600,DPMS
+CopyFiles=L2000CN_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L2000CN_Analog.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"L2000CN.ICM"
+
+[L2000CN_Digital.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1600,1200,60"
+HKR,,ICMprofile,0,"L2000CN.ICM"
+
+[L2000CN_Analog.CopyFiles]
+L2000CN.ICM
+
+[L2000CN_Digital.CopyFiles]
+L2000CN.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L2000CN_Analog="LG L2000CN(Analog)"
+L2000CN_Digital="LG L2000CN(Digital)"

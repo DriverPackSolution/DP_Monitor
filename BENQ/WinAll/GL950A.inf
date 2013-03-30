@@ -1,0 +1,87 @@
+;========================================== 
+; BenQ_GL950A.INF 03/31/2011 Ver. 1.3
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2011, BENQ Corporation
+; V001
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=GL950A.cat
+DriverVer=05/23/2011,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7896
+
+[DestinationDirs]
+DefaultDestDir  = 11
+GL950A_Analog.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+GL950A.icm=1
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%GL950A_Analog%=GL950A_Analog.Install, Monitor\BNQ7896
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%GL950A_Analog%=GL950A_Analog.Install, Monitor\BNQ7896
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%GL950A_Analog%=GL950A_Analog.Install, Monitor\BNQ7896
+
+; Install Sections
+;-------------------------------------------------
+
+[GL950A_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=GL950A_Analog.AddReg, 1366, DPMS
+CopyFiles=GL950A_Analog.CopyFiles
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1366]
+HKR,,MaxResolution,,"1366,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[GL950A_Analog.AddReg]
+
+HKR,"MODES\1366,768",Mode1,,"30-83.0,50.0-76.0,+,-"
+HKR,,ICMProfile,0,"GL950A.icm"
+
+
+[GL950A_Analog.CopyFiles]
+GL950A.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+GL950A_Analog="BenQ GL950A (Analog)"

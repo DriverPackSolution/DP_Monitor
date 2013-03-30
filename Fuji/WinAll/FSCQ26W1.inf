@@ -1,0 +1,110 @@
+;FSCQ26W1.INF Ver. 1.0
+;Monitor INF file for Fujitsu Siemens Monitor Q26W-1
+;Copyright 2008 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSCQ26W1.cat
+DriverVer=05/05/2008,1.1.0.3
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0763
+ExcludeFromSelect.nt=Monitor\FUS0764
+ExcludeFromSelect.nt=Monitor\FUS0765
+
+[DestinationDirs]
+DefaultDestDir=11
+FSCQ26W1.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSCQ26W1.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FUJSIE%=FUJSIE,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FUJSIE] 
+%Q26W-1a%=FSCQ26W1a.Install, Monitor\FUS0763
+%Q26W-1d%=FSCQ26W1d.Install, Monitor\FUS0764
+%Q26W-1h%=FSCQ26W1h.Install, Monitor\FUS0765
+
+;-------------------------------------------------
+ [FUJSIE.NTAMD64] 
+%Q26W-1a%=FSCQ26W1a.Install, Monitor\FUS0763
+%Q26W-1d%=FSCQ26W1d.Install, Monitor\FUS0764
+%Q26W-1h%=FSCQ26W1h.Install, Monitor\FUS0765
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FSCQ26W1a.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCQ26W1a.AddReg, 1920, DPMS
+CopyFiles=FSCQ26W1.CopyFiles
+
+[FSCQ26W1d.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCQ26W1d.AddReg, 1920, DPMS
+CopyFiles=FSCQ26W1.CopyFiles
+
+[FSCQ26W1h.Install]
+DELReg=FUS_CURRENT_REG    
+AddReg=FSCQ26W1h.AddReg, 1920, DPMS
+CopyFiles=FSCQ26W1.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FUS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FSCQ26W1a.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCQ26W1.icm"
+
+[FSCQ26W1d.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCQ26W1.icm"
+
+[FSCQ26W1h.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FSCQ26W1.icm"
+
+;---------------------------------------------------------- 
+
+[FSCQ26W1.CopyFiles]
+FSCQ26W1.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Driver & Utilities CD SCALEOVIEW Q26W-1"
+FUJSIE="Fujitsu Siemens Computers"	
+Q26W-1a="SCALEOVIEW Q26W-1"
+Q26W-1d="SCALEOVIEW Q26W-1"
+Q26W-1h="SCALEOVIEW Q26W-1"

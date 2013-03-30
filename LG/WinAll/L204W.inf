@@ -1,0 +1,83 @@
+;===============================================================
+; [L204W.inf]
+; Revision 1.3   May-30-2007
+; Copyright(c)1998~2007 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=L204W.cat
+DriverVer=05/30/2007,1.3
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM4E7C
+ExcludeFromSelect.NT=Monitor\GSM4E7D
+
+[DestinationDirs]
+DefaultDestDir = 11
+L204W_Analog.CopyFiles = 23
+L204W_Digital.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+L204W.ICM=1
+
+[Manufacturer]
+%LG%=LG,NTamd64
+
+[LG]
+%L204W_Analog%=L204W_Analog.Install,Monitor\GSM4E7C
+%L204W_Digital%=L204W_Digital.Install,Monitor\GSM4E7D
+
+[LG.NTamd64]
+%L204W_Analog%=L204W_Analog.Install,Monitor\GSM4E7C
+%L204W_Digital%=L204W_Digital.Install,Monitor\GSM4E7D
+
+[L204W_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L204W_Analog.AddReg,1680,DPMS
+CopyFiles=L204W_Analog.CopyFiles
+
+[L204W_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L204W_Digital.AddReg,1680,DPMS
+CopyFiles=L204W_Digital.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L204W_Analog.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"L204W.ICM"
+
+[L204W_Digital.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"28.0-83.0,56.0-75.0,+,+"
+HKR,,PreferredMode,,"1680,1050,59"
+HKR,,ICMprofile,0,"L204W.ICM"
+
+[L204W_Analog.CopyFiles]
+L204W.ICM
+
+[L204W_Digital.CopyFiles]
+L204W.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+L204W_Analog="LG L204W(Analog)"
+L204W_Digital="LG L204W(Digital)"

@@ -1,0 +1,86 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for ViewSonic
+;   Copyright, ViewSonic Co., Ltd.
+;   This is a Microsoft Windows setup information 
+;   file for the ViewSonic Color Monitor.
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%ViewSonic%
+	CatalogFile=VA2026w.cat
+	DriverVer=06/01/2007,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	VA2026w.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	VA2026w.icm=1
+
+[Manufacturer]
+	%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\VSC5020
+	
+[ViewSonic]
+	%VA2026w%=VA2026w.Install, Monitor\VSC5020
+
+[ViewSonic.NTx86]
+	%VA2026w%=VA2026w.Install, Monitor\VSC5020
+
+[ViewSonic.NTAMD64]
+	%VA2026w%=VA2026w.Install, Monitor\VSC5020
+	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VA2026w.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=VA2026w.AddReg, 1680, DPMS
+	CopyFiles=VA2026w.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1680]
+	HKR,,MaxResolution,,"1680,1050"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[VA2026w.AddReg]
+	HKR,"MODES\1680,1050",Mode1,,"30.0-82.0,50.0-75.0,-,+"
+	HKR,,ICMProfile,0,"VA2026w.icm"
+
+[VA2026w.CopyFiles]	
+	VA2026w.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="ViewSonic Monitor Installation Disk"
+	DiskLabel="ViewSonic INF and ICM Software"
+	ViewSonic="ViewSonic Corporation"
+
+	VA2026w="ViewSonic VA2026w "

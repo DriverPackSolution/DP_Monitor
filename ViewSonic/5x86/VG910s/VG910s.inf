@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG910s.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=09/17/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VLCDS27944-3W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG910s.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS27944-3W%=VLCDS27944-3W.Install,Monitor\VSCDA18           ;VG910s
+
+[VLCDS27944-3W.Install]                                         ;VG910s
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS27944-3W.AddReg,1280,DPMS
+Copyfiles=VLCDS27944-3W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS27944-3W.AddReg]                                          ;VG910s
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VG910s.ICM"
+
+[VLCDS27944-3W.CopyFiles]                                       
+VG910s.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS27944-3W="ViewSonic VG910s"

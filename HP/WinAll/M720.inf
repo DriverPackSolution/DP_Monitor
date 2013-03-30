@@ -1,0 +1,77 @@
+; #################################################
+;
+;   M720.inf           Ver. 3.00      1/04/2002
+;
+;   Copyright (c)2002, Compaq Computer Corporation
+;   All Rights Reserved
+;
+;   This is a Microsoft Windows setup information 
+;   file for the Compaq M720 Color Monitor.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%COMPAQ%
+CatalogFile=M720.cat
+DriverVer=01/04/2002,3.00
+
+[ControlFlags]
+ExcludeFromSelect.nt = MONITOR\CPQ1434
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+M720.CopyFiles=23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CPQM720.icm=1
+
+[Manufacturer]
+%COMPAQ%=COMPAQ
+
+[COMPAQ]
+%M720%=M720.Install, Monitor\CPQ1434
+
+[M720.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=M720.AddReg, 1280, DPMS
+CopyFiles=M720.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[M720.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-160.0,+,+"
+HKR,,ICMProfile,0,"CPQM720.icm"
+
+[M720.CopyFiles]
+CPQM720.ICM
+
+[Strings]
+COMPAQ="COMPAQ"
+MonitorClassName="Monitor"
+Disk1="COMPAQ M720 Monitor Software CD"
+M720="COMPAQ M720 Color Monitor"
+

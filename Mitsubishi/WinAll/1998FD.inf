@@ -1,0 +1,67 @@
+;================================ 
+; INF File for Windows XP/Me/9x/2000
+; Copyright (c) 2001, MEA Corporation
+;================================ 
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MEA%
+;CatalogFile=1998FD.CAT
+DriverVer=5/21/2002,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MEA1099
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+1998FD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+1998FD.ICM=1
+
+[Manufacturer]
+%MEA%=MEA
+
+[MEA]
+%1998FD%=1998FD.Install,Monitor\MEA1099
+[1998FD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=1998FD.AddReg, 1600, DPMS
+CopyFiles=1998FD.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[1998FD.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-98.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"1998FD.ICM"
+
+[1998FD.CopyFiles]
+1998FD.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="1998FD Monitor Installation Disk"
+MEA="MEA"
+1998FD="MEA 1998FD"

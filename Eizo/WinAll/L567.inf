@@ -1,0 +1,87 @@
+; [L567.INF]
+; Revision 1.01
+; Copyright(c) 2003 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+CatalogFile=L567.cat
+DriverVer=07/15/2003,1.01
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\ENC1699
+ExcludeFromSelect.nt = Monitor\ENC1700
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+L567D.CopyFiles = 23
+L567.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+L567D65.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%L567D%=L567D.Install, Monitor\ENC1699
+%L567%=L567.Install, Monitor\ENC1700
+
+[L567D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L567D.AddReg, 1280, DPMS
+CopyFiles=L567D.CopyFiles
+
+[L567.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=L567.AddReg, 1280, DPMS
+CopyFiles=L567.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[L567D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-64.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"L567D65.icm"
+
+[L567.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,50.0-75.0,+,+"
+HKR,,ICMProfile,0,"L567D65.icm"
+
+[L567D.CopyFiles]
+L567D65.icm
+
+[L567.CopyFiles]
+L567D65.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+L567D="L567"
+L567="L567"

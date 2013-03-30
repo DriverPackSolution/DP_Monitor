@@ -1,0 +1,234 @@
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+Provider=%AOC%
+
+; Manufacturer List
+;-------------------------------------------------
+[Manufacturer]
+%AOC%=AOC
+
+[DestinationDirs]
+DefaultDestDir=10
+
+[SourceDisksNames]
+66="Windows 95 AOC Monitor Driver Disk",,1
+
+[SourceDisksFiles]
+AOC.BMP=66
+
+[AOC_CopyFiles]
+AOC.BMP
+
+; Manufacturer Sections
+;-------------------------------------------------
+[AOC]
+%S782%=S782.Install, Monitor\AOCA782
+%D569%=D569.Install, Monitor\AOCD566
+%D556%=D556.Install, Monitor\AOCD556
+%D356%=D356.Install, Monitor\AOCD356
+%S569%=S569.Install, Monitor\AOCA569
+%569E%=569E.Install, Monitor\AOC569E
+%K346%=K346.Install, Monitor\AOCC346
+%K564%=K564.Install, Monitor\AOCC564
+%7Dlr%=7Dlr.Install, Monitor\AOCE750
+%7Clr%=7Clr.Install, Monitor\AOCF764
+%7Vlr%=7Vlr.Install, Monitor\AOCA770
+%7Glr%=7Glr.Install, Monitor\AOCA785
+%9Glr%=9Glr.Install, Monitor\AOCE995
+%21Hlr%=21Hlr.Install, Monitor\AOCE2182
+%MM-415%=MM-415.install, MonID_MM-415
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[640]
+HKR,,MaxResolution,,"640,480"
+[800]
+HKR,,MaxResolution,,"800,600"
+[1024]
+HKR,,MaxResolution,,"1024,768"
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[ICM9]
+HKR,,ICMProfile,1,9
+
+
+; Install Sections
+;-------------------------------------------------
+[S782.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S782.AddReg, 1600 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[D569.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=D569.AddReg, 1280 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[D556.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=D556.AddReg, 1024 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[D356.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=D356.AddReg, 1024 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[S569.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=S569.AddReg, 1280 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[K346.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=D566.AddReg, 1024 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[K564.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=K564.AddReg, 1280 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[569E.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=569E.AddReg, 1280 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[7Dlr.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7Dlr.AddReg, 1280 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[7Clr.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7Clr.AddReg, 1280 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[7Vlr.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7Vlr.AddReg, 1280 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[7Glr.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=7Glr.AddReg, 1600 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[9Glr.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=9Glr.AddReg, 1600 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[21Hlr.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=21Hlr.AddReg, 1280 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+[MM-415.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=MM-415.AddReg, 1024 ,DPMS
+Copyfiles=AOC_CopyFiles
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[S782.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-82.0,50.0-110.0,+,+"
+
+[D569.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[D556.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-54.0,50.0-120.0,+,+"
+
+[D356.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-120.0,+,+"
+
+[S569.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[K564.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,50.0-90.0,+,+"
+
+[K346.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-50.0,50.0-90.0,+,+"
+
+[569E.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-69.0,50.0-120.0,+,+"
+
+[7Dlr.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-68.0,50.0-120.0,+,+"
+
+[7Clr.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-64.0,47.0-100.0,+,+"
+
+[7Vlr.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-130.0,+,+"
+
+
+[7Glr.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-85.0,50.0-130.0,+,+"
+
+[9Glr.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30.0-95.0,47.0-150.0,+,+"
+
+[21Hlr.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-66.0,50.0-100.0,+,+"
+
+[MM-415.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-38.0,50.0-90.0,+,+"
+
+;-------------------------------------------------
+; User visible strings
+
+[Strings]
+MonitorClassName="Monitor"
+AOC="AOC International (U.S.A.) , Ltd."
+
+S782="AOC SPECTRUM 7Nlr"
+D569="AOC SPECTRUM 5Vlr & 5VlrA & 5V & 5VA "
+D556="AOC SPECTRUM 5Elr & 5ElrA & 5E & 5EA "
+D356="AOC SPECTRUM 4Vlr & 4VlrA & 4V & 4VA"
+S569="AOC SPECTRUM 5Nlr"
+K346="AOC SPECTRUM 4N & 4Nlr"
+K564="AOC SPECTRUM 5Llr & 5LlrA"
+569E="AOC SPECTRUM 5Glr & 5GlrA & 5Glr+ & 5GlrA+"
+7Dlr="AOC SPECTRUM 7Dlr & 7DlrA"
+7Clr="AOC SPECTRUM 7Clr"
+7Vlr="AOC SPECTRUM 7Vlr & 7VlrA & 7Vlr+ & 7VlrA+"
+7Glr="AOC SPECTRUM 7Glr & 7GlrA"
+9Glr="AOC SPECTRUM 9Glr"
+21Hlr="AOC SPECTRUM 21Hlr"
+MM-415="AOC Monochrome MM-415"
+
+Monitor\AOCA782.DeviceDesc="AOC SPECTRUM 7Nlr"
+Monitor\AOCD569.DeviceDesc="AOC SPECTRUM 5Vlr & 5VlrA & 5V & 5VA"
+Monitor\AOCD556.DeviceDesc="AOC SPECTRUM 5Elr & 5ElrA & 5E & 5EA"
+Monitor\AOCD356.DeviceDesc="AOC SPECTRUM 4Vlr & 4VlrA & 4v & 4VA"
+Monitor\AOCA569.DeviceDesc="AOC SPECTRUM 5Nlr"
+Monitor\AOCC346.DeviceDesc="AOC SPECTRUM 4N & 4Nlr"
+Monitor\AOCC564.DeviceDesc="AOC SPECTRUM 5Llr & 5LlrA"
+Monitor\AOC569E.DeviceDesc="AOC SPECTRUM 5Glr & 5GlrA & 5Glr+ & 5GlrA+"
+Monitor\AOCE750.DeviceDesc="AOC SPECTRUM 7Dlr & 7DlrA"
+Monitor\AOCF764.DeviceDesc="AOC SPECTRUM 7Clr"
+Monitor\AOCA770.DeviceDesc="AOC SPECTRUM 7Vlr & 7VlrA & 7Vlr+ & 7VlrA+"
+Monitor\AOCA785.DeviceDesc="AOC SPECTRUM 7Glr & 7GlrA"
+Monitor\AOCE995.DeviceDesc="AOC SPECTRUM 9Glr"
+Monitor\AOCE2182.DeviceDesc="AOC SPECTRUM 21HLr"
+MonID_MM-415.DeviceDesc="AOC Monochrome MM-415"
+
+

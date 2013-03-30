@@ -1,0 +1,74 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64
+
+;Copyright 2008, ViewSonic Corporation
+
+[Version]   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+CatalogFile=VX2033wm.cat
+DriverVer=01/20/2009, 1.5.1.0
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir= 11
+VX2033wm.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX2033wm_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTx86,NTAMD64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC0323
+
+[ViewSonic]   
+%VX2033wm%=VX2033wm.Install,Monitor\VSC0323  
+
+[ViewSonic.NTx86]   
+%VX2033wm%=VX2033wm.Install,Monitor\VSC0323
+
+[ViewSonic.NTAMD64]   
+%VX2033wm%=VX2033wm.Install,Monitor\VSC0323
+
+[VX2033wm.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VX2033wm.AddReg,1600,DPMS
+Copyfiles=VX2033wm.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VX2033wm.AddReg]  
+HKR,"MODES\1600,900",Mode1,,"24-82,50-75,-,+" 
+HKR,,ICMProfile,0,"VX2033wm_SERIES.ICM"
+
+[VX2033wm.CopyFiles]                                       
+VX2033wm_SERIES.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+ViewSonic="ViewSonic"
+DiskLabel="VX2033wm SERIES ViewSonic Wizard"
+VX2033wm="ViewSonic VX2033wm SERIES"

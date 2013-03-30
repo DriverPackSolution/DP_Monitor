@@ -1,0 +1,102 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; BenQ G922HDL.INF 08/18/09 Ver. 1.00
+; Copyright (C) 2009 BenQ Corporation. reserves all rights.
+; This is a setup file for G922HDL
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider= %BenQ%
+	CatalogFile=G922HDL.cat
+	DriverVer=08/18/2009,1.0
+
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	G922HDL D-SUB.CopyFiles=23
+        G922HDL DVI.CopyFiles=23
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	G922HDL D-SUB.icm=1
+        G922HDL DVI.icm=1
+[Manufacturer]
+	%BenQ%=BenQ,NTx86,NTAMD64
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\BNQ784D
+	ExcludeFromSelect.NT=Monitor\BNQ784E
+	
+[BenQ]
+	%G922HDL D-SUB%=G922HDL D-SUB.Install, Monitor\BNQ784D
+	%G922HDL DVI%=G922HDL DVI.Install, Monitor\BNQ784E
+
+[BenQ.NTx86]
+	%G922HDL D-SUB%=G922HDL D-SUB.Install, Monitor\BNQ784D
+	%G922HDL DVI%=G922HDL DVI.Install, Monitor\BNQ784E
+
+[BenQ.NTAMD64]
+	%G922HDL D-SUB%=G922HDL D-SUB.Install, Monitor\BNQ784D
+	%G922HDL DVI%=G922HDL DVI.Install, Monitor\BNQ784E
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G922HDL D-SUB.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G922HDL D-SUB.AddReg, 1366, DPMS
+	CopyFiles=G922HDL D-SUB.CopyFiles
+
+[G922HDL DVI.Install]
+	DelReg=DEL_CURRENT_REG
+	AddReg=G922HDL DVI.AddReg, 1366, DPMS
+	CopyFiles=G922HDL DVI.CopyFiles
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG]
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1366]
+	HKR,,MaxResolution,,"1366,768"
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[G922HDL D-SUB.AddReg]
+	HKR,"MODES\1366,768",Mode1,,"24.0-63.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"G922HDL D-SUB.icm"
+
+[G922HDL DVI.AddReg]
+	HKR,"MODES\1366,768",Mode1,,"24.0-63.0,50.0-76.0,+,+"
+	HKR,,ICMProfile,0,"G922HDL DVI.icm"
+
+[G922HDL D-SUB.CopyFiles]	
+	G922HDL D-SUB.icm
+
+[G922HDL DVI.CopyFiles]	
+	G922HDL DVI.icm
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+;	InsDisk="BenQ LCD Monitor installation diskette"
+	DiskLabel="BenQ INF and ICM Software"
+	BenQ="BenQ Corporation"
+	G922HDL D-SUB="BenQ G922HDL D-SUB"
+        G922HDL DVI="BenQ G922HDL DVI"

@@ -1,0 +1,118 @@
+; nlp701.inf
+; Setup information file for NEC MultiSync P701 Monitor
+;
+; Copyright (C) 2010, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nlp701.cat
+DriverVer=01/21/2010, 1.10.0121.2245
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6796
+ExcludeFromSelect.nt=Monitor\NEC6797
+ExcludeFromSelect.nt=Monitor\NEC6799
+
+[DestinationDirs]
+P701.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nlp701.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+; Manufacturer sections
+;-------------------------------------------------
+[NECDS]
+%P701-A%=P701-A.Install, Monitor\NEC6796
+%P701-D%=P701-D.Install, Monitor\NEC6797
+%P701-P%=P701-P.Install, Monitor\NEC6799
+
+[NECDS.ntamd64]
+%P701-A%=P701-A.Install.ntamd64, Monitor\NEC6796
+%P701-D%=P701-D.Install.ntamd64, Monitor\NEC6797
+%P701-P%=P701-P.Install.ntamd64, Monitor\NEC6799
+
+; Install Sections
+;-------------------------------------------------
+[P701-A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P701-A.AddReg, 1920, DPMS
+CopyFiles=P701.CopyFiles
+
+[P701-D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P701-D.AddReg, 1920, DPMS
+CopyFiles=P701.CopyFiles
+
+[P701-P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=P701-P.AddReg, 1920, DPMS
+CopyFiles=P701.CopyFiles
+
+[P701-A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P701-A.AddReg, 1920, DPMS
+CopyFiles=P701.CopyFiles
+
+[P701-D.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P701-D.AddReg, 1920, DPMS
+CopyFiles=P701.CopyFiles
+
+[P701-P.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=P701-P.AddReg, 1920, DPMS
+CopyFiles=P701.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[P701-A.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"31.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp701.icm"
+
+[P701-D.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp701.icm"
+
+[P701-P.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"28.0-95.0,48.0-85.0,+,+"
+HKR,,ICMProfile,0,"nlp701.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[P701.CopyFiles]
+nlp701.icm
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+NECDS="NEC"
+P701-A="NEC MultiSync P701(Analog)"
+P701-D="NEC MultiSync P701(Digital)"
+P701-P="NEC MultiSync P701(DisplayPort)"
+Disk1="NEC Monitor Installation Disk"

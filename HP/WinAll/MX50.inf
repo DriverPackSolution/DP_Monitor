@@ -1,0 +1,105 @@
+; Mx50.INF
+;
+;
+; This is a Setup information file for monitors
+; supported in the Windows 95/98 retail product.
+;
+; Copyright 2000 HEWLETT PACKARD    
+;
+; Monitors supported by this file:
+; 1282 = HP P1282A Pavilion MX50 Multimedia 15-inch Display
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%HP% 
+Catalogfile=mx50.cat               
+DriverVer=07/31/2001,1.0.0.1                    
+
+[ControlFlags]                            
+ExcludeFromSelect.nt=Monitor\HWP0502   
+
+;Monitor class install (required for NT)
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+P1282A.CopyFiles=23
+
+[SourceDisksNames]
+1="HP Pavilion Monitor",,,                        
+
+[SourceDisksFiles]
+HPD04860.ICM=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%HP%=HP
+
+; Manufacturer sections
+;-------------------------------------------------
+
+[HP]
+
+; ID 2000 Monitors
+;HP Pavilion 15-inch MX50 Multimedia Display:
+%P1282A%=P1282A.Install, Monitor\HWP0502      
+
+
+; Install sections
+;-------------------------------------------------
+; -------------- HP ------------------------------
+
+[P1282A.Install]                  
+;HP P1282A Pavilion MX50 Multimedia 15-inch Display
+DelReg=DEL_CURRENT_REG
+AddReg=P1282A.AddReg, 1024, DPMS
+CopyFiles=P1282A.CopyFiles
+
+
+
+; AddReg sections
+;-------------------------------------------------
+
+[P1282A.AddReg]
+;HP P1282A Pavilion MX50 Multimedia 15-inch Display
+HKR,"MODES\1024,768",Mode1,,"30-54,47-100,+,+"          
+HKR,,ICMProfile,0,"HPD04860.ICM"
+
+
+[P1282A.CopyFiles]
+HPD04860.ICM
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"        
+
+[DPMS]
+HKR,,DPMS,,1
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+HP="Hewlett Packard"
+
+;ID 2000 Displays
+P1282A="hp pavilion mx50"
+

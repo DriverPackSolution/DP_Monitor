@@ -1,0 +1,75 @@
+; FTSP195P.INF Ver. 1.1
+;Monitor INF file for Fujitsu Display P19-5P ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSP195P.cat
+DriverVer=02/18/2009, 1.1.0.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS07C1
+ExcludeFromSelect.nt=Monitor\FUS07C2
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FTS.MfgP19-5P.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSP195P.ICM=1
+
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+[FTS.Mfg]
+%FTS.MfgP19-5P%=FTS.MfgP19-5P.Install, Monitor\FUS07C1
+%FTS.MfgP19-5P%=FTS.MfgP19-5P.Install, Monitor\FUS07C2
+
+[FTS.Mfg.NTAMD64]
+%FTS.MfgP19-5P%=FTS.MfgP19-5P.Install, Monitor\FUS07C1
+%FTS.MfgP19-5P%=FTS.MfgP19-5P.Install, Monitor\FUS07C2
+
+[FTS.MfgP19-5P.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FTS.MfgP19-5P.AddReg, 1280, DPMS
+CopyFiles=FTS.MfgP19-5P.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FTS.MfgP19-5P.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"31.0-83.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"FTSP195P.ICM"
+
+[FTS.MfgP19-5P.CopyFiles]
+FTSP195P.ICM
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD P19-5P ECO"
+MonitorClassName="Monitor"
+FTS.Mfg="Fujitsu Technology Solutions"
+FTS.MfgP19-5P="FUJITSU P19-5P ECO"

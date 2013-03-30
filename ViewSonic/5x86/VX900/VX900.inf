@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VX900.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=03/14/2002,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+
+VLCDS23668-1W.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VX900.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VLCDS23668-1W%=VLCDS23668-1W.Install,Monitor\VSC0B08          ;VX900
+
+[VLCDS23668-1W.Install]                                        ;VX900
+DelReg=DEL_CURRENT_REG 
+AddReg=VLCDS23668-1W.AddReg,1280,DPMS
+Copyfiles=VLCDS23668-1W.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VLCDS23668-1W.AddReg]                                       ;VX900
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+"
+HKR,,ICMProfile,0,"VX900.ICM"
+
+[VLCDS23668-1W.CopyFiles]                                       
+VX900.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VLCDS23668-1W="ViewSonic VX900"

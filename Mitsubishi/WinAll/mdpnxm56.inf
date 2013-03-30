@@ -1,0 +1,83 @@
+; MDPNXM56.INF
+; Setup information file for Mitsubishi DiamondPoint NXM56LCD Monitor
+;
+; Copyright 2003, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=MDPNXM56.cat
+DriverVer=01/06/2003,3.01.0006.1023
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL4651
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DPoint-NXM56LCD.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+MDPNXM56.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%DPoint-NXM56LCD%=DPoint-NXM56LCD.Install, Monitor\MEL4651
+
+; Install Sections
+;-------------------------------------------------
+[DPoint-NXM56LCD.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPoint-NXM56LCD.AddReg, 1024, DPMS
+CopyFiles=DPoint-NXM56LCD.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[DPoint-NXM56LCD.AddReg]
+HKR,"MODES\1024,768",Mode1,,"31.0-63.0,55.0-75.0,+,+"
+HKR,,ICMProfile,0,"MDPNXM56.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[DPoint-NXM56LCD.CopyFiles]
+MDPNXM56.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+DPoint-NXM56LCD="Mitsubishi DiamondPoint NXM56LCD"

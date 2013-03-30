@@ -1,0 +1,66 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64
+
+;Copyright 2006, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG921m-4.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=12/28/2006,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VG921m-4.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG921m-4.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VG921m-4%=VG921m-4.Install,Monitor\VSC301E  
+
+[ViewSonic.NTia64]   
+%VG921m-4%=VG921m-4.Install,Monitor\VSC301E
+
+[ViewSonic.NTamd64]   
+%VG921m-4%=VG921m-4.Install,Monitor\VSC301E 
+
+[VG921m-4.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG921m-4.AddReg,1280,DPMS
+Copyfiles=VG921m-4.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG921m-4.AddReg]  
+HKR,"MODES\1280,1024",Mode1,,"30-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VG921m-4.ICM"
+
+[VG921m-4.CopyFiles]                                       
+VG921m-4.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VG921m-4="ViewSonic VG921m-4"

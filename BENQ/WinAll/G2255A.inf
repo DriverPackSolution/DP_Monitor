@@ -1,0 +1,96 @@
+;========================================== 
+; BenQ G2255A.INF 08/31/2011 Ver. 1.3
+; INF File for Windows 9x/Me/2000/XP/Vista/WIN7
+; Copyright (c) 2011, BENQ Corporation
+; V002
+;==========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=G2255A.cat
+DriverVer=08/31/2011,1.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ78B5
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+G2255A.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+G2255A.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%G2255A%=G2255A.Install, Monitor\BNQ78B5
+
+ [BenQ.NTx86] 
+%G2255A%=G2255A.Install, Monitor\BNQ78B5
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%G2255A%=G2255A.Install, Monitor\BNQ78B5
+
+
+; Install Sections
+;-------------------------------------------------
+
+[G2255A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=G2255A.AddReg, 1920, DPMS
+CopyFiles=G2255A.CopyFiles
+
+
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[G2255A.AddReg]
+
+HKR,"MODES\1920,1080",Mode1,,"30-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"G2255A.icm"
+
+
+[G2255A.CopyFiles]
+G2255A.ICM
+
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+G2255A="BenQ G2255A "
+

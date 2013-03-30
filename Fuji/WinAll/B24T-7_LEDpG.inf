@@ -1,0 +1,128 @@
+;B24T-7_LEDpG.INF Ver. 1.0
+;Monitor INF file for Fujitsu Display 	B24T-7 LED proGREEN
+;Copyright 2012 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS_Mfg%
+CatalogFile=B24T-7_LEDpg.cat
+DriverVer=10/25/2012,1.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS082B
+ExcludeFromSelect.nt=Monitor\FUS082C
+ExcludeFromSelect.nt=Monitor\FUS082D
+
+[DestinationDirs]
+DefaultDestDir=11
+B24T-7_LEDpg.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+B24T-7_LEDpg.icm=1
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS_Mfg% = FTS_Mfg, NTx86, NTAMD64
+
+[FTS_Mfg] 
+%B24T-7_LEDpg_a%=B24T-7_LEDpg_a.Install, Monitor\FUS082B
+%B24T-7_LEDpg_d%=B24T-7_LEDpg_d.Install, Monitor\FUS082C
+%B24T-7_LEDpg_h%=B24T-7_LEDpg_h.Install, Monitor\FUS082D
+
+[FTS_Mfg.NTx86]
+%B24T-7_LEDpg_a%=B24T-7_LEDpg_a.Install, Monitor\FUS082B
+%B24T-7_LEDpg_d%=B24T-7_LEDpg_d.Install, Monitor\FUS082C
+%B24T-7_LEDpg_h%=B24T-7_LEDpg_h.Install, Monitor\FUS082D
+
+[FTS_Mfg.NTAMD64] 
+%B24T-7_LEDpg_a%=B24T-7_LEDpg_a.Install, Monitor\FUS082B
+%B24T-7_LEDpg_d%=B24T-7_LEDpg_d.Install, Monitor\FUS082C
+%B24T-7_LEDpg_h%=B24T-7_LEDpg_h.Install, Monitor\FUS082D
+
+; Install Sections
+;-------------------------------------------------
+
+[B24T-7_LEDpg_a.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=B24T-7_LEDpg_a.AddReg, 1920x1080, DPMS
+CopyFiles=B24T-7_LEDpg.CopyFiles
+
+[B24T-7_LEDpg_a.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[B24T-7_LEDpg_d.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=B24T-7_LEDpg_d.AddReg, 1920x1080, DPMS
+CopyFiles=B24T-7_LEDpg.CopyFiles
+
+[B24T-7_LEDpg_d.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+
+[B24T-7_LEDpg_h.Install]
+DELReg=DEL_CURRENT_REG    
+AddReg=B24T-7_LEDpg_h.AddReg, 1920x1080, DPMS
+CopyFiles=B24T-7_LEDpg.CopyFiles
+
+[B24T-7_LEDpg_h.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%,Monitor_Service.Install
+				     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920x1080]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[B24T-7_LEDpg_a.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"B24T-7_LEDpg.icm"
+
+[B24T-7_LEDpg_d.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"B24T-7_LEDpg.icm"
+
+[B24T-7_LEDpg_h.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"30.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"B24T-7_LEDpg.icm"
+
+;---------------------------------------------------------- 
+
+[B24T-7_LEDpg.CopyFiles]
+B24T-7_LEDpg.icm
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC = "Microsoft Monitor Class Function Driver Service"
+
+DiskName="Fujitsu Driver & Utilities CD B24T-7 LED pG"
+FTS_Mfg="Fujitsu Technology Solutions"
+
+B24T-7_LEDpg_a="Fujitsu B24T-7 LED proGREEN (analog)"
+B24T-7_LEDpg_d="Fujitsu B24T-7 LED proGREEN (digital)"
+B24T-7_LEDpg_h="Fujitsu B24T-7 LED proGREEN (HDMI)"
+

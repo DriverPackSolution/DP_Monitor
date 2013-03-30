@@ -1,0 +1,82 @@
+; MDPTSB70.INF
+; Setup information file for Mitsubishi DiamondPoint SB70 Monitor
+;
+; Copyright 2002, NEC-Mitsubishi Electronics Display, Inc.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NMD%
+CatalogFile=MDPTSB70.cat
+DriverVer=06/07/2002,2.06.0007.1142
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MEL463C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+DPointSB70.CopyFiles = 23
+
+[SourceDisksNames]
+1=%NMDDiskLabel%,,,
+
+[SourceDisksFiles]
+mdptsb70.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%NMD%=NMD
+
+; Manufacturer sections
+;-------------------------------------------------
+[NMD]
+%DPointSB70%=DPointSB70.Install, Monitor\MEL463C
+
+; Install Sections
+;-------------------------------------------------
+[DPointSB70.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=DPointSB70.AddReg, 1280, DPMS
+CopyFiles=DPointSB70.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+[DPointSB70.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-70.0,50.0-120.0,+,+"
+HKR,,ICMProfile,0,"mdptsb70.icm"
+
+; CopyFiles section
+;-------------------------------------------------
+[DPointSB70.CopyFiles]
+MDPTSB70.ICM
+
+; User visible strings
+;-------------------------------------------------
+[Strings]
+MonitorClassName="Monitor"
+NMD="NEC-Mitsubishi"
+NMDDiskLabel="NEC-Mitsubishi Monitor Installation Disk"
+DPointSB70="Mitsubishi DiamondPoint SB70"

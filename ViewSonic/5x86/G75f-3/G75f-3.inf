@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2002, ViewSonic Corporation
+
+[Version]   
+CatalogFile=G75f-3.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=02/07/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS22487-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+G75f-3.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS22487-3%=VCDTS22487-3.Install,Monitor\VSC2E0C	            ;G75f-3
+
+[VCDTS22487-3.Install]					            ;G75f-3
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS22487-3.AddReg,1600,DPMS
+CopyFiles=VCDTS22487-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS22487-3.AddReg]					            ;G75f-3
+HKR,"MODES\1600,1200",Mode1,,"30-86,50-180,+,+"
+HKR,,ICMProfile,0,"G75f-3.ICM"
+
+[VCDTS22487-3.CopyFiles]                                       
+G75f-3.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS22487-3="ViewSonic G75f-3"
+

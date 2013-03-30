@@ -1,0 +1,145 @@
+; Copyright 2012 ASUS International (Europe) GmbH
+; This is a Setup information file for monitors  with ICM  file
+; V003
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ASUS%
+Catalogfile=ASUS PB278.cat
+DriverVer=05/24/2012,3.0.0.0
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\ACI27A3
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+ASUS PB278_Analog.copyfiles = 23
+ASUS PB278_Digital.copyfiles = 23
+ASUS PB278_Hdmi.copyfiles = 23
+ASUS PB278_DisplayPort.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+ASUS PB278.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%ASUS%=ASUS,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[ASUS] 
+%ASUS PB278_Analog%=ASUS PB278_Analog.Install, Monitor\ACI27A3
+%ASUS PB278_Digital%=ASUS PB278_Digital.Install, Monitor\ACI27A3
+%ASUS PB278_Hdmi%=ASUS PB278_Hdmi.Install, Monitor\ACI27A3
+%ASUS PB278_DisplayPort%=ASUS PB278_DisplayPort.Install, Monitor\ACI27A3
+;-------------------------------------------------
+ [ASUS.NTx86] 
+%ASUS PB278_Analog%=ASUS PB278_Analog.Install, Monitor\ACI27A3
+%ASUS PB278_Digital%=ASUS PB278_Digital.Install, Monitor\ACI27A3
+%ASUS PB278_Hdmi%=ASUS PB278_Hdmi.Install, Monitor\ACI27A3
+%ASUS PB278_DisplayPort%=ASUS PB278_DisplayPort.Install, Monitor\ACI27A3
+;-------------------------------------------------
+ [ASUS.NTAMD64] 
+%ASUS PB278_Analog%=ASUS PB278_Analog.Install, Monitor\ACI27A3
+%ASUS PB278_Digital%=ASUS PB278_Digital.Install, Monitor\ACI27A3
+%ASUS PB278_Hdmi%=ASUS PB278_Hdmi.Install, Monitor\ACI27A3
+%ASUS PB278_DisplayPort%=ASUS PB278_DisplayPort.Install, Monitor\ACI27A3
+
+
+; Install Sections
+;-------------------------------------------------
+
+[ASUS PB278_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ASUS PB278_Analog.AddReg
+CopyFiles=ASUS PB278_Analog.CopyFiles
+
+[ASUS PB278_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ASUS PB278_Digital.AddReg
+CopyFiles=ASUS PB278_Digital.CopyFiles
+
+[ASUS PB278_Hdmi.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ASUS PB278_Hdmi.AddReg
+CopyFiles=ASUS PB278_Hdmi.CopyFiles
+
+[ASUS PB278_DisplayPort.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=ASUS PB278_DisplayPort.AddReg
+CopyFiles=ASUS PB278_DisplayPort.CopyFiles
+
+
+;  DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+[ASUS PB278_Analog.AddReg]
+HKR,"MODES\1920,1080",Mode1,,"24-83.0,50.0-75.0,+,+"
+HKR,,MaxResolution,,"1920,1080"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"ASUS PB278.icm"
+
+[ASUS PB278_Digital.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"24-99.0,50.0-75.0,-,+"
+HKR,,MaxResolution,,"2560,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"ASUS PB278.icm"
+
+
+[ASUS PB278_Hdmi.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"24-99.0,24.0-76.0,+,+"
+HKR,,MaxResolution,,"2560,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"ASUS PB278.icm"
+
+[ASUS PB278_DisplayPort.AddReg]
+HKR,"MODES\2560,1440",Mode1,,"24-99.0,24.0-76.0,-,+"
+HKR,,MaxResolution,,"2560,1440"
+HKR,,DPMS,,1
+HKR,,ICMProfile,0,"ASUS PB278.icm"
+
+
+[ASUS PB278_Analog.CopyFiles]
+ASUS PB278.ICM
+
+[ASUS PB278_Digital.CopyFiles]
+ASUS PB278.ICM
+
+[ASUS PB278_Hdmi.CopyFiles]
+ASUS PB278.ICM
+
+
+[ASUS PB278_DisplayPort.CopyFiles]
+ASUS PB278.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+ASUS="ASUS"
+diskname="ASUS LCD Monitor installation diskette"
+ASUS PB278_Analog="ASUS PB278"
+ASUS PB278_Digital="ASUS PB278"
+ASUS PB278_Hdmi="ASUS PB278"
+ASUS PB278_DisplayPort="ASUS PB278"

@@ -1,0 +1,87 @@
+; [CG19.INF]
+; Revision 1.00
+; Copyright(c) 2005 EIZO NANAO CORPORATION
+;
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%EIZONANAO%
+;CatalogFile=CG19.cat
+DriverVer=03/01/2005,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt = Monitor\ENC1723
+;ExcludeFromSelect.nt = Monitor\ENC1724
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir = 11
+;
+CG19D.CopyFiles = 23
+CG19.CopyFiles = 23
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+CG19D50.icm=1
+
+[Manufacturer]
+%EIZONANAO%=EIZONANAO
+
+[EIZONANAO]
+%CG19D%=CG19D.Install, Monitor\ENC1723
+%CG19%=CG19.Install, Monitor\ENC1724
+
+[CG19D.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG19D.AddReg, 1280, DPMS
+CopyFiles=CG19D.CopyFiles
+
+[CG19.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=CG19.AddReg, 1280, DPMS
+CopyFiles=CG19.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[CG19D.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-65.0,59.0-61.0,+,+"
+HKR,,ICMProfile,0,"CG19D50.icm"
+
+[CG19.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-82.0,49.0-86.0,+,+"
+HKR,,ICMProfile,0,"CG19D50.icm"
+
+[CG19D.CopyFiles]
+CG19D50.icm
+
+[CG19.CopyFiles]
+CG19D50.icm
+
+[Strings]
+MonitorClassName="Monitor"
+EIZONANAO="EIZO NANAO"
+Disk1="EIZO LCD Utility Disk"
+
+CG19D="CG19"
+CG19="CG19"

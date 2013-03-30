@@ -1,0 +1,127 @@
+;========================================= 
+; BenQ_V2220H.INF 11/18/09 Ver. 1.0 
+; INF File for Windows 9x/Me/2000/XP/Vista
+; Copyright (c) 2009, BENQ Corporation
+;=========================================
+;
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%BenQ%
+catalogfile=V2220H.cat
+DriverVer=11/18/2009,1.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\BNQ7B0D
+ExcludeFromSelect.NT=Monitor\BNQ7B0E
+
+
+[DestinationDirs]
+DefaultDestDir  = 11
+V2220H_Analog.copyfiles = 23
+V2220H_Digital.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+V2220HAnalog.icm=1
+V2220HDigital.icm=1
+
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%BenQ%=BenQ,NTx86,NTAMD64
+
+
+; Manufacturer sections
+;-------------------------------------------------
+[BenQ] 
+%V2220H_Analog%=V2220H_Analog.Install, Monitor\BNQ7B0D
+%V2220H_Digital%=V2220H_Digital.Install, Monitor\BNQ7B0E
+
+;-------------------------------------------------
+ [BenQ.NTx86] 
+%V2220H_Analog%=V2220H_Analog.Install, Monitor\BNQ7B0D
+%V2220H_Digital%=V2220H_Digital.Install, Monitor\BNQ7B0E
+
+;-------------------------------------------------
+ [BenQ.NTAMD64] 
+%V2220H_Analog%=V2220H_Analog.Install, Monitor\BNQ7B0D
+%V2220H_Digital%=V2220H_Digital.Install, Monitor\BNQ7B0E
+
+; Install Sections
+;-------------------------------------------------
+
+[V2220H_Analog.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V2220H_Analog.AddReg, 1920, DPMS
+CopyFiles=V2220H_Analog.CopyFiles
+
+[V2220H_Digital.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=V2220H_Digital.AddReg, 1920, DPMS
+CopyFiles=V2220H_Digital.CopyFiles
+
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;----------------------------------------------------------------------------------
+
+
+[V2220H_Analog.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"V2220HAnalog.icm"
+
+[V2220H_Digital.AddReg]
+HKR,"MODES\640,480",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\800,600",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\832,624",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1280,1024",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1680,1050",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,"MODES\1920,1080",Mode1,,"24.0-83.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"V2220HDigital.icm"
+
+
+
+[V2220H_Analog.CopyFiles]
+V2220HAnalog.ICM
+
+
+[V2220H_Digital.CopyFiles]
+V2220HDigital.ICM
+
+
+
+[Strings]
+MonitorClassName="Monitor"
+BenQ="BenQ"
+diskname="BenQ LCD Monitor installation diskette"
+V2220H_Analog="BenQ V2220H (Analog)"
+V2220H_Digital="BenQ V2220H (Digital)"
+

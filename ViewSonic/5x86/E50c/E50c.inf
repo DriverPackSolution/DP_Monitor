@@ -1,0 +1,61 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2004, ViewSonic Corporation
+
+[Version]   
+CatalogFile=E50c.cat
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/28/2004,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS23284.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+E50c.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]    
+%VCDTS23284%=VCDTS23284.Install,Monitor\VSC6615               ;E50c
+
+[VCDTS23284.Install]                                          ;E50c
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS23284.AddReg,1024,DPMS
+Copyfiles=VCDTS23284.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS23284.AddReg]                                           ;E50c
+HKR,"MODES\1024,768",Mode1,,"30-54,50-100,+,+"
+HKR,,ICMProfile,0,"E50c.ICM"
+
+[VCDTS23284.CopyFiles]                                       
+E50c.ICM
+     
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS23284="ViewSonic E50c"
+

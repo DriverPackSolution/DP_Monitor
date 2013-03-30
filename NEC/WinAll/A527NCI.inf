@@ -1,0 +1,72 @@
+;*********************************************************************************
+; A527NCI.INF Ver. 2.0 for Packard Bell Monitor  A527
+;
+; This is a INF file to install  monitor for Windows 98,Windows 2000 & Millenium Edition.
+;   
+;Copyright 2000,2005     NEC Computers International
+;Written by NEC CI Engineering 
+;*********************************************************************************
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECCI%
+CatalogFile=A527NCI.cat
+DriverVer=09/14/2001,1.0.0.1
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+A527NCI.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+A527NCI.icm=1
+
+[Manufacturer]
+%NECCI%=NECCI
+
+[ControlFlags]
+ExcludeFromSelect.nt = Monitor\NCI5010
+
+[NECCI]
+%A527NCI%=A527NCI.Install,Monitor\NCI5010
+
+[A527NCI.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=A527NCI.AddReg, 1024, DPMS
+CopyFiles=A527NCI.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[A527NCI.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30.0-57.0,50.0-100.0,+,+"
+HKR,,ICMProfile,0,"A527NCI.icm"
+
+[A527NCI.CopyFiles]
+A527NCI.icm
+
+[Strings]
+MonitorClassName="Monitor"
+NECCI="NEC Computers International"
+A527NCI="Monitor A527 Packard Bell"
+DISK1="NEC CI Monitors Installation Disk"

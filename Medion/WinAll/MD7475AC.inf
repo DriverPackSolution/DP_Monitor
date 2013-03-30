@@ -1,0 +1,83 @@
+; Monitor INF file of Medion MD7475AC
+; Issue date -- 01/12/2004
+; Revise date --									
+									
+[Version]											
+signature="$CHICAGO$"											
+Class=Monitor											
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}											
+Provider=%Medion%											
+CatalogFile=MD7475AC.cat
+DriverVer=01/12/2004
+;-------------------------------------------------											
+[ClassInstall32]											
+AddReg=ClassAddReg32											
+											
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\MED452F
+
+[ClassAddReg32]											
+HKR,,,,%MonitorClassName%											
+HKR,,Icon,,"-1"											
+HKR,,NoInstallClass,,1											
+											
+[DestinationDirs]											
+DefaultDestDir=11											
+MD7475AC.CopyFiles=23								
+										
+[SourceDisksNames]
+1=%diskname%,,
+
+[SourceDisksFiles]
+MD7475AC.icm=1
+
+; Manufacturers											
+;-------------------------------------------------											
+[Manufacturer]											
+%Medion%=Medion										
+; Manufacturer sections											
+;-------------------------------------------------											
+[Medion]											
+%MD7475AC%=MD7475AC.Install, Monitor\MED452F										
+											
+; Install Sections											
+;-------------------------------------------------											
+[MD7475AC.Install]											
+DelReg=DEL_CURRENT_REG											
+AddReg=MD7475AC.AddReg, 1024, DPMS											
+CopyFiles=MD7475AC.CopyFiles
+
+; AddReg & DelReg Sections											
+;-------------------------------------------------											
+[DEL_CURRENT_REG]											
+HKR,MODES											
+HKR,,MaxResolution											
+HKR,,DPMS											
+HKR,,ICMProfile											
+; Pre-defined AddReg sections											
+[640]											
+HKR,,MaxResolution,,"640,480"											
+[800]											
+HKR,,MaxResolution,,"800,600"											
+[1024]											
+HKR,,MaxResolution,,"1024,768"											
+					
+[DPMS]											
+HKR,,DPMS,,1											
+											
+; Model AddReg sections											
+[MD7475AC.AddReg]											
+HKR,"MODES\1024,768",Mode1,,"30.0-63.0,50.0-76.0,+,+"
+HKR,,ICMProfile,0,"MD7475AC.icm"
+
+[MD7475AC.CopyFiles]
+MD7475AC.icm
+
+									
+; User visible strings											
+;-------------------------------------------------											
+[Strings]											
+MonitorClassName="Monitor"											
+diskname="Medion System Restoration CD"											
+Medion="Medion"
+MD7475AC="Medion MD7475AC"

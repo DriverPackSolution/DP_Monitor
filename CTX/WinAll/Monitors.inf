@@ -1,0 +1,317 @@
+; #################################################
+;
+;   Monitors.inf		Ver:2.0	07/31/2002
+;
+;   Copyright (c)2002, Coretronic Corporation
+;   All Rights Reserved
+;
+;   This is a Windows setup information file 
+;   for Coretronic Option monitors.
+; 
+; #################################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%CTC%
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+;DefaultDestDir=11
+CopyFiles=5541.CopyFiles	; PV632A
+CopyFiles=5711.CopyFiles	; PV751II
+CopyFiles=5501.CopyFiles	; PV752A
+CopyFiles=5771.CopyFiles	; PV755A
+CopyFiles=5971.CopyFiles	; PV755ASIP
+CopyFiles=5531.CopyFiles	; PV755C
+CopyFiles=5911.CopyFiles	; PV758A
+CopyFiles=5696.CopyFiles	; PV870A
+CopyFiles=5691.CopyFiles	; PV870C
+CopyFiles=5931.CopyFiles	; PV872A
+CopyFiles=5932.CopyFiles	; PV872C
+CopyFiles=5701.CopyFiles	; PV880C
+CopyFiles=5861.CopyFiles	; PV886A
+CopyFiles=5791.CopyFiles	; PV888C
+CopyFiles=5951.CopyFiles	; PV890C
+CopyFiles=5651.CopyFiles	; PV920C
+
+
+[SourceDisksNames]
+1="Coretronic LCD Monitor Installation Disk",,1
+
+[SorceDisksFiles]
+MONITORS.INF=1
+
+
+;Manufacturer
+[Manufacturer]
+%CTC%=CTC
+
+
+;Manufacturer sections
+[CTC]
+%5541%=5541.Install,Monitor\CTC5541	; PV632A
+%5711%=5711.Install,Monitor\CTC5711	; PV751II
+%5501%=5501.Install,Monitor\CTC5501	; PV752A
+%5771%=5771.Install,Monitor\CTC5771	; PV755A
+%5971%=5971.Install,Monitor\CTC5971	; PV755ASIP
+%5531%=5531.Install,Monitor\CTC5531	; PV755C
+%5911%=5911.Install,Monitor\CTC5911	; PV758A
+%5696%=5696.Install,Monitor\CTC5696	; PV870A
+%5691%=5691.Install,Monitor\CTC5691	; PV870C
+%5931%=5931.Install,Monitor\CTC5931	; PV872A
+%5932%=5932.Install,Monitor\CTC5932	; PV872C
+%5701%=5701.Install,Monitor\CTC5701	; PV880C
+%5861%=5861.Install,Monitor\CTC5861	; PV886A
+%5791%=5791.Install,Monitor\CTC5791	; PV888C
+%5951%=5951.Install,Monitor\CTC5951	; PV890C
+%5651%=5651.Install,Monitor\CTC5651	; PV920C
+
+
+;Install sections
+;------------------------
+[5541.Install]			; PV632A
+DelReg=DEL_CURRENT_REG
+AddReg=5541.AddReg
+CopyFiles=5541.CopyFiles
+
+[5711.Install]			; PV751II
+DelReg=DEL_CURRENT_REG
+AddReg=5711.AddReg
+CopyFiles=5711.CopyFiles
+
+[5501.Install]			; PV752A
+DelReg=DEL_CURRENT_REG
+AddReg=5501.AddReg
+CopyFiles=5501.CopyFiles
+
+[5771.Install]			; PV755A
+DelReg=DEL_CURRENT_REG
+AddReg=5771.AddReg
+CopyFiles=5771.CopyFiles
+
+[5971.Install]			; PV755ASIP
+DelReg=DEL_CURRENT_REG
+AddReg=5971.AddReg
+CopyFiles=5951.CopyFiles
+
+[5531.Install]			; PV755C
+DelReg=DEL_CURRENT_REG
+AddReg=5531.AddReg
+CopyFiles=5531.CopyFiles
+
+[5911.Install]			; PV758A
+DelReg=DEL_CURRENT_REG
+AddReg=5911.AddReg
+CopyFiles=5911.CopyFiles
+
+[5696.Install]			; PV870A
+DelReg=DEL_CURRENT_REG
+AddReg=5696.AddReg
+CopyFiles=5696.CopyFiles
+
+[5691.Install]			; PV870C
+DelReg=DEL_CURRENT_REG
+AddReg=5691.AddReg
+CopyFiles=5691.CopyFiles
+
+[5931.Install]			; PV872A
+DelReg=DEL_CURRENT_REG
+AddReg=5931.AddReg
+CopyFiles=5931.CopyFiles
+
+[5932.Install]			; PV872C
+DelReg=DEL_CURRENT_REG
+AddReg=5932.AddReg
+CopyFiles=5932.CopyFiles
+
+[5701.Install]			; PV880C
+DelReg=DEL_CURRENT_REG
+AddReg=5701.AddReg
+CopyFiles=5701.CopyFiles
+
+[5861.Install]			; PV886A
+DelReg=DEL_CURRENT_REG
+AddReg=5861.AddReg
+CopyFiles=5861.CopyFiles
+
+[5791.Install]			; PV888C
+DelReg=DEL_CURRENT_REG
+AddReg=5791.AddReg
+CopyFiles=5791.CopyFiles
+
+[5951.Install]			; PV890C
+DelReg=DEL_CURRENT_REG
+AddReg=5951.AddReg
+CopyFiles=5951.CopyFiles
+
+[5651.Install]			; PV920C
+DelReg=DEL_CURRENT_REG
+AddReg=5651.AddReg
+CopyFiles=5651.CopyFiles
+
+
+;AddReg & DelReg sections
+;----------------------------
+;[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+
+[5541.AddReg]						; PV632A
+HKR,"MODES\800,600",Mode1,,"32.0-60.0,57.0-85.0,+,+"
+HKR,,MaxResolution,,"800,600"
+HKR,,DPMS,,1
+
+[5711.AddReg]						; PV751II
+HKR,"MODES\1024,768",Mode1,,"24.0-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+
+[5501.AddReg]						; PV752A
+HKR,"MODES\1024,768",Mode1,,"32.0-60.0,57.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+
+[5771.AddReg]						; PV755A
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+
+[5971.AddReg]						; PV755ASIP
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+
+[5531.AddReg]						; PV755C
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+
+[5911.AddReg]						; PV758A
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1024,768"
+HKR,,DPMS,,1
+
+[5696.AddReg]						; PV870A
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+
+[5691.AddReg]						; PV870C
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[5931.AddReg]						; PV872A
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[5932.AddReg]						; PV872C
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[5701.AddReg]						; PV880C
+HKR,"MODES\1280,1024",Mode1,,"24.0-80.0,56.0-76.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[5861.AddReg]						; PV886A
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[5791.AddReg]						; PV888C
+HKR,"MODES\1280,1024",Mode1,,"31.5-91.1,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[5951.AddReg]						; PV890C
+HKR,"MODES\1280,1024",Mode1,,"31.5-80.0,56.0-75.0,+,+"
+HKR,,MaxResolution,,"1280,1024"
+HKR,,DPMS,,1
+
+[5651.AddReg]						; PV920C
+HKR,"MODES\1600,1200",Mode1,,"31.0-91.1,56.0-85.0,+,+"
+HKR,,MaxResolution,,"1600,1200"
+HKR,,DPMS,,1
+
+
+[Strings]
+;MonitorClassName="Monitor"
+CTC="Coretronic"
+5541="PV632A Series LCD Monitor"	; PV632A
+5711="PV751II Series LCD Monitor"	; PV751II
+5501="PV752A Series LCD Monitor"	; PV752A
+5771="PV755A Series LCD Monitor"	; PV755A
+5971="PV755ASIP Series LCD Monitor"	; PV755ASIP
+5531="PV755C Series LCD Monitor"	; PV755C
+5911="PV758A Series LCD Monitor"	; PV758A
+5696="PV870A Series LCD Monitor"	; PV870A
+5691="PV870C Series LCD Monitor"	; PV870C
+5931="PV872A Series LCD Monitor"	; PV872A
+5932="PV872C Series LCD Monitor"	; PV872C
+5701="PV880C Series LCD Monitor"	; PV880C
+5861="PV886A Series LCD Monitor"	; PV886A
+5791="PV888C Series LCD Monitor"	; PV888C
+5951="PV890C Series LCD Monitor"	; PV890C
+5651="PV920C Series LCD Monitor"	; PV920C
+
+
+[CTC5541.Copyfiles]	; PV632A
+MONITORS.INF
+
+[CTC5711.Copyfiles]	; PV751II
+MONITORS.INF
+
+[CTC5501.Copyfiles]	; PV752A
+MONITORS.INF
+
+[CTC5771.Copyfiles]	; PV755A
+MONITORS.INF
+
+[CTC5971.Copyfiles]	; PV755ASIP
+MONITORS.INF
+
+[CTC5531.Copyfiles]	; PV755C
+MONITORS.INF
+
+[CTC5911.Copyfiles]	; PV758A
+MONITORS.INF
+
+[CTC5696.Copyfiles]	; PV870A
+MONITORS.INF
+
+[CTC5691.Copyfiles]	; PV870C
+MONITORS.INF
+
+[CTC5931.Copyfiles]	; PV872A
+MONITORS.INF
+
+[CTC5932.Copyfiles]	; PV872C
+MONITORS.INF
+
+[CTC5701.Copyfiles]	; PV880C
+MONITORS.INF
+
+[CTC5861.Copyfiles]	; PV886A
+MONITORS.INF
+
+[CTC5791.Copyfiles]	; PV888C
+MONITORS.INF
+
+[CTC5951.Copyfiles]	; PV890C
+MONITORS.INF
+
+[CTC5651.Copyfiles]	; PV920C
+MONITORS.INF

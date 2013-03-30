@@ -1,0 +1,69 @@
+; T50 FSC382V.INF Ver. 1.1
+;Monitor INF file for Fujitsu Siemens Monitor 382V
+;Copyright 2001,2002 Fujitsu Siemens Computers
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FUJSIE%
+CatalogFile=FSC382V.cat
+DriverVer=04/26/2002, 1.1
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS0396
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+FUS-382V.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FSC382V.ICM=1
+
+[Manufacturer]
+%FUJSIE%=FUJSIE
+
+[FUJSIE]
+%FUS-382V%=FUS-382V.Install, Monitor\FUS0396
+
+[FUS-382V.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=FUS-382V.AddReg, 1024, DPMS
+CopyFiles=FUS-382V.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[FUS-382V.AddReg]
+HKR,"MODES\1024,768",Mode1,,"30-61,56-76,+,+"
+HKR,,ICMProfile,0,"FSC382V.ICM"
+
+[FUS-382V.CopyFiles]
+FSC382V.ICM
+
+[Strings]
+DISK="Driver & Utility for Fujitsu Siemens Monitor 382V FA"
+MonitorClassName="Monitor"
+FUJSIE="Fujitsu Siemens Computers"
+FUS-382V="Fujitsu Siemens 382V FA"

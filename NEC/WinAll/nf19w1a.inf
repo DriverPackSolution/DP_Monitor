@@ -1,0 +1,68 @@
+; nf19w1a.inf
+; Setup information file for NEC F19W1A Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=nf19w1a.cat
+DriverVer=09/12/2007,1.07.0912.1845
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC6729
+
+[DestinationDirs]
+F19W1A.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+nf19w1a.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%F19W1A%=F19W1A.Install, Monitor\NEC6729
+
+[NECDS.ntamd64]
+%F19W1A%=F19W1A.Install.ntamd64, Monitor\NEC6729
+
+[F19W1A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F19W1A.AddReg, 1440, DPMS
+CopyFiles=F19W1A.CopyFiles
+
+[F19W1A.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=F19W1A.AddReg, 1440, DPMS
+CopyFiles=F19W1A.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1440]
+HKR,,MaxResolution,,"1440,900"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F19W1A.AddReg]
+HKR,"MODES\1440,900",Mode1,,"31.0-82.0,56.0-76.0,+,+"
+HKR,,ICMProfile,0,"nf19w1a.icm"
+
+[F19W1A.CopyFiles]
+nf19w1a.icm
+
+[Strings]
+NECDS="NEC"
+F19W1A="NEC F19W1A"
+Disk1="NEC Monitor Installation Disk"

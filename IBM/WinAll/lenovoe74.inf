@@ -1,0 +1,67 @@
+; Copyright (c) 2005 Lenovo Corporation
+
+[version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Lenovo%
+CatalogFile=Lenovo_E74.cat
+DriverVer=01/01/2006,1.0
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\LEN18BC
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir  = 11
+Lenovo_E74.copyfiles = 23
+
+[SourceDisksNames]
+1=%diskname%,,,
+
+[SourceDisksFiles]
+Lenovo_E74.icm=1
+
+[Manufacturer]
+%Lenovo%=Lenovo
+
+[Lenovo]
+%Lenovo_E74%=Lenovo_E74.Install, Monitor\LEN18BC
+
+[Lenovo_E74.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=Lenovo_E74.AddReg, 1280, DPMS
+CopyFiles=Lenovo_E74.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[Lenovo_E74.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-72.0,50.0-130.0,+,+"
+HKR,,ICMProfile,0,"Lenovo_E74.icm"
+
+
+[Lenovo_E74.CopyFiles]
+Lenovo_E74.ICM
+
+[Strings]
+diskname="Lenovo Monitor installtion disk"
+MonitorClassName="Monitor"
+Lenovo_E74="Lenovo E74"
+Lenovo="Lenovo Corporation"

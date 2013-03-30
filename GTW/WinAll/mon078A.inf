@@ -1,0 +1,87 @@
+; #######################################
+;      [mon078A.INF] for FPD1930
+;      Revision 1.00   July  18, 2002
+;      Delta Electronics,Inc
+;      Copyright 2002
+; #######################################
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Gateway%
+CatalogFile=mon078A.cat
+DriverVer=09/11/2002,1.00
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\GWY078A
+ExcludeFromSelect.nt=Monitor\GWY078B
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+mon078A.CopyFiles=23
+mon078B.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+mon078A.icm=1
+
+[Manufacturer]
+%Gateway%=Gateway
+
+[Gateway]
+%mon078A%=mon078A.Install, Monitor\GWY078A
+%mon078B%=mon078B.Install, Monitor\GWY078B
+
+[mon078A.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon078A.AddReg, 1280, DPMS
+CopyFiles=mon078A.Copyfiles
+
+[mon078B.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=mon078B.AddReg, 1280, DPMS
+CopyFiles=mon078B.Copyfiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[mon078A.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon078A.icm"
+
+[mon078B.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-83.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"mon078A.icm"
+
+[mon078A.Copyfiles]
+mon078A.icm
+
+[mon078B.Copyfiles]
+mon078A.icm
+
+[Strings]
+MonitorClassName="Monitor"
+DiskName="Gateway System Restoration Kit"
+Gateway="Gateway"
+mon078A="Gateway FPD1930"
+mon078B="Gateway FPD1930"

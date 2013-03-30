@@ -1,0 +1,82 @@
+#####################################################################
+; This is a setup information file for Belinea o.display 6.1_22" wide monitor
+; Modified by MAXDATA International GmbH (ABA)                            
+; Revision 1.0.0.0, November 26, 2007
+; Copyright 2000-2007 MAXDATA International GmbH
+#####################################################################
+
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%MAXDATA%
+CatalogFile=112204.cat
+DriverVer=11/26/2007,1.0.0.0
+
+
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\MAX089C
+
+; Manufacturer
+;-------------------------------------------------
+
+[Manufacturer]
+%BELINEA%=Belinea, NTx86, NTia64, NTamd64
+
+; Manufacturer Sections
+;-------------------------------------------------
+
+[Belinea]
+"Belinea o.display 6.1_22'' wide / Art. No. 112204" = 112204.Install, Monitor\MAX089C
+
+[Belinea.NTx86]
+"Belinea o.display 6.1_22'' wide / Art. No. 112204" = 112204.Install, Monitor\MAX089C
+
+[Belinea.NTia64]
+"Belinea o.display 6.1_22'' wide / Art. No. 112204" = 112204.Install, Monitor\MAX089C
+
+[Belinea.NTamd64]
+"Belinea o.display 6.1_22'' wide / Art. No. 112204" = 112204.Install, Monitor\MAX089C
+
+
+; Install sections
+;-------------------------------------------------
+[112204.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=112204.AddReg,1680,DPMS
+
+
+; Common AddReg/DelReg sections
+;-------------------------------------------------
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+; Pre-defined AddReg sections
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; Model AddReg sections
+;-------------------------------------------------
+
+[112204.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"30.0-81.0,56.0-75.0,+,+"
+HKR,,ICMProfile,1,2
+
+
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+;MonitorClassName = "Monitore"
+MAXDATA="MAXDATA International GmbH"
+BELINEA="MAXDATA International GmbH"
+

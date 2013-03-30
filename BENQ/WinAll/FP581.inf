@@ -1,0 +1,99 @@
+
+; Setup Information File for AcerView Monitors - V2.3
+; Copyright (c)  2001, Acer Communications & Multimedia Inc.
+
+
+;-------------------------------------------------
+; Version section
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%Acer%
+catalogfile=FP581.cat
+DriverVer=10/17/2001,1.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\API7621
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir	=11
+FP581.CopyFiles =23
+
+[SourceDisksNames]
+1="Acer LCD Monitor Installation Disk",,,
+
+[SourceDisksFiles]
+FP581.ICM=1
+
+;-------------------------------------------------
+; Manufacturers
+;-------------------------------------------------
+
+[Manufacturer]
+%Acer%=Acer
+
+;-------------------------------------------------
+; Manufacturer sections
+;-------------------------------------------------
+
+[Acer]
+%FP581%=FP581.install,Monitor\API7621
+
+;-------------------------------------------------
+; Install Sections
+;-------------------------------------------------
+[FP581.install]
+DelReg=DEL_CURRENT_REG
+AddReg=FP581.AddReg, 1024, DPMS
+CopyFiles=FP581.CopyFiles
+
+;-------------------------------------------------
+; AddReg & DelReg sections
+;-------------------------------------------------
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+
+[1024]
+HKR,,MaxResolution,,"1024,768"
+
+
+[DPMS]
+HKR,,DPMS,,1
+
+;-------------------------------------------
+
+[FP581.AddReg]
+HKR,"MODES\640,480",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\800,600",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\832,624",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,"MODES\1024,768",Mode1,,"31.5-60.0,56.0-75.0,+,+"
+HKR,,DPMS,,1
+HKR,,ICMprofile,0,"FP581.ICM"
+
+[FP581.CopyFiles]
+FP581.ICM
+
+;-------------------------------------------------
+; User visible strings
+;-------------------------------------------------
+
+[Strings]
+MonitorClassName="Monitor"
+Acer="Acer"
+FP581= "Acer FP581"

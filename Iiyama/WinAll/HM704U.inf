@@ -1,0 +1,69 @@
+;HM704UCA/UTCA/UCD.INF Ver. 1.00
+;Monitor INF file for IIYAMA VM Dept. Monitor HM704UCA/UTCA/UCD 
+;Copyright 2001 IIYAMA CORPORATION
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%IIYAMA%
+;CatalogFile=HM704U.cat      
+DriverVer=12/01/2002,1.00
+
+;[ControlFlags]
+;ExcludeFromSelect.nt=Monitor\IVM175C
+
+[ClassInstall32]
+AddReg=ClassAddReg32
+
+[ClassAddReg32]
+HKR,,,,%MonitorClassName%
+HKR,,Icon,,"-1"
+HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+DefaultDestDir=11
+HM704U.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK1%,,,
+
+[SourceDisksFiles]
+HM704U.ICM=1
+
+[Manufacturer]
+%IIYAMA%=IIYAMA
+
+[IIYAMA]
+%HM704U%=HM704U.Install, Monitor\IVM175C
+
+[HM704U.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=HM704U.AddReg, 1600, DPMS
+CopyFiles=HM704U.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1600]
+HKR,,MaxResolution,,"1600,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[HM704U.AddReg]
+HKR,"MODES\1600,1200",Mode1,,"30-96,50-160,+,+"
+HKR,,ICMProfile,0,"HM704U.ICM"
+
+[HM704U.CopyFiles]
+HM704U.ICM
+
+[Strings]
+MonitorClassName="Monitor"
+IIYAMA="IIYAMA CORPORATION"
+DISK1="IIYAMA CRT Monitor Installation Disk"
+
+HM704U="IIYAMA HM704UTCA_UCA_UCD"

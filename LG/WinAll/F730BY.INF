@@ -1,0 +1,61 @@
+;=============================================================== 
+; [F730BY.INF] 
+; Revision 1.4   November-08-2004
+; Copyright(c)1998~2004 LG Electronics Inc.,All Rights Reserved.
+;===============================================================
+;
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%LG%
+CatalogFile=F730BY.cat
+DriverVer=11/08/2004,1.0
+
+[ControlFlags]
+ExcludeFromSelect.NT=Monitor\GSM43D7
+
+[DestinationDirs]
+DefaultDestDir=11
+F730BY.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskName%,,,
+
+[SourceDisksFiles]
+LGF730BY.ICM=1
+
+[Manufacturer]
+%LG%=LG
+
+[LG]
+%F730BY%=F730BY.Install,Monitor\GSM43D7
+
+[F730BY.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=F730BY.AddReg,1280,DPMS
+CopyFiles=F730BY.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1280]
+HKR,,MaxResolution,,"1280,1024"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[F730BY.AddReg]
+HKR,"MODES\1280,1024",Mode1,,"30.0-71.0,50.0-160.0,+,+"
+HKR,,ICMprofile,0,"LGF730BY.ICM"
+
+[F730BY.CopyFiles]
+LGF730BY.ICM
+
+[Strings]
+DiskName="LG Monitor Profiles Installation Disk"
+LG="LG"
+F730BY="LG FLATRON F730BY"

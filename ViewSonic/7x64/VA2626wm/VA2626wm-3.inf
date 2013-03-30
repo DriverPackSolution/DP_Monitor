@@ -1,0 +1,65 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/ Win7
+
+;Copyright 2009, ViewSonic Corporation
+
+[Version]
+CatalogFile=VA2626wm-3.cat   
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=07/02/2009, 1.5.1.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VA2626wm-3.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VA2626wm-3.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSC3321
+
+[ViewSonic]   
+%VA2626wm-3%=VA2626wm-3.Install,Monitor\VSC3321  
+
+[ViewSonic.NTia64]   
+%VA2626wm-3%=VA2626wm-3.Install,Monitor\VSC3321 
+
+[ViewSonic.NTamd64]   
+%VA2626wm-3%=VA2626wm-3.Install,Monitor\VSC3321  
+
+[VA2626wm-3.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VA2626wm-3.AddReg,1920,DPMS
+Copyfiles=VA2626wm-3.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VA2626wm-3.AddReg]  
+HKR,"MODES\1920,1200",Mode1,,"24-82,50-75,+,-" 
+HKR,,ICMProfile,0,"VA2626wm-3.ICM"
+
+[VA2626wm-3.CopyFiles]                                       
+VA2626wm-3.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="VA2626wm-3 ViewSonic Wizard"
+VA2626wm-3="ViewSonic VA2626wm-3"

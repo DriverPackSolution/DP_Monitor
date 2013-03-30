@@ -1,0 +1,86 @@
+﻿;Monitor.Inf for Windows(R) 95/98/Me/2000/XP/Server 2003/XP x64/Vista/Vista x64/Windows 7/Windows 7 x64/Windows 8/Windows 8 x64
+
+;Copyright 2012, ViewSonic Corporation
+
+[Version]   
+CatalogFile=VG2437.cat
+signature="$Windows NT$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=06/26/2012, 1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 12
+VG2437.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+VG2437_SERIES.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic,NTia64,NTamd64
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\VSCA72C
+
+[ViewSonic]   
+%VG2437%=VG2437.Install,Monitor\VSCA72C  
+
+[ViewSonic.NTia64]   
+%VG2437%=VG2437.Install,Monitor\VSCA72C
+
+[ViewSonic.NTamd64]   
+%VG2437%=VG2437.Install,Monitor\VSCA72C 
+
+[VG2437.Install]   
+DelReg=DEL_CURRENT_REG 
+AddReg=VG2437.AddReg,1920,DPMS
+Copyfiles=VG2437.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1080"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VG2437.AddReg]  
+HKR,"MODES\1920,1080",Mode1,,"15-82,50-75,+,+" 
+HKR,,ICMProfile,0,"VG2437_SERIES.ICM"
+
+[VG2437.CopyFiles]                                       
+VG2437_SERIES.ICM
+
+[ModelName.D-Sub.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%, Monitor_Service.Install
+
+[ModelName.DVI.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%, Monitor_Service.Install
+
+[ModelName.HDMI.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%, Monitor_Service.Install
+
+[ModelName.DP.Install.Services]
+AddService = monitor, %SPSVCINST_ASSOCSERVICE%, Monitor_Service.Install
+
+[Monitor_Service.Install]
+DisplayName    = %Monitor.SVCDESC%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\monitor.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+Monitor.SVCDESC        = "Monitor Class Function Driver Service"
+ViewSonic="ViewSonic"
+DiskLabel="VG2437 SERIES ViewSonic Wizard"
+VG2437="ViewSonic VG2437 SERIES"

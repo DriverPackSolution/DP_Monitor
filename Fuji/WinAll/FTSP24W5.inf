@@ -1,0 +1,110 @@
+;FTSP24W5.INF Ver. 2.0
+;Monitor INF file for Fujitsu Display P24W-5 ECO
+;Copyright 2009 Fujitsu Technology Solutions
+
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%FTS.Mfg%
+CatalogFile=FTSP24W5.cat
+DriverVer=09/18/2009,2.0.0.0
+
+;-------------------------------------------------
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\FUS06A7
+ExcludeFromSelect.nt=Monitor\FUS06A8
+ExcludeFromSelect.nt=Monitor\FUS06A9
+
+[DestinationDirs]
+DefaultDestDir=11
+FTSP24W5.CopyFiles=23
+
+[SourceDisksNames]
+1=%DISK%,,,
+
+[SourceDisksFiles]
+FTSP24W5.icm=1
+
+
+; Manufacturers
+;-------------------------------------------------
+[Manufacturer]
+%FTS.Mfg%=FTS.Mfg,NTAMD64
+
+; Manufacturer sections
+;-------------------------------------------------
+ [FTS.Mfg] 
+%P24W-5a%=FTSP24W5a.Install, Monitor\FUS06A7
+%P24W-5d%=FTSP24W5d.Install, Monitor\FUS06A8
+%P24W-5h%=FTSP24W5h.Install, Monitor\FUS06A9
+
+;-------------------------------------------------
+ [FTS.Mfg.NTAMD64] 
+%P24W-5a%=FTSP24W5a.Install, Monitor\FUS06A7
+%P24W-5d%=FTSP24W5d.Install, Monitor\FUS06A8
+%P24W-5h%=FTSP24W5h.Install, Monitor\FUS06A9
+
+
+; Install Sections
+;-------------------------------------------------
+
+[FTSP24W5a.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=FTSP24W5a.AddReg, 1920, DPMS
+CopyFiles=FTSP24W5.CopyFiles
+
+[FTSP24W5d.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=FTSP24W5d.AddReg, 1920, DPMS
+CopyFiles=FTSP24W5.CopyFiles
+
+[FTSP24W5h.Install]
+DELReg=FTS_CURRENT_REG    
+AddReg=FTSP24W5h.AddReg, 1920, DPMS
+CopyFiles=FTSP24W5.CopyFiles
+
+					     
+; AddReg & DELReg sections
+;-------------------------------------------------
+
+[FTS_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1920]
+HKR,,MaxResolution,,"1920,1200"
+
+[DPMS]
+HKR,,DPMS,,1
+
+; AddReg sections
+;---------------------------------------------------------- 
+
+[FTSP24W5a.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"31.0-94.0,55.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP24W5.icm"
+
+[FTSP24W5d.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP24W5.icm"
+
+[FTSP24W5h.AddReg]
+HKR,"MODES\1920,1200",Mode1,,"28.0-94.0,49.0-76.0,-,+"
+HKR,,ICMProfile,0,"FTSP24W5.icm"
+
+;---------------------------------------------------------- 
+
+[FTSP24W5.CopyFiles]
+FTSP24W5.icm
+
+;---------------------------------------------------------- 
+
+[Strings]
+DISK="Fujitsu Driver & Utilities CD P24W-5 ECO"
+FTS.Mfg="Fujitsu Technology Solutions"	
+P24W-5a="FUJITSU P24W-5 ECO"
+P24W-5d="FUJITSU P24W-5 ECO"
+P24W-5h="FUJITSU P24W-5 ECO"

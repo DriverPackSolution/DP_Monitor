@@ -1,0 +1,60 @@
+;Monitor.Inf for Windows(R) 95/98/Me/2000/XP
+
+;Copyright 2003, ViewSonic Corporation
+
+[Version]   
+CatalogFile=E90-4.cat 
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%ViewSonic%
+DriverVer=10/08/2003,1.5.0.0
+
+[DestinationDirs]
+DefaultDestDir= 11
+VCDTS22337-5.CopyFiles=23
+
+[SourceDisksNames]
+1=%DiskLabel%,,
+
+[SourceDisksFiles]
+E90-4.ICM=1
+
+[Manufacturer]
+%ViewSonic%=ViewSonic
+
+[ControlFlags]
+ExcludeFromSelect.nt=*
+
+[ViewSonic]   
+%VCDTS22337-5%=VCDTS22337-5.Install,Monitor\VSCA418           ;E90-4
+
+[VCDTS22337-5.Install]                                        ;E90-4
+DelReg=DEL_CURRENT_REG 
+AddReg=VCDTS22337-5.AddReg,1792,DPMS
+Copyfiles=VCDTS22337-5.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS 
+HKR,,ICMProfile
+
+[1792]
+HKR,,MaxResolution,,"1792,1344"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[VCDTS22337-5.AddReg]                                         ;E90-4
+HKR,"MODES\1792,1344",Mode1,,"30-86,50-180,+,+"
+HKR,,ICMProfile,0,"E90-4.ICM"
+
+[VCDTS22337-5.CopyFiles]                                       
+E90-4.ICM
+
+[Strings]
+ViewSonic="ViewSonic"
+DiskLabel="ViewSonic Monitor Installation Disk"
+
+VCDTS22337-5="ViewSonic E90-4"

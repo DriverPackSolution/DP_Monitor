@@ -1,0 +1,108 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;   Monitor INF file for Fujitsu                           
+;   Copyright, Fujitsu Co., Ltd.                      
+;   This is a Microsoft Windows setup information 
+;   file for the Fujitsu Color Monitor.               
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Version]
+	ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+	signature="$CHICAGO$"
+	Class=Monitor
+	Provider=%Fujitsu%			     
+	CatalogFile=L20T-4 LED.cat		      
+	DriverVer=11/11/2011,1.0                     
+[ClassInstall32]
+	AddReg=ClassAddReg32
+
+[ClassAddReg32]
+	HKR,,,,%MonitorClassName%
+	HKR,,Icon,,"-1"
+	HKR,,NoInstallClass,,1
+
+[DestinationDirs]
+	DefaultDestDir=11
+	L20T-4 LED.CopyFiles=23                   
+
+[SourceDisksNames]
+	1=%DiskLabel%,,
+
+[SourceDisksFiles]
+	L20T-4 LED.icm=1                          
+
+[Manufacturer]
+	%Fujitsu%=Fujitsu,NTx86,NTAMD64              
+
+[ControlFlags]
+	ExcludeFromSelect.NT=Monitor\FUS0814       
+	ExcludeFromSelect.NT=Monitor\FUS0815
+        
+
+[Fujitsu]                                                       
+	%L20T-4 LED_A%=L20T-4 LED_A.Install, Monitor\FUS0814
+	%L20T-4 LED_D%=L20T-4 LED_D.Install, Monitor\FUS0815
+       	
+ 
+[Fujitsu.NTx86]                                                  
+	%L20T-4 LED_A%=L20T-4 LED_A.Install, Monitor\FUS0814
+	%L20T-4 LED_D%=L20T-4 LED_D.Install, Monitor\FUS0815
+        
+       
+[Fujitsu.NTAMD64]
+	%L20T-4 LED_A%=L20T-4 LED_A.Install, Monitor\FUS0814
+	%L20T-4 LED_D%=L20T-4 LED_D.Install, Monitor\FUS0815
+       
+       	
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[L20T-4 LED_A.Install]                                         
+	DelReg=DEL_CURRENT_REG
+	AddReg=L20T-4 LED_A.AddReg, 1600, DPMS                  
+	CopyFiles=L20T-4 LED.CopyFiles                        
+
+[L20T-4 LED_D.Install]                                         
+	DelReg=DEL_CURRENT_REG
+	AddReg=L20T-4 LED_D.AddReg, 1600, DPMS                  
+	CopyFiles=L20T-4 LED.CopyFiles                        
+                 
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[DEL_CURRENT_REG] 
+	HKR,MODES
+	HKR,,MaxResolution
+	HKR,,DPMS
+	HKR,,ICMProfile
+
+[1600]                                                 
+	HKR,,MaxResolution,,"1600,900"			
+[DPMS]
+	HKR,,DPMS,,1
+
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[L20T-4 LED_A.AddReg]                                             
+	HKR,"MODES\1600,900",Mode1,,"30.0-83.0,506.0-76.0,+,+"	
+	HKR,,ICMProfile,0,"L20T-4 LED.icm" 
+  
+
+[L20T-4 LED_D.AddReg]                                             
+	HKR,"MODES\1600,900",Mode1,,"30.0-83.0,56.0-76.0,+,+"	
+	HKR,,ICMProfile,0,"L20T-4 LED.icm"  
+
+
+[L20T-4 LED.CopyFiles]	                                
+	L20T-4 LED.icm                                       
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+[Strings]
+	MonitorClassName="Monitor"
+	InsDisk="Fujitsu Monitor Installation Disk"            
+	DiskLabel="Fujitsu Driver & Utilities CD L20T-4 LED"                
+	Fujitsu="Fujitsu Technology Solutions"                           
+ 
+	L20T-4 LED_A="Fujitsu L20T-4 LED " 
+	L20T-4 LED_D="Fujitsu L20T-4 LED " 
+       
+	              
+

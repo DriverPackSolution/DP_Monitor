@@ -1,0 +1,68 @@
+; n205wnxm.inf
+; Setup information file for NEC MultiSync LCD205WNXM Monitor
+;
+; Copyright 2007, NEC Display Solutions, Ltd.
+;-------------------------------------------------
+[Version]
+signature="$CHICAGO$"
+Class=Monitor
+ClassGuid={4D36E96E-E325-11CE-BFC1-08002BE10318}
+Provider=%NECDS%
+CatalogFile=n205wnxm.cat
+DriverVer=09/14/2007,1.07.0914.2126
+
+[ControlFlags]
+ExcludeFromSelect.nt=Monitor\NEC672D
+
+[DestinationDirs]
+LCD205WNXM.CopyFiles=23
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%Disk1%,,,
+
+[SourceDisksFiles]
+n205wnxm.icm=1
+
+[Manufacturer]
+%NECDS%=NECDS,ntamd64
+
+[NECDS]
+%LCD205WNXM%=LCD205WNXM.Install, Monitor\NEC672D
+
+[NECDS.ntamd64]
+%LCD205WNXM%=LCD205WNXM.Install.ntamd64, Monitor\NEC672D
+
+[LCD205WNXM.Install]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD205WNXM.AddReg, 1680, DPMS
+CopyFiles=LCD205WNXM.CopyFiles
+
+[LCD205WNXM.Install.ntamd64]
+DelReg=DEL_CURRENT_REG
+AddReg=LCD205WNXM.AddReg, 1680, DPMS
+CopyFiles=LCD205WNXM.CopyFiles
+
+[DEL_CURRENT_REG]
+HKR,MODES
+HKR,,MaxResolution
+HKR,,DPMS
+HKR,,ICMProfile
+
+[1680]
+HKR,,MaxResolution,,"1680,1050"
+
+[DPMS]
+HKR,,DPMS,,1
+
+[LCD205WNXM.AddReg]
+HKR,"MODES\1680,1050",Mode1,,"31.0-84.0,56.0-75.0,+,+"
+HKR,,ICMProfile,0,"n205wnxm.icm"
+
+[LCD205WNXM.CopyFiles]
+n205wnxm.icm
+
+[Strings]
+NECDS="NEC"
+LCD205WNXM="NEC MultiSync LCD205WNXM"
+Disk1="NEC Display Solutions Installation Disk"
